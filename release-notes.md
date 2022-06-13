@@ -4,9 +4,9 @@
 ### NEW ✨
 - Connecting any variable to string.
 - Passing data between screens.
-- Ability to get variables in visual programming.
+- Ability to use variables in visual programming.
 - First screen is now automatically set as home screen.
-- Ability to select and work with multipel nodes
+- Ability to select and work with multiple nodes
 
 ## v0.1.5
 ### NEW ✨

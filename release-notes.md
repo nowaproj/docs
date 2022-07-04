@@ -8,6 +8,9 @@
 - Fixed Arabic text formatting
 - Fixed endless loading when opening a project
 
+### BREAKING CHANGES
+- Changed image encoding (images that were uploaded in the previous version might not load on the new one)
+
 ## v0.1.6
 ### NEW ✨
 - Connecting any variable to string.

@@ -1,5 +1,13 @@
 # Release Notes 🚀
 
+## v0.1.7
+### NEW ✨
+- Added a note when closing with unsaved changes
+
+### FIXES 🩹 
+- Fixed Arabic text formatting
+- Fixed endless loading when opening a project
+
 ## v0.1.6
 ### NEW ✨
 - Connecting any variable to string.

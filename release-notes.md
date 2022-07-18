@@ -7,7 +7,7 @@
 - Renaming variables
 
 ### FIXES 🩹 
-- minor bug fixes
+- Minor bug fixes
 
 ### BREAKING CHANGES
 - Changed image encoding (images that were uploaded in the previous version might not load on the new one)

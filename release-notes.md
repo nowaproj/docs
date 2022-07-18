@@ -1,5 +1,17 @@
 # Release Notes 🚀
 
+## v0.1.8
+### NEW ✨
+- Ability to rename screens and components
+- Renaming and moving files
+- Renaming variables
+
+### FIXES 🩹 
+- minor bug fixes
+
+### BREAKING CHANGES
+- Changed image encoding (images that were uploaded in the previous version might not load on the new one)
+
 ## v0.1.7
 ### NEW ✨
 - Added a note when closing with unsaved changes

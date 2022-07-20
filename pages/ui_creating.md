@@ -18,7 +18,7 @@ We aim to make creating UI with Nowa feels like freehand drawing!
 --- 
 When creating a new project or opening an exisiting one, the UI design window will be opened by default. 
 
-You got some overview about the tools from the [getting started](getting_started.md) page, in this one we will dive together into little more details.
+You got some overview about the tools from the [getting started](../getting_started.md) page, in this one we will dive together into little more details.
 
 
 ## Creating a screen

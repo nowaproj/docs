@@ -36,9 +36,13 @@ What if you feel creative and you want a custom size? Of course you can do it! A
 ## Boards 
 You can create all your app screens in the same default baord, which will make you able to move fast between them. But it can get messty when you have an app with alot of screens. In this case organising your designs a little bit will be a nice option! with Nowa, you can create new boards where each one hold some of your screens.
 
-To do so, click on `Assets` Panel, then 
+To see the boards you already have, click on `Assets` Panel, then open `lib` folder. There you will find all your boards. Click on any board to open it.
+
+To create a new one, click on `Add`, then on `New board`, write down the new name then cick on `Create`
 
 ## Widgets and shapes
+
+
 
 ## Using the `Outline` Panel 
 

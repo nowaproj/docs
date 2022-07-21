@@ -47,12 +47,11 @@ To create a new one, click on `Add`, then on `New board`, write down the new nam
 ## Widgets and shapes
 Widgets and shapes are your magical building boxes to create your nice UI. By drag-and-drop, you can build the UI you want. After dropping the widget or drawing the shape, use the details panel on the right to customise its parameters.  
 
-<img src="../media/gifs/appbar_widget.gif"  width="80%" > 
+<img src="../media/images/widgetvsdrawing.png" width="20%">
 
 Nowa gives you a flexible ways to build your UI. For exmaple, to build an `AppBar`, you can drag and drop the `AppBar` widget directly and customize it using the `details panel`. See the following image: 
 
-<img src="../media/images/widgetvsdrawing.png" width="20%">
-
+<img src="../media/gifs/appbar_widget.gif"  width="80%" > 
 
 But if you want to have more control of the appearance of the `AppBar`, you can build one from scratch using the drawing tools. For example, use the shape tool to draw a shape that look like an AppBar, customize its boarders, colors and other properties, and drop a text inside or a button, exactly like you are sketching the UI using a mockup tool.
 

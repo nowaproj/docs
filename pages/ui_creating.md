@@ -24,11 +24,13 @@ You already got some overview about the tools from the [Getting Started](../gett
 ## Creating a screen
 To create a new screen, click on the `Screen` tool from the drawing panel on the left side, then click on an an empty place on the baord to create a screen. The size of the created screen will be by default the size of `Pixel 3a`.
 
-What if you want another screen size? it's simple. When selecting the screen tool and before you clicking on an empty place on the board, you will see multiple screen size options inside the `details panel` on the right size. Select the size you want, then click on an empty place to create the screen.
+What if you want another screen size? it's simple. When selecting the screen tool and before you clicking on an empty place on the board, you will see multiple screen size options inside the `details panel` on the right size. Select the size you want, then click on an empty place to create the screen. See the image below:
 
-What if you feel creative and you want a custom size? Of course you can do it! After selecting the `Screen` tool, click on an empty place on tha board, then keep holding and drag to create a screen in the size you want.   
+<img src="../media/gifs/create_screen.gif"  width="80%" > 
 
+What if you feel creative and you want a custom size? Of course you can do it! After selecting the `Screen` tool, click on an empty place on tha board, then keep holding and drag to create a screen in the size you want. See the image below:
 
+<img src="../media/gifs/create_custom_size.gif" width="80%">
 
 
 
@@ -38,9 +40,14 @@ You can create all your app screens in the same default baord, which will make y
 
 To see the boards you already have, click on `Assets` Panel, then open `lib` folder. There you will find all your boards. Click on any board to open it.
 
-To create a new one, click on `Add`, then on `New board`, write down the new name then cick on `Create`
+To create a new one, click on `Add`, then on `New board`, write down the new name then cick on `Create`. See the image below:
+
+<img src="../media/gifs/create_board.gif" width="80%">
 
 ## Widgets and shapes
+Widgets and shapes are your magical building boxes to create your nice UI. 
+
+<img src="../media/images/widgetvsdrawing.png" width="80%">
 
 
 

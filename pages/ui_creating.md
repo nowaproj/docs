@@ -96,5 +96,3 @@ By clicking on `Add` you can create a new item (`Board`, `Folder`, `Component` o
 
 
 
-
-

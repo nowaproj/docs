@@ -4,8 +4,8 @@
 * [Release Notes](release-notes.md)
 * [Getting started](getting_started.md)
 * Tutorials
-  * Creating UI
+  * [Creating UI]()
     * [intro](pages/ui_creating.md) 
-   * Implementing functionality 
-   * Dealing with Data source
+   * [Implementing functionality]() 
+   * [Dealing with Data source]()
     

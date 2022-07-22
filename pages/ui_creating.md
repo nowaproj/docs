@@ -60,6 +60,21 @@ But if you want to have more control of the appearance of the `AppBar`, you can 
 
 ## Using the `Outline` Panel 
 
+The `outline panel` gives you a full overview about the screens avalible on the board with their widget tree. Not only that, you can also do the following: 
+
+1. Select a widget from the outline to change it’s parameters from the `Details panel` (which is on the right side).
+2. Change a widget location in the tree within the same screen or move it to another screen by drag and drop. For example, by dropping a `Text` widget over a `Container` widget in the outline, the `Text` widget will become a child for `Container` widget, but if the drop happens in the thin line above or below the `Container` widget, then the `Text` widget will be on the same level as the `Container` (if the parent of the `Container` widget is a widget that allows multiple childrens, like a `Stack` or a `Column` widget). See the following image:
+
+<img src="../media/gifs/dragging_outline.gif"  width="80%" > 
+
+3. By right clicking on a widget, you can 
+   * Remove it from the tree (or using the shortcut: `Delete` on the keyboard)
+   * Replace it with another widget
+   * Create a component from the widget 
+   * Create a group (`Stack` / `Column` / `Raw` ) after selecting a group of widgets
+   * Copy the widget
+
+<img src="../media/images/rc_outline.png" width="40%">
 
 
 ## Using the `Assets` Panel 

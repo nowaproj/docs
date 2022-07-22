@@ -6,4 +6,6 @@
 * Tutorials
   * Creating UI
     * [intro](pages/ui_creating.md) 
+   * Implementing functionality 
+   * Dealing with Data source
     

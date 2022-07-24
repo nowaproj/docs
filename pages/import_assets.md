@@ -1,4 +1,4 @@
-# Import Assets
+# Import Assets (Images, Fonts, etc)
 
 *In this section, you will learn*:
 ```

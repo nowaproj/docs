@@ -6,6 +6,7 @@
 * Tutorials
   * [Creating UI]()
     * [intro](pages/ui_creating.md) 
+    * [Import Assets (images, fonts, etc)](pages/import_assets.md) 
    * [Implementing functionality]() 
    * [Dealing with Data source]()
     

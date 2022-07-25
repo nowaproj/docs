@@ -40,7 +40,7 @@ You can create all your app screens in the same default baord, which will make y
 
 To see the boards you already have, click on `Assets` Panel, then open `lib` folder. There you will find all your boards. Click on any board to open it.
 
-To create a new one, click on `Add`, then on `New board`, write down the new name then click on `Create`. See the image below: .
+To create a new one, click on `Add`, then on `New board`, write down the new name then click on `Create`. See the image below:
 
 <img src="../media/gifs/create_board.gif" width="80%">
 

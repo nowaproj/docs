@@ -42,7 +42,7 @@ To see the boards you already have, click on `Assets` Panel, then open `lib` fol
 
 To create a new one, click on `Add`, then on `New board`, write down the new name then click on `Create`. See the image below:
 
-<img src="../media/gifs/create_board.gif" height="80%">
+<img src="../media/gifs/create_board.gif" width="80%">
 
 ## Widgets and shapes
 Widgets and shapes are your magical building boxes to create your nice UI. By drag-and-drop, you can build the UI you want. After dropping the widget or drawing the shape, use the `Details panel` on the right to customise its parameters.  

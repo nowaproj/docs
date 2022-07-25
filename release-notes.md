@@ -1,5 +1,15 @@
 # Release Notes 🚀
 
+## v0.1.9
+### NEW ✨
+- Added autosave
+- Changed Assets Panel to Files Panel
+- Added fullscreen mode, right click on an empty place and select full screen or use Ctrl+\
+- Ability resize panels until collapsing them
+
+### FIXES 🩹 
+- Fixed: Code generation produces invalid code
+
 ## v0.1.8
 ### NEW ✨
 - Ability to rename screens and components

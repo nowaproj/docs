@@ -7,6 +7,7 @@
 ```
 You can also watch the following tutorial on youtube: [Discover GROUPS in NOWA](https://www.youtube.com/watch?v=g9JobVIPRlM).
 
+---
 
 ### What are groups? 
 

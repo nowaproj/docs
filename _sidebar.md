@@ -9,6 +9,7 @@
     * [Import Assets (images, fonts, etc)](pages/import_assets.md) 
     * [Layout](pages/layout.md) 
     * [Groups](pages/groups.md) 
+    * [Wrappers](pages/wrappers.md) 
    * [Implementing functionality]() 
    * [Dealing with Data source]()
     

@@ -37,8 +37,7 @@ After clicking on the icon, four options will appear. Let's see what each option
 
 ### Snapping
 
-You can easily align widgets corresponding to each other with Nowa. By simply drag the widget and move it slowly, the snapping feature will help you position the widget corresponding to other widgets in the screen by showing you green lines to align widgets together. When you see an alignment line you want to use, just drop the widget there and they will be aligned. See the following example:
-
+You can easily align widgets corresponding to each other with Nowa. By simply dragging the widget and moving it slowly, the snapping feature will help you position the widget corresponding to other widgets on the screen by showing you green lines to align widgets together. When you see an alignment line you want to use, just drop the widget there and they will be aligned. See the following example:
 
 <img src="../media/gifs/snapping.gif"  width="80%" > 
 

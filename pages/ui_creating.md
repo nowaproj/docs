@@ -1,7 +1,7 @@
 # Intro to UI design 
 
 
->Nicer for the eye, closer to the heart! 
+>Nicer for the eye👁️‍🗨️, closer to the heart💓! 
 
 *Creating an app with a nice design holds a alot of value for your app! therfore You creating an awsome designs easily is our top prioirty!*
 

@@ -6,6 +6,7 @@
 3. How to determine the distance between the widget and each side of the screen
 4. How to make the distance between the widget and the screen fixed 
 5. How to center a widget or stretch it regardless of the screen size 
+6. How to use Nowa snapping feature
 
 ```
 Placing  widgets randomly on the screen without a structure isn’t a good idea, especially when the app is supposed to run on different devices with different screen sizes, therefore it is always recommended to create some layouts rules so your app will look as you expect regardless of the screen size. 
@@ -33,6 +34,14 @@ After clicking on the icon, four options will appear. Let's see what each option
 2. Fix the distance between the widget and the bottom of the screen.
 3. Stretch: *will make the widget stretch in the vertical axis by making height of the widget equal the height of the screen regardless of the screen size.*
 4. Center: *will place the widget exactly in the center vertically so the distance between the widget and the top of the screen will be equal to the distance with the bottom of the screen regardless of the screen size.*
+
+### Snapping
+
+You can easily align widgets corresponding to each other with Nowa. By simply drag the widget and move it slowly, the snapping feature will help you position the widget corresponding to other widgets in the screen by showing you green lines to align widgets together. When you see an alignment line you want to use, just drop the widget there and they will be aligned. See the following example:
+
+
+<img src="../media/gifs/snapping.gif"  width="80%" > 
+
 
 
 

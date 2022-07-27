@@ -10,6 +10,7 @@
     * [Layout](pages/layout.md) 
     * [Groups](pages/groups.md) 
     * [Wrappers](pages/wrappers.md) 
+    * [Components](pages/components.md) 
    * [Implementing functionality]() 
    * [Dealing with Data source]()
     

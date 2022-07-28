@@ -7,3 +7,8 @@ In this section we will walk you through some tutorials on building a **full rea
 *I promise you it will be much fun!*
 
 ### Enjoy seeing your creativity with Nowa!
+
+
+> If you built a real use-case with Nowa and want to publish it under your name, feel free to contact us on `info@nowa.dev` or use our [discord server](https://discord.com/invite/ByKfn3H7gX) or [Instagram page](https://instagram.com/nowa.dev).
+
+

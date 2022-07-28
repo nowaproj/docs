@@ -13,6 +13,6 @@
     * [Components](pages/components.md) 
    * [Implementing functionality]() 
    * [Dealing with Data source]()
-   * [use cases](pages/use_cases.md)
+   * [Real Use Cases](pages/use_cases.md)
      * [News app](pages/news_app.md) 
     

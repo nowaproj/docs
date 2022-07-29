@@ -6,7 +6,9 @@
 3. How to determine the distance between the widget and each side of the screen
 4. How to make the distance between the widget and the screen fixed 
 5. How to center a widget or stretch it regardless of the screen size 
-6. How to use Nowa snapping feature
+6. How to control the alignment of a widget corresponding to its parent widget
+7. How to use Nowa snapping feature
+
 
 ```
 Placing  widgets randomly on the screen without a structure isn’t a good idea, especially when the app is supposed to run on different devices with different screen sizes, therefore it is always recommended to create some layouts rules so your app will look as you expect regardless of the screen size. 
@@ -34,6 +36,12 @@ After clicking on the icon, four options will appear. Let's see what each option
 2. Fix the distance between the widget and the bottom of the screen.
 3. Stretch: *will make the widget stretch in the vertical axis by making height of the widget equal the height of the screen regardless of the screen size.*
 4. Center: *will place the widget exactly in the center vertically so the distance between the widget and the top of the screen will be equal to the distance with the bottom of the screen regardless of the screen size.*
+
+### Aligning a widget corresponding to another widget 
+
+Using an alignment wrapper is useful for cases when placing a widget inside another widget that takes one child only because it gives that child a default alignment that you may not want. for example, when placing a `Text` inside a `Container`, the `Text` widget will get a default alignment corresponding to the `Container`. This can be solved by wrapping the `Text` widget with `Align`. *See the following example:*
+
+<img src="../media/gifs/using_align_wrapper.gif"  width="80%" > 
 
 ### Snapping
 

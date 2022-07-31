@@ -1,4 +1,10 @@
 # HTTP GET requests with Nowa
+*In this section, you will learn:*
+```
+1. How to create HTTP GET requests with Nowa
+2. How to display the data loaded in the app
+3. How to add a loading indicator while the data is being loaded
+```
 
 Most of apps use HTTP get requests to fetch data online. In Nowa, Implementing a HTTP GET requests is super simple and easy! Just couple of clicks and you will have your app showing data using an API request with a loading indicator, so lets see how to do that
 
@@ -25,18 +31,41 @@ In this example, the respond for the request is as follows: (3 items {news}) wit
 
 ```
 
-Nowa will generate new objects to organise your Schema. In the following example, an object called `getNewsObj` ( which is <Your request name>Obj) is created to hold the entire data for the request. Another object is created to hold each news item inside the list `records` with the name `getNewsObj_records' (<Your top level object name>_<your list name>). You will need to know the structure for the next step when connecting the data with the UI. *See the following image that shows how Nowa generated the Schema for this example:*
+Nowa will generate new objects to organise your Schema. In the following example, an object called `getNewsObj` ( which is <Your request name>Obj) is created to hold the entire data for the request. Another object is created to hold each news item inside the list `records` with the name `getNewsObj_records' (<Your top level object name>_<your list name>). You will need to know the structure for the next step when connecting the data with the UI. *See the following image to see how Nowa generated the Schema for this example:*
   
 <img src="../media/images/object_generated.png" width="80%">
 
 ### Connecting the UI with the data:
   
+After adding the request to your project, go back to the UI designer panel. 
+ 
+Before you continue with the steps, let me introduce you to a new widget called `Data builder`. This widget is the hero of the this step, it will be responsible for handling the data received from the HTTP request. Using this widget, you will be able to connect the UI with the request created and pass the data received for all the widgets that comes under the `Data builder` in the widget tree. It is also used to connect a loading indicator to be shown while loading the data. Enough with the introduction, let’s keep going with the steps. (*The following animated photo shows all the steps:*)
+ 
+ <img src="../media/gifs/connecting_data_with_UI.gif"  width="80%" > 
+ 
+1. To make this example as simple as possible, lets say you want to show the `title` only for the news as a list of text in the main screen. So start by dropping a `Data builder` widget, then from the `Details panel`, connect the `Data builder` with the request by choosing the request name (`getNews` in this example) using the `Source` filed. The `Data builder` widget now will trigger the API reques everytime it gets loaded. 
+2. Afterwards we need to choose a placeholder, which is the widget tha will hold and display our data. Since we want to show a list of text (each text is the news title), the main placeholder for the `Data builder` will be a `Column`, so choose `Group` in the field `child` for the `Data builder` to make it the main placeholder for the data recieved, then select the group (`Stack` by default) from the outline and change it to `Column`. *(If you don't know what `Group` is, check [this page](groups.md))*
+3. Its time to pass the data down from the `Data builder` to the `Column` using the `children` parameter of the `Column`. In Nowa, the `children` parameter can be used in two different ways, the first way is by connecting the children to a list of widgets that will be rendered directly inside the `Column`. The second way is by connecting the `children` filed to a list of object that holds the data you want to display, and then choosing a placeholder widget that will be generated for each object in the list to display and hold that object data. The second scenario is the one needed here becase we want to show the list of news that will come from a list of objects (`List<getNewsObj_records>`), so to connect the `children` field with a variable (which should be a list variable) click on the circle dot beside the `children` field in the `details panel` for the `Column`, and choose the list of data to display (`List<getNewsObj_records>` which is the news list). Afterwards choose the `placeholder` widget that will present each news item inside the list, which in our cause will be `Text` widget that displays the title of the news.
+> Be careful that the `List<getNewsObj_records>` won’t appear except if the `Column` comes under `Data builder` widget that is connected to the `getNews` API request using the `Source` field. 
+4. After choosing the placeholder as a `Text` widget, a `Text` widget will be created for each item (three items in the current HTTP GET request example, so three `Text` widgets will be generated), but the text displayed inside the `Text` widgets is the default text (*which is ‘write something’ in this case’*). So to connect this text to the `title` field of the news, select the `Text` widget (the placeholder for the `Column`) then in the `text` field, click on the circle on the left to connect it to a variable. Notice that a popup menu will appear with all the variables that this widget can access. Since you connected the `Column` with `List<getNewsObj_records>`, then the `Column` will pass each item of the list to the corresponding `Text` widget that will be the item placeholder, therefore each text widget will have access only to its own `getNewsObj_records` object with its parameters. Therfore when you choose `title` from the list, every `Text ` widget that is used as placeholder will show the title parameter of the news object (`getNewsObj_records`) that was recieved from the `Column` widget. That’s it! Now your list shows the news 
+>For HTTP Get requests with more items, wrap the `Column` with `Scroll view` if the number of items inside the `Column` exceed the length of the `Column` to **make it scrollable**.
 
-
-
-
+ 
+### Connecting a loading indicator
+ 
+If you press `Play` now your app will load the data as expected, but you will notice that there might be a blank screen for a very short time before the data appears when the data is being loaded. Is that okay? Of course no! we want our app to be professional, so we need a loading indicator to be shown when the data is being loaded. As you guessed it, this step is also very simple with Nowa, so you are more than welcome!
+ 
+To do so, select the `Data builder` widget from the outline, then click on in the field `loading …` then choose a widget to be a placeholder while the data is being loaded. In this example we want to choose the `CircularProgressIndicator` widget. That’s it, now if you press `Play` a loading indicator will be shown until your data is loaded. To make sure the loading indicator is aligned in the middle of the `Data Builder` widget with a perfect size, wrap the `CircularProgressIndicator` widget with `Align'. All of that is shown in the following image:
+ 
 <img src="../media/gifs/adding_loading_indicator.gif"  width="80%" > 
-<img src="../media/gifs/connecting_data_with_UI.gif"  width="80%" > 
+ 
+>You might not even notice the loading indicator when you press `Play` if your data is loaded very quickly. 
+
+
+
+
+
+
 
 
 

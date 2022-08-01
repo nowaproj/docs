@@ -11,8 +11,10 @@
     * [Groups](pages/groups.md) 
     * [Wrappers](pages/wrappers.md) 
     * [Components](pages/components.md) 
-   * [Implementing functionality]() 
-   * [Dealing with Data source]()
+   * [Implementing functionality](NVP_intro.md) 
+     * [Navigate between screens](navigate_screens.md) 
+   * [Connecting to Data API](data_intro.md)
+     * [Adding HTTP GET request](get_request.md) 
    * [Real Use Cases](pages/use_cases.md)
      * [News app](pages/news_app.md) 
     

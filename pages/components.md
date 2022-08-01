@@ -28,5 +28,5 @@ Changing anything in any copy of the component will change all the copies everyw
 
 >Note: to modify any widget inside the component, **the component should be outside any screen** to be able to access it's widgets. This is done to prevent any modifiation that might happen by mistake for any copy of the component when it is inside a screen
 
->We will be happy to listen to your suggestions for a feature of an improvement. Please contact us at `info@nowa.dev` or use our [discord server](https://discord.com/invite/ByKfn3H7gX) or [Instagram page](https://instagram.com/nowa.dev).
+>We will be happy to listen to your suggestions for a feature or an improvement. Please contact us at `info@nowa.dev` or use our [discord server](https://discord.com/invite/ByKfn3H7gX) or [Instagram page](https://instagram.com/nowa.dev).
 

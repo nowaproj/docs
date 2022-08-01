@@ -8,7 +8,7 @@
 5. How to implement the logic of opening the full details of the news after clicking on one
 ```
 
-### If you are a video type of person, watch the full tutotial on [Youtube](https://www.youtube.com/watch?v=UnnskF9AIi4). In case you like to read it, then go for our article on [Medium](https://medium.com/@nowa.dev/how-to-build-your-flutter-news-app-without-coding-in-10-minutes-using-nowa-256a014d52de). 
+### If you are a video type of person, watch the full tutotial on  [Youtube](https://www.youtube.com/watch?v=UnnskF9AIi4). In case you like to read it, then go for our article on [Medium](https://medium.com/@nowa.dev/how-to-build-your-flutter-news-app-without-coding-in-10-minutes-using-nowa-256a014d52de). 
 
 <img src="../media/gifs/news_app.gif"  width="80%" > 
 

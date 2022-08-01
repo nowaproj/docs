@@ -4,7 +4,7 @@
 1. How to navigate between your app screens using Nowa Visual Programming
 ```
 
-To implement the functionality of navigation between screens, we need first an event that will trigger moving to another screen *(if you don’t know what events are, take a look on [how Nowa Visual Programming works](nvp_intro.md))*.
+To implement the functionality of navigation between screens, we need first an event that will trigger moving to another screen *(if you don’t know what events are, take a look on [how Nowa Visual Programming works](NVP_intro.md))*.
 
 You can use a widget with events (like a `Button`) or wrap any widget you have with `GestureDetector` to give it the ability to detect clicks and have clicking events. 
 

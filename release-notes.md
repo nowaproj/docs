@@ -3,6 +3,7 @@
 ## v0.2.0
 ### NEW ✨
 - Added icon widget
+
 <img width="300" alt="image" src="https://user-images.githubusercontent.com/9257609/189947401-20b1e7c7-5f5e-4504-9270-e13ccb633d4b.png">
 
 
@@ -11,6 +12,7 @@
 - Added more options to the TextField
 - Added support for stateful variables
 - Added compute functions
+
 ![ezgif com-gif-maker-4](https://user-images.githubusercontent.com/9257609/189953234-54fd4c12-1153-4f3e-8c09-34a5ea61d444.gif)
 
 

@@ -3,7 +3,8 @@
 ## v0.2.0
 ### NEW ✨
 - Added icon widget
-<img width="509" alt="image" src="https://user-images.githubusercontent.com/9257609/189947401-20b1e7c7-5f5e-4504-9270-e13ccb633d4b.png">
+<img width="300" alt="image" src="https://user-images.githubusercontent.com/9257609/189947401-20b1e7c7-5f5e-4504-9270-e13ccb633d4b.png">
+
 - Added new visual programming nodes
 - Added search in files
 - Added more options to the TextField

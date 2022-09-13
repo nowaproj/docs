@@ -1,5 +1,18 @@
 # Release Notes 🚀
 
+## v0.2.0
+### NEW ✨
+- Added icon widget
+<img width="509" alt="image" src="https://user-images.githubusercontent.com/9257609/189947401-20b1e7c7-5f5e-4504-9270-e13ccb633d4b.png">
+- Added new visual programming nodes
+- Added search in files
+- Added more options to the TextField
+- Added support for stateful variables
+- Added compute functions
+
+### FIXES 🩹 
+- Using consts in generated code
+
 ## v0.1.9
 ### NEW ✨
 - Added autosave
@@ -8,7 +21,7 @@
 - Ability resize panels until collapsing them
 
 ### FIXES 🩹 
-- Fixed: Code generation produces invalid code
+- Fixed Code generation produces invalid code
 
 ## v0.1.8
 ### NEW ✨

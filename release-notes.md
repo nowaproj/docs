@@ -6,7 +6,10 @@
 
 ![Change text on board](https://user-images.githubusercontent.com/9257609/203562429-198e864a-5a4c-4bfd-957a-1ea1b122878e.gif)
 
-- Designer tools respositioned to be closer
+- Designer tools repositioned to be closer
+
+<img width="300" alt="image" src="https://user-images.githubusercontent.com/9257609/204310715-564ecfc0-ddd3-47de-80c6-b205da77dd51.png">
+
 - Circuit function can be opened in a small window for quick edits
 
 <img width="400" alt="image" src="https://user-images.githubusercontent.com/9257609/203563345-2588746b-7e94-4e98-b11c-1a9a9dba19b5.png">

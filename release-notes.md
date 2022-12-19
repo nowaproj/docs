@@ -6,6 +6,8 @@
 
 ![Link-menu](https://user-images.githubusercontent.com/9257609/208525328-0e59352c-37cb-4f16-9e6d-2c5dc1db13ff.gif)
 
+![circuit](https://user-images.githubusercontent.com/9257609/208526311-e5b4f2f1-9811-406c-a5f0-5ca6dbafbfbc.gif)
+
 
 ## v0.2.3
 ### NEW ✨

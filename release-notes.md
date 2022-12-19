@@ -1,5 +1,12 @@
 # Release Notes 🚀
 
+## v0.2.4
+### NEW ✨
+- New link menu
+
+![Link-menu](https://user-images.githubusercontent.com/9257609/208525328-0e59352c-37cb-4f16-9e6d-2c5dc1db13ff.gif)
+
+
 ## v0.2.3
 ### NEW ✨
 - Ability to modify text on the board

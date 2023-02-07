@@ -1,41 +1,25 @@
-# Website
+# Welcome to Nowa
 
-This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
+*Where building Flutter apps **has never been this easy and fun!***
 
-### Installation
+...
 
-```
-$ yarn
-```
+### What is Nowa?
 
-### Local Development
+> Nowa is a tool that helps you build Flutter apps easy and effortlessly! 
 
-```
-$ yarn start
-```
+Flutter is great, but it can be very time consuming or complicated, specially with building the UI. Nowa here to change that!
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+Nowa focuses on giving you **the freedom to be creative, and the space to be productive!** with flexible tools that enable you build stunning apps 10X faster and easier.
 
-### Build
 
-```
-$ yarn build
-```
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
 
-### Deployment
 
-Using SSH:
+![grid pagescreen](https://user-images.githubusercontent.com/85486126/172159851-7ef3d244-83aa-4591-ad77-fefd8662aef7.png)
 
-```
-$ USE_SSH=true yarn deploy
-```
+### Excited to start?
+* Then you can take a look at [getting started](getting_started.md). 
+* You can also subcribe for Nowa's [youtube channel](https://www.youtube.com/channel/UCvP7LKeb2sW1yTUqHAFEKOw) where you will have access to awsome tutorials.
+* You can also join our [discord server](https://discord.com/invite/ByKfn3H7gX) so you can be in direct contact with Nowa's team and other users.
 
-Not using SSH:
-
-```
-$ GIT_USER=<Your GitHub username> yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.

@@ -1,0 +1,9 @@
+{
+  "label": "Real-World examples",
+  "position": 6,
+  "link": {
+    "description": "Real Use Cases that you can build now with Nowa",
+    "type": "generated-index",
+    "slug": "/use-cases"
+  }
+}

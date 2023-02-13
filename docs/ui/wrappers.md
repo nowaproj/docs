@@ -39,7 +39,7 @@ When placing widgets inside another widgets, the child widget will be aligned in
 
 For example, when placing a `Text` inside a `Container`, the `Text` widget will get a default alignment corresponding to the `Container`*(top left of the `Text` will be aligned with the top left of the `Container`)* . To change that, select the `Text`, then click on `Add Wrapper` from the `details panel` and choose `Align`. Using `X` and `Y` you can control the vertical and horizontal alignment for the `Text` corresponding to the `Container`. 
 
-> Align won’t work for widgets that are placed inside a `Stack`, since the stack allows the widgets to have their free position. Use [the Layouting option](layout.md) to control widgets inside the `Stack`.
+> Align won’t work for widgets that are placed inside a `Stack`, since the stack allows the widgets to have their free position. Use [the Layouting option](./layout) to control widgets inside the `Stack`.
 
 <img src="../../img/gifs/using_align_wrapper.gif"  width="100%"/> 
 

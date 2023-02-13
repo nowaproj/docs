@@ -2,7 +2,7 @@
   "label": "Layout 🎴",
   "position": 3,
   "link": {
-    "slug": "layout",
+    "slug": "ui/layout",
     "type": "generated-index",
     "description": "Learn how to create great responvise layout"
   }

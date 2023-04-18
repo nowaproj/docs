@@ -1,6 +1,8 @@
 ---
 sidebar_position: 6
 title: Components
+description: How to create UI components to reuse them 
+
 
 ---
 

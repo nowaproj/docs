@@ -1,6 +1,8 @@
 ---
 sidebar_position: 2
 title: Assets
+description: See how to import assets into your project
+
 ---
 
 # Import Assets (Images, Fonts, etc)

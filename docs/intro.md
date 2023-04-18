@@ -9,7 +9,9 @@ slug: /
 
 ### What is Nowa?
 
-> Nowa is a platform that helps you build great and stunning Flutter apps easy and effortlessly! 
+> Nowa is a platform that helps you create world-class Flutter apps at least 10x faster and easier.
+
+With a new visual workflow that revolutionizes the way you build professional apps, you will become more creative, spend all your energy on things that actually matter, and cut off all redudant, repititve and unneccsary work that takes your energy and creativity away. In the end you will be able to build even more awesome apps that you will be proud of more effecient and with much more joy.  
 
 Flutter is great, but it can get very time consuming or complicated, specially for writing UI code. Nowa here to change that! 
 

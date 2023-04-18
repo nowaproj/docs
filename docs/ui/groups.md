@@ -1,6 +1,8 @@
 ---
 sidebar_position: 4
 title: Grouping
+description: How to group items to create stack, raw or column
+
 ---
 
 # Grouping

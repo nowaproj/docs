@@ -18,11 +18,11 @@ Adding assets to your project is super simple with Nowa! Just drag and drop your
 
 Images can be stored on your device, or they can be available on the internet. Let’s see how to add them in each case.
 
-* In case of the image is being stored on your device, just drag and drop the image into your project. It will be added on the board and will be added inside your assets folder. To reuse the same image again, just drag and drop it from your assets folder, or simply use the `Image` widget, then connect the widget with the image by going to the `details panel` and choosing `Assets` to indicate the source of the image, then click on `Pick Image` to choose the image from your assets folder. See the following image:
+* In case of the image is being stored on your device, just drag and drop the image into your project. It will be added to the board and will be added to your assets folder. To reuse the same image again, just drag and drop it from your assets folder, or simply use the `Image` widget, then connect the widget with the image by going to the `details panel` and choosing `Assets` to indicate the source of the image, then click on `Pick Image` to choose the image from your assets folder. See the following image:
 
 <img src="../../img/gifs/drop_images.gif"  width="100%"/> 
 
-* In case the image is stored online, just drag and drop the `Image` widget, choose `Network` from the details panel and paste the link in the `Url` field.
+* In case the image is stored online, just drag and drop the `Image` widget, choose `Network` from the details panel, and paste the link in the `Url` field.
 <img src="../../img/images/add_url_image.png" width="100%"/>
 
 
@@ -30,7 +30,7 @@ Images can be stored on your device, or they can be available on the internet. L
 
 *We know how important is it to have a nice-looking font in your app, therefore we made it super simple for you to use custom fonts.*
 
-To do so, just drag and drop a custom font file inside the project. The font will be added inside the `assets` folder. See the following example:
+To do so, just drag and drop a custom font file inside the project. The font will be added to the `assets` folder. See the following example:
 
 <img src="../../img/gifs/drop_fonts.gif"  width="100%"/> 
 

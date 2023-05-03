@@ -32,7 +32,6 @@ Here you add all the HTTP requests you will need for your app. To add HTTP GET r
 <img src="../../img/gifs/create_api_request.gif"  width="90%"/> 
 
 
-
 In this example, the response for the request is as follows: (3 items {news}) with each having: `id`, `createdTime`, and `fields` object that has `Attachments`, `Date`, `Title` and `Article`).
 
 ```json

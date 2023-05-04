@@ -15,12 +15,13 @@ In this section, you will learn
 ```
 
 ## What are variables and why do we need them?
+
 Variables are the magicians that bring your app's user interface (UI) to life, transforming static designs into interactive experiences. Without variables, your app would be like a pretty painting, nice to look at, but not very useful. 
 
 Variables allow you to update UI properties such as texts, colors, ...etc according to certain logic and/or according to certain data that the app receives.  
 
-
 Let's dive into creating and managing variables in Nowa!
+
 
 ## Creating Variables
 
@@ -28,7 +29,7 @@ First of all, variables can be added to any screen or component you have in your
 
 1.  **By adding variables to a screen or component, then connect them to the property**: Select the screen/component you wish to add a variable to > scroll down to the "Variables" section > click on `+` to add a variable> include the name, the type, the default value of the variable> click on "Create". 
  
-After doing so, you have a variable in your screen/component that can be accessed from any property for any widget in that screen/component. To connect a property to that variable, Select the widget in that screen/component > click on the property name in the details panel > choose the variable in the list
+After doing so, you have a variable in your screen/component that can be accessed from any property for any widget in that screen/component. To connect a property to that variable, **Select the widget in that screen/component > Click on the property name in the details panel > Choose the variable in the list**
 
 ![](./img/addingVar1.gif)
 
@@ -38,21 +39,23 @@ When connecting a variable to a property, be sure the type of the variable match
 
 :::
   
+
   
 2.  **Create a variable directly from the property itself**: Click on the property name in the details panel > choose "Create Variable." > Choose the name and other properties for the variable. The variable will be automatically added to the screen or component and connected to the property. 
 
 ![](./img/addingVar2.gif)
+
 
 We recommend using the second method, it's faster and easier since it automatically sets the variable type to match the property's accepted type and assigns the original value of that property as the default value for the variable.
 
 
 ### Detaching Variables
 
-To detach a variable, click on the property name that is connected to a variable> click on "Detach."
+To detach a variable, **click on the property name that is connected to a variable> click on "Detach."**
 
 ### Creating Lists
 
-To create a list of a certain type, choose the "List" option when selecting the data type of the variable.
+To create a list of a certain type, **choose the "List" option when selecting the data type** of the variable in the popup of creating a variable.
 
 <img src={require('./img/make_list.png').default} width="300"/>
 

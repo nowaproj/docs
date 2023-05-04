@@ -74,7 +74,7 @@ You might say "But the same screen will display different news according to what
 
 :::tip
 
-Think of it this way: if a variable if "final", meaning its value will be set initially with the creation of the screen/component and won't change later, then it's a "read-only" variable, otherwise if it is intended to change after its initial value was set, then it's a state
+Think of it this way: if a variable is considerd "final", meaning its value won't change after being set initially with the creation of the screen/component, then it's a "read-only" variable, otherwise if it is intended to change after its initial value was set, then it's a state and hence it shouldn't be "Read only".
 
 :::
 

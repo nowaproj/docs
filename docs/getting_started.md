@@ -61,9 +61,8 @@ Just click on the `Screen` icon on the `Tooltip` then choose the dimensions you 
 
 ![](./img/create_screen.gif)
 
-:::note
-don't worry that your app might not look good on other screens than the one you chose, choosing the screen size here is just for you to start designing on, but you can make the design responsive so it looks as you want on every single screen, more on that later. 
-:::
+
+To learn more about screens go to [Screens](ui/screens.md).
 
 But what if you want a custom size? for sure you can, just double-click on the `Screen` icon then drag on anywhere on the board to draw your screen and drop it when you have the size you want.
 

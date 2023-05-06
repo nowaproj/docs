@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-title: Components
+title: HTTP requests
 ---
 
 # HTTP GET request

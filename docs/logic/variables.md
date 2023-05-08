@@ -34,23 +34,12 @@ After doing so, you have a variable in your screen/component that can be accesse
 ![](./img/addingVar1.gif)
 
 
-### Creating a varibale as a list
-
-You can create variables that are lists of other objects, for example, a list of numbers (integers), or a list of custom objects you created, such as a list of news objects or a list of tasks objects.
-
-To create a list, simply check the box "Make list" inside the **Type** panel while you searhcing for the type, this will make the variable a list of that type. If you checked the "Make list" box and choose an integer, this variable will be a list of integers.
-
-In the following example, we are creating a list called **tasks** that presents a list of a custom object called **task** that was created before. This object presents a single task and holds its name of it and a boolean whether the task is completed or not yet.  the (check [Objects](./objects.md) for more information). This list will hold a list of all tasks we have and we will display them in a group for the user. Check [Groups](../ui/groups.md) for more information  
-
-![](./img/create_list_of_object.gif)
 
 :::caution
 
 When connecting a variable to a property, be sure the type of the variable matches the type required by the property. An example: for `Image URL` property for the image widget, the variable connected to it should be a `String` 
 
 :::
-  
-
   
 2.  **Create a variable directly from the property itself**: Click on the property name in the details panel > choose "Create Variable." > Choose the name and other properties for the variable. The variable will be automatically added to the screen or component and connected to the property. 
 
@@ -68,7 +57,15 @@ To detach a variable, **click on the property name that is connected to a variab
 
 To create a list of a certain type, **choose the "List" option when selecting the data type** of the variable in the popup of creating a variable.
 
+
 <img src={require('./img/make_list.png').default} width="300"/>
+
+#### Lists of custom objects 
+You can create variables that are lists of custom objects you created before.
+
+In the following example, we are creating a list called **tasks** that presents a list of a custom object called **task** that was created before. This object presents a single task and holds its name of it and a boolean whether the task is completed or not yet.  the (check [Objects](./objects.md) for more information). This list will hold a list of all tasks we have and we will display them in a group for the user. Check [Groups](../ui/groups.md) for more information  
+
+![](./img/create_list_of_object.gif)
 
 
 ## Variable Properties

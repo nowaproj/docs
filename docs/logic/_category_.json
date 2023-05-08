@@ -1,9 +1,9 @@
 {
-  "label": "Logic ⚡",
+  "label": "Circuit ⚡",
   "position": 4,
   "link": {
     "type": "generated-index",
-    "description": "Learn how to create the logic for your app using Nowa circuit",
+    "description": "Learn how to add logic to your app using Nowa powerful circuit",
     "slug": "logic"
   }
 }

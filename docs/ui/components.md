@@ -94,11 +94,18 @@ The reason for this is to protect you from accidentally modifying a component wi
 
 ## Using Variables with Components
 
-To make each instance of the same component holds different data according to its location, you should use variables.
+To make each instance of the same component holds different data according to its location, you should connect the components properties with variables.
 
- After creating variables for the component, each instance of that component can have its own data that get injected in that exact instance through the variables, allowing for different data to be presented in each instance of the component while maintaining the same design and layout.
+After creating variables for the component, each instance of that component can have its own data that get passed from the parent screen/component through the variables, allowing for different data to be presented in each instance of the samecomponent while maintaining the same design and layout.
+
+ In the following example, we created a component for holding a single piece of news with an image, a title, and content. We are connecting variables to the following three properties: **Image URL** for the container widget, and the **Text** properties for the Title and Content widgets. 
+
+ ![](./img/add_var_to_comp.gif)
+
+ After connecting those three properties with variables, we can pass different data to each instance. To see an example of how that case will be useful when passing data, check out [Groups](./groups.md). 
+
  
-  To see how to add variables to a component or a screen, check [Variables](../logic/variables.md).
+  To read more about how to add variables to a component or a screen, check [Variables](../logic/variables.md).
 
 
 ### Example

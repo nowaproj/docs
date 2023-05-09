@@ -49,7 +49,7 @@ Consider creating a simple to-do list app where each task is an instance from an
 The logic will be as follows:
 
 1.  When the user clicks on the 'Add Task' button, a new instance of the 'task' object is created with the text from the input field and a default value of `false` for the variable "isdone" .
-2.  The new task object is then added to a list of tasks and the main screen UI will be updated with the recent tasks that will be displayed in a horizontal group(Raw). Check [Groups](../ui/groups.md) for more details.
+2.  The new task object is then added to a list of tasks and the main screen UI will be updated with the recent tasks that will be displayed in a horizontal group(Raw). Check [Groups](../ui/layout/groups.md) for more details.
 3.  As users add more tasks, the list of task objects grows, making it easy to manage and display the tasks within the app. The user can also add logic to a button inside each task to remove that task from the list.
 
 In summary, objects in Nowa are a powerful way to organize and manage data within your app, enabling seamless interaction between screens and external APIs. By understanding how to create and work with objects, you can build a powerful structure that scales smoothly and make it easy to build advanced functionalities and organize the flow of data inside the app.

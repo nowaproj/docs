@@ -59,7 +59,7 @@ By copy-pasting (select the component > right-click > copy, then right-click som
 In the following example, we want to create a group (column) out of a single component which is the `newstile` that we created earlier. To do so:
 1. Create multiple instances of the component (by copying/pasting or holding `Alt`+drag the component)
 2. select all the instances then create a group out of it (**click on `Ctrl+G` or right-click > Group**) 
-3. Choose the vertical arrow (to make the group behave as a column where all items are placed vertically). For more, read about [Groups](./groups.md).
+3. Choose the vertical arrow (to make the group behave as a column where all items are placed vertically). For more, read about [Groups](./layout/groups.md).
 4. Place the group inside the screen, then choose **Expended** as the height option in the **Layout** to make the group expand and fill all the vertical space (the screen layout should be already set on **vertical** in order for the Expanded option to appear, for more information check)
 5. You can manually change the number of children (just to see how the design will look like with different number of items in that list, but later the number of the items will be automatically set according to the data you have)
 6. Add a **Scroll** wrapper to make the list scrollable (when the number of items can't fit in the column, the scroll wrapper should be added. More on that in [Wrappers](./wrappers.md))

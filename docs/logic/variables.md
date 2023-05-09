@@ -63,7 +63,7 @@ To create a list of a certain type, **choose the "List" option when selecting th
 #### Lists of custom objects 
 You can create variables that are lists of custom objects you created before.
 
-In the following example, we are creating a list called **tasks** that presents a list of a custom object called **task** that was created before. This object presents a single task and holds its name of it and a boolean whether the task is completed or not yet.  the (check [Objects](./objects.md) for more information). This list will hold a list of all tasks we have and we will display them in a group for the user. Check [Groups](../ui/groups.md) for more information  
+In the following example, we are creating a list called **tasks** that presents a list of a custom object called **task** that was created before. This object presents a single task and holds its name of it and a boolean whether the task is completed or not yet.  the (check [Objects](./objects.md) for more information). This list will hold a list of all tasks we have and we will display them in a group for the user. Check [Groups](../ui/layout/groups.md) for more information  
 
 ![](./img/create_list_of_object.gif)
 

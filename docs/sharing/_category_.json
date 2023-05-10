@@ -1,0 +1,9 @@
+{
+    "label": "Collaboration",
+    "position": 6,
+    "link": {
+      "slug": "collaboration",
+      "type": "generated-index",
+      "description": "Learn how to work together with other members on your app"
+    }
+  }

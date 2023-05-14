@@ -1,0 +1,9 @@
+{
+  "label": "Screens 📱",
+  "position": 3,
+  "link": {
+    "slug": "screens",
+    "type": "generated-index",
+    "description": "Creating screens and modifying their properties "
+  }
+}

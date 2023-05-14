@@ -1,7 +1,5 @@
 ---
-sidebar_position: 2
-
-
+sidebar_position: 3
 ---
 
 # Getting started
@@ -62,7 +60,7 @@ Just click on the `Screen` icon on the `Tooltip` then choose the dimensions you 
 ![](./img/create_screen.gif)
 
 
-To learn more about screens go to [Screens](ui/screens.md).
+To learn more about screens go to [Screens](ui/screens/create_screens.md).
 
 But what if you want a custom size? for sure you can, just double-click on the `Screen` icon then drag on anywhere on the board to draw your screen and drop it when you have the size you want.
 

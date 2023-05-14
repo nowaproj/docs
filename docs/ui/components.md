@@ -105,7 +105,7 @@ After creating variables for the component, each instance of that component can 
  After connecting those three properties with variables, we can pass different data to each instance. To see an example of how that case will be useful when passing data, check out [Groups](./layout/groups.md). 
 
  
-  To read more about how to add variables to a component or a screen, check [Variables](../logic/variables.md).
+  To read more about how to add variables to a component or a screen, check [Creating variables](../variables/create_variables.md).
 
 
 ### Example

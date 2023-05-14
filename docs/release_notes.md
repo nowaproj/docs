@@ -1,4 +1,7 @@
-
+---
+sidebar_position: 2 
+description: release notes
+---
 # Release notes
 
 > Here you will find all released features and bug fixes done for each version 

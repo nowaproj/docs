@@ -63,7 +63,7 @@ To ungroup a group of widgets, follow these steps:
 
 ## Further Reading
 
-To learn more about using Rows and Columns in Nowa App Builder, check out [rows and Columns](./rows_and_columns.md)
+To learn more about using Rows and Columns in Nowa App Builder, check out [Rows and Columns](./rows_and_columns.md)
 
 Check out variables to see how to make the group items dynamic according to a connected list.
 

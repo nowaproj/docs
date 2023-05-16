@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 3
 title: Groups
 description: How to group widgets together and control the layout
 
@@ -52,6 +52,10 @@ With rows and columns, notice the new options available such as setting a fixed 
 We can also control the alignment by having the widgets placed in specific alignment vertically and horizontally in the group, such as top left, or center right of the group. This allows us to build responsive designs easily.
 
 ![](./img/create_group.gif)
+
+:::note
+The **Align** option for the **Group** with **stack layout** is to determine the location of the center of the widget. If you changed X and Y and then you added a widget inside and centered it (using Align wrapper) then it will be placed in that position 
+:::
 
 
 ## Ungrouping

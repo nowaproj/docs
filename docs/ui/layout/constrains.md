@@ -1,6 +1,7 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 title: Constraints
+description: How to put constraints on the relative position of widgets
 ---
 
 

@@ -40,4 +40,4 @@ Now you can check your tables on the panel on the left and refresh them in by cl
 ![](./img/supabase_tabletable.png)
 
 
-To learn how to show the data from Supabase in your designs check out: [[Display data]].
+To learn how to show the data from Supabase in your designs check out: [Display data](./display_data.md).

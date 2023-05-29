@@ -8,7 +8,7 @@ This section will guide you through the steps to display a list of book titles f
 
 ## Displaying data from a Supabase table
 
-Before starting this process make sure you connected your Nowa project to a Supabase project (check [[Connect Supabase]]).
+Before starting this process make sure you connected your Nowa project to a Supabase project (check [Connect Supabase](./connect_supabase.md)).
 
 Step 1: Add a text widget
 1. Click the **Widget** button in the Nowa toolbar.

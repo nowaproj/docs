@@ -8,6 +8,44 @@ description: release notes
 
 ---
 
+## v1.0.10
+#### New
+- Adding cut action
+#### Fixes
+- Fix: Undo in files panel
+
+## v1.0.9
+
+#### Fixes
+- Fix: font not saving
+
+## v1.0.8
+
+#### Fixes
+- Fix: reset password issue some password does not work
+
+## v1.0.7
+
+#### Fixes
+- Fix: login issue and making it more secure
+
+## v1.0.6
+
+#### Fixes
+- Fix: Some emails are not valid
+
+## v1.0.2
+
+#### Fixes
+- Fix: Android build produces apk
+
+## v1.0.1
+
+#### Fixes
+- Fix: Building web not working
+- Fix: Download code button not working
+- Fix: Sharing for gives users the same plan as the owner
+
 ## 0.3.6
 
 #### New

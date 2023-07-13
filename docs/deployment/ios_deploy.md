@@ -158,7 +158,7 @@ The final step is to complete your app profile. This includes writing a descript
 
 Keep in mind, Apple will review your app before it becomes available to users. According to Apple, 90% of app submissions are reviewed in less than 24 hours.
 
-Congrats 🎉Your first app is now live on the store and ready for your users to use and enjoy! 
+**Congrats 🎉Your first app is now live on the store and ready for your users to use and enjoy!**
 
 ---
 

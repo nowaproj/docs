@@ -12,8 +12,6 @@ description: How to deploy your app to run on the web
 ```
 
 
-
-
 With Nowa, you've created a fantastic app. You've put your ideas into action and watched them come to life. Now, you're ready to share your creation with the world! In this guide, we'll show you how to publish your app to the web. Let's jump right in!
 
 ## Deploying for the Web

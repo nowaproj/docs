@@ -32,7 +32,7 @@ Check the example below for a To-Do list app to see exactly how creating objects
 1.  Navigate to the Files section in Nowa.
 2.  Click on 'Add', then select 'New Object'.
 3.  Enter a name for the object.
-4.  Define variables inside that object, which will define the structure for that object from now on. (Check out [Variables] for more information).
+4.  Define variables inside that object, which will define the structure for that object from now on. (Check out [Variables](./create_variables.md) for more information).
 5.  Now, you have created an object blueprint with its variables inside. Now when you create an instance from that object, it will have this pre-defined structure (the names and types of variables inside it)
 
 ## Working with Objects in Circuits:

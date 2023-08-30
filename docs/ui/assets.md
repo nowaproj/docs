@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4
+sidebar_position: 5
 title: Assets
 description: Importing images, fonts and other assets into your project
 

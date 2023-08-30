@@ -1,0 +1,9 @@
+{
+  "label": "Widgets 🧩",
+  "position": 4,
+  "link": {
+    "slug": "ui/widgets",
+    "type": "generated-index",
+    "description": "Get to know Nowa UI widgets and how to use them"
+  }
+}

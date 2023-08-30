@@ -2,7 +2,7 @@
   "label": "Screens 📱",
   "position": 2,
   "link": {
-    "slug": "screens",
+    "slug": "ui/screens",
     "type": "generated-index",
     "description": "Creating screens and modifying their properties "
   }

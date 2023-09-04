@@ -18,7 +18,7 @@ Flutter is great, but it can get very time-consuming or complicated, especially 
 Nowa creates for you the space where your ideas float smoothly from your brain to your project.  **With Nowa you will enjoy an unlimited freedom that never existed in an app-building platform ever!** with tools that are built in a unique way to enable you to extract your potential.jjj
 
 
-<iframe width="1023" height="575" src="https://www.youtube.com/embed/9Q2MZes5lt8" title="Meet Nowa: the first app builder for professionals" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe src="https://www.youtube.com/embed/9Q2MZes5lt8" title="Meet Nowa: the first app builder for professionals" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ### Excited to start?
 * Then you can take a look at [getting started](getting_started.md). 

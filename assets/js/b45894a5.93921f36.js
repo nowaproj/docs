@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunknowa_docs=self.webpackChunknowa_docs||[]).push([[914],{1836:t=>{t.exports=JSON.parse('{"title":"Data \ud83d\udcc2","description":"Learn how to connect Data with your app","slug":"data","permalink":"/data","navigation":{"previous":{"title":"Intro","permalink":"/"},"next":{"title":"HTTP GET request","permalink":"/data/get_request"}}}')}}]);

@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-title: List of all Wrappers 
+title: List of all Wrappers
 description: Get to know all wrappers in Nowa
 ---
 

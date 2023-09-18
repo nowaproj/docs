@@ -19,7 +19,7 @@ Consider an example where you have an app with two screens and a button on the m
 1.  Select the button and click on the **+** button next to the **On Pressed** field in the details panel to add an action that will be executed when the button is pressed.
 2.  The Circuit board will open with a default **On Pressed** node, which is the starting point of the logic flow.
 3.  Right-click anywhere on the board, or click on the **+** button next to the **On Pressed** node. Head to the **Nowa** section in the popup and choose **Navigate**.
-4.  In the **Navigate** node, choose the screen name you want to navigate to (e.g., **NewScreen1**). For more information on changing screen names, check out [Creating Screens](https://chat.openai.com/?model=gpt-4).
+4.  In the **Navigate** node, choose the screen name you want to navigate to (e.g., **NewScreen1**). For more information on changing screen names, check out [Creating Screens](../ui/screens/create_screens.md).
 5.  When you press the play button and click on the button, the app will navigate to the specified screen.
 6. To add a back functionality to the button in the second screen, follow the same process but choose the **Back** node instead of the **Navigate** node.
 

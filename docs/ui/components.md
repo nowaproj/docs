@@ -62,7 +62,7 @@ In the following example, we want to create a group (column) out of a single com
 3. Choose the vertical arrow (to make the group behave as a column where all items are placed vertically). For more, read about [Groups](./layout/groups.md).
 4. Place the group inside the screen, then choose **Expended** as the height option in the **Layout** to make the group expand and fill all the vertical space (the screen layout should be already set on **vertical** in order for the Expanded option to appear, for more information check)
 5. You can manually change the number of children (just to see how the design will look like with different number of items in that list, but later the number of the items will be automatically set according to the data you have)
-6. Add a **Scroll** wrapper to make the list scrollable (when the number of items can't fit in the column, the scroll wrapper should be added. More on that in [Wrappers](./wrappers.md))
+6. Add a **Scroll** wrapper to make the list scrollable (when the number of items can't fit in the column, the scroll wrapper should be added. More on that in [Wrappers](./wrappers/wrappers_intro.md))
 
 ![](./img/col_from_comp.gif)
 

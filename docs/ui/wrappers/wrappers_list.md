@@ -1,8 +1,7 @@
 ---
 sidebar_position: 1
-title: Intro 
-description: Into to Nowa
-slug: /
+title: Wrappers list 
+description: Get to know all wrappers in Nowa
 ---
 
 # List of Wrappers

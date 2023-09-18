@@ -49,7 +49,7 @@ To add a node, right-click on an empty space on the board to add a top-level nod
 
 
 :::info
-You can wrap any widget with a Gesture Detector wrapper to make it pressable and add the option of adding logic to a click event for that widget. This provides a convenient way to create interactive UI elements in your app. For more, check out [Wrappers](../ui/wrappers.md)
+You can wrap any widget with a Gesture Detector wrapper to make it pressable and add the option of adding logic to a click event for that widget. This provides a convenient way to create interactive UI elements in your app. For more, check out [Wrappers](../ui/wrappers/wrappers_intro.md)
 :::
 
 

@@ -8,7 +8,7 @@ description: release notes
 
 ---
 
-## v1.1.6
+## v1.1.7
 
 #### New ✨
 - Markdown widget
@@ -19,9 +19,13 @@ description: release notes
 - Added header to get request
 - Added template preview
 - Ability to change app icon
+- API request response presented in a pretty format
 #### Fixes 🩹
 - Fix: Parameter names use proper names instead of p0, p1...
 - Fix: Supabase crashing the project
+- Fix: Adding nodes with default values break the code
+- Fix: Drag and drop drawer and FAB into the screen puts it in place
+- Fix: Adding pop up message when importation fails
 
 ## v1.0.x
 #### New ✨

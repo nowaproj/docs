@@ -1,7 +1,7 @@
 ---
 sidebar_position: 1
 title: Intro 
-description: Into to Nowa
+description: Intro to Nowa
 slug: /
 ---
 

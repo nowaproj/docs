@@ -26,11 +26,11 @@ To add the Scroll View:
 - Since the Row has an horizontal direction, select "Horizontal" in the Scroll Direction property.
 - You can test the scroll once you open the play mode.
 
-![](../img/scrollview1.gif)
+![](./img/scrollview1.gif)
 
 To add the Scroll View also to the column, repeat the same steps but select: "Vertical" in the Scroll direction property.
 
-![](../img/scrollview2.gif)
+![](./img/scrollview2.gif)
 
 ### Other properties:
 

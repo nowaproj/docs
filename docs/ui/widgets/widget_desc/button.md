@@ -12,7 +12,7 @@ To add a Button to your screen, select the Widget picker and look for the Button
 
 ### Customize the Button
 From the details panel of the Button, you can customize its appearance:
-- Change the content of the Button by modifying the text properties. (To lean more about it here: [Text](./text.md).
+- Change the content of the Button by modifying the text properties. (To lean more about it here: [Text](./text.md)).
 - You can modify the color of the Button in the details panel.
 
 ![](./img/customize_button.gif)
@@ -22,7 +22,7 @@ To make the button interactive, go in the details panel and you will see there t
 #### Example:
 If you want to make the user navigate from a screen to another when clicking on a button:
 - Go on the details panel and select the "Edit" next to "On Pressed".
-- This will open a [Curcuit](../../../circuit/circuit_intro.md) window. 
+- This will open a [Circuit](../../../circuit/circuit_intro.md) window. 
 - Connect a "navigate" block to the "On Pressed" action. 
 - From the "navigate" block, select the screen you wish to make appear when clicking on the button.
 - Test the functionality by opening the Play Mode.
@@ -33,4 +33,4 @@ Learn more: [Navigate between Screens](../../../circuit/navigate.md)
 
 ![](./img/functionality_button.gif)
 
-Buttons let's you do so much more that just navigation. If you want to discover more about how to build functionalities in Nowa, check out: [Curcuit](../../../circuit/circuit_intro.md).
+Buttons let's you do so much more that just navigation. If you want to discover more about how to build functionalities in Nowa, check out: [Circuit](../../../circuit/circuit_intro.md).

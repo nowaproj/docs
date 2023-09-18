@@ -34,7 +34,7 @@ The order of the wrappers matters: the order of the wrappers in the details pane
 To understand better, let's talk a look at the following example. The `Image` widget was wrapped first with `Clip Radius`, so the borders of the image became rounded after that. Then a `Transform` widget was added on top to rotate the rounded image. Notice when the order changed and the `Clip Radius`becamse below the `Transform` wrapper in the details panel, the image was rotated first and then clipped. That's because `Clip Radius` is now wrapping `Transform` which wraps the `Image` widget *(in the details panel they are ordered bottom-up, the last wrapper is the widget that is above the rest in the widget tree)*. 
 
 
-![](./img/wrappers.gif)
+![](../img/wrappers.gif)
 
 
 

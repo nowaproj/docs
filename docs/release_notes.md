@@ -8,6 +8,21 @@ description: release notes
 
 ---
 
+## v1.1.8
+
+#### New ✨
+- Adding variables and expressions in text fields
+- Realtime connection with Supabase
+- Create local projects
+- Run and test locally on real devices or emulators and update with hot reload
+- Open local project in VSCode if installed
+
+#### Fixes 🩹
+- Sorting projects in dashboard
+- API get requests fixes
+- Drag and drop for ListView
+- Code generation improvements
+
 ## v1.1.7
 
 #### New ✨

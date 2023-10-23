@@ -33,7 +33,6 @@ description: release notes
 - Drag and drop for ListView
 - Code generation improvements
 
-
 ## v1.1.7
 
 #### New ✨

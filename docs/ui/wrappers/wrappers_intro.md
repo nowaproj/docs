@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-title: Wrappers
+title: Intro to wrappers
 description: Discover what wrappers are
 ---
 # Wrappers

@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-title: HTTP GET request
+title: GET request
 ---
 
 # HTTP GET request

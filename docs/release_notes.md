@@ -6,6 +6,53 @@ description: release notes
 
 > Here you will find all released features and bug fixes done for each version 
 
+
+## v1.2.1
+
+#### New ✨
+1. Added **Youtube** widget
+
+2. Added **Admob** widget
+
+<img src={require('./img/admobshort4.gif').default} width="650"/>
+
+
+3. Added a **json viewer** to format json data inside API requests
+
+
+<img src={require('./img/jsonformat.gif').default} width="650"/>
+
+
+4. Added **API Collection settings** : you can now add settings on the Collection level, such as the Base Url and headers, and they will be automatically included in the requests inside that collection so you don't have to keep adding headers or baseURL with every request you add.
+
+
+<img src={require('./img/collections.gif').default} width="650"/>
+
+
+#### Fixes 🩹
+
+1. Fix missing dependency error on the board 
+
+2. Fix issue with selection in the designer
+
+3. Improvements with Undo
+
+---
+
+## v1.2.0
+
+#### New ✨
+1. Added support for **more API requests** like POST, UPDATE, PUT, DELETE... read more about it [here](./data/post_request.md)
+
+2. Added **Rive widget**
+
+#### Fixes 🩹
+1. Fix change launcher icon fails on iOS
+
+2. Fix holding button while drawing a container or text in the designer
+
+3. Code generation improvements
+
 ---
 
 ## v1.1.9

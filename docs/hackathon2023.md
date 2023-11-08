@@ -8,9 +8,9 @@ description: Hackathon
 ![](./img/bannerhackathon.png)
 
 
-Are you the a creative builder who **likes to compete and win?** If yes **that's your chance to shine!** 🔥
+Are you the creative builder who **likes to compete and win?** If yes **that's your chance to SHINE!** 🔥
 
-We will host a **big online Hackathon** where you will compete with others to build an app on Nowa during a weekend! 🚀
+We will host a **big online Hackathon** where you will compete with others to build an app on Nowa during a single weekend! 🚀
 
 ## How does it work? 👨🏻‍💻
 You will have 3 days to create an app using Nowa. When your app is ready submit it and share it social media with the Hashtag **#NowaHackathon2023.**

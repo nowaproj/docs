@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2.5
 description: Hackathon
+
 ---
 # Nowa Hackathon Dec 2023
 

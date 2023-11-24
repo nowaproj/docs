@@ -6,6 +6,37 @@ description: release notes
 
 > Here you will find all released features and bug fixes done for each version 
 
+## v1.2.2
+
+![](./img_releasenotes/v1.2.1/version121.png)
+
+
+#### New ✨
+- **A new Wrap widget**: : Widgets now can rearrange themselves inside a wrap widget
+
+- **Adding widget preview:** scroll down on widgets inside the palette to see a preview
+
+- **Error text in the Text Field:** Show error messages within TextField widget
+
+- **Ability to add null to variables that accepts null**: Now you can assign null to variables in circuit or details panel. [Click here to see how](./variables/advanced/null_variables.md)
+
+- **Adding advanced device previewer**: Choose the device type, orientation, and other settings while previewing your app
+
+- **New code editor with autocomplete:** Right-click on any file and choose show file content to open code-editor
+
+- **Updating code without reloading the project:** Code editor can now update automatically with every change you do
+
+- **Updating to material3 theme**
+
+#### Outline improvements ⌕
+
+- Double click to zoom into any widget (also press F to focus on selection): No need to look for them on the board anymore!
+- Clicking on a widget focuses on it in the outline
+
+#### Fixes 🩹
+- Markdown can be sized automatically
+- Pinch to zoom on web
+- Fix youtube change video id
 
 ## v1.2.1
 

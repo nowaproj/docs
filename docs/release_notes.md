@@ -6,6 +6,53 @@ description: release notes
 
 > Here you will find all released features and bug fixes done for each version 
 
+## 1.4
+
+#### New ✨
+- Adding the option to **creare Global state**
+<img src={require('./img/1.4/globalstate.png').default} width="650"/>
+
+- Adding default text style wrapper and text directionality wrapper to give a style for all texts blow it 
+- Adding Apk debug: to build an APK test version fast without signing key
+
+#### Fixes 🩹
+- Fix circular dependencies problems (ex, when two screens use each other)
+- Improve the speed and fix some issues in project loading
+- Fix Android build bug that was reported [here](https://community.nowa.dev/t/android-build-is-currently-not-working-fix-is-coming-next-tuesday/25).
+- Fix issues with code loading
+- Fix bugs with API schemas 
+
+
+
+---
+
+## 1.3
+
+#### New ✨
+
+- **A full new variables system:** now you can create parameters and variables for screens or components:
+  - Parameters act as input values that recieved from another screen/component and don't change 
+  - Variables are for the values that change inside the screen/component
+
+
+<img src={require('./img/1.4/newvariables.png').default} width="150"/>
+
+- **Creating functions:** now you can create functions as well inside any screen/component  
+<img src={require('./img/1.4/functions.png').default} width="650"/>
+
+- Adding **Google Fonts** by default
+<img src={require('./img/1.4/fonts.png').default} width="650"/>
+
+- Adding the option to **create Gradients**
+<img src={require('./img/1.4/gradient.png').default} width="650"/>
+
+
+#### Fixes 🩹
+- Usability enhancements
+- Fixing some bugs with the Circuit
+
+
+
 ## v1.2.2
 
 ![](./img_releasenotes/v1.2.1/version121.png)

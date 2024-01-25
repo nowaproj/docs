@@ -14,6 +14,8 @@ description: release notes
 - Adding param option to Data builder API to pass dynamic values to to API GET requests 
 - Add the option to create a parameter for properties using the details menue
 - New UI for the active plan and for comparison between plans
+- Add advanced options to gesture detector and inkwell
+
 
 #### Fixes 🩹
 
@@ -24,7 +26,6 @@ description: release notes
 - Fix problem with SVG widget not updating after replacing the SVG file
 - Fix problem with layout and wrapper options not appearing for dynamic content (children that is connected to a list)
 - Fix problems with the selection of multiple widgets 
-- Add advanced options to gesture detector and inkwell
 
 
 ## 1.4.0

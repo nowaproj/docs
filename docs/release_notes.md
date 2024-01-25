@@ -6,7 +6,28 @@ description: release notes
 
 > Here you will find all released features and bug fixes done for each version 
 
-## 1.4
+## 1.4.2
+
+#### New ✨
+- Show unsaved files in the unsaved changes popup
+- Adding shrinkwrap option to HTML to make it's height dyanmic
+- Adding param option to Data builder API to pass dynamic values to to API GET requests 
+- Add the option to create a parameter for properties using the details menue
+- New UI for the active plan and for comparison between plans
+
+#### Fixes 🩹
+
+- Fix color field crashing when changing the opacity
+- Fix project loading when using global variables
+- Fix problems with Circuit nodes not connecting sometimes
+- Fix problem with Bottom navigation bar icons not being replaced
+- Fix problem with SVG widget not updating after replacing the SVG file
+- Fix problem with layout and wrapper options not appearing for dynamic content (children that is connected to a list)
+- Fix problems with the selection of multiple widgets 
+- Add advanced options to gesture detector and inkwell
+
+
+## 1.4.0
 
 #### New ✨
 - Adding the option to **creare Global state**

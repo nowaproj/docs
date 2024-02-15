@@ -7,7 +7,7 @@ slug: /
 
 # Welcome to the future of building apps!
 
-### What is Nowa?
+### What is Nowa? 💡
 
 > Nowa is a platform that helps you create world-class Flutter apps at least 10x faster and easier.
 

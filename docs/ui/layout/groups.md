@@ -27,6 +27,8 @@ This is how you ungroup widgets in Nowa:
 - Right click → Ungroup
 - You can also use the shortcut: `ctrl/cmd+G`
 
+![](./img/groups.gif)
+
 ## Group Properties
 
 **Alignment** → Choose where your widgets should sit inside the group, like in the center, top-left, or bottom-right.

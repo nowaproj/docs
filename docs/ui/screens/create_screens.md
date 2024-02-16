@@ -13,7 +13,7 @@ On this page, we will learn how to deal with Screens in Nowa.
 - Here you can select and empty screen with a default size or select one of the available templates.
 - Give a name to your new screen and press "Submit".
 
-![](./img/screengif.gif)
+![](./img/create-screen2.gif)
 
 ### Modify screen name
 

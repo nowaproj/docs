@@ -13,6 +13,8 @@ On this page, we will learn how to deal with Screens in Nowa.
 - Here you can select and empty screen with a default size or select one of the available templates.
 - Give a name to your new screen and press "Submit".
 
+![](./img/create_screen.gif)
+
 ### Modify screen name
 
 You can modify and change the name of your screens by double-clicking the name on the board or by selecting the renaming button at the top of the details panel after selecting the screen.

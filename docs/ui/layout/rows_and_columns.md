@@ -46,17 +46,14 @@ You can apply the resizing setting on both the X and Y axes using the dedicated 
 
 You can choose between three options: Fixed, Auto, and Expand.
 
-**Fixed**
-When the width or height of a column/row is set to **Fixed**, it means that the value remains the same regardless of the content's size inside them, and it will not change if the children inside change. 
+**Fixed** → When the width or height of a column/row is set to **Fixed**, it means that the value remains the same regardless of the content's size inside them, and it will not change if the children inside change. 
 The same will be the behavior of children inside a column/row if their width or height is set to Fixed.
 
-**Auto**
-When the column/row size is set to Auto, it will resize itself to surround the children.
+**Auto** → When the column/row size is set to Auto, it will resize itself to surround the children.
 If there is a padding set, the column/row will maintain it. 
 
 
-**Expand**
-The children inside a column/row can have their width and height value set to Expand. When this option is selected, the child will stretch its width/height in order to fill the size of its parent. 
+**Expand** → The children inside a column/row can have their width and height value set to Expand. When this option is selected, the child will stretch its width/height in order to fill the size of its parent. 
 
 ### Reordering
 You can rearrange your widgets inside a column or a row by easy drag and dropping them from inside the column/row or by reordering them in the details panel.

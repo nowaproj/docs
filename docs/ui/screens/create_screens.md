@@ -23,7 +23,7 @@ You can modify and change the name of your screens by double-clicking the name o
 
 Screens created can be found also in the Files library and can be added to the board by dragging and dropping them. This will create an instance of that screen on the board. You can also delete them from the project by right-clicking on the screen file inside the files panel and then choosing "Remove".
 
-Screens behave as **components**, meaning that modifying one instance of the screen somewhere will modify all the other instances from that exact screen if exist somewhere else: if you drop the same screen file on multiple boards you aren't creating a copy out of it, you accessing the same screen file but from different places. Learn more about [Components](../ui/components.md)
+Screens behave as **components**, meaning that modifying one instance of the screen somewhere will modify all the other instances from that exact screen if exist somewhere else: if you drop the same screen file on multiple boards you aren't creating a copy out of it, you accessing the same screen file but from different places. Learn more about [Components](../components.md)
 
 To separate the screen instance:
 - Right click on the screen on the board

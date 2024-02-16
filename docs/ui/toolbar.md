@@ -15,7 +15,7 @@ The tools available from left to right are:
 
 **Selection**: this tool lets you select the elements on the board, like screens, widgets and components by clicking on them.
 
-**Screen**: this tool lets you create new screens to add on your board. You can pick and empty screen or a template. [Screens](./screens/).
+**Screen**: this tool lets you create new screens to add on your board. You can pick and empty screen or a template. Learn more about [Screens](./screens/).
 
 **[Container](./widgets/widget_desc/container.md)**: the container tool lets you draw the container widget directly on your board.
 

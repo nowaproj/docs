@@ -8,12 +8,12 @@ description: How to create and modify screens
 
 In Nowa each project you create is essentially an app, which can be stored either on the cloud for easy access from anywhere or locally on your device for added security and control.
 
-#### Creating Projects
+## Creating Projects
 
 1.  **Access the Dashboard:** Log into your account to access the main dashboard. This is where you'll manage all your projects.
 2. **Create a New Project:** Click on the "Create" button. Enter a name for your project and select to store it on the cloud or locally.
 
-#### Workspaces
+## Workspaces
 
 Nowa offers you the opportunity to create multiple workspaces, allowing for better organization of your projects.
 

@@ -23,5 +23,5 @@ If you wish to make modifications or delete a workspace, navigate to the same me
 
 ⚠️ Please note that workspaces containing projects cannot be deleted for safety reasons.
 
-If you have the Team plan, you have the option to add member is your workspace. Find out how to accomplish this by checking [Add members to a workspace](./collaboration/adding_members.md)
+If you have the Team plan, you have the option to add member is your workspace. Find out how to accomplish this by checking [Add members to a workspace](../collaboration/adding_members.md)
 

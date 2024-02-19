@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunknowa_docs=self.webpackChunknowa_docs||[]).push([[7898],{6581:t=>{t.exports=JSON.parse('{"title":"Getting Started","description":"The first steps to learn how to build apps with Nowa","slug":"getting_started","permalink":"/getting_started","navigation":{"next":{"title":"create_projects","permalink":"/getting_started/create_projects"}}}')}}]);

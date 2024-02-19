@@ -14,19 +14,22 @@ Nowa provides a supabase integration that let's you connect your Supabase projec
 ## How to connect your project to Supabase
 ---
 
-Step 1: Create a project on Supabase and set up tables
+**Step 1**: Create a project on Supabase and set up tables
+
 Visit the Supabase website (www.supabase.com) and either sign in or create a new account. Once you're signed in, follow the instructions to create a new project. Inside your Supabase project, set up the necessary tables and populate them with your desired data.
 
 ![](./img/supabase_table.png)
 
-Step 2: Disable Row-Level Security (RLS)
+**Step 2**: Disable Row-Level Security (RLS)
+
 To ensure unrestricted data retrieval, navigate to the table settings or permissions in your Supabase project and disable Row-Level Security (RLS) for the tables you want to access through Nowa.
 
 
 ![](./img/supabase_table2.png)
 
 
-Step 3: Connect to Nowa
+**Step 3**: Connect to Nowa
+
 Open you Nowa project that you want to connect. Go to the sidebar and click on the "Data" button. From the available data source options, select "Supabase."
 Nowa will prompt you to provide the necessary connection details. Copy the URL and API key of your Supabase project. Paste them in the corresponding fields in Nowa. Now click the "Connect" button.
 

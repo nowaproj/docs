@@ -1,0 +1,9 @@
+{
+    "label": "Global Variables 🌎",
+    "position": 2,
+    "link": {
+      "slug": "global_variables",
+      "type": "generated-index",
+      "description": "How to create, connect, and use global variables and functions in your app"
+    }
+  }

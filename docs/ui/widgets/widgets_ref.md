@@ -33,4 +33,16 @@ Here's a list of the all widgets that you can use to create an astonihsing UI de
 | **List Tile**        | A single-height row, often holding text and icons, designed for list use.                                                    |
 | **Page View**        | A scrollable list that moves a page at a time, allowing sideways navigation between widget children.                        |
 | **Index Stack**      | Shows one child from a list based on the given index, but keeps the states of other children unchanged.                     |
-| **Select Field**     | A dropdown within a form, allowing users to select from multiple options.                                                    |
+| **Dropdown Menu**     | A dropdown within a form, allowing users to select from multiple options.                                                    |
+| **Admob Banner** | A widget for displaying AdMob ads in your app, helping you monetize by showing advertisements. |
+| **Video Player** | Allows you to integrate video playback functionality, supporting a range of video formats for in-app video content. |
+| **Youtube Player** | Embeds YouTube videos directly into your app, offering YouTube video playback without leaving the application. |
+| **Lottie Animation** | Enables the use of Lottie files for high-quality, vector-based animations that are lightweight and scalable. |
+| **SVG** | Supports Scalable Vector Graphics (SVG) files, allowing for resolution-independent vector images to be displayed in your app. |
+| **Rive Animation** | A widget to incorporate interactive animations made with Rive, enhancing the visual appeal of your app. |
+| **HTML** | Displays HTML content within your app, useful for rendering web content or rich text without using a web browser. |
+| **Markdown** | Allows you to display text formatted using Markdown syntax, enabling easy styling and structuring of text content. |
+| **WebView** | Embeds a full web browser inside your app, useful for displaying web pages or web applications directly in the app. |
+| **Alert Dialog** | Shows alerts and prompts to the user, ideal for confirming actions or displaying important information. |
+| **Wrap** | A layout widget that arranges its children in multiple horizontal or vertical runs, automatically moving to a new run when there's no space. |
+| **Cross Fade** | Creates a smooth transition between two widgets, blending them over a specified duration to create a fading effect. |

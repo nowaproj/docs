@@ -1,0 +1,17 @@
+---
+sidebar_position: 2
+title: Designer Interface
+description: Overview at Nowa's designer interface
+---
+
+# Designer Interface 🖌️
+
+Let's have a look at the interface of the designer of Nowa, what tools you can find and where:
+
+1. **Designer Board**: This is the board where all your widgets and screen will be created, it's the space where the UI of your app will be built.
+2. **Toolbar**: The toolbar is where you can find the main actions to create designs.
+3. **Details Panel**: Here is where you can find and modify the details of whatever is selected.
+4. **Outline**: The outline is where you can find and reorganise the widget and screens that are on the board.
+5. **Tabs**: Tabs show what is currently open in your project, it can be Designer Boards, Circuit, or other.
+6. **Side bar**: In the side bar you can find the following actions: Data sources, Settings, Files Panel and Shortcuts.
+7. **Bottom Bar**: In the Bottom Bar you can see the name of your project, the status and access the logs window where you can see errors in your project.

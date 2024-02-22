@@ -19,9 +19,9 @@ Nowa creates for you the space where your ideas float smoothly from your brain t
 
 <iframe width="767" height="431" src="https://www.youtube.com/embed/9Q2MZes5lt8" title="Meet Nowa: the first app builder for professionals" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-### Excited to start?
-* Then you can take a look at [getting started](getting_started.md). 
-* You can also subscribe to Nowa's [youtube channel](https://www.youtube.com/channel/UCvP7LKeb2sW1yTUqHAFEKOw) where you will have access to awesome tutorials.
-* You can also join our [discord server](https://discord.com/invite/ByKfn3H7gX) so you can be in direct contact with Nowa's team and other users.
+### Resources 📂
+
+* Subscribe to Nowa's [youtube channel](https://www.youtube.com/channel/UCvP7LKeb2sW1yTUqHAFEKOw) where you will have access to awesome tutorials.
+* Join our [discord server](https://discord.com/invite/ByKfn3H7gX) so you can be in direct contact with Nowa's team and other users.
 
 

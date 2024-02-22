@@ -61,7 +61,7 @@ Let's have a look together at the properties of the text widget that will help y
 ![](./img/editing_text_widget.gif)
 
 
-💡 For more options, all the text properties can be connected to [Variables](../../../variables/create_variables.md).
+💡 For more options, all the text properties can be connected to variables. For more. check out [Using Variables](../../../variables/local_variables/using_vars.md).
 
   
 

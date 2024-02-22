@@ -37,7 +37,7 @@ If you have public variables for the screen you want to navigate to, input pins 
 2.  Typing the values directly if they are numbers or strings.
 3.  Creating a new instance of an object if the type is a custom object.
 
-You can also leave the input pins empty, and the values of the variables will be their default values set during creation. For more information, check out [Creating Variables](../variables/create_variables.md)
+You can also leave the input pins empty, and the values of the variables will be their default values set during creation. For more information, check out [Creating Local Variables](../variables/local%20variables/)
 
 #### An Example from a news app use case
 In this example, we have a news app with two screens: the first screen displays a list of news cards, and the second screen shows the details of the news item that the user clicks on.

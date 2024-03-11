@@ -6,6 +6,38 @@ description: release notes
 
 > Here you will find all released features and bug fixes done for each version 
 
+## 1.5.1
+
+#### New ✨
+
+- Adding status bar in the bottom
+
+
+#### Fixes 🩹
+
+- Fix problem with changing the varibale names
+- Fix some issues in Firebase Firestore
+
+
+
+## 1.5
+
+#### New ✨
+
+- **Firebase Firestore**: You can now connect your app to Firestore, create collections, perform queries, and more! (tutorial is coming soon 😉)
+
+- **Error system**:  Errors are now shown in the bottom tab. If  you click on one of them, it will take you to the error location so you can fix it. No more of finding errors while deploying!
+
+- **New UI**: We are changing the UI to a complete new one that will make building apps way easier and more exciting! we just released the first part of the new UI, with the rest coming on the way!
+
+#### Fixes 🩹
+- Fix a bug that caused a failure in deploying a release version for Android
+- Fixing some bugs in the UI
+- Some performance improvement
+
+![](./img_releasenotes/v1.5.png)
+
+
 ## 1.4.2
 
 #### New ✨

@@ -131,11 +131,11 @@ If you don't have an Apple Distribution Certificate, select **Generate a new key
 Apple limits you to a **maximum of three certificates in your account.** If you reach this limit and choose to generate a new key in Nowa, **your app signing will fail during the build process**.
 
 For this reason, we recommend using a single certificate to sign all your apps. If several developers share the same account, each can use their own certificate up to the maximum of three. If you have more than three developers, we recommend sharing certificates between developers.
-:::warning
+:::
 
 :::caution
 It's crucial to use the same certificate for all updates to your app. If you try to push an update using a different certificate, it will be rejected. Whichever certificate you use to push the first version of your app, be sure to continue using that one for all updates.
-:::caution
+:::
 
 ---
 

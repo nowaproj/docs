@@ -1,9 +1,0 @@
-{
-    "label": "Advanced 👨‍🔧",
-    "position": 6,
-    "link": {
-      "slug": "variables/advanced",
-      "type": "generated-index",
-      "description": "Advance topics in variables"
-    }
-  }

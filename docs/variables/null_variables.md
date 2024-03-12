@@ -1,5 +1,5 @@
 ---
-sidebar_position: 5
+sidebar_position: 7
 title: Adding null
 description: How to add null to properties 
 ---

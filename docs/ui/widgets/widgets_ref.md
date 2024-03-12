@@ -8,7 +8,6 @@ Here's a list of the all widgets that you can use to create an astonihsing UI de
 
 
 
-
 | **Widget**           | **Description**                                                                                                              |
 |----------------------|------------------------------------------------------------------------------------------------------------------------------|
 | [**Container**](./widget_desc/container.md)        | Combines tasks like painting, positioning, and sizing into one widget.                                                        |
@@ -27,7 +26,7 @@ Here's a list of the all widgets that you can use to create an astonihsing UI de
 | [**Icon**](./widget_desc/icon.md)            | Allows selection from the Material Design icon set.                                                                          |
 | **Navigation Bar**   | Helps users easily explore and switch between primary app areas.                                                            |
 | **Drawer**           | A side panel that slides in, showing navigation options within an app.                                                       |
-| [**List Tile**](./widget_desc/listtile.md))        | A single-height row, often holding text and icons, designed for list use.                                                    |
+| [**List Tile**](./widget_desc/listtile.md)        | A single-height row, often holding text and icons, designed for list use.                                                    |
 | **Page View**        | A scrollable list that moves a page at a time, allowing sideways navigation between widget children.                        |
 | **Index Stack**      | Shows one child from a list based on the given index, but keeps the states of other children unchanged.                     |
 | **Dropdown Menu**     | A dropdown within a form, allowing users to select from multiple options.                                                    |

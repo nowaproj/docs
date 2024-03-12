@@ -18,6 +18,19 @@ description: release notes
 - Fix problem with changing the varibale names
 - Fix some issues in Firebase Firestore
 
+#### New documentation and tutorials 📜
+- [How to make your screen design responsive (mini tutorial)](./mini_tutorials/design_responsive.md)
+- New documentation for the following widgets:
+  - [Checkbox](./ui/widgets/widget_desc/checkbox.md)
+  - [Icon](./ui/widgets/widget_desc/icon.md)
+  - [Lottie animations](./ui/widgets/widget_desc/lottie.md)
+  - [Rive animations](./ui/widgets/widget_desc/rive.md)
+  - [HTML widget](./ui/widgets/widget_desc/html.md)
+  - [Markdown widget](./ui/widgets/widget_desc/markdown.md)
+  - [ListTile](./ui/widgets/widget_desc/listtile.md)
+  - [Loading circular](./ui/widgets/widget_desc/loading_circular.md)
+- [Updating the Component page](./ui/components.md)
+
 
 
 ## 1.5

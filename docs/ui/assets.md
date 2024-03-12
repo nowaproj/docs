@@ -79,7 +79,6 @@ You can also **drop the font file itself from the assets pop up onto the board**
 
  ![](./img/import_fonts.gif)
 
-
 ---
 
 

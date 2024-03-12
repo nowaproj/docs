@@ -1,3 +1,9 @@
+---
+sidebar_position: 2
+title: Make screen responsive
+description: How to make your design responsive to many screen sizes
+---
+
 # How to make a screen responsive
 
 In this section, we will have a look at how to make a screen responsive using columns and rows, and the layout features. 

@@ -132,7 +132,7 @@ description: release notes
 
 - **Error text in the Text Field:** Show error messages within TextField widget
 
-- **Ability to add null to variables that accepts null**: Now you can assign null to variables in circuit or details panel. [Click here to see how](./variables/advanced/null_variables.md)
+- **Ability to add null to variables that accepts null**: Now you can assign null to variables in circuit or details panel. [Click here to see how](./variables/null_variables.md)
 
 - **Adding advanced device previewer**: Choose the device type, orientation, and other settings while previewing your app
 

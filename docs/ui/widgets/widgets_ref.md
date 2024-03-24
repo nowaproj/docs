@@ -31,7 +31,7 @@ Here's a list of the all widgets that you can use to create an astonihsing UI de
 | **Index Stack**      | Shows one child from a list based on the given index, but keeps the states of other children unchanged.                     |
 | **Dropdown Menu**     | A dropdown within a form, allowing users to select from multiple options.                                                    |
 | **Admob Banner** | A widget for displaying AdMob ads in your app, helping you monetize by showing advertisements. |
-| **Video Player** | Allows you to integrate video playback functionality, supporting a range of video formats for in-app video content. |
+| [**Video Player**](./widget_desc/video_player.md) | Allows you to integrate video playback functionality, supporting a range of video formats for in-app video content. |
 | **Youtube Player** | Embeds YouTube videos directly into your app, offering YouTube video playback without leaving the application. |
 | [**Lottie Animation**](./widget_desc/lottie.md) | Enables the use of Lottie files for high-quality, vector-based animations that are lightweight and scalable. |
 | **SVG** | Supports Scalable Vector Graphics (SVG) files, allowing for resolution-independent vector images to be displayed in your app. |

@@ -6,6 +6,21 @@ description: release notes
 
 > Here you will find all released features and bug fixes done for each version 
 
+## 1.5.4
+Now you can offer videos in your app! Also, check out how to customize buttons UI the way you like ;)
+
+#### New ✨
+
+- You can now play offline and online videos in your app with [new `Video Player` widget](./ui/widgets/widget_desc/video_player.md).
+
+#### Fixes 🩹
+- Fix a problem of data not being loaded using the API in case of existing of list types
+- Fix a problem for some widgets and wrappers having non-consistant names in different places
+
+#### New documentation and tutorials 📜
+- [How to design your own Custom button - Youtube tutorial](https://www.youtube.com/watch?v=LxdlkzhsFd8)
+
+
 ## 1.5.1
 
 #### New ✨

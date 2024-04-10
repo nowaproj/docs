@@ -4,7 +4,24 @@ description: release notes
 ---
 # Release notes
 
-> Here you will find all released features and bug fixes done for each version 
+> Here you will find all released features and bug fixes done for each version
+
+## 1.5.4
+
+You can add `initState` and `dispose` functions and restore last opened tabs ;) 
+
+#### New ✨
+
+- **Ability to override `initState` and `dispose`**: In Circuit, click on `+` button on the left side next to `Functions`, then choose  `initState` or `dispose` to override them. [For more, click here](./circuit/override_functions.md)
+
+- **Last opened tabs are restored**: no more of opening your boards and tabs again! your last opened tabs will be restored when you reopen your project
+
+#### Fixes 🩹
+- Component crash when reordering wrappers 
+- SVGs not showing in Designer or file picker after uploading them
+- Releasing to Android ends up failing due to conflict in Java version 
+- Error with feedback and Report in sending data
+ 
 
 ## 1.5.4
 Now you can offer videos in your app! Also, check out how to customize buttons UI the way you like ;)

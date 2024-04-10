@@ -6,7 +6,7 @@ description: release notes
 
 > Here you will find all released features and bug fixes done for each version
 
-## 1.5.4
+## 1.5.5
 
 You can add `initState` and `dispose` functions and restore last opened tabs ;) 
 

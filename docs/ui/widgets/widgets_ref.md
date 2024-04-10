@@ -12,7 +12,7 @@ Here's a list of the all widgets that you can use to create an astonihsing UI de
 |----------------------|------------------------------------------------------------------------------------------------------------------------------|
 | [**Container**](./widget_desc/container.md)        | Combines tasks like painting, positioning, and sizing into one widget.                                                        |
 | [**Text**](./widget_desc/text.md)            | Displays text with a specific style.                                                                                         |
-| [**Image**](./widget_desc/image.md)            | Displays a chosen image either online of offline.                                                                                                     |
+| [**Image**](./widget_desc/image.md)            | Displays a chosen image either online or offline.                                                                                                     |
 | [**Button**](./widget_desc/button.md)           | Used to start actions such as sending emails, sharing documents, or liking content.                                          |
 | **Text Field**       | A field for users to type in, often found in forms and dialogs.                                                              |
 | **Group**            | Arranges children in a row, coloum or in a free format                                                      |

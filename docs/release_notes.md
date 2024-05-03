@@ -6,6 +6,34 @@ description: release notes
 
 > Here you will find all released features and bug fixes done for each version
 
+## 1.5.8
+
+Now you can offer reset password 📧, edit variables easy ✍️, with major bug fixing for deploying to IOS 📲
+
+#### New ✨
+
+- **You can now offer "Reset password" in your app:** When using Firebase Authentication and use `email and password` as a sign up option, you will be able now to send the user a reset password email automatically. You will find the node `SendPasswordResetEmail` under `Firebase` category in the menu after enabling Firebase Auth.
+
+- **You can edit any variables linked to a widget property directly**: By clicking on the variable itself in the details panel, then on `Edit` to change the name, default value, etc. No need to switch to the variables tab anymore.
+
+#### Fixes 🩹
+
+- **Fix the problem `Certificate not found` when deploying to iOS**: *If you had this problem, be sure to delete your App store credentials from the project, close the popup, then open it and enter the credentials  again:warning:*
+- Fix the problem of the component/screen latest sizes not being taken when dropping it again from the palette   
+- Fix Admob not displaying when deploying to iOS
+- Fix not being able to add a Wrapper to a placeholder in a list when the list `children` property is connected to a variable 
+
+
+## 1.5.7
+
+#### Fixes 🩹
+
+- Fix problem with using Supabase (`class not found`)
+- Fix some problems with the API
+- Fix connecting the SVG widget asset file to a variable
+- Fix the problem of `if statement` node not connecting in circuit
+
+
 ## 1.5.5
 
 You can add `initState` and `dispose` functions and restore last opened tabs ;) 

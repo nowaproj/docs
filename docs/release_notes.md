@@ -6,7 +6,7 @@ description: release notes
 
 > Here you will find all released features and bug fixes done for each version
 
-## 1.5.8
+## 1.5.8  (2 May 2024)
 
 Now you can offer reset password 📧, edit variables easy ✍️, with major bug fixing for deploying to IOS 📲
 
@@ -30,7 +30,7 @@ Now you can offer reset password 📧, edit variables easy ✍️, with major bu
 - Fix not being able to add a Wrapper to a placeholder in a list when the list `children` property is connected to a variable 
 
 
-## 1.5.7
+## 1.5.7 (20 April 2024)
 
 #### Fixes 🩹
 
@@ -40,7 +40,7 @@ Now you can offer reset password 📧, edit variables easy ✍️, with major bu
 - Fix the problem of `if statement` node not connecting in circuit
 
 
-## 1.5.5
+## 1.5.5 (10 April 2024)
 
 You can add `initState` and `dispose` functions and restore last opened tabs ;) 
 

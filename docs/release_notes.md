@@ -14,7 +14,13 @@ Now you can offer reset password 📧, edit variables easy ✍️, with major bu
 
 - **You can now offer "Reset password" in your app:** When using Firebase Authentication and use `email and password` as a sign up option, you will be able now to send the user a reset password email automatically. You will find the node `SendPasswordResetEmail` under `Firebase` category in the menu after enabling Firebase Auth.
 
+![](./img_releasenotes/1.5.8/forget_password.png)
+
+
 - **You can edit any variables linked to a widget property directly**: By clicking on the variable itself in the details panel, then on `Edit` to change the name, default value, etc. No need to switch to the variables tab anymore.
+
+![](./img_releasenotes/1.5.8/edit_var.png)
+
 
 #### Fixes 🩹
 

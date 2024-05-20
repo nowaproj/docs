@@ -6,6 +6,38 @@ description: release notes
 
 > Here you will find all released features and bug fixes done for each version
 
+## 1.6  (20 May 2024)
+
+A big upgrade on Firestore is here! you can now use Firestore full power in building advanced queries and using Streams next to Futures! Also with this release, you can use SharedPrefrence to save data locally.
+
+#### **New ✨**
+
+- **A big upgrade on Firestore integration:** we just made it super powerful! You can create collections and subcollections, build advanced queries, test queries quickly before implementing it, and even live updating with Streams! (*Full tutorial will be released soon*)
+
+- **Store data locally with Shared Preferences:** you can now store and fetch variables saved locally in the device. You will find (set, get and clear) nodes in `Circuit` under `Shared Preferences` section.
+
+- **Different types of Navigation methods**: We upgraded the navigation system to support multiple methods such as  `push`, `pushReplacement`, `pop` and `pushandremoveuntil`. This is useful in cases such as Login screens or Splash screen when you don't want users to be able to go back to those screens after passing them. To use it, you will find a new node called `Navigator` in Circuit.
+
+- **Image picker**: You can now use `Image picker`object in Circuit to enable users to pick images from their gallery or camera. 
+
+- **Import API from Postman**: if you using Postman already, you can import all requests from Postman to Nowa in a single click!
+
+#### Fixes 🩹
+
+- App Icon not updating correctly in some cases.
+- Build fails for Android when changing the package name.
+- Build number not updated correctly when code is downloaded.
+- A problem in generated code when a screen file is deleted from the project.
+- Some problems in Firebase Firestore for some queries.
+- Some bugs in the UI designer
+
+#### **Improvements 👀**
+- You can see the types of input and output pins in Circuit when hovering over them.
+- You can filter built-in widgets or user-made components in Widget picker. 
+- New UI for settings page.
+
+---
+
 ## 1.5.8  (2 May 2024)
 
 Now you can offer reset password 📧, edit variables easy ✍️, with major bug fixing for deploying to IOS 📲

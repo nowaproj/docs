@@ -10,7 +10,7 @@
 
 
 <link rel="search" type="application/opensearchdescription+xml" title="Nowa Documentation" href="/opensearch.xml"><link rel="stylesheet" href="/assets/css/styles.1ae893a8.css">
-<script src="/assets/js/runtime~main.cae94511.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.3aad5a0c.js" defer="defer"></script>
 <script src="/assets/js/main.4255b077.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -18,9 +18,48 @@
 <blockquote>
 <p>Here you will find all released features and bug fixes done for each version</p>
 </blockquote>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="161--31-may-2024">1.6.1  (31 May 2024)<a href="#161--31-may-2024" class="hash-link" aria-label="Direct link to 1.6.1  (31 May 2024)" title="Direct link to 1.6.1  (31 May 2024)">​</a></h2>
+<p>You can now build fully customized AudioPlayer inside your app! We also introducing pre-built components, checking current platform with other improvements and bug fixing!</p>
+<p><img decoding="async" loading="lazy" src="/assets/images/1.6.1-3e68fef9a4ad5a0feb2868666c321eef.png" width="2043" height="2459" class="img_ev3q"></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="new-"><strong>New ✨</strong><a href="#new-" class="hash-link" aria-label="Direct link to new-" title="Direct link to new-">​</a></h4>
+<ul>
+<li>
+<p><strong>Build a fully customized AudioPlayer</strong>: It’s time for you to build a fully customized Audio player for your app! There’s multiple ways to so:</p>
+<ul>
+<li>
+<p>Use a full Screen template: you will find AudioPlayerPage screen that has a full Audio player screen already built-in.</p>
+</li>
+<li>
+<p>Use the pre-built Audio player component: we have introduced a new tab inside the Screen panel called Components. Inside, you will have already-built components such as a newAudioPlayer component.</p>
+</li>
+<li>
+<p>Build it fully from scratch: with using widgets as the Slider and creating a variable of type AudioPlayerComponent, you can build all the details from scratch. We will release later a tutorial on how to do that but you can already figure it out by looking into the already-built version</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>New Pre-built components</strong>: Inside Screens panel, you will find a new tab called Components that has new pre-built components to import to your project. For now, we introduced AudioPlayer and Google sign in button components. When you click on one of them, Nowa will add that component to your project (it will create a new file in your project for that component. You will be able to reuse it later by heading to Components tab in the widget picker, which usually has your existing project components).</p>
+</li>
+<li>
+<p><strong>Checking current platform in Logic</strong>: If you want to build a condition according to what platform is your app running on, you can do that by using CheckPlatform node in Circuit under Globals section. It will return a boolean value wether the app running on the platform you asked for or not.</p>
+</li>
+<li>
+<p><strong>Control the visibility of widgets</strong>: Wrap any widget under Visibility wrapper to control wether to make it visible or not (you can also attach a logic to the visible property to calculate wether to keep that widget visible or not).</p>
+</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="fixes-">Fixes 🩹<a href="#fixes-" class="hash-link" aria-label="Direct link to Fixes 🩹" title="Direct link to Fixes 🩹">​</a></h4>
+<ul>
+<li>Fix of iOS build problem that appeared in the previous release v1.6.0</li>
+<li>Fix of not being able to pass parameters between screens using the new - Navigator option that was released in v1.6</li>
+<li>Fixing of screen crashing when moving Data builder wrapper</li>
+<li>Fixing of Circuit freezing in some cases ​</li>
+<li>Fixing of Undo problems when switching tabs</li>
+<li>Fixing of build problems when deleting screens or components from the project</li>
+</ul>
+<hr>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="16--20-may-2024">1.6  (20 May 2024)<a href="#16--20-may-2024" class="hash-link" aria-label="Direct link to 1.6  (20 May 2024)" title="Direct link to 1.6  (20 May 2024)">​</a></h2>
 <p>A big upgrade on Firestore is here! you can now use Firestore full power in building advanced queries and using Streams next to Futures! Also with this release, you can use SharedPrefrence to save data locally.</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="new-"><strong>New ✨</strong><a href="#new-" class="hash-link" aria-label="Direct link to new-" title="Direct link to new-">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="new--1"><strong>New ✨</strong><a href="#new--1" class="hash-link" aria-label="Direct link to new--1" title="Direct link to new--1">​</a></h4>
 <ul>
 <li>
 <p><strong>A big upgrade on Firestore integration:</strong> we just made it super powerful! You can create collections and subcollections, build advanced queries, test queries quickly before implementing it, and even live updating with Streams! (<em>Full tutorial will be released soon</em>)</p>
@@ -38,7 +77,7 @@
 <p><strong>Import API from Postman</strong>: if you using Postman already, you can import all requests from Postman to Nowa in a single click!</p>
 </li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="fixes-">Fixes 🩹<a href="#fixes-" class="hash-link" aria-label="Direct link to Fixes 🩹" title="Direct link to Fixes 🩹">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="fixes--1">Fixes 🩹<a href="#fixes--1" class="hash-link" aria-label="Direct link to Fixes 🩹" title="Direct link to Fixes 🩹">​</a></h4>
 <ul>
 <li>App Icon not updating correctly in some cases.</li>
 <li>Build fails for Android when changing the package name.</li>
@@ -56,7 +95,7 @@
 <hr>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="158--2-may-2024">1.5.8  (2 May 2024)<a href="#158--2-may-2024" class="hash-link" aria-label="Direct link to 1.5.8  (2 May 2024)" title="Direct link to 1.5.8  (2 May 2024)">​</a></h2>
 <p>Now you can offer reset password 📧, edit variables easy ✍️, with major bug fixing for deploying to IOS 📲</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="new--1">New ✨<a href="#new--1" class="hash-link" aria-label="Direct link to New ✨" title="Direct link to New ✨">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="new--2">New ✨<a href="#new--2" class="hash-link" aria-label="Direct link to New ✨" title="Direct link to New ✨">​</a></h4>
 <ul>
 <li><strong>You can now offer &quot;Reset password&quot; in your app:</strong> When using Firebase Authentication and use <code>email and password</code> as a sign up option, you will be able now to send the user a reset password email automatically. You will find the node <code>SendPasswordResetEmail</code> under <code>Firebase</code> category in the menu after enabling Firebase Auth.</li>
 </ul>
@@ -65,7 +104,7 @@
 <li><strong>You can edit any variables linked to a widget property directly</strong>: By clicking on the variable itself in the details panel, then on <code>Edit</code> to change the name, default value, etc. No need to switch to the variables tab anymore.</li>
 </ul>
 <p><img decoding="async" loading="lazy" src="/assets/images/edit_var-6910d24c494bac6bf6f9b33a0d3b4595.png" width="930" height="984" class="img_ev3q"></p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="fixes--1">Fixes 🩹<a href="#fixes--1" class="hash-link" aria-label="Direct link to Fixes 🩹" title="Direct link to Fixes 🩹">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="fixes--2">Fixes 🩹<a href="#fixes--2" class="hash-link" aria-label="Direct link to Fixes 🩹" title="Direct link to Fixes 🩹">​</a></h4>
 <ul>
 <li><strong>Fix the problem <code>Certificate not found</code> when deploying to iOS</strong>: <em>If you had this problem, be sure to delete your App store credentials from the project, close the popup, then open it and enter the credentials  again<!-- -->⚠️</em></li>
 <li>Fix the problem of the component/screen latest sizes not being taken when dropping it again from the palette</li>
@@ -73,7 +112,7 @@
 <li>Fix not being able to add a Wrapper to a placeholder in a list when the list <code>children</code> property is connected to a variable</li>
 </ul>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="157-20-april-2024">1.5.7 (20 April 2024)<a href="#157-20-april-2024" class="hash-link" aria-label="Direct link to 1.5.7 (20 April 2024)" title="Direct link to 1.5.7 (20 April 2024)">​</a></h2>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="fixes--2">Fixes 🩹<a href="#fixes--2" class="hash-link" aria-label="Direct link to Fixes 🩹" title="Direct link to Fixes 🩹">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="fixes--3">Fixes 🩹<a href="#fixes--3" class="hash-link" aria-label="Direct link to Fixes 🩹" title="Direct link to Fixes 🩹">​</a></h4>
 <ul>
 <li>Fix problem with using Supabase (<code>class not found</code>)</li>
 <li>Fix some problems with the API</li>
@@ -82,7 +121,7 @@
 </ul>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="155-10-april-2024">1.5.5 (10 April 2024)<a href="#155-10-april-2024" class="hash-link" aria-label="Direct link to 1.5.5 (10 April 2024)" title="Direct link to 1.5.5 (10 April 2024)">​</a></h2>
 <p>You can add <code>initState</code> and <code>dispose</code> functions and restore last opened tabs ;)</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="new--2">New ✨<a href="#new--2" class="hash-link" aria-label="Direct link to New ✨" title="Direct link to New ✨">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="new--3">New ✨<a href="#new--3" class="hash-link" aria-label="Direct link to New ✨" title="Direct link to New ✨">​</a></h4>
 <ul>
 <li>
 <p><strong>Ability to override <code>initState</code> and <code>dispose</code></strong>: In Circuit, click on <code>+</code> button on the left side next to <code>Functions</code>, then choose  <code>initState</code> or <code>dispose</code> to override them. <a href="/circuit/override_functions">For more, click here</a></p>
@@ -91,20 +130,20 @@
 <p><strong>Last opened tabs are restored</strong>: no more of opening your boards and tabs again! your last opened tabs will be restored when you reopen your project</p>
 </li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="fixes--3">Fixes 🩹<a href="#fixes--3" class="hash-link" aria-label="Direct link to Fixes 🩹" title="Direct link to Fixes 🩹">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="fixes--4">Fixes 🩹<a href="#fixes--4" class="hash-link" aria-label="Direct link to Fixes 🩹" title="Direct link to Fixes 🩹">​</a></h4>
 <ul>
 <li>Component crash when reordering wrappers</li>
 <li>SVGs not showing in Designer or file picker after uploading them</li>
 <li>Releasing to Android ends up failing due to conflict in Java version</li>
 <li>Error with feedback and Report in sending data</li>
 </ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="154">1.5.4<a href="#154" class="hash-link" aria-label="Direct link to 1.5.4" title="Direct link to 1.5.4">  ​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="154">1.5.4<a href="#154" class="hash-link" aria-label="Direct link to 1.5.4" title="Direct link to 1.5.4">​</a></h2>
 <p>Now you can offer videos in your app! Also, check out how to customize buttons UI the way you like ;)</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="new--3">New ✨<a href="#new--3" class="hash-link" aria-label="Direct link to New ✨" title="Direct link to New ✨">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="new--4">New ✨<a href="#new--4" class="hash-link" aria-label="Direct link to New ✨" title="Direct link to New ✨">​</a></h4>
 <ul>
 <li>You can now play offline and online videos in your app with <a href="/ui/widgets/widget_desc/video_player">new <code>Video Player</code> widget</a>.</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="fixes--4">Fixes 🩹<a href="#fixes--4" class="hash-link" aria-label="Direct link to Fixes 🩹" title="Direct link to Fixes 🩹">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="fixes--5">Fixes 🩹<a href="#fixes--5" class="hash-link" aria-label="Direct link to Fixes 🩹" title="Direct link to Fixes 🩹">​</a></h4>
 <ul>
 <li>Fix a problem of data not being loaded using the API in case of existing of list types</li>
 <li>Fix a problem for some widgets and wrappers having non-consistant names in different places</li>
@@ -114,11 +153,11 @@
 <li><a href="https://www.youtube.com/watch?v=LxdlkzhsFd8" target="_blank" rel="noopener noreferrer">How to design your own Custom button - Youtube tutorial</a></li>
 </ul>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="151">1.5.1<a href="#151" class="hash-link" aria-label="Direct link to 1.5.1" title="Direct link to 1.5.1">​</a></h2>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="new--4">New ✨<a href="#new--4" class="hash-link" aria-label="Direct link to New ✨" title="Direct link to New ✨">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="new--5">New ✨<a href="#new--5" class="hash-link" aria-label="Direct link to New ✨" title="Direct link to New ✨">​</a></h4>
 <ul>
 <li>Adding status bar in the bottom</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="fixes--5">Fixes 🩹<a href="#fixes--5" class="hash-link" aria-label="Direct link to Fixes 🩹" title="Direct link to Fixes 🩹">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="fixes--6">Fixes 🩹<a href="#fixes--6" class="hash-link" aria-label="Direct link to Fixes 🩹" title="Direct link to Fixes 🩹">​</a></h4>
 <ul>
 <li>Fix problem with changing the varibale names</li>
 <li>Fix some issues in Firebase Firestore</li>
@@ -141,7 +180,7 @@
 <li><a href="/ui/components">Updating the Component page</a></li>
 </ul>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="15">1.5<a href="#15" class="hash-link" aria-label="Direct link to 1.5" title="Direct link to 1.5">​</a></h2>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="new--5">New ✨<a href="#new--5" class="hash-link" aria-label="Direct link to New ✨" title="Direct link to New ✨">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="new--6">New ✨<a href="#new--6" class="hash-link" aria-label="Direct link to New ✨" title="Direct link to New ✨">​</a></h4>
 <ul>
 <li>
 <p><strong>Firebase Firestore</strong>: You can now connect your app to Firestore, create collections, perform queries, and more! (tutorial is coming soon 😉)</p>
@@ -153,7 +192,7 @@
 <p><strong>New UI</strong>: We are changing the UI to a complete new one that will make building apps way easier and more exciting! we just released the first part of the new UI, with the rest coming on the way!</p>
 </li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="fixes--6">Fixes 🩹<a href="#fixes--6" class="hash-link" aria-label="Direct link to Fixes 🩹" title="Direct link to Fixes 🩹">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="fixes--7">Fixes 🩹<a href="#fixes--7" class="hash-link" aria-label="Direct link to Fixes 🩹" title="Direct link to Fixes 🩹">​</a></h4>
 <ul>
 <li>Fix a bug that caused a failure in deploying a release version for Android</li>
 <li>Fixing some bugs in the UI</li>
@@ -161,7 +200,7 @@
 </ul>
 <p><img decoding="async" loading="lazy" src="/assets/images/v1.5-485c031b84e54c82a49848ee4d3b2a52.png" width="1400" height="600" class="img_ev3q"></p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="142">1.4.2<a href="#142" class="hash-link" aria-label="Direct link to 1.4.2" title="Direct link to 1.4.2">​</a></h2>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="new--6">New ✨<a href="#new--6" class="hash-link" aria-label="Direct link to New ✨" title="Direct link to New ✨">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="new--7">New ✨<a href="#new--7" class="hash-link" aria-label="Direct link to New ✨" title="Direct link to New ✨">​</a></h4>
 <ul>
 <li>Show unsaved files in the unsaved changes popup</li>
 <li>Adding shrinkwrap option to HTML to make it&#x27;s height dyanmic</li>
@@ -170,7 +209,7 @@
 <li>New UI for the active plan and for comparison between plans</li>
 <li>Add advanced options to gesture detector and inkwell</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="fixes--7">Fixes 🩹<a href="#fixes--7" class="hash-link" aria-label="Direct link to Fixes 🩹" title="Direct link to Fixes 🩹">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="fixes--8">Fixes 🩹<a href="#fixes--8" class="hash-link" aria-label="Direct link to Fixes 🩹" title="Direct link to Fixes 🩹">​</a></h4>
 <ul>
 <li>Fix color field crashing when changing the opacity</li>
 <li>Fix project loading when using global variables</li>
@@ -181,7 +220,7 @@
 <li>Fix problems with the selection of multiple widgets</li>
 </ul>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="140">1.4.0<a href="#140" class="hash-link" aria-label="Direct link to 1.4.0" title="Direct link to 1.4.0">​</a></h2>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="new--7">New ✨<a href="#new--7" class="hash-link" aria-label="Direct link to New ✨" title="Direct link to New ✨">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="new--8">New ✨<a href="#new--8" class="hash-link" aria-label="Direct link to New ✨" title="Direct link to New ✨">​</a></h4>
 <ul>
 <li>Adding the option to <strong>creare Global state</strong></li>
 </ul>
@@ -190,7 +229,7 @@
 <li>Adding default text style wrapper and text directionality wrapper to give a style for all texts blow it</li>
 <li>Adding Apk debug: to build an APK test version fast without signing key</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="fixes--8">Fixes 🩹<a href="#fixes--8" class="hash-link" aria-label="Direct link to Fixes 🩹" title="Direct link to Fixes 🩹">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="fixes--9">Fixes 🩹<a href="#fixes--9" class="hash-link" aria-label="Direct link to Fixes 🩹" title="Direct link to Fixes 🩹">​</a></h4>
 <ul>
 <li>Fix circular dependencies problems (ex, when two screens use each other)</li>
 <li>Improve the speed and fix some issues in project loading</li>
@@ -200,7 +239,7 @@
 </ul>
 <hr>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="13">1.3<a href="#13" class="hash-link" aria-label="Direct link to 1.3" title="Direct link to 1.3">​</a></h2>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="new--8">New ✨<a href="#new--8" class="hash-link" aria-label="Direct link to New ✨" title="Direct link to New ✨">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="new--9">New ✨<a href="#new--9" class="hash-link" aria-label="Direct link to New ✨" title="Direct link to New ✨">​</a></h4>
 <ul>
 <li><strong>A full new variables system:</strong> now you can create parameters and variables for screens or components:<!-- -->
 <ul>
@@ -222,14 +261,14 @@
 <li>Adding the option to <strong>create Gradients</strong></li>
 </ul>
 <img src="/assets/images/gradient-c85ce3795ee16a3dd124a4e0b9167e82.png" width="650">
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="fixes--9">Fixes 🩹<a href="#fixes--9" class="hash-link" aria-label="Direct link to Fixes 🩹" title="Direct link to Fixes 🩹">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="fixes--10">Fixes 🩹<a href="#fixes--10" class="hash-link" aria-label="Direct link to Fixes 🩹" title="Direct link to Fixes 🩹">​</a></h4>
 <ul>
 <li>Usability enhancements</li>
 <li>Fixing some bugs with the Circuit</li>
 </ul>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="v122">v1.2.2<a href="#v122" class="hash-link" aria-label="Direct link to v1.2.2" title="Direct link to v1.2.2">​</a></h2>
 <p><img decoding="async" loading="lazy" src="/assets/images/version121-c55c76ed29027b5b091dbd61efe8c5be.png" width="3173" height="1451" class="img_ev3q"></p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="new--9">New ✨<a href="#new--9" class="hash-link" aria-label="Direct link to New ✨" title="Direct link to New ✨">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="new--10">New ✨<a href="#new--10" class="hash-link" aria-label="Direct link to New ✨" title="Direct link to New ✨">​</a></h4>
 <ul>
 <li>
 <p><strong>A new Wrap widget</strong>: : Widgets now can rearrange themselves inside a wrap widget</p>
@@ -261,14 +300,14 @@
 <li>Double click to zoom into any widget (also press F to focus on selection): No need to look for them on the board anymore!</li>
 <li>Clicking on a widget focuses on it in the outline</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="fixes--10">Fixes 🩹<a href="#fixes--10" class="hash-link" aria-label="Direct link to Fixes 🩹" title="Direct link to Fixes 🩹">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="fixes--11">Fixes 🩹<a href="#fixes--11" class="hash-link" aria-label="Direct link to Fixes 🩹" title="Direct link to Fixes 🩹">​</a></h4>
 <ul>
 <li>Markdown can be sized automatically</li>
 <li>Pinch to zoom on web</li>
 <li>Fix youtube change video id</li>
 </ul>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="v121">v1.2.1<a href="#v121" class="hash-link" aria-label="Direct link to v1.2.1" title="Direct link to v1.2.1">​</a></h2>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="new--10">New ✨<a href="#new--10" class="hash-link" aria-label="Direct link to New ✨" title="Direct link to New ✨">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="new--11">New ✨<a href="#new--11" class="hash-link" aria-label="Direct link to New ✨" title="Direct link to New ✨">​</a></h4>
 <ol>
 <li>
 <p>Added <strong>Youtube</strong> widget</p>
@@ -286,7 +325,7 @@
 <li>Added <strong>API Collection settings</strong> : you can now add settings on the Collection level, such as the Base Url and headers, and they will be automatically included in the requests inside that collection so you don&#x27;t have to keep adding headers or baseURL with every request you add.</li>
 </ol>
 <img src="/assets/images/collections-aa58fa584aeb0cd840b070f611d3f0b7.gif" width="650">
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="fixes--11">Fixes 🩹<a href="#fixes--11" class="hash-link" aria-label="Direct link to Fixes 🩹" title="Direct link to Fixes 🩹">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="fixes--12">Fixes 🩹<a href="#fixes--12" class="hash-link" aria-label="Direct link to Fixes 🩹" title="Direct link to Fixes 🩹">​</a></h4>
 <ol>
 <li>
 <p>Fix missing dependency error on the board</p>
@@ -300,7 +339,7 @@
 </ol>
 <hr>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="v120">v1.2.0<a href="#v120" class="hash-link" aria-label="Direct link to v1.2.0" title="Direct link to v1.2.0">​</a></h2>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="new--11">New ✨<a href="#new--11" class="hash-link" aria-label="Direct link to New ✨" title="Direct link to New ✨">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="new--12">New ✨<a href="#new--12" class="hash-link" aria-label="Direct link to New ✨" title="Direct link to New ✨">​</a></h4>
 <ol>
 <li>
 <p>Added support for <strong>more API requests</strong> like POST, UPDATE, PUT, DELETE... read more about it <a href="/data/post_request">here</a></p>
@@ -309,7 +348,7 @@
 <p>Added <strong>Rive widget</strong></p>
 </li>
 </ol>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="fixes--12">Fixes 🩹<a href="#fixes--12" class="hash-link" aria-label="Direct link to Fixes 🩹" title="Direct link to Fixes 🩹">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="fixes--13">Fixes 🩹<a href="#fixes--13" class="hash-link" aria-label="Direct link to Fixes 🩹" title="Direct link to Fixes 🩹">​</a></h4>
 <ol>
 <li>
 <p>Fix change launcher icon fails on iOS</p>
@@ -323,13 +362,13 @@
 </ol>
 <hr>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="v119">v1.1.9<a href="#v119" class="hash-link" aria-label="Direct link to v1.1.9" title="Direct link to v1.1.9">​</a></h2>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="new--12">New ✨<a href="#new--12" class="hash-link" aria-label="Direct link to New ✨" title="Direct link to New ✨">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="new--13">New ✨<a href="#new--13" class="hash-link" aria-label="Direct link to New ✨" title="Direct link to New ✨">​</a></h4>
 <ul>
 <li>Added Lottie animation widget</li>
 <li>Added SVG support</li>
 <li>Added payment management options</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="fixes--13">Fixes 🩹<a href="#fixes--13" class="hash-link" aria-label="Direct link to Fixes 🩹" title="Direct link to Fixes 🩹">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="fixes--14">Fixes 🩹<a href="#fixes--14" class="hash-link" aria-label="Direct link to Fixes 🩹" title="Direct link to Fixes 🩹">​</a></h4>
 <ul>
 <li>Fix Android build issues</li>
 <li>Fix uploading images</li>
@@ -337,7 +376,7 @@
 <li>Code generation improvements</li>
 </ul>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="v118">v1.1.8<a href="#v118" class="hash-link" aria-label="Direct link to v1.1.8" title="Direct link to v1.1.8">​</a></h2>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="new--13">New ✨<a href="#new--13" class="hash-link" aria-label="Direct link to New ✨" title="Direct link to New ✨">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="new--14">New ✨<a href="#new--14" class="hash-link" aria-label="Direct link to New ✨" title="Direct link to New ✨">​</a></h4>
 <ul>
 <li>Adding variables and expressions in text fields</li>
 <li>Realtime connection with Supabase</li>
@@ -345,7 +384,7 @@
 <li>Run and test locally on real devices or emulators and update with hot reload</li>
 <li>Open local project in VSCode if installed</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="fixes--14">Fixes 🩹<a href="#fixes--14" class="hash-link" aria-label="Direct link to Fixes 🩹" title="Direct link to Fixes 🩹">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="fixes--15">Fixes 🩹<a href="#fixes--15" class="hash-link" aria-label="Direct link to Fixes 🩹" title="Direct link to Fixes 🩹">​</a></h4>
 <ul>
 <li>Sorting projects in dashboard</li>
 <li>API get requests fixes</li>
@@ -353,7 +392,7 @@
 <li>Code generation improvements</li>
 </ul>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="v117">v1.1.7<a href="#v117" class="hash-link" aria-label="Direct link to v1.1.7" title="Direct link to v1.1.7">​</a></h2>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="new--14">New ✨<a href="#new--14" class="hash-link" aria-label="Direct link to New ✨" title="Direct link to New ✨">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="new--15">New ✨<a href="#new--15" class="hash-link" aria-label="Direct link to New ✨" title="Direct link to New ✨">​</a></h4>
 <ul>
 <li>Markdown widget</li>
 <li>Webview widget</li>
@@ -365,7 +404,7 @@
 <li>Ability to change app icon</li>
 <li>API request response presented in a pretty format</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="fixes--15">Fixes 🩹<a href="#fixes--15" class="hash-link" aria-label="Direct link to Fixes 🩹" title="Direct link to Fixes 🩹">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="fixes--16">Fixes 🩹<a href="#fixes--16" class="hash-link" aria-label="Direct link to Fixes 🩹" title="Direct link to Fixes 🩹">​</a></h4>
 <ul>
 <li>Fix: Parameter names use proper names instead of p0, p1...</li>
 <li>Fix: Supabase crashing the project</li>
@@ -374,11 +413,11 @@
 <li>Fix: Adding pop up message when importation fails</li>
 </ul>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="v10x">v1.0.x<a href="#v10x" class="hash-link" aria-label="Direct link to v1.0.x" title="Direct link to v1.0.x">​</a></h2>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="new--15">New ✨<a href="#new--15" class="hash-link" aria-label="Direct link to New ✨" title="Direct link to New ✨">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="new--16">New ✨<a href="#new--16" class="hash-link" aria-label="Direct link to New ✨" title="Direct link to New ✨">​</a></h4>
 <ul>
 <li>Adding cut action</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="fixes--16">Fixes 🩹<a href="#fixes--16" class="hash-link" aria-label="Direct link to Fixes 🩹" title="Direct link to Fixes 🩹">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="fixes--17">Fixes 🩹<a href="#fixes--17" class="hash-link" aria-label="Direct link to Fixes 🩹" title="Direct link to Fixes 🩹">​</a></h4>
 <ul>
 <li>Fix: Undo in files panel</li>
 <li>Fix: font not saving</li>
@@ -391,7 +430,7 @@
 <li>Fix: Sharing for gives users the same plan as the owner</li>
 </ul>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="036">0.3.6<a href="#036" class="hash-link" aria-label="Direct link to 0.3.6" title="Direct link to 0.3.6">​</a></h2>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="new--16">New ✨<a href="#new--16" class="hash-link" aria-label="Direct link to New ✨" title="Direct link to New ✨">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="new--17">New ✨<a href="#new--17" class="hash-link" aria-label="Direct link to New ✨" title="Direct link to New ✨">​</a></h4>
 <ul>
 <li>New widgets: Bottom navigation bar, Drawer, ListTile, ListView, InkWell, Material</li>
 <li>Changed the default sizes for new widgets to be more accurate</li>
@@ -411,7 +450,7 @@
 <li>Fix: some undo/redo problems</li>
 </ul>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="035">0.3.5<a href="#035" class="hash-link" aria-label="Direct link to 0.3.5" title="Direct link to 0.3.5">​</a></h2>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="new--17">New ✨<a href="#new--17" class="hash-link" aria-label="Direct link to New ✨" title="Direct link to New ✨">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="new--18">New ✨<a href="#new--18" class="hash-link" aria-label="Direct link to New ✨" title="Direct link to New ✨">​</a></h4>
 <ul>
 <li>Added spacing to row/columns</li>
 <li>Added ungroup option</li>
@@ -430,6 +469,6 @@
 <li>Fix: Ability to modify layout for multiple widgets in the same time</li>
 <li>Fix: Constraints work with drag and drop with all different</li>
 <li>Fix: resizing one axis doesn&#x27;t break the layout of the other axis</li>
-</ul></div></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Intro</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/getting_started"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Getting Started</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#16--20-may-2024" class="table-of-contents__link toc-highlight">1.6  (20 May 2024)</a></li><li><a href="#158--2-may-2024" class="table-of-contents__link toc-highlight">1.5.8  (2 May 2024)</a></li><li><a href="#157-20-april-2024" class="table-of-contents__link toc-highlight">1.5.7 (20 April 2024)</a></li><li><a href="#155-10-april-2024" class="table-of-contents__link toc-highlight">1.5.5 (10 April 2024)</a></li><li><a href="#154" class="table-of-contents__link toc-highlight">1.5.4</a></li><li><a href="#151" class="table-of-contents__link toc-highlight">1.5.1</a></li><li><a href="#15" class="table-of-contents__link toc-highlight">1.5</a></li><li><a href="#142" class="table-of-contents__link toc-highlight">1.4.2</a></li><li><a href="#140" class="table-of-contents__link toc-highlight">1.4.0</a></li><li><a href="#13" class="table-of-contents__link toc-highlight">1.3</a></li><li><a href="#v122" class="table-of-contents__link toc-highlight">v1.2.2</a></li><li><a href="#v121" class="table-of-contents__link toc-highlight">v1.2.1</a></li><li><a href="#v120" class="table-of-contents__link toc-highlight">v1.2.0</a></li><li><a href="#v119" class="table-of-contents__link toc-highlight">v1.1.9</a></li><li><a href="#v118" class="table-of-contents__link toc-highlight">v1.1.8</a></li><li><a href="#v117" class="table-of-contents__link toc-highlight">v1.1.7</a></li><li><a href="#v10x" class="table-of-contents__link toc-highlight">v1.0.x</a></li><li><a href="#036" class="table-of-contents__link toc-highlight">0.3.6</a></li><li><a href="#035" class="table-of-contents__link toc-highlight">0.3.5</a></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Product</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://nowa.dev" target="_blank" rel="noopener noreferrer" class="footer__link-item">Main website<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://app.nowa.dev/signup" target="_blank" rel="noopener noreferrer" class="footer__link-item">Get started with Nowa<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://app.nowa.dev" target="_blank" rel="noopener noreferrer" class="footer__link-item">Sign In<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div><div class="col footer__col"><div class="footer__title">Resources &amp; Communities</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://www.youtube.com/channel/UCvP7LKeb2sW1yTUqHAFEKOw" target="_blank" rel="noopener noreferrer" class="footer__link-item">Youtube<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://discord.gg/ByKfn3H7gX" target="_blank" rel="noopener noreferrer" class="footer__link-item">Discord<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://www.reddit.com/r/nowa/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Reddit<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div><div class="col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://www.instagram.com/nowa.dev/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Instagram<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://www.linkedin.com/company/nowaengine/" target="_blank" rel="noopener noreferrer" class="footer__link-item">LinkedIn<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://twitter.com/nowa_dev" target="_blank" rel="noopener noreferrer" class="footer__link-item">Twitter<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2024 Nowa. All rights reserved</div></div></div></footer></div>
+</ul></div></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Intro</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/getting_started"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Getting Started</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#161--31-may-2024" class="table-of-contents__link toc-highlight">1.6.1  (31 May 2024)</a></li><li><a href="#16--20-may-2024" class="table-of-contents__link toc-highlight">1.6  (20 May 2024)</a></li><li><a href="#158--2-may-2024" class="table-of-contents__link toc-highlight">1.5.8  (2 May 2024)</a></li><li><a href="#157-20-april-2024" class="table-of-contents__link toc-highlight">1.5.7 (20 April 2024)</a></li><li><a href="#155-10-april-2024" class="table-of-contents__link toc-highlight">1.5.5 (10 April 2024)</a></li><li><a href="#154" class="table-of-contents__link toc-highlight">1.5.4</a></li><li><a href="#151" class="table-of-contents__link toc-highlight">1.5.1</a></li><li><a href="#15" class="table-of-contents__link toc-highlight">1.5</a></li><li><a href="#142" class="table-of-contents__link toc-highlight">1.4.2</a></li><li><a href="#140" class="table-of-contents__link toc-highlight">1.4.0</a></li><li><a href="#13" class="table-of-contents__link toc-highlight">1.3</a></li><li><a href="#v122" class="table-of-contents__link toc-highlight">v1.2.2</a></li><li><a href="#v121" class="table-of-contents__link toc-highlight">v1.2.1</a></li><li><a href="#v120" class="table-of-contents__link toc-highlight">v1.2.0</a></li><li><a href="#v119" class="table-of-contents__link toc-highlight">v1.1.9</a></li><li><a href="#v118" class="table-of-contents__link toc-highlight">v1.1.8</a></li><li><a href="#v117" class="table-of-contents__link toc-highlight">v1.1.7</a></li><li><a href="#v10x" class="table-of-contents__link toc-highlight">v1.0.x</a></li><li><a href="#036" class="table-of-contents__link toc-highlight">0.3.6</a></li><li><a href="#035" class="table-of-contents__link toc-highlight">0.3.5</a></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Product</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://nowa.dev" target="_blank" rel="noopener noreferrer" class="footer__link-item">Main website<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://app.nowa.dev/signup" target="_blank" rel="noopener noreferrer" class="footer__link-item">Get started with Nowa<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://app.nowa.dev" target="_blank" rel="noopener noreferrer" class="footer__link-item">Sign In<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div><div class="col footer__col"><div class="footer__title">Resources &amp; Communities</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://www.youtube.com/channel/UCvP7LKeb2sW1yTUqHAFEKOw" target="_blank" rel="noopener noreferrer" class="footer__link-item">Youtube<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://discord.gg/ByKfn3H7gX" target="_blank" rel="noopener noreferrer" class="footer__link-item">Discord<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://www.reddit.com/r/nowa/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Reddit<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div><div class="col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://www.instagram.com/nowa.dev/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Instagram<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://www.linkedin.com/company/nowaengine/" target="_blank" rel="noopener noreferrer" class="footer__link-item">LinkedIn<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://twitter.com/nowa_dev" target="_blank" rel="noopener noreferrer" class="footer__link-item">Twitter<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2024 Nowa. All rights reserved</div></div></div></footer></div>
 </body>
 </html>

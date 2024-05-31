@@ -6,6 +6,39 @@ description: release notes
 
 > Here you will find all released features and bug fixes done for each version
 
+## 1.6.1  (31 May 2024)
+
+You can now build fully customized AudioPlayer inside your app! We also introducing pre-built components, checking current platform with other improvements and bug fixing!
+
+![](./img_releasenotes/1.6.1.png)
+
+
+#### **New ✨**
+
+- **Build a fully customized AudioPlayer**: It’s time for you to build a fully customized Audio player for your app! There’s multiple ways to so:
+
+  - Use a full Screen template: you will find AudioPlayerPage screen that has a full Audio player screen already built-in.
+
+  - Use the pre-built Audio player component: we have introduced a new tab inside the Screen panel called Components. Inside, you will have already-built components such as a newAudioPlayer component.
+
+  - Build it fully from scratch: with using widgets as the Slider and creating a variable of type AudioPlayerComponent, you can build all the details from scratch. We will release later a tutorial on how to do that but you can already figure it out by looking into the already-built version
+
+- **New Pre-built components**: Inside Screens panel, you will find a new tab called Components that has new pre-built components to import to your project. For now, we introduced AudioPlayer and Google sign in button components. When you click on one of them, Nowa will add that component to your project (it will create a new file in your project for that component. You will be able to reuse it later by heading to Components tab in the widget picker, which usually has your existing project components).
+
+- **Checking current platform in Logic**: If you want to build a condition according to what platform is your app running on, you can do that by using CheckPlatform node in Circuit under Globals section. It will return a boolean value wether the app running on the platform you asked for or not.
+
+- **Control the visibility of widgets**: Wrap any widget under Visibility wrapper to control wether to make it visible or not (you can also attach a logic to the visible property to calculate wether to keep that widget visible or not).
+
+#### Fixes 🩹
+- Fix of iOS build problem that appeared in the previous release v1.6.0
+- Fix of not being able to pass parameters between screens using the new - Navigator option that was released in v1.6
+- Fixing of screen crashing when moving Data builder wrapper
+- Fixing of Circuit freezing in some cases ​
+- Fixing of Undo problems when switching tabs
+- Fixing of build problems when deleting screens or components from the project
+
+
+---
 ## 1.6  (20 May 2024)
 
 A big upgrade on Firestore is here! you can now use Firestore full power in building advanced queries and using Streams next to Futures! Also with this release, you can use SharedPrefrence to save data locally.

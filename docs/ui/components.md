@@ -59,6 +59,8 @@ The save behaviour applies also when you add a wrapper to the main component.
 
 :::note
 You can't edit the design of a component while it's inside a screen. You can only modify it when an instance of that component is outside any screen (just on the board).
+
+The only way you will be able to modify the original component within the screen itself is if the component has a group inside (stack, row or column) and this group has children widgets like Text, Image, etc. You then will be able to modify those children widget inside the component instance that is already inside a screen by selecting them from the outline
 :::
 
 ![](./img/comp_3.gif)

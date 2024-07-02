@@ -8,6 +8,18 @@ description: ChangeLog
 > Detailed log of all updates, improvements, and bug fixes for each version.
 
 
+## 1.7.1 (2 July 2024)
+
+#### Fixed 🩹
+
+- Fix the problem of Homescreen being missed when reopening the project
+- Fix problems with connecting nodes in Circuit
+- Fix problems with code generation erros for nullability
+- Fix problem with nodes in Circuit returning `Object` instead of the actual type
+- Fix problem of error not showing when broken files are being loaded
+- Fix problem with boards in the new files panel
+
+
 ## 1.7.0 (28 June 2024)
 
 #### **Added ✨**

@@ -20,8 +20,12 @@
   --ifm-font-family-base: 'Albert Sans', sans-serif;
   --ifm-font-size-base: 16px;
 
-
 }
+
+.markdown {
+  font-size: 18px; /* Adjust the size as needed */
+}
+
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {

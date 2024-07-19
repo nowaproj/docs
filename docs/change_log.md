@@ -1,9 +1,7 @@
 ---
 sidebar_position: 2.5
-description: ChangeLog
+description: Changelog
 ---
-
-# Chanelog
 
 > Detailed log of all updates, improvements, and bug fixes for each version.
 

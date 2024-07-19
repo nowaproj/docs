@@ -1,9 +1,0 @@
-{
-  "label": "Using Firebase Firestore database",
-  "position": 13,
-  "link": {
-    "description": "How to connect your app to Firestore database and perform queries ",
-    "type": "generated-index",
-    "slug": "/firestore"
-  }
-}

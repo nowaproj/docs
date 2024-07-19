@@ -105,6 +105,15 @@ const config = {
         //... other Algolia params
       },
 
+      announcementBar: {
+        id: 'announcement-1', // Any value that will identify this message.
+        content: '📢 A brand-new docs is on the way! Some pages may be missing or outdated. For help and more resources, visit our <a target="_blank" rel="noopener noreferrer" href="https://community.nowa.dev">community forum</a> or <a target="_blank" rel="noopener noreferrer" href="https://youtube.com/@nowadev">YouTube channel</a>. Thanks for your patience!',
+        backgroundColor: '#A3784A', // Defaults to `#fff`
+        textColor: '#ffffff', // Defaults to `#000`.
+        isCloseable: true, // Defaults to `true`.
+      },
+  
+
       navbar: {
         title: 'Nowa Documentation',
         logo: {

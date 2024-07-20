@@ -9,7 +9,7 @@ description: How to create, fill and display lists in your app
 ```
 1. Create lists of standard and custom types
 2. Filling the list manually, with Circuit or with a data-source
-3. Display the list in a group
+3. Display the list in a Listview and Gridview 
 ```
 
 
@@ -68,7 +68,22 @@ If you have a Data source added to your app, you can use it with **Data builder 
 ---
 
 
-## Displaying Lists
+## Displaying Lists 
+There's many ways to display lists in Nowa. The optimal way is to use Listview and Gridview widgets. 
+
+The other way is using the `Group` widget to add a `row` or `column`
+
+### using Listview or Gridview
+The optimal way to display a variable or parameter list in Nowa is usin Listview or Gridview widget in a "Builder" mode.
+
+Check out how to [use Listview](../ui/widgets/widget_desc/listview.md) and [Gridview](../ui/widgets/widget_desc/gridview.md)
+
+
+### Using groups
+
+:::warning
+This way is not recommended. Use it only if you have a reason for not using Listview or Gridview widget
+:::
 
 To display a variable list in your UI, follow these steps:
 

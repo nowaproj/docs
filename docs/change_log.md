@@ -1,9 +1,24 @@
 ---
 sidebar_position: 2.5
-description: Changelog
+title: Changelog
 ---
 
 > Detailed log of all updates, improvements, and bug fixes for each version.
+
+## 1.7.2 (7 July 2024)
+
+#### **Added ✨**
+- [Listview](./ui/widgets/widget_desc/listview.md) and Gridview widgets
+
+
+#### **Improved 💪**
+- Improvements on Groups (Rows and Columns)
+
+#### Fixed 🩹
+- Fix the default value for variables and parameters not being updated
+- Fix a problem with API editor crashing
+- Fix a problem with generated code for Navigator
+- Fix a problem in generated code for nullables
 
 
 ## 1.7.1 (2 July 2024)

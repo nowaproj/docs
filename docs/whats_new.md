@@ -6,6 +6,70 @@ description: What's new
 
 > Discover the latest features and enhancements for each version of Nowa. For more details, check the [changelogs](./change_log.md)
 
+### 1.7.3 (25 July 2024)
+
+We have released several essential improvements to enhance your App building experience with Nowa! Let's see how:
+
+#### **New ✨**
+
+**A complete new ListView and GridView widgets**: These widgets make displaying data easier and more efficient than ever. They come with two modes: `Builder` and `Normal`. The `Builder` mode renders only what is needed at each moment, improving performance when displaying large amounts of data. Read more here about [Using Listview](./ui/widgets/widget_desc/listview.md) and [Gridview](./ui/widgets/widget_desc/gridview.md)
+
+  - Use the `Builder` mode for efficient rendering of large datasets
+  :::tip
+ For displaying data from an API, Firebase, Supabase, or a variable, use `ListView` and `GridView` instead of the older way of using `Group`
+  :::
+
+**New Linear Progress Indicator**: Along with the circular progress indicator, you can now display a linear progress indicator. [Read more here](./ui/widgets/widget_desc/linear_progress_indicator.md)
+
+  - Set the progress value to indicate task completion
+  - Customize the color and background to match your app's theme
+
+**Text Overflow Options**: You can now set behaviors for the Text widget when there's not enough space to show all the text. Options include `clip`, `ellipsis`, and more. [Read more here](./ui/widgets/widget_desc/text.md)
+
+  - Choose `clip` to cut off the extra text
+  - Use `ellipsis` to show dots where the text overflows
+
+#### **Enhancements 👀**
+
+**Nowa Error system got more POWER now**: The error system can detect more errors faster and provide detailed information in the Error panel. This ensures a smoother development experience by quickly informing you of issues that need attention.
+
+  - Instant error updates for quicker debugging
+  - Detailed error descriptions for better understanding and resolution
+
+### What's Coming Next 👀
+We are working on a much better API system to allow powerful integrations!
+
+#### New Learning resources 📜
+- [Adding Splash screen](./mini_tutorials/splashscreen.md)
+- [Design course: Build a Football App](./design_courses/football_app.md)
+- [Design course: Build a E-commerce App](./design_courses/ecommerce_app.md)
+- [Design course: Build a Hotel Booking App](./design_courses/booking_app.md)
+
+
+### 1.7.3 (25 July 2024)
+We released 
+
+#### **New ✨**
+
+#### **Enhancements 👀**
+
+
+#### Learning resources 📜
+
+
+
+
+- **New [ListView](./ui/widgets/widget_desc/listview.md) and [GridView](./ui/widgets/widget_desc/gridview.md) widgets**: These widgets make displaying data easier and more efficient than ever. They come with two modes: `Builder` and `Normal`. The `Builder` mode renders only what is needed at each moment, improving performance when displaying large amounts of data.
+
+  **Tip: For displaying data from an API, Firebase, Supabase, or a variable, use `ListView` and `GridView` instead of `Group`.**
+
+- **Enhanced Error Detection**: Nowa can detect more errors faster and provide detailed information in the Error panel.
+
+- **[Linear Progress Indicator](./ui/widgets/widget_desc/linear_progress_indicator.md)**: Along with the circular progress indicator, you can now display a linear progress indicator.
+
+- **[Text Overflow Options](./ui/widgets/widget_desc/text.md)**: You can now set behaviors for the Text widget when there's not enough space to show all the text. Options include `clip`, `ellipsis`, and more.
+
+
 ### 1.7.0 (28 June 2024)
 We released a new way to deal with files. It's now easier than ever to navigate between the different parts of your project in one place!
 

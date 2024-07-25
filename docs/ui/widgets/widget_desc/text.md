@@ -61,6 +61,17 @@ Let's have a look together at the properties of the text widget that will help y
 ![](./img/editing_text_widget.gif)
 
 
+- **Overflow:** Set how the text should behave when it exceeds the space available. The options include:
+    - Clip: Clips the text that overflows the container.
+    - Ellipsis: Adds an ellipsis (...) at the point where the text overflows.
+    - Fade: Gradually fades the overflowing text.
+    - Visible: Allows the overflowing text to be fully visible beyond the container's bounds.
+    - To remove the overflow option, right-click on the property name `overflow` and choose `Reset to default`
+
+![](./img/overflow.gif)
+
+
+
 💡 For more options, all the text properties can be connected to variables. For more. check out [Using Variables](../../../variables/local_variables/using_vars.md).
 
   

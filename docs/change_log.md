@@ -5,6 +5,28 @@ title: Changelog
 
 > Detailed log of all updates, improvements, and bug fixes for each version.
 
+## 1.7.3 (25 July 2024)
+
+#### **Added ✨**
+- New [Listview](./ui/widgets/widget_desc/listview.md) and [Gridview](./ui/widgets/widget_desc/gridview.md) widgets 
+- [Linear Progress Indicator](./ui/widgets/widget_desc/linear_progress_indicator.md) widget
+- [Text Overflow Options](./ui/widgets/widget_desc/text.md) in the Text widget
+
+#### **Improved 💪**
+- Firebase integration from BETA to STABLE
+- Enhanced Error Detection: Nowa can detect more errors faster and provide detailed information in the Error panel.
+
+
+#### Fixed 🩹
+- Fixed Admob issues on iOS
+- Resolved API panel crashing problems
+- Improved Error System for instant updates
+- Fixed issues with disconnecting Firebase from a project
+- Corrected error when using the Navigator function without setting a screen
+- Stability improvements
+
+
+
 ## 1.7.2 (7 July 2024)
 
 #### **Added ✨**

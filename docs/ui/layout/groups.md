@@ -43,3 +43,9 @@ This is how you ungroup widgets in Nowa:
 
 💡 **Note**: Groups can be converted in Columns and Rows to make designs responsive, to learn more about it check [Rows and Columns](./rows_and_columns.md) and [Intro to Layout](./intro_layout.md). 
 
+
+:::note
+Using `Group` is the old way to display Data inside the App. The new way is to use [ListView](https://docs.nowa.dev/ui/widgets/widget_desc/listview) or [GridView](https://docs.nowa.dev/ui/widgets/widget_desc/gridview).
+
+Read [this article](https://community.nowa.dev/t/when-to-use-listview-and-gridview-and-when-to-use-groups/396) to learn when to use `Group` and when to use `ListView` or `GridView`
+:::

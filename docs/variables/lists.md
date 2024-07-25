@@ -81,9 +81,17 @@ Check out how to [use Listview](../ui/widgets/widget_desc/listview.md) and [Grid
 
 ### Using groups
 
+:::note
+Using `Group` is the old way to display Data inside the App. The new way is to use [ListView](https://docs.nowa.dev/ui/widgets/widget_desc/listview) or [GridView](https://docs.nowa.dev/ui/widgets/widget_desc/gridview).
+
+Read [this article](https://community.nowa.dev/t/when-to-use-listview-and-gridview-and-when-to-use-groups/396) to learn when to use `Group` and when to use `ListView` or `GridView`
+:::
+
 :::warning
 This way is not recommended. Use it only if you have a reason for not using Listview or Gridview widget
 :::
+
+
 
 To display a variable list in your UI, follow these steps:
 

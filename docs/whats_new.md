@@ -15,8 +15,12 @@ We have released several essential improvements to enhance your App building exp
 **A complete new ListView and GridView widgets**: These widgets make displaying data easier and more efficient than ever. They come with two modes: `Builder` and `Normal`. The `Builder` mode renders only what is needed at each moment, improving performance when displaying large amounts of data. Read more here about [Using Listview](./ui/widgets/widget_desc/listview.md) and [Gridview](./ui/widgets/widget_desc/gridview.md)
 
   - Use the `Builder` mode for efficient rendering of large datasets
+
   :::tip
- For displaying data from an API, Firebase, Supabase, or a variable, use `ListView` and `GridView` instead of the older way of using `Group`
+ For displaying data from an API, Firebase, Supabase, or a variable, use `ListView` and `GridView` instead of the older way of using [Group](./ui/layout/groups.md).
+
+Read [this article](https://community.nowa.dev/t/when-to-use-listview-and-gridview-and-when-to-use-groups/396) to learn when to use `Group` and when to use `ListView` or `GridView`
+
   :::
 
 **New Linear Progress Indicator**: Along with the circular progress indicator, you can now display a linear progress indicator. [Read more here](./ui/widgets/widget_desc/linear_progress_indicator.md)

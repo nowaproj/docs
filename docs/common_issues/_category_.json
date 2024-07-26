@@ -1,0 +1,9 @@
+{
+    "label": "Common Issues 🐞",
+    "position": 15,
+    "link": {
+      "slug": "common_issues",
+      "type": "generated-index",
+      "description": "Learn how to solve some common issues in Nowa"
+    }
+  }

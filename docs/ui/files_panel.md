@@ -49,6 +49,14 @@ The files panel has three sections:
 ### Move files to a folder
 Use drag and drop to move any file into a folder you created. 
 
+
+### Show hidden files
+By right click inside the file panel and choose `toggle show all files` you will be able to see all the files for the project. 
+
+Folders like `android`, `ios`, `.git` and all folders that usually exist inside a Flutter project will be displayed.
+
+To hide them and go back to showing only the necessary files, click again on `toggle show all files`.
+
 ### Quick Tips for Faster Access
 
 - **File Search Shortcut**: Press `Ctrl/Cmd + O` to open the file picker quickly, which helps you find and open any file or board instantly.

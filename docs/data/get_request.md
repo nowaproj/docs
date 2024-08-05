@@ -13,6 +13,14 @@ title: GET request
 
 Nowa provides multiple options to connect your data source, and one of the most popular methods is the traditional HTTP API request. In this guide, we'll show you how to create HTTP GET requests and connect them to your UI, all without writing a single line of code or building any logic with Circuit.
 
+:::tip
+Watch this video to see how to create **GET request** and display the data in the new [Listview](../ui/widgets/widget_desc/listview.md) widget
+
+<iframe width="767" height="431" src="https://www.youtube.com/embed/_ko4iKVXVuA" title="Display WordPress Blogs in Your App Using ListView and REST API | Nowa tutorial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+:::
+
+
 ## Creating a GET Request
 
 1.  Click on the **Data Sources** icon in the bottom left corner and choose **API**.
@@ -44,6 +52,8 @@ To connect the request to the UI, we use a wrapper called **Data Builder**. This
 ![](./img/add_data_builder.gif)
 
 Any widget underneath the Data Builder wrapper, starting from the group in that example and any widget under it, can access the object **"myAPIObj1"** which represents the data loaded from the request. Inside that object, there's a variable called **records** that holds the list of news. To learn how to display the list in the UI, check out [Creating and Displaying Lists](../variables/lists.md).
+
+
 
 
 

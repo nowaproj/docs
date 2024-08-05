@@ -5,6 +5,24 @@ title: Changelog
 
 > Detailed log of all updates, improvements, and bug fixes for each version.
 
+## 1.7.4 (5 August 2024)
+
+#### **Added ✨**
+- New JSON Editor: A more intuitive way to view JSON responses within the API or Firebase editor. You can now beautify, examine, and copy responses with ease.
+- Mutable Objects: Added the `Is Final` switch for object parameters, allowing you to modify parameters later and store states within objects.
+
+#### **Improved 💪**
+- Switching API to Use Dio: Updated the generated API code to utilize the Dio package, offering a more robust and performant approach to handling HTTP requests with cleaner code.
+- Copy and Paste Nodes in Circuit: You can now copy and paste nodes or groups of nodes within the same graph or transfer them to different graphs.
+
+#### **Fixed 🩹**
+- Fix WebView showing "Cache Error" when releasing to Android
+- Fix Problem of API responses not being received due to `dynamic` parameters in the API
+- Fix the problem of wrong errors being shown in the project
+- Fix problem for `onError` not being called in Circuit
+- Fix problem for delete not working on files
+
+
 ## 1.7.3 (25 July 2024)
 
 #### **Added ✨**

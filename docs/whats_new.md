@@ -6,6 +6,31 @@ description: What's new
 
 > Discover the latest features and enhancements for each version of Nowa. For more details, check the [changelogs](./change_log.md)
 
+
+### 1.7.4 (5 August 2024)
+
+Including a new JSON Editor, an updated API system leveraging Dio, and more. Let's dive into the details!
+
+#### **New ✨**
+
+- **JSON Editor:** Experience a more intuitive way to view JSON responses within the API or Firebase editor. Easily examine response details, beautify them, and copy them with just a click.
+
+- **Mutable Objects:** Introducing the `Is Final` switch for object parameters. Turning this off allows you to modify parameters later, enabling state storage within objects. 
+
+#### **Enhancements 👀**
+
+- **Switching API to Use Dio:** We've upgraded the generated API code to utilize the Dio package, offering a more robust and performant approach to handling HTTP requests in your app. Enjoy cleaner, more understandable code without internal packaging complexities.
+
+- **Copy and Paste Nodes in Circuit:** You can now copy and paste nodes or groups of nodes within the same graph or even transfer them to different graphs.
+
+#### New Learning Resources 📜
+
+- [Youtube: Use API and ListView to Display WordPress Blogs](https://www.youtube.com/watch?v=_ko4iKVXVuA&t=1025s)
+
+- [Youtube: Design a Quiz App](https://www.youtube.com/watch?v=WRTLcfiJU-0&t=886s)
+
+---
+
 ### 1.7.3 (25 July 2024)
 
 We have released several essential improvements to enhance your App building experience with Nowa! Let's see how:

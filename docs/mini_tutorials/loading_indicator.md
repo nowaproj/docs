@@ -1,6 +1,6 @@
 ---
 sidebar_position: 4
-title: Show Loading while Logging in 
+title: Display Loading indicator 
 description: Learn how to show Circular loading indicator and hide it for a case such as loading or signing-in
 ---
 
@@ -10,7 +10,7 @@ We will be using:
 - [Circular loading indicator](../ui/widgets/widget_desc/loading_circular.md)
 - [Visibility wrapper](../ui/wrappers/visibility.md)
 
-- Creating a [variable](../variables/local_variables/) called `isLoggingIn` to hold the state of logging in
+- Creating a [variable](../variables/local_variables/using_vars.md) called `isLoggingIn` to hold the state of logging in
 
 If you have any questions let us know in our official [Community](https://community.nowa.dev)
 

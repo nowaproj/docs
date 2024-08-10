@@ -1,5 +1,5 @@
 {
-  "label": "Authentication using Firebase",
+  "label": "Firebase Integration",
   "position": 12,
   "link": {
     "description": "Enable login system using Firebase Authentication",

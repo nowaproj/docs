@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 1
 title: Make screen responsive
 description: How to make your design responsive to many screen sizes
 ---

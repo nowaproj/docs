@@ -5,6 +5,21 @@ title: Changelog
 
 > Detailed log of all updates, improvements, and bug fixes for each version.
 
+
+## 1.7.5 (17 August 2024)
+
+#### **Added ✨**
+- JSON to Model Generator: Effortlessly create all the necessary models for your app from a single JSON input. With just one click, Nowa automatically generates the main models and any submodels for nested structures.
+
+#### **Fixed 🩹**
+- Fix issue when connecting Firebase data to the ListView.
+- Fix errors appearing before fully loading the project.
+- Fix state update issues in the previewer.
+- Fix `PushAndRemoveUntil` to correctly remove all routes in the stack.
+- Fix `+` node connection issue.
+- Fix horizontal spacing issues in the ListView.
+
+
 ## 1.7.4 (5 August 2024)
 
 #### **Added ✨**

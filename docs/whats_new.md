@@ -6,6 +6,21 @@ description: What's new
 
 > Discover the latest features and enhancements for each version of Nowa. For more details, check the [changelogs](./change_log.md)
 
+### 1.7.5 (17 August 2024)
+
+Introducing our new JSON to Model Generator, various bug fixes, and fresh learning resources! Let’s dive into the details.
+
+#### **New ✨**
+
+- [**JSON to Model Generator:**](./variables/models_from_Json.md) Effortlessly create all the necessary models for your app from a single JSON input. With just one click, Nowa automatically generates the main models and any submodels for nested structures. Simply navigate to the files panel, click `+` next to `lib`, select `New model from JSON`, paste your JSON, and Nowa will handle the rest. Name your root model, specify a path, and you’re good to go! [Read more about it here](./variables/models_from_Json.md)
+
+#### New Learning Resources 📚
+
+- [Build the UI of a workout tracker App](https://www.youtube.com/watch?v=Q7Q8UZ24n4U)
+- [Firestore full integration tutorial](https://www.youtube.com/watch?v=vg4-c-BQCrk&t=373s)
+- [A full playlist for building a ToDo app with Firebase Email Auth and Firestore](https://youtube.com/playlist?list=PLVhnHv8Cdhz-ymSW3mSG1ciO1HQeIfAEo&si=u_fkNN5nCbx_j5gS)
+
+
 
 ### 1.7.4 (5 August 2024)
 

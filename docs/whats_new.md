@@ -16,7 +16,7 @@ A new way to build APIs in Nowa! With our new Mock Data feature for API requests
 
 - [**Selective Model Generation from API Responses:**](./data/creating_models) We have introduced a new way of generating models from your API responses. You can now choose which parts to include in the model, allowing you to create models that hold only what you need, making them easier to work with. [Read more about it here](./data/creating_models).
 
-- **API Testing Panel:** Testing your requests is now easier than ever. You can pass test data to the parameters and run the test without having to change the default values for the model.
+- **API Testing Panel:** Testing your requests is now easier than ever. You can pass test data to the parameters and run the test without having to change the default values for the model. [Read more about it here](./data/create-parameters.md).
 
 #### New Learning Resources 📚
 

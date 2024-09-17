@@ -6,6 +6,22 @@ description: What's new
 
 > Discover the latest features and enhancements for each version of Nowa. For more details, check the [changelogs](./change_log.md)
 
+### 1.8 (15 Sep 2024)
+
+A new way to build APIs in Nowa! With our new Mock Data feature for API requests, an improved model generation process, and a streamlined API testing panel! Let’s dive into the details.
+
+#### **New ✨**
+
+- [**Mock Data for API Requests:**](./data/mockdata) Users can now create mock data for their API requests to mimic responses while working in the designer. This feature helps you visualize how the UI will look with different responses and avoids firing actual API requests during design. When you click on **Play**, you'll see the actual app in action. [Read more about Mock Data here](./data/mockdata).
+
+- [**Selective Model Generation from API Responses:**](./data/creating_models) We have introduced a new way of generating models from your API responses. You can now choose which parts to include in the model, allowing you to create models that hold only what you need, making them easier to work with. [Read more about it here](./data/creating_models).
+
+- **API Testing Panel:** Testing your requests is now easier than ever. You can pass test data to the parameters and run the test without having to change the default values for the model.
+
+#### New Learning Resources 📚
+
+- [New full section on using the API](./data): You can view our new sectio on using the API, from creating collections and requests, to generating models, to adding parameters, testing requests and using them in UI and logic.
+
 ### 1.7.5 (17 August 2024)
 
 Introducing our new JSON to Model Generator, various bug fixes, and fresh learning resources! Let’s dive into the details.

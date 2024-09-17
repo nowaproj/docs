@@ -63,7 +63,7 @@ This logic for a to-do app of adding a task object to the list when clicking a b
 
 #### 3. Filling a List from a Data Source
 
-If you have a Data source added to your app, you can use it with **Data builder widget** to pass the data to the UI. For example, check out [GET request](../data/get_request.md) to see how to create an API get request and have the list of data injected into your screen.
+If you have a Data source added to your app, you can use it with **Data builder widget** to pass the data to the UI. For example, check out [Create a request](../data/creating_request.md) to see how to create an API get request and have the list of data injected into your screen.
 
 ---
 

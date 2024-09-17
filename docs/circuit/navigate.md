@@ -48,6 +48,6 @@ To achieve this, we add an **On Pressed** event to the card placeholder by wrapp
 ![](./img/moving_data_with_navigate.png)
 
 
-For more information on how the data was loaded from an API, check out [HTTP GET](../data/get_request.md). To see how the data was connected to a row, refer to [Creating and displaying Lists](../variables/lists.md).
+For more information on how the data was loaded from an API, check out the [API section](../data). To see how the data was connected to a row, refer to [Creating and displaying Lists](../variables/lists.md).
 
 

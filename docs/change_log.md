@@ -6,6 +6,17 @@ title: Changelog
 > Detailed log of all updates, improvements, and bug fixes for each version.
 
 
+## 1.8 (15 Sep 2024)
+
+#### **Added ✨**
+
+- **Mock Data for API Requests:** Users can now create mock data for API requests to mimic responses while designing. This feature helps you see how the UI will look with different responses and avoids firing actual API requests during design. When you click on **Play**, you'll see the actual app in action. [Read more about Mock Data here](./data/mockdata).
+
+- **Selective Model Generation from API Responses:** We've introduced a new way of generating models from your API responses. You can now choose which parts to include in the model and which to exclude. This allows you to create models that hold only what you need, making them easier to work with. [Read more about it here](./data/creating_models).
+
+- **API Testing Panel:** Testing your requests is now easier than ever. You can pass test data to the parameters and run the test without having to change the default values for the model.
+
+
 ## 1.7.5 (17 August 2024)
 
 #### **Added ✨**

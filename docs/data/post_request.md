@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 5
 title: POST request
 ---
 *In this page you will learn:*
@@ -8,7 +8,13 @@ title: POST request
 2- how to test your request and fire it at a certain event   
 ```
 
-Now you can seamlessly add POST requests and integrate them into your Nowa app. This guide will walk you through how to do so
+Are you a video type of person? Here's a video on how to do a POST request:
+
+<iframe width="767" height="431" src="https://www.youtube.com/embed/3O669BtzpTs" title="API POST tutorial  | Use Airtable and Nowa to build a &quot;Submit Feedback&quot; Page" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+Now you can seamlessly add POST requests and integrate them into your Nowa app. This guide will walk you through how to do so.
+
+We will start from scratch of creating a collection and a POST request:
 
 ## **How to Add a POST Request**
 

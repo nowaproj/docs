@@ -6,6 +6,9 @@ description: Firestore Queries can't be tested on Nowa Desktop
 
 You will encounter this issue when trying to test Firestore Queries on Nowa Windows version
 
+![](./img/firebase_windows.png)
+
+
 ### The Problem  
 Inside Firestore query panels, you usually can build and test queries on the go before connecting them to the UI. THis is unfortunately not possible when using Nowa Windows version
 

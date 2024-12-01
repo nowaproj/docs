@@ -1,0 +1,9 @@
+{
+  "label": "Legacy V1",
+  "position": 100,
+  "link": {
+    "description": "Release notes for V1",
+    "type": "generated-index",
+    "slug": "/legacy"
+  }
+}

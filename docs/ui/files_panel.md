@@ -30,7 +30,7 @@ In the files panel, you can access different kinds of project files:
 - **.dart Files**: Clicking a `.dart` file opens it up inside Circuit, where you can add and tweak its functions or parameters, and view it's source-code (by clicking on the `<>` icon on top right)
 - **UI Files**: To work on the UI, drag the `.dart` file to the board where you can see and edit its visual elements.
 
-![](../img_releasenotes/1.7.0/file-panel.gif)
+![](../legacy/img_releasenotes/1.7.0/file-panel.gif)
 
 ## Organizing Files
 
@@ -45,7 +45,7 @@ The files panel has three sections:
 - **Add New Items**: Use the `+` icon next to `lib` and add a new UI component, Object, Folder, or global state object.
 	- After adding a global state object, you need to add it to the `Globals` by opening any board, then choose `Pick up globals` inside the variables section (be sure nothing is selected). For more, read how to add global variables 
 - **Upload Assets**: Use the upload icon next to the assets section to bring new files into your project.
-\
+
 ### Move files to a folder
 Use drag and drop to move any file into a folder you created. 
 

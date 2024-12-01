@@ -10,9 +10,9 @@ title: Changelog
 
 #### **Added ✨**
 
-- **Mock Data for API Requests:** Users can now create mock data for API requests to mimic responses while designing. This feature helps you see how the UI will look with different responses and avoids firing actual API requests during design. When you click on **Play**, you'll see the actual app in action. [Read more about Mock Data here](./data/mockdata).
+- **Mock Data for API Requests:** Users can now create mock data for API requests to mimic responses while designing. This feature helps you see how the UI will look with different responses and avoids firing actual API requests during design. When you click on **Play**, you'll see the actual app in action. [Read more about Mock Data here](../data/mockdata).
 
-- **Selective Model Generation from API Responses:** We've introduced a new way of generating models from your API responses. You can now choose which parts to include in the model and which to exclude. This allows you to create models that hold only what you need, making them easier to work with. [Read more about it here](./data/creating_models).
+- **Selective Model Generation from API Responses:** We've introduced a new way of generating models from your API responses. You can now choose which parts to include in the model and which to exclude. This allows you to create models that hold only what you need, making them easier to work with. [Read more about it here](../data/creating_models).
 
 - **API Testing Panel:** Testing your requests is now easier than ever. You can pass test data to the parameters and run the test without having to change the default values for the model.
 
@@ -52,9 +52,9 @@ title: Changelog
 ## 1.7.3 (25 July 2024)
 
 #### **Added ✨**
-- New [Listview](./ui/widgets/widget_desc/listview.md) and [Gridview](./ui/widgets/widget_desc/gridview.md) widgets 
-- [Linear Progress Indicator](./ui/widgets/widget_desc/linear_progress_indicator.md) widget
-- [Text Overflow Options](./ui/widgets/widget_desc/text.md) in the Text widget
+- New [Listview](../ui/widgets/widget_desc/listview.md) and [Gridview](../ui/widgets/widget_desc/gridview.md) widgets 
+- [Linear Progress Indicator](../ui/widgets/widget_desc/linear_progress_indicator.md) widget
+- [Text Overflow Options](../ui/widgets/widget_desc/text.md) in the Text widget
 
 #### **Improved 💪**
 - Firebase integration from BETA to STABLE
@@ -74,7 +74,7 @@ title: Changelog
 ## 1.7.2 (7 July 2024)
 
 #### **Added ✨**
-- [Listview](./ui/widgets/widget_desc/listview.md) and Gridview widgets
+- [Listview](../ui/widgets/widget_desc/listview.md) and Gridview widgets
 
 
 #### **Improved 💪**
@@ -215,7 +215,7 @@ Now you can offer reset password 📧, edit variables easy ✍️, with major bu
 
 #### **Added ✨**
 
-- Video player widget to play offline and online videos in your app. [Read more here](./ui/widgets/widget_desc/video_player.md).
+- Video player widget to play offline and online videos in your app. [Read more here](../ui/widgets/widget_desc/video_player.md).
 
 #### Fixed 🩹
 - Fix a problem of data not being loaded using the API in case of existing of list types
@@ -277,7 +277,7 @@ Now you can offer reset password 📧, edit variables easy ✍️, with major bu
 
 #### **Added ✨**
 
-- Adding the option to creare Global state. Read more [here](./variables/global_variables/create_global_vars.md)
+- Adding the option to creare Global state. Read more [here](../variables/global_variables/create_global_vars.md)
 - Adding default text style wrapper and text directionality wrapper to give a style for all texts blow it 
 - Adding Apk debug: to build an APK test version fast without signing key
 

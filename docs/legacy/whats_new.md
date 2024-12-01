@@ -12,15 +12,15 @@ A new way to build APIs in Nowa! With our new Mock Data feature for API requests
 
 #### **New ✨**
 
-- [**Mock Data for API Requests:**](./data/mockdata) Users can now create mock data for their API requests to mimic responses while working in the designer. This feature helps you visualize how the UI will look with different responses and avoids firing actual API requests during design. When you click on **Play**, you'll see the actual app in action. [Read more about Mock Data here](./data/mockdata).
+- [**Mock Data for API Requests:**](../data/mockdata) Users can now create mock data for their API requests to mimic responses while working in the designer. This feature helps you visualize how the UI will look with different responses and avoids firing actual API requests during design. When you click on **Play**, you'll see the actual app in action. [Read more about Mock Data here](../data/mockdata).
 
-- [**Selective Model Generation from API Responses:**](./data/creating_models) We have introduced a new way of generating models from your API responses. You can now choose which parts to include in the model, allowing you to create models that hold only what you need, making them easier to work with. [Read more about it here](./data/creating_models).
+- [**Selective Model Generation from API Responses:**](../data/creating_models) We have introduced a new way of generating models from your API responses. You can now choose which parts to include in the model, allowing you to create models that hold only what you need, making them easier to work with. [Read more about it here](../data/creating_models).
 
-- **API Testing Panel:** Testing your requests is now easier than ever. You can pass test data to the parameters and run the test without having to change the default values for the model. [Read more about it here](./data/create-parameters.md).
+- **API Testing Panel:** Testing your requests is now easier than ever. You can pass test data to the parameters and run the test without having to change the default values for the model. [Read more about it here](../data/create-parameters.md).
 
 #### New Learning Resources 📚
 
-- [New full section on using the API](./data): You can view our new sectio on using the API, from creating collections and requests, to generating models, to adding parameters, testing requests and using them in UI and logic.
+- [New full section on using the API](../data): You can view our new sectio on using the API, from creating collections and requests, to generating models, to adding parameters, testing requests and using them in UI and logic.
 
 ### 1.7.5 (17 August 2024)
 
@@ -28,7 +28,7 @@ Introducing our new JSON to Model Generator, various bug fixes, and fresh learni
 
 #### **New ✨**
 
-- [**JSON to Model Generator:**](./variables/models_from_Json.md) Effortlessly create all the necessary models for your app from a single JSON input. With just one click, Nowa automatically generates the main models and any submodels for nested structures. Simply navigate to the files panel, click `+` next to `lib`, select `New model from JSON`, paste your JSON, and Nowa will handle the rest. Name your root model, specify a path, and you’re good to go! [Read more about it here](./variables/models_from_Json.md)
+- [**JSON to Model Generator:**](../variables/models_from_Json.md) Effortlessly create all the necessary models for your app from a single JSON input. With just one click, Nowa automatically generates the main models and any submodels for nested structures. Simply navigate to the files panel, click `+` next to `lib`, select `New model from JSON`, paste your JSON, and Nowa will handle the rest. Name your root model, specify a path, and you’re good to go! [Read more about it here](../variables/models_from_Json.md)
 
 #### New Learning Resources 📚
 
@@ -68,23 +68,23 @@ We have released several essential improvements to enhance your App building exp
 
 #### **New ✨**
 
-**A complete new ListView and GridView widgets**: These widgets make displaying data easier and more efficient than ever. They come with two modes: `Builder` and `Normal`. The `Builder` mode renders only what is needed at each moment, improving performance when displaying large amounts of data. Read more here about [Using Listview](./ui/widgets/widget_desc/listview.md) and [Gridview](./ui/widgets/widget_desc/gridview.md)
+**A complete new ListView and GridView widgets**: These widgets make displaying data easier and more efficient than ever. They come with two modes: `Builder` and `Normal`. The `Builder` mode renders only what is needed at each moment, improving performance when displaying large amounts of data. Read more here about [Using Listview](../ui/widgets/widget_desc/listview.md) and [Gridview](../ui/widgets/widget_desc/gridview.md)
 
   - Use the `Builder` mode for efficient rendering of large datasets
 
   :::tip
- For displaying data from an API, Firebase, Supabase, or a variable, use `ListView` and `GridView` instead of the older way of using [Group](./ui/layout/groups.md).
+ For displaying data from an API, Firebase, Supabase, or a variable, use `ListView` and `GridView` instead of the older way of using [Group](../ui/layout/groups.md).
 
 Read [this article](https://community.nowa.dev/t/when-to-use-listview-and-gridview-and-when-to-use-groups/396) to learn when to use `Group` and when to use `ListView` or `GridView`
 
   :::
 
-**New Linear Progress Indicator**: Along with the circular progress indicator, you can now display a linear progress indicator. [Read more here](./ui/widgets/widget_desc/linear_progress_indicator.md)
+**New Linear Progress Indicator**: Along with the circular progress indicator, you can now display a linear progress indicator. [Read more here](../ui/widgets/widget_desc/linear_progress_indicator.md)
 
   - Set the progress value to indicate task completion
   - Customize the color and background to match your app's theme
 
-**Text Overflow Options**: You can now set behaviors for the Text widget when there's not enough space to show all the text. Options include `clip`, `ellipsis`, and more. [Read more here](./ui/widgets/widget_desc/text.md)
+**Text Overflow Options**: You can now set behaviors for the Text widget when there's not enough space to show all the text. Options include `clip`, `ellipsis`, and more. [Read more here](../ui/widgets/widget_desc/text.md)
 
   - Choose `clip` to cut off the extra text
   - Use `ellipsis` to show dots where the text overflows
@@ -100,17 +100,17 @@ Read [this article](https://community.nowa.dev/t/when-to-use-listview-and-gridvi
 We are working on a much better API system to allow powerful integrations!
 
 #### New Learning resources 📜
-- [Adding Splash screen](./mini_tutorials/splashscreen.md)
-- [Design course: Build a Football App](./design_courses/football_app.md)
-- [Design course: Build a E-commerce App](./design_courses/ecommerce_app.md)
-- [Design course: Build a Hotel Booking App](./design_courses/booking_app.md)
+- [Adding Splash screen](../mini_tutorials/splashscreen.md)
+- [Design course: Build a Football App](../design_courses/football_app.md)
+- [Design course: Build a E-commerce App](../design_courses/ecommerce_app.md)
+- [Design course: Build a Hotel Booking App](../design_courses/booking_app.md)
 
 ### 1.7.0 (28 June 2024)
 We released a new way to deal with files. It's now easier than ever to navigate between the different parts of your project in one place!
 
 #### **New ✨**
 
-  **A complete new Files panel**: Everything now is organised in files, from the screens and components, to API calls and Firebase queries, to objects and even boards. [Read more here](./ui/files_panel)
+  **A complete new Files panel**: Everything now is organised in files, from the screens and components, to API calls and Firebase queries, to objects and even boards. [Read more here](../ui/files_panel)
 
   - Access the new files panel by clicking on "Files" tab next to the Outline on the left
   - Drag and drop files to the board to edit their UI
@@ -129,10 +129,10 @@ We released a new way to deal with files. It's now easier than ever to navigate 
 #### Learning resources 📜
 - Build a Stunning AI Chef chat assistant 🧑‍🍳 using ChatGPT [Youtube video](https://www.youtube.com/watch?v=oimUrWjef10)
 - New Wrapper docs for
-  - [Text Direction](./ui/wrappers/text_direction)
-  - [Visibility](./ui/wrappers/visibility)
-  - [Gesture detector](./ui/wrappers/gesture_detector)
-  - [Material](./ui/wrappers/material)
+  - [Text Direction](../ui/wrappers/text_direction)
+  - [Visibility](../ui/wrappers/visibility)
+  - [Gesture detector](../ui/wrappers/gesture_detector)
+  - [Material](../ui/wrappers/material)
 
 
 
@@ -201,7 +201,7 @@ You can add `initState` and `dispose` functions and restore last opened tabs ;)
 
 #### New ✨
 
-- **Ability to override `initState` and `dispose`**: In Circuit, click on `+` button on the left side next to `Functions`, then choose  `initState` or `dispose` to override them. [For more, click here](./circuit/override_functions.md)
+- **Ability to override `initState` and `dispose`**: In Circuit, click on `+` button on the left side next to `Functions`, then choose  `initState` or `dispose` to override them. [For more, click here](../circuit/override_functions.md)
 
 - **Last opened tabs are restored**: no more of opening your boards and tabs again! your last opened tabs will be restored when you reopen your project
 
@@ -210,7 +210,7 @@ Now you can offer videos in your app! Also, check out how to customize buttons U
 
 #### New ✨
 
-- You can now play offline and online videos in your app with [new `Video Player` widget](./ui/widgets/widget_desc/video_player.md).
+- You can now play offline and online videos in your app with [new `Video Player` widget](../ui/widgets/widget_desc/video_player.md).
 
 #### New documentation and tutorials 📜
 - [How to design your own Custom button - Youtube tutorial](https://www.youtube.com/watch?v=LxdlkzhsFd8)
@@ -223,17 +223,17 @@ Now you can offer videos in your app! Also, check out how to customize buttons U
 - Adding status bar in the bottom
 
 #### New documentation and tutorials 📜
-- [How to make your screen design responsive (mini tutorial)](./mini_tutorials/design_responsive.md)
+- [How to make your screen design responsive (mini tutorial)](../mini_tutorials/design_responsive.md)
 - New documentation for the following widgets:
-  - [Checkbox](./ui/widgets/widget_desc/checkbox.md)
-  - [Icon](./ui/widgets/widget_desc/icon.md)
-  - [Lottie animations](./ui/widgets/widget_desc/lottie.md)
-  - [Rive animations](./ui/widgets/widget_desc/rive.md)
-  - [HTML widget](./ui/widgets/widget_desc/html.md)
-  - [Markdown widget](./ui/widgets/widget_desc/markdown.md)
-  - [ListTile](./ui/widgets/widget_desc/listtile.md)
-  - [Loading circular](./ui/widgets/widget_desc/loading_circular.md)
-- [Updating the Component page](./ui/components.md)
+  - [Checkbox](../ui/widgets/widget_desc/checkbox.md)
+  - [Icon](../ui/widgets/widget_desc/icon.md)
+  - [Lottie animations](../ui/widgets/widget_desc/lottie.md)
+  - [Rive animations](../ui/widgets/widget_desc/rive.md)
+  - [HTML widget](../ui/widgets/widget_desc/html.md)
+  - [Markdown widget](../ui/widgets/widget_desc/markdown.md)
+  - [ListTile](../ui/widgets/widget_desc/listtile.md)
+  - [Loading circular](../ui/widgets/widget_desc/loading_circular.md)
+- [Updating the Component page](../ui/components.md)
 
 
 

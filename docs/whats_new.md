@@ -6,6 +6,17 @@ description: What's new
 
 > Discover the latest features and enhancements for each version of Nowa. For more details, check the [changelogs](./change_log.md)
 
+### 2.0.10 (16 Dec 2024)
+This version comes with important enhancements and fixes to make your experience easier and more powerful.
+
+#### **New ✨**
+- Play Mode on the Board: Run your app directly from the board without entering file preview. Select a screen and hit Play. If no screen is selected, the app starts from the Home screen.
+- Variables Panel on the Board: Create variables, parameters, and functions right from the board—no need to enter file preview.
+- Local Variables in Functions: Easily create local variables within functions. Right-click inside Circuit and select “Create Local Variable” to scope it to the function.
+- Store Expression Results in Existing Variables: When using “Custom Expression” in Circuit, you can now store the result in an existing variable. Just choose “Pick Variable” next to “Store Results.”
+- Added Compute Option: Use “Compute” to create a function that computes the value of a field, just like in Version 1.
+- Upgraded to Flutter 3.27: Your apps now run on the latest Flutter version for better performance and compatibility.
+
 ### **2.0.8-beta (28 Nov 2024)**
 
 Nowa V2 is here! After 7 weeks of exclusive testing with hand-picked users, we’re happy to open Nowa V2 to everyone!

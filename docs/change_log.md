@@ -5,6 +5,40 @@ title: Changelog
 
 > Detailed log of all updates, improvements, and bug fixes for each version.
 
+## **2.0.10-beta (16 Dec 2024)**
+
+#### **Added ✨**  
+
+- **Play Mode on the Board:**  
+  Run your app directly from the board without entering file preview. Select a screen and click Play. If no screen is selected, the app starts from the Home screen.  
+
+- **Variables Panel on the Board:**  
+  Create variables, parameters, and functions right from the board, eliminating the need to navigate into file preview.  
+
+- **Local Variables in Functions:**  
+  Add scoped local variables inside functions. Right-click within Circuit and select “Create Local Variable” to create variables limited to that function.  
+
+- **Store Expression Results in Existing Variables:**  
+  When using “Custom Expression” in Circuit, store the result in an existing variable. Simply choose “Pick Variable” next to “Store Results.”  
+
+- **Compute Option:**  
+  Reintroducing the “Compute” feature from Version 1, enabling you to create a function to compute field values directly.  
+
+- **Flutter 3.27 Upgrade:**  
+  Apps now run on the latest Flutter version, improving performance and stability.  
+
+#### **Fixed 🩹**  
+
+- Fixed deployment failures on Android caused by file conflicts.  
+- Resolved “Screen or Component Not Found” errors caused by improper loading.  
+- Fixed navigation issues with the Space key.  
+- Arrow key shortcuts now function properly.  
+- Fixed Shift key issues during multi-selection.  
+- Widgets no longer disappear when placed on the board.  
+- Fixed drag-and-drop functionality from outside the board.  
+
+---
+
 
 ## **2.0.8-beta (28 Nov 2024)**
 

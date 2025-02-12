@@ -6,6 +6,48 @@ description: What's new
 
 > Discover the latest features and enhancements for each version of Nowa. For more details, check the [changelogs](./change_log.md)
 
+### **2.0.15 (12 Feb 2025)**  
+This update brings exciting new widgets and important improvements to Nowa, including **Swipeable Stack**, **Time Picker**, and various bug fixes.  
+
+#### **New ✨**  
+
+- **Swipeable Stack Widget**  
+  Nowa now supports **Tinder-style swiping cards**! Use the `Swipeable Stack` widget to create **interactive swipe effects** for card-based UIs. Simply **connect it to a list variable**, just like ListView, and bring a dynamic experience to your app.  
+
+- **Time Picker**  
+  You can now allow users to **select a specific time** in your app! Previously, Nowa only supported picking dates. With `ShowTimePicker`, you can capture user input for time selection and format it easily using `.format()`.  
+
+---
+
+### **Coming Soon 🔜**  
+
+- **Web Hosting with Custom Domains**  
+  Host your **Flutter web apps** directly from Nowa and set up a **custom domain** in just a few clicks.  
+
+- **AI Voice Assistant App Template**  
+  Get a pre-built **real-time AI voice assistant** template, ready to be customized with your own API keys and settings.  
+
+- **VS Code Integration (Planned)**  
+  Work with Nowa **inside VS Code** for a seamless hybrid workflow, combining **visual building and coding** in one place.  
+
+---
+
+### **2.0.14 (29 Jan 2025)**  
+This update brings a **brand-new dashboard design** and support for the **Intl package for date/time formatting**, improving both usability and localization capabilities.  
+
+#### **New ✨**  
+
+- **New Dashboard Design**  
+  We’ve redesigned the dashboard for a **smoother and more intuitive experience**.  
+  - Easily navigate between **projects and workspaces**.  
+  - Discover the **new Learning Resources section**, where you’ll find top guides, tutorials, and tips to **help you build faster and better**.  
+
+- **Intl Package for Date/Time Formatting**  
+  Nowa now supports the **Intl package in Flutter**, allowing you to:  
+  - **Format dates, times, and numbers** based on locale preferences.  
+  - Easily localize your app with **region-specific date formats, timezone adjustments, currency formatting, and pluralization rules**.  
+
+  ---
 
 ### **2.0.13 (4 Feb 2025)**  
 This update brings major improvements to Nowa, including **Git integration**, **media picking**, **account management**, and a **new package management system**.  

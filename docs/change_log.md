@@ -5,6 +5,44 @@ title: Changelog
 
 > Detailed log of all updates, improvements, and bug fixes for each version.
 
+
+## **2.0.15-beta (12 Feb 2025)**  
+
+#### **Added ✨**  
+- **Swipeable Stack Widget**  
+  - Implement a **Tinder-style swiping card effect**.  
+  - Connect it to a **list variable** just like ListView for seamless integration.  
+
+- **Time Picker**  
+  - Allow users to **select specific times** in your app.  
+  - Capture the selected time using `ShowTimePicker` and format it with `.format()`.  
+
+#### **Fixed 🩹**  
+- Fixed an issue where **text fields in the details panel** didn’t accept input.  
+- **MacOS version now starts in full screen** by default.  
+- Adjusted **iPhone 12 device frame size** for correct display.  
+- Other minor **bug fixes and performance improvements**.  
+
+---
+
+## **2.0.14 (29 Jan 2025)**  
+
+#### **Added ✨**  
+- **New Dashboard Design**  
+  - Redesigned for a **smoother and more intuitive experience**.  
+  - Easily navigate between **projects and workspaces**.  
+  - Added a **new Learning Resources section** featuring guides, tutorials, and tips to help you build faster.  
+
+- **Intl Package for Date/Time Formatting**  
+  - Nowa now supports the **Intl package in Flutter** for improved localization.  
+  - **Format dates, times, and numbers** based on locale preferences.  
+  - Easily adapt to **region-specific date formats, timezones, currency, and pluralization rules**.  
+
+#### **Fixed 🩹**  
+- Fixed a **deployment issue for apps** caused by an outdated package.  
+
+---
+
 ## **2.0.13-beta (4 Feb 2025)**  
 
 #### **Added ✨**  

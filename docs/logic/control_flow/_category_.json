@@ -1,0 +1,9 @@
+{
+    "label": "Control flow",
+    "position": 2,
+    "link": {
+      "type": "generated-index",
+      "description": "learn using the compound nodes to control the logic flow",
+      "slug": "control-flow"
+    }
+  }

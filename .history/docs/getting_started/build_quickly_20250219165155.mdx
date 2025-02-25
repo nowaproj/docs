@@ -1,0 +1,141 @@
+---
+sidebar_position: 3
+title: Build something under 5 minutes
+description: Build a usecase quickly under 5 minutes 
+---
+
+In this quick-start guide, we'll build a simple app together in under 5 minutes.
+The app will be a countdown timer where the user enters a value in seconds, presses start, and sees the countdown begin. A progress bar will visually display the countdown.
+
+## What You'll Learn
+
+- Creating a UI with a **Text**, **Progress Bar**, **Button**, and **TextField**
+- Defining and updating variables dynamically
+- Using Circuit to implement countdown logic with a **Timer** object
+
+Follow along step by step, and try to replicate the process in your own project!
+
+---
+
+## Step 1: Create the UI
+
+First, let's build the app's UI, we wont' do any styling or anything, we will just drop the widgets needed for this app.
+
+The steps as follows:
+
+1. Add a **TextField** – This is where users will enter the countdown value.
+2. Add a **Text** widget – It will display the current countdown value.
+3. Add a **Progress Bar** – This will visually represent the countdown progress.
+4. Add a **Button** labeled "Start" – This will start the countdown when clicked.
+
+<div style={{ position: 'relative', paddingBottom: 'calc(56.15079365079365% + 41px)', height: 0, width: '100%' }}>
+    <iframe
+    src="https://demo.arcade.software/SnHz8GEOBtA92F4H3T5k?embed&embed_mobile=tab&embed_desktop=inline&show_copy_link=true"
+    title="Arcade Flow (Mon Feb 17 2025)"
+    frameBorder="0"
+    loading="lazy"
+    allowFullScreen
+    allow="clipboard-write"
+    style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', colorScheme: 'light' }}
+    />
+</div>
+
+---
+
+## Step 2: Make the Countdown Functional
+
+Now, let's bring our app to life by making the **Start** button work.
+
+Here's the full steps of doing so. More explanation on the steps below:
+
+<div style={{ position: 'relative', paddingBottom: 'calc(56.15079365079365% + 41px)', height: 0, width: '100%' }}>
+    <iframe
+    src="https://demo.arcade.software/vX8u0FeueZ086hR0ItJF?embed&embed_mobile=tab&embed_desktop=inline&show_copy_link=true"
+    title="Arcade Flow (Mon Feb 17 2025)"
+    frameBorder="0"
+    loading="lazy"
+    allowFullScreen
+    allow="clipboard-write"
+    style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', colorScheme: 'light' }}
+    />
+</div>
+
+#### Define Variables
+
+We need two integer variables:
+
+- `originalTimer` – Stores the initial countdown value.
+- `currentTimer` – Starts at `originalTimer` and decreases by 1 every second.
+
+#### Connect Variables to UI
+
+- Set the **Text** widget to display `currentTimer`, so it updates in real-time.
+- Set the **Progress Bar**'s value to `currentTimer / originalTimer`, ensuring it starts full (1) and decreases over time.
+
+#### Implement Countdown Logic
+
+1. Select the **Start** button and open its **On Pressed** event.
+2. Use the **Timer** object to call a function every **1 second**.
+3. Inside the function:
+    - Decrease `currentTimer` by **1**.
+    - Call **Refresh** to update the UI (Text and Progress Bar).
+
+Now, when you click **Start**, the timer will begin counting down, and the progress bar will decrease accordingly.
+
+![](./img/counterAppExample.gif)
+
+---
+
+## Step 3: Allow Users to Set a Custom Timer
+
+We want users to enter a new countdown value instead of using the default one.
+
+<div style={{ position: 'relative', paddingBottom: 'calc(56.15079365079365% + 41px)', height: 0, width: '100%' }}>
+    <iframe
+    src="https://demo.arcade.software/DOLulMnP8iTcFSiP7A6h?embed&embed_mobile=tab&embed_desktop=inline&show_copy_link=true"
+    title="Arcade Flow (Mon Feb 17 2025)"
+    frameBorder="0"
+    loading="lazy"
+    allowFullScreen
+    allow="clipboard-write"
+    style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', colorScheme: 'light' }}
+    />
+</div>
+
+
+#### Use a TextField Controller
+
+- The **TextField** widget has something called `Controller`. This is used to access it's properties during the logic building, and do things like clearing the text up.
+- When you drop a TextField widget, you will find next to the controller property `text`, which is the controller name created by default
+- We will access that `text` controller to retrieve the value entered by the user.
+
+#### Set the New Timer Value
+
+
+1. Open the **On Editing Complete** event for the **TextField**. This event will be called when user finish entering a value inside the TextField, like when the user click enter after typing inside the TextField
+2. Add a **Parse()** node to convert the entered text (String) into an integer. (the text property of the TextField is always with the type String even if the user types a number, so we need Parse node to parse it into an integer)
+3. Store the result in a new variable (`newValue`): The result from Parse can be stored in a new variable on the spot. We will use that new variable in the next step when setting a new value for the variables we created earlier
+4. Set both `currentTimer` and `originalTimer` to `newValue`. This will make the variables hold the most recent value that the user typed in the TextField
+
+Now, when the user enters a new value and presses **Enter**, the countdown will reset to that value. When they press **Start**, it will count down from the new number.
+
+![](./img/finalCounterApp.gif)
+
+---
+
+## Congratulations!
+
+You’ve successfully built your first app in Nowa! You now understand: ✅ How to create a UI ✅ How to use variables ✅ How to implement logic using Circuit
+
+You're now ready to explore more complex apps. Check out the next guide to continue your journey!
+
+
+
+
+
+
+
+
+
+
+

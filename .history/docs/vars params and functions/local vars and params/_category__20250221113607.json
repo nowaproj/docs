@@ -1,0 +1,9 @@
+{
+    "label": "Local variables and Parameters",
+    "position": 1,
+    "link": {
+      "slug": "local-vars-params",
+      "type": "generated-index",
+      "description": "How to use the basix building blocks of variables, parameters, functions and Objects "
+    }
+  }

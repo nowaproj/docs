@@ -1,0 +1,9 @@
+{
+  "label": "Integrations",
+  "position": 10,
+  "link": {
+    "description": "Learn how to integrate Nowa with other popular tools",
+    "type": "generated-index",
+    "slug": "/integrations"
+  }
+}

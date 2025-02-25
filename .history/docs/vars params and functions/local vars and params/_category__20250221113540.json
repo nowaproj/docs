@@ -1,0 +1,9 @@
+{
+    "label": "Variables, Parameters, and Functions",
+    "position": 3,
+    "link": {
+      "slug": "vars-params-functions",
+      "type": "generated-index",
+      "description": "How to use the basix building blocks of variables, parameters, functions and Objects "
+    }
+  }

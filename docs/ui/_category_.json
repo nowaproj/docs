@@ -1,0 +1,9 @@
+{
+  "label": "Designer 🖌️",
+  "position": 3,
+  "link": {
+    "slug": "ui",
+    "type": "generated-index",
+    "description": "Learn the basics about creating a stunning UI for your app"
+  }
+}

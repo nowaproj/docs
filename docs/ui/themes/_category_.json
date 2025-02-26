@@ -1,0 +1,9 @@
+{
+  "label": "Themes 📱",
+  "position": 4,
+  "link": {
+    "slug": "ui/themes",
+    "type": "generated-index",
+    "description": "Learn how to create and themes. Create colors, typographies and more"
+  }
+}

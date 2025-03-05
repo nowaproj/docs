@@ -6,6 +6,40 @@ description: What's new
 
 > Discover the latest features and enhancements for each version of Nowa. For more details, check the [changelogs](./change_log.md)
 
+
+### **2.0.17 (4 March 2025)**  
+This update introduces a major new capability—**Web Deployment**—allowing you to **publish and share your web apps with a single click**. Plus, we've added **new widgets**, improved the dashboard, and enhanced audio support!
+
+#### **New ✨**  
+
+- **Web Deployment**  
+  Nowa now allows you to **deploy your web apps online effortlessly**. You can choose between:
+  - **Development Mode**: Share a temporary link for testing, available for all users.
+  - **Production Mode**: Publish a **permanent live version** (Pro & Premium users only) and even use a **custom domain**.
+  - Need to host it yourself? **Download the build files** and deploy them anywhere!
+  
+  Check out the **[full guide on web deployment](./deployment/web_deploy.mdx)** to get started!
+
+- **Badge Widget**  
+  Introducing the `Badge` widget—perfect for displaying **small notifications, labels, or indicators** in your UI. Easily **customize colors, shapes, and text** to highlight important elements.
+
+- **Pin Code Field Widget**  
+  Need to collect **secure PIN inputs**? The new `Pin Code Field` widget allows users to enter PINs or OTP codes with a customizable look and feel.
+
+#### **Improvements 🔧**  
+
+- **Dashboard Enhancements**  
+  - We’ve **separated cloud projects from local projects**, making it easier to manage your workspace and distinguish between them.
+
+- **Audio Source Enhancements**  
+  - Nowa now supports **playing audio directly from bytes**, giving you more flexibility when handling audio playback.
+
+- **Request Templates Directly from the Panel**  
+  - Need a specific app template? You can now **request templates directly** from inside the Nowa panel, and we will work on it right away!
+
+#### **Coming Soon 🔜**  
+- **Sample Projects**: including a AI-Chatgot, To-Do app, and a Water Tracker App
+
 ### **2.0.15 (12 Feb 2025)**  
 This update brings exciting new widgets and important improvements to Nowa, including **Swipeable Stack**, **Time Picker**, and various bug fixes.  
 

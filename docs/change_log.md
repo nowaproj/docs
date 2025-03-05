@@ -5,6 +5,22 @@ title: Changelog
 
 > Detailed log of all updates, improvements, and bug fixes for each version.
 
+## **2.0.17-beta (5 March 2025)**  
+
+#### **Added ✨**  
+- **Web Deployment**: Deploy your web apps online directly from Nowa in development or production mode, with an option to download build files for external hosting. [Read more](./deployment/web_deploy.mdx)
+- **Added a Badge Widget**
+- **Added a Pin Code Field Widget**: New input field for PIN codes and OTP entry.  
+- **Dashboard Enhancements**
+- **Audio Source Enhancements**: Now supports playing audio from bytes.  
+- **Request Templates Directly from the Panel**: Easily request new app templates within Nowa.  
+
+#### **Fixed 🩹**  
+- Fixed widget picker drag and drop issue when widgets had dependencies.  
+- Fixed set state functions not executing properly.  
+- Fixed sync issue when building local projects.  
+- Fixed Flutter SDK setting issue in the desktop version that appeared in the latest release.  
+
 
 ## **2.0.15-beta (12 Feb 2025)**  
 

@@ -1,0 +1,114 @@
+---
+sidebar_position: 1
+title: Deploying and Publishing a Web App
+description: How to deploy and publish your app as a Web app with a custom domain
+---
+
+# Deploying and Publishing a Web App
+
+Starting from Nowa V2.0.17, deploying and publishing a web app has never been easier. You no longer need to manually download the build files and host them elsewhere. Nowa allows you to build and publish your web app online with just a single click. The platform provides two hosting modes: **Development** and **Production**.
+
+## Deployment Modes
+
+### Development Mode
+Development mode is designed for testing purposes. It allows you to publish a web app online with a temporary link that you can share with your team, users, or stakeholders to try out the app.
+
+- The deployment link expires **every 12 hours**.
+- Ideal for quick sharing and testing without a permanent deployment.
+
+### Production Mode
+Production mode is meant for **officially releasing** your web app to users. It provides a **permanent link** that does not expire and also allows you to use a **custom domain**.
+
+- Suitable for launching your web app publicly.
+- Supports custom domain configuration.
+
+:::note
+Production mode avalible only for users with Pro and Premium plans. Development mode is open for eveyone 
+:::
+
+---
+
+## Deploying a Web App in Development Mode
+
+Follow these steps to deploy your web app in development mode:
+
+<video controls width="850">
+  <source src="/videos/deployment/web_publishing.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+
+1. Click on the **Web Deploy** icon in the top-right corner.
+2. A panel will open, with the **Development** tab selected by default.
+3. Click on **Publish** to start the deployment process.
+4. The system will indicate progress with animated dots. If the build fails, you can click on **Build Failed** to view the error details.
+5. Once the deployment succeeds, you will see a **deployment link**. You can:
+   - Copy and paste the link manually.
+   - Click on the **Open Link** icon to view it in a browser.
+   - Check the remaining time before the link expires.
+6. After publishing, when you open the link you might see a message that ask you to wait few minutes. This is because the enviroment is being set for hosting your web app. After few minutes refresh again and you will see your web app deployed and live.
+7. You can now share the link with your team, early users, stalkholders, etc for testing purposes and getting their feedback.
+
+<video controls width="850">
+  <source src="/videos/deployment/web_opening_link.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+
+
+:::tip 
+7. If you make updates to your app, simply click **Publish** again, and the **same link** will be updated with the latest version. No need to deactive the link
+:::
+
+
+
+### Deactivating the Development Version
+If you want to deactivate the development version of your app:
+
+1. Click on the **Settings** icon in the top-right corner. The following panel will appear.
+
+![](./img/web_deploy_panel.png)
+
+2. Under the **Development** section, click **Deactivate**.
+
+---
+
+## Downloading Build Files for External Hosting
+
+If you prefer to host the web app yourself, you can download the build files:
+
+1. After publishing, click on the **Settings** icon inside the Web Deploy panel.
+2. Click on **Download Files** to get the necessary build files.
+
+---
+
+## Deploying a Web App in Production Mode
+
+Deploying for production follows the same steps as development mode:
+
+1. Click on the **Web Deploy** icon in the top-right corner.
+2. Select the **Production** tab.
+3. Click on **Publish**.
+
+### Key Differences in Production Mode
+- The **deployment link does not expire**.
+- You can have a custom domain as well
+---
+
+## Using a Custom Domain
+
+If you want to use a custom domain for your production deployment:
+
+1. Publish your web app using **Production Mode**.
+2. Click on the **Settings** icon inside the Web Deploy panel.
+3. Under the **Production** section, enter your **custom domain**.
+
+:::note
+You must create a **CNAME record** in your domain provider's settings that points to the Nowa production web version link.
+:::
+---
+
+
+With Nowa’s streamlined deployment process, you can easily share, test, and launch your web apps effortlessly!
+
+
+
+

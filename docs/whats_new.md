@@ -11,8 +11,8 @@ This update introduces our newest built-in template—**AI Chat**—allowing you
 
 #### **New ✨**  
 
-🤖 **AI Chat Template**  
-Nowa now includes an **AI Chat template**, helping you instantly create powerful chat experiences:
+🤖 **Chat Template**  
+Nowa now includes an **Chat template**, helping you to quickly create a powerful chat experiences in your app:
 - Ready-to-use **chat screen** for immediate integration.
 - Pre-built components including **chat bubbles** and **chat logic**.
 - Fully customizable to fit your own chat use case!

@@ -12,9 +12,11 @@ title: Changelog
 - **Quick Navigation to Functions & APIs**: New "open" icon next to functions and API requests to instantly jump directly to their definitions.
 
 #### **Fixed 🩹**  
-- Fixed details panel not showing the edit button for some custom expressions.
-- Fixed issue causing web deployment of older projects to deploy an empty app.
-- Fixed gray box covering the popup when deleting files with dependencies.
+- Fixed details panel not showing edit button for some custom expressions.  
+- Fixed web deployment issue causing older projects to deploy an empty app.  
+- Fixed gray box covering file system when deleting some files.  
+- Fixed file panel not updating after adding or removing a file.  
+- Fixed OnValue not opening for API requests in Circuit.
 
 
 ## **2.0.17-beta (5 March 2025)**  

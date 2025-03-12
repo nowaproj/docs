@@ -100,6 +100,11 @@ If you want to use a custom domain for your production deployment:
 1. Publish your web app using **Production Mode**.
 2. Click on the **Settings** icon inside the Web Deploy panel.
 3. Under the **Production** section, enter your **custom domain**.
+4. It will then generate record files. Upload them to your domain 
+5. After entering your custom domain, Nowa will generate DNS records (such as CNAME and TXT records).
+6. Copy these records and add them to your domain's DNS settings using your domain provider's dashboard. If you're unsure where to find your domain's DNS settings, check your provider's help documentation or support.
+7. It may take some time for DNS changes to propagate. 
+
 
 :::note
 You must create a **CNAME record** in your domain provider's settings that points to the Nowa production web version link.

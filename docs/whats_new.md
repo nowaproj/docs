@@ -6,6 +6,26 @@ description: What's new
 
 > Discover the latest features and enhancements for each version of Nowa. For more details, check the [changelogs](./change_log.md)
 
+### **2.0.18 (12 March 2025)**  
+This update introduces our newest built-in template—**AI Chat**—allowing you to quickly build your own chat-based apps. Plus, we've made navigating your project logic faster and easier!
+
+#### **New ✨**  
+
+🤖 **AI Chat Template**  
+Nowa now includes an **AI Chat template**, helping you instantly create powerful chat experiences:
+- Ready-to-use **chat screen** for immediate integration.
+- Pre-built components including **chat bubbles** and **chat logic**.
+- Fully customizable to fit your own chat use case!
+[See how to use it here](./templates/chat_template.mdx)
+
+🚀 **Quick Navigation to Functions & APIs**  
+We've enhanced your workflow in Circuit with **quick navigation**:
+- Click the new **"open" icon** next to functions or API request nodes.
+- Instantly jump directly to the source, making edits easier and faster.
+
+#### **Coming Soon 🔜**  
+- **Sample Projects**: AI Chatbot, To-Do app, and a Water Tracker App!
+
 
 ### **2.0.17 (4 March 2025)**  
 This update introduces a major new capability—**Web Deployment**—allowing you to **publish and share your web apps with a single click**. Plus, we've added **new widgets**, improved the dashboard, and enhanced audio support!
@@ -20,8 +40,8 @@ This update introduces a major new capability—**Web Deployment**—allowing yo
   
   Check out the **[full guide on web deployment](./deployment/web_deploy.mdx)** to get started!
 
-- **Badge Widget**  
-  Introducing the `Badge` widget—perfect for displaying **small notifications, labels, or indicators** in your UI. Easily **customize colors, shapes, and text** to highlight important elements.
+- **Badge Wrapper**  
+  Introducing the `Badge` wrapper—perfect for displaying **small notifications, labels, or indicators** in your UI. Easily **customize colors, shapes, and text** to highlight important elements.
 
 - **Pin Code Field Widget**  
   Need to collect **secure PIN inputs**? The new `Pin Code Field` widget allows users to enter PINs or OTP codes with a customizable look and feel.

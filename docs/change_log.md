@@ -5,11 +5,23 @@ title: Changelog
 
 > Detailed log of all updates, improvements, and bug fixes for each version.
 
+## **2.0.18-beta (12 March 2025)**  
+
+#### **Added ✨**  
+- **AI Chat Template**: Quickly build chat-based apps using the built-in, fully functional chat template, complete with chat bubbles and logic. [Read more](./templates/chat_template.mdx)
+- **Quick Navigation to Functions & APIs**: New "open" icon next to functions and API requests to instantly jump directly to their definitions.
+
+#### **Fixed 🩹**  
+- Fixed details panel not showing the edit button for some custom expressions.
+- Fixed issue causing web deployment of older projects to deploy an empty app.
+- Fixed gray box covering the popup when deleting files with dependencies.
+
+
 ## **2.0.17-beta (5 March 2025)**  
 
 #### **Added ✨**  
 - **Web Deployment**: Deploy your web apps online directly from Nowa in development or production mode, with an option to download build files for external hosting. [Read more](./deployment/web_deploy.mdx)
-- **Added a Badge Widget**
+- **Added a Badge Wrapper**
 - **Added a Pin Code Field Widget**: New input field for PIN codes and OTP entry.  
 - **Dashboard Enhancements**
 - **Audio Source Enhancements**: Now supports playing audio from bytes.  

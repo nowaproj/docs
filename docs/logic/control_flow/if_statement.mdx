@@ -4,10 +4,197 @@ title: If Statements
 description: Using If statements node to control the flow of the logic
 ---
 
+The **if statement** is one of the most essential control flow nodes you can use in Nowa. It allows your app logic to **branch in two directions**—`True` or `False`—based on a given **condition**.
 
-Coming soon!
+This is perfect for executing different logic depending on whether something is true or false, like whether a user is logged in or a value is empty.
 
+---
+
+## How to Add an If Statement
+
+To insert an if statement node into your logic flow:
+
+1. Open the **logic nodes menu**.
+2. Click the **➕ button** below any existing node.
+3. Choose **If Statement** from the list.
+
+
+<video controls width="720">
+  <source src="/img/circuit/control_flow/if/dropping_if.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+
+:::note[Nested if statements]
+
+You can easily build nested if statements inside each other.
+
+Simply click on + inside the true or false branuch inside the first if statement node and add another if statement there. Here's an example: 
+
+
+![](/img/circuit/control_flow/if/nested_if.png)
+
+
+:::
+
+
+---
+
+## Parts of the If Statement
+
+An if statement node in Nowa has **three main parts**:
+
+- **Condition**  
+    This is the logic that decides whether the `True` or `False` branch will be executed. It must return a boolean (`true` or `false`).
+    
+- **True Branch**  
+    This path runs if the condition is `true`. You can add nodes by hovering over the point inside the `True` branch and then clicking the ➕ icon. Nodes are executed from top to bottom.
+    
+- **False Branch**  
+    This runs if the condition is `false`. Add nodes the same way as in the True branch by hovering over the `False` point.
+    
+
+---
+
+## Visual Overview
+
+Here’s how an if statement looks inside Nowa:
+
+![](/img/circuit/control_flow/if/ifstatement_sections.png)
+
+
+1. **If Statement Node**  
+    Select this node to edit the condition.
+    
+2. **Condition Field**  
+    Once selected, the condition appears in the details panel on the right.
+    
+3. **True Branch**  
+    Hover over the `True` side to add nodes that run when the condition is true.
+    
+4. **False Branch**  
+    Hover over the `False` side to add nodes that run when the condition is false.
+    
+5. **End of If Statement**  
+    Any node added after this point continues the flow beyond the if statement.
+    
+
+---
+
+## Setting the Condition
+
+The condition field must evaluate to a **boolean value**. There are several ways to set it up:
+
+### 1. Toggle (Default)
+
+You’ll first see a simple toggle. Turning it on means the condition is always true (and the True branch runs), while off means it’s always false.
+![](/img/circuit/control_flow/if/toggle_condition.png)
+
+
+### 2. Link to a Value
+
+Click on the **condition field** itself in the details panel to open the **linking menu**, which used to connect fields to other parts like variables, etc. You can connect the condition to:
+
+#### - Local Variable or Parameter
+
+Link to a local `Boolean` variable or parameter (for example, `isLoading` boolean that is used to hold the loading state) defined in your screen or component.
+
+<video controls width="720">
+  <source src="/img/circuit/control_flow/if/if_with_variable.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+
+
+#### - Global Variable
+
+Connect to a `Boolean` global state variable from the **Globals** section in the linking menu.
+
+:::warning[Coniditon should be connected to a boolean]
+
+The variable or function that linked with the "condition" must result in a **boolean**—`true` or `false`.
+:::
+
+#### - Function (Returns Boolean)
+
+Use a function that returns a boolean.  
+To link it:
+
+- If it’s a **local** function, find it in the **Locals** section.
+- If it’s a **global** function, go to **Globals**, choose the state, then click ➕ to select the function.
+
+:::note
+When linked to a function, the function runs when execution reaches the if statement, and its result is used as the condition.
+:::
+
+#### - Custom Expression
+
+Write any custom Dart expression that results in a boolean, for example:
+
+```dart
+isLoading == true && user != null
+```
+
+#### - Operators
+
+You can build a condition using comparison or logical operators—like `greater than`, `equal`, or `not equal`.
+
+To use them:
+
+1. Inside the linking menu, go to the **Operators** section.
+2. Select the operator you want (e.g., `greaterThan`, `Equal`,  `logicalAnd`, etc).
+3. Set the **type** for both sides (like `int` if comparing integers).
+4. Then set the **left-hand side** and **right-hand side**:
+    - You can enter values manually.
+    - Or click each side to open the linking menu and connect it to a variable, function, or expression.
+
+**Example**:  
+Use the `greaterThanOrEqual` operator to check if a `dailyGoal` variable is greater than or equal to 1400. 
+
+<video controls width="720">
+  <source src="/img/circuit/control_flow/if/operator_with_if.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+
+:::tip[Use Custom Expression to view or modify the result] 
+This same logic could be written directly using **Custom Expression** if you prefer by typing `dailyGoal >= 1400` 
+
+Also, after using an operator node to build the condition, you can open its **Custom Expression** view to see the generated expression for that operator—and modify it if needed.
+:::
+
+#### - Compute
+
+This option creates a **custom boolean-returning function** for complex logic.
+
+How it works:
+
+1. Click **Compute** under the condition field.
+2. Nowa creates a function and links it to the condition.
+3. To edit the function, click its name beside "condition" and choose **Open in Circuit**.
+4. You can:
+    - Add parameters (e.g., `token`).
+    - Pass data into it from the if statement's details panel.
+    - Customize the logic to return true/false.
+
+---
+
+## Notes & Tips
+
+- **Detach a Condition**  
+    Click on the condition and press **Detach** to remove any link.
+    
+- **Create New Variables/Parameters**  
+    Inside the linking menu, you can:
+    
+    - Click **Create Variable** or **Create Param** to instantly generate a new local boolean and link it to the condition.
+    - Use **Locals** or **Globals** to connect to existing ones.
+
+---
+
+The if statement is a powerful way to handle dynamic logic visually. Whether you need a simple toggle or a fully custom condition, you can adapt it easily using variables, functions, or expressions.
 For now, play this tutorial that will start from the part where If statement node where used while building a Water Tracker App.
 
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/8ThDp4Zyqyc?si=mgJf7Qz0I9FzL0H7&amp;start=1136" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+
+
+

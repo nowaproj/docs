@@ -16,29 +16,45 @@ In this guide, we'll walk through the basics of setting up an API request in Now
 - Creating a GET request
 - Testing the request and viewing the response
 
-:::tip
-If you are a video type of person, here's a video explaining creating a GET request to:
-1. fetch All Wordpress posts and display them
-2. Fetch a specific post using Post ID
-
-   <iframe width="767" height="431" src="https://www.youtube.com/embed/_ko4iKVXVuA" title="Display WordPress Blogs in Your App Using ListView and REST API | Nowa tutorial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-:::
-
 Want to continue reading? then let's get started!
 
 ## 1. Creating a Collection
 
 A **collection** in Nowa is a group of API requests that share the same base URL and headers. This is useful when you're integrating with a service like WordPress, where multiple endpoints share common settings.
 
-**Steps:**
+To create a new API collection in Nowa, follow these steps:
 
-1. Navigate to the **Data** section located at the bottom left of the Nowa interface.
-2. Click on **API**.
-3. Click on **Create Collection**.
-4. Name your collection (e.g., `WordPress`).
+1. Open the **Files** panel from the left sidebar.
+    
+2. Next to the `Lib` folder, click on the **`+`** icon.
+    
+3. Select **New API Collection**.
+    
+4. Enter a name for your collection and click **Create**.
+    
+5. A new file will be created inside the `api` folder. Open the folder and click on the collection file to open the **Collection Editor**.
+    
 
-![](./img/create-requests/gotoAPI.png)
+#### Notes
+
+:::note[Class name and File path for Collections]
+When creating a collection, when naming it, you will see the **generated class name** and the **path**
+    
+    - **Class name**: This is the name of the Dart class that will be generated in code. It acts as the interface to access requests from this collection inside Circuit. (You will see the class name under API section inside Circuit, and using that class name you will be able to call the request you need)
+        
+    - **Path**: This is simply the file path where the collection file will be stored.       
+:::
+
+:::info[Eveything is a Dart file]     
+In Nowa, **everything is a Dart file**—whether it's a screen, component, or API collection. This consistency makes it easier to manage and understand different parts of your app, especially when combining visual and code-based development.
+:::  
+
+📹 In the video below, you’ll see a step-by-step guide to creating a collection.
+
+<video controls width="850">
+<source src="/img/api/create_collection.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
 
 
 **Why use a collection?**

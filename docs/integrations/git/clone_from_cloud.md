@@ -21,8 +21,8 @@ If you have an existing GitHub Flutter project and wish to continue development 
 **Why clone into Nowa Cloud?**
 
 - Work from anywhere using Nowa web or desktop.
-- Quickly deploy your app to the App Store, Google Play, or the web. [Read more about deployment](../deployment/)
-- Easily share testable web versions (12-hour expiration) or production versions (permanent link with optional custom domain). [Read more about Web publishing](../deployment/web_deploy.mdx)
+- Quickly deploy your app to the App Store, Google Play, or the web. [Read more about deployment](../../deployment/)
+- Easily share testable web versions (12-hour expiration) or production versions (permanent link with optional custom domain). [Read more about Web publishing](../../deployment/web_deploy.mdx)
 - Instant deployment after changes with just a single click.
 
 #### Steps to Clone a GitHub Repository into Nowa Cloud

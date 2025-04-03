@@ -5,8 +5,6 @@
  */
 
 /* You can override the default Infima variables here. */
-@import url('https://fonts.googleapis.com/css2?family=Albert+Sans&display=swap');
-
 :root {
   --ifm-color-primary: #e9890e;
   --ifm-color-primary-dark: #29784c;
@@ -17,15 +15,7 @@
   --ifm-color-primary-lightest: #3cad6e;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
-  --ifm-font-family-base: 'Albert Sans', sans-serif;
-  --ifm-font-size-base: 16px;
-
 }
-
-.markdown {
-  font-size: 18px; /* Adjust the size as needed */
-}
-
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
@@ -37,7 +27,4 @@
   --ifm-color-primary-lighter: #32d8b4;
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
-  --ifm-font-family-base: 'Albert Sans', sans-serif;
-  /* --ifm-font-size-base: 10px; */
-
 }

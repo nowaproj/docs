@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-title: Intro to Hybrid approacgh
+title: Intro to Hybrid Approach
 description: Learn how to use Nowa Hybrid approach  
 ---
 

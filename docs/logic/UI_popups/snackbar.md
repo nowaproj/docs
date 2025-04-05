@@ -4,7 +4,7 @@ title: Snackbar
 description: Showing Snackbar popups
 ---
 
-# Snackbar
+# Showing Snackbar
 
 A **Snackbar** is a small, temporary message that appears at the bottom of the screen. It’s used to quickly notify users about a process, action, or event without interrupting their current interaction.
 

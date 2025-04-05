@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-title: Dialog
+title: Showing Dialog
 description: How to show Dialog popup 
 ---
 

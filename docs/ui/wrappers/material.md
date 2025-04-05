@@ -4,6 +4,8 @@ title: Material
 description: Add a physical layer to your app's UI
 ---
 
+# Material 
+
 The **Material** wrapper adds a physical layer to your app's UI, giving it depth and visual interest with properties like color and shadows. It's like adding a layer of paint and shadow to make certain parts stand out. Here's a simple breakdown of its properties:
 
 Here are the properties of this wrapper:

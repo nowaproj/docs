@@ -1,9 +1,9 @@
 {
-    "label": "Git & Github (NEW)",
+    "label": "Git & Github",
     "position": 1,
     "link": {
       "type": "generated-index",
       "description": "Learn how to integrate git and github with your Nowa project",
-      "slug": "git"
+      "slug": "integrations/git"
     }
   }

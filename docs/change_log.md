@@ -5,6 +5,33 @@ title: Changelog
 
 > Detailed log of all updates, improvements, and bug fixes for each version.
 
+## **2.0.19 (6 April 2025)**  
+
+#### **Added ✨**  
+- **Nowa Marketplace**: Browse and add editable sample projects from the dashboard, starting with:
+  - Water Tracker App ([Used in this tutorial](https://www.youtube.com/playlist?list=PLVhnHv8Cdhz87lklVjSao4Y0EHdlq2j5a))
+  - AI Chat App assistant using ChatGPT
+- **Revamped Git Integration**:
+  - Clone from any Git provider (e.g. GitHub)
+  - Push cloud projects to Git
+  - Sync between local, cloud, and remote
+  - Perform Git operations like commit, discard, and branch
+  - [Full guide](https://docs.nowa.dev/git)
+- **New Button Widget**:
+  - Style buttons using `ButtonStyle` (background, text, radius, elevation, etc.)
+  - Use `ButtonTheme` for consistent styling
+- **Improved Error Handling**:
+  - Layout warnings before errors occur
+  - Prevention of crash-causing actions
+  - Displays exact file of the issue
+
+#### **Fixed 🩹**  
+- Fixed some cloud projects not opening  
+- Fixed feedback dialog popping up repeatedly  
+- Fixed undo not working after function deletion  
+- Fixed Navigator and data type bugs in Circuit  
+- Fixed TextFields in global state not responding
+
 ## **2.0.18-beta (12 March 2025)**  
 
 #### **Added ✨**  

@@ -6,6 +6,95 @@ description: What's new
 
 > Discover the latest features and enhancements for each version of Nowa. For more details, check the [changelogs](./change_log.md)
 
+Also, check out the new pages on Nowa V2 that are live: 
+
+##### :dna: Hybrid Approach
+- [:herb: Intro to Hybrid Approach](https://docs.nowa.dev/hybrid-approach)  
+- [:jigsaw: Using Custom Code](https://docs.nowa.dev/hybrid_approach/custom_code)  
+
+##### :brain: Circuit & Logic
+- [:electric_plug: Circuit Intro](https://docs.nowa.dev/logic/intro_circuit)  
+- [:twisted_rightwards_arrows: If Statement](https://docs.nowa.dev/logic/control_flow/if_statement)  
+- [:fire_extinguisher: Try Catch](https://docs.nowa.dev/logic/control_flow/try_catch)  
+
+##### :compass: Common Functionalities
+- [:compass: Navigation](https://docs.nowa.dev/logic/common_functionalities/navigation)  
+- [:frame_photo: Media Picker](https://docs.nowa.dev/logic/common_functionalities/media_picker)  
+- [:computer: Check Platform](https://docs.nowa.dev/logic/common_functionalities/platform_checking)  
+- [:printer: Print](https://docs.nowa.dev/logic/common_functionalities/print)  
+
+##### :package: Variables & States
+- [:brain: Using Data Models](https://docs.nowa.dev/vars_params_functions/data_models)  
+- [:earth_africa: Global States](https://docs.nowa.dev/vars_params_functions/global_states)  
+
+##### :repeat: Git & Version Control
+- [:repeat: Full Git & GitHub Guide](https://docs.nowa.dev/integrations/git)
+
+### **2.0.19 (6 April 2025)**  
+Nowa Marketplace is finally here! 🚀 This update brings you a faster way to build with sample projects, a powerful Git integration, a fresh button widget, and better error handling—all designed to supercharge your workflow.
+
+#### **New ✨**
+
+🛍️ **Nowa Marketplace**  
+Introducing our very first **Marketplace**—your new starting point to build faster with real, editable projects:
+- Discover sample apps right from the dashboard  
+- Preview them, check the structure, and **Add App** to start building  
+- View details like APIs, AI, and custom code setups  
+
+We’re launching with:  
+- 🧊 **Water Tracker App** – featured in [our latest tutorial](https://www.youtube.com/playlist?list=PLVhnHv8Cdhz87lklVjSao4Y0EHdlq2j5a)  
+- 🤖 **AI Chat App** – a complete ChatGPT-powered messaging experience
+
+🔁 **Revamped Git Integration**  
+Manage your projects like a pro with full Git operations:
+- Clone from any Git provider (like GitHub)  
+- Push cloud projects to Git  
+- Keep local, cloud, and remote versions in sync  
+- Commit, discard, branch—you name it  
+[Check out the full Git guide](./integrations/git)
+
+🔘 **New Button Widget**  
+Customize your buttons with the all-new `ButtonStyle`:
+- Set background color, text style, border radius, elevation, and more  
+- Apply a `ButtonTheme` across your app for consistent styling
+
+⚠️ **Smarter Error Handling**  
+- Get warnings before layout issues happen  
+- Prevent actions that could crash your app  
+- Quickly spot and fix problems with **file-specific error messages**
+
+#### **Coming Soon 🔜**  
+🍯 Easier API workflows  
+🔁 Big improvements to Circuit  
+📱 More sample projects  
+🎥 Tutorial on building advanced features in the AI Chat App
+
+### **New learning resources**
+We’ve added new docs to help you learn and master building with Nowa:
+
+##### 🧬 Hybrid Approach
+- [🌿 Intro to Hybrid Approach](./hybrid-approach)  
+- [🧩 Using Custom Code](./hybrid_approach/custom_code)  
+
+##### 🧠 Circuit & Logic
+- [🔌 Circuit Intro](./logic/intro_circuit)  
+- [🔀 If Statement](./logic/control_flow/if_statement)  
+- [🧯 Try Catch](./logic/control_flow/try_catch)  
+
+##### 🧭 Common Functionalities
+- [🧭 Navigation](./logic/common_functionalities/navigation)  
+- [🖼️ Media Picker](./logic/common_functionalities/media_picker)  
+- [💻 Check Platform](./logic/common_functionalities/platform_checking)  
+- [🖨️ Print](./logic/common_functionalities/print)  
+
+##### 📦 Variables & States
+- [🧠 Using Data Models](./vars_params_functions/data_models)  
+- [🌍 Global States](./vars_params_functions/global_states)  
+
+##### 🔁 Git & Version Control
+- [🔁 Full Git & GitHub Guide](./integrations/git)  
+
+
 ### **2.0.18 (12 March 2025)**  
 This update introduces our newest built-in template—**AI Chat**—allowing you to quickly build your own chat-based apps. Plus, we've made navigating your project logic faster and easier!
 

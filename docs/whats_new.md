@@ -8,28 +8,6 @@ description: What's new
 
 Also, check out the new pages on Nowa V2 that are live: 
 
-##### :dna: Hybrid Approach
-- [:herb: Intro to Hybrid Approach](https://docs.nowa.dev/hybrid-approach)  
-- [:jigsaw: Using Custom Code](https://docs.nowa.dev/hybrid_approach/custom_code)  
-
-##### :brain: Circuit & Logic
-- [:electric_plug: Circuit Intro](https://docs.nowa.dev/logic/intro_circuit)  
-- [:twisted_rightwards_arrows: If Statement](https://docs.nowa.dev/logic/control_flow/if_statement)  
-- [:fire_extinguisher: Try Catch](https://docs.nowa.dev/logic/control_flow/try_catch)  
-
-##### :compass: Common Functionalities
-- [:compass: Navigation](https://docs.nowa.dev/logic/common_functionalities/navigation)  
-- [:frame_photo: Media Picker](https://docs.nowa.dev/logic/common_functionalities/media_picker)  
-- [:computer: Check Platform](https://docs.nowa.dev/logic/common_functionalities/platform_checking)  
-- [:printer: Print](https://docs.nowa.dev/logic/common_functionalities/print)  
-
-##### :package: Variables & States
-- [:brain: Using Data Models](https://docs.nowa.dev/vars_params_functions/data_models)  
-- [:earth_africa: Global States](https://docs.nowa.dev/vars_params_functions/global_states)  
-
-##### :repeat: Git & Version Control
-- [:repeat: Full Git & GitHub Guide](https://docs.nowa.dev/integrations/git)
-
 ### **2.0.19 (6 April 2025)**  
 Nowa Marketplace is finally here! 🚀 This update brings you a faster way to build with sample projects, a powerful Git integration, a fresh button widget, and better error handling—all designed to supercharge your workflow.
 

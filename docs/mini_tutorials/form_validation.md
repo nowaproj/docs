@@ -4,6 +4,8 @@ title: Form validation
 description: Learn how to validate user input with validators
 ---
 
+# Form validation
+
 Watch this video on our Youtube channel to learn how to add Input validation to validate user input for a Sign up page.
 
 With Nowa form validation, you can check if the Input is:

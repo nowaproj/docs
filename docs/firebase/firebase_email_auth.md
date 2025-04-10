@@ -4,6 +4,8 @@ title: Email/password Authenticaion
 description: How to implement Email-password signin/signup
 ---
 
+# Email/password Authenticaion
+
 See how to build a full Email and Password Authentication system. 
 
 In this video, you will mainly learn:

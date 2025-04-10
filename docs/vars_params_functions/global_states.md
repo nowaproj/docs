@@ -4,7 +4,6 @@ title: Global States
 description: How to create and use global states
 ---
 
-
 # Global State
 
 Global states in Nowa allow you to store data that is accessible from anywhere in your app — no matter which screen or component you're on. This is perfect for things like shopping carts, user sessions, settings, or any other shared data that multiple parts of your app need to read or update.

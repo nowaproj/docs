@@ -4,6 +4,8 @@ title: E-Commerce App
 description: Design fully E-Commerce app from scratch
 ---
 
+# E-Commerce App
+
 Hey!
 
 In this video, Ludo will show you how to build the UI for an e-commerce app in Nowa! 🛒

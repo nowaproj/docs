@@ -4,6 +4,8 @@ title: Setup Firebase with the project
 description: How to connect firebase project to your Nowa app
 ---
 
+# Setup Firebase with the project
+
 Watch this video on our Youtube channel to learn the following:
 
 - Create a Firebase project

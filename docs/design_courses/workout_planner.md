@@ -4,6 +4,8 @@ title: Workout Planner App
 description: Design a full Workout planner App from scratch
 ---
 
+# Workout Planner App
+
 In this video, you will learn how to build a full UI for a Workout planner APP!
 
 The logic part will follow-up.

@@ -4,6 +4,8 @@ title: Football App
 description: Design a full Football App from scratch
 ---
 
+# Football App
+
 Don't just watch UEFA EURO 2024, learn to build a Stunning App for it! 
 
 In this tutorial, Ludo will show you how to build the UI part for a Football app in Nowa! ⚽️

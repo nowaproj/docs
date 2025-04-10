@@ -1,8 +1,10 @@
 ---
 sidebar_position: 4
-title: Display Loading indicator 
+title: Loading indicator
 description: Learn how to show Circular loading indicator and hide it for a case such as loading or signing-in
 ---
+
+# Loading indicator
 
 In this mini tutorial, which is part [Firebase integration series](https://www.youtube.com/playlist?list=PLVhnHv8Cdhz-ymSW3mSG1ciO1HQeIfAEo), you will learn how to display a loading indicator and hide it when loading is done.
 

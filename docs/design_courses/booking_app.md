@@ -3,6 +3,7 @@ sidebar_position: 2
 title: Hotel Booking App
 description: Design fully Hotel Booking app from scratch
 ---
+# Hotel Booking App
 
 In this video, Ludo will show you how to build the UI for an Hotel Booking app in Nowa! 
 

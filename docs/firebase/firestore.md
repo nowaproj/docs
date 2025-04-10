@@ -4,6 +4,8 @@ title: Firestore integration
 description: How to use Firestore with your Nowa app
 ---
 
+# Firestore integration
+
 In this tutorial you will learn how to use Firestore fully with Nowa.
 
 We will build an e-commerce app to sell shoes as an example

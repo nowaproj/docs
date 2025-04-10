@@ -1,8 +1,10 @@
 ---
 sidebar_position: 2
-title: Add Splash Screen
+title: Splash Screen
 description: Adding custom Splash screen and perform tasks in the meantime
 ---
+
+# Splashscreen
 
 Learn how to add a customized splash screen to your app in Nowa with just a few clicks! 
 

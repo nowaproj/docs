@@ -1,10 +1,10 @@
 ---
 sidebar_position: 1
-title: Showing Dialog
+title: Dialog
 description: How to show Dialog popup 
 ---
 
-# Showing Dialog
+# Showing Dialogs
 
 Dialogs are popups that show up in the middle of the screen, usually to give users some important message or ask them to make a choice.
 

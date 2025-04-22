@@ -3,7 +3,6 @@
     "position": 13,
     "link": {
         "description": "Common issues that might appear when using API in your app and how to fix them",
-        "type": "generated-index",
-        "slug": "/common_error"
+        "type": "generated-index"
     }
 }

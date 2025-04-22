@@ -1,9 +1,0 @@
-{
-    "label": "User Interactions & UI Popups",
-    "position": 3,
-    "link": {
-      "type": "generated-index",
-      "description": "How to show different types of user dialogs and popups",
-      "slug": "ui-popups"
-    }
-  }

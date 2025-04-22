@@ -1,9 +1,8 @@
 {
-  "label": "Screens 📱",
-  "position": 2,
-  "link": {
-    "slug": "ui/screens",
-    "type": "generated-index",
-    "description": "Creating screens and modifying their properties "
-  }
+    "label": "Screens \ud83d\udcf1",
+    "position": 2,
+    "link": {
+        "type": "generated-index",
+        "description": "Creating screens and modifying their properties "
+    }
 }

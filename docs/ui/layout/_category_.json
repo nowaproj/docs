@@ -1,9 +1,8 @@
 {
-  "label": "Layout 🎴",
-  "position": 6,
-  "link": {
-    "slug": "ui/layout",
-    "type": "generated-index",
-    "description": "Learn how to create great responvise layout"
-  }
+    "label": "Layout \ud83c\udfb4",
+    "position": 6,
+    "link": {
+        "type": "generated-index",
+        "description": "Learn how to create great responvise layout"
+    }
 }

@@ -1,9 +1,8 @@
 {
-  "label": "Supabase",
-  "position": 1,
-  "link": {
-    "description": "Learn how to connect Supabase database to your app",
-    "type": "generated-index",
-    "slug": "/supabase"
-  }
+    "label": "Supabase",
+    "position": 3,
+    "link": {
+        "description": "Learn how to connect Supabase database to your app",
+        "type": "generated-index"
+    }
 }

@@ -1,9 +1,9 @@
 {
-  "label": "Wrappers 🌯",
-  "position": 7,
-  "link": {
-    "slug": "wrappers",
-    "type": "generated-index",
-    "description": "Learn how to use wrappers"
-  }
+    "label": "Wrappers \ud83c\udf2f",
+    "position": 7,
+    "link": {
+        "slug": "wrappers",
+        "type": "generated-index",
+        "description": "Learn how to use wrappers"
+    }
 }

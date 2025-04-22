@@ -62,7 +62,7 @@ After committing, your changes exist only in your Nowa cloud repository. To sync
 :::tip[Number of commits to sync]
 You can see a number next to `Sync`, which is the number of commits that will be pushed or pulled. In the following example, we can see there's two commits that will be pushed to Github once we sync.
 
-![](/img/git/numberOfSync.png)
+![](/img/git/numberofsync.png)
 
 :::
 

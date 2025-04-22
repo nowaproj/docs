@@ -38,7 +38,7 @@ The **lib** section is where your main project files are stored, such as screens
 
 You can create a new object, folder or a UI board by clicking on "Add".
 
-![](./img/adding_assets.png)
+![](./img/adding-assets.png)
 
 
 
@@ -60,7 +60,7 @@ You can import image files from your device in one of the following ways:
 
 To use an online image, choose the **"Network"** option as the source of the image in the **details panel** of an Image widget, and paste the URL of the image in the URL field. 
 
-![](./img/import_images.gif)
+![](./img/import-images.gif)
 
 :::caution
 
@@ -77,7 +77,7 @@ After importing, go to the text widget you want to apply the new font to and **s
 
 You can also **drop the font file itself from the assets pop up onto the board**, and it will create a Text widget with the font already selected.
 
- ![](./img/import_fonts.gif)
+ ![](./img/import-fonts.gif)
 
 ---
 

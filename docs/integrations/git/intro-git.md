@@ -28,7 +28,7 @@ Nowa allows you to use Git and any Git service like GitHub to manage your reposi
 
 ## Best Practice: All Repositories in Sync
 
-![](/img/git/git_setup_explanation.png)
+![](/img/git/git-setup-explanation.png)
 
 
 You can structure your workflow with three synced copies of your project:

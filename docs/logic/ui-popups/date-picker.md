@@ -44,13 +44,13 @@ You need to set the first date and the last date to specify the range of the dat
 
 5. **Understand the return type:**
 
-   ![](/img/circuit/UI_popups/date-picker/date_picker_future.png)
+   ![](/img/circuit/ui-popups/date-picker/date-picker-future.png)
 
    - When you hover over the node, you'll see it returns a `Future<DateTime>`
    - In Flutter, a `Future` means the result will be available later. Since the user must interact and choose a date, the result won’t be ready immediately — that's why it's a `Future`.
    - You can **turn on `await`** so the function **waits until** the user picks a date. Once the user selects a date, the node continues execution.
 
-   ![](/img/circuit/UI_popups/date-picker/await_date_picker.png)
+   ![](/img/circuit/ui-popups/date-picker/await-date-picker.png)
 
 6. When `await` is enabled:
    - You can store the result directly in a new or existing variable

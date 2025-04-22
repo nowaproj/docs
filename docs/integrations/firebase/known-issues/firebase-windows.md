@@ -6,7 +6,7 @@ description: Firestore Queries can't be tested on Nowa Desktop
 
 You will encounter this issue when trying to test Firestore Queries on Nowa Windows version
 
-![](./img/firebase_windows.png)
+![](./img/firebase-windows.png)
 
 
 ### The Problem  

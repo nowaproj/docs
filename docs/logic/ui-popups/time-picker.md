@@ -52,7 +52,7 @@ Once stored, you now have access to the selected time to use however you want.
 
 Here are the configurable options available in the `showTimePicker` node:
 
-![](/img/circuit/UI_popups/time-picker/timepicker_options.png)
+![](/img/circuit/ui-popups/time-picker/timepicker-options.png)
 
 - **Initial Time (Hour, Minute)**: Sets the default time when the picker opens.
 - **Builder**: Leave it as `null` unless you want to override the design.
@@ -75,7 +75,7 @@ When the user selects a time, it returns a `TimeOfDay` object.
 
 You can call the following methods on it:
 
-![](/img/circuit/UI_popups/time-picker/timeofday_options.png)
+![](/img/circuit/ui-popups/time-picker/timeofday-options.png)
 
 - `hour`: Returns the hour (0–23).
 - `minute`: Returns the minute (0–59).

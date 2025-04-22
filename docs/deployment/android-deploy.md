@@ -41,7 +41,7 @@ Remember, it's recommended to use a single key to sign all your apps. Always use
 Therefore if you didn't have a key before and you just generated one, then download it and use the same key for signing your other Android apps as well
 :::
 
-![](./img/android_generate_key.png)
+![](./img/android-generate-key.png)
 
 
 ## Building Your App
@@ -52,7 +52,7 @@ The time it takes depends on server demand; on average, it's about 6 minutes but
 
 After the build completes, you'll see several files. Your app will be provided in two formats: APK and AAB. Click on any of the files to download it. 
 
-![](./img/android_afterbuild.png)
+![](./img/android-afterbuild.png)
 
 
 ## Choosing Between APK and AAB

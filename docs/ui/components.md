@@ -35,7 +35,7 @@ To create a component:
 4. Enter a name for the Component.
 5. Click "Create".
 
-![](./img/comp_1.gif)
+![](./img/comp-1.gif)
 
 :::note
 The name of each component should be unique, so choose a different name or delete the old component with the name you want to use.
@@ -49,7 +49,7 @@ You can copy and paste using:
 - `alt` + drag
 - right click > copy and then right click > paste
 
-![](./img/comp_2.gif)
+![](./img/comp-2.gif)
 
 ## Modify the component
 
@@ -63,7 +63,7 @@ You can't edit the design of a component while it's inside a screen. You can onl
 The only way you will be able to modify the original component within the screen itself is if the component has a group inside (stack, row or column) and this group has children widgets like Text, Image, etc. You then will be able to modify those children widget inside the component instance that is already inside a screen by selecting them from the outline
 :::
 
-![](./img/comp_3.gif)
+![](./img/comp-3.gif)
 
 ## Add Variables to a Component
 
@@ -75,9 +75,9 @@ After creating variables for the component, each instance of that component can 
 
 Select the main component and create variables for the desired properties.
 
-Learn more here: [Create Variables](../vars_params_functions/create_variable.mdx)
+Learn more here: [Create Variables](../vars-params-functions/create-variable.mdx)
 
-![](./img/comp_4.gif)
+![](./img/comp-4.gif)
 
 ## Detach Instances from the main Component
  

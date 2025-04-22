@@ -22,11 +22,11 @@ Let's see together how to add the text widget:
 
 Once you have the **Text tool** selected, you can add text to your screens or the board. You can do this action in two ways:
 
-- **Single Click**: Click on the screen to add text. This will create a Text Widget with the Width and the Height set to "Auto". (Discover more about the [Layout](../../layout/)).
+- **Single Click**: Click on the screen to add text. This will create a Text Widget with the Width and the Height set to "Auto". (Discover more about the [Layout](./container.md)).
 
-- **Click and Drag**: Click and drag the text tool on the screen to create a text widget with Width and Height to be set on "Fixed". (Discover more about the [Layout](../../layout/)).
+- **Click and Drag**: Click and drag the text tool on the screen to create a text widget with Width and Height to be set on "Fixed". (Discover more about the [Layout](./container.md)).
 
-![](./img/adding_text_widget.gif)
+![](./img/adding-text-widget.gif)
 
 
 💡 You can also add the Text Widget from the widget picker: in this case the width and the height will be set on "Fixed".
@@ -58,7 +58,7 @@ Let's have a look together at the properties of the text widget that will help y
 - **Shadow**: Add shadows to your text to create depth.
 
 
-![](./img/editing_text_widget.gif)
+![](./img/editing-text-widget.gif)
 
 
 - **Overflow:** Set how the text should behave when it exceeds the space available. The options include:
@@ -72,7 +72,7 @@ Let's have a look together at the properties of the text widget that will help y
 
 
 
-💡 For more options, all the text properties can be connected to variables. For more. check out [Using Variables](../../../vars_params_functions/create_variable.mdx).
+💡 For more options, all the text properties can be connected to variables. For more. check out [Using Variables](../../../vars-params-functions/create-variable.mdx).
 
   
 

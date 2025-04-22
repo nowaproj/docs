@@ -68,7 +68,7 @@ When you select the `showSnackbar` node, you'll see the following properties:
 - **Store result** *(optional)*:  
   You can optionally store a result returning from calling the Snackbar (a variable from type of `ScaffoldFeatureController`). You can then use that variable later to implement a callback `closed` to be called after the snackbar is closed. 
 
-![](/img/circuit/UI_popups/snackbar/snackbar_properties.png)
+![](/img/circuit/ui-popups/snackbar/snackbar-properties.png)
 
 :::note[Set to Default or Null]
 

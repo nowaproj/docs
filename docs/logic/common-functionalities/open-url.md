@@ -31,7 +31,7 @@ Here’s how to set it up step by step:
 3. Select the node, and on the right panel, you’ll see a field labeled **Url**.
 4. Enter the full website link you want to open (e.g., `https://example.com`).
 
-![](/img/circuit/common_functionalities/others/openurl.png)
+![](/img/circuit/common-functionalities/others/openurl.png)
 
 
 ---

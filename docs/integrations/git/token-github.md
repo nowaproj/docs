@@ -85,7 +85,7 @@ Nowa allows only one Git credential at a time. If you add a new token, it will r
 :::info[]
 For local projects, you don't need to do the authenticate Github. This is only needed when you want to connect Github with your Cloud projects on Nowa and perform git operations, but not with local ones.
 
-For local repositories, you can manage them as you would do with standerd Flutter development using any of the options such as git commands, VS code, or Github desktop app itself. [Read more on using git with local projects here](./git_local.md)
+For local repositories, you can manage them as you would do with standerd Flutter development using any of the options such as git commands, VS code, or Github desktop app itself. [Read more on using git with local projects here](./git-local.md)
 
 :::
 ---

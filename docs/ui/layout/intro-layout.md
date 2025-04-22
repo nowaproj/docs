@@ -10,7 +10,7 @@ Nowa provides you with the tools to achieve a layout that lets your designs adap
 
 The Layout features you need to know are:
 - [Groups](./groups.md)
-- [Columns and Rows](./rows_and_columns.md)
+- [Columns and Rows](./rows-and-columns.md)
 - [Constraints](./constrains.md)
 
 💡 Don't miss our [Layout Video tutorial on YouTube](https://www.youtube.com/watch?v=Athtk_nr388) for a comprehensive understanding of the Layout features in Nowa.

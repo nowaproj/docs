@@ -67,7 +67,7 @@ Nowa supports dynamic theme switching during runtime, allowing you to provide a 
 
 ---
 
-With themes, you can create a consistent design system, dynamically switch styles, and ensure your app looks professional across all screens. In the next sections, we’ll explore [Colors](./colors_themes.md) and [Typography](./typograhies.md) in detail.
+With themes, you can create a consistent design system, dynamically switch styles, and ensure your app looks professional across all screens. In the next sections, we’ll explore [Colors](./colors-themes.md) and [Typography](./typograhies.md) in detail.
 
 
 

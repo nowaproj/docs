@@ -20,7 +20,7 @@ For events—functions that are triggered by specific actions, such as the **On 
 
 For the following example, click on "Edit" to open the function in Circuit, then click on the small circle below the function name to add a node below. \
 
-![](/img/circuit/intro/add_nodes.png)
+![](/img/circuit/intro/add-nodes.png)
 
 
 
@@ -39,7 +39,7 @@ The first node, which is right below the function name, loads an integer from th
 
 Then, there's an if statement node, which will determine the flow of the logic according to a condition `tempDailyGoal != null`, which if true, then the flow will go on the right path.
 
-![](/img/circuit/intro/load_data_example.png)
+![](/img/circuit/intro/load-data-example.png)
 
 
 ## Types of Nodes

@@ -50,7 +50,7 @@ A Bundle Identifier is a unique identifier that distinguishes your app from all 
 
 For instance, we created a bundle ID named `com.example.myfirstappwithnowa`, which matches the package name for our app in Nowa.
 
-![](./img/identifier_creating.gif)
+![](./img/identifier-creating.gif)
 
 ### Step 2: Create a New App in App Store Connect
 
@@ -70,7 +70,7 @@ Click **Create** once you're done.
 
 For example, we created an App named "My First Nowa App" using the bundle ID we created earlier (`com.example.myfirstappwithnowa`).
 
-![](./img/add_app_ios.gif)
+![](./img/add-app-ios.gif)
 
 ### Step 3: Generate an API Key
 
@@ -87,7 +87,7 @@ To enable Nowa to deploy your app to the App Store Connect account automatically
 
 Remember, you will need the Key ID and Issuer ID for the next step.
 
-![](./img/generate_api_key.gif)
+![](./img/generate-api-key.gif)
 
 ### Step 4: Deploy Your App to the App Store
 
@@ -149,7 +149,7 @@ The completed app is automatically published to your app profile. You can confir
 Apple will then process the app build, which can take up to an hour. During this time, the state of your app build inside TestFlight tab will change from "**Processing**" to "**Ready to submit**".
 
 
-![](./img/build_process.gif)
+![](./img/build-process.gif)
 
 
 #### Profile Completion and App Review

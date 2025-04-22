@@ -117,7 +117,7 @@ To display or use a global variable in your UI:
 
 In the video:
 - We connected a `ListView` to `cartItems` in `CartState`.
-- We then connected each placeholder’s `product` parameter to the `element` in the list. (`element` is a variable created by the `ListView` where it presents a single item from the list itself. For more, check out [ListView widget](../ui/widgets/widget_desc/listview.md) 
+- We then connected each placeholder’s `product` parameter to the `element` in the list. (`element` is a variable created by the `ListView` where it presents a single item from the list itself. For more, check out [ListView widget](../ui/widgets/widget-desc/listview.md) 
 
 Now the ListView is connected to the `cartItems` list from the global state. But, if the list changed (new item was added), the UI won't update by itself. To do so, continue to the next sections:
 
@@ -179,7 +179,7 @@ If the function:
 - Has parameters → you’ll see fields to fill them.
 - Returns a result → you can store it in a variable to use later.
 
-For more, read about [functions](./Functions/create_local_function.mdx)
+For more, read about [functions](./functions/create-local-function.mdx)
 
 <video controls width="850">
   <source src="/img/vars-params-functions/global-state/use_add_to_cart.mp4" type="video/mp4" />
@@ -201,7 +201,7 @@ At the end of the video, we ran the app starting from the home screen:
 
 As a bonus, we also showed a **Snackbar** with the product name to confirm that it was successfully added to the cart.  
 
-For more on how to show snackbars, check out [using Snackbars](../logic/UI_popups/snackbar.md).
+For more on how to show snackbars, check out [using Snackbars](../logic/ui-popups/snackbar.md).
 
 ---
 :::tip[💧 Example: Water Tracker App] 

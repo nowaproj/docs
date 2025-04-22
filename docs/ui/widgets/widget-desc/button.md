@@ -15,7 +15,7 @@ From the details panel of the Button, you can customize its appearance:
 - Change the content of the Button by modifying the text properties. (To lean more about it here: [Text](./text.md)).
 - You can modify the color of the Button in the details panel.
 
-![](./img/customize_button.gif)
+![](./img/customize-button.gif)
 
 ### Add Gesture
 To make the button interactive, go in the details panel and you will see there that you can add functionalities for the gestures: "On Pressed" and "On Long Press". 

@@ -64,7 +64,7 @@ Here are some real-world use cases:
   - Create a `Product` class with fields (`name`, `price`) and a method (`formattedPrice`). Then, instantiate objects in Nowa and display their formatted prices in the UI.
 
 
-Head to the next section to see [how to use custom code](./custom_code.md).
+Head to the next section to see [how to use custom code](./custom-code.md).
 
 :::tip[Practical guide on using the Hybrid Approach]
 Check out this [Medium article](https://medium.com/@nowa.dev/nowas-hybrid-approach-boosting-flutter-productivity-with-visual-code-magic-sync-5d93b234ab9f) for a full practical guide on using hybrid approach.

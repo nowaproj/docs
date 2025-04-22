@@ -61,7 +61,7 @@ This videos shows how to show a simple dialog:
 
 When you add the `showDialog` node in Nowa, you’ll see a panel of properties on the right. These let you control how the dialog behaves and looks. Let’s go through them one by one, as shown in the screenshot:
 
-![](/img/circuit/UI_popups/dialog/showDialog_options.png)
+![](/img/circuit/ui-popups/dialog/showdialog-options.png)
 
 
 #### ✅ **Context**
@@ -193,7 +193,7 @@ Now when the dialog is shown, it will use your custom design instead of the defa
 
 ## Returning Data from Dialog
 
-You can return a value from a dialog—just like using `Pop` for `Navigator` node. Click here to read more about [using the Navigator node](../common_functionalities/navigation.md)
+You can return a value from a dialog—just like using `Pop` for `Navigator` node. Click here to read more about [using the Navigator node](../common-functionalities/navigation.md)
 
 Here's how it works in Nowa:
 
@@ -217,7 +217,7 @@ Inside the dialog:
 
 Now the result is stored in the variable you created and can be used later in your function.
 
-To see more about that, check using Pop inside [Navigator node](../common_functionalities/navigation.md)
+To see more about that, check using Pop inside [Navigator node](../common-functionalities/navigation.md)
 
 ### Using `OnValue`
 

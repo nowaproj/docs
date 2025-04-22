@@ -9,8 +9,8 @@ description: How to make your design responsive to many screen sizes
 In this section, we will have a look at how to make a screen responsive using columns and rows, and the layout features. 
 Make sure to check the following pages to have all the information needed regarding these features:
 
-- [Intro to Layout](../ui/layout/intro_layout.md)
-- [Columns and Rows](../ui/layout/rows_and_columns.md)
+- [Intro to Layout](../ui/layout/intro-layout.md)
+- [Columns and Rows](../ui/layout/rows-and-columns.md)
 
 ### What does making a screen responsive mean?
 
@@ -32,7 +32,7 @@ To turn a screen layout into a column/row:
 - In the details panel change the group orientation to [↓] Column or [→] Row.
 
 :::tip
-To learn more about these options check [Columns and Rows](../ui/layout/rows_and_columns.md).
+To learn more about these options check [Columns and Rows](../ui/layout/rows-and-columns.md).
 :::
 
 ![](./img/columns-rows-screen.png)
@@ -65,7 +65,7 @@ The spacing options are:
 - **Around** → provides space around each widget, including the beginning and end
 - **Evenly** → distributes space so that each widget has equal spacing on all sides, creating a balanced and symmetrical layout
 
-💡 Learn more about this options on: [Columns and Rows](../ui/layout/rows_and_columns.md)
+💡 Learn more about this options on: [Columns and Rows](../ui/layout/rows-and-columns.md)
 
 
 By combining these sizing and spacing options, you can create a responsive widget layout

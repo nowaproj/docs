@@ -41,7 +41,7 @@ This is how you ungroup widgets in Nowa:
 
 ----
 
-💡 **Note**: Groups can be converted in Columns and Rows to make designs responsive, to learn more about it check [Rows and Columns](./rows_and_columns.md) and [Intro to Layout](./intro_layout.md). 
+💡 **Note**: Groups can be converted in Columns and Rows to make designs responsive, to learn more about it check [Rows and Columns](./rows-and-columns.md) and [Intro to Layout](./intro-layout.md). 
 
 
 :::note

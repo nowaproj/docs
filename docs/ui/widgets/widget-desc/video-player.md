@@ -17,7 +17,7 @@ In case you building an app for online courses or education, then displaying vid
 
 Once you've placed the Video Player widget on the screen, select it to access its customization options. You'll find the following settings in the details panel on the right:
 
-![](./img/videoplayer_overview.png)
+![](./img/videoplayer-overview.png)
 
 
 ### Source Selection
@@ -25,7 +25,7 @@ Once you've placed the Video Player widget on the screen, select it to access it
 
 - **Asset**: Use this option if you prefer to display a video already uploaded to your app. To choose a video, click "Pick a video," which will open your asset panel displaying any previously uploaded video files. If you haven't uploaded a video yet, click "Upload" at the top right. 
 
-![](./img/upload_video@2x.png)
+![](./img/upload-video@2x.png)
 
 
 :::caution
@@ -42,7 +42,7 @@ Embedding videos directly into your app can significantly increase its size, whi
 
 This is how the controller will look like (played on iOS emulator)
 
-![](./img/videoplayer_showcontroller.gif)
+![](./img/videoplayer-showcontroller.gif)
 
 
 :::note
@@ -53,7 +53,7 @@ This is how the controller will look like (played on iOS emulator)
 
 For more detailed instructions on testing your app on Android/iOS emulators or actual device, refer to [this Youtube tutorial on using Nowa on Desktop](https://www.youtube.com/watch?v=Iounj9Z_Q1Y&t=9s&pp=ygUMbm93YSBkZXNrdG9w).
 
-![](./img/videoplayer_play.png)
+![](./img/videoplayer-play.png)
 
 :::
 

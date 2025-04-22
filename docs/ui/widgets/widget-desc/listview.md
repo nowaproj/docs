@@ -29,7 +29,7 @@ Watch this video to see how to create **GET request** and use **Data builder wra
 
 - **Customization**: After dropping the ListView, it will come by default on "Builder" mode. You can customize the UI by selecting the placeholder widget, separator, padding, etc and then connect it to an actual list in the end.
 
-![](./img/listview/drop_listview.gif)
+![](./img/listview/drop-listview.gif)
 
 
 ### 2. Setting a Placeholder Widget
@@ -38,26 +38,26 @@ Watch this video to see how to create **GET request** and use **Data builder wra
 
 In this example, we selected the `book_card` component that was created previously. 
 
-![](./img/listview/replace_placeholder.gif)
+![](./img/listview/replace-placeholder.gif)
 
 
 ### 3. Adjusting Item Count
 
 - **Item Count**: Change the `itemCount` to see how the list looks with different sizes. The itemCount will automatically match the length of the connected list when connecting it, but for now, you can modify it during the design process just to preview it. 
 
-![](./img/listview/item_count.gif)
+![](./img/listview/item-count.gif)
 
 
 ### 4. Adding Separators
 
 - **Fixed Spacing**: Change the separator from "None" to "Fixed spacing" to add fixed spaces between items. Adjust the spacing using the "spacing" field or by dragging the space in the ListView.
 
-![](./img/listview/fixed_seperator.gif)
+![](./img/listview/fixed-seperator.gif)
 
 
 - **Widget Separator**: Choose "widget" to add a specific widget as a separator. For example, add a "divider" widget and adjust its properties such as height, thickness, and color.
 
-![](./img/listview/widget_seperator.gif)
+![](./img/listview/widget-seperator.gif)
 
 
 
@@ -72,7 +72,7 @@ In this example, we selected the `book_card` component that was created previous
   - Click "connect +" for the ListView in the details panel, and choose `listOfBooks` (the list variable we created before for the screen.)
   - Select the placeholder widget of the Listview, and connect it's parameter that we created before, to the `element` variable passed from the list to each placeholder instance. You will find `element`under `Locals`.
 
-  ![](./img/listview/connect_data.gif)
+  ![](./img/listview/connect-data.gif)
 
 
   :::note
@@ -96,7 +96,7 @@ In this example, we selected the `book_card` component that was created previous
 - **Switch to Normal Mode**: Drop a ListView, expand its width and height, and click "normal" to switch modes.
 - **Adding Widgets**: Under the "children" property in the details panel, click `+` to add widgets. Replace placeholders with desired widgets, reorder them by drag and drop, or replace them from the details panel on the right, or from the outline on the left.
 
-![](./img/listview/normal_listview.gif)
+![](./img/listview/normal-listview.gif)
 
 
 ### 8. Switching Back to Builder Mode
@@ -105,14 +105,14 @@ In this example, we selected the `book_card` component that was created previous
 When switching from normal to builder mode, **only the first child widget will remain.** The rest will be removed because the builder mode uses a single placeholder for all items. See the example below.
 :::
 
-![](./img/listview/switch_to_builder.gif)
+![](./img/listview/switch-to-builder.gif)
 
 :::tip
 **Reorder Widgets**: If you want another widget to be the placeholder, reorder the list so the desired widget is first, then switch to builder mode.
 :::
 
 
-![](./img/listview/reorder_normal.gif)
+![](./img/listview/reorder-normal.gif)
 
 
 By following these steps, you can efficiently use the ListView widget in Nowa to create professional and responsive lists for your apps. 

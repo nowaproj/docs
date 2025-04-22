@@ -20,11 +20,11 @@ The Linear Progress Indicator widget allows you to visually represent the progre
 3. **Alignment**:
    - Use the alignment tool to set the alignment of the Linear Progress Indicator. Options include Left, Center, Right, Top, and Bottom.
 
-   ![](./img/linear-progress/drop_linear.gif)
+   ![](./img/linear-progress/drop-linear.gif)
 
 ### Customization Options
 
-   ![](./img/linear-progress/change_height.gif)
+   ![](./img/linear-progress/change-height.gif)
 
 
 1. **Value**:

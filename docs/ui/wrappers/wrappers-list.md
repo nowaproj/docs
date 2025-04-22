@@ -8,11 +8,11 @@ description: Get to know all wrappers in Nowa
 
 | Wrapper              | Description                                                                                                                                                                                   |
 | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [**Gesture detector**](./gesture_detector)     | Is used to detect and respond to touch events, like tap, double-tap, swipe, and pinch, on its child widget.                                                                                   |
+| [**Gesture detector**](././wrappers-intro.md)     | Is used to detect and respond to touch events, like tap, double-tap, swipe, and pinch, on its child widget.                                                                                   |
 | [**Padding**](./padding.md)                     | Create space around a widget's content, so that the content doesn't stick to the edges of its container                                                                                                                                                                                               |
 | [**Opacity**](./opacity.md)              | Makes its child partially transparent, allowing you to modify the opacity level of its child.                                                                                                 |
 | **Clip Radius**          | Let you add rounder corners to widgets.                                                                                                                                                       |
-| [**Container**](../widgets/widget_desc/container.md)            | Combines properties like positioning, and sizing into one.                                                                                                                                    |
+| [**Container**](../widgets/widget-desc/container.md)            | Combines properties like positioning, and sizing into one.                                                                                                                                    |
 | **Transform**            | Apply a transformation to its child, such as scaling, rotating, or translating                                                                                                                |
 | **Fitted Box**           | is a tool to scale and position its child within itself, according to the fit and alignment you provide.                                                                                      |
 | [**Scroll View**](./scrollview.md)          | Provides a scrolling view to display content that overflows.                                                                                                                                  |
@@ -28,7 +28,7 @@ description: Get to know all wrappers in Nowa
 | **Safe Area**            | Insets its child by sufficient padding to avoid intrusions by the operating system.                                                                                                           |
 | **Drawer** | A sliding panel primarily used for navigation that emerges from the edge of the screen, providing an easy way to access various parts of your app. |
 | **Color Filter** | Applies a color modification to its child widget, enabling effects like grayscale, sepia, or custom color transformations. |
-| [**Text Direction**](./text_direction) | Determines the direction in which text is written and displayed, supporting languages written from left to right or right to left. |
+| [**Text Direction**](././wrappers-intro.md) | Determines the direction in which text is written and displayed, supporting languages written from left to right or right to left. |
 | **Default text style** | Sets a default style for text within a specific portion of your app, ensuring consistent font, size, and color across your text widgets. |
-| [**Visibility**](./visibility) | Controls wether a widget should be visible or not. A variable or a function can be used determine that |
+| [**Visibility**](././wrappers-intro.md) | Controls wether a widget should be visible or not. A variable or a function can be used determine that |
 | **Form** | A container for grouping and validating multiple form fields, such as text fields, checkboxes, and buttons, making it easier to manage user input. |

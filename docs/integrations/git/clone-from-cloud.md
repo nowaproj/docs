@@ -9,7 +9,7 @@ description: How to create a Github Repo out of your project
 This guide will help you to easily connect your GitHub repositories with your Nowa Cloud projects, enabling smooth collaboration, efficient development, and easy deployment.
 
 :::note
-For Local projects, you can simply clone a Github repository as a local one and open it in Nowa desktop. You can also create a local repository out of your Nowa project, then push it to Github. [Read more on using git with local projects](./git_local.md).
+For Local projects, you can simply clone a Github repository as a local one and open it in Nowa desktop. You can also create a local repository out of your Nowa project, then push it to Github. [Read more on using git with local projects](./git-local.md).
 :::
 
 ## Two Methods to Integrate GitHub and Nowa
@@ -21,13 +21,13 @@ If you have an existing GitHub Flutter project and wish to continue development 
 **Why clone into Nowa Cloud?**
 
 - Work from anywhere using Nowa web or desktop.
-- Quickly deploy your app to the App Store, Google Play, or the web. [Read more about deployment](../../deployment/)
-- Easily share testable web versions (12-hour expiration) or production versions (permanent link with optional custom domain). [Read more about Web publishing](../../deployment/web_deploy.mdx)
+- Quickly deploy your app to the App Store, Google Play, or the web. [Read more about deployment](./intro-git.md)
+- Easily share testable web versions (12-hour expiration) or production versions (permanent link with optional custom domain). [Read more about Web publishing](../../deployment/web-deploy.mdx)
 - Instant deployment after changes with just a single click.
 
 #### Steps to Clone a GitHub Repository into Nowa Cloud
 
-1. Be sure your Nowa account is authenticated with your GitHub account. [See authentication guide](./token_github.md).
+1. Be sure your Nowa account is authenticated with your GitHub account. [See authentication guide](./token-github.md).
 2. Copy the HTTPS link from your GitHub repository.
 3. Navigate to the Nowa dashboard:
     - Click on **Cloud Projects** on the left menu.
@@ -42,7 +42,7 @@ If you have an existing GitHub Flutter project and wish to continue development 
 </video>
 
 
-Your Nowa Cloud project is now linked with your GitHub repository. You can start committing your changes, pushing and pulling, creating branches, etc. In the next section, you will learn [how to use Git with cloud projects](./git_operations_cloud.md).
+Your Nowa Cloud project is now linked with your GitHub repository. You can start committing your changes, pushing and pulling, creating branches, etc. In the next section, you will learn [how to use Git with cloud projects](./git-operations-cloud.md).
 
 ### 2. Push Your Nowa Cloud Project to GitHub
 
@@ -50,7 +50,7 @@ You can also take an existing Nowa Cloud project and push it to GitHub for versi
 
 #### Steps to Push Your Project to GitHub
 
-1. Be sure your Nowa account is authenticated with your GitHub account. [See authentication guide](./git_local.md).
+1. Be sure your Nowa account is authenticated with your GitHub account. [See authentication guide](./git-local.md).
 2. Create a new repository on GitHub:
     - Log in to GitHub and click on the **New repository** button (top right).
     - Enter a repository name and choose visibility (public or private). See how in the next video:
@@ -87,7 +87,7 @@ Here's how you connect your cloud repository to Github
 </video>
 
 
-Your Nowa Cloud project is now fully integrated with GitHub. You can start collaborating and doing version control. Head to the next section to learn how to [use git operations inside Nowa cloud projects](./git_operations_cloud.md).
+Your Nowa Cloud project is now fully integrated with GitHub. You can start collaborating and doing version control. Head to the next section to learn how to [use git operations inside Nowa cloud projects](./git-operations-cloud.md).
 
 ## Team Collaboration Using Nowa and GitHub
 
@@ -99,5 +99,5 @@ With your Nowa Cloud project linked to GitHub, your team can efficiently collabo
 
 ## What's Next?
 
-You’re now set up to perform basic git operations! Head to the next section to [learn more about essential Git workflows](./git_operations_cloud.md)), including branching, merging, pulling changes, and resolving conflicts effectively.
+You’re now set up to perform basic git operations! Head to the next section to [learn more about essential Git workflows](./git-operations-cloud.md)), including branching, merging, pulling changes, and resolving conflicts effectively.
 

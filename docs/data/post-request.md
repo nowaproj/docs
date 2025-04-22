@@ -32,23 +32,23 @@ We will start from scratch of creating a collection and a POST request:
 4. **Adding Headers**:  
    - You have the option to specify headers for your request., such as Authentication, Simply click on the `+` button and then define them using key-value pairs.
 
-   ![](./img/header_post.png)
+   ![](./img/header-post.png)
 
 5. **Defining Parameters**:  
    - On the right panel, you'll find the option to create parameters for this request. These parameters can be dynamically injected into the request body and can be sourced from various parts of your app, for example, a Text Field within a screen.
    - To add a parameter, click the `+` button. Define the name, type, and a default value for the parameter. This default value is what the system uses when no external data is passed to that parameter or when testing the request using the "Run a test" button.
 
-   ![](./img/param_post.png)
+   ![](./img/param-post.png)
 
    - To insert the parameters inside the request body, type a dollar sign `$`. A popup will appear allowing you to select the desired parameter. Alternatively, you can manually input it like `${Parameter Name}`. This syntax is similar to variable injection in the Dart programming language.
 
-    ![](./img/popup_dollar.png)
+    ![](./img/popup-dollar.png)
    
    :::danger
    Ensure that parameters inside the body are enclosed in quotation marks, e.g., `"Title": "${title}"`.
    :::
 
-    ![](./img/inject_body.png)
+    ![](./img/inject-body.png)
 
 
    - The "Run a test" function allows you to test your request, and it will also display a generated schema based on the received response.
@@ -57,11 +57,11 @@ We will start from scratch of creating a collection and a POST request:
    - Navigate to the logic where you want to fire that POST request, for instance, if you want to fire it at a button click then navigate  to "on Pressed" logic for that button. 
    - Add a new node by clicking the plus button next to the existing node, or by right-clicking to open the node list. Proceed to the `API` section and select the POST request you've just created, in this example, it's name was "add_post".
    
-  ![](./img/post_in_circuitPanel.png)
+  ![](./img/post-in-circuitpanel.png)
 
    - Here, you can pass data to the POST request using the parameters you've defined. Input them manually by typing them inside the node, or connect them to any variable created for that screen. For instance, if there's a Text field in that screen, you will find "TextField Controller" node in the node list, From that node, you can fetch the text variable which holds what's written inside it by the user, and link it to one of the parameters of the POST request.
 
-  ![](./img/post_in_circuit.png)
+  ![](./img/post-in-circuit.png)
 
   - You can also add a logic to `on Value` which will be executed when the request is successful, you can for example show a popup there to the user, or simply update the UI by updating a variable then calling `Refresh` node
 

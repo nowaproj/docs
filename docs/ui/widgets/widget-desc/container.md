@@ -30,7 +30,7 @@ After drawing a Container, you can modify it's properties to change its look. Le
 
 - **Radius**: You can make the corners of your container rounded by modifying the number in the Radius property. By clicking of the icon next to it, you can also modify the Radius of the corners individually.
 
-![](./img/modify_container.gif)
+![](./img/modify-container.gif)
 
 
 #### Fill with images
@@ -50,7 +50,7 @@ You can change the fit of the image inside the container. You can pick between t
 6. **None**: The image won't be resized at all. It'll be rendered in its original size. If the container is smaller than the image, parts of the image will overflow the container.
 7. **ScaleDown**: This option will make the image scale down to fit inside the container while maintaining its original aspect ratio, but only if the image is larger than the container. If the image is smaller than the container, it remains its original size.
 
-![](./img/add_image_to_container.gif)
+![](./img/add-image-to-container.gif)
 
 
 #### More properties
@@ -69,7 +69,7 @@ This feature is useful, for example, for adding a background to icons.
 
 💡 After adding a widget as a child, you can keep modifying the Container as you wish.
 
-![](./img/add_widget_to_container.gif)
+![](./img/add-widget-to-container.gif)
 
 
 ## Container as a Wrapper
@@ -82,4 +82,4 @@ This feature is useful for example to create visual effects like adding a gradie
 💡 Multiple Container Wrappers can be stuck on the top on each other and can be rearranged to achieve the desired effect.
 
 
-![](./img/add_gradients_container.gif)
+![](./img/add-gradients-container.gif)

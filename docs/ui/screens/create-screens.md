@@ -29,7 +29,7 @@ To separate the screen instance:
 - Right click on the screen on the board
 - Select "Detach"
 
-![](./img/toolbarassets_panel.png)
+![](./img/toolbarassets-panel.png)
 
 ### Remove screens from the designer board
 
@@ -40,5 +40,5 @@ Follow these steps to remove screens from the design board.
 ⚠️ Removing a screen from the board won't delete them from the project, it just removes them from the board alone, they can still be accessed from the **Files library**.
 To permanently delete a screen from a project they need to be removed from the Files library.
 
-Discover more about Screen in [Screen Properties](./screen_properties.md).
+Discover more about Screen in [Screen Properties](./screen-properties.md).
 

@@ -47,7 +47,7 @@ The Data Builder wrapper is a tool that:
    - Choose **`Data Builder`** from the list of wrappers.
    - The `ListView` is now wrapped with a Data Builder, and widgets under it can access the `data` variable.
 
-![](./img/display-data/add_databuilder.gif)
+![](./img/display-data/add-databuilder.gif)
 
 
 ### 2. Configure the Data Builder

@@ -123,7 +123,7 @@ Sometimes, you need to **return data from the second screen back to the first**.
 2. Enable **await**, and **store the result** in a variable like `result`. 
 
 Here's how the node will look like in the end:
-![](/img/circuit/common_functionalities/navigation/push_with_await.png)
+![](/img/circuit/common-functionalities/navigation/push-with-await.png)
 
 :::tip[Use OnValue as an alternative to await]
 Instead of using await, you can handle the result by adding the rest of your logic inside the OnValue callback. This will run automatically when the user returns from the second screen to the first.

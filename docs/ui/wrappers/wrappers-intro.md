@@ -10,7 +10,7 @@ Wrappers are used extensively in Flutter for composition over inheritance, meani
 
 For example, a `Padding` widget can act as a wrapper around another widget to add space around it. Similarly, a `Container` can wrap a widget to provide padding, margins, borders, or color backgrounds. Wrappers let create customizable and reusable UI components efficiently.
 
-💡 Check out our [List of Wrappers](./wrappers_list.md).
+💡 Check out our [List of Wrappers](./wrappers-list.md).
 
 ### How to add a Wrapper to a Widget?
 

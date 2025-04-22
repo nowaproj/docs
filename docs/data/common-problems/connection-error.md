@@ -8,7 +8,7 @@ title: DioException -  connection error
 
 If you encounter a `[DioException] connection error` while firing an API request using Nowa, this may be due to browser security settings that restrict API connections. 
 
-![](./img/connection_error.png)
+![](./img/connection-error.png)
 
 
 To work around this issue temporarily, you can disable web security settings in your browser. Here’s how to do it safely:

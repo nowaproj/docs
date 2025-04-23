@@ -6,7 +6,48 @@ description: What's new
 
 > Discover the latest features and enhancements for each version of Nowa. For more details, check the [changelogs](./change-log.md)
 
-Also, check out the new pages on Nowa V2 that are live: 
+---
+
+### **2.0.20 (23 April 2025)**  
+This update brings a whole new API workflow, smarter debugging in Play mode, and better defaults across the board. Let’s dig in!
+
+#### **New ✨**  
+
+🧩 **All-New API Editor**  
+Managing your APIs just got way more powerful:
+- View and manage **all requests in one place**, right next to your files  
+- A streamlined flow for creating, testing, and generating models/mock data  
+- Supports **form data**—so you can now handle **file uploads** easily  
+- Control over **content-type** for each request  
+
+📏 **Smarter Padding Controls**  
+Add **Horizontal** and **Vertical** padding directly—cut down the typing, boost your layout precision!
+
+▶️ **Play Panel, Upgraded**  
+While testing your app in Play mode, you can now **select elements directly**—making UI debugging a breeze.
+
+💬 **Chat Template Gets a Boost**  
+We gave our built-in Chat template some love:
+- **Profile component** added for a personal touch  
+- **App Bar** now included with account info  
+- Input validation prevents sending empty messages  
+- Improved naming and structure for easier edits  
+
+🔍 **Better Logic Building in Circuit**  
+- Hover on any function to see its **return type**  
+- The **search** now includes all **main nodes**, so you find what you need faster
+
+⚠️ **Play Mode Custom Code Warning**  
+Got custom functions or widgets? You’ll now see a **warning** when using Play mode, so you know it may use dummy values unless tested on a simulator.
+
+
+#### **Coming Soon 🔜**  
+- 🤖 **AI-generated expressions** — just describe what you need, and let AI handle the logic  
+- 📘 **AI-powered Docs Assistant** to help you find answers instantly (currently in BETA)  
+- Even more **API upgrades**  
+- And… something **BIG** is coming soon 👀
+
+---
 
 ### **2.0.19 (6 April 2025)**  
 Nowa Marketplace is finally here! 🚀 This update brings you a faster way to build with sample projects, a powerful Git integration, a fresh button widget, and better error handling—all designed to supercharge your workflow.

@@ -5,6 +5,37 @@ title: Changelog
 
 > Detailed log of all updates, improvements, and bug fixes for each version.
 
+Here’s the **Changelog** for Nowa v2.0.20 in markdown format:
+
+---
+
+## **2.0.20 (23 April 2025)**
+
+#### **Added ✨**  
+- **New API Editor**:
+  - Unified panel to view all API requests with type indicators  
+  - Simplified flow for creating, testing, and generating models/mock data  
+  - Support for **form data** and **file uploads**  
+  - Ability to set **content-type** per request  
+- **Horizontal and Vertical Padding Fields** for cleaner layout control  
+- **Element Selection in Play Mode** for easier debugging  
+- **Updated Chat Template**:
+  - Added Profile component  
+  - Added App Bar with user info  
+  - Prevents sending empty messages  
+  - Improved naming and structure  
+- **Circuit Improvements**:
+  - Function return type shown on hover  
+  - Main nodes now included in search results  
+- **Play Mode Warning for Custom Code** when custom functions or widgets are present  
+
+#### **Fixed 🩹**  
+- Resolved iOS deployment issues  
+- Icon Button now wraps icon content correctly  
+- Fixed various Circuit-related bugs  
+
+---
+
 ## **2.0.19 (6 April 2025)**  
 
 #### **Added ✨**  

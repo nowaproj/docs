@@ -49,7 +49,7 @@ When creating a collection, when naming it, you will see the **generated class n
 In Nowa, **everything is a Dart file**—whether it's a screen, component, or API collection. This consistency makes it easier to manage and understand different parts of your app, especially when combining visual and code-based development.
 :::  
 
-📹 In the video below, you’ll see a step-by-step guide to creating a collection.
+📹 In the video below, you'll see a step-by-step guide to creating a collection.
 
 <video controls width="850">
 <source src="/img/api/create_collection.mp4" type="video/mp4" />
@@ -61,6 +61,120 @@ In Nowa, **everything is a Dart file**—whether it's a screen, component, or AP
 
 - **Organization:** Keep all related requests together.
 - **Efficiency:** Set common data like base URLs and headers once for all requests in the collection.
+
+## Importing API Collections
+
+Nowa makes it easy to import existing API collections from popular tools like Swagger, Postman, and Xano. This saves you time by automatically converting your existing API definitions into Nowa collections.
+
+### Importing from Swagger
+
+You can import Swagger/OpenAPI definitions in three ways:
+
+1. **Paste a Swagger URL**
+   - Click on the **Import** button in your collection
+   - Select "Import from Swagger"
+   - Paste your Swagger URL
+   - Click Import
+
+   **How to get the Swagger URL:**
+   - Open your Swagger/OpenAPI documentation in a browser
+   - Look for the URL that ends with `/swagger.json` or `/openapi.json`
+   - Copy the entire URL
+   - Example: `https://petstore.swagger.io/v2/swagger.json`
+
+2. **Paste Swagger JSON**
+   - Click on the **Import** button in your collection
+   - Select "Import from Swagger"
+   - Paste your Swagger JSON directly
+   - Click Import
+
+   **How to get the Swagger JSON:**
+   - Open your Swagger/OpenAPI documentation in a browser
+   - Click on the JSON link (usually labeled as "swagger.json" or "openapi.json")
+   - Copy the entire JSON content from the opened page
+   - Alternatively, you can export the JSON from your API management tool
+
+3. **Upload Swagger JSON File**
+   - Click on the **Import** button in your collection
+   - Select "Import from Swagger"
+   - Click "Upload File" and select your Swagger JSON file
+   - Click Import
+
+   **How to get the Swagger JSON file:**
+   - Copy the JSON content from the Swagger documentation
+   - Create a new file and save it with a `.json` extension
+   - Paste the JSON content into the file
+
+📹 Watch how to import from Swagger using a URL:
+
+<video controls width="850">
+  <source src="img/import-from/swagger-url.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+
+📹 Watch how to import from Swagger using JSON:
+
+<video controls width="850">
+  <source src="img/import-from/swagger-json.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+
+### Importing from Postman
+
+You can import Postman collections in two ways:
+
+1. **Paste Postman JSON**
+   - Click on the **Import** button in your collection
+   - Select "Import from Postman"
+   - Paste your Postman collection JSON
+   - Click Import
+
+   **How to get the Postman JSON:**
+   - Open your Postman collection
+   - Click the three dots (...) next to your collection
+   - Select "More"
+   - Click "Export"
+   - Choose the format you prefer
+   - Select where to save the file (it will automatically save as .json)
+
+2. **Upload Postman JSON File**
+   - Click on the **Import** button in your collection
+   - Select "Import from Postman"
+   - Click "Upload File" and select your Postman collection JSON file
+   - Click Import
+
+📹 Watch how to import from Postman:
+
+<video controls width="850">
+  <source src="img/import-from/postman-json.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+
+### Importing from Xano
+
+To import from Xano:
+
+1. Get your Xano API token from your Xano dashboard
+2. Click on the **Import** button in your collection
+3. Select "Import from Xano"
+4. Paste your Xano API token
+5. Click Import
+
+**How to get your Xano API token:**
+1. Go to your Xano dashboard
+2. Click on the settings for your instance
+3. Select "Metadata API"
+4. Click on "Manage Access Token"
+5. Click "Create New Token"
+6. Copy the generated token
+7. Make sure to save it somewhere safe as you won't be able to see it again
+
+📹 Watch how to import from Xano:
+
+<video controls width="850">
+  <source src="img/import-from/xano-token.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
 
 ## 2. Adding Common Data
 

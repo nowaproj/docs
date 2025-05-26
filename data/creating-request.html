@@ -13,7 +13,7 @@
 <link rel="search" type="application/opensearchdescription+xml" title="Nowa Documentation" href="/opensearch.xml">
 <link rel="preconnect" href="https://us.i.posthog.com">
 <script>!function(t,e){var o,s,r,a;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,n,p){function c(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(r=t.createElement("script")).type="text/javascript",r.async=!0,r.src=n.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(a=t.getElementsByTagName("script")[0]).parentNode.insertBefore(r,a);var g=e;for(void 0!==p?g=e[p]=[]:p="posthog",g.people=g.people||[],g.toString=function(t){var e="posthog";return"posthog"!==p&&(e+="."+p),t||(e+=" (stub)"),e},g.people.toString=function(){return g.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys onSessionId".split(" "),s=0;s<o.length;s++)c(g,o[s]);e._i.push([i,n,p])},e.__SV=1)}(document,window.posthog||[]),posthog.init("phc_t9ByiL3PTqP8dTa6nWoqjoygz7nIuKOjLPXig1rxm6C",{api_host:"https://us.i.posthog.com",id:"default"})</script><link rel="stylesheet" href="/assets/css/styles.e8136f7c.css">
-<script src="/assets/js/runtime~main.32a68913.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.ea60ebc3.js" defer="defer"></script>
 <script src="/assets/js/main.ef860aa8.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -58,13 +58,124 @@
 </li>
 </ul></div></div>
 <div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>Eveything is a Dart file</div><div class="admonitionContent_BuS1"><p>In Nowa, <strong>everything is a Dart file</strong>—whether it&#x27;s a screen, component, or API collection. This consistency makes it easier to manage and understand different parts of your app, especially when combining visual and code-based development.</p></div></div>
-<p>📹 In the video below, you’ll see a step-by-step guide to creating a collection.</p>
-<video controls="" width="850"><source src="/img/api/create_collection.mp4" type="video/mp4"><p>Your browser does not support the video tag.</p></video>
+<p>📹 In the video below, you&#x27;ll see a step-by-step guide to creating a collection.</p>
+<video controls="" width="850"><source src="/videos/api/create-collection.mp4" type="video/mp4"><p>Your browser does not support the video tag.</p></video>
 <p><strong>Why use a collection?</strong></p>
 <ul>
 <li><strong>Organization:</strong> Keep all related requests together.</li>
 <li><strong>Efficiency:</strong> Set common data like base URLs and headers once for all requests in the collection.</li>
 </ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="importing-api-collections">Importing API Collections<a href="#importing-api-collections" class="hash-link" aria-label="Direct link to Importing API Collections" title="Direct link to Importing API Collections">​</a></h2>
+<p>Nowa makes it easy to import existing API collections from popular tools like Swagger, Postman, and Xano. This saves you time by automatically converting your existing API definitions into Nowa collections.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="importing-from-swagger">Importing from Swagger<a href="#importing-from-swagger" class="hash-link" aria-label="Direct link to Importing from Swagger" title="Direct link to Importing from Swagger">​</a></h3>
+<p>You can import Swagger/OpenAPI definitions in three ways:</p>
+<ol>
+<li>
+<p><strong>Paste a Swagger URL</strong></p>
+<ul>
+<li>Click on the <strong>Import</strong> button in your collection</li>
+<li>Select &quot;Import from Swagger&quot;</li>
+<li>Paste your Swagger URL</li>
+<li>Click Import</li>
+</ul>
+<p><strong>How to get the Swagger URL:</strong></p>
+<ul>
+<li>Open your Swagger/OpenAPI documentation in a browser</li>
+<li>Look for the URL that ends with <code>/swagger.json</code> or <code>/openapi.json</code></li>
+<li>Copy the entire URL</li>
+<li>Example: <code>https://petstore.swagger.io/v2/swagger.json</code></li>
+</ul>
+</li>
+<li>
+<p><strong>Paste Swagger JSON</strong></p>
+<ul>
+<li>Click on the <strong>Import</strong> button in your collection</li>
+<li>Select &quot;Import from Swagger&quot;</li>
+<li>Paste your Swagger JSON directly</li>
+<li>Click Import</li>
+</ul>
+<p><strong>How to get the Swagger JSON:</strong></p>
+<ul>
+<li>Open your Swagger/OpenAPI documentation in a browser</li>
+<li>Click on the JSON link (usually labeled as &quot;swagger.json&quot; or &quot;openapi.json&quot;)</li>
+<li>Copy the entire JSON content from the opened page</li>
+<li>Alternatively, you can export the JSON from your API management tool</li>
+</ul>
+</li>
+<li>
+<p><strong>Upload Swagger JSON File</strong></p>
+<ul>
+<li>Click on the <strong>Import</strong> button in your collection</li>
+<li>Select &quot;Import from Swagger&quot;</li>
+<li>Click &quot;Upload File&quot; and select your Swagger JSON file</li>
+<li>Click Import</li>
+</ul>
+<p><strong>How to get the Swagger JSON file:</strong></p>
+<ul>
+<li>Copy the JSON content from the Swagger documentation</li>
+<li>Create a new file and save it with a <code>.json</code> extension</li>
+<li>Paste the JSON content into the file</li>
+</ul>
+</li>
+</ol>
+<p>📹 Watch how to import from Swagger using a URL:</p>
+<video controls="" width="850"><source src="/videos/api/swagger-url.mp4" type="video/mp4"><p>Your browser does not support the video tag.</p></video>
+<p>📹 Watch how to import from Swagger using JSON:</p>
+<video controls="" width="850"><source src="/videos/api/swagger-json.mp4" type="video/mp4"><p>Your browser does not support the video tag.</p></video>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="importing-from-postman">Importing from Postman<a href="#importing-from-postman" class="hash-link" aria-label="Direct link to Importing from Postman" title="Direct link to Importing from Postman">​</a></h3>
+<p>You can import Postman collections in two ways:</p>
+<ol>
+<li>
+<p><strong>Paste Postman JSON</strong></p>
+<ul>
+<li>Click on the <strong>Import</strong> button in your collection</li>
+<li>Select &quot;Import from Postman&quot;</li>
+<li>Paste your Postman collection JSON</li>
+<li>Click Import</li>
+</ul>
+<p><strong>How to get the Postman JSON:</strong></p>
+<ul>
+<li>Open your Postman collection</li>
+<li>Click the three dots (...) next to your collection</li>
+<li>Select &quot;More&quot;</li>
+<li>Click &quot;Export&quot;</li>
+<li>Choose the format you prefer</li>
+<li>Select where to save the file (it will automatically save as .json)</li>
+</ul>
+</li>
+<li>
+<p><strong>Upload Postman JSON File</strong></p>
+<ul>
+<li>Click on the <strong>Import</strong> button in your collection</li>
+<li>Select &quot;Import from Postman&quot;</li>
+<li>Click &quot;Upload File&quot; and select your Postman collection JSON file</li>
+<li>Click Import</li>
+</ul>
+</li>
+</ol>
+<p>📹 Watch how to import from Postman:</p>
+<video controls="" width="850"><source src="/videos/api/postman-json.mp4" type="video/mp4"><p>Your browser does not support the video tag.</p></video>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="importing-from-xano">Importing from Xano<a href="#importing-from-xano" class="hash-link" aria-label="Direct link to Importing from Xano" title="Direct link to Importing from Xano">​</a></h3>
+<p>To import from Xano:</p>
+<ol>
+<li>Get your Xano API token from your Xano dashboard</li>
+<li>Click on the <strong>Import</strong> button in your collection</li>
+<li>Select &quot;Import from Xano&quot;</li>
+<li>Paste your Xano API token</li>
+<li>Click Import</li>
+</ol>
+<p><strong>How to get your Xano API token:</strong></p>
+<ol>
+<li>Go to your Xano dashboard</li>
+<li>Click on the settings for your instance</li>
+<li>Select &quot;Metadata API&quot;</li>
+<li>Click on &quot;Manage Access Token&quot;</li>
+<li>Click &quot;Create New Token&quot;</li>
+<li>Copy the generated token</li>
+<li>Make sure to save it somewhere safe as you won&#x27;t be able to see it again</li>
+</ol>
+<p>📹 Watch how to import from Xano:</p>
+<video controls="" width="850"><source src="/videos/api/xano-token.mp4" type="video/mp4"><p>Your browser does not support the video tag.</p></video>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="2-adding-common-data">2. Adding Common Data<a href="#2-adding-common-data" class="hash-link" aria-label="Direct link to 2. Adding Common Data" title="Direct link to 2. Adding Common Data">​</a></h2>
 <p>After creating your collection, you can add data that is common to all requests within it.</p>
 <p><strong>Steps:</strong></p>
@@ -110,6 +221,6 @@
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="next-steps">Next Steps<a href="#next-steps" class="hash-link" aria-label="Direct link to Next Steps" title="Direct link to Next Steps">​</a></h2>
 <p>Now that you&#x27;ve set up a basic API request and tested it, you&#x27;re ready to generate models from the response data and add mock data for design-time testing.</p>
 <p>👉 <strong>Head to the next section to learn how to generate a model from the response.</strong></p>
-<p>Happy building!</p></div></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/category/api-"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">API 📂</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/data/creating-models"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Modeling API responses</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#1-creating-a-collection" class="table-of-contents__link toc-highlight">1. Creating a Collection</a></li><li><a href="#2-adding-common-data" class="table-of-contents__link toc-highlight">2. Adding Common Data</a></li><li><a href="#3-adding-a-request" class="table-of-contents__link toc-highlight">3. Adding a Request</a></li><li><a href="#4-creating-a-get-request-example" class="table-of-contents__link toc-highlight">4. Creating a GET Request Example</a></li><li><a href="#5-testing-and-verifying-the-response" class="table-of-contents__link toc-highlight">5. Testing and Verifying the Response</a></li><li><a href="#next-steps" class="table-of-contents__link toc-highlight">Next Steps</a></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Product</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://nowa.dev" target="_blank" rel="noopener noreferrer" class="footer__link-item">Main website<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://app.nowa.dev/signup" target="_blank" rel="noopener noreferrer" class="footer__link-item">Get started with Nowa<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://app.nowa.dev" target="_blank" rel="noopener noreferrer" class="footer__link-item">Sign In<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div><div class="col footer__col"><div class="footer__title">Resources &amp; Communities</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://www.youtube.com/channel/UCvP7LKeb2sW1yTUqHAFEKOw" target="_blank" rel="noopener noreferrer" class="footer__link-item">Youtube<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://discord.gg/ByKfn3H7gX" target="_blank" rel="noopener noreferrer" class="footer__link-item">Discord<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://www.reddit.com/r/nowa/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Reddit<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div><div class="col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://www.instagram.com/nowa.dev/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Instagram<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://www.linkedin.com/company/nowaengine/" target="_blank" rel="noopener noreferrer" class="footer__link-item">LinkedIn<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://twitter.com/nowa_dev" target="_blank" rel="noopener noreferrer" class="footer__link-item">Twitter<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 Nowa. All rights reserved</div></div></div></footer></div>
+<p>Happy building!</p></div></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/category/api-"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">API 📂</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/data/creating-models"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Modeling API responses</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#1-creating-a-collection" class="table-of-contents__link toc-highlight">1. Creating a Collection</a></li><li><a href="#importing-api-collections" class="table-of-contents__link toc-highlight">Importing API Collections</a><ul><li><a href="#importing-from-swagger" class="table-of-contents__link toc-highlight">Importing from Swagger</a></li><li><a href="#importing-from-postman" class="table-of-contents__link toc-highlight">Importing from Postman</a></li><li><a href="#importing-from-xano" class="table-of-contents__link toc-highlight">Importing from Xano</a></li></ul></li><li><a href="#2-adding-common-data" class="table-of-contents__link toc-highlight">2. Adding Common Data</a></li><li><a href="#3-adding-a-request" class="table-of-contents__link toc-highlight">3. Adding a Request</a></li><li><a href="#4-creating-a-get-request-example" class="table-of-contents__link toc-highlight">4. Creating a GET Request Example</a></li><li><a href="#5-testing-and-verifying-the-response" class="table-of-contents__link toc-highlight">5. Testing and Verifying the Response</a></li><li><a href="#next-steps" class="table-of-contents__link toc-highlight">Next Steps</a></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Product</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://nowa.dev" target="_blank" rel="noopener noreferrer" class="footer__link-item">Main website<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://app.nowa.dev/signup" target="_blank" rel="noopener noreferrer" class="footer__link-item">Get started with Nowa<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://app.nowa.dev" target="_blank" rel="noopener noreferrer" class="footer__link-item">Sign In<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div><div class="col footer__col"><div class="footer__title">Resources &amp; Communities</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://www.youtube.com/channel/UCvP7LKeb2sW1yTUqHAFEKOw" target="_blank" rel="noopener noreferrer" class="footer__link-item">Youtube<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://discord.gg/ByKfn3H7gX" target="_blank" rel="noopener noreferrer" class="footer__link-item">Discord<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://www.reddit.com/r/nowa/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Reddit<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div><div class="col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://www.instagram.com/nowa.dev/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Instagram<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://www.linkedin.com/company/nowaengine/" target="_blank" rel="noopener noreferrer" class="footer__link-item">LinkedIn<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://twitter.com/nowa_dev" target="_blank" rel="noopener noreferrer" class="footer__link-item">Twitter<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 Nowa. All rights reserved</div></div></div></footer></div>
 </body>
 </html>

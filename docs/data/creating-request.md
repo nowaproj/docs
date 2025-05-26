@@ -52,7 +52,7 @@ In Nowa, **everything is a Dart file**—whether it's a screen, component, or AP
 📹 In the video below, you'll see a step-by-step guide to creating a collection.
 
 <video controls width="850">
-<source src="/img/api/create_collection.mp4" type="video/mp4" />
+<source src="/videos/api/create-collection.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 
@@ -108,14 +108,14 @@ You can import Swagger/OpenAPI definitions in three ways:
 📹 Watch how to import from Swagger using a URL:
 
 <video controls width="850">
-  <source src="img/import-from/swagger-url.mp4" type="video/mp4" />
+  <source src="/videos/api/swagger-url.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 
 📹 Watch how to import from Swagger using JSON:
 
 <video controls width="850">
-  <source src="img/import-from/swagger-json.mp4" type="video/mp4" />
+  <source src="/videos/api/swagger-json.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 
@@ -146,7 +146,7 @@ You can import Postman collections in two ways:
 📹 Watch how to import from Postman:
 
 <video controls width="850">
-  <source src="img/import-from/postman-json.mp4" type="video/mp4" />
+  <source src="/videos/api/postman-json.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 
@@ -172,7 +172,7 @@ To import from Xano:
 📹 Watch how to import from Xano:
 
 <video controls width="850">
-  <source src="img/import-from/xano-token.mp4" type="video/mp4" />
+  <source src="/videos/api/xano-token.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 

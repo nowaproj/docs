@@ -8,6 +8,36 @@ description: What's new
 
 ---
 
+### **2.0.21 (27 May 2025)**  
+This update makes managing APIs faster than ever, squashes critical bugs, and sets the stage for the AI-powered future of Nowa. Let’s dive in!
+
+#### **New ✨**  
+
+📦 **One-Click API Imports**  
+Skip the manual setup! Import groups of API requests instantly from:
+- **Postman**
+- **Swagger**
+- **Xano**
+
+Simply import, and Nowa automatically handles the rest—endpoints, request types, headers, and body included.
+
+For more, check out [this page](./data/creating-request.md)
+
+📥 **Instant cURL Support**  
+Paste a **cURL command**, and Nowa turns it into a ready-to-use API request. Less manual work, more building!
+
+#### **Coming Soon 🔜**  
+🤖 **AI Assistant (Alpha testing already going!)**  
+We’ve begun private alpha testing for our AI Assistant. Soon, you’ll effortlessly:
+- Generate entire apps or screens instantly with prompting  
+- Edit existing screens and components, and prompt to fix bugs or unexpected behaviours.  
+- Connect APIs seamlessly through AI-powered logic.  
+
+The early results are astonishing—combining visual editing and AI is proving incredibly fast and powerful!
+
+👉 [Sign Up for Early Access](https://forms.gle/xNUR7nsYRUz8kpJ67)
+
+---
 ### **2.0.20 (23 April 2025)**  
 This update brings a whole new API workflow, smarter debugging in Play mode, and better defaults across the board. Let’s dig in!
 

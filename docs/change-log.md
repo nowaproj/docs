@@ -9,6 +9,24 @@ Here’s the **Changelog** for Nowa v2.0.20 in markdown format:
 
 ---
 
+## **2.0.21 (27 May 2025)**
+
+#### **Added ✨**  
+- **API Import from Postman, Swagger, and Xano**:  
+  - Instantly import multiple requests at once  
+  - Automatically sets up endpoints, request types, headers, and body  
+- **cURL Request Support**:  
+  - Paste a cURL command to auto-generate a full API request  
+  - Great for copying from docs or terminal and getting started fast
+
+#### **Fixed 🩹**  
+- Fixed issue with having the **same declaration name in different files**  
+- Fixed bug where **TextFields inside WebViews** didn’t respond to some keys  
+- Fixed issue where **non-string values** couldn’t be sent in request bodies  
+- Improved **selection behavior** across the editor
+
+---
+
 ## **2.0.20 (23 April 2025)**
 
 #### **Added ✨**  

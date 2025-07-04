@@ -46,7 +46,7 @@ When you run your app:
 📹 In the example video, we simply added a Print node with a plain message and confirmed it appears in the logs as expected.
 
 <video controls width="850">
-  <source src="/img/circuit/common_functionalities/print/print.mp4" type="video/mp4" />
+  <source src="/img/circuit/common-functionalities/print/print.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 
@@ -76,7 +76,7 @@ If you're running your app on a simulator (e.g., iOS simulator):
 - Then we add a **Print** node, and connect its `Msg` to the `text` property of the TextField, so we print the most recent name typed by the user.
     
 <video controls width="850">
-  <source src="/img/circuit/common_functionalities/print/print_with_var.mp4" type="video/mp4" />
+  <source src="/img/circuit/common-functionalities/print/print-with-var.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 
@@ -162,7 +162,7 @@ However, when typing directly inside the **Msg** field, Nowa **automatically wra
 - Then switch to using a custom expression to enhance the message format.
     
 <video controls width="850">
-  <source src="/img/circuit/common_functionalities/print/print_custom_expression.mp4" type="video/mp4" />
+  <source src="/img/circuit/common-functionalities/print/print-custom-expression.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 

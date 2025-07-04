@@ -22,7 +22,7 @@ We’ll walk through a simple example where the user selects an **image**, and i
 - This creates a variable that stores the image in **bytes format**.
 
 <video controls width="720">
-  <source src="/img/circuit/common_functionalities/media_picker/set_image_bytes.mp4" type="video/mp4" />
+  <source src="/img/circuit/common-functionalities/media-picker/set-image-bytes.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 
@@ -62,7 +62,7 @@ Let’s name this variable `var1`.
 
 This video shows the enire steps of building the logic
 <video controls width="720">
-  <source src="/img/circuit/common_functionalities/media_picker/build_logic.mp4" type="video/mp4" />
+  <source src="/img/circuit/common-functionalities/media-picker/build-logic.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 
@@ -110,7 +110,7 @@ This connects the picked image data to the UI.
 - The image should instantly appear inside the Image widget 🎉
 
 <video controls width="720">
-  <source src="/img/circuit/common_functionalities/media_picker/final_result.mp4" type="video/mp4" />
+  <source src="/img/circuit/common-functionalities/media-picker/final-result.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 

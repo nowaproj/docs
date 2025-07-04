@@ -28,7 +28,7 @@ Nowa uses GitHub’s **Personal Access Tokens (PAT)** to securely connect to you
 
 Here's a full video on how to generate the required token
 <video controls width="720">
-  <source src="/img/git/generate_token.mp4" type="video/mp4" />
+  <source src="/img/git/generate-token.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 
@@ -72,7 +72,7 @@ Once you have your token, follow these simple steps to authenticate GitHub with 
 5. Click on **Add credentials**.
 
 <video controls width="720">
-  <source src="/img/git/add_token.mp4" type="video/mp4" />
+  <source src="/img/git/add-token.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 

@@ -51,7 +51,7 @@ To show a dialog in Nowa, follow these steps:
     
 This videos shows how to show a simple dialog:
 <video controls width="850">
-  <source src="/img/circuit/UI_popups/dialog/show_basic_dialog.mp4" type="video/mp4" />
+  <source src="/img/circuit/UI-popups/dialog/show-basic-dialog.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 

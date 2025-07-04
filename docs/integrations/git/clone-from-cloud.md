@@ -37,7 +37,7 @@ If you have an existing GitHub Flutter project and wish to continue development 
 
 
 <video controls width="720">
-  <source src="/img/git/clone_github_cloud.mp4" type="video/mp4" />
+  <source src="/img/git/clone-github-cloud.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 
@@ -56,7 +56,7 @@ You can also take an existing Nowa Cloud project and push it to GitHub for versi
     - Enter a repository name and choose visibility (public or private). See how in the next video:
 
 <video controls width="720">
-  <source src="/img/git/create_repo_github.mp4" type="video/mp4" />
+  <source src="/img/git/create-repo-github.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 
@@ -82,7 +82,7 @@ You can also take an existing Nowa Cloud project and push it to GitHub for versi
 
 Here's how you connect your cloud repository to Github 
 <video controls width="720">
-  <source src="/img/git/push_cloud_to_remote.mp4" type="video/mp4" />
+  <source src="/img/git/push-cloud-to-remote.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 

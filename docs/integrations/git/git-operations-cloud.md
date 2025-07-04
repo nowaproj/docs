@@ -37,7 +37,7 @@ When you commit changes, you're essentially saving a snapshot of your project at
 In the following video, we changed one of the colors of the chat bubble component. After the change, you can see that the `chat_bubble.dart` file (the component's file) appeared under **"Changes"** highlighted in **blue** since it was modified. Next, we clicked on **"Commit all"**, gave it a descriptive message, and committed the changes. After committing, we noticed the **"Sync"** button appeared with the number **1** beside it, indicating there's exactly one commit difference between the Nowa cloud repo and the GitHub remote repository. Clicking **"Sync"** pushed this commit to GitHub.
 
 <video controls width="720">
-  <source src="/img/git/git_committing.mp4" type="video/mp4" />
+  <source src="/img/git/git-committing.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 
@@ -122,7 +122,7 @@ Staging allows you to commit specific changes separately rather than committing 
 In the following video, we selectively staged the file `audio_player_page.dart`. We added it explicitly to the staged area because we wanted to commit it separately. After staging, we created a commit with the message **"Adding audio player"**. Once the commit was made, `audio_player_page.dart` disappeared from the **staged** section, indicating it had been successfully committed. The remaining files under **"Changes"** stayed behind, ready for future commits or to be discarded.
 
 <video controls width="720">
-  <source src="/img/git/staged_changes.mp4" type="video/mp4" />
+  <source src="/img/git/staged-changes.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 
@@ -150,7 +150,7 @@ After syncing, the new branch feature-pageInfo appeared on GitHub, along with th
 
 
 <video controls width="720">
-  <source src="/img/git/create_branch.mp4" type="video/mp4" />
+  <source src="/img/git/create-branch.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 

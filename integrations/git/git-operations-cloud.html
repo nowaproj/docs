@@ -13,7 +13,7 @@
 <link rel="search" type="application/opensearchdescription+xml" title="Nowa Documentation" href="/opensearch.xml">
 <link rel="preconnect" href="https://us.i.posthog.com">
 <script>!function(t,e){var o,s,r,a;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,n,p){function c(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(r=t.createElement("script")).type="text/javascript",r.async=!0,r.src=n.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(a=t.getElementsByTagName("script")[0]).parentNode.insertBefore(r,a);var g=e;for(void 0!==p?g=e[p]=[]:p="posthog",g.people=g.people||[],g.toString=function(t){var e="posthog";return"posthog"!==p&&(e+="."+p),t||(e+=" (stub)"),e},g.people.toString=function(){return g.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys onSessionId".split(" "),s=0;s<o.length;s++)c(g,o[s]);e._i.push([i,n,p])},e.__SV=1)}(document,window.posthog||[]),posthog.init("phc_t9ByiL3PTqP8dTa6nWoqjoygz7nIuKOjLPXig1rxm6C",{api_host:"https://us.i.posthog.com",id:"default"})</script><link rel="stylesheet" href="/assets/css/styles.04d2f1ab.css">
-<script src="/assets/js/runtime~main.038bb97d.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.076fe79c.js" defer="defer"></script>
 <script src="/assets/js/main.1b1f2c17.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -48,7 +48,7 @@
 <li>Click <strong>Commit</strong> to save these changes into your Nowa cloud repository.</li>
 </ol>
 <p>In the following video, we changed one of the colors of the chat bubble component. After the change, you can see that the <code>chat_bubble.dart</code> file (the component&#x27;s file) appeared under <strong>&quot;Changes&quot;</strong> highlighted in <strong>blue</strong> since it was modified. Next, we clicked on <strong>&quot;Commit all&quot;</strong>, gave it a descriptive message, and committed the changes. After committing, we noticed the <strong>&quot;Sync&quot;</strong> button appeared with the number <strong>1</strong> beside it, indicating there&#x27;s exactly one commit difference between the Nowa cloud repo and the GitHub remote repository. Clicking <strong>&quot;Sync&quot;</strong> pushed this commit to GitHub.</p>
-<video controls="" width="720"><source src="/img/git/git_committing.mp4" type="video/mp4"><p>Your browser does not support the video tag.</p></video>
+<video controls="" width="720"><source src="/img/git/git-committing.mp4" type="video/mp4"><p>Your browser does not support the video tag.</p></video>
 <div class="theme-admonition theme-admonition-note admonition_xJq3 alert alert--secondary"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>Committing doesn&#x27;t push your changes to Github</div><div class="admonitionContent_BuS1"><p>After committing, your changes exist only in your Nowa cloud repository. To synchronize them with your remote GitHub repository, you must <code>Push</code> or <code>Sync</code> the changes.</p></div></div>
 <hr>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="syncing-changes-with-github">Syncing Changes with GitHub<a href="#syncing-changes-with-github" class="hash-link" aria-label="Direct link to Syncing Changes with GitHub" title="Direct link to Syncing Changes with GitHub">​</a></h2>
@@ -124,7 +124,7 @@
 <li>Click <strong>Sync</strong> (or <strong>Push</strong>) to synchronize your changes with GitHub.</li>
 </ol>
 <p>In the following video, we selectively staged the file <code>audio_player_page.dart</code>. We added it explicitly to the staged area because we wanted to commit it separately. After staging, we created a commit with the message <strong>&quot;Adding audio player&quot;</strong>. Once the commit was made, <code>audio_player_page.dart</code> disappeared from the <strong>staged</strong> section, indicating it had been successfully committed. The remaining files under <strong>&quot;Changes&quot;</strong> stayed behind, ready for future commits or to be discarded.</p>
-<video controls="" width="720"><source src="/img/git/staged_changes.mp4" type="video/mp4"><p>Your browser does not support the video tag.</p></video>
+<video controls="" width="720"><source src="/img/git/staged-changes.mp4" type="video/mp4"><p>Your browser does not support the video tag.</p></video>
 <blockquote>
 <p><strong>Tip</strong>: You can also stage files directly within the commit window without going through the &quot;Add files&quot; step.</p>
 </blockquote>
@@ -144,7 +144,7 @@
 </ul>
 <p>In the following video, we created a new branch named feature-pageInfo from the default master branch. After switching to this new branch, we added an &quot;event screen&quot; to the project, committed the change, and clicked &quot;Sync&quot; to push the branch and commit to GitHub.</p>
 <p>After syncing, the new branch feature-pageInfo appeared on GitHub, along with the commit we made for adding the event screen. Finally, we switched back to the master branch, and as expected, the newly created event screen was no longer visible, demonstrating how branches isolate specific changes from the main version of your app.</p>
-<video controls="" width="720"><source src="/img/git/create_branch.mp4" type="video/mp4"><p>Your browser does not support the video tag.</p></video>
+<video controls="" width="720"><source src="/img/git/create-branch.mp4" type="video/mp4"><p>Your browser does not support the video tag.</p></video>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="switching-branches">Switching Branches:<a href="#switching-branches" class="hash-link" aria-label="Direct link to Switching Branches:" title="Direct link to Switching Branches:">​</a></h3>
 <ul>
 <li>Click the branch name at the top of the Git panel.</li>

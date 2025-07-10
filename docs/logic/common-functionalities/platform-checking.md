@@ -38,7 +38,7 @@ In the video below, we show how to add `checkPlatform` inside an `if` statement,
 This is a great example of combining platform checks—more on that in the next section.
 
 <video controls width="850">
-<source src="/img/circuit/common-functionalities/others/checkPlatform.mp4" type="video/mp4" />
+<source src="/img/circuit/common-functionalities/others/checkplatform.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 

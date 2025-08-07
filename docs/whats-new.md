@@ -8,6 +8,66 @@ description: What's new
 
 ---
 
+### **3.0.0 BETA (4 August 2025)**  
+Nowa 3.0 is our biggest release ever — packed with powerful AI features, backend upgrades, and a refreshed builder experience. Let’s dive into what’s new!
+
+#### **New ✨**
+
+🤖 **AI Agent for Building, Editing, and Debugging**  
+Generate entire screens, features, or app flows with a single prompt.  
+You can now:
+- Build new widgets and screens instantly
+- Edit or fix parts of your app with or without selecting anything
+- Prompt across multiple screens — the AI understands what to connect
+
+🛠 **Supabase Integration (Beta)**  
+Build full-stack apps faster with native Supabase support:
+- Authenticate users with **Supabase Auth**
+- Use AI to generate queries
+- Enable **row-level security** for production-ready apps
+
+🎨 **Redesigned Theme System**  
+Access the new theme editor from the left bar.  
+Create, preview, and manage design tokens visually — no more guesswork when styling your app.
+
+🧭 **Upgraded Builder Experience**  
+Enjoy a smoother and more powerful editing experience:
+- Visual **Component Explorer** — inspect and highlight widgets across your app
+- Improved **Boards** — navigate your screens with better layout and structure
+
+#### **Plans & Access 💼**
+
+We’ve made our pricing more accessible — with powerful features available to everyone.
+
+🆓 **Free Plan (Starter)**  
+- Unlimited code exports  
+- Unlimited projects  
+- Desktop version + local development  
+- Web publishing for 12h (testing)  
+- 5 AI messages/month  
+
+🚀 **Launch & Scale Plans**  
+- Up to **200 AI messages/month**  
+- Web & mobile deployment  
+- GitHub integration  
+- Premium support  
+- AI credit top-ups
+
+🎁 **Bonus for Existing Users:**  
+- Pro users now get 35 AI messages/month  
+- Premium users now get full **Scale Plan** access at the original price
+
+#### **Coming Soon 🔜**
+
+🎥 **Tutorial Video:** Watch how to build a full app using the new AI agent  
+📝 **Pricing Blog Post:** See what’s included in each plan, with clear use cases  
+🤝 **Cobuild & Launch (for Scale users):** Our team helps you build and launch your app — step-by-step, no extra cost
+
+
+➡️ Found a bug in the BETA? Report it using the in-app Feedback button and earn **extra AI credits** as a thank you!
+
+---
+
 ### **2.0.21 (27 May 2025)**  
 This update makes managing APIs faster than ever, squashes critical bugs, and sets the stage for the AI-powered future of Nowa. Let’s dive in!
 

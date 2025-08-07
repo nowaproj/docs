@@ -117,8 +117,8 @@ const config = {
       },
 
       announcementBar: {
-        id: 'announcement-1', // Any value that will identify this message.
-        content: 'We are currently releasing the new docs for Nowa V2 iterativly. Some pages might not be yet released. For help and more resources, visit our <a target="_blank" rel="noopener noreferrer" href="https://community.nowa.dev">community forum</a> or <a target="_blank" rel="noopener noreferrer" href="https://youtube.com/@nowadev">YouTube channel</a>. Thanks for your patience!',
+        id: 'announcement-1',
+        content: '🚀 <strong><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://nowa.dev\">Nowa 3.0 BETA</a> is LIVE!</strong> Some docs may be outdated — check our <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://blog.nowa.dev\">blog</a>, <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://youtube.com/@nowadev\">YouTube</a>, or ask in the <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://community.nowa.dev\">community</a>.', // Any value that will identify this message.
         backgroundColor: '#A3784A', // Defaults to `#fff`
         textColor: '#ffffff', // Defaults to `#000`.
         isCloseable: true, // Defaults to `true`.

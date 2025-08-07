@@ -9,6 +9,38 @@ Here’s the **Changelog** for Nowa v2.0.20 in markdown format:
 
 ---
 
+## **3.0.0 BETA (4 August 2025)**
+
+#### **Added ✨**  
+- **AI Agent (Beta)**  
+  - Generate full screens, widgets, or features from a single prompt  
+  - Edit or fix logic and UI across your app — even without selecting anything  
+  - Understands app context and builds multi-screen flows intelligently  
+
+- **Supabase Integration**  
+  - Native support for Supabase Auth  
+  - Build queries using AI  
+  - Support for row-level security  
+
+- **New Theme System**  
+  - Manage design tokens visually  
+  - Preview theme changes instantly from the left sidebar  
+
+- **Component Explorer**  
+  - View all components inside each screen  
+  - Highlights selected elements in the outline and canvas  
+
+- **New Plans & AI Credits System**  
+  - New Free, Launch, and Scale plans  
+  - Up to 200 AI messages/month and AI credit top-ups  
+  - Free plan now includes code export, desktop version, and local projects  
+
+#### **Fixed 🩹**  
+- Many improvements for performance and stability across the builder  
+
+
+---
+
 ## **2.0.21 (27 May 2025)**
 
 #### **Added ✨**  

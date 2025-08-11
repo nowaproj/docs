@@ -8,6 +8,36 @@ description: What's new
 
 ---
 
+### **3.0.1 (11 August 2025)**  
+Nowa 3.0.1 focuses on **improving stability, fixing key issues, and adding new resources** to help you get the most from Nowa AI.  
+
+#### **Fixes & Improvements 🛠**  
+
+💻 **Desktop App Access Restored**  
+The desktop version is now correctly available for all plans.  
+
+📄 **Board Naming Fixed**  
+New boards now use the name you assign — no more generic `board*.board` names.  
+
+🍏 **AI on macOS Restored**  
+Resolved an issue where AI wouldn’t run on certain macOS versions due to file creation errors.  
+
+#### **New Learning Resource 📚**  
+📝 **How to Write Prompts That Build Better with Nowa AI**  
+Learn practical techniques to get **more accurate, connected, and production-ready results** from your AI agent.  
+**[Read the guide →](https://blog.nowa.dev/nowa-ai-prompting-guide)**  
+
+
+#### **Coming Soon 🔜**  
+🎥 **Video Tutorial:** Building a **Music Player App** from scratch with Nowa AI, using Supabase/API as data sources.  
+📝 **Blog:** A deep dive on how to use the **Nowa AI agent** effectively.  
+🤝 **Cobuild & Launch:** We’ll help you **build and launch** your app — from idea to production.  
+
+
+➡️ If you encounter any issues, please report them using the **in-app Feedback** button. Including your project (and AI history if relevant) gives us the best context to fix them quickly.  
+
+---
+
 ### **3.0.0 BETA (4 August 2025)**  
 Nowa 3.0 is our biggest release ever — packed with powerful AI features, backend upgrades, and a refreshed builder experience. Let’s dive into what’s new!
 

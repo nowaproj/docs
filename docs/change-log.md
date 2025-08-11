@@ -9,6 +9,15 @@ Here’s the **Changelog** for Nowa v2.0.20 in markdown format:
 
 ---
 
+## **3.0.1 (11 August 2025)**
+
+#### **Fixed 🩹**  
+- Fixed **Desktop App access** not available for some plans.  
+- Fixed **Board naming** issue where new boards were created with `board*.board` instead of the assigned name.  
+- Fixed **AI on macOS** not running on certain versions due to `FileSystemException: '/ai_debug_logs'` error.  
+
+---
+
 ## **3.0.0 BETA (4 August 2025)**
 
 #### **Added ✨**  

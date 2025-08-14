@@ -9,6 +9,16 @@ Here’s the **Changelog** for Nowa v2.0.20 in markdown format:
 
 ---
 
+## **3.0.2 (12 August 2025)**
+
+#### **Fixed 🩹**  
+- Issue with building apps due to a package version conflict.  
+- Issue with iOS deployment preventing some apps from being published.  
+- Issue with project loading caused by conflicts in widget names.  
+- Issue with AI tool results where `tool_use ids were found without tool_result`.  
+
+---
+
 ## **3.0.1 (11 August 2025)**
 
 #### **Fixed 🩹**  

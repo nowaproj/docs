@@ -8,6 +8,12 @@ description: What's new
 
 ---
 
+### **3.0.2 (12 August 2025)**  
+Nowa 3.0.2 is a stability-focused update, fixing several important issues to make building, deploying, and loading your projects more reliable. Check them on [ChangeLog](./change-log.md) 
+
+---
+
+
 ### **3.0.1 (11 August 2025)**  
 Nowa 3.0.1 focuses on **improving stability, fixing key issues, and adding new resources** to help you get the most from Nowa AI.  
 

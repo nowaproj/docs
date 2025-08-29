@@ -8,6 +8,43 @@ description: What's new
 
 ---
 
+### **3.0.4 (29 August 2025)**  
+Nowa 3.0.4 is a stability-focused release that resolves several important issues and makes the AI agent more reliable. Alongside the fixes, we’ve also added **new learning resources** to help you explore what’s possible with Nowa 3.0.  
+Check all details on the [ChangeLog](./change-log.md).  
+
+---
+
+#### **New Learning Resources 📚**  
+
+🎧 **Build a Music Player with Nowa 3.0 Agent**  
+Step-by-step video tutorial showing how to create a music player app powered by the AI agent.  
+**[Watch here →](https://www.youtube.com/watch?v=kXfqaZSzG0g)**  
+
+📝 **Build a To-Do App with Supabase**  
+Learn how to connect Supabase Auth and database tables in Nowa to create a functional to-do app.  
+**[Read the blog →](https://blog.nowa.dev/build-todo-app-with-supabase-nowa-3)**  
+
+🧠 **Master Prompting with Nowa AI**  
+A practical guide to writing prompts that produce accurate, connected, and production-ready results.  
+**[Explore the guide →](https://blog.nowa.dev/nowa-ai-prompting-guide)**  
+
+---
+
+#### **Coming Soon 🔜**  
+
+We’re preparing a series of **fully functional app tutorials**, including:  
+- 💸 Financial Tracker App  
+- 🏋️ Workout Planner App  
+- 🤖 AI-Powered Chat App  
+- 📝 Note-Taking App with Supabase  
+
+These apps will be released in the coming days, complete with **step-by-step tutorials** so you can build them too.  
+
+➡️ Don’t forget to use the **Feedback button** for any ideas or issues — it helps us make Nowa better for you.  
+
+
+---
+
 ### **3.0.2 (12 August 2025)**  
 Nowa 3.0.2 is a stability-focused update, fixing several important issues to make building, deploying, and loading your projects more reliable. Check them on [ChangeLog](./change-log.md) 
 

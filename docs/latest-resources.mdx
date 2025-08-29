@@ -1,18 +1,34 @@
 ---
 sidebar_position: 2.2
-title: Latest Learning Resources
+title: Latest Learning Resources (v3)
 description: A curated collection of the newest tutorials, guides, and resources for Nowa 3.0
 ---
 
 import styles from './latest-resources.module.css';
 
-# 🚀 Latest Learning Resources
+# 🚀 Latest Learning Resources (v3)
 
 A curated collection of the newest tutorials, guides, and resources for Nowa 3.0. All resources are listed from newest to oldest to help you stay up-to-date with the latest content.
 
 ---
 
 <div className={styles.resourceGrid}>
+  <div className={styles.resourceCard}>
+    <div className={styles.cardHeader}>
+      <span className={styles.typeBadge + ' ' + styles.video}>🎥 VIDEO</span>
+      <span className={styles.dateBadge}>Latest</span>
+    </div>
+    <h3 className={styles.cardTitle}>
+      <a href="https://www.youtube.com/watch?v=kXfqaZSzG0g" target="_blank" rel="noopener noreferrer">
+        How to use Nowa AI by building a music streaming app
+      </a>
+    </h3>
+    <p className={styles.cardDescription}>
+      See how you can generate screens, prompt widgets and fix bugs all using Nowa AI. Complete walkthrough of AI-powered development.
+    </p>
+
+  </div>
+
   <div className={styles.resourceCard}>
     <div className={styles.cardHeader}>
       <span className={styles.typeBadge + ' ' + styles.video}>🎥 VIDEO</span>
@@ -26,10 +42,7 @@ A curated collection of the newest tutorials, guides, and resources for Nowa 3.0
     <p className={styles.cardDescription}>
       Create a full e-commerce app by turning screenshots into functional app using Nowa's visual development tools.
     </p>
-    <div className={styles.cardFooter}>
-      <span className={styles.levelBadge + ' ' + styles.beginner}>⭐ Beginner</span>
-      <span className={styles.linkType}>📺 YouTube</span>
-    </div>
+
   </div>
 
   <div className={styles.resourceCard}>

@@ -149,93 +149,16 @@
   text-decoration: none;
 }
 
-.cardTitle a[href^="http"]::after {
-  content: " ↗";
-  font-size: 0.8em;
-  opacity: 0.7;
-  margin-left: 0.25rem;
-}
+
 
 .cardDescription {
   color: var(--ifm-color-emphasis-700);
   line-height: 1.6;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0;
   flex-grow: 1;
 }
 
-.cardFooter {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: auto;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
 
-.levelBadge {
-  font-size: 0.75rem;
-  font-weight: 500;
-  padding: 0.2rem 0.5rem;
-  border-radius: 6px;
-  background: var(--ifm-color-emphasis-100);
-  color: var(--ifm-color-emphasis-800);
-}
-
-.levelBadge.beginner {
-  background: #e8f5e8;
-  color: #2e7d32;
-}
-
-.levelBadge.intermediate {
-  background: #fff3e0;
-  color: #ef6c00;
-}
-
-.levelBadge.advanced {
-  background: #ffebee;
-  color: #d32f2f;
-}
-
-.levelBadge.reference {
-  background: #f3e5f5;
-  color: #7b1fa2;
-}
-
-.levelBadge.all {
-  background: #e3f2fd;
-  color: #1565c0;
-}
-
-[data-theme='dark'] .levelBadge.beginner {
-  background: #2e7d32;
-  color: #e8f5e8;
-}
-
-[data-theme='dark'] .levelBadge.intermediate {
-  background: #ef6c00;
-  color: #fff3e0;
-}
-
-[data-theme='dark'] .levelBadge.advanced {
-  background: #d32f2f;
-  color: #ffebee;
-}
-
-[data-theme='dark'] .levelBadge.reference {
-  background: #7b1fa2;
-  color: #f3e5f5;
-}
-
-[data-theme='dark'] .levelBadge.all {
-  background: #1565c0;
-  color: #e3f2fd;
-}
-
-.linkType {
-  font-size: 0.75rem;
-  color: var(--ifm-color-emphasis-600);
-  font-weight: 500;
-}
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
@@ -255,11 +178,7 @@
     gap: 0.5rem;
   }
   
-  .cardFooter {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
-  }
+
 }
 
 @media (max-width: 480px) {

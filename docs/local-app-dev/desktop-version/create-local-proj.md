@@ -83,7 +83,7 @@ Creating local Flutter projects in Nowa Desktop offers several advantages, parti
 ### 1. Maintain Your Original Workflow
 - **Use Your Favorite Tools:** With a local Flutter project, you retain full access to your preferred development tools and workflows. This means you can continue using IDEs like VS Code, perform testing on simulators or real devices, and manage version control with Git.
 
-- **Version Control:** You can easily [create a Git repository](../integrations/git/git-local.md) from the project folder, enabling you to maintain a local repository or push it to a remote repository on GitHub. This is particularly useful for collaborating with other developers or keeping your code backed up in the cloud.
+- **Version Control:** You can easily [create a Git repository](../../version-cont-deploy/git/git-local.md) from the project folder, enabling you to maintain a local repository or push it to a remote repository on GitHub. This is particularly useful for collaborating with other developers or keeping your code backed up in the cloud.
 
 ### 2. Simultaneous Access in IDE and Nowa
 - **Dual Access:** You can open your local project in your chosen IDE while simultaneously working on it in Nowa. This allows you to make direct modifications to the codebase in your IDE.

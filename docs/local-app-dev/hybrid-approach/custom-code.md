@@ -57,7 +57,7 @@ Let's see how to write custom code:
 
 :::tip[Testing Custom Code with Cloud projects]
 
-For a cloud-only project, the only way to test your app fully is by [publishing a web version](../deployment/web-deploy.mdx), which will remain live for 12 hours.
+For a cloud-only project, the only way to test your app fully is by [publishing a web version](../../version-cont-deploy/deployment/web-deploy.mdx), which will remain live for 12 hours.
 
 For local projects, you can use simulators to test your full app
 

@@ -154,7 +154,7 @@ Skip the manual setup! Import groups of API requests instantly from:
 
 Simply import, and Nowa automatically handles the rest—endpoints, request types, headers, and body included.
 
-For more, check out [this page](./data/creating-request.md)
+For more, check out [this page](./data-connections/data/creating-request.md)
 
 📥 **Instant cURL Support**  
 Paste a **cURL command**, and Nowa turns it into a ready-to-use API request. Less manual work, more building!
@@ -233,7 +233,7 @@ Manage your projects like a pro with full Git operations:
 - Push cloud projects to Git  
 - Keep local, cloud, and remote versions in sync  
 - Commit, discard, branch—you name it  
-[Check out the full Git guide](./integrations/git/intro-git.md)
+[Check out the full Git guide](./version-cont-deploy/git/intro-git.md)
 
 🔘 **New Button Widget**  
 Customize your buttons with the all-new `ButtonStyle`:
@@ -255,8 +255,8 @@ Customize your buttons with the all-new `ButtonStyle`:
 We’ve added new docs to help you learn and master building with Nowa:
 
 ##### 🧬 Hybrid Approach
-- [🌿 Intro to Hybrid Approach](./hybrid-approach/intro-hybrid-approach.md)  
-- [🧩 Using Custom Code](./hybrid-approach/custom-code)  
+- [🌿 Intro to Hybrid Approach](./local-app-dev/hybrid-approach/intro-hybrid-approach.md)  
+- [🧩 Using Custom Code](./local-app-dev/hybrid-approach/custom-code)  
 
 ##### 🧠 Circuit & Logic
 - [🔌 Circuit Intro](./logic/intro-circuit.md)  
@@ -274,7 +274,7 @@ We’ve added new docs to help you learn and master building with Nowa:
 - [🌍 Global States](./vars-params-functions/global-states)  
 
 ##### 🔁 Git & Version Control
-- [🔁 Full Git & GitHub Guide](./integrations/git/intro-git.md)  
+- [🔁 Full Git & GitHub Guide](./version-cont-deploy/git/intro-git.md)  
 
 
 ### **2.0.18 (12 March 2025)**  
@@ -309,7 +309,8 @@ This update introduces a major new capability—**Web Deployment**—allowing yo
   - **Production Mode**: Publish a **permanent live version** (Pro & Premium users only) and even use a **custom domain**.
   - Need to host it yourself? **Download the build files** and deploy them anywhere!
   
-  Check out the **[full guide on web deployment](./deployment/web-deploy.mdx)** to get started!
+Check out the **[full guide on web deployment](./version-cont-deploy/deployment/web-deploy.mdx)** to get started!
+
 
 - **Badge Wrapper**  
   Introducing the `Badge` wrapper—perfect for displaying **small notifications, labels, or indicators** in your UI. Easily **customize colors, shapes, and text** to highlight important elements.

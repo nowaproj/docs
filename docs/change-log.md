@@ -172,7 +172,7 @@ Here’s the **Changelog** for Nowa v2.0.20 in markdown format:
 ## **2.0.17-beta (5 March 2025)**  
 
 #### **Added ✨**  
-- **Web Deployment**: Deploy your web apps online directly from Nowa in development or production mode, with an option to download build files for external hosting. [Read more](./deployment/web-deploy.mdx)
+- **Web Deployment**: Deploy your web apps online directly from Nowa in development or production mode, with an option to download build files for external hosting. [Read more](./version-cont-deploy/deployment/web-deploy.mdx)
 - **Added a Badge Wrapper**
 - **Added a Pin Code Field Widget**: New input field for PIN codes and OTP entry.  
 - **Dashboard Enhancements**

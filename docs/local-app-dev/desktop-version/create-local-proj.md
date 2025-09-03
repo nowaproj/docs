@@ -4,12 +4,11 @@ title: Local projects
 description: Create local Flutter projects 
 ---
 
-
 # Creating Local Projects in Nowa Desktop
 
 With Nowa Desktop, you can create local projects in addition to cloud-based projects, offering you greater flexibility and control over your development process. This guide will walk you through the steps of creating a local project and highlight the benefits of working with local Flutter projects.
 
-checkout this video to see how to use Nowa destkop full potential:
+Checkout this video to see how to use Nowa Desktop to its full potential:
 
 <iframe width="767" height="431" src="https://www.youtube.com/embed/Iounj9Z_Q1Y" title="The best setup for building apps : Nowa Desktop version + Hot reload on an Emulator / Real Device" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
@@ -17,26 +16,49 @@ checkout this video to see how to use Nowa destkop full potential:
 
 After installing the Nowa Desktop application, you can easily create local projects. Follow these steps:
 
-1. **Access the Dashboard:** Open Nowa Desktop and navigate to the main dashboard.
-2. **Initiate Project Creation:**
-   - Click on the `Create` button within the main dashboard.
-   - Choose the `Local` option when prompted.
-3. **Set Project Details:**
-   - Provide a name for your project.
-   - Specify the path where you want the project to be saved on your device.
-4. **Create the Project:**
-   - Click on the `Create` button to finalize the process.
-   - Nowa will create a local Flutter project at your specified location, complete with the necessary Flutter files and folders.
+1. **Open Local Projects:**  In the sidebar, go to **Your Projects → Local Projects**.
 
-![](./img/create-local-proj.png)
+![](/img/createlocalproject/1.png)
+
+2. **Start a New Local Project:**  Click on the **New Local Project** button.
+
+![](/img/createlocalproject/2.png)
+
+3. **Choose Project Type:**   From the dropdown, select **New Local Project**.
+
+![](/img/createlocalproject/3.png)
+
+4. **Enter Project Details:**  
+   - Provide a **Project Name**.  
+   - The **Package Name** is generated automatically.  
+   - Click **Browse** to set the folder path where the project will be saved.
+
+![](/img/createlocalproject/4.png)
+
+5. **Select a Folder:**   Choose your desired folder and click **Select Folder**.
+
+![](/img/createlocalproject/5.png)
+
+6. **Create the Project:**   The selected path will appear in the form.   Click **Create** to finalize.  
+
+![](/img/createlocalproject/6.png)
+
+Nowa will create a local Flutter project at your specified location, complete with the necessary Flutter files and folders.
+
+![](/img/createlocalproject/7.png)
 
 
 ## How to open an existing project locally
-To do so, on Nowa Desktop version, simply click on "Open" in the main dashboard where you can see all projects.
+To open an existing local Flutter project in Nowa Desktop:
 
-Then, choose the folder path and click on "Choose". The folder should be a normal Flutter project folder
+1. In the **main dashboard**, click on the dropdown next to **New Local Project**.  
+2. From the options, select **Open**.  
 
-![](./img/open-local.png)
+![](/img/openexistinglocalproject.jpg)
+
+3. Then, choose the folder path of your existing Flutter project and click **Choose**.  
+   The folder should be a valid Flutter project folder.
+
 
 ### Converting Cloud projects to Local
 
@@ -52,10 +74,7 @@ For now, you can convert a cloud project to a local one, but not the other way a
 ### Opening Existing Flutter projects
 For now, it's recommended that when you open a local project that it was created within Nowa itself to avoid any problems in loading the project.
 
-Since Nowa projects are Flutter project indeed, you can technically open existing Flutter project within Nowa. However, it might cause problems in case the project contains some code that Nowa can't analyze.
-
-But, Nowa will be able to load any Flutter project including projects that was created outside Nowa starting from Nowa V2.0 (Coming in Nov/Dec 2024).  
-
+Since Nowa projects are Flutter project indeed, you can technically open existing Flutter project within Nowa. However, it might cause problems in case the project contains some code that Nowa can't analyze.  
 
 ## Cloud vs Local projects
 The differences between local and cloud projects are as follows:
@@ -68,9 +87,9 @@ The differences between local and cloud projects are as follows:
 
 :::note
 
-You can know if your project is a local or a cloud project by looking at the thumbnail. If it has the cloud sign then it's a cloud project, otherwise it's a local one
+You can switch between local and cloud projects from the left sidebar. If you select Cloud Projects, all your projects will be stored online. If you select Local Projects, they will be saved directly on your computer.
 
-![](./img/simulators/localvscloud.png)
+![](/img/checkprojectlocalorcloud.jpg)
 
 
 :::
@@ -92,6 +111,3 @@ Creating local Flutter projects in Nowa Desktop offers several advantages, parti
 Creating local projects in Nowa Desktop empowers you to leaverage the full power of building visually with Nowa, while maintaining your original development workflow.
 
 Whether you’re a seasoned Flutter developer or just starting, Nowa Desktop provides a robust environment to build and manage your projects effectively.
-
-
-    

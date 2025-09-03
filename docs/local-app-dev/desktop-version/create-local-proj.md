@@ -1,18 +1,8 @@
 ---
 sidebar_position: 2
-title: Local projects
+title: Creating Local Projects in Nowa Desktop
 description: Create local Flutter projects 
 ---
-
-# Creating Local Projects in Nowa Desktop
-
-With Nowa Desktop, you can create local projects in addition to cloud-based projects, offering you greater flexibility and control over your development process. This guide will walk you through the steps of creating a local project and highlight the benefits of working with local Flutter projects.
-
-Checkout this video to see how to use Nowa Desktop to its full potential:
-
-<iframe width="767" height="431" src="https://www.youtube.com/embed/Iounj9Z_Q1Y" title="The best setup for building apps : Nowa Desktop version + Hot reload on an Emulator / Real Device" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-## How to Create a Local Project
 
 After installing the Nowa Desktop application, you can easily create local projects. Follow these steps:
 

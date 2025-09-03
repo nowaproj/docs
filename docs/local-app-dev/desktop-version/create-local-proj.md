@@ -18,34 +18,34 @@ After installing the Nowa Desktop application, you can easily create local proje
 
 1. **Open Local Projects:**  In the sidebar, go to **Your Projects → Local Projects**.
 
-![](/img/createlocalproject/1.png)
+![](/img/nowadesktop/createlocalproject/1.png)
 
 2. **Start a New Local Project:**  Click on the **New Local Project** button.
 
-![](/img/createlocalproject/2.png)
+![](/img/nowadesktop/createlocalproject/2.png)
 
 3. **Choose Project Type:**   From the dropdown, select **New Local Project**.
 
-![](/img/createlocalproject/3.png)
+![](/img/nowadesktop/createlocalproject/3.png)
 
 4. **Enter Project Details:**  
    - Provide a **Project Name**.  
    - The **Package Name** is generated automatically.  
    - Click **Browse** to set the folder path where the project will be saved.
 
-![](/img/createlocalproject/4.png)
+![](/img/nowadesktop/createlocalproject/4.png)
 
 5. **Select a Folder:**   Choose your desired folder and click **Select Folder**.
 
-![](/img/createlocalproject/5.png)
+![](/img/nowadesktop/createlocalproject/5.png)
 
 6. **Create the Project:**   The selected path will appear in the form.   Click **Create** to finalize.  
 
-![](/img/createlocalproject/6.png)
+![](/img/nowadesktop/createlocalproject/6.png)
 
 Nowa will create a local Flutter project at your specified location, complete with the necessary Flutter files and folders.
 
-![](/img/createlocalproject/7.png)
+![](/img/nowadesktop/createlocalproject/7.png)
 
 
 ## How to open an existing project locally

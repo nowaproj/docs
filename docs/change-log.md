@@ -1,6 +1,6 @@
 ---
 sidebar_position: 2.5
-title: "Changelog \ud83d\udcdc"
+title: "\ud83d\udcdc Changelog"
 ---
 
 > Detailed log of all updates, improvements, and bug fixes for each version.

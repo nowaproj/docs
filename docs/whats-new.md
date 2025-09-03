@@ -1,8 +1,8 @@
 ---
 sidebar_position: 2 
-description: What's new
+title: "\ud83d\udcf0 What's new"
 ---
-# What's new
+# 📰 What's new 
 
 > Discover the latest features and enhancements for each version of Nowa. For more details, check the [changelogs](./change-log.md)
 

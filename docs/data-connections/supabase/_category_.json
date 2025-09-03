@@ -1,9 +1,12 @@
 {
   "label": "Supabase",
   "position": 3,
-  "className": "sidebar-supabase",
   "link": {
     "description": "Learn how to connect Supabase database to your app",
     "type": "generated-index"
+  },
+  "customProps": {
+    "icon": "ti ti-brand-supabase",
+    "color": "#3FCF8E"
   }
 }

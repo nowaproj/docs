@@ -28,16 +28,3 @@
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
-
-/* Custom sidebar icon for Supabase category */
-.sidebar-supabase .menu__link::after {
-  content: "";
-  display: inline-block;
-  width: 1em;
-  height: 1em;
-  margin-left: 0.5em;
-  background: url("/img/menuicons/supabase.svg") no-repeat center;
-  background-size: contain;
-  transform: none !important; 
-}
-

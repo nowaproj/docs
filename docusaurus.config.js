@@ -15,6 +15,10 @@ const config = {
   tagline: 'The official Documentation for Nowa',
   favicon: 'img/favicon.ico',
 
+  stylesheets: [
+    "https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css",
+  ],
+
   // Set the production url of your site here
   url: 'https://docs.nowa.dev/',
   // Set the /<baseUrl>/ pathname under which your site is served

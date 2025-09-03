@@ -1,6 +1,6 @@
 ---
 sidebar_position: 3
-title: Boards
+title: "Boards \ud83d\udccb"
 description: How to create design boards and use them  
 ---
 

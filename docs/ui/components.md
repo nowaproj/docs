@@ -1,6 +1,6 @@
 ---
 sidebar_position: 8
-title: Components
+title: "Components \ud83d\udd27"
 description: Creating UI components for consistant design
 ---
 

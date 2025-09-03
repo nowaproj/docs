@@ -1,8 +1,1 @@
-{
-    "label": "Getting Started \u25b6\ufe0f",
-    "position": 3,
-    "link": {
-        "type": "generated-index",
-        "description": "Learn how to get started building in Nowa"
-    }
-}
+{ "label": "Getting Started \u25b6\ufe0f", "position": 3, "link": { "type": "generated-index", "description": "Learn how to get started building in Nowa" } }

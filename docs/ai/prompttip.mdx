@@ -1,0 +1,98 @@
+
+
+# Prompting Tips
+
+Nowa AI can design, code, and integrate your Flutter app with just a few prompts. The better you guide it, the better your results.
+
+This guide shares practical tips to write prompts that help Nowa AI work faster, avoid mistakes, and deliver what you need.
+
+## 1️⃣ Keep it small — one step at a time
+
+Big, vague prompts can lead to unexpected results.  
+Break your requests into smaller, clear steps so the AI can focus and you can quickly review and adjust.
+
+✅ **Good:** `Add a search bar to my product list screen.`  
+❌ **Risky:** `Build me a full shopping app with everything.`
+
+---
+
+## 2️⃣ Attach when it matters
+
+When modifying something specific, attach that file, screen, or widget to your prompt.  
+This gives the AI:
+
+- A precise starting point  
+- Faster focus on the relevant code  
+- Less chance of unrelated changes  
+
+👉 You don’t need to attach all dependencies — just the main element you’re working on. If the AI needs more, it will fetch it.
+
+---
+
+## 3️⃣ Make attachments as focused as possible
+
+- If you want to update a specific widget, select **only that widget** — not the entire screen.  
+- If Nowa AI needs more context from the surrounding screen, it will go find it.  
+
+🎯 Focused attachments help the AI make better decisions and avoid unnecessary edits.
+
+---
+
+## 4️⃣ Give context — reduce assumptions
+
+AI works best when it understands the bigger picture.  
+Context could include:
+
+- The purpose of the screen or feature  
+- Key design or functional elements  
+- Relevant background or user flow  
+
+The more context you give, the fewer assumptions the AI has to make.
+
+---
+
+## 5️⃣ Start a new chat when context drifts
+
+When your next request isn’t closely related to the current thread, start a fresh chat.  
+Old conversations can bias the AI toward previous topics and decisions.
+
+**Why it helps:**  
+- Keeps the AI focused on the current goal  
+- Reduces accidental carry-over from older prompts  
+- Improves clarity and results — especially when switching features  
+
+✅ **Good:**  
+`New chat: Build an ‘Orders’ screen with filters (status, date). Attach orders_list.dart.`  
+
+❌ **Risky:**  
+`Same chat about homepage styling: Also add Supabase auth and reset password.`  
+
+📌 **Rule of thumb:** Keep a chat to ~5 prompts. If you’re switching features or the thread feels unrelated, start a new one and attach the relevant screen/widget.
+
+---
+
+## 6️⃣ Master the Sandwich Technique (Intent → Context → Task → Constraints)
+
+The “prompt sandwich” is a simple but powerful structure:
+
+1. **Intent** — State what you want to achieve  
+2. **Context** — Add relevant background info (bullet points work great)  
+3. **Task** — Tell the AI exactly what to do  
+4. **Constraints** — Any rules or limits the AI must follow  
+
+**Example:**
+
+```text
+#Intent
+I want to build a modern homepage for my shoe store app.
+
+#Context
+• Show main promotion at the top
+• Display products in a grid with price and image
+• Mobile-first approach
+
+#Task
+Build the homepage as described above.
+
+#Constraints
+Keep the design clean and modern, and the implementation simple.

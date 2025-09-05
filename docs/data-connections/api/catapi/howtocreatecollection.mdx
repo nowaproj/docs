@@ -1,0 +1,77 @@
+# Creating an API Collection  
+
+Welcome! In this guide, we’ll explore how to set up and configure an API collection using the **lovely Cat API** 🐾. Don’t worry—it’s simple! By the end, you’ll be able to send requests and receive adorable cat pictures 😻.  
+
+We’ll go step by step: create the collection, set the base URL, add your API key, and finally make sure we always get responses in JSON format.  
+
+---
+
+## 📝 Steps  
+
+### 1️⃣ Create the Collection  
+Start by creating a new API collection in **Nowa**.  
+
+:::tip
+
+✨ As soon as you create it, Nowa will automatically generate a **Dart file** that contains your API setup. This means your collection is not just a visual setup—it’s already connected to real code you can build upon.  
+
+:::
+
+
+<video src="/videos/api2/collection/create.webm" controls width="100%" />
+
+**💡 Why this is good:**  
+- 📂 Keeps all your cat-related requests neatly in one place.  
+- ⚡ Automatically generates a Dart file, keeping the UI and codebase perfectly in sync.  
+
+---
+
+### 2️⃣ Set the Base URL  
+Add the **Base URL** for all your requests:  
+
+```http
+https://api.thecatapi.com/
+```  
+<video src="/videos/api2/collection/url.webm" controls width="100%" />
+
+**💡 Why this is good:**  
+- 🔗 You only need to write the common part of the API once.  
+- ✨ Makes new requests shorter, reduces errors, and allows quick updates.  
+
+---
+
+### 3️⃣ Add the API Key  
+Go to the **Authorization** section.  
+Here, simply type in your API key 🔑 in the Nowa interface.  
+
+<video src="/videos/api2/collection/auth.webm" controls width="100%" />
+
+
+**💡 Why this is good:**  
+- 🔐 Once entered, every request will automatically include your key.  
+- 🙌 No more copy-paste—it’s handled for you.  
+
+---
+
+### 4️⃣ Configure the Headers  
+Tell the API you want responses in **JSON format**:  
+
+```http
+Accept: application/json
+```  
+
+👉 Remember:  
+- The part **before the colon (`Accept`)** goes into the **Key** field.  
+- The part **after the colon (`application/json`)** goes into the **Value** field.  
+
+<video src="/videos/api2/collection/header.webm" controls width="100%" />
+
+**💡 Why this is good:**  
+- 📊 JSON is structured, clean, and easy to work with.  
+- 🛠️ Perfect for integrations and application development.  
+
+---
+
+## 🐾 Final Thoughts  
+
+Just continue to study with this guide, and in the next lesson we’ll learn how to create the API request with the model.

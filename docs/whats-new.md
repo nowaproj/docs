@@ -154,7 +154,7 @@ Skip the manual setup! Import groups of API requests instantly from:
 
 Simply import, and Nowa automatically handles the rest—endpoints, request types, headers, and body included.
 
-For more, check out [this page](./data-connections/data/creating-request.md)
+For more, check out [this page](./data-connections/data-old/creating-request.md)
 
 📥 **Instant cURL Support**  
 Paste a **cURL command**, and Nowa turns it into a ready-to-use API request. Less manual work, more building!

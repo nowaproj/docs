@@ -1,4 +1,4 @@
-# Supabase Authentication
+# Authentication 🔐
 
 ## 1️⃣ Registration (Quick Check Only) 📝
 We just **test registration** to see how it works in Supabase ✅  
@@ -6,6 +6,12 @@ We just **test registration** to see how it works in Supabase ✅
 
 Since registration looks 👯‍♂️ *almost identical* to login in design, we skip building a page for it.  
 Later, when we design the **login page**, you’ll instantly recognize how registration would look too 🔑✨  
+
+:::warning
+
+Heads up: Supabase will send a verification email. Make sure to click that link or you won’t be able to sign in.
+
+:::
 
 <video controls width="850">
   <source src="/videos/supabase/auth/register.webm" type="video/mp4" />

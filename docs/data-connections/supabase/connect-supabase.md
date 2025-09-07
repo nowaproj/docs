@@ -1,4 +1,4 @@
-# Connect Supabase 🔌
+# Connect 🔌
 
 ## 1️⃣ Connect Nowa to Supabase 🔌
 Super quick setup — no complicated configs.  

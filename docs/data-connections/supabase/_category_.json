@@ -2,7 +2,7 @@
   "label": "Supabase",
   "position": 3,
   "link": {
-    "description": "Learn how to connect Supabase database to your app",
+    "description": "An introduction to Supabase, the open-source Firebase alternative 🌐🔥",
     "type": "generated-index"
   },
   "customProps": {

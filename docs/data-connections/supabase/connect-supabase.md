@@ -1,6 +1,6 @@
-# Connect Supabase to Nowa – Why It’s Awesome ✨
+# Connect Supabase 🔌
 
-## 1️⃣ Connect Nowa to Supabase 🔌  
+## 1️⃣ Connect Nowa to Supabase 🔌
 Super quick setup — no complicated configs.  
 👉 **Good for you:** saves time ⏳ and gets your app running fast 🚀.  
 

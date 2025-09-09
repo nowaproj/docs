@@ -58,3 +58,6 @@ Now that your Nowa local project is linked to a GitHub repository, any changes y
 - **Backups:** Even though your project is saved locally, regular commits to GitHub ensure that you have an offsite backup of your work.
 
 By following these steps, you can seamlessly integrate GitHub into your Nowa development workflow, enabling better version control and collaboration.
+
+
+

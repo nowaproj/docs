@@ -1,3 +1,8 @@
+---
+sidebar_position: 0
+title: Why local projects
+---
+
 # Why local projects
 The differences between local and cloud projects are as follows:
 - With cloud projects you can use "Cloud run" to build your app online for Android, iOS or Web. For local ones, you will need to do the build manually using commands like 

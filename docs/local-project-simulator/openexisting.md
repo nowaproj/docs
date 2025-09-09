@@ -1,4 +1,9 @@
-# Import a Flutter project
+---
+sidebar_position: 2
+title: Import a Flutter project
+---
+
+#
 
 :::warning
 This can work, however, if your project uses packages that are not supported by Nowa, those elements may not display correctly.

@@ -2,13 +2,13 @@
 
 # ✨ Signup  
 
-When a new user opens the app for the very first time, the adventure begins 🎉. On the signup screen, two doors appear 🔑✨. One is the classic way — creating an account with email and password 📧🔒. The other is the fast lane — signing up with Google 🌍⚡. Both paths lead to the same destination: a brand-new account ready to use 🎊.  
+When a new user opens the app for the very first time, the adventure begins 🎉. The signup screen appears like a pair of doors 🔑✨. One path is the traditional route — creating an account with email and password 📧🔒. The other is the express lane — signing up with Google 🌍⚡. No matter which way the user chooses, both lead to the same destination: a brand-new account, ready to explore 🎊.  
 
 ---
 
 ### 🏁 The First Step: Choosing Your Path  
 
-The first screen greets the user warmly 👋, offering two clear options. Some prefer to type in their details manually ✍️, while others enjoy the convenience of letting Google handle the process 🤖. It’s a bit like standing at a crossroads 🛤️ — one way takes a little more time, the other is lightning fast ⚡.  
+The very first screen offers a friendly welcome 👋, presenting two clear choices. Some people prefer to take their time, typing in their details manually ✍️. Others enjoy the convenience of letting Google take care of the process 🤖. It feels a little like standing at a crossroads 🛤️: one road takes a few extra steps, the other is lightning fast ⚡.  
 
 ![Initial screen](/img/signup/1.png)  
 
@@ -16,15 +16,15 @@ The first screen greets the user warmly 👋, offering two clear options. Some p
 
 ### 📧 The Journey with Email  
 
-If the user chooses the email path, the app gently asks for three essentials 👤📩🔑: full name, email address, and a password of their choice. With those details entered, the adventure moves to the next step.  
+For those who pick the email route, the app gently asks for three essentials 👤📩🔑: full name, email address, and a password. Once these are filled in, the process moves forward.  
 
 ![Email step 1](/img/signup/email/1.png)  
 
-But before the gates open, the app pauses ⏳. A verification email 📬 is sent, and the user must confirm it with a quick click ✅. This ensures the email is real and secure 🔒.  
+Before the account is ready, the app sends out a verification email 📬. The user needs to confirm their address with a quick click ✅. This step ensures security 🔒 and verifies that the email is real.  
 
 ![Email step 2](/img/signup/email/2.png)  
 
-Once confirmed, the doors swing wide open 🎉. The signup is complete, and the user can log in freely whenever they like 🔓💻.  
+As soon as the email is confirmed, the doors swing wide open 🎉. The signup journey is complete, and the user can now log in freely whenever they wish 🔓💻.  
 
 ![Email step 3](/img/signup/email/3.png)  
 
@@ -32,95 +32,78 @@ Once confirmed, the doors swing wide open 🎉. The signup is complete, and the 
 
 ### 🌍 The Express Route with Google  
 
-For those who like speed ⏩, Google signup feels like magic ✨. By tapping the Google button, the familiar login screen appears 👀. The user picks their Google account, grants permission 🙌, and the system does the rest automatically 🤖.  
+For those who prefer speed ⏩, signing up with Google feels almost like magic ✨. A single tap brings up the familiar Google login screen 👀. The user selects their account, grants permission 🙌, and the rest happens automatically 🤖.  
 
 ![Google step 1](/img/signup/google/1.png)  
 
-In just a blink ⚡, the account is created and ready to go 🚀. No extra steps, no waiting.  
+In just a blink ⚡, the account is created and ready to use 🚀. No waiting, no extra steps.  
 
 ![Google step 2](/img/signup/google/2.png)  
 
 ---
 
-### 🎉 After Signup: Welcome 
+### 🎉 After Signup: Welcome  
 
-No matter which road was taken 🛤️, both lead to the same bright destination 🌟. The user is greeted by a cheerful welcome screen 👋🎊.  
+No matter which road was taken 🛤️, both journeys lead to the same destination 🌟 — a cheerful welcome screen 👋🎊.  
 
 ![After step 1](/img/signup/after/1.png)  
 
-Before diving into the main app, there’s one small setup step 🛠️. Instead of collecting heavy personal data 🙅‍♂️, the app asks a single lightweight question — for example: *“Are you a developer?”* 👨‍💻👩‍💻. This keeps the flow quick ⏱️ and stress-free 😌.  
+Before diving into the main app, there’s one small setup step 🛠️. Instead of asking for heavy personal details 🙅‍♂️, the app poses a single lightweight question — something like *“Are you a developer?”* 👨‍💻👩‍💻. This keeps the experience quick ⏱️ and stress-free 😌.  
 
 ![After step 2](/img/signup/after/2.png)  
 
 ---
 
-# 🎉🚀 Explain App.nowa.dev
+# 🎉🚀 Exploring App.nowa.dev  
 
-When you open **app.nowa.dev**, you arrive at the **Nowa dashboard** 🖥️📊 — the central hub for creating 🛠️ and managing your no-code/low-code projects 🧩⚡.  
-
----
-
-# Dashboard
-
-And once inside the main dashboard 🖥️✨, a whole new world opens up. Here, the user can create brand-new projects 🏗️, revisit and open existing ones 📂, and decide whether to keep their work local 💻 or push it into the cloud ☁️.
-
-### 📂 Left Sidebar  
-- **📁 Your Projects** → Access your 🌥️ Cloud Projects or 💻 Local Projects.  
-- **👥 Workspaces** → Organize your projects into workspaces 🗂️.  
-- **⬇️ Download for Desktop** → Install the desktop version 🖥️.  
-- **🧪 Sample Projects** → Explore ready-made templates 📝🎨.  
-- **📚 Learning Resources** → Access tutorials 🎥📖 and guides 🧭.  
-- **💡 Suggest a Template** → Share your ideas 💭✨ with the community 🌍.  
-- **⚙️ Settings** → Configure your account 🔧.  
-- **🚪 Logout** → Sign out of your account 👋.  
+When the user arrives at **app.nowa.dev**, they step into the **Nowa dashboard** 🖥️📊. This is the central hub where projects are created 🛠️, organized 🧩, and managed with ease ⚡.  
 
 ---
 
-### 🖼️ Main Area  
-Your **Cloud Projects** 🌥️ are displayed as **cards** 🃏 with preview images 🖼️ (e.g., teszt, test, stopwatch ⏱️).  
-Each project card gives you **quick access** ⏩ to continue editing ✏️.  
+# Dashboard  
 
----
+Inside the dashboard, an entire world unfolds. Here, users can start fresh by creating brand-new projects 🏗️, reopen existing ones 📂, and decide whether their work should stay local 💻 or be launched into the cloud ☁️.  
 
-### 🔝 Top Right Corner  
-- **🔍 Search Bar** → Quickly find projects 🏃💨.  
-- **➕🆕 “New Cloud Project” button** → Start building 🏗️ a new app instantly ⚡.  
+On the left side, a sidebar acts like a trusty guide. It offers access to cloud and local projects 🌥️💻, organizes them into workspaces 🗂️, and even provides quick links to sample templates 📝🎨 and learning resources 🎥📖. From here, users can also install the desktop version 🖥️, suggest new templates 💡, or adjust account settings 🔧. When the journey for the day is done, logging out is just a click away 👋.  
+
+In the main area, cloud projects appear as cards 🃏 with preview images 🖼️. Each card offers a simple way to jump back into editing ✏️.  
+
+At the top right corner, tools for searching 🔍 and creating new cloud projects ➕🆕 make navigation fast and effortless.  
 
 ![app.nowa.dev](/img/app.png)  
 
 ---
 
-### Create workspace:
+### Creating a Workspace  
 
-The dashboard also offers **workspaces** 🗂️, a powerful way to keep everything organized neatly 📑 and to manage projects efficiently ⚙️. It’s like having a control center for all your creative journeys 🚀.  
+For those who like structure, workspaces provide a powerful way to stay organized 📑. Think of them as control centers where projects are neatly arranged and managed efficiently ⚙️.  
 
-<video src="/videos/getting-started/createworkspace.webm" controls width="100%" />
+<video src="/videos/getting-started/createworkspace.webm" controls width="100%" />  
 
 ---
 
 # 📂 Projects: Local or Cloud?  
 
-Once inside, a new decision awaits ⚖️. When creating a project 🏗️, should it live on the local machine 💻 or soar into the cloud ☁️? Both choices offer unique strengths, and the right answer depends on the kind of journey the project will take 🌍.  
+When starting a project, the user faces a new decision ⚖️: should the work live on the local machine 💻, or should it soar into the cloud ☁️? Both paths offer unique strengths, and the best choice depends on the journey ahead 🌍.  
 
 ---
 
 ### ☁️ Cloud Development  
 
-Cloud projects, on the other hand, are like setting up shop in a bustling shared studio 🌟🏢. Files live online 📦, ready to be accessed from anywhere 🌍, shared with teammates 🤝, and scaled to match future growth 📈. This path shines when speed 🚀, collaboration 👥, and global accessibility 🌐 are priorities.  
+Choosing the cloud feels like setting up in a shared creative studio 🌟🏢. Projects are stored online 📦, accessible from anywhere 🌍, and easy to share with teammates 🤝. This approach shines when collaboration 👥, speed 🚀, and global access 🌐 are the priorities.  
 
-### Create Cloud project:
-<video src="/videos/getting-started/create-cloud.webm" controls width="100%" />
+<video src="/videos/getting-started/create-cloud.webm" controls width="100%" />  
 
 ---
 
 ### 💻 Local Development  
 
-Keeping projects local feels like working in your own workshop 🛠️🏡. Everything stays safe inside your computer 🖥️, protected from the outside world 🔒. This approach is perfect when working offline 📴, when dealing with sensitive information 🗄️, or when testing on simulators 👨‍🔬. It gives complete control ⚙️ and independence.  
+Keeping projects local feels more like working in a private workshop 🛠️🏡. Everything remains safely inside the user’s own computer 🖥️, protected from outside access 🔒. This path is ideal when working offline 📴, handling sensitive information 🗄️, or testing in simulators 👨‍🔬. It offers full control ⚙️ and independence.  
 
-👉 To explore local projects in more detail, you can read more [here](..\local-project-simulator\createlocalproject.md).  
+👉 For a deeper look at local projects, see [this guide](..\local-project-simulator\createlocalproject.md).  
 
 ---
 
 ### 🎯 Making the Choice  
 
-In the end, there is no wrong path 🙅‍♂️. Some journeys are best taken locally 🏡, others belong in the cloud ☁️. What matters most is picking the environment that fits your needs today and tomorrow 🗓️. Whichever you choose, the app is ready to walk beside you 👣✨.  
+In the end, there is no wrong decision 🙅‍♂️. Some journeys are better suited to the privacy of local development 🏡, while others thrive in the shared, connected space of the cloud ☁️. What matters most is choosing the environment that fits today’s needs and tomorrow’s ambitions 🗓️. Whichever road is taken, the app is always ready to walk beside the user 👣✨.  

@@ -1,3 +1,7 @@
+---
+sidebar_position: 3
+---
+
 # Authentication 🔐
 
 ## 1️⃣ Registration (Quick Check Only) 📝

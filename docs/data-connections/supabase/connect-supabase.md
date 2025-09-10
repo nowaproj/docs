@@ -1,3 +1,7 @@
+---
+sidebar_position: 2
+---
+
 # Connect 🔌
 
 ## 1️⃣ Connect Nowa to Supabase 🔌

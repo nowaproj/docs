@@ -1,3 +1,7 @@
+---
+sidebar_position: 3
+---
+
 # Credits, Limits & Privacy
 
 | 📦 Plan       | 💬 AI messages / month              | 💳 Monthly | 🗓️ Annually |

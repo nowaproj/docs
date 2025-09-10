@@ -1,3 +1,7 @@
+---
+sidebar_position: 1
+---
+
 # How to use Nowa AI
 
 The AI editing tool helps you quickly make changes to your app. Here's your complete journey from start to finish.

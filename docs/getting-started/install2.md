@@ -1,3 +1,7 @@
+---
+sidebar_position: 3
+---
+
 # Installion 2
 
 Imagine opening a door to a world of endless possibilities 🌟. That's exactly what happens when you first launch Nowa and begin your development adventure! Whether you're a seasoned developer or just starting your coding journey, Nowa welcomes you with open arms and guides you through every step of creating amazing applications.

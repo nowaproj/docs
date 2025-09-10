@@ -1,3 +1,7 @@
+---
+sidebar_position: 1
+---
+
 # Introduction to Nowa
 
 Build Flutter apps *insanely fast* with a blend of AI assistance and visual editing.  

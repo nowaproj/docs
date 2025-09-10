@@ -1,3 +1,7 @@
+---
+sidebar_position: 3
+---
+
 # POST API Request 🚀
 
 This guide walks you through **12 steps** of setting up an API request, handling inputs/outputs, and connecting the result to your UI. Each step is explained in detail, so you understand **what** you’re doing and **why**.  

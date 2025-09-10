@@ -65,25 +65,25 @@ You might see options like 🌐 Chrome, 🍎 macOS (if on Mac), or 🪟 Windows 
 For 🤖 Android or 🍏 iOS simulators, you might need to start them first ▶️.
 
 <video width="600" controls>
-<source src="/videos/simulator/simulator.mp4" type="video/mp4" />
+<source src="/videos/simulator/simulator.webm" type="video/mp4" />
 </video>
 
 2️⃣ **Run Button ▶️:** Runs the app on the selected simulator 🎮. Logs 📜 will be displayed in the `Logs` tab at the bottom ⬇️ of Nowa once the app starts.
 
 <video width="600" controls>
-<source src="/videos/simulator/logs.mkv" type="video/mp4" />
+<source src="/videos/simulator/logs.webm" type="video/mp4" />
 </video>
 
 3️⃣ **Stopping the App 🛑:** After running the app, click the ⏹️ stop button to end the process.
 
 <video width="600" controls>
-<source src="/videos/simulator/stop.mp4" type="video/mp4" />
+<source src="/videos/simulator/stop.webm" type="video/mp4" />
 </video>
 
 4️⃣ **Hot Restart 🔄⚡:** If you make changes ✍️ while it’s running, you can click on the **Hot Restart** button 🔁 to quickly restart and apply changes.
 
 <video width="600" controls>
-<source src="/videos/simulator/hotreload.mp4" type="video/mp4" />
+<source src="/videos/simulator/hotreload.webm" type="video/mp4" />
 </video>
 
 ---

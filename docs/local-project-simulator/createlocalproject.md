@@ -21,7 +21,7 @@ To download the Nowa Desktop application, follow these steps:
 3. **Install Nowa Desktop:** After downloading, follow the installation instructions specific to your operating system to complete the setup.
 
 <video width="600" controls>
-  <source src="/videos/desktopversion/download.mp4" type="video/mp4" />
+  <source src="/videos/desktopversion/Download.webm" type="video/mp4" />
 </video>
 
 ---

@@ -1,4 +1,4 @@
-# Importing from Postman 📨
+# Postman 📨
 
 ✨ **What is Postman?**  
 Postman is a super handy tool 🛠️ for testing APIs 🔌. It lets developers send requests 📤, receive responses 📥, and organize everything into **collections** 📚 — making API development faster ⚡ and easier 🧩.  

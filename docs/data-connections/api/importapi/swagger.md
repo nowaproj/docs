@@ -1,4 +1,4 @@
-# Importing from Swagger 🦄 
+# Swagger 🦄 
 
 You can import Swagger/OpenAPI definitions in three ways: 🎯📚  
 

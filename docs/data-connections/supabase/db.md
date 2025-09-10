@@ -94,7 +94,7 @@ Run the query with:
 👉 Check Supabase — you’ll see the row appear instantly ✅
 
 <video controls width="850">
-  <source src="/videos/supabase/db/addtask.mp4" type="video/mp4" />
+  <source src="/videos/supabase/db/addtask.webm" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 
@@ -109,7 +109,7 @@ Ask AI:
 🔥 Boom! All three appear at once.
 
 <video controls width="850">
-  <source src="/videos/supabase/db/multiquery.mp4" type="video/mp4" />
+  <source src="/videos/supabase/db/multiquery.webm" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 
@@ -119,7 +119,7 @@ Ask AI:
 Grab a Task ID 🆔 → run Update → type a new name ✍️ → Supabase updates instantly ✅
 
 <video controls width="850">
-  <source src="/videos/supabase/db/updatequery.mp4" type="video/mp4" />
+  <source src="/videos/supabase/db/updatequery.webm" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 

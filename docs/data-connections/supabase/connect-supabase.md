@@ -5,7 +5,7 @@ Super quick setup — no complicated configs.
 👉 **Good for you:** saves time ⏳ and gets your app running fast 🚀.  
 
 <video controls width="850">
-  <source src="/videos/supabase/1.mp4" type="video/mp4" />
+  <source src="/videos/supabase/1.webm" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 

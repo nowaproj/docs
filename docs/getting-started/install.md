@@ -42,7 +42,7 @@ In just a blink ⚡, the account is created and ready to go 🚀. No extra steps
 
 ---
 
-### 🎉 After Signup: Welcome Aboard  
+### 🎉 After Signup: Welcome 
 
 No matter which road was taken 🛤️, both lead to the same bright destination 🌟. The user is greeted by a cheerful welcome screen 👋🎊.  
 
@@ -54,11 +54,41 @@ Before diving into the main app, there’s one small setup step 🛠️. Instead
 
 ---
 
-### Dashboard
+# 🎉🚀 Explain App.nowa.dev
+
+When you open **app.nowa.dev**, you arrive at the **Nowa dashboard** 🖥️📊 — the central hub for creating 🛠️ and managing your no-code/low-code projects 🧩⚡.  
+
+---
+
+# Dashboard
 
 And once inside the main dashboard 🖥️✨, a whole new world opens up. Here, the user can create brand-new projects 🏗️, revisit and open existing ones 📂, and decide whether to keep their work local 💻 or push it into the cloud ☁️.
 
+### 📂 Left Sidebar  
+- **📁 Your Projects** → Access your 🌥️ Cloud Projects or 💻 Local Projects.  
+- **👥 Workspaces** → Organize your projects into workspaces 🗂️.  
+- **⬇️ Download for Desktop** → Install the desktop version 🖥️.  
+- **🧪 Sample Projects** → Explore ready-made templates 📝🎨.  
+- **📚 Learning Resources** → Access tutorials 🎥📖 and guides 🧭.  
+- **💡 Suggest a Template** → Share your ideas 💭✨ with the community 🌍.  
+- **⚙️ Settings** → Configure your account 🔧.  
+- **🚪 Logout** → Sign out of your account 👋.  
+
+---
+
+### 🖼️ Main Area  
+Your **Cloud Projects** 🌥️ are displayed as **cards** 🃏 with preview images 🖼️ (e.g., teszt, test, stopwatch ⏱️).  
+Each project card gives you **quick access** ⏩ to continue editing ✏️.  
+
+---
+
+### 🔝 Top Right Corner  
+- **🔍 Search Bar** → Quickly find projects 🏃💨.  
+- **➕🆕 “New Cloud Project” button** → Start building 🏗️ a new app instantly ⚡.  
+
 ![app.nowa.dev](/img/app.png)  
+
+---
 
 ### Create workspace:
 

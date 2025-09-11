@@ -1,8 +1,0 @@
-{
-    "label": "\ud83d\udce6 Version Control and deployment",
-    "position": 3,
-    "link": {
-        "type": "generated-index",
-        "description": "Manage code changes collaboratively and release updates reliably to production."
-    }
-}

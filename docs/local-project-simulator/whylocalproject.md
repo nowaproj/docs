@@ -9,7 +9,7 @@ The differences between local and cloud projects are as follows:
   - `flutter build apk` For Android apk debug, `flutter build apk --release` for apk release, and `flutter build appbundle` for aab file.
   - `flutter build web` for Web.
   - `flutter build ios --release` for iOS.
-- For local projects, beside using `Play` to preview the app, you can test the app on an [actual simulators / on real devices](./simulators.md). You can also use Hot restart to reload any change you do in Nowa to the simulator. For cloud projects, you can test the app by downloading the code first and then run it on a simulator or by building it already. For any change you do, you will need to download the code again to run it on a simulator or build again on the cloud
+- For local projects, beside using `Play` to preview the app, you can test the app on an [actual simulators / on real devices](./simulator.md). You can also use Hot restart to reload any change you do in Nowa to the simulator. For cloud projects, you can test the app by downloading the code first and then run it on a simulator or by building it already. For any change you do, you will need to download the code again to run it on a simulator or build again on the cloud
 
 
 :::note
@@ -29,7 +29,7 @@ Creating local Flutter projects in Nowa Desktop offers several advantages, parti
 ### 1. Maintain Your Original Workflow
 - **Use Your Favorite Tools:** With a local Flutter project, you retain full access to your preferred development tools and workflows. This means you can continue using IDEs like VS Code, perform testing on simulators or real devices, and manage version control with Git.
 
-- **Version Control:** You can easily [create a Git repository](../../version-cont-deploy/git/git-local.md) from the project folder, enabling you to maintain a local repository or push it to a remote repository on GitHub. This is particularly useful for collaborating with other developers or keeping your code backed up in the cloud.
+- **Version Control:** You can easily [create a Git repository](../git/git-local.md) from the project folder, enabling you to maintain a local repository or push it to a remote repository on GitHub. This is particularly useful for collaborating with other developers or keeping your code backed up in the cloud.
 
 ### 2. Simultaneous Access in IDE and Nowa
 - **Dual Access:** You can open your local project in your chosen IDE while simultaneously working on it in Nowa. This allows you to make direct modifications to the codebase in your IDE.

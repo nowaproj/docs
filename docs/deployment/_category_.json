@@ -1,6 +1,6 @@
 {
-    "label": "Deployment \ud83d\udcf2",
-    "position": 11,
+    "label": "\ud83d\udcf2 Deployment",
+    "position": 12,
     "link": {
         "type": "generated-index",
         "description": "Learn how to deploy your app to any platform to run nativly"

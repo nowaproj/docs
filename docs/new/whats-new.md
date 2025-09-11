@@ -1,5 +1,4 @@
 ---
-sidebar_position: 2 
 title: "\ud83d\udcf0 What's new"
 ---
 # 📰 What's new 
@@ -154,7 +153,7 @@ Skip the manual setup! Import groups of API requests instantly from:
 
 Simply import, and Nowa automatically handles the rest—endpoints, request types, headers, and body included.
 
-For more, check out [this page](./data-connections/data-old/creating-request.md)
+For more, check out [this page](./data-connections/api/)
 
 📥 **Instant cURL Support**  
 Paste a **cURL command**, and Nowa turns it into a ready-to-use API request. Less manual work, more building!
@@ -233,7 +232,7 @@ Manage your projects like a pro with full Git operations:
 - Push cloud projects to Git  
 - Keep local, cloud, and remote versions in sync  
 - Commit, discard, branch—you name it  
-[Check out the full Git guide](./version-cont-deploy/git/intro-git.md)
+[Check out the full Git guide](../git/intro-git.md)
 
 🔘 **New Button Widget**  
 Customize your buttons with the all-new `ButtonStyle`:
@@ -255,26 +254,26 @@ Customize your buttons with the all-new `ButtonStyle`:
 We’ve added new docs to help you learn and master building with Nowa:
 
 ##### 🧬 Hybrid Approach
-- [🌿 Intro to Hybrid Approach](./local-app-dev/hybrid-approach/intro-hybrid-approach.md)  
-- [🧩 Using Custom Code](./local-app-dev/hybrid-approach/custom-code)  
+- [🌿 Intro to Hybrid Approach](../hybrid-approach/intro-hybrid-approach.md)  
+- [🧩 Using Custom Code](../hybrid-approach/custom-code)  
 
 ##### 🧠 Circuit & Logic
-- [🔌 Circuit Intro](./logic/intro-circuit.md)  
-- [🔀 If Statement](./logic/control-flow/if-statement)  
-- [🧯 Try Catch](./logic/control-flow/try-catch)  
+- [🔌 Circuit Intro](../logic/intro-circuit.md)  
+- [🔀 If Statement](../logic/control-flow/if-statement)  
+- [🧯 Try Catch](../logic/control-flow/try-catch)  
 
 ##### 🧭 Common Functionalities
-- [🧭 Navigation](./logic/common-functionalities/navigation)  
-- [🖼️ Media Picker](./logic/common-functionalities/media-picker)  
-- [💻 Check Platform](./logic/common-functionalities/platform-checking)  
-- [🖨️ Print](./logic/common-functionalities/print)  
+- [🧭 Navigation](../logic/common-functionalities/navigation)  
+- [🖼️ Media Picker](../logic/common-functionalities/media-picker)  
+- [💻 Check Platform](../logic/common-functionalities/platform-checking)  
+- [🖨️ Print](../logic/common-functionalities/print)  
 
 ##### 📦 Variables & States
-- [🧠 Using Data Models](./vars-params-functions/data-models)  
-- [🌍 Global States](./vars-params-functions/global-states)  
+- [🧠 Using Data Models](../vars-params-functions/data-models)  
+- [🌍 Global States](../vars-params-functions/global-states)  
 
 ##### 🔁 Git & Version Control
-- [🔁 Full Git & GitHub Guide](./version-cont-deploy/git/intro-git.md)  
+- [🔁 Full Git & GitHub Guide](../git/intro-git.md)  
 
 
 ### **2.0.18 (12 March 2025)**  
@@ -287,7 +286,7 @@ Nowa now includes an **Chat template**, helping you to quickly create a powerful
 - Ready-to-use **chat screen** for immediate integration.
 - Pre-built components including **chat bubbles** and **chat logic**.
 - Fully customizable to fit your own chat use case!
-[See how to use it here](./templates/chat-template.mdx)
+[See how to use it here](../tutorials-template/chat-template.mdx)
 
 🚀 **Quick Navigation to Functions & APIs**  
 We've enhanced your workflow in Circuit with **quick navigation**:
@@ -309,7 +308,7 @@ This update introduces a major new capability—**Web Deployment**—allowing yo
   - **Production Mode**: Publish a **permanent live version** (Pro & Premium users only) and even use a **custom domain**.
   - Need to host it yourself? **Download the build files** and deploy them anywhere!
   
-Check out the **[full guide on web deployment](./version-cont-deploy/deployment/web-deploy.mdx)** to get started!
+Check out the **[full guide on web deployment](../deployment/web-deploy.mdx)** to get started!
 
 
 - **Badge Wrapper**  
@@ -343,7 +342,7 @@ This update brings exciting new widgets and important improvements to Nowa, incl
 - **Time Picker**  
   You can now allow users to **select a specific time** in your app! Previously, Nowa only supported picking dates. With `ShowTimePicker`, you can capture user input for time selection and format it easily using `.format()`.  
 
-  ![](./img/swipingcard.gif)
+  ![](./../img/swipingcard.gif)
   
 
 ---
@@ -403,7 +402,7 @@ This version introduces powerful new features, improvements, and essential bug f
 #### **New ✨**  
 - **Expansion Tile Widget:**  
   Add collapsible sections in your app with the new Expansion Tile widget. Perfect for organizing content hierarchically.  
-  [Learn more](./ui/widgets/widget-desc/expansion-tile.md)  
+  [Learn more](../ui/widgets/widget-desc/expansion-tile.md)  
 
 - **Getters in the Hybrid Approach:**  
   Write custom Getters in code and use them seamlessly in your project for more flexibility in app logic.  
@@ -442,7 +441,7 @@ This version introduces groundbreaking new features, an improved workflow, and a
   - **Declaration Map:** While in code preview, view a mapped structure of all declarations in the left-side panel for easier navigation and understanding.
 
 - **Custom Code Support:** Write custom Flutter code anywhere in your project, including functions, widgets, and classes. Modify the generated code, and see changes sync instantly inside Nowa. For more, [watch this video](https://www.youtube.com/watch?v=hlOoXTdw1vg&t=1087s)
-- **Themes Management:** Create and manage multiple themes for your app, customize colors and typography, and dynamically switch themes during runtime. [Read more about it here](./ui/themes/create-themes.md)
+- **Themes Management:** Create and manage multiple themes for your app, customize colors and typography, and dynamically switch themes during runtime. [Read more about it here](../ui/themes/create-themes.md)
 - **Revamped Logic-Building Circuit:** Build more complex and advanced flows with the new Circuit. Features include:
   - "Await" for asynchronous functions.
   - "Try-Catch" support for functions that may throw exceptions (e.g., network requests).

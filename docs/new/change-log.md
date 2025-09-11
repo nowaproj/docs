@@ -1,5 +1,4 @@
 ---
-sidebar_position: 2.5
 title: "\ud83d\udcdc Changelog"
 ---
 
@@ -158,7 +157,7 @@ Here’s the **Changelog** for Nowa v2.0.20 in markdown format:
 ## **2.0.18-beta (12 March 2025)**  
 
 #### **Added ✨**  
-- **AI Chat Template**: Quickly build chat-based apps using the built-in, fully functional chat template, complete with chat bubbles and logic. [Read more](./templates/chat-template.mdx)
+- **AI Chat Template**: Quickly build chat-based apps using the built-in, fully functional chat template, complete with chat bubbles and logic. [Read more](../tutorials-template/chat-template.mdx)
 - **Quick Navigation to Functions & APIs**: New "open" icon next to functions and API requests to instantly jump directly to their definitions.
 
 #### **Fixed 🩹**  
@@ -172,7 +171,7 @@ Here’s the **Changelog** for Nowa v2.0.20 in markdown format:
 ## **2.0.17-beta (5 March 2025)**  
 
 #### **Added ✨**  
-- **Web Deployment**: Deploy your web apps online directly from Nowa in development or production mode, with an option to download build files for external hosting. [Read more](./version-cont-deploy/deployment/web-deploy.mdx)
+- **Web Deployment**: Deploy your web apps online directly from Nowa in development or production mode, with an option to download build files for external hosting. [Read more](../deployment/web-deploy.mdx)
 - **Added a Badge Wrapper**
 - **Added a Pin Code Field Widget**: New input field for PIN codes and OTP entry.  
 - **Dashboard Enhancements**
@@ -254,7 +253,7 @@ Here’s the **Changelog** for Nowa v2.0.20 in markdown format:
 
 #### **Added ✨**  
 - **Expansion Tile Widget:**  
-  Easily reveal or hide additional content by adding collapsible sections to your app. Ideal for creating organized and dynamic layouts. [Learn more](./ui/widgets/widget-desc/expansion-tile.md) 
+  Easily reveal or hide additional content by adding collapsible sections to your app. Ideal for creating organized and dynamic layouts. [Learn more](../ui/widgets/widget-desc/expansion-tile.md) 
 
 - **Getters in the Hybrid Approach:**  
   Custom Getters allow you to write reusable logic in code and use it visually throughout your project.  
@@ -322,7 +321,7 @@ Here’s the **Changelog** for Nowa v2.0.20 in markdown format:
   - Dedicated sections for boards, Dart files, and assets for clear organization.
 
 - **Custom Code Support:** Write custom Flutter code anywhere in your project, including functions, widgets, and classes. Modify generated code with instant syncing in Nowa. [Using Custom code Youtube Tutorial](https://www.youtube.com/watch?v=hlOoXTdw1vg&t=1087s)
-- **Themes Management:** Add and manage multiple themes with customizable colors and typography. Dynamically switch themes during runtime. [Read more](./ui/themes/create-themes.md)
+- **Themes Management:** Add and manage multiple themes with customizable colors and typography. Dynamically switch themes during runtime. [Read more](../ui/themes/create-themes.md)
 - **Revamped Logic-Building Circuit:** Create advanced flows with:
   - "Await" for asynchronous functions.
   - "Try-Catch" for handling errors in functions that may throw exceptions.

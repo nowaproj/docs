@@ -59,7 +59,7 @@ Using the Nowa Desktop version comes with several advantages:
 - **Local Project Creation:** Create local Flutter projects stored directly on your device.
 - **Workflow Compatibility:** Continue using VS Code, GitHub, Copilot, and other tools — Nowa projects are just standard Flutter projects.
 
-[Learn how to create a GitHub repo from a Nowa local project](../../version-cont-deploy/git/git-local.md).
+[Learn how to create a GitHub repo from a Nowa local project](../git/git-local.md).
 
 ### 3. Simulators and Platforms
 Use simulators for Android, iOS, Web, and Desktop to test in real-time across platforms.

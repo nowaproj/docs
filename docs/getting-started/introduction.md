@@ -39,7 +39,7 @@ It combines:
 
 ---
 
-## What’s special about Nowa? (Unique Value)
+## What’s special about Nowa?
 
 - **AI that’s context-aware**: it reads your project and makes meaningful changes across files.  
 - **Seamless AI ↔ Visual flow**: prompt when you want, drag-and-drop when you prefer.  

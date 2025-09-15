@@ -4,75 +4,54 @@ sidebar_position: 1
 
 # How to use Nowa AI
 
-The AI editing tool helps you quickly make changes to your app. Here's your complete journey from start to finish.
+**When you first open the AI tool**, you’ll be greeted with a clean workspace—no attachments, ready for you and the AI to begin creating.
 
 ---
 
-## 🚀 Getting Started: Your AI Journey
+## Features
 
-**When you first open the AI tool**, you'll start with a clean slate—no attachments, just you and the AI ready to create. Think of it as beginning a collaborative story where you're the director and the AI is your skilled assistant.
-
-**The Story Begins:**
-1. **Start simple** - Describe what you want to build or change
-2. **Add context** - Select screens or widgets to give the AI focus
-3. **Enhance with visuals** - Upload images for design inspiration
-
----
-
-## ✨ Features & Benefits
-
-### 🎯 Smart Selection & Context
+### Smart Selection & Context
 
 **How it works:** When you select a screen or widget in your app, it automatically gets added as an attachment to your AI conversation. This gives the AI precise context about what you're working on.
 
-👉 **Benefit:** The AI understands exactly what you want to edit, making suggestions more accurate and targeted.
+**If you select a text or icon in the widget tree**, the AI chat panel will recognize it and display the context in the lower-left corner.
 
-*Example: Select your login form, and the AI will focus only on improving that specific component.*
 
 <video src="/videos/ai/target.webm" controls width="100%" />
 
 ---
 
-### 🖼️ Apply Changes Everywhere
+### Attach screens, widgets
 
 Tell the AI what you'd like to edit, and it can apply changes directly to an entire screen or to individual widgets across your app.
 
-👉 **Benefit:** Saves you time by applying consistent edits everywhere at once.
-
-*Example: Change all button colors to blue in seconds, maintaining design consistency.*
+**Simply click the Attach button** in the AI chat panel and then select what you want to attach.
 
 <video src="/videos/ai/attach.webm" controls width="100%" />
 
 ---
 
-### 📎 Attach Images for Inspiration
+### Attach images
 
-**Multiple ways to add visual context:**
-- **Upload from your device** - Add screenshots, mockups, or design references
-- **Use your app files** - Access images already in your project
-- **Convert UI to images** - Turn your existing screens into reference images
+You can attach images, allowing the AI to generate similar pages, widgets, or provide context.
 
-👉 **Benefit:** Provides visual clarity to help the AI match your exact style and vision.
+1. Click the **Attach** button in the AI panel.  
+2. Select **Attach Image** from the list.  
+3. Choose the image from file explorer.  
 
-*Example: Upload a Pinterest design and ask the AI to recreate that aesthetic in your app.*
-
-<video src="/videos/ai/images.mp4" controls width="100%" />
+<video src="/videos/ai/image.webm" controls width="100%" />
 
 ---
 
-### 🔄 Safe Experimentation
+### Safe Experimentation
 
 If you don't like what the AI generated, you can easily undo and go back to the previous version.
 
-👉 **Benefit:** Lets you experiment boldly without risk—try wild ideas knowing you can always revert.
-
-*Example: Test a completely new layout—if it doesn't work, roll back instantly and try something else.*
-
-<video src="/videos/ai/revert.mp4" controls width="100%" />
+<video src="/videos/ai/revert.webm" controls width="100%" />
 
 ---
 
-### 🆕 Fresh Starts
+### Fresh Starts
 
 Begin a new chat session to explore different ideas without carrying over previous conversation context.
 

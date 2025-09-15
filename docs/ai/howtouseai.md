@@ -43,40 +43,21 @@ You can attach images, allowing the AI to generate similar pages, widgets, or pr
 
 ---
 
-### Safe Experimentation
+### Revert changes
 
-If you don't like what the AI generated, you can easily undo and go back to the previous version.
+- Just click **Revert changes** to undo.  
+- To redo an action, just click **Replay changes**.  
 
 <video src="/videos/ai/revert.webm" controls width="100%" />
 
 ---
 
-### Fresh Starts
+### New Chat Session
 
-Begin a new chat session to explore different ideas without carrying over previous conversation context.
+To begin a new chat session, just click **New Chat**.  
 
-👉 **Benefit:** Gives you a clean slate for entirely new creative directions.
-
-*Example: Start fresh to redesign your profile page after finishing work on the home screen.*
+This will remove the context and chat history.  
 
 <video src="/videos/ai/newchat.webm" controls width="100%" />
 
 ---
-
-## 💡 Pro Tips for Better Results
-
-**Building Your Story:**
-- Start broad, then get specific as you add attachments
-- Use natural language—describe what you want like you're talking to a designer
-- Combine selections with images for the most powerful context
-- Don't hesitate to iterate—the AI learns from your feedback
-
-**Attachment Strategy:**
-- Select specific widgets when you want focused changes
-- Choose entire screens for broader redesigns
-- Upload reference images to communicate visual goals
-- Use project files to maintain consistency with existing assets
-
----
-
-✅ With these features working together, AI editing becomes your **intelligent, context-aware creative partner** for building and improving your app efficiently and safely.

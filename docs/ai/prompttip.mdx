@@ -2,274 +2,252 @@
 sidebar_position: 2
 ---
 
-# Prompting Tips 🚀
+# Prompting Tips
 
-Nowa AI can design, code, and integrate your Flutter app with just a few prompts. The better you guide it, the better your results. ✨
+Nowa AI can design, code, and integrate your Flutter app with just a few prompts. The better you guide it, the better your results.
 
-This guide shares practical tips to write prompts that help Nowa AI work faster, avoid mistakes, and deliver what you need. 🎯
+This guide shares practical tips to write prompts that help Nowa AI work faster, avoid mistakes, and deliver what you need.
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## 1️⃣ Keep it small — one step at a time 🔍
+## 1. Keep it small — one step at a time 
 
-Big, vague prompts can lead to unexpected results. 😵  
-Break your requests into smaller, clear steps so the AI can focus and you can quickly review and adjust. ⚡
+Big, vague prompts can lead to unexpected results. 
+Break your requests into smaller, clear steps so the AI can focus and you can quickly review and adjust.
 
 <Tabs>
-<TabItem value="good" label="✅ Good" default>
+<TabItem value="good" label="Good" default>
 
 ```text
-Add a search bar to my product list screen. 🔍
+Add a search bar to my product list screen.
 ```
-Clear, specific, and actionable. 🎯
+Clear, specific, and actionable.
 
 </TabItem>
-<TabItem value="risky" label="❌ Risky">
+<TabItem value="risky" label="Bad">
 
 ```text
-Build me a full shopping app with everything. 🛒
+Build me a full shopping app with everything.
 ```
 
-Too vague and overwhelming for the AI to process effectively. 🤯
+Too vague and overwhelming for the AI to process effectively.
 
 </TabItem>
 </Tabs>
 
 ---
 
-## 2️⃣ Attach when it matters 📎
+## 2. Attach when it matters 
 
-When modifying something specific, attach that file, screen, or widget to your prompt. 🎯  
+When modifying something specific, attach that file, screen, or widget to your prompt.  
 This gives the AI:
 
-- 🎯 A precise starting point  
-- ⚡ Faster focus on the relevant code  
-- 🔒 Less chance of unrelated changes  
+- A precise starting point  
+- Faster focus on the relevant code  
+- Less chance of unrelated changes  
 
-:::tip 💡
-You don't need to attach all dependencies — just the main element you're working on. If the AI needs more, it will fetch it. 🔄
+:::tip 
+You don't need to attach all dependencies — just the main element you're working on. If the AI needs more, it will fetch it.
 :::
 
 ---
 
-## 3️⃣ Make attachments as focused as possible 🔬
+## 3. Make attachments as focused as possible 
 
-- If you want to update a specific widget, select **only that widget** — not the entire screen. 📱  
-- If Nowa AI needs more context from the surrounding screen, it will go find it. 🕵️‍♂️  
+- If you want to update a specific widget, select **only that widget** — not the entire screen.  
+- If Nowa AI needs more context from the surrounding screen, it will go find it.  
 
-🎯 Focused attachments help the AI make better decisions and avoid unnecessary edits. ✂️
+ Focused attachments help the AI make better decisions and avoid unnecessary edits.
 
 ---
 
-## 4️⃣ Give context — reduce assumptions 🧠
+## 4. Give context — reduce assumptions 
 
-AI works best when it understands the bigger picture. 🖼️  
+AI works best when it understands the bigger picture.  
 Context could include:
 
-- 🎯 The purpose of the screen or feature  
-- 🎨 Key design or functional elements  
-- 📋 Relevant background or user flow  
+- The purpose of the screen or feature  
+- Key design or functional elements  
+- Relevant background or user flow  
 
-The more context you give, the fewer assumptions the AI has to make. 🤔
+The more context you give, the fewer assumptions the AI has to make.
 
 ---
 
-## 5️⃣ Start a new chat when context drifts 💬
+## 5. Start a new chat when context drifts
 
-When your next request isn't closely related to the current thread, start a fresh chat. 🆕  
-Old conversations can bias the AI toward previous topics and decisions. 🔄
+When your next request isn't closely related to the current thread, start a fresh chat.  
+Old conversations can bias the AI toward previous topics and decisions.
 
-**Why it helps:** 🤝  
-- Keeps the AI focused on the current goal 🎯  
-- Reduces accidental carry-over from older prompts 🚫  
-- Improves clarity and results — especially when switching features ⚡  
+**Why it helps:**  
+- Keeps the AI focused on the current goal 
+- Reduces accidental carry-over from older prompts 
+- Improves clarity and results — especially when switching features 
 
 <Tabs>
-<TabItem value="good" label="✅ Good Practice" default>
+<TabItem value="good" label="Good Practice" default>
 
 ```text
-New chat: Build an 'Orders' screen with filters (status, date). 📋
-Attach orders_list.dart. 📎
+New chat: Build an 'Orders' screen with filters (status, date).
+Attach orders_list.dart. 
 ```
 
-Clean slate, focused context. ✨
+Clean slate, focused context. 
 
 </TabItem>
-<TabItem value="risky" label="❌ Poor Practice">
+<TabItem value="risky" label="Poor Practice">
 
 ```text
-Same chat about homepage styling: Also add Supabase auth 🔐
-and reset password. 🔄
+Same chat about homepage styling: Also add Supabase auth
+and reset password. 
 ```
 
-Mixed contexts lead to confusion. 😵‍💫
+Mixed contexts lead to confusion. 
 
 </TabItem>
 </Tabs>
 
-:::info 📏 Rule of thumb
-Keep a chat to ~5 prompts. If you're switching features or the thread feels unrelated, start a new one and attach the relevant screen/widget. 🔄
+:::info Rule of thumb
+Keep a chat to ~5 prompts. If you're switching features or the thread feels unrelated, start a new one and attach the relevant screen/widget.
 :::
 
 ---
 
-## 6️⃣ Master the Sandwich Technique 🥪
+## 6. Master the Sandwich Technique 
 
-The "prompt sandwich" is a simple but powerful structure: 💪
+The "prompt sandwich" is a simple but powerful structure: 
 
-1. **Intent** — State what you want to achieve 🎯  
-2. **Context** — Add relevant background info (bullet points work great) 📝  
-3. **Task** — Tell the AI exactly what to do ⚡  
-4. **Constraints** — Any rules or limits the AI must follow 📏  
+1. **Intent** — State what you want to achieve   
+2. **Context** — Add relevant background info (bullet points work great)   
+3. **Task** — Tell the AI exactly what to do  
+4. **Constraints** — Any rules or limits the AI must follow 
 
-### Example: 💼
+### Example: 
 
 ```text title="Perfect Prompt Structure"
-#Intent 🎯
-I want to build a modern homepage for my shoe store app. 👟
+#Intent 
+I want to build a modern homepage for my shoe store app.
 
-#Context 📝
-• Show main promotion at the top 🎉
-• Display products in a grid with price and image 🛍️
-• Mobile-first approach 📱
+#Context 
+• Show main promotion at the top 
+• Display products in a grid with price and image
+• Mobile-first approach 
 
-#Task ⚡
+#Task 
 Build the homepage as described above.
 
-#Constraints 📏
-Keep the design clean and modern, and the implementation simple. ✨
+#Constraints 
+Keep the design clean and modern, and the implementation simple.
 ```
 
 ---
 
-## 7️⃣ Be clear with style & function 🎨
+## 7. Be clear with style & function 
 
-Avoid vague words like "nice" or "beautiful." Instead, be specific: 📐
+Avoid vague words like "nice" or "beautiful." Instead, be specific:
 
 <Tabs>
-<TabItem value="specific" label="✅ Specific" default>
+<TabItem value="specific" label="Specific" default>
 
-- "Use a dark theme with high-contrast text" 🌙  
-- "Rounded card corners with subtle shadows" 📋  
-- "Responsive layout for mobile and web" 📱💻
+- "Use a dark theme with high-contrast text"   
+- "Rounded card corners with subtle shadows"  
+- "Responsive layout for mobile and web" 
 
 </TabItem>
-<TabItem value="vague" label="❌ Vague">
+<TabItem value="vague" label="Vague">
 
-- "Make it look nice" 😶  
-- "Add some beautiful styling" 🤷‍♂️  
-- "Make it responsive" 📐
+- "Make it look nice" 
+- "Add some beautiful styling" 
+- "Make it responsive" 
 
 </TabItem>
 </Tabs>
 
 ---
 
-## 8️⃣ Fixing errors? Just ask! 🔧
+## 8. Fixing errors? Just ask! 
 
-Nowa AI can detect and fix errors in your project automatically. 🛠️
+Nowa AI can detect and fix errors in your project automatically. 
 
 <Tabs>
 <TabItem value="specific" label="Specific Error" default>
 
 ```text
-There's a build error in homepage_screen.dart; please fix it. 🚨
+There's a build error in homepage_screen.dart; please fix it. 
 ```
 
 </TabItem>
 <TabItem value="general" label="All Issues">
 
 ```text
-Fix issues in my project 🔧
+Fix issues in my project
 ```
 
 </TabItem>
 </Tabs>
 
-:::warning ⚠️ Important
-Use the "fix all issues" approach only when the total number of issues is small. For larger projects, divide into focused prompts for better results. 📊
+:::warning Important
+Use the "fix all issues" approach only when the total number of issues is small. For larger projects, divide into focused prompts for better results.
 :::
 
-It will locate the issue and apply the fix automatically. ⚡
+It will locate the issue and apply the fix automatically.
 
 ---
 
-## 9️⃣ Report issues — earn free AI credits 💎
+## 9. Report issues — earn free AI credits 
 
-If you find a bug, let us know! 🐛
+If you find a bug, let us know! 
 
-1. Click the **Feedback** button → **Report** 📝
-2. Include your Project and AI history 📋
-3. Clearly describe the issue 📖
+1. Click the **Feedback** button → **Report** 
+2. Include your Project and AI history 
+3. Clearly describe the issue 
 
-:::success 🎉 Earn Credits
-We reward valid bug reports with free AI credits. This helps us improve the platform while giving back to our community. 💝
+:::success  Earn Credits
+We reward valid bug reports with free AI credits. This helps us improve the platform while giving back to our community.
 :::
 
 ---
 
-## 🔟 Use the community 👥
+##  Bonus tip — Think like a pair programmer
 
-Join our Discord community to: 🌟
+Treat Nowa AI as a collaborator, not just a code generator. 
 
-- 🆘 Get help from the Nowa team and other users
-- 💡 Share your prompts and learn new techniques
-- 🤝 Improve your results together
+**Instead of one-way commands, engage in dialogue:** 
+- Explain your thought process and requirements 
+- Review outputs and provide feedback 
+- Iterate together to refine and improve results 
+- Ask questions when something isn't clear 
 
-[Join Discord Community →](https://discord.gg/ByKfn3H7gX) 🔗
-
----
-
-## 🤝 Bonus tip — Think like a pair programmer 👨‍💻
-
-Treat Nowa AI as a collaborator, not just a code generator. 🤖
-
-**Instead of one-way commands, engage in dialogue:** 💬
-- Explain your thought process and requirements 🧠
-- Review outputs and provide feedback 👀
-- Iterate together to refine and improve results 🔄
-- Ask questions when something isn't clear ❓
-
-This collaborative approach leads to better outcomes and more maintainable code. ✨
-
----
-
-## 💡 Final thought
-
-**Great prompts aren't long — they're clear, contextual, and well-structured.** 🎯
-
-Use the sandwich technique, keep attachments focused, and let Nowa AI do the heavy lifting. 🏗️
-
-Thanks for building with us — we can't wait to see what you create. 💙
+This collaborative approach leads to better outcomes and more maintainable code.
 
 ---
 
 <details>
-<summary>📖 Quick Reference</summary>
+<summary>Quick Reference</summary>
 
-### Prompt Template 📋
+### Prompt Template 
 ```text
-#Intent 🎯
+#Intent 
 [What you want to achieve]
 
-#Context 📝 
+#Context 
 • [Key requirement 1]
 • [Key requirement 2]
 • [Key requirement 3]
 
-#Task ⚡
+#Task 
 [Specific action for AI to take]
 
-#Constraints 📏
+#Constraints 
 [Any limitations or requirements]
 ```
 
-### Checklist ✅
-- [ ] One focused task per prompt 🎯
-- [ ] Relevant files attached 📎
-- [ ] Clear, specific language used 📐
-- [ ] Context provided where needed 🧠
-- [ ] New chat started for unrelated tasks 🆕
+### Checklist 
+- [ ] One focused task per prompt 
+- [ ] Relevant files attached 
+- [ ] Clear, specific language used 
+- [ ] Context provided where needed 
+- [ ] New chat started for unrelated tasks 
 
 </details>

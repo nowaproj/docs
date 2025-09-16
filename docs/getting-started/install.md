@@ -4,15 +4,18 @@ sidebar_position: 2
 
 # Signup and Setup
 
+This guide will walk you through creating your account, setting up your workspace, and starting your first project.
+
+---
+
 ## Signup  
 
-When a new user launches the application for the first time, the sign-up process begins.  
-The user is presented with two options:
+When you open Nowa for the first time, you’ll be asked to sign up. You can do this in two ways:
 
-1. **Email and Password** – Create an account by entering an email address and password.  
-2. **Google Sign-In** – Quickly create an account using Google authentication.  
+1. **Email and Password** – Create an account by entering your email address and password.  
+2. **Google Sign-In** – Quickly create an account using your Google account.  
 
-Regardless of the chosen method, both options result in the creation of a new account, granting the user access to the application. 
+No matter which option you choose, you’ll get full access to Nowa.  
 
 ![Initial screen](/img/signup/1.png)
 
@@ -20,79 +23,76 @@ Regardless of the chosen method, both options result in the creation of a new ac
 
 ### Email Sign-Up
 
-    1. Enter your **full name**, **email address**, and **password**.  
-    2. You **must accept the Terms & Conditions** before continuing.  
-    3. Finally, click **Create Account** to complete the registration.
+If you prefer the email option, here’s what to do:  
 
-![Email step 1](/img/signup/email/1.jpg) 
+1. Enter your **full name**, **email address**, and **password**.  
+2. Accept the **Terms & Conditions**.  
+3. Click **Create Account**.  
 
-Before the account is ready, Nowa sends out a verification email. 
+![Email step 1](/img/signup/email/1.jpg)  
 
-The user needs to confirm their address. This step ensures security and verifies that the email is real.  
+We’ll then send you a verification email. This step keeps your account secure and confirms your email address.  
 
-![Email step 2](/img/signup/email/2.jpg)  
-To verify your email address, you need to click the link that Nowa sent to you by email.
+![Email step 2](/img/signup/email/2.jpg)   
 
-As soon as the email is confirmed. The signup is complete, and the user can now log in.  
+Open the email and click the link inside.   
 
 ![Email step 3](/img/signup/email/3.png)  
 
+Once you’ve confirmed, you’re all set—your signup is complete!
+
 ---
 
-### Google Sign-up
+### Google Sign-Up
 
-For a faster setup, users can sign up with Google.  
-- A single tap opens the Google login screen.  
-- The user selects their account and grants permission.  
-- The account is created automatically.
+Want to move even faster? Use Google Sign-In.  
+
+- Click the **Continue with Google** button.  
+- Pick your account and give permission.  
+- Enter your first and last name.  
+- Accept the Terms & Conditions.  
+- Click the **Create Account** button.  
+
+That’s it—your account is created in just a few clicks.  
 
 ![Google step 1](/img/signup/google/1.png)  
-
-After submission, they must also:  
-- Enter their first and last name.
-- Accept the Terms and Conditions.
-
-Once completed, the registration process is finished.
-
 ![Google step 2](/img/signup/google/2.jpg)  
 
 ---
 
 ### After Signup
 
-After signing up, you will see the **Welcome Screen**.  
+Once you’re signed up, you’ll land on the **Welcome Screen**.  
 
-Click the **"Let’s Get Started"** button to continue.
- 
+Click **"Let’s Get Started"** to move forward.  
 
 ![After step 1](/img/signup/after/1.png)  
-
-After the Welcome Screen, complete a quick test to help us understand our users. 
-
-![After step 2](/img/signup/after/2.png)  
 
 ---
 
 # Dashboard  
+ 
+**Here** you can create new projects, reopen existing ones, and organize your work.  
 
-The dashboard is the central hub for all projects. 
+On the left side, you’ll find shortcuts to:  
+- Workspaces  
+- Templates  
+- Learning resources  
+- Account settings  
 
-- Create new projects, reopen existing ones, and choose between local or cloud storage.  
-- Use the left sidebar to access projects, manage workspaces, explore templates, learning resources, or adjust account settings.  
-- The main area displays cloud projects as cards with previews for quick access.  
-- The top-right corner provides search and new project tools for fast navigation.  
+In the **center**, your projects appear for quick access.  
 
+And in the top-right, you’ll find the **search bar** and a **new project button** to help you move fast.  
 
 ![app.nowa.dev](/img/app.png)  
 
 ---
 
-### Creating a Workspace  
+## Creating a Workspace  
 
-Workspaces provide a structured way to keep projects organized.  
+Workspaces provide a structured way to keep projects organized.
 
 To create a workspace, click the **“+”** button, enter a name, and then click **Create**.
-
 
 <video src="/videos/getting-started/createworkspace.webm" controls width="100%" />  
 
@@ -100,35 +100,41 @@ To create a workspace, click the **“+”** button, enter a name, and then clic
 
 # Projects: Local or Cloud?  
 
-When starting a project, users can choose to store it locally or in the cloud.  
+When you start a new project, you can choose between **local** or **cloud** project.  
 
-Each option has its advantages, and the choice depends on the project’s needs.
-
-In the next section, we will provide some ideas to help you decide.
+Not sure which one to pick?  
+Here’s a quick overview.  
 
 ---
 
-### Cloud Development  
+## Cloud Development  
 
-Storing projects in the cloud allows online access from anywhere and makes sharing with teammates simple.  
-This option is ideal when collaboration, speed, and global accessibility are priorities.
+Cloud projects are stored online.  
+This means you can:  
+- Access them anywhere.  
+- Share them with your team easily.  
+- Move faster when collaboration is important.  
 
-#### How to create **Cloud Project**?
-1. Click the yellow **New Cloud Project** button.
-2. From the list, select **New Cloud Project**.
-3. Enter a **Project name**.
-4. Click **Create**.
+**How to create a Cloud Project:**  
+
+1. Click the yellow **New Cloud Project** button.  
+2. Select **New Cloud Project** from the list.  
+3. Enter a **project name**.  
+4. Click **Create**.  
 
 <video src="/videos/getting-started/create-cloud.webm" controls width="100%" />  
 
 ---
 
-### Local Development  
+## Local Development  
 
-Local storage keeps projects on the user’s own computer, providing privacy and protection from external access.  
-This option is ideal for offline work, handling sensitive information, or testing in controlled environments.  
-It offers full control and independence.
+Local projects are stored only on your computer.  
 
-👉 For a deeper look at local projects, see [this guide](..\local-project-simulator\createlocalproject.md).  
+This option is great if you want to:  
+- Work offline.  
+- Keep your data private.  
+- Test things in a safe, controlled way.  
+
+👉 For a detailed guide, see [Creating Local Projects](..\local-project-simulator\createlocalproject.md).  
 
 ---

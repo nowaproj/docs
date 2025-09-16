@@ -38,6 +38,7 @@ From there, just describe what you’d like to change, and the AI will do the re
 ## Attaching Images
 
 Want the AI to design something based on a picture you have in mind?  
+
 You can attach images, and the AI will use them as inspiration—whether that’s generating similar widgets, pages, or just adding extra context.  
 
 Here’s how:  

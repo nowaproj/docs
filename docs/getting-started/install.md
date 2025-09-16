@@ -45,7 +45,7 @@ Once you’ve confirmed, you’re all set—your signup is complete!
 
 ### Google Sign-Up
 
-Want to move even faster? Use Google Sign-In.  
+Want to get started even quicker? You can sign in with Google.  
 
 - Click the **Continue with Google** button.  
 - Pick your account and give permission.  
@@ -102,8 +102,7 @@ To create a workspace, click the **“+”** button, enter a name, and then clic
 
 When you start a new project, you can choose between **local** or **cloud** project.  
 
-Not sure which one to pick?  
-Here’s a quick overview.  
+Not sure which one to pick? Here’s a quick overview.  
 
 ---
 
@@ -135,6 +134,6 @@ This option is great if you want to:
 - Keep your data private.  
 - Test things in a safe, controlled way.  
 
-👉 For a detailed guide, see [Creating Local Projects](..\local-project-simulator\createlocalproject.md).  
+For a detailed guide, see [Creating Local Projects](..\local-project-simulator\createlocalproject.md).  
 
 ---

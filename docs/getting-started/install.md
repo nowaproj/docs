@@ -54,7 +54,7 @@ After submission, they must also:
 
 Once completed, the registration process is finished.
 
-![Google step 2](/img/signup/google/2.png)  
+![Google step 2](/img/signup/google/2.jpg)  
 
 ---
 

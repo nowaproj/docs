@@ -24,13 +24,13 @@ Regardless of the chosen method, both options result in the creation of a new ac
     2. You **must accept the Terms & Conditions** before continuing.  
     3. Finally, click **Create Account** to complete the registration.
 
-![Email step 1](/img/signup/email/1.png) 
+![Email step 1](/img/signup/email/1.jpg) 
 
 Before the account is ready, Nowa sends out a verification email. 
 
 The user needs to confirm their address. This step ensures security and verifies that the email is real.  
 
-![Email step 2](/img/signup/email/2.png)  
+![Email step 2](/img/signup/email/2.jpg)  
 To verify your email address, you need to click the link that Nowa sent to you by email.
 
 As soon as the email is confirmed. The signup is complete, and the user can now log in.  

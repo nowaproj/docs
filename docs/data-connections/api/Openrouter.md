@@ -59,44 +59,59 @@ Click Add header +, then set the key to `Content-Type` and the value to `applica
 ---
 
 ## 5️. Create Input Parameter
-Next, we set up a **parameter** (for example: `textinput`).  
-This is a placeholder that changes based on what the user types. ✍️  
 
-Instead of hardcoding a value, your app will send whatever the user enters.  
+You can set up a **parameter** (e.g., `textinput`) that updates with whatever the user types instead of using a fixed value.
+
+Switch to Body (since parameters go in the request body), click the plus icon, and give parameter a name.
 
 <video src="/videos/api2/post/5.webm" controls width="100%" />
 
 ---
 
 ## 6️. Insert Parameter into Request Body
-Inside the body of the request, we add the parameter:  
+Inside the **body** of the request, you need to add **parameter**:  
+
+You can take the example from the API provider and simply update it by adding **your parameter names** inside `${}` wherever you need them.
+
+
+Example:
 
 ```
-${textinput}
+{
+  "model": "deepseek/deepseek-chat-v3.1:free",
+  "messages": [
+    {
+      "role": "user",
+      "content":"${textinput}"
+    }
+  ]
+}
 ```  
 
-This means: “Take whatever the user typed and send it here.”  
-It’s how we make the request dynamic.  
+Click Json, insert your json.
 
 <video src="/videos/api2/post/6.webm" controls width="100%" />
 
 ---
 
-## 7️. Test the Request
-Now it’s time to test. ✅  
-Hit **Send** and check if you get a valid response.  
+## 7️. You can check out how it works
 
-This step helps confirm that everything is wired up correctly before we move on.  
+Click Test, enter a value for the parameter, and run the test.
 
 <video src="/videos/api2/post/7.webm" controls width="100%" />
 
 ---
 
 ## 8️. Build the Model
-The response usually contains a lot of data.  
-We don’t need all of it — just the parts that matter.  
+The response often contains a lot of data, but you only need the parts that matter, so here you can create a model that maps just the values you want to use in your app.
 
-Here we create a **model**, mapping only the values we want to use in the app. 🎯  
+#### Steps:
+    1. Click **Generate Model**  
+    2. Click **Next**  
+    3. Select what you need from the **Response**  
+    4. Click **Next**  
+    5. Click **Save**
+
 
 <video src="/videos/api2/post/8.webm" controls width="100%" />
 

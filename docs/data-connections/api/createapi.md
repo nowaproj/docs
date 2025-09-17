@@ -2,183 +2,143 @@
 sidebar_position: 2
 ---
 
-# API Call & Data Model Setup
+# API Collection & API GET Call
 
-# Creating an API Collection  
+Welcome, this guide shows you how to set up an **API Collection** in **Nowa**, **send request**, and **display real data** in your app.
 
-Welcome! In this guide, we’ll explore how to set up and configure an API collection using the **lovely Cat API** 🐾. Don’t worry—it’s simple! By the end, you’ll be able to send requests and receive adorable cat pictures 😻.  
+### 1. Create the API Collection  
 
-We’ll go step by step: create the collection, set the base URL, add your API key, and finally make sure we always get responses in JSON format.  
+We created an API collection feature to help you organize and test
 
----
-
-#### Notes
+:::info
+Anything you set at the collection level will automatically apply to your APIs, so you don’t need to set it again for each one.
+:::
 
 :::note[Class name and File path for Collections]
-When creating a collection, when naming it, you will see the **generated class name** and the **path**
-    
-    - **Class name**: This is the name of the Dart class that will be generated in code. It acts as the interface to access requests from this collection inside Circuit. (You will see the class name under API section inside Circuit, and using that class name you will be able to call the request you need)
-        
-    - **Path**: This is simply the file path where the collection file will be stored.       
+When you name your collection, Nowa shows you two things:  
+
+- **Class name**: The Dart class name that Nowa generates. Think of it as the “handle” you’ll use when working with this collection inside Circuit.  
+- **Path**: The file path where the collection will be stored in your project.  
 :::
 
-:::info[Eveything is a Dart file]     
-In Nowa, **everything is a Dart file**—whether it's a screen, component, or API collection. This consistency makes it easier to manage and understand different parts of your app, especially when combining visual and code-based development.
-:::  
-
-## 📝 Steps  
-
-### 1️⃣ Create the Collection  
-Start by creating a new API collection in **Nowa**.  
-
-:::tip
-
-✨ As soon as you create it, Nowa will automatically generate a **Dart file** that contains your API setup. This means your collection is not just a visual setup—it’s already connected to real code you can build upon.  
-
-:::
+You can create a new collection by clicking the “**+**” icon, choosing **New Collection** from the list, and then confirming with **Submit**.
 
 <video src="/videos/api2/collection/create.webm" controls width="100%" />
 
-**💡 Why this is good:**  
-- 📂 Keeps all your cat-related requests neatly in one place.  
-- ⚡ Automatically generates a Dart file, keeping the UI and codebase perfectly in sync.  
-
 ---
 
-### 2️⃣ Set the Base URL  
-Add the **Base URL** for all your requests:  
+### 2️. Set the Base URL  
+If you add a Base URL for your API requests, you avoid typing mistakes by reusing the same URL across the collection.
 
 ```http
 https://api.thecatapi.com/
-```  
-<video src="/videos/api2/collection/url.webm" controls width="100%" />
+```
 
-**💡 Why this is good:**  
-- 🔗 You only need to write the common part of the API once.  
-- ✨ Makes new requests shorter, reduces errors, and allows quick updates.  
+You click on the **Settings** icon, and then simply type your **Base URL**.
+
+<video src="/videos/api2/collection/url.webm" controls width="100%" />
 
 ---
 
-### 3️⃣ Add the API Key  
-Go to the **Authorization** section.  
-Here, simply type in your API key 🔑 in the Nowa interface.  
+### 3️. Add the API Key  
+If you go to the **Authorization** section, pop in your **API key**, and set it at the **collection level** so the server knows it’s you and you avoid mix-ups.  
+
+You simply put your **Authorization** key into.
 
 <video src="/videos/api2/collection/auth.webm" controls width="100%" />
 
-
-**💡 Why this is good:**  
-- 🔐 Once entered, every request will automatically include your key.  
-- 🙌 No more copy-paste—it’s handled for you.  
-
 ---
 
-### 4️⃣ Configure the Headers  
-Tell the API you want responses in **JSON format**:  
+### 4️. Configure the Headers  
+If you tell the **API** to return **JSON**, it will give the data in a **structured format** that’s **easy to read** and **use in your app**.
 
 ```http
 Accept: application/json
-```  
+```
 
-👉 Remember:  
-- The part **before the colon (`Accept`)** goes into the **Key** field.  
-- The part **after the colon (`application/json`)** goes into the **Value** field.  
+Click **Add Header**, then type `Accept` as the **Key** and `application/json` as the **Value**.
 
 <video src="/videos/api2/collection/header.webm" controls width="100%" />
 
-**💡 Why this is good:**  
-- 📊 JSON is structured, clean, and easy to work with.  
-- 🛠️ Perfect for integrations and application development.  
-
 ---
 
-## 🐾 Final Thoughts  
 
-Just continue to study with this guide, we’ll learn how to create the API request with the model.
+## 5. Creating the API Call  
+Create a new **API call** inside your collection. This is how you’ll fetch data.  
 
----
-
-# API Call and Data Model Creation
-
-In this section, I’ll show you how to connect an **API to the UI without writing any code**, yet still generate real working code behind the scenes. ✨  
-
----
-
-## 1️⃣ Creating the API Call  
-First, I create the **API call** in the project. This will be the foundation for displaying data.  
-
-:::note
-
-You don’t need to provide the entire URL, since it’s part of a **collection**. It’s enough to set only the required endpoint.  
-
+:::note  
+You don’t need the entire URL—just the specific endpoint. The base URL is already set in the collection.  
 :::
+
+### Here’s how:
+
+    1. Click the **Plus** icon. 
+    2. Select **New request**.
+    3. Give it a name.
+    4. Click on **Create**.
+    5. Set the **URL**.
+    6. Click on **Test** – This step is required before moving to the next step.
 
 <video src="/videos/api2/request/1.webm" controls width="100%" />
 
-:::info
-
-**Benefit:** Keeps the setup clean and modular — easier to maintain and reuse later. 🧹  
-
-:::
-
-
 ---
 
-## 2️⃣ Setting the URL  
-Next, I configure the **endpoint URL**, which defines where the data comes from. 🌐  
+## 6. Adding the Authorization Key  
+
+:::warning
+You don’t need to set the **Authorization key** if it’s already defined at the **collection level**, since **Nowa** recognizes it.
+:::
+
+If you want to set a different **Authorization key**, simply copy and paste the auth token value into the field.
 
 <video src="/videos/api2/request/2.webm" controls width="100%" />
 
-:::info
-
-**Benefit:** Ensures the app always points to the correct source of truth for your data. 📡  
-
-:::
-
 ---
 
-## 3️⃣ Adding the Authorization Key  
-For security, add the required **Authorization key** 🔑.  
-This ensures the system can communicate with the API in an authenticated way.  
+## 7. Testing and Generating the Data Model  
+
+You can test the API and generate a data model from its output to use in your app.
+
+#### How can you do it:
+
+    1. Click **Run Test**.  
+    2. Then click **Generate Model**. You will see the server’s JSON output.  
+    3: Click **Next**. You can modify what you want from the JSON.
+    4. Finally, click **Save**. At this step, you can also change the generated model’s name or choose where to save it
 
 <video src="/videos/api2/request/3.webm" controls width="100%" />
 
-:::info
-
-**Benefit:** Protects sensitive data and keeps the app secure while accessing APIs. 🛡️  
-
-:::
-
 ---
 
-## 4️⃣ Testing and Generating the Data Model  
-Then comes the **test run** ▶️.  
-From the returned **JSON** response, a **data model** is automatically generated, making each field easy to use. 🧩  
+## 8. Binding the Data Model to the UI  
+
+Finally, you can bind the data model to a UI element, like an image.
+
+#### Here’s how:
+
+    1. Close the **API Request** window.  
+    2. Click on the **Widgets** icon.  
+    3. Add an **Image Widget**.  
+    4. In the widget properties, wrap it with the **Data Builder**.  
+    5. In the **Data Builder** source, select **API Request**.  
+    6. From the list, choose **CatPhoto API**.  
+    7. In the Image URL widget property:  
+    7.1 Open the **Locals** menu.  
+    7.2 Select **Data** (this refers to the Data Builder API response).  
+     7.3 Choose **Get Data**.  
+     7.4 Then select **URL**.  
 
 <video src="/videos/api2/request/4.webm" controls width="100%" />
 
-
-
-:::info
-
-**Benefit:** Saves time by automatically mapping fields — no manual parsing needed. ⚡  
-
-:::
-
 ---
 
-## 5️⃣ Binding the Data Model to the Image Element  
-Finally, I visually **bind the data model** to the **image element**.  
-This happens entirely without coding — while in the background, real code is generated. 🎨✨  
+## 9. Trying Out
+In this step, you can try it out.
+
+1. Click on **Play** button.  
+2. Click on **Refresh** button to see a new image each time.  
+
 
 <video src="/videos/api2/request/5.webm" controls width="100%" />
 
-:::info
-
-**Benefit:** Brings dynamic content to life instantly, while staying completely no-code. 🎉 
-
-:::
-
 ---
-
-## 🌟 Summary  
-From now on, you can send requests quickly, securely, and with consistent JSON responses—plus you’ll enjoy endless cat pictures to brighten your day 🐱💖.

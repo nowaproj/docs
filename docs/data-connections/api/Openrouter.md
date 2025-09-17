@@ -2,132 +2,162 @@
 sidebar_position: 3
 ---
 
-# POST API Request 🚀
+# POST API Request
 
-This guide walks you through **12 steps** of setting up an API request, handling inputs/outputs, and connecting the result to your UI. Each step is explained in detail, so you understand **what** you’re doing and **why**.  
+Welcome! In this guide, you walk through how to set up a **POST API request** in Nowa.  
 
 ---
 
-## 1️⃣ Create the API Request
-We start by creating a new **API Request** in Nowa. This is the backbone of our integration: without it, we cannot communicate with external services. 🌐  
+## 1️. Create the API Request
+We begin by creating a new **API Request** inside Nowa.  
+
+#### Here’s how:
+
+    1. Click the **Plus** icon. 
+    2. Select **New request**.
+    3. Give it a name.
+    4. Click on **Create**.
+    5. Click on the created request.
 
 <video src="/videos/api2/post/1.webm" controls width="100%" />
 
-
 ---
 
-## 2️⃣ Configure the URL & Method
-Next, set the **endpoint URL** and change the request type to **POST**.  
-- **Why POST?** Because we are sending data (input parameters) to the server, not just reading information. 📤  
+## 2️. Configure the URL & Method
+Every API request needs a **URL** (the address of the service you’re talking to).  
+Since we want to **send data**, change the method to **POST**.  
+
+:::info
+*GET = fetch info*  
+*POST = send info*  
+:::
+
+
+That’s why we’re using POST.  
 
 <video src="/videos/api2/post/2.webm" controls width="100%" />
 
 ---
 
-## 3️⃣ Add Authorization Header
-We add an **Authorization header** with the format:  
+## 3️. Add Authorization Header
+Most APIs need proof that you’re allowed to use them.  
+We add this line to the request header:  
+
 ```
 Authorization: Bearer <your_token>
 ```  
-🔑 **What is Bearer?**  
-“Bearer” is a **token-based authentication method**. It tells the server:  
-👉 “Here is my access token, I’m authorized to make this request.”  
-Without this header, the request would fail.  
+
+The word **Bearer** means we’re sending a secure access token.  
+Without this, the server won’t accept your request. 🔑  
 
 <video src="/videos/api2/post/3.webm" controls width="100%" />
 
 ---
 
-## 4️⃣ Set Content-Type to JSON
-We set `Content-Type: application/json`.  
-- This tells the API that our request body will be structured as JSON. 🧩  
-- If we don’t set this, the server may not understand the format of our data.  
+## 4️. Set Content-Type to JSON
+APIs need to know the *format* of the data we send.  
+Here we say:  
+
+```
+Content-Type: application/json
+```  
+
+This simply means: “Hey server, expect JSON (structured data) from me.” 🧩  
 
 <video src="/videos/api2/post/4.webm" controls width="100%" />
 
 ---
 
-## 5️⃣ Create Input Parameter
-We define a **parameter** (for example: `textinput`) that will serve as **user input**. This parameter is dynamic, so the request changes depending on what the user enters. ✍️  
+## 5️. Create Input Parameter
+Next, we set up a **parameter** (for example: `textinput`).  
+This is a placeholder that changes based on what the user types. ✍️  
+
+Instead of hardcoding a value, your app will send whatever the user enters.  
 
 <video src="/videos/api2/post/5.webm" controls width="100%" />
 
 ---
 
-## 6️⃣ Insert Parameter into Request Body
-Inside the request body, we insert the parameter using the syntax:  
+## 6️. Insert Parameter into Request Body
+Inside the body of the request, we add the parameter:  
+
 ```
 ${textinput}
 ```  
-💡 This means: “Take the value from the UI field and send it here.”  
+
+This means: “Take whatever the user typed and send it here.”  
+It’s how we make the request dynamic.  
 
 <video src="/videos/api2/post/6.webm" controls width="100%" />
 
 ---
 
-## 7️⃣ Test the Request
-We test the API request to check if it returns valid results. ✅  
-- This helps us verify that the setup is correct.  
-- We can already see the structure of the **response data** here.  
+## 7️. Test the Request
+Now it’s time to test. ✅  
+Hit **Send** and check if you get a valid response.  
+
+This step helps confirm that everything is wired up correctly before we move on.  
 
 <video src="/videos/api2/post/7.webm" controls width="100%" />
 
 ---
 
-## 8️⃣ Build the Model
-We create a **model** from the API response.  
-- Important: **only map the values we actually need.** 🎯  
-- This makes the app more efficient and keeps the UI clean.  
+## 8️. Build the Model
+The response usually contains a lot of data.  
+We don’t need all of it — just the parts that matter.  
+
+Here we create a **model**, mapping only the values we want to use in the app. 🎯  
 
 <video src="/videos/api2/post/8.webm" controls width="100%" />
 
 ---
 
-## 9️⃣ Create UI Elements (TextField & Button)
-Now we add two UI components:  
-- **TextField** → where the user types input.  
-- **Button** → to trigger the API request.  
-🎨 This is where the app becomes interactive!  
+## 9️. Create UI Elements (TextField & Button)
+Now comes the fun part — building the interface!  
+
+- Add a **TextField** for the user to type in.  
+- Add a **Button** to trigger the request.  
+
+This is where your app starts to feel alive. 🎨  
 
 <video src="/videos/api2/post/9.webm" controls width="100%" />
 
 ---
 
-## 🔟 Connect Button to API Call
-We configure the **Button Action** so that when it’s pressed, the API request runs.  
-- This links the UI to the backend.  
-- Without this, the user input would never reach the API.  
+## 10. Connect Button to API Call
+When the user taps the Button, we want the request to run.  
+So, we connect the Button’s action directly to the API call.  
+
+This links your UI with the backend service.  
 
 <video src="/videos/api2/post/10.webm" controls width="100%" />
 
 ---
 
-## 1️⃣1️⃣ Show API Result in Alert Dialog
-When the API returns data successfully, we display it in an **Alert Dialog**.  
-- Use this **custom expression**:  
-  ```
-  value.choices!.first?.content
-  ```  
-- Here, `value` is the **default return object**.  
-- This makes sure we display the **right content** to the user. 🪄  
+## 1️1️. Show API Result in Alert Dialog
+The API sends back data. Let’s show it to the user!  
+
+We’ll display the result in an **Alert Dialog** using this expression:  
+
+```
+value.choices!.first?.content
+```  
+
+This makes sure the right piece of information is shown. 🪄  
 
 <video src="/videos/api2/post/11.webm" controls width="100%" />
 
 ---
 
-## 1️⃣2️⃣ Review the Final Result
-Finally, test the full flow:  
-1. Enter text in the TextField.  
+## 1️2️. Review the Final Result
+Time for the full test:  
+
+1. Type something into the TextField.  
 2. Tap the Button.  
-3. Watch the API response appear in the Alert Dialog.  
-🎉 Congratulations — the integration works!  
+3. Watch the API’s response appear in the Alert Dialog.  
+
+🎉 Congratulations — you’ve just built your first POST API flow in Nowa!  
 
 <video src="/videos/api2/post/12.webm" controls width="100%" />
 
 ---
-
-# ✅ Why This Flow is Powerful
-- 🔒 **Secure** → Using Bearer tokens keeps the API safe.  
-- 📦 **Flexible** → Parameters make the request dynamic.  
-- 🎯 **Efficient** → Filtering response ensures we only use what we need.  
-- 🤝 **User-Friendly** → Clear UI with input + button + feedback.  

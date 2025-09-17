@@ -1,16 +1,23 @@
 ---
 sidebar_position: 1
+title: "How to Use Nowa AI"
+---
+
+# What is Nowa AI?
+
+**Nowa AI** is your assistant for building apps. It helps you make widgets, design pages, connect APIs, and supports you from start to finish.
+
 ---
 
 # How to Use Nowa AI
 
-Open **Nowa AI**, share your idea, and let the AI help you build your Flutter app.
+To begin your conversation with **Nowa AI**, you just click on the chat icon in the left side panel.
+
+<video src="/videos/ai/open.webm" controls width="100%" />
 
 ---
 
-## Smart Selection & Context
-
-**Nowa AI** understands the **context**—we designed it this way for you.
+# Smart Selection & Context
 
 When you click on a screen or widget in your app, it’s automatically added as context to your AI conversation.  
 
@@ -22,18 +29,18 @@ For example, if you select a text or an icon in the widget tree, the AI panel wi
 
 ---
 
+# Attachements
+
+We built the AI to know where to find what you want to change, but if you know where to find it, attaching it makes the outcome more precise.
+
 ## Attaching Screens and Widgets
 
-Sometimes you’ll want to tell the AI, *“Work on this specific thing.”* That’s where attachments come in.  
-
-You can attach an entire screen or just a single widget, and the AI will apply your changes directly there.  
+If **smart selection and context** aren’t enough for you, you can attach a whole screen or just one widget. The AI will apply your changes there in the same way — it’s just handy when you want a bit more detail than the main context.
 
 Simply click the **Attach** button in the AI chat panel, then pick what you’d like to attach.  
-From there, just describe what you’d like to change, and the AI will do the rest.
 
 <video src="/videos/ai/attach.webm" controls width="100%" />
 
----
 
 ## Attaching Images
 
@@ -51,19 +58,17 @@ Here’s how:
 
 ---
 
-## Reverting and Replaying Changes
+# Reverting and Replaying Changes
 
-Made a change you don’t like? Don’t worry.  
+If you didn’t like the AI’s last change, you can click **Revert changes** below the message to go back to the previous state. 
 
-Just click **Revert changes**, and everything goes back to how it was before.  
-
-And if you change your mind again, you can click **Replay changes** to redo the action instantly.  
+And if you change your mind again, you can click **Replay changes** to redo the action.  
 
 <video src="/videos/ai/revert.webm" controls width="100%" />
 
 ---
 
-## Starting a Fresh Chat
+# Starting a Fresh Chat
 
 Sometimes you’ll want to start over with a clean slate. 
 

@@ -118,22 +118,22 @@ The response often contains a lot of data, but you only need the parts that matt
 ---
 
 ## 9️. Create UI Elements (TextField & Button)
-Now comes the fun part — building the interface!  
+You need two elements: a text field where you can type your request, and a button that sends it.
 
-- Add a **TextField** for the user to type in.  
-- Add a **Button** to trigger the request.  
-
-This is where your app starts to feel alive. 🎨  
+    1. Close the API request window  
+    2. Open **Widgets**  
+    3. Add **TextField** from list  
+    4. Open **Widgets** again  
+    5. Add **Button**  
 
 <video src="/videos/api2/post/9.webm" controls width="100%" />
 
 ---
 
 ## 10. Connect Button to API Call
-When the user taps the Button, we want the request to run.  
-So, we connect the Button’s action directly to the API call.  
+In this section, you will learn how to connect logic to the button.
 
-This links your UI with the backend service.  
+
 
 <video src="/videos/api2/post/10.webm" controls width="100%" />
 

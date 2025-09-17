@@ -4,12 +4,12 @@ sidebar_position: 3
 
 # POST API Request
 
-Welcome! In this guide, you walk through how to set up a **POST API request** in **Nowa**.  
+Welcome! In this guide, you walk through how to set up a **POST API request** in **Nowa**.
 
 ---
 
 ## 1️. Create the API Request
-We begin by creating a new **API Request** inside **Nowa**
+You can begin by creating a new **API Request** inside **Nowa**
 .
 #### Here’s how:
 
@@ -37,29 +37,22 @@ If you want to send data, you need to change the request to the **POST** method.
 ---
 
 ## 3️. Add Authorization Header
-Most APIs need proof that you’re allowed to use them.  
-We add this line to the request header:  
 
-```
-Authorization: Bearer <your_token>
-```  
+Most APIs need proof that you’re allowed to use them, so you need to add the line `Authorization: Bearer <your_token>` to the request header in this case — but this depends on which API you use.
 
-The word **Bearer** means we’re sending a secure access token.  
-Without this, the server won’t accept your request. 🔑  
+:::note
+Most of the time, the text **before the colon** is the **key**, and the text **after the colon** is the **value**.
+:::
 
+Click Add header +, then set the key to `Authorization` and the value to `Bearer <your_token>`.
 <video src="/videos/api2/post/3.webm" controls width="100%" />
 
 ---
 
 ## 4️. Set Content-Type to JSON
-APIs need to know the *format* of the data we send.  
-Here we say:  
+The backend need to know the *format* of the data you need.   
 
-```
-Content-Type: application/json
-```  
-
-This simply means: “Hey server, expect JSON (structured data) from me.” 🧩  
+Click Add header +, then set the key to `Content-Type` and the value to `application/json`.
 
 <video src="/videos/api2/post/4.webm" controls width="100%" />
 

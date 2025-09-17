@@ -4,13 +4,13 @@ sidebar_position: 3
 
 # POST API Request
 
-Welcome! In this guide, you walk through how to set up a **POST API request** in Nowa.  
+Welcome! In this guide, you walk through how to set up a **POST API request** in **Nowa**.  
 
 ---
 
 ## 1️. Create the API Request
-We begin by creating a new **API Request** inside Nowa.  
-
+We begin by creating a new **API Request** inside **Nowa**
+.
 #### Here’s how:
 
     1. Click the **Plus** icon. 
@@ -24,16 +24,13 @@ We begin by creating a new **API Request** inside Nowa.
 ---
 
 ## 2️. Configure the URL & Method
-Every API request needs a **URL** (the address of the service you’re talking to).  
-Since we want to **send data**, change the method to **POST**.  
 
-:::info
-*GET = fetch info*  
-*POST = send info*  
-:::
+If you want to send data, you need to change the request to the **POST** method.
 
+#### Here’s how:
 
-That’s why we’re using POST.  
+1. Click on **GET** and change it to **POST** from the list.  
+2. Paste the **URL** into the field.  
 
 <video src="/videos/api2/post/2.webm" controls width="100%" />
 

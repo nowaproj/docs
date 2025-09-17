@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4
+sidebar_position: 3
 ---
 
 # Database + RLS📝
@@ -73,7 +73,7 @@ No need to type column names — Nowa already knows! 🧠
 ⚠️ Remember: You must be **signed in** 👤 to run queries (because RLS checks `auth.uid()`).
 
 <video controls width="850">
-  <source src="/videos/supabase/db/ai.mp4" type="video/mp4" />
+  <source src="/videos/supabase/db/ai.webm" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 

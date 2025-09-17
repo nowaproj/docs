@@ -64,7 +64,7 @@ Click **Add Header**, then type `Accept` as the **Key** and `application/json` a
 
 
 ## 5. Creating the API Call  
-Create a new **API call** inside your collection. This is how you’ll fetch data.  
+You can create a new **API call** inside your collection. This is how you’ll fetch data.  
 
 :::note  
 You don’t need the entire URL—just the specific endpoint. The base URL is already set in the collection.  

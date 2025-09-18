@@ -6,6 +6,8 @@ sidebar_position: 2
 
 Welcome, this guide shows you how to set up an **API Collection** in **Nowa**, **send request**, and **display real data** in your app.
 
+---
+
 ### 1. Create the API Collection  
 
 We created an API collection feature to help you organize.

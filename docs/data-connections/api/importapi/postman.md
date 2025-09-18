@@ -14,6 +14,10 @@ In this tutorial you can learn how bring your **Postman collections** into Nowa.
 5. Save the file — Postman will download it as a `.json` file.  
 6. Open the file, copy its content, and paste it into Nowa.  
 
+<video controls width="850">
+  <source src="/videos/api2/import/postman-export.webm" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>  
 
 ### 1. Upload the Postman JSON File   
 
@@ -24,7 +28,7 @@ Here’s how:
 4. Click **Import** and you’re done!
 
 <video controls width="850">
-  <source src="/videos/api/postman-json.mp4" type="video/mp4" />
+  <source src="/videos/api2/import/postman-json.webm" type="video/mp4" />
   Your browser does not support the video tag.
 </video>  
 
@@ -39,7 +43,7 @@ Here’s how:
 4. Hit **Import** — and you’re ready to go!  
 
 <video controls width="850">
-  <source src="/videos/api/postman-json2.webm" type="video/mp4" />
+  <source src="/videos/api2/import/postman-json2.webm" type="video/mp4" />
   Your browser does not support the video tag.
 </video>  
 

@@ -8,10 +8,10 @@ Welcome! Let’s get your app connected to a Supabase in just a few minutes.
 
 ---
 
-## 1️. Connect Nowa to Supabase
-Connecting to Supabase is effortless — We does the heavy lifting automatically for you.  
+## 1️. Connect to Supabase
+Connecting to Supabase is easy — We does the heavy lifting automatically for you.  
 
-Here’s how to do it:  
+Here’s how can you do it:  
 1. On the **left side panel**, click the **Supabase icon**.  
 2. Press the **Connect** button.  
 3. In the Supabase website that opens, select the **organization** you want to connect.  
@@ -38,11 +38,11 @@ Here’s how to do it:
 We make your life easier by letting you create a Supabase project **directly inside Nowa**.
 :::
 
-Here’s how:  
+Here’s how you can:  
 1. Click **Create New Project**.  
 2. Enter **your project name** — this can be anything you like (for example, “MyApp”).  
 3. Select your **Region** — choose the one closest to your users for best performance.  
-4. Set **your database password** — this is your own password that protects the database. Make sure to remember it.  
+4. Set **your database password** — this is your own password that protects the database. 
 5. Finally, click **Create Project**.  
 
 <video controls width="850">
@@ -63,8 +63,9 @@ Simply choose your project from the list and click the **Select** button.
 ---
 
 ## 3️. See the results live  
-Once you connect, your data shows up instantly in Nowa.  
-That means you can drag, drop, and design your app with **real data** in seconds.   
+Once you connect, your data shows up instantly in Nowa. 
+ 
+That means you can drag, drop, and design your app with **real data**.  
 
 <video controls width="850">
   <source src="/videos/supabase/3.webm" type="video/mp4" />

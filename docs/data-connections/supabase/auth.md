@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # Authentication
 
-Building apps is exciting — but before your users can truly enjoy your app, they need a way to **sign up, log in, and log out safely**. Let’s go through it with you step by step.
+In general, before your users can truly enjoy your app, they need a way to **sign up, log in, and log out safely**. Let’s go through it with you step by step.
 
 ---
 

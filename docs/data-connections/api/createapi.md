@@ -10,7 +10,7 @@ Welcome, this guide shows you how to set up an **API Collection** in **Nowa**, *
 
 ### 1. Create the API Collection  
 
-We created an API collection feature to help you organize.
+We created an API collection feature to help you organize your APIs.
 
 :::info
 Anything you set at the collection level will automatically apply to your APIs, so you don’t need to set it again for each one.

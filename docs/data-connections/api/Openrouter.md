@@ -133,6 +133,16 @@ You need two elements: a text field where you can type your request, and a butto
 ## 10. Connect Button to API Call
 In this section, you will learn how to connect logic to the button.
 
+# Steps to Connect API in FlutterFlow
+
+#### How you can do it
+
+  1. Click on the **Edit** button next to the text **"On pressed"**.  
+  2. Click the **+** icon.  
+  3. In the **API** section, search for your API (e.g., `"deepseek"`).  
+  4. Add a value to the `TextInput` variable from the **TextField**:  
+   4.1 Select the **Text Controller**  
+   4.2 Then select the **Text** property inside the controller  
 
 
 <video src="/videos/api2/post/10.webm" controls width="100%" />
@@ -140,15 +150,25 @@ In this section, you will learn how to connect logic to the button.
 ---
 
 ## 1️1️. Show API Result in Alert Dialog
-The API sends back data. Let’s show it to the user!  
 
-We’ll display the result in an **Alert Dialog** using this expression:  
+The API sends back data, and you can show it in your application, for example in an Alert Dialog.
+
+:::note
+You can use a custom expression, and that’s why it starts with value — because the generated return value defaults to value in the data model. 
+
+Since you know how the data model is built, you know exactly which part is required. 
+
+![](/img/api2/post/model.jpg)
+
+![](/img/api2/post/value.jpg)
+
+
+:::
 
 ```
 value.choices!.first?.content
 ```  
-
-This makes sure the right piece of information is shown. 🪄  
+ 
 
 <video src="/videos/api2/post/11.webm" controls width="100%" />
 

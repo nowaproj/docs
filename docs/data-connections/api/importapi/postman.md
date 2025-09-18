@@ -5,7 +5,7 @@ In this tutorial you can learn how bring your **Postman collections** into **Now
 
 ---
 
-### How do you get the JSON from Postman?
+### How do you get your JSON from Postman?
 
 1. Open your Postman collection.  
 2. Click the **three dots** next to its name.  
@@ -19,7 +19,7 @@ In this tutorial you can learn how bring your **Postman collections** into **Now
   Your browser does not support the video tag.
 </video>  
 
-### 1. Upload the Postman JSON File   
+### 1. Upload your Postman JSON File   
 
 Here’s how:  
 1. In Nowa, click the **Import** button inside your collection.  
@@ -34,7 +34,7 @@ Here’s how:
 
 ---
 
-### 2. Paste the Postman JSON 
+### 2. Paste your Postman JSON 
 
 Here’s how:  
 1. In Nowa, click the **Import** button inside your collection.  

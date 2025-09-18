@@ -4,7 +4,7 @@ Welcome! In this tutorial you can learn how bring your **Swagger** collections i
 
 ---
 
-## 1. Paste a Swagger URL  
+## 1. Add your Swagger URL   
 
 If you already have a link to your API’s Swagger file, you can use it.  
 
@@ -25,7 +25,7 @@ https://petstore.swagger.io/v2/swagger.json
 
 ---
 
-## 2. Paste Swagger JSON 
+## 2. Paste your Swagger JSON 
 
 You can paste the JSON definition directly.  
 
@@ -41,7 +41,7 @@ You can paste the JSON definition directly.
 
 ---
 
-## 3. Upload a Swagger JSON File  
+## 3. Upload your Swagger JSON File  
 
 If you have the Swagger JSON saved as a file, you can upload it directly.  
 

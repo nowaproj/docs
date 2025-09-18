@@ -101,7 +101,7 @@ This is the page your users see when they logged in.
 
 ## 4️. Add Sign-In Inputs
 
-In this section, I show how you can provide data to the **sign-in action**.
+I show how you can provide data to the **sign-in action**.
 
 1. Click on **Edit** next to `OnPressed`.
 2. Click on **+**.
@@ -122,7 +122,7 @@ In this section, I show how you can provide data to the **sign-in action**.
 
 ## 5. Add Sign-In Success Logic
 
-In this section, I show you how can you build an action that takes the user straight to the logged-in page after a successful login.
+I show you how can you build an action that takes the user straight to the logged-in page after a successful login.
 
 How can you do it:
 1. Click on **+** next to **OnValue**.
@@ -143,7 +143,7 @@ How can you do it:
 
 ## 6. Add Sign-In Error Logic
 
-In this section, I show you how you can display an error notification if the login fails.
+I show you how you can display an error notification if the login fails.
 
 How can you do it:
 1. Click on **+** next to **OnError**. 
@@ -164,13 +164,20 @@ How can you do it:
 
 ## 7. Add Sign-Out Logic
 
-Finally, give users an easy way out.  
-On the logged-in page, add a **sign-out button**:  
+Finally, you can give your app users an easy way to **log out**.
 
-- One tap clears their session,  
-- They’re redirected back to the login page.  
+Steps, how can you do:
 
-Easy, clean, and secure.  
+1. You need to go to the widgets, search for a button, and add button to the **Logged In** page.
+2. Click the **Edit** button next to `onPressed`.
+3. Click the **+** icon.
+4. Select **SignOut** from the list.
+5. Click **+** next to `onValue`, then **Edit**.
+6. Click **+** and select **Navigator**.
+7. Click on **null** next to `To`.
+8. Select **Homepage**.
+9. Close the window.
+
 
 <video controls width="850">
   <source src="/videos/supabase/auth/logout.webm" type="video/mp4" />
@@ -179,16 +186,11 @@ Easy, clean, and secure.
 
 ---
 
-## End Result 
+## 8. Try out
 
-With just a:  
-- Login page,  
-- Logged-in page,  
-- And a sign-out button…  
+You built a fully functional **Supabase Authentication** in **Nowa**.
 
-You’ve built a **complete authentication flow** with Supabase inside Nowa.  
-
-No extra backend headaches, no heavy setup — just pure Flutter magic with a little help from Nowa.  
+Click on play mode and try out your app.
 
 <video controls width="850">
   <source src="/videos/supabase/auth/try.webm" type="video/mp4" />

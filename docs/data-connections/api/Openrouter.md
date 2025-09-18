@@ -135,7 +135,7 @@ In this section, you will learn how to connect logic to the button.
 
 #### How you can do it
 
-  1. Click on the **Edit** button next to the text **"OnValue"**.  
+  1. Click on the **Edit** button next to the text **"On Pressed"**.  
   2. Click the **+** icon.  
   3. In the **API** section, search for your API (e.g., `"deepseek"`).  
   4. Add a value to the `TextInput` variable from the **TextField**:  
@@ -168,7 +168,7 @@ Since you know how the data model is built, you know exactly which part is requi
 
  #### How you can do it
 
-  1. Click on the **Edit** button next to the text **"On pressed"**.  
+  1. Click on the **Edit** button next to the text **"On value"**.  
   2. Click the **+** icon.  
   3. In the **API** section, search for **Showdialog**.  
   4. Click the **edit Alertdialog**.  

@@ -49,6 +49,10 @@ Here’s where **controllers** come in handy:
 - Move it to the right **position** where you want the email input to be.  
 - Rename its **controller** to something clear, like `username`.  
 
+:::note
+In this case, **username** and **email** are the same thing.
+:::
+
 ### 2. Add a **Password Text Field**
 - Go back to the **Widgets panel**.  
 - Drag another **TextField** onto your the screen.  
@@ -69,7 +73,7 @@ Here’s where **controllers** come in handy:
 
 ## 3️. Logged-In Page 
 
-This is the page your users see when logged in.
+This is the page your users see when they logged in.
 
 1. **Add a new screen**
    - Click on the **Screens** icon.
@@ -95,23 +99,70 @@ This is the page your users see when logged in.
 
 ---
 
-## 4️. Add Sign-In Logic
+## 4️. Add Sign-In Inputs
 
-Now comes the magic:  
+In this section, I show how you can provide data to the **sign-in action**.
 
-- If login fails → show an error message,  
-- If login succeeds → send the user straight to the logged-in page.  
-
-Smooth, simple, and exactly what users expect.  
+1. Click on **Edit** next to `OnPressed`.
+2. Click on **+**.
+3. Select **SignIn**.
+4. Click on **Email**.
+   - Here you select **username** from **Locals** (this is your username controller).
+   - Don’t forget to select the **text**.
+5. Click on **Password**.
+   - Here you select **password** from **Locals** (this is your password controller).
+   - Don’t forget to select the **text**.
 
 <video controls width="850">
-  <source src="/videos/supabase/auth/signin.webm" type="video/mp4" />
+  <source src="/videos/supabase/auth/signin1.webm" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 
 ---
 
-## 5️. Add Sign-Out Logic
+## 5. Add Sign-In Success Logic
+
+In this section, I show you how can you build an action that takes the user straight to the logged-in page after a successful login.
+
+How can you do it:
+1. Click on **+** next to **OnValue**.
+2. Click on **Edit** button.
+3. Click on **+**.
+4. Search **navigator** then click on it.
+5. Click on **null** next to **"To"**. 
+6. Select **loggedin page**.
+7. Close the opened window.
+
+
+<video controls width="850">
+  <source src="/videos/supabase/auth/signin2.webm" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+
+---
+
+## 6. Add Sign-In Error Logic
+
+In this section, I show you how you can display an error notification if the login fails.
+
+How can you do it:
+1. Click on **+** next to **OnError**. 
+2. Click on **Edit** button.
+3. Click on **+**.
+4. Search **showDialog** then click on it.
+5. Click on **🖌️** next to **Builder**.
+6. Click on **🖌️** next to **Title Hello World**.
+7. You can change the text in this case **Error**.
+8. Close the opened windows.
+
+<video controls width="850">
+  <source src="/videos/supabase/auth/signin3.webm" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+
+---
+
+## 7. Add Sign-Out Logic
 
 Finally, give users an easy way out.  
 On the logged-in page, add a **sign-out button**:  

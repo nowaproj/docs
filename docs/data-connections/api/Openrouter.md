@@ -164,12 +164,9 @@ Since you know how the data model is built, you know exactly which part is requi
 
 ![](/img/api2/post/value.jpg)
 
-
 :::
 
-```
-value.choices!.first?.content
-```  
+
 
  #### How you can do it
 
@@ -177,8 +174,12 @@ value.choices!.first?.content
   2. Click the **+** icon.  
   3. In the **API** section, search for your API (e.g., `"deepseek"`).  
   4. Add a value to the `TextInput` variable from the **TextField**:  
-   4.1 Select the **Text Controller**  
-   4.2 Then select the **Text** property inside the controller  
+
+  ```
+  value.choices!.first?.content
+  ```  
+  5. Select the **Text Controller**  
+  6. Then select the **Text** property inside the controller  
 
 <video src="/videos/api2/post/11.webm" controls width="100%" />
 

@@ -1,65 +1,58 @@
-# Swagger 🦄 
+# Swagger
 
-You can import Swagger/OpenAPI definitions in three ways: 🎯📚  
-
----
-
-## 1️⃣ **Paste a Swagger URL** 🌐🔗  
-
-- 👉 Click on the **Import** button 🖱️📥 in your collection 📂  
-- 👉 Select **"Import from Swagger"** ⚡  
-- 👉 Paste your Swagger URL 📝🔗  
-- 👉 Click **Import** ✅  
-
-🔍 **How to get the Swagger URL:**  
-- 🌍 Open your Swagger/OpenAPI documentation in a browser 🖥️  
-- 👀 Look for the URL that ends with `/swagger.json` 📜 or `/openapi.json` 🧩  
-- 📋 Copy the entire URL ✂️📎  
-- 💡 Example: `https://petstore.swagger.io/v2/swagger.json` 🐶🐱  
+Welcome! In this tutorial you can learn how bring your **Swagger** collections into **Nowa**.
 
 ---
 
-## 2️⃣ **Paste Swagger JSON** 📑📝  
+## 1. Paste a Swagger URL  
 
-- 👉 Click on the **Import** button 🖱️📥  
-- 👉 Select **"Import from Swagger"** ⚡  
-- 👉 Paste your Swagger JSON directly 💻📋  
-- 👉 Click **Import** ✅  
+If you already have a link to your API’s Swagger file, you can use it.  
 
-🔍 **How to get the Swagger JSON:**  
-- 🌍 Open your Swagger/OpenAPI documentation in a browser 🖥️  
-- 🔗 Click on the JSON link (usually labeled "swagger.json" 📜 or "openapi.json" 🧩)  
-- 📋 Copy the entire JSON content 📝📎 from the opened page  
-- 🔄 Alternatively, export the JSON from your API management tool 🛠️  
+1. Click on the **Import** button in your collection.  
+2. Choose **“Import from Swagger.”**  
+3. Paste your Swagger URL.  
+4. Click **Import.**    
 
-📹 **Watch how to import from Swagger using a URL:** 🎥🌐  
+Example:  
+```
+https://petstore.swagger.io/v2/swagger.json
+```
 
-<video controls width="850">  
-  <source src="/videos/api/swagger-url.mp4" type="video/mp4" />  
-  🚫 Your browser does not support the video tag.  
+<video controls width="850">
+  <source src="/videos/api/swagger-url.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
 </video>  
 
 ---
 
-## 3️⃣ **Upload Swagger JSON File** 📂⬆️  
+## 2. Paste Swagger JSON 
 
-- 👉 Click on the **Import** button 🖱️📥  
-- 👉 Select **"Import from Swagger"** ⚡  
-- 👉 Click **"Upload File"** 📤 and select your Swagger JSON file 📑  
-- 👉 Click **Import** ✅  
+You can paste the JSON definition directly.  
 
-🔍 **How to get the Swagger JSON file:**  
-- 📋 Copy the JSON content ✂️ from the Swagger documentation 📚  
-- 💾 Create a new file 📝 and save it with a `.json` extension 🧩  
-- 📥 Paste the JSON content into the file 🗂️  
+1. Click on the **Import** button.  
+2. Select **“Import from Swagger.”**  
+3. Paste the Swagger JSON text.  
+4. Click **Import.**  
 
-📹 **Watch how to import from Swagger using JSON:** 🎥📑  
-
-<video controls width="850">  
-  <source src="/videos/api/swagger-json.mp4" type="video/mp4" />  
-  🚫 Your browser does not support the video tag.  
+<video controls width="850">
+  <source src="/videos/api/swagger-json.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
 </video>  
 
 ---
 
-⚡🚀 Now you’re ready to import your Swagger definitions like a pro! 🏆🔥  
+## 3. Upload a Swagger JSON File  
+
+If you have the Swagger JSON saved as a file, you can upload it directly.  
+
+1. Click on the **Import** button.  
+2. Select **“Import from Swagger.”**  
+3. Choose **“Upload File”** and pick your `.json` file.  
+4. Click **Import.**  
+
+<video controls width="850">
+  <source src="/videos/api/swagger-file.webm" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>  
+
+---

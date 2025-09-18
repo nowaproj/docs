@@ -1,7 +1,7 @@
 # Postman
 
 Welcome! 
-In this tutorial you can learn how bring your **Postman collections** into Nowa.
+In this tutorial you can learn how bring your **Postman collections** into **Nowa**.
 
 ---
 

@@ -137,10 +137,14 @@ In this section, you will learn how to connect logic to the button.
 
   1. Click on the **Edit** button next to the text **"On pressed"**.  
   2. Click the **+** icon.  
-  3. In the **API** section, search for your API (e.g., `"deepseek"`).  
-  4. Add a value to the `TextInput` variable from the **TextField**:  
-   4.1 Select the **Text Controller**  
-   4.2 Then select the **Text** property inside the controller  
+  3. In the **API** section, search for **Showdialog**.  
+  4. Click the **edit Alertdialog**.  
+  5. Click the **🖌️**.  
+  6. Click the **text**.  
+  7. Click **Custom Expression**.  
+  8. Add your **Custom expression**.  
+  9. Click on **Eval**.  
+  10. Close opened windows.  
 
 
 <video src="/videos/api2/post/10.webm" controls width="100%" />
@@ -181,13 +185,13 @@ value.choices!.first?.content
 ---
 
 ## 1️2️. Review the Final Result
+
 Time for the full test:  
 
-1. Type something into the TextField.  
-2. Tap the Button.  
-3. Watch the API’s response appear in the Alert Dialog.  
+1. Click the **Play** button.  
+2. Write something in the **Textfield**.  
+3. Click the **Button**.  
 
-🎉 Congratulations — you’ve just built your first POST API flow in Nowa!  
 
 <video src="/videos/api2/post/12.webm" controls width="100%" />
 

@@ -135,16 +135,12 @@ In this section, you will learn how to connect logic to the button.
 
 #### How you can do it
 
-  1. Click on the **Edit** button next to the text **"On pressed"**.  
+  1. Click on the **Edit** button next to the text **"OnValue"**.  
   2. Click the **+** icon.  
-  3. In the **API** section, search for **Showdialog**.  
-  4. Click the **edit Alertdialog**.  
-  5. Click the **🖌️**.  
-  6. Click the **text**.  
-  7. Click **Custom Expression**.  
-  8. Add your **Custom expression**.  
-  9. Click on **Eval**.  
-  10. Close opened windows.  
+  3. In the **API** section, search for your API (e.g., `"deepseek"`).  
+  4. Add a value to the `TextInput` variable from the **TextField**:  
+  5. Select the **Text Controller**  
+  6. Then select the **Text** property inside the controller  
 
 
 <video src="/videos/api2/post/10.webm" controls width="100%" />
@@ -166,20 +162,22 @@ Since you know how the data model is built, you know exactly which part is requi
 
 :::
 
-
-
- #### How you can do it
-
-  1. Click on the **Edit** button next to the text **"OnValue"**.  
-  2. Click the **+** icon.  
-  3. In the **API** section, search for your API (e.g., `"deepseek"`).  
-  4. Add a value to the `TextInput` variable from the **TextField**:  
-
   ```
   value.choices!.first?.content
   ```  
-  5. Select the **Text Controller**  
-  6. Then select the **Text** property inside the controller  
+
+ #### How you can do it
+
+  1. Click on the **Edit** button next to the text **"On pressed"**.  
+  2. Click the **+** icon.  
+  3. In the **API** section, search for **Showdialog**.  
+  4. Click the **edit Alertdialog**.  
+  5. Click the **🖌️**.  
+  6. Click the **text**.  
+  7. Click **Custom Expression**.  
+  8. Add your **Custom expression**.  
+  9. Click on **Eval**.  
+  10. Close opened windows.  
 
 <video src="/videos/api2/post/11.webm" controls width="100%" />
 

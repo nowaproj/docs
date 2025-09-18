@@ -1,38 +1,46 @@
-# Postman 📨
+# Postman
 
-✨ **What is Postman?**  
-Postman is a super handy tool 🛠️ for testing APIs 🔌. It lets developers send requests 📤, receive responses 📥, and organize everything into **collections** 📚 — making API development faster ⚡ and easier 🧩.  
-
----
-
-## 🔄 You can import Postman collections in two ways:
-
-### 1️⃣ **Paste Postman JSON** 📋  
-- 👉 Click on the **Import** button in your collection  
-- 👉 Select **"Import from Postman"**  
-- 👉 Paste your Postman collection JSON 💾  
-- 👉 Click **Import** ✅  
-
-📝 **How to get the Postman JSON:**  
-- 🔎 Open your Postman collection  
-- ⋮ Click the **three dots** next to your collection  
-- 📂 Select **"More" → "Export"**  
-- 🎯 Choose your format (recommended: v2.1)  
-- 💻 Save the file → it will automatically download as `.json` 📑  
+Welcome! 
+In this tutorial you can learn how bring your **Postman collections** into Nowa.
 
 ---
 
-### 2️⃣ **Upload Postman JSON File** 📤  
-- 👉 Click on the **Import** button in your collection  
-- 👉 Select **"Import from Postman"**  
-- 📁 Click **Upload File** and select your JSON file  
-- ✅ Click **Import** and you’re done 🎉  
+### How do you get the JSON from Postman?
 
----
+1. Open your Postman collection.  
+2. Click the **three dots** next to its name.  
+3. Go to **More → Export**.  
+4. Select the format (we recommend **v2.1**).  
+5. Save the file — Postman will download it as a `.json` file.  
+6. Open the file, copy its content, and paste it into Nowa.  
 
-📹 **Watch how to import from Postman:**  
+
+### 1. Upload the Postman JSON File   
+
+Here’s how:  
+1. In Nowa, click the **Import** button inside your collection.  
+2. Choose **“Import from Postman”**.  
+3. Select **Upload File** and pick your `.json` file.  
+4. Click **Import** and you’re done!
 
 <video controls width="850">
   <source src="/videos/api/postman-json.mp4" type="video/mp4" />
   Your browser does not support the video tag.
-</video>
+</video>  
+
+---
+
+### 2. Paste the Postman JSON 
+
+Here’s how:  
+1. In Nowa, click the **Import** button inside your collection.  
+2. Choose **“Import from Postman”**.  
+3. Paste the Postman JSON you copied.  
+4. Hit **Import** — and you’re ready to go!  
+
+<video controls width="850">
+  <source src="/videos/api/postman-json2.webm" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>  
+
+---

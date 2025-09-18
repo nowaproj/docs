@@ -188,10 +188,11 @@ value.choices!.first?.content
 
 Time for the full test:  
 
-1. Click the **Play** button.  
-2. Write something in the **Textfield**.  
-3. Click the **Button**.  
+You can click the Play button, write something you want in the Textfield, and then you can click the Button. 
 
+:::note
+**Eval** means *evaluate* — it checks your expression, and if it’s correct, adds it for visual editing.
+:::
 
 <video src="/videos/api2/post/12.webm" controls width="100%" />
 

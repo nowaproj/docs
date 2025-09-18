@@ -133,8 +133,6 @@ You need two elements: a text field where you can type your request, and a butto
 ## 10. Connect Button to API Call
 In this section, you will learn how to connect logic to the button.
 
-# Steps to Connect API in FlutterFlow
-
 #### How you can do it
 
   1. Click on the **Edit** button next to the text **"On pressed"**.  
@@ -168,7 +166,15 @@ Since you know how the data model is built, you know exactly which part is requi
 ```
 value.choices!.first?.content
 ```  
- 
+
+ #### How you can do it
+
+  1. Click on the **Edit** button next to the text **"OnValue"**.  
+  2. Click the **+** icon.  
+  3. In the **API** section, search for your API (e.g., `"deepseek"`).  
+  4. Add a value to the `TextInput` variable from the **TextField**:  
+   4.1 Select the **Text Controller**  
+   4.2 Then select the **Text** property inside the controller  
 
 <video src="/videos/api2/post/11.webm" controls width="100%" />
 

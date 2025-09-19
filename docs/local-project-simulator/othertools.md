@@ -2,30 +2,34 @@
 sidebar_position: 5
 ---
 
-# Using Other Tools on a Local Project: Git & IDE 🛠️
+# Using Other Tools on a Local Project: Git & IDE
 
-When working on a local project in **Nowa**, you’re not limited to the built-in editor.  
-You can seamlessly use **Git** 🌀 and your own **IDE** 💻 (like VS Code, IntelliJ, PyCharm, etc.) alongside it.  
+When building your app in **Nowa**, you’re not limited to the built-in editor.  
 
-## ⚙️ How It Works
-- Open your project locally in your favorite **IDE** 💻.  
-- Use **Git** 🌀 as you normally would: commit ✅, push ⬆️, pull ⬇️, or checkout new branches 🌿.  
-- Any code changes you make are automatically 🔄 synchronized back into **Nowa**.  
-- You can see these updates in real-time ⏱️, without breaking your workflow 🚀.  
+You can easily bring in **Git** and your favorite **IDE** (like VS Code or IntelliJ) to work alongside Nowa.  
 
-👉 If you’d like to explore **Nowa’s built-in Git solution**, check it out here:  
-[Learn more about Git in Nowa](https://docs.nowa.dev/git)  
+---
 
-## 🎯 Why This Is Good for You
-- **Familiar Environment** 🏠: Keep coding in the IDE you’re most comfortable with.  
-- **Version Control** 📂: Safely manage changes, collaborate 🤝, and roll back if needed.  
-- **Smooth Workflow** 🧘: No need to copy-paste or manually import code — changes flow automatically.  
-- **Flexibility** 🔀: Switch between low-code design in **Nowa** and full-code editing in your IDE effortlessly.  
+## How this can help you:
 
-## 🌐 How to Imagine It
-Think of it like two windows 🪟 looking at the same project:  
-- One is **Nowa** ✨, where you design, configure, and manage the project visually.  
-- The other is your **IDE** 💻, where you dive deep into the code.  
+Let me tell you how:
 
-Change something in one window, and the other updates instantly ⚡.  
-You never lose context, and your workflow stays uninterrupted 🚀.
+- In **Nowa**, you design visually, configure features, and manage your app’s structure.  
+- In your **IDE**, you dive deeper into the code and handle more advanced customizations.  
+
+Whenever you make a change in one, the other updates instantly.  
+
+You never lose context, and your app keeps moving forward without interruptions.  
+
+---
+
+## How It Works
+
+1. Open your Nowa project locally in your IDE.  
+2. Use **Git** just as you normally would — commit, push ⬆, pull ⬇, or switch branches.  
+3. Any code changes you make are automatically synchronized with Nowa.  
+4. Updates appear in real-time, so your workflow stays smooth and connected.  
+
+[Want to learn more about Git in Nowa](https://docs.nowa.dev/git)  
+
+---

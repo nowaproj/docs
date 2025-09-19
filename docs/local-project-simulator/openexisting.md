@@ -23,7 +23,7 @@ For example, if you use **Riverpod** state management, it doesn’t show up corr
 
 3. Browse to the folder where your Flutter project is saved, then click **Choose**.  
 
-That’s it—your project will open inside Nowa. Just make sure the folder you select is a valid Flutter project.
+Your project will open inside Nowa. Just make sure the folder you select is a valid Flutter project.
 
 ---
 

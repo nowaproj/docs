@@ -9,6 +9,16 @@ Here’s the **Changelog** for Nowa v2.0.20 in markdown format:
 
 ---
 
+## **3.0.8 (17 September 2025)**
+
+#### **Fixed 🩹**  
+- Old templates updated and replaced with new ones matching Nowa 3.0 standards.  
+- Older way of changing themes removed to simplify theming workflow.  
+- Error build design now clearly shows it’s clickable to access build logs.  
+- Added option to include **cloud build logs** when submitting bug reports.  
+
+---
+
 ## **3.0.6 (8 September 2025)**
 
 #### **Fixed 🩹**  

@@ -8,7 +8,7 @@ description: How to download, set up, and create local projects in Nowa Desktop
 
 Nowa isn’t only available in your browser — you can also use **Nowa Desktop**, a dedicated app for macOS and Windows.  
 
-With **Nowa Desktop**, you can create and manage **local Flutter projects** right on your computer. 
+With **Nowa Desktop**, you can create and manage your **local Flutter projects** right on your computer. 
 
 This guide will walk you through downloading Nowa, setting up Flutter, and starting your first local project.
 
@@ -16,7 +16,7 @@ This guide will walk you through downloading Nowa, setting up Flutter, and start
 
 ## Downloading Nowa Desktop
 
-Getting started is quick and easy:
+I’ll show you how to download Nowa Desktop.
 
 1. **Log in on the Web**  
    Go to [app.nowa.dev](https://app.nowa.dev) in your browser and log in to your Nowa account.

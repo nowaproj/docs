@@ -5,7 +5,10 @@ title: Why local projects
 
 # Why local projects
 
-In Nowa, you can choose between **cloud projects** and **local projects**. Both let you build your amazing apps, but they work a bit differently.  
+We built **Nowa** in a way that lets you choose between **cloud projects** and **local projects**.  
+
+Both let you build your amazing apps, but they work a little differently.
+
 
 - **Cloud projects**: Everything is online. You can use **Cloud Build** to build for Android, iOS, or Web without setup.  
 - **Local projects**: Everything is on your computer. You build manually, but gain more control and flexibility.  

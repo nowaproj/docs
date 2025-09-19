@@ -6,19 +6,26 @@ description: How to download, set up, and create local projects in Nowa Desktop
 
 # Create a local project
 
-Nowa is not just a web-based platform; it also offers a powerful Desktop application available for both macOS and Windows.  
+Nowa isn’t only available in the browser — you can also use **Nowa Desktop**, a dedicated app for macOS and Windows.  
 
-This guide will help you download and install the Nowa Desktop version, set up the Flutter SDK, and create or open local projects.
+With **Nowa Desktop**, you can create and manage **local Flutter projects** right on your computer. 
+
+This guide will walk you through downloading Nowa, setting up Flutter, and starting your first local project.
 
 ---
 
 ## Downloading Nowa Desktop
 
-To download the Nowa Desktop application, follow these steps:
+Getting started is quick and easy:
 
-1. **Log in to Nowa on the Web:** Open your web browser and log in to your Nowa account at [app.nowa.dev](https://app.nowa.dev).
-2. **Select Your Platform:** Click on the `Download for Desktop` button and choose the appropriate version for your operating system (macOS or Windows).
-3. **Install Nowa Desktop:** After downloading, follow the installation instructions specific to your operating system to complete the setup.
+1. **Log in on the Web**  
+   Go to [app.nowa.dev](https://app.nowa.dev) in your browser and log in to your Nowa account.
+
+2. **Download the App**  
+   Click on **Download for Desktop** and choose the version that matches your system (macOS or Windows).
+
+3. **Install**  
+   Once downloaded, follow the installation instructions for your operating system.
 
 <video width="600" controls>
   <source src="/videos/desktopversion/Download.webm" type="video/mp4" />
@@ -26,86 +33,65 @@ To download the Nowa Desktop application, follow these steps:
 
 ---
 
-## Setting Up Flutter SDK for Nowa Desktop
+## Setting up Flutter SDK
 
-To use Nowa Desktop, you must have Flutter SDK installed on your device.
+To run local projects, Nowa Desktop needs the Flutter SDK installed on your computer.
 
-1. **Install Flutter SDK:**  
-   Download and install the Flutter SDK from the [official Flutter website](https://flutter.dev/docs/get-started/install).
+1. **Install Flutter SDK**  
+   Download it from the [official Flutter website](https://flutter.dev/docs/get-started/install) and follow the steps to install.
 
-2. **Configure Local Setup in Nowa:**
-   - After installing Nowa Desktop, open the app and log in.
-   - Click on the **⚙️ Settings** icon in the **bottom-left corner** of the window.
-   - In the pop-up window, navigate to the **Local Setup** tab.
+2. **Connect Flutter to Nowa Desktop**  
+   - Open Nowa Desktop and log in.  
+   - Click the **⚙️ Settings** icon in the bottom-left corner.  
+   - Go to the **Local Setup** tab.  
+   - Point Nowa to your Flutter SDK folder (the one containing `bin`).  
+   - *(Optional)* Choose a default folder where your projects will be saved.  
+   - *(Optional)* Add your VS Code path if you want smooth integration.  
 
-![](/img/nowadesktop/1.png)
-
-   - Set the path to your **Flutter SDK** (the folder containing subfolders like `bin`).
-   - *(Optional)* Set a **Default Project Path** for storing projects.
-   - *(Optional)* Set your **VS Code Path** for seamless integration with VS Code.
-
+![](/img/nowadesktop/1.png)  
 ![](/img/nowadesktop/2.png)
 
 ---
 
-## Why Use Nowa Desktop?
+## Why use Nowa Desktop?
 
-Using the Nowa Desktop version comes with several advantages:
+Nowa Desktop gives you extra power compared to the web version:
 
-### 1. Enhanced Performance
-- **Native Execution:** Runs natively on your device for better performance compared to the web app.
-
-### 2. Local Flutter Projects
-- **Local Project Creation:** Create local Flutter projects stored directly on your device.
-- **Workflow Compatibility:** Continue using VS Code, GitHub, Copilot, and other tools — Nowa projects are just standard Flutter projects.
-
-[Learn how to create a GitHub repo from a Nowa local project](../git/git-local.md).
-
-### 3. Simulators and Platforms
-Use simulators for Android, iOS, Web, and Desktop to test in real-time across platforms.
-
-### 4. Offline Capability
-Build and edit projects offline without interruption.
+- **Better performance** — runs natively on your computer.  
+- **Local projects** — your apps are standard Flutter projects, so you can use VS Code, GitHub, Copilot, and other tools with them.  
+- **Cross-platform testing** — run your app on Android, iOS, Web, or Desktop simulators.  
+- **Offline mode** — build and edit even without internet access.  
 
 :::note  
-**Available for Everyone:** The Nowa Desktop version is available for all users. No premium subscription is required.  
+**Good to know:** Nowa Desktop is available for all users — no premium plan required.  
 :::
 
 ---
 
-## Creating Local Projects in Nowa Desktop
+## Creating your first local project
 
-After installing Nowa Desktop, you can easily create local projects.
+Once Nowa Desktop is set up, you can start creating your first local project.
 
-### Steps to Create a Local Project
-
-1. **Open Local Projects:**  
-   In the sidebar, go to **Your Projects → Local Projects**.  
+1. In the sidebar, go to **Your Projects → Local Projects**.  
    ![](/img/nowadesktop/createlocalproject/1.png)
 
-2. **Start a New Local Project:**  
-   Click on the **New Local Project** button.  
+2. Click **New Local Project**.  
    ![](/img/nowadesktop/createlocalproject/2.png)
 
-3. **Choose Project Type:**  
-   From the dropdown, select **New Local Project**.  
+3. Choose **New Local Project** from the dropdown.  
    ![](/img/nowadesktop/createlocalproject/3.png)
 
-4. **Enter Project Details:**  
-   - Provide a **Project Name**.  
-   - The **Package Name** is generated automatically.  
-   - Click **Browse** to set the folder path where the project will be saved.  
+4. Fill in your project details:  
+   - Give your project a name.  
+   - The package name is created automatically.  
+   - Browse and select where you want to save the project.  
    ![](/img/nowadesktop/createlocalproject/4.png)
 
-5. **Select a Folder:**  
-   Choose your desired folder and click **Select Folder**.  
-   ![](/img/nowadesktop/createlocalproject/5.png)
-
-6. **Create the Project:**  
-   Confirm the path and click **Create**.  
+5. Confirm the folder and click **Create**.  
+   ![](/img/nowadesktop/createlocalproject/5.png)  
    ![](/img/nowadesktop/createlocalproject/6.png)
 
-Nowa will create a local Flutter project with all necessary files and folders.  
+Nowa will generate a ready-to-use Flutter project with all the files you need.  
 ![](/img/nowadesktop/createlocalproject/7.png)
 
 ---

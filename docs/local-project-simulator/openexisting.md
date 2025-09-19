@@ -1,31 +1,44 @@
 ---
 sidebar_position: 2
-title: Import a Flutter project
 ---
 
-#
+# Import a Flutter Project
+
+Bringing your existing Flutter project into Nowa is simple. This allows you to continue building on top of what you already have—while taking advantage of Nowa’s AI and visual tools.  
 
 :::warning
-This can work, however, if your project uses packages that are not supported by Nowa, those elements may not display correctly.
+Importing works best when your project uses supported packages. If your project relies on packages that Nowa doesn’t support yet, those parts of the app may not display correctly in Nowa.
+
+For example, if you use **Riverpod** state management, it doesn’t show up correctly in **Circuit**, because **Nowa** mainly uses **Provider** for state management.
+
 :::
-
-1. In the **main dashboard**, click on the dropdown next to **New Local Project**.  
-2. Select **Open**.  
-   ![](/img/openexistinglocalproject.jpg)
-
-3. Choose the folder path of your existing Flutter project and click **Choose**.  
-   The folder must be a valid Flutter project.
 
 ---
 
-## Converting Cloud Projects to Local
+## Open an Existing Local Project
 
-1. Download the project code as a `.zip` file.  
-2. Extract the `.zip` folder.  
-3. From Nowa Desktop, click **Open** and select the extracted folder.
+1. In your **main dashboard**, click the dropdown next to **New Local Project**.  
+2. Select **Open**.  
+   ![](/img/openexistinglocalproject.jpg)  
+
+3. Browse to the folder where your Flutter project is saved, then click **Choose**.  
+
+That’s it—your project will open inside Nowa. Just make sure the folder you select is a valid Flutter project.
+
+---
+
+## Convert a Cloud Project to Local
+
+Sometimes you might want to take your cloud project offline and work on it locally. Here’s how:  
+
+1. Download your project code as a `.zip` file.  
+2. Extract the `.zip` folder on your computer.  
+3. From Nowa Desktop, click **Open** and select the extracted folder.  
 
 :::note
-Currently, you can convert a **cloud project to local**, but not the other way around.  
+At the moment, you can convert **from cloud to local**, but not the other way around.  
 :::
 
+---
 
+---

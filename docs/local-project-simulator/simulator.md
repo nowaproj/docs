@@ -1,33 +1,38 @@
 ---
 sidebar_position: 3
-title: Running on a simulator/physical device 📱
-description: 🔧 How to test your Nowa project on an actual simulator or a real device 🧪✨
+title: Running on a simulator/physical device
+description: How to test your Nowa project on an actual simulator or a real device
 ---
 
-# Running on a simulator/physical device 📱
+# Running on a simulator/physical device
 
-One of the key advantages of using **Nowa Desktop** for your Flutter development 🐦 is the ability to test your app on actual emulators 🖥️📲 and real devices 🔌📱.  
-This guide will walk you through 🧭 the steps to test your app effectively ✅ and take advantage of Flutter's powerful **hot reload** ⚡ feature.
-
----
-
-## 🛠️ Setting Up Local Projects for Testing 🧑‍💻
-
-As mentioned earlier, you can [📂 create a local Flutter project](./createlocalproject.md) using Nowa Desktop.  
-This allows you to test your app on various simulators 🎮 or even on an actual smartphone 📱.  
-
-Here’s how you can do it ⬇️:
+In this guide, we’ll walk step by step through the different ways to test your project and make use of Flutter’s powerful **hot reload**.
 
 ---
 
-### 1️⃣ Instant Preview with Nowa 👀
+## Setting Up Local Projects for Testing
 
-- **⚡ Quick Preview:** To get a quick preview of your app, click on the ▶️ **Play** button inside Nowa.  
-  👉 This will provide an instant preview within any frame you choose (e.g., 📱 iPhone, 📱 iPad, 🤖 Android Pixel, 📟 Samsung tablets, 🖥️ Desktop, etc.).  
+Before you begin, make sure your app is set up as a **local Flutter project**.  
 
-- **⚠️ Preview Limitations:** While the previewer is useful 🛠️, it has certain limitations.  
-  For example, it allows you to test **Firebase Authentication** 🔑 features like signing in, but it doesn’t perform the actual sign-in or sign-up 🚫.  
-  For full functionality testing ✅, you'll need to run the app on a real simulator 🖥️ or a physical device 📲.
+You can easily do this inside Nowa, check out the [guide on creating local projects](./createlocalproject.md) if you haven’t yet.  
+
+Once that’s ready, you’ll be able to run your app on different simulators or even directly on your phone.
+
+---
+
+## 1. Instant Preview with Nowa
+
+The quickest way to see your app in action is by using the **Play** button inside Nowa.
+
+- When you click Play, your app instantly appears inside a preview frame.  
+- You can choose from different devices such as iPhone, iPad, Android Pixel, Samsung tablets, or even a desktop screen.  
+
+This is perfect for a quick look at your design and layout.  
+
+However, keep in mind that the previewer has some limitations.  
+
+For example, you can test flows like **Firebase Authentication**, but you won’t actually be signed in.  
+For testing real functionality, you’ll need to use a simulator or a physical device.
 
 <video width="600" controls>
   <source src="/videos/simulator/builtinsimulator.webm" type="video/mp4" />
@@ -35,83 +40,62 @@ Here’s how you can do it ⬇️:
 
 ---
 
-### 2️⃣ Running the App on a Simulator 🖥️📱
+## 2. Running the App on a Simulator
 
-To run your app on a simulator, follow these steps 🧭:
+To go beyond preview, you can run your app directly on a simulator.
 
 :::warning
-1. **Ensure It's a Local Project 📂:**  
-   Make sure you’re working with a local project.  
-   🔑 Only local projects can be run on simulators or real devices directly from Nowa.
+Only **local projects** can be run on simulators or real devices.  
+Make sure you’re not working in the web version of Nowa.
 :::
 
-:::tip
-In the top right corner, you can see whether the **desktop** 🖥️ or **web** 🌐 version is opened.  
+At the top right of Nowa Desktop, you’ll notice a menu. This shows you the simulators currently available on your machine. Depending on your setup, you might see:
 
-- In the **desktop version**, a ▶️ play icon is shown.  
-  ![Desktop Version](\img\nowadesktop\diff\local.png)  
+- Chrome  
+- macOS (if you’re on a Mac)  
+- Windows (if you’re on Windows)  
 
-- In the **web version**, a 🌐 globe icon is displayed.  
-  ![Web Version](\img\nowadesktop\diff\web.png)  
+For Android and iOS simulators, you may need to start them first.
 
-Here is an example view 👇:  
-![Editor View](\img\nowadesktop\diff\base.png)
-:::
+Once the simulator is running, simply select it from the list and press Run.  
+Your app will launch, and the `Logs` tab at the bottom will show you what’s happening behind the scenes.
 
-1️⃣ **List of Simulators 📝:**  
-At the top right of Nowa Desktop, you’ll see a menu 📑 that includes:  
-This shows the simulators currently running on your machine 🖥️.  
-You might see options like 🌐 Chrome, 🍎 macOS (if on Mac), or 🪟 Windows (if on Windows).  
-For 🤖 Android or 🍏 iOS simulators, you might need to start them first ▶️.
+You can stop the app anytime with the Stop button.  
+And if you make changes, use **Hot Reload** to see them instantly without closing everything down.
 
 <video width="600" controls>
-<source src="/videos/simulator/simulator.webm" type="video/mp4" />
-</video>
-
-2️⃣ **Run Button ▶️:** Runs the app on the selected simulator 🎮. Logs 📜 will be displayed in the `Logs` tab at the bottom ⬇️ of Nowa once the app starts.
-
-<video width="600" controls>
-<source src="/videos/simulator/logs.webm" type="video/mp4" />
-</video>
-
-3️⃣ **Stopping the App 🛑:** After running the app, click the ⏹️ stop button to end the process.
-
-<video width="600" controls>
-<source src="/videos/simulator/stop.webm" type="video/mp4" />
-</video>
-
-4️⃣ **Hot Restart 🔄⚡:** If you make changes ✍️ while it’s running, you can click on the **Hot Restart** button 🔁 to quickly restart and apply changes.
-
-<video width="600" controls>
-<source src="/videos/simulator/hotreload.webm" type="video/mp4" />
+  <source src="/videos/simulator/simulator.webm" type="video/mp4" />
 </video>
 
 ---
 
-### 3️⃣ Managing Simulators 🎛️
+## 3. Managing Simulators
 
-If you don't see the desired simulator ❌📱, it might not be running yet. Here’s how to fix it 🔧:
+If you don’t see the simulator you want, don’t worry—it just means it isn’t running yet.
 
-- **Starting Simulators ▶️:**  
-  - 🍏 **iOS Simulators:** Run the **Simulator** app on your Mac. Want to know more? [Click here!](https://developer.apple.com/documentation/safari-developer-tools/installing-xcode-and-simulators)
-  - 🤖 **Android Simulators:** Start the emulator from **VS Code** or **Android Studio**. Want to know more? [Click here!](https://developer.android.com/studio/run/emulator)
+- On Mac, open the **Simulator** app to start an iOS simulator. [Learn more here.](https://developer.apple.com/documentation/safari-developer-tools/installing-xcode-and-simulators)  
+- On Windows or Mac, start an Android emulator from **VS Code** or **Android Studio**. [Learn more here.](https://developer.android.com/studio/run/emulator)  
 
-👉 Example: we can’t see the iOS simulator 👀, so we run it first ▶️.
+After starting, go back to Nowa and reopen the simulator list.  
 
-- **Refreshing the List 🔄:** After starting, return to Nowa and reopen the simulator menu 📑.  
-  ⏳ It might take a few seconds for the new simulator to appear. Keep checking until it shows up ✅.
+It may take a few seconds, but your new simulator will appear.
 
 ---
 
-### 4️⃣ Running the App on an Actual Smartphone 📱🔌
+## 4. Running the App on a Real Device
 
-1. **Connect Your Smartphone 📲:** Plug in your device via USB 🔌.  
-   You might need to enable **USB debugging 🐞** to be recognized.  
+Testing on a real phone is often the most real environment. Here’s how:
 
-2. **Select Your Device ✅:** After connecting, your device should appear in the Nowa list 📝.  
-   Select it and click ▶️ Run.  
+1. Connect your smartphone with a USB cable.  
+   On Android, you may need to enable **USB debugging** for it to be detected.  
+
+2. Once connected, your phone will appear in the Nowa device list.  
+   Select it, press **Run**, and your app will launch directly on your phone.  
 
 :::note
-Since your project is a **local Flutter project 📂🐦**,  
-you can also open it in your IDE (💻 VS Code, 🛠️ Android Studio) and run it from there. Any changes in Nowa ✨ will be reflected in the local project 🔁.
+Since your project is a local Flutter project,  
+you can also open it in an IDE like VS Code or Android Studio and run it there.  
+Any changes made in Nowa will always stay in sync with your local project.
 :::
+
+---

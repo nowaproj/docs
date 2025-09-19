@@ -2,18 +2,25 @@
 sidebar_position: 3
 ---
 
-# Database + RLS📝
+# Database + RLS
 
-## 🔑 Overview
-- **Goal:** Build a simple Todo app backend 💡
-- **Auth:** 🔒 RLS ensures users only see their own todos
-- **Realtime:** ⚡ Trigger notifies changes
+In this guide, we’ll walk through how to set up the database and configure Row Level Security. 
+
+:::note What is Row Level Security (RLS)?
+
+RLS is used to enforce policies that determine who can view, add, edit, or delete records in a table. 
+
+:::
 
 ---
 
-## 🛠 Step 1: Create the table & security policies
+## Step 1: Create the table & security policies
 
-Paste this SQL in Supabase SQL Editor 🖥️:
+You need to create a table that will store todos.  
+
+We created an example for you that builds a table with automatic IDs and timestamps, and sets up security so every user can only manage their own todos.
+
+Open your **Supabase project**, then click on **SQL Editor** and paste this **SQL snippet**.
 
 ```sql
 CREATE TABLE todos (
@@ -46,31 +53,18 @@ CREATE POLICY "Users can delete their own todos." ON todos
 
 ---
 
-## 🔒 What is RLS?
-RLS stands for **Row Level Security**. 🛡️
+## Step 2: Generate a query with Nowa AI
 
-- It ensures each user can only access **their own rows** in a table.
-- Supabase uses `auth.uid()` (the logged-in user’s ID) to check which rows they can `SELECT`, `INSERT`, `UPDATE`, or `DELETE`. 👤
-- Without RLS, everyone could see everyone’s todos 🙈. With RLS, privacy and safety are guaranteed ✅.
-
-Example:  
-> If Alice is logged in, `auth.uid()` = Alice’s UUID → she can only work with rows where `user_id = Alice`.
-
----
-
-## 🤖 Step 2: Generate a query with Nowa AI
-This is the ✨ magic ✨.
-
-You can:  
-1. Let **AI** do it for you 🪄  
-2. Paste SQL yourself 📋  
+We built Nowa AI to understand your database structure, so you don’t need to write SQL queries or remember column names, just use plain English, and Nowa will handle it for you.
 
 **Example prompt:**  
 > “Generate a query to add a task for a user.”
 
-No need to type column names — Nowa already knows! 🧠
+:::warning Important
+You need to be **signed in** to run queries (because RLS checks your identity).  
+:::
 
-⚠️ Remember: You must be **signed in** 👤 to run queries (because RLS checks `auth.uid()`).
+Click the **+** icon, enter **your prompt**, then click **Generate**.
 
 <video controls width="850">
   <source src="/videos/supabase/db/ai.webm" type="video/mp4" />
@@ -79,23 +73,23 @@ No need to type column names — Nowa already knows! 🧠
 
 ---
 
-## 💻 Step 3: Tweak in the Code Editor
-Want to:  
-- Rename inputs ✏️  
-- Add defaults 🔄  
-- Return only what you need 🎯  
+## Step 3: Modify generated code
 
-You can do all that in the **Code Editor**. 🛠️
+Nowa also gives you control to fine-tune your queries.  
+
+You can **manually edit the code** or **ask AI to modify the code for you**.
 
 ![](/img/supabase/editcode.png)
 
 ---
 
-## ▶️ Step 4: Try out the query — Add Task
-Run the query with:  
-- Task: *“Buy milk”* 🥛  
+## Step 4: Run your first query
 
-👉 Check Supabase — you’ll see the row appear instantly ✅
+You can try out your query.
+
+Click on your generated query, add a value to the required field, and then click on the **Play** button.   
+
+Check your Supabase table — you’ll see the new row in the table editor.
 
 <video controls width="850">
   <source src="/videos/supabase/db/addtask.webm" type="video/mp4" />
@@ -104,13 +98,12 @@ Run the query with:
 
 ---
 
-## ⚡ Step 5: Generate multiple queries at once
-Why stop at one? 😎
+## Step 5: Generate multiple queries 
 
-Ask AI:  
-> “Create queries for updating a task, marking as done, and deleting.”
+You can generate multiple queries with one prompt.
 
-🔥 Boom! All three appear at once.
+**Example prompt:**  
+> “Create queries for updating a task, marking it as done, and deleting.”  
 
 <video controls width="850">
   <source src="/videos/supabase/db/multiquery.webm" type="video/mp4" />
@@ -119,8 +112,11 @@ Ask AI:
 
 ---
 
-## 📝 Step 6: Test Update
-Grab a Task ID 🆔 → run Update → type a new name ✍️ → Supabase updates instantly ✅
+## Step 6: Update a task
+
+You can change a task, here’s how:  
+
+Click on the `updateTask` query, copy the `taskID` from the Supabase table, add the new task, and then click the **Play** button.
 
 <video controls width="850">
   <source src="/videos/supabase/db/updatequery.webm" type="video/mp4" />
@@ -128,21 +124,3 @@ Grab a Task ID 🆔 → run Update → type a new name ✍️ → Supabase updat
 </video>
 
 ---
-
-## 🐞 Troubleshooting
-- ❌ Empty results? → Not signed in  
-- ❌ Permission errors? → Check RLS  
-- ❌ Wrong DB? → Check Nowa connection settings ⚙️  
-
----
-
-## 🎉 You’re all set!
-With just a bit of SQL + Nowa AI 🧠, you can:  
-- Add ✅  
-- Update ✏️  
-- Complete ✔️  
-- Delete 🗑️  
-
-…all securely 🔒 and instantly ⚡.
-
-👉 Go build something awesome! 🚀💻✨

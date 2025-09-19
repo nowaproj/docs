@@ -6,7 +6,7 @@ description: How to test your Nowa project on an actual simulator or a real devi
 
 # Running on a simulator/physical device
 
-In this guide, we’ll walk step by step through the different ways to test your project and make use of Flutter’s powerful **hot reload**.
+In this guide, we’ll walk you through step by step the different ways to test your project and make use of Flutter’s  **Hot Reload**.
 
 ---
 

@@ -42,16 +42,7 @@ You click on the **Settings** icon, and then simply type your **Base URL**.
 
 ---
 
-### 3️. Add the API Key  
-If you go to the **Authorization** section, pop in your **API key**, and set it at the **collection level** so the server knows it’s you and you avoid mix-ups.  
-
-You simply put your **Authorization** key into.
-
-<video src="/videos/api2/collection/auth.webm" controls width="100%" />
-
----
-
-### 4️. Configure the Headers  
+### 3. Configure the Headers  
 If you tell the **API** to return **JSON**, it will give the data in a **structured format** that’s **easy to read** and **use in your app**.
 
 ```http
@@ -65,7 +56,7 @@ Click **Add Header**, then type `Accept` as the **Key** and `application/json` a
 ---
 
 
-## 5. Creating the API Call  
+## 4. Creating the API Call  
 You can create a new **API call** inside your collection. This is how you’ll fetch data.  
 
 :::note  
@@ -85,19 +76,7 @@ You don’t need the entire URL—just the specific endpoint. The base URL is al
 
 ---
 
-## 6. Adding the Authorization Key  
-
-:::warning
-You don’t need to set the **Authorization key** if it’s already defined at the **collection level**, since **Nowa** recognizes it.
-:::
-
-If you want to set a different **Authorization key**, simply copy and paste the auth token value into the field.
-
-<video src="/videos/api2/request/2.webm" controls width="100%" />
-
----
-
-## 7. Testing and Generating the Data Model  
+## 5. Testing and Generating the Data Model  
 
 You can test the API and generate a data model from its output to use in your app.
 
@@ -112,7 +91,7 @@ You can test the API and generate a data model from its output to use in your ap
 
 ---
 
-## 8. Binding the Data Model to the UI  
+## 6. Binding the Data Model to the UI  
 
 Finally, you can bind the data model to a UI element, like an image.
 
@@ -134,7 +113,7 @@ Finally, you can bind the data model to a UI element, like an image.
 
 ---
 
-## 9. Trying Out
+## 7. Trying Out
 In this step, you can try it out.
 
 1. Click on **Play** button.  

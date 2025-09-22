@@ -6,14 +6,19 @@ sidebar_position: 2
 
 Welcome, this guide shows you how to set up an **API Collection** in **Nowa**, **send request**, and **display real data** in your app.
 
+We created an API collection feature to help you organize your APIs into groups of requests that share the same base URL and headers.
+
 ---
 
 ### 1. Create the API Collection  
 
-We created an API collection feature to help you organize your APIs into groups of requests that share the same base URL and headers.
+In this step, you will learn to create an API collection.
 
 :::info
-Anything you set at the collection level will automatically apply to your APIs, so you don’t need to set it again for each one.
+If you define at the **collection level**, it will automatically apply to **all requests within the collection**, so you don’t need to repeat it for each API request.
+
+![](/img/api2/post/collectionsettings.png)
+
 :::
 
 :::note[Class name and File path for Collections]
@@ -78,7 +83,9 @@ You don’t need the entire URL—just the specific endpoint. The base URL is al
 
 ## 5. Testing and Generating the Data Model  
 
-You can test the API and generate a data model from its output to use in your app.
+You can test the API and create a data model from its output for use in your app. 
+
+A structured model makes it much easier to work with the data, since it converts the raw JSON response into a usable format. Here’s how you can generate one in Nowa:
 
 #### How can you do it:
 

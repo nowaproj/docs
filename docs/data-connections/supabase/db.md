@@ -73,7 +73,14 @@ Create table visually:
 
 ## Step 2: Generate a query with Nowa AI
 
+:::note What is Queries?
+
+Queries are database requests, and the main types are: SELECT (retrieve data), INSERT (add data), UPDATE (modify data), and DELETE (remove data).
+
+:::
+
 We built Nowa AI to understand your database structure, so you don’t need to write SQL queries or remember column names, just use plain English, and Nowa will handle it for you.
+
 
 **Example prompt:**  
 > “Generate a query to add a task for a user.”
@@ -91,17 +98,17 @@ Click the **+** icon, enter **your prompt**, then click **Generate**.
 
 ---
 
-## Step 3: Modify generated code
+## (Optional) Step: Modify generated code
 
 Nowa also gives you control to fine-tune your queries.  
 
-You can **manually edit the code** or **ask AI to modify the code for you**.
+You can **manually edit the code**, or you can **ask AI to modify it for you** if you want.
 
 ![](/img/supabase/editcode.png)
 
 ---
 
-## Step 4: Run your first query
+## Step 3: Run your first query
 
 You can try out your query.
 
@@ -116,7 +123,7 @@ Check your Supabase table — you’ll see the new row in the table editor.
 
 ---
 
-## Step 5: Generate multiple queries 
+## Step 4: Generate multiple queries 
 
 You can generate multiple queries with one prompt.
 
@@ -130,7 +137,7 @@ You can generate multiple queries with one prompt.
 
 ---
 
-## Step 6: Update a task
+## Step 5: Update a task
 
 You can change a task, here’s how:  
 

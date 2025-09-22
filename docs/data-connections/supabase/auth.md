@@ -11,7 +11,20 @@ When you creating an Authentication page, you can use login templates or generat
 
 ---
 
-## 1️. Registration 
+## 🅰️ AI does it for you
+
+You click on the **chat panel icon** on the left, write a prompt, attach by selecting **SupabaseService** from the list, and then click the **send icon**.
+
+To try it out, you click on the widget icon on the left side, go to the login page, and then click on the play button.
+
+<video controls width="850">
+  <source src="/videos/supabase/auth/ai.webm" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+
+## 🅱️ Use templates
+
+### 1️. Registration 
 
 First, you can test the registration process to confirm everything works correctly with **Supabase**.
 
@@ -30,7 +43,7 @@ When you’re ready, just click the Run button
 
 ---
 
-## 2️. UI Design for Login Page
+### 2️. UI Design for Login Page
 
 Next, let’s design the **login page** together. We Keep it simple for you:  
 - Email field  
@@ -45,7 +58,7 @@ Here’s where **controllers** come in handy:
 - And rename them for clarity (for example: `text` → `username`).  
 :::
 
-### 1. Add an **Email Text Field**
+#### 1. Add an **Email Text Field**
 - Open the **Widgets panel**.  
 - Drag a **TextField** onto your screen.  
 - Adjust the **size** so it looks comfortable.  
@@ -56,13 +69,13 @@ Here’s where **controllers** come in handy:
 In this case, **username** and **email** are the same thing.
 :::
 
-### 2. Add a **Password Text Field**
+#### 2. Add a **Password Text Field**
 - Go back to the **Widgets panel**.  
 - Drag another **TextField** onto your the screen.  
 - Resize it and position it nicely under the email field.  
 - Rename its **controller** to `password`.  
 
-### 3. Add a **Login Button**
+#### 3. Add a **Login Button**
 - From the **Widgets panel**, drag a **Button** onto the screen.  
 - Place it below the password field.  
 - Adjust the **size** and **position** as you needed.  
@@ -74,7 +87,7 @@ In this case, **username** and **email** are the same thing.
 
 ---
 
-## 3️. Logged-In Page 
+### 3️. Logged-In Page 
 
 This is the page your users see when they logged in.
 
@@ -102,7 +115,7 @@ This is the page your users see when they logged in.
 
 ---
 
-## 4️. Add Sign-In Inputs
+### 4️. Add Sign-In Inputs
 
 I show how you can provide data to the **sign-in action**.
 
@@ -123,7 +136,7 @@ I show how you can provide data to the **sign-in action**.
 
 ---
 
-## 5. Add Sign-In Success Logic
+### 5. Add Sign-In Success Logic
 
 I show you how can you build an action that takes the user straight to the logged-in page after a successful login.
 
@@ -144,7 +157,7 @@ How can you do it:
 
 ---
 
-## 6. Add Sign-In Error Logic
+### 6. Add Sign-In Error Logic
 
 I show you how you can display an error notification if the login fails.
 
@@ -165,7 +178,7 @@ How can you do it:
 
 ---
 
-## 7. Add Sign-Out Logic
+### 7. Add Sign-Out Logic
 
 Finally, you can give your app users an easy way to **log out**.
 
@@ -189,7 +202,7 @@ Steps, how can you do:
 
 ---
 
-## 8. Try out
+### 8. Try out
 
 You built a fully functional **Supabase Authentication** in **Nowa**.
 

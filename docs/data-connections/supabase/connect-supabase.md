@@ -6,7 +6,6 @@ sidebar_position: 1
 
 Welcome! Let’s get your app connected to Supabase — an open-source toolkit that provides authentication (manage user sign-ups, logins, and permissions), file storage (store and serve images, videos, and documents), a database (powerful Postgres with an API out of the box), and row-level security (define who can insert, update, or delete rows).
 
-
 ---
 
 ## 1️. Connect to Supabase

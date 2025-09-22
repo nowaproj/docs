@@ -46,6 +46,10 @@ CREATE POLICY "Users can delete their own todos." ON todos
   FOR DELETE USING (auth.uid() = user_id);
 ```
 
+:::note
+You don’t always have to write SQL queries — you can also create tables visually or even let AI help you out!
+:::
+
 <video controls width="850">
   <source src="/videos/supabase/db/create.webm" type="video/mp4" />
   Your browser does not support the video tag.

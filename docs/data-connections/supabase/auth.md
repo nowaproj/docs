@@ -6,6 +6,9 @@ sidebar_position: 2
 
 In general, before your users can truly enjoy your app, they need a way to **sign up, log in, and log out safely**. Let’s go through it with you step by step.
 
+When you creating an Authentication page, you can use login templates or generate a custom login/signup screen with AI by including `SupabaseService` in your prompt.
+
+
 ---
 
 ## 1️. Registration 

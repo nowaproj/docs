@@ -47,7 +47,21 @@ CREATE POLICY "Users can delete their own todos." ON todos
 ```
 
 :::note
-You don’t always have to write SQL queries — you can also create tables visually or even let AI help you out!
+You don’t always have to write SQL queries — you can also create tables visually or even let Supabase AI help you out!
+
+Supabase AI:
+
+<video controls width="850">
+  <source src="/videos/supabase/db/supabaseai.webm" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+
+Create table visually:
+
+<video controls width="850">
+  <source src="/videos/supabase/db/visual.webm" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
 :::
 
 <video controls width="850">

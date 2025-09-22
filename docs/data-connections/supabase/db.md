@@ -12,6 +12,12 @@ RLS is used to enforce policies that determine who can view, add, edit, or delet
 
 :::
 
+:::note What is Queries?
+
+Queries are database requests, and the main types are: SELECT (retrieve data), INSERT (add data), UPDATE (modify data), and DELETE (remove data).
+
+:::
+
 ---
 
 ## Step 1: Create the table & security policies
@@ -44,7 +50,13 @@ CREATE POLICY "Users can update their own todos." ON todos
 
 CREATE POLICY "Users can delete their own todos." ON todos
   FOR DELETE USING (auth.uid() = user_id);
+
 ```
+
+<video controls width="850">
+  <source src="/videos/supabase/db/create.webm" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
 
 :::note
 You don’t always have to write SQL queries — you can also create tables visually or even let Supabase AI help you out!
@@ -64,20 +76,24 @@ Create table visually:
 </video>
 :::
 
+---
+
+## (Optional) Step: Stream - Realtime Query
+
+In **Supabase**, when you need live-updating data, enable **Streams** in the table and run your query as a **Stream**.
+
+First, you need to select the table you want in the **Table Editor**. Then, you can enable **Stream queries** by clicking **Enable Realtime**, and then clicking **Enable Realtime** again.
+
+Now you can use **Nowa AI** to make **queries** as a **Stream**—just ask for it to be **Stream**.
+
 <video controls width="850">
-  <source src="/videos/supabase/db/create.webm" type="video/mp4" />
+  <source src="/videos/supabase/db/stream.webm" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 
 ---
 
 ## Step 2: Generate a query with Nowa AI
-
-:::note What is Queries?
-
-Queries are database requests, and the main types are: SELECT (retrieve data), INSERT (add data), UPDATE (modify data), and DELETE (remove data).
-
-:::
 
 We built Nowa AI to understand your database structure, so you don’t need to write SQL queries or remember column names, just use plain English, and Nowa will handle it for you.
 

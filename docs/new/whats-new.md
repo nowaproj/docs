@@ -7,6 +7,49 @@ title: "\ud83d\udcf0 What's new"
 
 ---
 
+### **3.0.8 (17 September 2025)**  
+Nowa 3.0.8 introduces **new templates, workflow improvements, and key fixes** to make your building experience smoother and more reliable.  
+Check all details in the [ChangeLog](./change-log.md).  
+
+---
+
+#### **Fixes & Improvements 🛠**  
+- 🧩 Added **new stunning templates** that match the quality of Nowa 3.0 — replacing the old ones with fresh, modern designs.  
+- 🎨 Removed the older way of changing themes to simplify the workflow.  
+- ⚠️ Error build design is now clearer and clickable, so you can quickly access build logs when needed.  
+- 📑 Added the option to **include cloud build logs** when submitting bug reports — making issue reporting faster and debugging easier.  
+
+---
+
+#### **Coming Soon 🔜**  
+- 🤖 A **new AI system** that feels smoother, produces better results, supports packages, writes custom code, and fixes issues automatically.  
+- ☁️ **Unified Local & Cloud projects** — no more choosing between them. You’ll get deploy, simulator testing, and hybrid workflows in one.  
+- 🎨 Any **AI output will soon be fully visually modifiable**, giving you total creative control.  
+- 🎥 **New tutorials**: building a **Movie App** and a **Mental Health App** using Supabase + ChatGPT.  
+- 📘 **Brand-new Docs** for Nowa 3.0.  
+
+➡️ If you encounter any issues, please report them using the **in-app Feedback** button — it helps us resolve problems faster.  
+
+---
+
+### **3.0.6 (9 September 2025)**  
+Nowa 3.0.6 is a stability-focused release, fixing several important issues to make building, previewing, and deploying your projects more reliable.  
+Check all fixes in the [ChangeLog](./change-log.md).  
+
+---
+
+#### **Coming Soon 🔜**  
+We’re preparing fresh resources and features to help you get the most out of Nowa 3.0:  
+
+- 🎥 **Video Tutorial:** Build a full AI-powered app with ChatGPT + Supabase that collects your mood and feelings, then analyzes them like an expert.  
+- 🎬 **Video Tutorial:** Build a beautiful Movie App from scratch using APIs.  
+- 📘 **New Docs** for Nowa 3.0 with a clearer structure and guides.  
+- ⚡ **Live Streaming AI Results** — watch the AI generate results in real time inside the builder.  
+
+➡️ If you encounter any issues, please report them using the **Feedback** button inside Nowa. This helps us quickly track and resolve problems.  
+
+---
+
 ### **3.0.4 (29 August 2025)**  
 Nowa 3.0.4 is a stability-focused release that resolves several important issues and makes the AI agent more reliable. Alongside the fixes, we’ve also added **new learning resources** to help you explore what’s possible with Nowa 3.0.  
 Check all details on the [ChangeLog](./change-log.md).  

@@ -2,11 +2,15 @@
 sidebar_position: 5
 ---
 
-# Streams
+# Stream
 
-## (Optional) Step: Stream - Realtime Query
+A **Stream** is a way to continuously listen for changes in your data instead of fetching it once.  
 
-In **Supabase**, you can enable Streams on a table (e.g., to-dos) to get real-time updates. When querying, run it as a **Stream** to keep your data live.
+Unlike a normal query, a stream stays *live*, so your app updates automatically when the underlying data changes.  
+
+---
+
+## 1. Enabling Stream in Supabase
 
 First, you need to select the table you want in the **Table Editor**. Then, you can enable **Stream queries** by clicking **Enable Realtime**, and then clicking **Enable Realtime** again.
 
@@ -15,6 +19,11 @@ First, you need to select the table you want in the **Table Editor**. Then, you 
   Your browser does not support the video tag.
 </video>
 
-Now you can use **Nowa AI** to make **queries** as a **Stream**—just ask for it to be **Stream**—and when running the query and updating the table, the panel will update live.
+---
+
+## 2. Nowa AI Stream Query
+
+Now you can use **Nowa AI** to make **queries** as a **Stream**. If you don't know how to make Supabase query [click here](.\db.md#step-2-generate-a-query-with-nowa-ai).
+
 
 ---

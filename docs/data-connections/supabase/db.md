@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# Database + RLS
+# Queries
 
 In this guide, we’ll walk through how to set up the database and configure Row Level Security. 
 
@@ -112,15 +112,15 @@ Click the **+** icon, enter **your prompt**, then click **Generate**.
   Your browser does not support the video tag.
 </video>
 
----
-
-## (Optional) Step: Modify generated code
+:::note Modify generated code
 
 Nowa also gives you control to fine-tune your queries.  
 
 You can **manually edit the code**, or you can **ask AI to modify it for you** if you want.
 
 ![](/img/supabase/editcode.png)
+
+:::
 
 ---
 

@@ -36,7 +36,11 @@ If you want to send data, you need to change the request to the **POST** method.
 
 ---
 
-## 3️. Add Authorization Header
+## 3. Adding Headers
+
+In the previous page, we wrote about headers. if you’re not familiar with them. [Click here](.\createapi.md#3-configure-the-headers) 
+
+### 3️.1 Add Authorization Header
 
 Most APIs need proof that you’re allowed to use them, so you need to add the line `Authorization: Bearer <your_token>` to the request header in this case — but this depends on which API you use.
 
@@ -49,8 +53,25 @@ Click Add header +, then set the key to `Authorization` and the value to `Bearer
 
 ---
 
-## 4️. Set Content-Type to JSON
-The backend need to know the *format* of the data you need.   
+### 3.2 Add Content-Type Header
+
+The **backend** need to know the **format** of the data you need.
+
+:::note Common API Content Types:
+
+The following list gives you an overview of the most commonly used formats.
+
+`application/json`  
+`application/xml`  
+`application/x-www-form-urlencoded`  
+`multipart/form-data`  
+`text/plain`  
+`application/yaml` (or `text/yaml`)  
+`application/protobuf`  
+`application/graphql`  
+:::
+
+In this example we show you how to use **Json**.
 
 Click Add header +, then set the key to `Content-Type` and the value to `application/json`.
 
@@ -58,7 +79,7 @@ Click Add header +, then set the key to `Content-Type` and the value to `applica
 
 ---
 
-## 5️. Create Input Parameter
+## 4. Create Input Parameter
 
 You can set up a **parameter** (e.g., `textinput`) that updates with whatever the user types instead of using a fixed value.
 
@@ -68,7 +89,7 @@ Switch to Body (since parameters go in the request body), click the plus icon, a
 
 ---
 
-## 6️. Insert Parameter into Request Body
+## 5. Insert Parameter into Request Body
 Inside the **body** of the request, you need to add **parameter**:  
 
 You can take the example from the API provider and simply update it by adding **your parameter names** inside `${}` wherever you need them.
@@ -94,7 +115,7 @@ Click Json, insert your json.
 
 ---
 
-## 7️. You can check out how it works
+## 6. You can check out how it works
 
 Click Test, enter a value for the parameter, and run the test.
 
@@ -102,7 +123,7 @@ Click Test, enter a value for the parameter, and run the test.
 
 ---
 
-## 8️. Build the Model
+## 7. Build the Model
 The response often contains a lot of data, but you only need the parts that matter, so here you can create a model that maps just the values you want to use in your app.
 
 #### Steps:
@@ -117,7 +138,7 @@ The response often contains a lot of data, but you only need the parts that matt
 
 ---
 
-## 9️. Create UI Elements (TextField & Button)
+## 8. Create UI Elements (TextField & Button)
 You need two elements: a text field where you can type your request, and a button that sends it.
 
     1. Close the API request window  
@@ -130,7 +151,7 @@ You need two elements: a text field where you can type your request, and a butto
 
 ---
 
-## 10. Connect Button to API Call
+## 9. Connect Button to API Call
 In this section, you will learn how to connect logic to the button.
 
 #### How you can do it
@@ -147,7 +168,7 @@ In this section, you will learn how to connect logic to the button.
 
 ---
 
-## 1️1️. Show API Result in Alert Dialog
+## 10. Show API Result in Alert Dialog
 
 The API sends back data, and you can show it in your application, for example in an Alert Dialog.
 
@@ -183,7 +204,7 @@ Since you know how the data model is built, you know exactly which part is requi
 
 ---
 
-## 1️2️. Review the Final Result
+## 11. Review the Final Result
 
 Time for the full test:  
 

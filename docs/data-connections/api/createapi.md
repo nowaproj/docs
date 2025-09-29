@@ -47,8 +47,20 @@ You click on the **Settings** icon, and then simply type your **Base URL**.
 
 ---
 
-### 3. Configure the Headers  
-If you tell the **API** to return **JSON**, it will give the data in a **structured format** that’s **easy to read** and **use in your app**.
+### 3. Configure the Headers
+
+:::info What is a **Header** ?
+
+**Header** is information included with an **API request** that tells the server about the **client** and how the **request should be processed**.
+
+**Headers** are used for things like **authentication**, **content type**, **response format**, **caching**.
+
+:::
+
+In this example, we show you how asking the **API** for **JSON** returns. 
+
+The data in a **structured format** that’s **easy to read** and **use in your app**.
+
 
 ```http
 Accept: application/json
@@ -100,7 +112,7 @@ A structured model makes it much easier to work with the data, since it converts
 
 ## 6. Binding the Data Model to the UI  
 
-Finally, you can bind the data model to a UI element, like an image.
+If you want to **inject data** into **your UI**, you need to **wrap your widget** in a **Data Builder** so you can access the data, and then you can **bind your data model** directly to your **UI element**, like **your image**.
 
 #### Here’s how:
 

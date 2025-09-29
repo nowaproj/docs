@@ -6,8 +6,9 @@ sidebar_position: 2
 
 In general, before your users can truly enjoy your app, they need a way to **sign up, log in, and log out safely**. Let’s go through it with you step by step.
 
-When you creating an Authentication page, you can use login templates or generate a custom login/signup screen with AI by including `SupabaseService` in your prompt.
-
+:::note
+When creating an **Authentication page**, you can attach `SupabaseService` to your prompt and let the AI generate a **custom login/signup screen**, instead of building it from scratch.
+:::
 
 ---
 
@@ -50,6 +51,7 @@ Next, let’s design the **login page** together. We Keep it simple for you:
 - Password field  
 - Login button  
 
+<!--
 :::info
 Here’s where **controllers** come in handy:  
 - They let you read what the user types,  
@@ -57,6 +59,8 @@ Here’s where **controllers** come in handy:
 - Listen for changes,  
 - And rename them for clarity (for example: `text` → `username`).  
 :::
+-->
+
 
 #### 1. Add an **Email Text Field**
 - Open the **Widgets panel**.  

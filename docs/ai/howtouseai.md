@@ -17,6 +17,10 @@ To begin your conversation with **Nowa AI**, you just click on the chat icon in 
 
 ---
 
+# Attachements
+
+We built the AI to know where to find what you want to change, but if you know where to find it, attaching it makes the outcome more precise.
+
 # Smart Selection & Context
 
 When you click on a screen or widget in your app, it’s automatically added as context to your AI conversation.  
@@ -27,15 +31,12 @@ For example, if you select a text or an icon in the widget tree, the AI panel wi
 
 <video src="/videos/ai/target.webm" controls width="100%" />
 
----
+## Attaching Screens
 
-# Attachements
+Just like **smart selection and context**, you can attach screens to give the AI more detail.  
 
-We built the AI to know where to find what you want to change, but if you know where to find it, attaching it makes the outcome more precise.
+The difference is that here you can **attach multiple full screens** — but **individual widgets can’t be attached this way**.
 
-## Attaching Screens and Widgets
-
-If **smart selection and context** aren’t enough for you, you can attach a whole screen or just one widget. The AI will apply your changes there in the same way — it’s just handy when you want a bit more detail than the main context.
 
 Simply click the **Attach** button in the AI chat panel, then pick what you’d like to attach.  
 

@@ -18,6 +18,48 @@ Queries are database requests, and the main types are: SELECT (retrieve data), I
 
 :::
 
+:::note SELECT – retrieve data
+You can use **SELECT** when you want to **get information** from one or more tables.  
+```sql
+-- You want to show all students in your class 10A
+SELECT id, name, class
+FROM students
+WHERE class = '10A';
+```
+
+:::
+
+:::note INSERT – add data
+You can use **INSERT** when you need to **add new records** into your table.  
+```sql
+-- You want to add a new student record
+INSERT INTO students (name, class, phone)
+VALUES ('Ada Lovelace', '10A', '555-0100');
+```
+
+:::
+
+:::note UPDATE – modify data
+You can use **UPDATE** when you want to **change values** that are already in your table.  
+```sql
+-- You want to fix a student’s phone number
+UPDATE students
+SET phone = '555-0199'
+WHERE id = 42;
+```
+
+:::
+
+:::note DELETE – remove data
+You can use **DELETE** when you want to **remove rows** from your table.  
+```sql
+-- You want to Delete a student once you no longer need their record
+DELETE FROM students
+WHERE id = 42;
+```
+
+:::
+
 ---
 
 ## Step 1: Create the table & security policies
@@ -111,6 +153,10 @@ Click the **+** icon, enter **your prompt**, then click **Generate**.
   <source src="/videos/supabase/db/ai.webm" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
+
+You can see an icon next to the query name that shows the type of query
+
+![](/img/supabase/queries.png)
 
 :::note Modify generated code
 

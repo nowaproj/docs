@@ -28,7 +28,7 @@ Now you can use **Nowa AI** to make **queries** as a **Stream**. If you don't kn
 ## 3. See Result
 
 :::note
-On the left side, you can see different icons that indicate whether a query is a **Stream**N or a **Select**N query.
+On the left side, you can see different icons that indicate whether a query is a **Stream** or a **Select** query.
 
 ![Supabase Stream](\img\supabase\stream.png)
 

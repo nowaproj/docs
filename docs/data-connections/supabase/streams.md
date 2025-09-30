@@ -27,12 +27,29 @@ Now you can use **Nowa AI** to make **queries** as a **Stream**. If you don't kn
 
 ## 3. See Result
 
-:::note
+:::note 
+
 On the left side, you can see different icons that indicate whether a query is a **Stream** or a **Select** query.
 
 ![Supabase Stream](\img\supabase\stream.png)
 
+:::
+
+:::note
+
+If your query is a **Stream query**, you’ll notice a yellow icon and yellow border lines.
+
+![Supabase Stream](\img\supabase\stream2.png)
+
+![Supabase Stream](\img\supabase\insert2.png)
 
 :::
+
+Click your **Stream query**, then **Run**.
+
+<video controls width="850">
+  <source src="/videos/supabase/db/stream2.webm" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
 
 ---

@@ -4,9 +4,7 @@ sidebar_position: 5
 
 # Stream
 
-A **Stream** is a way to continuously listen for changes in your data instead of fetching it once.  
-
-Unlike a normal query, a stream stays *live*, so your app updates automatically when the underlying data changes.  
+In this section, we’ll look at how **Streams** let your app stay *live* by continuously listening for changes and updating automatically as the data evolves.
 
 ---
 
@@ -25,5 +23,16 @@ First, you need to select the table you want in the **Table Editor**. Then, you 
 
 Now you can use **Nowa AI** to make **queries** as a **Stream**. If you don't know how to make Supabase query [click here](.\db.md#step-2-generate-a-query-with-nowa-ai).
 
+---
+
+## 3. See Result
+
+:::note
+On the left side, you can see different icons that indicate whether a query is a **Stream**N or a **Select**N query.
+
+![Supabase Stream](\img\supabase\stream.png)
+
+
+:::
 
 ---

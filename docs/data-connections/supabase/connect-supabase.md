@@ -8,7 +8,7 @@ Welcome! Let’s get your app connected to Supabase — an open-source toolkit t
 
 ---
 
-## Connect to Supabase
+## Ways to Connect
 
 You can connect Nowa to Supabase either automatically—by selecting an existing Supabase project or creating a new one in Nowa—or manually, by choosing your project in Supabase and entering the URL and API key in Nowa.
 

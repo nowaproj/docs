@@ -9,7 +9,12 @@ Welcome! Let’s get your app connected to Supabase — an open-source toolkit t
 ---
 
 ## 1️. Connect to Supabase
-Connecting to Supabase is easy — We does the heavy lifting automatically for you.  
+
+You can connect Nowa to Supabase in two ways: either automatically, where it retrieves your project URL and API key, or manually, where you enter them yourself.
+
+## Automatically 
+
+In this way, you give Nowa permission to access your Supabase project URL and API key.
 
 Here’s how can you do it:  
 1. On the **left side panel**, click the **Supabase icon**.  
@@ -19,6 +24,29 @@ Here’s how can you do it:
 
 <video controls width="850">
   <source src="/videos/supabase/1.webm" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+
+## Manually
+
+In this way, you need to manually add your Supabase URL and API key.
+
+:::warning
+If you do it this way, you don’t give Nowa permission to access your projects, so it won’t show a window where you can create a new project from Nowa.
+
+![](/img/supabase/manual.jpg)
+
+:::
+
+Here’s how can you do it:
+
+1. On the **left side panel**, click the **Supabase icon**.  
+2. Press the **Use keys** button.  
+3. In the Supabase Dashboard, go to **Connect → App framework** and copy the URL and key.  
+4. Click the **Connect** button.  
+
+<video controls width="850">
+  <source src="/videos/supabase/connectmanual.webm" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 
@@ -49,8 +77,6 @@ Here’s how you can:
   <source src="/videos/supabase/createproject.webm" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
-
----
 
 ### 🅱️ Connect an existing project    
 Simply choose your project from the list and click the **Select** button.

@@ -4,21 +4,25 @@ sidebar_position: 3
 
 # Queries
 
-In this guide, we’ll walk through how to set up the database and configure Row Level Security. 
+In this guide, we’ll walk through how to set up your database and configure Row Level Security. 
 
-:::note What is Row Level Security (RLS)?
+---
+
+## What is Queries?
+
+Queries are how you interact with your Supabase database to fetch or update information. They define what data you want and how it’s made available in your app’s frontend.
+
+---
+
+## What is Row Level Security (RLS)?
 
 RLS is used to enforce policies that determine who can view, add, edit, or delete records in a table. 
 
-:::
+---
 
-:::note What is Queries?
+## Most Frequently Used Queries
 
-Queries are database requests, and the main types are: SELECT (retrieve data), INSERT (add data), UPDATE (modify data), and DELETE (remove data).
-
-:::
-
-:::note SELECT – retrieve data
+### SELECT – retrieve data
 You can use **SELECT** when you want to **get information** from one or more tables.  
 ```sql
 -- You want to show all students in your class 10A
@@ -27,9 +31,7 @@ FROM students
 WHERE class = '10A';
 ```
 
-:::
-
-:::note INSERT – add data
+### INSERT – add data
 You can use **INSERT** when you need to **add new records** into your table.  
 ```sql
 -- You want to add a new student record
@@ -37,9 +39,7 @@ INSERT INTO students (name, class, phone)
 VALUES ('Ada Lovelace', '10A', '555-0100');
 ```
 
-:::
-
-:::note UPDATE – modify data
+### UPDATE – modify data
 You can use **UPDATE** when you want to **change values** that are already in your table.  
 ```sql
 -- You want to fix a student’s phone number
@@ -48,9 +48,7 @@ SET phone = '555-0199'
 WHERE id = 42;
 ```
 
-:::
-
-:::note DELETE – remove data
+### DELETE – remove data
 You can use **DELETE** when you want to **remove rows** from your table.  
 ```sql
 -- You want to Delete a student once you no longer need their record
@@ -58,13 +56,11 @@ DELETE FROM students
 WHERE id = 42;
 ```
 
-:::
-
 ---
 
 ## Step 1: Create the table & security policies
 
-You need to create a table that will store todos.  
+If you need to create a table that will store todos.  
 
 We created an example for you that builds a table with automatic IDs and timestamps, and sets up security so every user can only manage their own todos.
 
@@ -100,17 +96,22 @@ CREATE POLICY "Users can delete their own todos." ON todos
   Your browser does not support the video tag.
 </video>
 
-:::note
+:::note Other ways to do:
+
 You don’t always have to write SQL queries — you can also create tables visually or even let Supabase AI help you out!
 
-Supabase AI:
+#### Supabase AI:
+
+Click **AI Assistant**, type what you want it to do, click **Run Query** then **Run**, and go to the **Table Editor** to check the results.
 
 <video controls width="850">
   <source src="/videos/supabase/db/supabaseai.webm" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 
-Create table visually:
+#### Create table visually:
+
+Open the **Table Editor**, click **New Table**, enter a name, adjust the required settings, and click **Save**.  
 
 <video controls width="850">
   <source src="/videos/supabase/db/visual.webm" type="video/mp4" />
@@ -120,24 +121,41 @@ Create table visually:
 
 ---
 
-## Step 2: Generate a query with Nowa AI
+## Step 2: Generate a query
 
 We built Nowa AI to understand your database structure, so you don’t need to write SQL queries or remember column names, just use plain English, and Nowa will handle it for you.
 
+Click the **+** icon, enter **your prompt**, then click **Generate**.
+
+### Single query or multiple queries
+
+You can choose whether to generate a single query or multiple queries at the same time.
+
+#### Single query
+
+You can generate single query at same time.
 
 **Example prompt:**  
 > “Generate a query to add a task for a user.”
-
-:::warning Important
-You need to be **signed in** to run queries (because RLS checks your identity).  
-:::
-
-Click the **+** icon, enter **your prompt**, then click **Generate**.
 
 <video controls width="850">
   <source src="/videos/supabase/db/ai.webm" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
+
+#### Multiple queries
+
+You can generate multiple queries at same time.
+
+**Example prompt:**  
+> “Create queries for updating a task, marking it as done, and deleting.”  
+
+<video controls width="850">
+  <source src="/videos/supabase/db/multiquery.webm" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+
+### Generated Queries
 
 You can see an icon next to the query name that shows the type of query
 
@@ -155,40 +173,38 @@ You can **manually edit the code**, or you can **ask AI to modify it for you** i
 
 ---
 
-## Step 3: Run your first query
+## Step 3: Test your query
 
 You can try out your query.
 
 Click on your generated query, add a value to the required field, and then click on the **Play** button.   
 
-Check your Supabase table — you’ll see the new row in the table editor.
+:::warning Important
+You need to be **signed in** to run queries (because RLS checks your identity).  
+:::
+
+Check your **Supabase table** to see the changes in the **Table editor**.
+
+### Examples:
+
+These examples help you understand how to run a query.
+
+#### Example 1: Add Task
+
+You can add a task, here’s how: 
+
+Click on **addTask**, enter **'Buy milk'** in the task field, and then click the **Play** button.
 
 <video controls width="850">
   <source src="/videos/supabase/db/addtask.webm" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 
----
-
-## Step 4: Generate multiple queries 
-
-You can generate multiple queries with one prompt.
-
-**Example prompt:**  
-> “Create queries for updating a task, marking it as done, and deleting.”  
-
-<video controls width="850">
-  <source src="/videos/supabase/db/multiquery.webm" type="video/mp4" />
-  Your browser does not support the video tag.
-</video>
-
----
-
-## Step 5: Update a task
+#### Example 2: Update task
 
 You can change a task, here’s how:  
 
-Click on the `updateTask` query, copy the `taskID` from the Supabase table, add the new task, and then click the **Play** button.
+Click on the **updateTask** query, copy the `taskID` from the **Supabase table**, add the new task, and then click the **Play** button.
 
 <video controls width="850">
   <source src="/videos/supabase/db/updatequery.webm" type="video/mp4" />

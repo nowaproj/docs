@@ -10,7 +10,7 @@ Welcome! Let’s get your app connected to Supabase — an open-source toolkit t
 
 ## Connect to Supabase
 
-You can connect Nowa to Supabase in two ways: either automatically, where it retrieves your project URL and API key, or manually, where you enter them yourself.
+You can connect Nowa to Supabase either automatically—by selecting an existing Supabase project or creating a new one in Nowa—or manually, by choosing your project in Supabase and entering the URL and API key in Nowa.
 
 ### Automatically 
 
@@ -29,8 +29,11 @@ Here’s how can you do it:
 
 Great! Now you can either start fresh with a new project or continue with one you already have.
 
-- **Start a new Supabase project**: Perfect if you want to start fresh with a clean database.
+#### Use Cases
 
+We try to help you by giving ideas about which option to use and when to use it.
+
+- **Start a new Supabase project**: Perfect if you want to start fresh with a clean database.
 - **Connect an existing project**: Best if you already have a Supabase project and want to keep building on top of it.
 
 

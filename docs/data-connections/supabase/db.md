@@ -96,7 +96,7 @@ CREATE POLICY "Users can delete their own todos." ON todos
   Your browser does not support the video tag.
 </video>
 
-:::note Other ways to do:
+Other ways to do:
 
 You don’t always have to write SQL queries — you can also create tables visually or even let Supabase AI help you out!
 
@@ -117,7 +117,6 @@ Open the **Table Editor**, click **New Table**, enter a name, adjust the require
   <source src="/videos/supabase/db/visual.webm" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
-:::
 
 ---
 
@@ -161,15 +160,13 @@ You can see an icon next to the query name that shows the type of query
 
 ![](/img/supabase/queries.png)
 
-:::note Modify generated code
+### Modify generated code
 
 Nowa also gives you control to fine-tune your queries.  
 
 You can **manually edit the code**, or you can **ask AI to modify it for you** if you want.
 
 ![](/img/supabase/editcode.png)
-
-:::
 
 ---
 

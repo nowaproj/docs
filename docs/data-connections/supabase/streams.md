@@ -38,12 +38,14 @@ Click your **Stream query**, then **Run**.
   Your browser does not support the video tag.
 </video>
 
-If your query is a **Stream query**, you’ll notice a yellow icon and yellow border lines.
+If your query is a **Stream query**, you’ll notice a yellow Stream word and yellow border lines.
 
 ![Supabase Stream](\img\supabase\stream2.png)
 
+:::note
 How non-Stream query looks like:
 
 ![Supabase Stream](\img\supabase\insert2.png)
+:::
 
 ---

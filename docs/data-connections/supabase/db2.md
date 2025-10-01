@@ -173,7 +173,7 @@ You can **manually edit the code**, or you can **ask AI to modify it for you** i
 
 ---
 
-## Step 3: Run your first query
+## Step 3: Test your query
 
 You can try out your query.
 
@@ -183,20 +183,28 @@ Click on your generated query, add a value to the required field, and then click
 You need to be **signed in** to run queries (because RLS checks your identity).  
 :::
 
-Check your Supabase table — you’ll see the new row in the table editor.
+Check your **Supabase table** to see the changes in the **Table editor**.
+
+### Examples:
+
+These examples help you understand how to run a query.
+
+#### Example 1: Add Task
+
+You can add a task, here’s how: 
+
+Click on **addTask**, enter **'Buy milk'** in the task field, and then click the **Play** button.
 
 <video controls width="850">
   <source src="/videos/supabase/db/addtask.webm" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 
----
-
-## Step 4: Update a task
+#### Example 2: Update task
 
 You can change a task, here’s how:  
 
-Click on the `updateTask` query, copy the `taskID` from the Supabase table, add the new task, and then click the **Play** button.
+Click on the **updateTask** query, copy the `taskID` from the **Supabase table**, add the new task, and then click the **Play** button.
 
 <video controls width="850">
   <source src="/videos/supabase/db/updatequery.webm" type="video/mp4" />

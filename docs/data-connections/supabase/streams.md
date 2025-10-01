@@ -21,29 +21,15 @@ First, you need to select the table you want in the **Table Editor**. Then, you 
 
 ## 2. Nowa AI Stream Query
 
-Now you can use **Nowa AI** to make **queries** as a **Stream**. If you don't know how to make Supabase query [click here](.\db.md#step-2-generate-a-query-with-nowa-ai).
+You can now use **Nowa AI** to create queries as a *Stream* — just include in your prompt that you want it to be a **stream query**. 
+
+If you don't know how to make Supabase query [click here](.\db.md#step-2-generate-a-query-with-nowa-ai).
 
 ---
 
 ## 3. See Result
 
-:::note 
-
 On the left side, you can see different icons that indicate whether a query is a **Stream** or a **Select** query.
-
-![Supabase Stream](\img\supabase\stream.png)
-
-:::
-
-:::note
-
-If your query is a **Stream query**, you’ll notice a yellow icon and yellow border lines.
-
-![Supabase Stream](\img\supabase\stream2.png)
-
-![Supabase Stream](\img\supabase\insert2.png)
-
-:::
 
 Click your **Stream query**, then **Run**.
 
@@ -51,5 +37,13 @@ Click your **Stream query**, then **Run**.
   <source src="/videos/supabase/db/stream2.webm" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
+
+If your query is a **Stream query**, you’ll notice a yellow icon and yellow border lines.
+
+![Supabase Stream](\img\supabase\stream2.png)
+
+How non-Stream query looks like:
+
+![Supabase Stream](\img\supabase\insert2.png)
 
 ---

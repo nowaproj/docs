@@ -6,9 +6,7 @@ sidebar_position: 2
 
 In general, before your users can truly enjoy your app, they need a way to **sign up, log in, and log out safely**. Let’s go through it with you step by step.
 
-:::note
 When creating an **Authentication page**, you can attach `SupabaseService` to your prompt and let the AI generate a **custom login/signup screen**, instead of building it from scratch.
-:::
 
 ---
 
@@ -16,7 +14,7 @@ When creating an **Authentication page**, you can attach `SupabaseService` to yo
 
 You click on the **chat panel icon** on the left, write a prompt, attach by selecting **SupabaseService** from the list, and then click the **send icon**.
 
-To try it out, you click on the widget icon on the left side, go to the login page, and then click on the play button.
+To try it out, you click on the **widget icon** on the **left side**, go to the **login page**, and then click on the **Play** button.
 
 <video controls width="850">
   <source src="/videos/supabase/auth/ai.webm" type="video/mp4" />
@@ -29,12 +27,12 @@ To try it out, you click on the widget icon on the left side, go to the login pa
 
 First, you can test the registration process to confirm everything works correctly with **Supabase**.
 
-If you’d like to try it out, simply click the signUp button.
+If you’d like to try it out, simply click the **signUp** button.
 Next, enter your test email and password in the fields we provided for you.
-When you’re ready, just click the Run button
+When you’re ready, just click the **Run** button
 
-:::warning
- Supabase will send you a verification email. Make sure to click the link inside, or you won’t be able to log in.
+:::note
+ **Supabase** will send you a verification email. Make sure to **click the link** inside, or you won’t be able to log in.
 :::
 
 <video controls width="850">
@@ -46,7 +44,7 @@ When you’re ready, just click the Run button
 
 ### 2️. UI Design for Login Page
 
-Next, let’s design the **login page** together. We Keep it simple for you:  
+Now, let’s design the login page together. It will include:::  
 - Email field  
 - Password field  
 - Login button  
@@ -70,7 +68,7 @@ Here’s where **controllers** come in handy:
 - Rename its **controller** to something clear, like `username`.  
 
 :::note
-In this case, **username** and **email** are the same thing.
+In this case, the username and email are the same, since in Supabase the username defaults to the user’s email address.
 :::
 
 #### 2. Add a **Password Text Field**

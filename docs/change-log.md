@@ -9,6 +9,15 @@ Here’s the **Changelog** for Nowa v2.0.20 in markdown format:
 
 ---
 
+## **3.0.9 (19 September 2025)**
+
+#### **Fixed 🩹**  
+- Scale plan now shows the **actual credit number** instead of displaying 99+.  
+- Fixed issue where **adding headers stopped working** after changing the API type.  
+- Fixed issue with **attachments taking long to appear in the chat**.  
+
+---
+
 ## **3.0.8 (17 September 2025)**
 
 #### **Fixed 🩹**  

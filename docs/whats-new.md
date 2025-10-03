@@ -8,6 +8,12 @@ description: What's new
 
 ---
 
+### **3.0.9 (19 September 2025)**  
+Nowa 3.0.9 is a small but important update focused on **fixing some issues** that improve reliability and usability.  
+Check all fixes in the [ChangeLog](./change-log.md).  
+
+---
+
 ### **3.0.8 (17 September 2025)**  
 Nowa 3.0.8 introduces **new templates, workflow improvements, and key fixes** to make your building experience smoother and more reliable.  
 Check all details in the [ChangeLog](./change-log.md).  

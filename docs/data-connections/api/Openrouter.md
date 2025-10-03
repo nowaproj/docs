@@ -38,7 +38,7 @@ If you want to send data, you need to change the request to the **POST** method.
 
 ## 3. Adding Headers
 
-In the previous page, we wrote about headers. if you’re not familiar with them. [Click here](.\createapi.md#3-configure-the-headers) 
+In the previous page, we wrote about headers. if you're not familiar with them. [Click here](./createapi.md#3-configure-the-headers) 
 
 ### 3️.1 Add Authorization Header
 

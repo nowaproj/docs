@@ -134,6 +134,6 @@ This option is great if you want to:
 - Keep your data private.  
 - Test things in a safe, controlled way.  
 
-For a detailed guide, see [Creating Local Projects](..\local-project-simulator\createlocalproject.md).  
+For a detailed guide, see [Creating Local Projects](../local-project-simulator/createlocalproject.md).  
 
 ---

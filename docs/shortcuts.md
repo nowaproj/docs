@@ -1,6 +1,5 @@
 ---
-sidebar_position: 15
-title: Keyboard shortcuts 
+title: "\u2328\ufe0f Keyboard shortcuts"
 ---
 
 # Keyboard shortcuts

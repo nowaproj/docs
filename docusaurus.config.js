@@ -15,6 +15,10 @@ const config = {
   tagline: 'The official Documentation for Nowa',
   favicon: 'img/favicon.ico',
 
+  stylesheets: [
+    "https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css",
+  ],
+
   // Set the production url of your site here
   url: 'https://docs.nowa.dev/',
   // Set the /<baseUrl>/ pathname under which your site is served
@@ -30,7 +34,12 @@ const config = {
   deploymentBranch: 'gh-pages',
 
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+
+  markdown: {
+  hooks: {
+    onBrokenMarkdownLinks: 'warn',
+  },
+},
 
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want

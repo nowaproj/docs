@@ -23,7 +23,7 @@ First, you need to select the table you want in the **Table Editor**. Then, you 
 
 You can now use **Nowa AI** to create queries as a *Stream* — just include in your prompt that you want it to be a **stream query**. 
 
-If you don't know how to make Supabase query [click here](./db.md#step-2-generate-a-query-with-nowa-ai).
+If you don't know how to make Supabase query [click here](./db.md#step-2-generate-a-query).
 
 ---
 

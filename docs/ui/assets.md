@@ -1,6 +1,6 @@
 ---
 sidebar_position: 5
-title: Assets
+title: "Assets \ud83d\udcc1"
 description: Importing images, fonts and other assets into your project
 
 ---

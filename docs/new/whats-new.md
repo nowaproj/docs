@@ -1,5 +1,5 @@
 ---
-title: "\ud83d\udcf0 What's new"
+title: "What's new"
 ---
 # 📰 What's new 
 

@@ -1,5 +1,5 @@
 ---
-title: "\u2328\ufe0f Keyboard shortcuts"
+title: "Keyboard shortcuts"
 ---
 
 # Keyboard shortcuts

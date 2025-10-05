@@ -1,5 +1,5 @@
 ---
-title: "\ud83d\udcdc Changelog"
+title: "Changelog"
 ---
 
 > Detailed log of all updates, improvements, and bug fixes for each version.

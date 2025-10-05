@@ -1,6 +1,6 @@
 ---
 sidebar_position: 7
-title: "Assets 📁"
+title: "Assets"
 description: Learn how to import, manage, and organize your assets such as images, fonts, and videos in Nowa.
 ---
 

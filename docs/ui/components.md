@@ -1,6 +1,6 @@
 ---
 sidebar_position: 8
-title: "Components 🔧"
+title: "Components"
 description: Create reusable UI components to maintain consistent design across your app.
 ---
 

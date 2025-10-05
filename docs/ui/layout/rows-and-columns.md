@@ -1,61 +1,80 @@
 ---
 sidebar_position: 4
 title: Columns and Rows
+description: Learn how to organize your widgets in Columns and Rows to create responsive layouts in Nowa.
+---
+
+Columns and Rows are essential tools in Nowa’s layout system.  
+They let you organize widgets horizontally or vertically, making your design adaptable across different screen sizes — automatically.
+
+By grouping widgets into a **Column** or **Row**, you can control their spacing, alignment, resizing, and order easily from the **Details panel**.
+
+![](/img/designer/direction.png)
 
 ---
 
-# Columns and Rows
+:::tip[Container becomes a wrapper when grouping]
+If you select multiple widgets that already have a container beneath them and turn that selection into a **Group**, **Column**, or **Row**, the container will automatically act as a **wrapper**, giving your new layout a background fill color.
+:::
 
-Nowa's layout options allow you to create any design that can adapt automatically by organizing them in columns and rows.
-
-You can distribute objects in a column or a row by grouping them and then selecting the direction you want from the details panel.  [↓]  [→]
-
-💡Tip: If you select items with a container below them and turn the selection into a group/column/row, the container below will become a wrapper that gives a fill color to your group/column/row.
+---
 
 ### Alignment
-You can choose the alignment of your objects inside the column or row. The alignment options depend on the direction in which your objects are distributed. 
-To control the alignment of the objects, select the parent column or row and select one of the nine options inside the alignment box.
 
-![](./img/alignment-9.gif)
+Alignment determines how your widgets are positioned inside the column or row.
 
-If you selected the spacing to be something other than fixed, then your alignment options will be 3 for each direction.
-- Column: Top, Center, Bottom.
-- Row: Left, Center, Right.
+When you select a **Column** or **Row**, you’ll find alignment controls in the **Details panel**.  
+Depending on your layout direction, you’ll see a grid of **nine alignment options** (for both axes).
 
-![](./img/alignment-3.gif)
+![](/img/designer/alignment-9.gif)
 
+If your spacing mode isn’t set to **Fixed**, the alignment options simplify to **three** per direction:
+
+- **Column:** Top, Center, Bottom  
+- **Row:** Left, Center, Right  
+
+![](/img/designer/alignment-3.gif)
+
+---
 
 ### Spacing
-You can determine the spacing behavior between the objects inside the column or row. It is possible to choose between four options:
 
-**Fixed** → manually set the space to be a specific number/value.
+Spacing defines how much space appears between the widgets inside a Column or Row.  
+You can choose from four spacing behaviors:
 
-**Between** → evenly distributes space items between the first item is set at the start of the container, and the last item is set at the end.
-
-**Around** → places items with space distributed evenly around the start and end of the list.
-
-**Evenly** → spaces items such that they have equal amounts of space before and after them.
+- **Fixed** → Set a specific, manual value for spacing.  
+- **Between** → Distribute items evenly, with the first at the start and the last at the end.  
+- **Around** → Add equal space around each item, including before the first and after the last.  
+- **Evenly** → Apply equal spacing between and around all items.
 
 ![](./img/spacing.png)
 
+
+---
+
 ### Resizing
-The layout feature offers you the possibility to change the resizing options and control the dimensions of parents and children.
-You can apply the resizing setting on both the X and Y axes using the dedicated drop-down menu.
 
-![](./img/resizing-options.png)
+Nowa lets you control how both **parents** (columns/rows) and **children** resize along the X and Y axes.  
+You can adjust this in the **Resizing** section of the Details panel.
 
-You can choose between three options: Fixed, Auto, and Expand.
+![](/img/designer/sizing-options.png)
 
-**Fixed** → When the width or height of a column/row is set to **Fixed**, it means that the value remains the same regardless of the content's size inside them, and it will not change if the children inside change. 
-The same will be the behavior of children inside a column/row if their width or height is set to Fixed.
+There are three resizing modes:
 
-**Auto** → When the column/row size is set to Auto, it will resize itself to surround the children.
-If there is a padding set, the column/row will maintain it. 
+- **Fixed** → Keeps the width or height constant, regardless of the content inside.  
+  The size won’t change even if the children grow or shrink.  
 
+- **Auto** → Automatically adjusts the size of the column or row to fit its children.  
+  If padding is set, the layout maintains that padding around its contents.  
 
-**Expand** → The children inside a column/row can have their width and height value set to Expand. When this option is selected, the child will stretch its width/height in order to fill the size of its parent. 
+- **Expand** → Allows a child widget to stretch and fill all available space in its parent column or row.  
+  Useful for layouts where certain widgets need to take up all remaining space.
+
+---
 
 ### Reordering
-You can rearrange your widgets inside a column or a row by easy drag and dropping them from inside the column/row or by reordering them in the details panel.
 
-![](./img/reordering.gif)
+You can easily rearrange the widgets inside a Column or Row by dragging and dropping them directly on the canvas,  
+or by reordering them through the **Details panel**.
+
+![](/img/designer/reordering.gif)

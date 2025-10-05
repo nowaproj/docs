@@ -1,6 +1,6 @@
 ---
 sidebar_position: 2
-title: "Toolbar 🧰"
+title: "Toolbar"
 description: Learn how to use the main toolbar in Nowa to design your app.
 ---
 

@@ -65,10 +65,6 @@ Welcome to Nowa, the place to build great Flutter apps fast with much fun.
     <p>Here you will find quick tutorials on accomplishing important tasks on Nowa.</p>
   </Link>
 
-   <Link to="category/troubleshooting--faq" className={styles.card}>
-    <h3>Troubleshooting & FAQ</h3>
-    <p>Find answers to common questions and solutions to common problems.</p>
-  </Link>
 
    <Link to="category/whats-new" className={styles.card}>
     <h3>What's New</h3>

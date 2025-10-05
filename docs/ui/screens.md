@@ -75,10 +75,10 @@ Each screen has a set of properties you can view and edit in the **Details panel
 1. **Name** — Shows the screen name. You can rename it by clicking the **rename** button.  
 2. **Open in a new tab** — Opens the screen as a separate file tab.  
 3. **Layout** — Lets you change the screen’s position and size.  
-4. **Group** — Screens are set to **Stack** by default. You can change the layout of its widgets to a **Column** or **Row**. Learn more in [Layout](./layout/).  
+4. **Group** — Screens are set to **Stack** by default. You can change the layout of its widgets to a **Column** or **Row**. Learn more in [Layout](./layout/intro-layout).  
 5. **Screen** — This wrapper defines the screen. If you remove it, the selected widget will no longer be a screen.  
 6. **Color** — Changes the background color of the selected screen.  
 7. **Navigation** — Add navigation widgets such as `Appbar`, `Floating action`, `Drawer`, or `Bottom navigation`.  
 8. **Size** — Adjust the screen size or pick a preset size.  
 9. **Make Home Screen** — Sets this screen as the **home screen**, making it the first one shown when the app runs.  
-10. **Wrappers** — Add wrappers to your screen for extra layout control. Learn more in [Wrappers](./wrappers/).
+10. **Wrappers** — Add wrappers to your screen for extra layout control. Learn more in [Wrappers](./wrappers/wrappers-intro).

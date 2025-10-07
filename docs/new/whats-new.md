@@ -7,6 +7,39 @@ title: "What's new"
 
 ---
 
+### **3.0.10 (7 October 2025)**  
+We excited to introduce two powerful new features — **Notifications** and **Supabase Storage** — plus a brand-new syncing system between Nowa and your code files, that makes building smoother than ever.  
+
+#### **New in This Version ✨**
+- 🔔 **Firebase Notifications:**  
+  You can now offer **real-time notifications** in your app with few clicks! Once you connect your project to Firebase, you can send messages from the Firebase panel, from Nowa, or even through APIs like Supabase Cloud Functions. Enable it from Firebase settings in your project.
+
+- ☁️ **Supabase Storage:**  
+  You can now **store and retrieve files** from Supabase Storage — this, along side using Supabase Auth and tables in your app, makes it possible to build a full functional apps where data and assets are binded to specific users.  
+
+- 🔄 **Smarter Code Sync:**  
+  The new sync system makes working with code feel seamless.  
+  Every change updates instantly in your UI without the board refreshing or repositioning for items, make it feel super natual to work with code files alongside Nowa  
+
+#### **Content 📚**
+- 📘 **Docs for Nowa 3.0 are Live!**  
+  The documentation has been fully updated to focus on Nowa 3.0, with also new sections regarding using Nowa AI, APIs, Supabase, local projects, and more.  
+  👉 Explore it here: [docs.nowa.dev](https://docs.nowa.dev)  
+
+- 🎥 **New Tutorial:**  
+  Learn how to build a beautiful **Movie App** using Nowa and APIs — [Watch Part 1](https://www.youtube.com/watch?v=COpngAiqm0o). You can [try the app yourself here]()
+
+#### **Coming Soon 🔮**
+- 🚀 **Nowa 3.1:** Our biggest update since 3.0 — featuring a more stable AI, restore points, chat history, a token-based credit system, and instant Cloud + Local sync.  
+- 🌟 **Showcase Page:** Discover real apps built with Nowa, complete with live demos.  
+- 🏢 **Agency Program:** Special deals and support for development agencies — reach out to `team@nowa.dev` to know more!  
+
+➡️ If you encounter any issues, please report them using the **in-app Feedback** button — it helps us improve it for you pretty fast.  
+
+
+---
+
+
 ### **3.0.9 (19 September 2025)**  
 Nowa 3.0.9 is a small but important update focused on **fixing some issues** that improve reliability and usability.  
 Check all fixes in the [ChangeLog](./change-log.md).  

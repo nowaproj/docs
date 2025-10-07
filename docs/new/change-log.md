@@ -4,7 +4,31 @@ title: "Changelog"
 
 > Detailed log of all updates, improvements, and bug fixes for each version.
 
-Here’s the **Changelog** for Nowa v2.0.20 in markdown format:
+---
+
+## **3.0.10 (7 October 2025)**
+
+#### **Added 🌟**  
+- **Firebase Cloud Messaging** support — enable notifications from your project settings and send them from Firebase, Nowa, or any API (like Supabase Cloud Functions).  
+- **Supabase Storage** integration — upload, store, and retrieve files directly from Supabase.  
+- **New Code Sync System** — edits in code now sync instantly with the UI without refreshing or repositioning the board.  
+
+#### **Fixed 🩹**  
+- Nullability issues that caused build errors in certain cases.  
+- Crashes when using lists of widgets as variables in screens or components.  
+- AI expressions not working properly when used as return values.  
+- Cases where AI-generated UIs couldn’t be selected or modified.  
+- AI errors when performing actions on specific widgets.  
+- “Not defined” AI generation issues with elements like `RadioListTile`, `SliverPadding`, `DropdownButtonHideUnderline`, and `SliverGrid`.  
+- Preview issues with the Image widget caused by mock images on the board.  
+- Editing issues with index expressions such as `List[0]` in the details panel.  
+- Errors caused by `WidgetStateProperty` breaking the Switch widget.  
+
+#### **Improved ⚙️**  
+- Overall AI stability and error handling for rendering issues — only the affected widget now shows an error instead of the whole screen.  
+- Added **TextInputAction** support for TextFields for better keyboard control.  
+- Added **Phone UI preview** (view-only mode) for better usability on mobile.  
+- Improved reliability of loading code that includes list variable formats.  
 
 ---
 

@@ -23,7 +23,7 @@ Click Settings, Firebase, and enable Push Notifications.
   Your browser does not support the video tag.
 </video>
 
-:::alert
+:::warning
 If your app is being built for iOS, you need to enable the Push Notifications capability in Xcode by going to your project’s Signing & Capabilities tab and adding Push Notifications.
 :::
 
@@ -48,6 +48,8 @@ Now just add a message title, content, select the audience, choose if you want a
   Your browser does not support the video tag.
 </video>
 
+---
+
 ### How a notification looks:
 
 Notifications can look a little different depending on your device. Here’s two example!
@@ -59,3 +61,5 @@ IOS:
 Android:
 
 ![](/img/firebase/android.png)
+
+---

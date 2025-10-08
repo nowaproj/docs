@@ -1,6 +1,6 @@
 {
     "label": "Common issues",
-    "position": 4,
+    "position": 5,
     "link": {
         "description": "Some common issues that might appear using Firebase and how to work around them",
         "type": "generated-index"

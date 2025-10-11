@@ -1,0 +1,12 @@
+{
+  "label": "Supabase",
+  "position": 3,
+  "link": {
+    "description": "An introduction to Supabase, the open-source Firebase alternative.",
+    "type": "generated-index"
+  },
+  "customProps": {
+    "icon": "ti ti-brand-supabase",
+    "color": "#3FCF8E"
+  }
+}

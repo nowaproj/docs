@@ -1,0 +1,257 @@
+---
+sidebar_position: 2
+---
+
+# Prompting Tips
+
+The way you write those prompts makes a big difference. 
+
+The clearer your request, the better the AI can respond — and the fewer corrections you’ll need to make later.  
+
+This guide walks you through practical ways to write effective prompts so you can get the most out of Nowa.  
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+---
+
+## 1. Keep it small — one step at a time 
+
+Asking the AI to do too much at once can create confusion.  
+It’s better to keep things focused and manageable. Break your idea into smaller steps so you can review results quickly and adjust as you go.
+
+<Tabs>
+<TabItem value="good" label="Good" default>
+
+```text
+Add a search bar to my product list screen.
+```
+Clear, specific, and actionable.
+
+</TabItem>
+<TabItem value="risky" label="Risky">
+
+```text
+Build me a full shopping app with everything.
+```
+
+Too vague and overwhelming for the AI to process effectively.
+
+</TabItem>
+</Tabs>
+
+---
+
+## 2. Attach when it matters 
+
+When you want to change something specific, attach the related file, screen, or widget to your prompt.  
+This gives the AI a clear starting point, keeps it focused, and reduces the chance of editing unrelated code.
+
+:::tip
+You don’t have to attach *everything*. Just share the main element you’re working on.  
+If the AI needs more context, it will fetch it automatically.
+:::
+
+---
+
+## 3. Make attachments as focused as possible 
+
+Think “less is more.”  
+If you want to adjust a widget, attach **only that widget** — not the entire screen.  
+The AI can always look around for more context if it needs to.
+
+This keeps the edits accurate and avoids accidental changes elsewhere.
+
+---
+
+## 4. Give context — reduce assumptions 
+
+AI does its best work when it understands your goal.  
+A little context goes a long way. You can mention:  
+
+- What the screen or feature is for  
+- The flow you expect your users to follow  
+- Any important design or functional elements  
+
+With context, the AI makes fewer guesses — and delivers closer to what you had in mind.
+
+---
+
+## 5. Start a new chat when context drifts
+
+If your next request isn’t related to the current one, start a fresh chat.  
+Old conversations can “carry over” and confuse the AI.
+
+**Why it helps:**  
+- Keeps the AI aligned with your new goal  
+- Prevents unrelated changes  
+- Produces cleaner results when switching features  
+
+<Tabs>
+<TabItem value="good" label="Good Practice" default>
+
+```text
+New chat: Build an 'Orders' screen with filters (status, date).
+Attach orders_list.dart. 
+```
+
+Clean slate, focused context.
+
+</TabItem>
+<TabItem value="risky" label="Risky">
+
+```text
+Same chat about homepage styling: Also add Supabase auth
+and reset password.
+```
+
+Mixed topics lead to confusion.
+
+</TabItem>
+</Tabs>
+
+:::info Rule of thumb
+Keep each chat to about **5 prompts**.  
+If you’re switching features or the thread feels off-topic, start a new chat and attach the right file.
+:::
+
+---
+
+## 6. Master the Sandwich Technique 
+
+A well-structured prompt is like a sandwich — clear layers that the AI can follow.  
+
+1. **Intent** — What you want to achieve  
+2. **Context** — Background or supporting details  
+3. **Task** — The specific action for the AI  
+4. **Constraints** — Rules or limits to follow  
+
+### Example
+
+```text title="Perfect Prompt Structure"
+#Intent
+I want to build a modern homepage for my shoe store app.
+
+#Context
+• Show main promotion at the top
+• Display products in a grid with price and image
+• Mobile-first approach
+
+#Task
+Build the homepage as described above.
+
+#Constraints
+Use a dark theme with high-contrast text
+```
+
+---
+
+## 7. Be clear with style & function 
+
+Words like “nice” or “beautiful” can mean very different things.  
+The more specific you are, the closer the AI will get to your vision.
+
+<Tabs>
+<TabItem value="specific" label="Specific" default>
+
+- “Use a dark theme with high-contrast text”  
+- “Rounded card corners with subtle shadows”  
+- “Responsive layout for mobile and web”
+
+</TabItem>
+<TabItem value="vague" label="Vague">
+
+- “Make it look nice”  
+- “Add some beautiful styling”  
+- “Make it responsive”
+
+</TabItem>
+</Tabs>
+
+---
+
+## 8. Fixing errors? Just ask! 
+
+If your project runs into errors, Nowa AI can repair them for you.  
+
+<Tabs>
+<TabItem value="specific" label="Specific Error" default>
+
+```text
+There’s a build error in homepage_screen.dart; please fix it.
+```
+
+</TabItem>
+<TabItem value="general" label="All Issues">
+
+```text
+Fix issues in my project
+```
+
+</TabItem>
+</Tabs>
+
+:::warning Important
+Use the “fix all issues” prompt only when there are just a few errors.  
+For bigger projects, handle them step by step for more reliable results.
+:::
+
+---
+
+## 9. Report issues — earn free AI credits 
+
+If you find a bug, we’d love to hear about it.  
+
+1. Click **Feedback** → **Report**  
+2. Share your Project and AI history  
+3. Describe what happened clearly  
+
+:::success Earn Credits
+Valid bug reports are rewarded with **free AI credits**.  
+This helps improve Nowa and supports our community of builders.
+:::
+
+---
+
+## Bonus tip — Think like a pair programmer
+
+Nowa AI isn’t just a tool — it’s your teammate.  
+The best results come when you work together:  
+
+- Share your reasoning, not just your commands  
+- Review the output and give feedback  
+- Iterate step by step  
+- Ask questions if you’re unsure  
+
+Collaboration makes your app stronger, cleaner, and easier to maintain.  
+
+---
+
+<details>
+<summary>Quick Reference</summary>
+
+### Prompt Template 
+```text
+#Intent
+[What you want to achieve]
+
+#Context
+• [Key requirement 1]
+• [Key requirement 2]
+• [Key requirement 3]
+
+#Task
+[Specific action for AI to take]
+
+#Constraints
+[Any rules or limitations]
+```
+
+### Checklist 
+- [ ] One clear task per prompt  
+- [ ] Attach only the files you need  
+- [ ] Use specific language, not vague terms  
+- [ ] Add context where helpful  
+- [ ] Start a new chat for unrelated tasks  
+
+</details>

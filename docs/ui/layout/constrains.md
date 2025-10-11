@@ -1,27 +1,46 @@
 ---
 sidebar_position: 2
 title: Constraints
-description: How to put constraints on the relative position of widgets
+description: Learn how to control the relative position and resizing behavior of widgets.
 ---
 
+Constraints define how widgets respond when the screen size changes.  
+They ensure your layout stays consistent across different devices and orientations — whether it's a phone, tablet, or desktop screen.
 
-# Constraints
-
-Constraints dictate the behavior of objects when the screens are resized, allowing for the consistent appearance of designs on various screen sizes and devices. They can be applied both on the horizontal and vertical axis.
+You can apply constraints on both the **horizontal** and **vertical** axes to control alignment and resizing behavior.
 
 ![](./img/contraints-bg.png)
 
-### Horizontal constraints
-**Right**: the object stays in place relative to the left side of the screen. 
-**Left**: the object stays in place relative to the left side of the screen. 
-**Left and right**: constraint keeps the object's size and position to both sides of the frame, which may result in the object changing size along the X axis upon resizing.
+---
 
-### Vertical constraints
-**Top**: the object stays in place relative to the top of the screen. 
-**Bottom**: the object stays in place relative to the bottom of the screen. 
-**Top and bottom**: constraint keeps the object's size and position in relation to both the top and bottom of the screen, which may result in the object changing size along the Y axis upon resizing.
+### Horizontal Constraints
 
-### Center
-You can set the constraints to "**Center**" to maintain the position of the object relative to the center of the screen. 
+Horizontal constraints determine how a widget behaves along the X-axis.
+
+- **Left** — Keeps the widget fixed relative to the **left** side of the screen.  
+- **Right** — Keeps the widget fixed relative to the **right** side of the screen.  
+- **Left and Right** — Anchors the widget to both sides, causing it to **resize horizontally** as the screen width changes.
+
+---
+
+### Vertical Constraints
+
+Vertical constraints determine how a widget behaves along the Y-axis.
+
+- **Top** — Keeps the widget fixed relative to the **top** of the screen.  
+- **Bottom** — Keeps the widget fixed relative to the **bottom** of the screen.  
+- **Top and Bottom** — Anchors the widget to both sides, causing it to **resize vertically** as the screen height changes.
+
+---
+
+### Center Constraint
+
+Setting constraints to **Center** keeps your widget positioned relative to the **center** of the screen.  
+This is especially useful for elements that should stay perfectly centered, such as dialogs, icons, or logos.
 
 ![](./img/constraints.gif)
+
+:::tip[Pro Tip]
+If your layout looks off when resizing, double-check your constraints.  
+Mixing conflicting constraints (like “Left and Right” with “Center”) can cause unpredictable behavior.
+:::

@@ -15,6 +15,10 @@ const config = {
   tagline: 'The official Documentation for Nowa',
   favicon: 'img/favicon.ico',
 
+  stylesheets: [
+    "https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css",
+  ],
+
   // Set the production url of your site here
   url: 'https://docs.nowa.dev/',
   // Set the /<baseUrl>/ pathname under which your site is served
@@ -30,7 +34,12 @@ const config = {
   deploymentBranch: 'gh-pages',
 
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+
+  markdown: {
+  hooks: {
+    onBrokenMarkdownLinks: 'warn',
+  },
+},
 
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
@@ -117,14 +126,15 @@ const config = {
       },
 
       announcementBar: {
-        id: 'announcement-1',
-        content: '🚀 <strong><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://nowa.dev\">Nowa 3.0 BETA</a> is LIVE!</strong> Some docs may be outdated — check our <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://blog.nowa.dev\">blog</a>, <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://youtube.com/@nowadev\">YouTube</a>, or ask in the <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://community.nowa.dev\">community</a>.', // Any value that will identify this message.
-        backgroundColor: '#A3784A', // Defaults to `#fff`
-        textColor: '#ffffff', // Defaults to `#000`.
-        isCloseable: true, // Defaults to `true`.
+        id: 'announcement-2',
+        content:
+          '🚀 <strong>Nowa 3.0 Docs are live!</strong> Missing something? Tell us at <a href="mailto:team@nowa.dev">team@nowa.dev</a> 💬',
+        backgroundColor: '#A3784A',
+        textColor: '#ffffff',
+        isCloseable: true,
       },
-  
-      navbar: {
+      
+            navbar: {
         title: 'Nowa Documentation',
         logo: {
           alt: 'Nowa',

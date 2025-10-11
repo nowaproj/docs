@@ -4,6 +4,12 @@ title: Typography
 description: use Typography for your app
 ---
 
+:::warning[Some of info regarding themes is outdated]
+Some info in the Themes section is outdated. The section will be updated in few days :) 
+If you have a question feel free to ask at team@nowa.dev or using our Community on Discord 
+:::
+
+
 Typography in Nowa themes allows you to define and manage text styles for your app.
 
 With pre-defined text styles, you can create a consistent and polished look for all textual elements, ensuring they adapt dynamically to theme changes.

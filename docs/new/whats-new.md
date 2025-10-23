@@ -10,6 +10,9 @@ title: "What's new"
 ### **3.1.0 (21 October 2025)**  
 This is our biggest update since V3.0 - with a brand‑new AI agent, Cloud Local Sync, Instant Sharing, and major performance upgrades.  
 
+![](/img/whats_new/nowa3_1.png)
+
+
 #### **New in This Version ✨**
 - 🧠 **New AI System**  
   Rebuilt from the ground up for speed, stability, and much better results.  
@@ -40,7 +43,7 @@ This is our biggest update since V3.0 - with a brand‑new AI agent, Cloud Local
 - 📥 Importer V2: You will be able to import any Flutter project even the ones built outside Nowa  
 - 🧠 AI Planning Mode: the AI agent will be able to make a dynamic plan for complex prompts for better results when it comes to app-level prompts.  
 
-➡️ Use the in‑app Feedback button to report issues or share ideas — it helps us improve fast.  
+➡️ Please keep using the in‑app Feedback button to report issues or share ideas — it helps us make Nowa better much faster :)  
 
 ---
 

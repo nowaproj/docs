@@ -25,10 +25,10 @@ If you ever run out, you can upgrade your plan or on the Scale plan, simply add 
 If you’re just curious about Nowa, this is the perfect entry point. You get 5 AI messages per month—enough to experiment, learn, and see how building with Nowa feels. It’s great for hobby projects or first-time explorers.
 
 ### Launch  
-Ready to get more serious? The Launch plan gives you 50 AI messages every month, plus the ability to host apps with your own custom domain. It’s designed for solo developers and small teams building lighter applications.
+Ready to get more serious? The Launch plan gives you 50 AI credits every month, plus the ability to host apps with your own custom domain. It’s designed for solo developers and small teams building lighter applications.
 
 ### Scale  
-This plan is for when your project grows. With 200 AI messages per month—and the option to buy more—you’ll have the power to build and deploy production-ready apps. Scale also unlocks mobile deployments and GitHub integration, making it perfect for startups and agencies.
+This plan is for when your project grows. With 200 AI credits per month—and the option to buy more—you’ll have the power to build and deploy production-ready apps. Scale also unlocks mobile deployments and GitHub integration, making it perfect for startups and agencies.
 
 ### Enterprise  
 For large teams or companies with advanced needs, Enterprise offers flexibility and dedicated support. You’ll get custom credit quotas, enterprise-grade tools like SSO, audit logs, on-premise options, and personalized guidance from the Nowa team.

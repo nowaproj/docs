@@ -6,6 +6,27 @@ title: "Changelog"
 
 ---
 
+## **3.1.0 (21 October 2025)**
+
+#### **Added 🌟**  
+- **New AI System** — rebuilt for speed and quality  
+  - Live result streaming  
+  - Self‑fixing agent that validates and corrects its output  
+  - Clarifying questions when unsure  
+  - Agent can run your app to detect runtime issues  
+  - Project‑scoped chat history to continue conversations with full context  
+- **Cloud + Local Sync** — keep a project in both places with one‑click sync (no Git needed)  
+- **Instant Preview Sharing** — generate private or public links to your live preview directly from Play Mode  
+
+#### **Improved ⚙️**  
+- Moved from per‑prompt to a **credit‑based system** for fairer, more flexible AI usage (consumption scales with prompt size; small tasks ~0.1 credit, full screens ~1 credit)  
+- Major performance and stability improvements across the builder and AI execution  
+
+#### **Fixed 🩹**  
+- Various reliability fixes to improve the instant preview, code generation, and runtime flows when building with AI  
+
+---
+
 ## **3.0.10 (7 October 2025)**
 
 #### **Added 🌟**  
@@ -402,4 +423,3 @@ title: "Changelog"
 
 - Various bug fixes reported during private testing.
 - Usability improvments.
-

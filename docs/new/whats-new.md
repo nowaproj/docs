@@ -7,6 +7,43 @@ title: "What's new"
 
 ---
 
+### **3.1.0 (21 October 2025)**  
+This is our biggest update since V3.0 - with a brand‑new AI agent, Cloud Local Sync, Instant Sharing, and major performance upgrades.  
+
+#### **New in This Version ✨**
+- 🧠 **New AI System**  
+  Rebuilt from the ground up for speed, stability, and much better results.  
+  - The new agent is simply ⚡ 4× faster with 3× better results than the previous one   
+  - 💬 Stream Mode: You can see the results now live in real time  
+  - 🔧 The Agent checks for it's results and fix them on the spot with the same prompt   
+  - ❓ It Asks clarifying questions when it's unsure instead of making assumptions, leading to results that are more of what you expect.  
+  - 🎮 It can run the app automatically to test and catch runtime issues and fix them  
+  - 🗂 You have now Chat history saved per project to resume any previous conversation with its full context  
+  - 🎯 We changed the usage tracking from per-prompt to a wew credit system that relies fully on tokens for more fair use. (e.g., ~0.1 credit for redesigning a card components, ~1 credit for generating a full funtional screen). You can see the credit consumption for each prompt and for the overall chat as well. In settings you will see a history for your AI consumption.
+
+- ☁️ **Cloud + Local Sync**  
+  No need to choose if your project should be a local or cloud one. The same project can live on both now, with you being able to sync them with a click (no Git needed). 
+  Simply inside your project, click on the `Settings` icon -> `Project Sync`, and there you will be able to sync a cloud project to local or vise versa.
+
+- 🔗 **Instant Preview Sharing**  
+  You can now share the instant preview that you use inside Nowa with others! Simply click on the share button on the toolbar inside Nowa to share the instant preview privatly (with people in your workspace) or publicly with anyone.
+  They will be able to view the app as well insantly without building.
+  Compare to deploying to Web, this allows you to share without even the need for hosting for faster sharing from your side and faster viewing from the other side.
+
+#### **New Content 📚**
+- 📘 **New Docs:**  at [docs.nowa.dev](https://docs.nowa.dev)  
+- 🌟 **Showcase Page:** at [nowa.dev/showcase](https://nowa.dev/showcase) 
+- 🏢 **Nowa Agency:** You can make our team build your full app and handle it in Nowa. 50% cheaper and 3x fastet than other agemncies. [Apply here](https://forms.gle/2VbmrP3tUMfkrGjP8)
+
+#### **Coming Soon 🔮**
+- 🧩 You will be able to any package from pub.dev directly in Nowa without even using custom code  
+- 📥 Importer V2: You will be able to import any Flutter project even the ones built outside Nowa  
+- 🧠 AI Planning Mode: the AI agent will be able to make a dynamic plan for complex prompts for better results when it comes to app-level prompts.  
+
+➡️ Use the in‑app Feedback button to report issues or share ideas — it helps us improve fast.  
+
+---
+
 ### **3.0.10 (7 October 2025)**  
 We excited to introduce two powerful new features — **Notifications** and **Supabase Storage** — plus a brand-new syncing system between Nowa and your code files, that makes building smoother than ever.  
 
@@ -551,4 +588,3 @@ This version introduces groundbreaking new features, an improved workflow, and a
 #### New Learning Resources 📚
 
 - [Nowa V2 Playlist](https://youtube.com/playlist?list=PLVhnHv8Cdhz8rAHO0Z-xdUmATgB91458t&si=YXy_9oAzLmC-57Wx): Explore Nowa V2 with our new Youtube playlist for Nowa V2.
-

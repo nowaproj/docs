@@ -1,99 +1,130 @@
 ---
 sidebar_position: 8
-title: Components
-description: Creating UI components for consistant design
+title: "Components"
+description: Create reusable UI components to maintain consistent design across your app.
 ---
 
+Components are a powerful feature that helps you design more efficiently and keep your app consistent.  
+They let you create **reusable widgets** that stay connected — so when you make a change in one place, it updates everywhere.
 
-# Components
+:::note
+You can find all your components inside the [Widgets Panel](./widget-panel.md).
+:::
 
-Components are a powerful concept that makes you much more efficient in the design process. It allows you to create reusable widgets that are connected to each other. Components can be easily modified and maintained throughout your app to ensure a consistent design.
+---
 
 ## What is a Component?
 
-**A Component is simply a widget or a group of widgets that will be reused in multiple places within your app.**
+A **Component** is a widget or a group of widgets that you plan to reuse across multiple parts of your app.
 
-Instead of duplicating widgets that you need to use in multiple places and then manually modifying each instance if you decided to do a modification, you can create a component out of that widget and use multiple instances of that component across the app.
+Instead of duplicating the same widget in multiple places and manually updating each one,  
+you can create a **Component** once and use its instances wherever needed.
 
-Any changes made to a single instance will affect all other instances of that Component in the entire app.
+Any change you make to the **main component** will automatically update all its instances across your app.
 
 **Example:**
 
-Imagine you have a recipe app with a screen displaying cards that hold information about available recipes.
+Imagine you’re building a recipe app that displays recipe cards on multiple screens.  
+When a user taps a card, they see detailed information about the recipe.
 
-When a user clicks on a card, another screen opens with full details. If you use this card on multiple screens or have multiple cards in a list on the same screen, you should create the card as a Component.
+If the same card appears on different screens (or multiple times on the same screen),  
+you should create it as a **Component**.  
+That way, if you decide to tweak the design — for example, by adding a “Date added” text —  
+the change is instantly applied to all cards throughout your app.
 
-This way, if you decided to change something on the design later (e.g., adding a text widget to show when the recipe was added), the change will be reflected in all instances of the card in the entire app.
+---
 
-## How to create a component
+## How to Create a Component
 
-To create a component:
+To create a new component:
 
-1. Select the widget or group of widgets that you want to create a Component out of.
-2. If you select multiple widgets make sure to group them before using  `ctrl/cmd+G`
-3. Click on the "Create component" icon button in the top right corner of the details panel.
-4. Enter a name for the Component.
-5. Click "Create".
+1. Select the widget (or group of widgets) you want to turn into a component.  
+2. If you’ve selected multiple widgets, **group them first** using `Ctrl/Cmd + G`.  
+3. Click the **“Create Component”** icon in the top-right corner of the **Details panel**.  
+4. Give your component a **unique name**.  
+5. Click **Create**.
 
-![](./img/comp-1.gif)
-
-:::note
-The name of each component should be unique, so choose a different name or delete the old component with the name you want to use.
-:::
-
-### Creating multiple instances from a Component
-
-Create instances of a component by using copy and paste.
-You can copy and paste using:
-- `ctrl/cmd+C` >  `ctrl/cmd+C` 
-- `alt` + drag
-- right click > copy and then right click > paste
-
-![](./img/comp-2.gif)
-
-## Modify the component
-
-When you modify the main component, like change the color of one of its widgets, the modification that you do will also be applied to all the copies of the component. 
-
-The save behaviour applies also when you add a wrapper to the main component.
+<video controls width="720">
+  <source src="/img/designer/Clipboard-20251002-103334-808.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
 
 :::note
-You can't edit the design of a component while it's inside a screen. You can only modify it when an instance of that component is outside any screen (just on the board).
-
-The only way you will be able to modify the original component within the screen itself is if the component has a group inside (stack, row or column) and this group has children widgets like Text, Image, etc. You then will be able to modify those children widget inside the component instance that is already inside a screen by selecting them from the outline
+Each component name must be unique.  
+If the name already exists, choose a different one or delete the old component first.
 :::
 
-![](./img/comp-3.gif)
+---
 
-## Add Variables to a Component
+### Creating Multiple Instances of a Component
 
-Components become even more powerful when you create variables for the properties.
+Once a component is created, you can use multiple instances of it throughout your app.  
+There are a few ways to duplicate a component:
 
-For example, to make instances of the component show data according to its location, you should connect the components properties with variables.
+- `Ctrl/Cmd + C` → `Ctrl/Cmd + V`  
+- Hold `Alt` and drag  
+- Right-click → **Copy**, then right-click → **Paste**
 
-After creating variables for the component, each instance of that component can have its own data that get passed from the parent screen/component through the variables, allowing for different data to be presented in each instance of the same component while maintaining the same design and layout.
+---
 
-Select the main component and create variables for the desired properties.
+## Modifying a Component
 
-Learn more here: [Create Variables](../vars-params-functions/create-variable.mdx)
+When you modify the **main component** (for example, change a color or add a new widget),  
+the update automatically applies to **all its instances** in your app.  
+This ensures design consistency everywhere.
 
-![](./img/comp-4.gif)
+The same applies when you **add a wrapper** around the main component —  
+that structure will also be reflected in every instance.
 
-## Detach Instances from the main Component
- 
-To disconnect an instance from its original component:
+⚠️ **Important:**  
+You **cannot** edit a component’s design while it’s inside a screen.  
+To edit it, drag an instance **outside of any screen** onto the board.
 
-- Select the instance you want to disconnect
-- Right click > Detach
+<video controls width="720">
+  <source src="/img/designer/Clipboard-20251002-104038-822.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
 
+---
 
-This will make the instance independent from its component, and any changes made to the Component will no longer affect the detached instance.
+## Adding Variables to a Component
 
-## Delete Components
+Components become even more flexible when you connect their properties to **variables**.  
+This lets each instance display different data while keeping the same design.
 
-Removing a components from the design board does not delete the component from the project, the component can still be accessed from the Files Panel.
+For example, in the recipe card scenario, you can use variables to show different recipe names, images, or dates in each card instance.
+
+To add variables:
+1. Select the **main component**.  
+2. Create variables for the properties you want to make dynamic.
+
+Learn more here → [Create Variables](../vars-params-functions/create-variable.mdx)
+
+<video controls width="720">
+  <source src="/img/designer/Clipboard-20251002-104325-541.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+
+---
+
+## Detaching an Instance from Its Component
+
+If you want to make a component instance independent:
+
+1. Select the instance you want to detach.  
+2. Right-click → **Detach**.
+
+The instance will no longer be linked to its original component,  
+and future updates to the main component won’t affect it.
+
+---
+
+## Deleting Components
+
+Deleting a component from the board **does not** remove it from your project.  
+You can still find it inside the **Files panel**.
 
 To **permanently delete** a component:
 
-- Open the files panel and locate the component you want to delete
-- Right click on the component > Remove
+1. Open the **Files panel** and locate the component.  
+2. Right-click on it → **Remove**.

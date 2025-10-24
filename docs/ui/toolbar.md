@@ -1,24 +1,29 @@
 ---
-sidebar_position: 1
-title: Toolbar 🧰
-description: How to use Nowa toolbar in UI designing  
+sidebar_position: 2
+title: "Toolbar"
+description: Learn how to use the main toolbar in Nowa to design your app.
 ---
 
-# Toolbar
-The toolbar is located at the top of the design board and here you find the main tools to create the design of your app.
+The **Toolbar** is located at the top of the Design Board.  
+It contains the main tools you’ll use to build and design your app in Nowa.
 
-## What's inside the toolbar
+![](/img/designer/Pasted-image-20251001100204.png)
 
-![](./img/toolbartoolbar.png)
+---
 
-The tools available from left to right are:
+## What’s Inside the Toolbar
 
-**Selection**: this tool lets you select the elements on the board, like screens, widgets and components by clicking on them.
+Each tool has a specific purpose. Here’s what you can find from left to right:
 
-**Screen**: this tool lets you create new screens to add on your board. You can pick and empty screen or a template. Learn more about [Screens](./screens/create-screens.md).
+**Selection** — Lets you select elements on the board, such as screens, widgets, and components, by clicking on them.  
 
-**[Container](./widgets/widget-desc/container.md)**: the container tool lets you draw the container widget directly on your board.
+**Shape** — Allows you to draw a **Container widget** directly on your board.  
 
-**[Text](./widgets/widget-desc/text.md)**: the text tool lets you draw the text widget directly on your board.
+**Screen** — Creates new screens for your app.  
+You can start with an **empty screen** or choose from a **template**.  
 
-**Widget**: by clicking on the widget tool you will open the widget picker form where you can browse and add widgets on your board.
+**Text** — Lets you draw a **Text widget** directly on your board.  
+
+**Widget** — Opens the **Widget Picker**, where you can browse and add different widgets to your design.  
+
+**Play** — Lets you instantly play and preview your selected screen to test both its design and functionality.

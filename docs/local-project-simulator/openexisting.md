@@ -26,19 +26,3 @@ For example, if you use **Riverpod** state management, it doesn’t show up corr
 Your project will open inside Nowa. Just make sure the folder you select is a valid Flutter project.
 
 ---
-
-## Convert a Cloud Project to Local
-
-Sometimes you might want to take your cloud project offline and work on it locally. Here’s how:  
-
-1. Download your project code as a `.zip` file.  
-2. Extract the `.zip` folder on your computer.  
-3. From Nowa Desktop, click **Open** and select the extracted folder.  
-
-:::note
-At the moment, you can convert **from cloud to local**, but not the other way around.  
-:::
-
----
-
----

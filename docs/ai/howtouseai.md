@@ -17,7 +17,7 @@ To begin your conversation with **Nowa AI**, just click on the chat icon in the 
 
 ---
 
-## Usage & Credits
+# Usage & Credits
 
 You can see the input and output tokens used for each chat message—along with the cost per prompt.
 

@@ -13,7 +13,7 @@ title: "How to Use Nowa AI"
 
 To begin your conversation with **Nowa AI**, you just click on the chat icon in the left side panel.
 
-<video src="/videos/ai/open.webm" controls width="100%" />
+<video src="/videos/ai/openai.mkv" controls width="100%" />
 
 ---
 
@@ -29,14 +29,13 @@ This means the AI knows exactly what part of your app you’re focusing on—so 
 
 For example, if you select a text or an icon in the widget tree, the AI panel will instantly recognize it and show the context in the lower-left corner.
 
-<video src="/videos/ai/target.webm" controls width="100%" />
+<video src="/videos/ai/target.mkv" controls width="100%" />
 
 ## Attaching Screens
 
 Just like **smart selection and context**, you can attach screens to give the AI more detail.  
 
 The difference is that here you can **attach multiple full screens** — but **individual widgets can’t be attached this way**.
-
 
 Simply click the **Attach** button in the AI chat panel, then pick what you’d like to attach.  
 
@@ -56,6 +55,20 @@ Here’s how:
 3. Choose the image from your computer.  
 
 <video src="/videos/ai/image.webm" controls width="100%" />
+
+## Attaching text file
+
+Want the AI to design or build something based on written content you already have?  
+
+You can attach text files, and the AI will use them as input—whether that’s generating similar content, creating structure from it, or adding extra context.  
+
+Here’s how:  
+
+1. Click the **Attach** button in the AI panel.  
+2. Select **Attach text File**.  
+3. Choose the text file from your computer.
+
+<video src="/videos/ai/text.mkv" controls width="100%" />
 
 ---
 

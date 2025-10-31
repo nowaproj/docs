@@ -1,5 +1,5 @@
 ---
-sidebar_position: 3
+sidebar_position: 4
 title: Running on a simulator/physical device
 description: How to test your Nowa project on an actual simulator or a real device
 ---

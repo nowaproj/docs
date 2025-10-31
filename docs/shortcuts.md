@@ -1,6 +1,5 @@
 ---
-sidebar_position: 15
-title: Keyboard shortcuts 
+title: "Keyboard shortcuts"
 ---
 
 # Keyboard shortcuts

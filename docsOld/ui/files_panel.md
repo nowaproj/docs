@@ -30,7 +30,7 @@ In the files panel, you can access different kinds of project files:
 - **.dart Files**: Clicking a `.dart` file opens it up inside Circuit, where you can add and tweak its functions or parameters, and view it's source-code (by clicking on the `<>` icon on top right)
 - **UI Files**: To work on the UI, drag the `.dart` file to the board where you can see and edit its visual elements.
 
-![](../legacy/img_releasenotes/1.7.0/file-panel.gif)
+<!-- ![](../legacy/img_releasenotes/1.7.0/file-panel.gif) -->
 
 ## Organizing Files
 
@@ -61,7 +61,7 @@ To hide them and go back to showing only the necessary files, click again on `to
 
 - **File Search Shortcut**: Press `Ctrl/Cmd + O` to open the file picker quickly, which helps you find and open any file or board instantly.
 
-![](./img/open-files-picker.gif)
+<!-- ![](./img/open-files-picker.gif) -->
 
 
 ## Wrap-Up

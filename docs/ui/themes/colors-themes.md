@@ -4,6 +4,12 @@ title: Colors
 description: Modify and use Colors using themes
 ---
 
+:::warning[Some of info regarding themes is outdated]
+Some info in the Themes section is outdated. The section will be updated in few days :) 
+If you have a question feel free to ask at team@nowa.dev or using our Community on Discord 
+:::
+
+
 Colors are a vital part of your app's design. With Nowa’s theme system, you can easily create and manage a cohesive color palette. Themes ensure your app looks consistent, professional, and adaptable to changes.
 
 ---

@@ -4,6 +4,10 @@ title: Create themes
 description: Create themes for your app
 ---
 
+:::warning[Some of info regarding themes is outdated]
+Some info in the Themes section is outdated. The section will be updated in few days :) 
+If you have a question feel free to ask at team@nowa.dev or using our Community on Discord 
+:::
 
 Themes in Nowa allow you to customize and manage the appearance of your app, including colors, typography, and styles. This section provides an overview of how to create themes and use them effectively in your projects.
 

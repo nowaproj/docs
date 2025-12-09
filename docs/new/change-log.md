@@ -6,6 +6,69 @@ title: "Changelog"
 
 ---
 
+## **3.2.2 (19 December 2025)**
+
+#### **Added 🌟**  
+- **Google Maps Widget** — use Google Maps directly inside Nowa without writing custom code.  
+  - Add it from the **Widget Picker**  
+  - Fully customizable visually or via AI  
+  - Preview real map results in the simulator  
+
+#### **Improved ⚙️**  
+- Added loading indicators to show progress when opening projects.  
+- Improved UI rendering and consistency across screens and previewer.  
+- Enhanced performance for a smoother experience when switching between views.  
+
+#### **Fixed 🩹**  
+- Fixed **false error logs** caused by `print` statements in code.  
+- Fixed **previewer issues** where some screens failed to render.  
+- Fixed **files disappearing** after reopening a project.  
+- Fixed **feedback form** hanging during submission.  
+- Minor UI polish and general stability improvements.  
+
+---
+
+## **3.2.0 (10 December 2025)**
+
+#### **Added 🌟**  
+- **AI That Uses Custom Packages** — the AI can now fetch and use packages directly from **pub.dev**, reading documentation and applying them automatically.  
+  - Enabled by default for new projects.  
+  - Can be manually activated in `Settings → Packages → Load Packages (Experimental)`.  
+- **Cloud Git Integration** — all cloud projects now come with Git pre-configured, with a badge showing pending changes and in-app commit support.  
+
+#### **Improved ⚙️**  
+- Major upgrades to the AI’s reasoning and design capabilities.  
+  - Defined the entire **Material library** and key Flutter components, eliminating “Not defined” issues.  
+  - Smarter architecture creation, logic connection, and theme handling.  
+  - Output quality improved up to 3× compared to previous versions.  
+
+#### **Fixed 🩹**  
+- Fixed AI error: `litellm.BadRequestError ... Unterminated string...`.  
+- Fixed **missing imports** appearing in code view.  
+- Fixed **file deletion** issue after reopening a project.  
+- Fixed **feedback panel** getting stuck when sending reports.  
+- Minor code sync and stability improvements.  
+
+---
+
+## **3.1.2 (25 October 2025)**
+
+#### **Improved ⚙️**  
+- Enhanced **AI agent stability** and reliability during long prompt sessions.  
+- Improved **streaming performance** to reduce delays and errors.  
+- Better **bug reporting flow**, capturing more context for faster fixes.  
+- Improved **public preview handling** for smoother link sharing.  
+
+#### **Fixed 🩹**  
+- Fixed **invalid argument errors** caused by malformed AI JSON responses.  
+- Fixed issue with `write_top_level_code` tool execution.  
+- Fixed **context overflow** errors (`ContextWindowExceededError`) when sending large prompts.  
+- Fixed **public share links** not opening properly when users were logged out.  
+- Fixed **shared project endpoints** not loading correctly in public mode.  
+- General performance and stability optimizations.  
+
+--
+
 ## **3.1.0 (21 October 2025)**
 
 #### **Added 🌟**  

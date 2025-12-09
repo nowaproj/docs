@@ -3,29 +3,40 @@ sidebar_position: 3
 title: Button 
 description: How to use button widget
 ---
-
 # Button
 
-The Button in Nowa is a widget that lets initiate actions, from sending an email, to sharing a document, to liking a post.
+The **Button** widget lets users perform an action when pressed — such as navigating to another screen, submitting a form, or triggering logic.  
+Buttons can be styled, disabled, and connected to dynamic actions or data.
 
-To add a Button to your screen, select the Widget picker and look for the Button Widget.
+To add a Button, open the **Widget Picker** and search for **Button**.
 
-### Customize the Button
-From the details panel of the Button, you can customize its appearance:
-- Change the content of the Button by modifying the text properties. (To lean more about it here: [Text](./text.md)).
-- You can modify the color of the Button in the details panel.
+![](/img/designer/button.png)
 
-![](./img/customize-button.gif)
+---
 
-### Add Gesture
-To make the button interactive, go in the details panel and you will see there that you can add functionalities for the gestures: "On Pressed" and "On Long Press". 
-#### Example:
-If you want to make the user navigate from a screen to another when clicking on a button:
-- Go on the details panel and select the "Edit" next to "On Pressed".
-- This will open the Circuit window. 
-- Connect a "navigate" block to the "On Pressed" action. 
-- From the "navigate" block, select the screen you wish to make appear when clicking on the button.
-- Test the functionality by opening the Play Mode.
+## 📝 Text Inside the Button
 
+Inside the **details panel**, you can modify the text properties of your button — including the label, font, and color.  
+For more details about text customization, check out the [[Text]] widget page.
 
-Buttons let's you do so much more that just navigation. If you want to discover more about how to build functionalities in Nowa.
+---
+
+## ⚙️ Button Properties
+
+Here’s what you can control inside the **Button** widget:
+
+- **Enabled** → Turns the button on or off. When disabled, the button becomes dimmed and non-interactive.  
+- **On Pressed** → Opens the Circuit editor to define what happens when the user taps or clicks the button.  
+- **On Long Press** → Opens the Circuit editor for actions triggered by pressing and holding the button.  
+- **On Hover** → Opens the Circuit editor for hover actions (useful for web and desktop).  
+- **Button Style** → Connects the button to a predefined or custom theme style, controlling its shape, background color, padding, borders, and more.  
+  This property is directly linked to your app’s theme. Learn more in [[Themes]].
+
+---
+
+### 💡 Tip
+
+Buttons are one of the most interactive elements in any app.  
+You can combine **visual customization** with **logic** to make them both beautiful and functional —  
+for example, changing colors dynamically based on state, or disabling a button until a form is complete.
+

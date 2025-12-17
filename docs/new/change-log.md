@@ -6,7 +6,14 @@ title: "Changelog"
 
 ---
 
-## **3.2.2 (19 December 2025)**
+## **3.3.3 (15 December 2025)**  
+
+#### **Fixed 🩹**  
+- Fixed an issue where **some imports were not being saved correctly**, causing inconsistencies in code generation and preview.  
+
+---
+
+## **3.3.2 (10 December 2025)**
 
 #### **Added 🌟**  
 - **Google Maps Widget** — use Google Maps directly inside Nowa without writing custom code.  
@@ -28,7 +35,7 @@ title: "Changelog"
 
 ---
 
-## **3.2.0 (10 December 2025)**
+## **3.2.0 (14 November 2025)**
 
 #### **Added 🌟**  
 - **AI That Uses Custom Packages** — the AI can now fetch and use packages directly from **pub.dev**, reading documentation and applying them automatically.  

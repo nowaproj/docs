@@ -7,8 +7,7 @@ title: "What's new"
 
 ---
 
-
-### **3.2.2 (19 December 2025)**  
+### **3.3.2 (10 December 2025)**  
 Say hello to **Google Maps in Nowa!** This update brings new power to your apps with built-in Maps support, along with smoother performance across the board.  
 
 #### **New in This Version ✨**
@@ -29,7 +28,7 @@ Say hello to **Google Maps in Nowa!** This update brings new power to your apps 
 
 ---
 
-### **3.2.0 (10 December 2025)**  
+### **3.2.0 (14 Novemeber 2025)**  
 This update makes Nowa’s AI **smarter, more capable, and fully connected to the Flutter ecosystem** — introducing **AI that can use custom packages from pub.dev!**  
 
 #### **New in This Version ✨**

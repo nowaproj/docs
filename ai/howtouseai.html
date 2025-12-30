@@ -14,8 +14,8 @@
 <link rel="preconnect" href="https://us.i.posthog.com">
 <script>!function(t,e){var o,s,r,a;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,n,p){function c(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(r=t.createElement("script")).type="text/javascript",r.async=!0,r.src=n.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(a=t.getElementsByTagName("script")[0]).parentNode.insertBefore(r,a);var g=e;for(void 0!==p?g=e[p]=[]:p="posthog",g.people=g.people||[],g.toString=function(t){var e="posthog";return"posthog"!==p&&(e+="."+p),t||(e+=" (stub)"),e},g.people.toString=function(){return g.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys onSessionId".split(" "),s=0;s<o.length;s++)c(g,o[s]);e._i.push([i,n,p])},e.__SV=1)}(document,window.posthog||[]),posthog.init("phc_t9ByiL3PTqP8dTa6nWoqjoygz7nIuKOjLPXig1rxm6C",{api_host:"https://us.i.posthog.com",id:"default"})</script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css"><link rel="stylesheet" href="/assets/css/styles.61864064.css">
-<script src="/assets/js/runtime~main.38f28b41.js" defer="defer"></script>
-<script src="/assets/js/main.0018951f.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.8471c317.js" defer="defer"></script>
+<script src="/assets/js/main.f1849dfe.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <svg style="display: none;"><defs>
@@ -25,21 +25,42 @@
 <p><strong>Nowa AI</strong> is your assistant for building apps. It helps you make widgets, design pages, connect APIs, and supports you from start to finish.</p>
 <hr>
 <h1>How to Use Nowa AI</h1>
-<p>To begin your conversation with <strong>Nowa AI</strong>, you just click on the chat icon in the left side panel.</p>
-<video src="/videos/ai/open.webm" controls="" width="100%"></video>
+<p>To begin your conversation with <strong>Nowa AI</strong>, just click on the chat icon in the left side panel.</p>
+<video src="/videos/ai/openai.mkv" controls="" width="100%"></video>
 <hr>
-<h1>Attachements</h1>
+<h1>Usage &amp; Credits</h1>
+<p>You can see the input and output tokens used for each chat message—along with the cost per prompt.</p>
+<p>If you click <strong>Session Details</strong>, you can view it in a more visual way.</p>
+<p>You can see exactly how many credits you’ve used over time if you click <strong>Global Usage</strong>.</p>
+<p>Credits are now calculated based on <strong>token usage</strong>, not per message. This means:</p>
+<ul>
+<li>A small design tweak (e.g., editing a widget) might cost <strong>0.05–0.1 credits</strong>.</li>
+<li>A full page or feature build might cost around <strong>1 credit</strong>.</li>
+</ul>
+<video src="/videos/ai/credits2.mkv" controls="" width="100%"></video>
+<hr>
+<h1>Custom Instructions</h1>
+<p>This is useful if you want every prompt to start with a <strong>base instruction</strong>, like:</p>
+<ul>
+<li>“Make your code structured.”</li>
+<li>“Always use images from a specific website.”</li>
+</ul>
+<p>Click Options in the <strong>AI panel</strong>, select <strong>Custom Instructions</strong>, add your base instructions in the text field, and click <strong>Save</strong>.</p>
+<video src="/videos/ai/chatinstruction.mkv" controls="" width="100%"></video>
+<p>Now, every prompt you send will include these base instructions by default.</p>
+<hr>
+<h1>Attachments</h1>
 <p>We built the AI to know where to find what you want to change, but if you know where to find it, attaching it makes the outcome more precise.</p>
-<h1>Smart Selection &amp; Context</h1>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="smart-selection--context">Smart Selection &amp; Context<a href="#smart-selection--context" class="hash-link" aria-label="Direct link to Smart Selection &amp; Context" title="Direct link to Smart Selection &amp; Context" translate="no">​</a></h2>
 <p>When you click on a screen or widget in your app, it’s automatically added as context to your AI conversation.</p>
 <p>This means the AI knows exactly what part of your app you’re focusing on—so when you ask for changes, the results are precise.</p>
 <p>For example, if you select a text or an icon in the widget tree, the AI panel will instantly recognize it and show the context in the lower-left corner.</p>
-<video src="/videos/ai/target.webm" controls="" width="100%"></video>
+<video src="/videos/ai/target.mkv" controls="" width="100%"></video>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="attaching-screens">Attaching Screens<a href="#attaching-screens" class="hash-link" aria-label="Direct link to Attaching Screens" title="Direct link to Attaching Screens" translate="no">​</a></h2>
 <p>Just like <strong>smart selection and context</strong>, you can attach screens to give the AI more detail.</p>
 <p>The difference is that here you can <strong>attach multiple full screens</strong> — but <strong>individual widgets can’t be attached this way</strong>.</p>
 <p>Simply click the <strong>Attach</strong> button in the AI chat panel, then pick what you’d like to attach.</p>
-<video src="/videos/ai/attach.webm" controls="" width="100%"></video>
+<video src="/videos/ai/attach.mkv" controls="" width="100%"></video>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="attaching-images">Attaching Images<a href="#attaching-images" class="hash-link" aria-label="Direct link to Attaching Images" title="Direct link to Attaching Images" translate="no">​</a></h2>
 <p>Want the AI to design something based on a picture you have in mind?</p>
 <p>You can attach images, and the AI will use them as inspiration—whether that’s generating similar widgets, pages, or just adding extra context.</p>
@@ -49,18 +70,41 @@
 <li>Select <strong>Attach Image</strong>.</li>
 <li>Choose the image from your computer.</li>
 </ol>
-<video src="/videos/ai/image.webm" controls="" width="100%"></video>
+<video src="/videos/ai/image.mkv" controls="" width="100%"></video>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="attaching-text-files">Attaching Text Files<a href="#attaching-text-files" class="hash-link" aria-label="Direct link to Attaching Text Files" title="Direct link to Attaching Text Files" translate="no">​</a></h2>
+<p>Want the AI to design or build something based on written content you already have?</p>
+<p>You can attach text files, and the AI will use them as input—whether that’s generating similar content, creating structure from it, or adding extra context.</p>
+<p>Here’s how:</p>
+<ol>
+<li>Click the <strong>Attach</strong> button in the AI panel.</li>
+<li>Select <strong>Attach Text File</strong>.</li>
+<li>Choose the text file from your computer.</li>
+</ol>
+<video src="/videos/ai/text.mkv" controls="" width="100%"></video>
 <hr>
 <h1>Reverting and Replaying Changes</h1>
-<p>If you didn’t like the AI’s last change, you can click <strong>Revert changes</strong> below the message to go back to the previous state.</p>
-<p>And if you change your mind again, you can click <strong>Replay changes</strong> to redo the action.</p>
-<video src="/videos/ai/revert.webm" controls="" width="100%"></video>
+<p>If you didn’t like the AI’s changes, you can click <strong>Restore checkpoint</strong> at the start of the message to return to the previous state.</p>
+<p>And if you change your mind again, you can click <strong>Replay checkpoint</strong> to redo the action.</p>
+<p>This feature also works with <strong>chats in your chat history</strong>, so you can revisit and adjust previous edits anytime.</p>
+<video src="/videos/ai/revert.mkv" controls="" width="100%"></video>
 <hr>
 <h1>Starting a Fresh Chat</h1>
 <p>Sometimes you’ll want to start over with a clean slate.</p>
 <p>To begin a brand new conversation with the AI, click <strong>New Chat</strong>.</p>
 <p>This clears the chat history and context, so you can focus on your next idea without distractions.</p>
-<video src="/videos/ai/newchat.webm" controls="" width="100%"></video>
-<hr></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/category/build-with-ai"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Build with AI</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/ai/prompttip"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Prompting Tips</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#attaching-screens" class="table-of-contents__link toc-highlight">Attaching Screens</a></li><li><a href="#attaching-images" class="table-of-contents__link toc-highlight">Attaching Images</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Product</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://nowa.dev" target="_blank" rel="noopener noreferrer" class="footer__link-item">Main website<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://app.nowa.dev/signup" target="_blank" rel="noopener noreferrer" class="footer__link-item">Get started with Nowa<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://app.nowa.dev" target="_blank" rel="noopener noreferrer" class="footer__link-item">Sign In<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Resources &amp; Communities</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://www.youtube.com/channel/UCvP7LKeb2sW1yTUqHAFEKOw" target="_blank" rel="noopener noreferrer" class="footer__link-item">Youtube<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://discord.gg/ByKfn3H7gX" target="_blank" rel="noopener noreferrer" class="footer__link-item">Discord<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://www.reddit.com/r/nowa/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Reddit<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://www.instagram.com/nowa.dev/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Instagram<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://www.linkedin.com/company/nowaengine/" target="_blank" rel="noopener noreferrer" class="footer__link-item">LinkedIn<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://twitter.com/nowa_dev" target="_blank" rel="noopener noreferrer" class="footer__link-item">Twitter<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 Nowa. All rights reserved</div></div></div></footer></div>
+<video src="/videos/ai/newchat.mkv" controls="" width="100%"></video>
+<hr>
+<h1>Chat History</h1>
+<p>Your <strong>past chats are saved</strong>, so you can easily revisit and <strong>resume</strong> any conversation whenever you want.</p>
+<p>This makes it easier to pick up where you left off without starting from scratch.</p>
+<p>You can easily revisit and continue past conversations by clicking <strong>Options</strong>, selecting <strong>Chat history</strong>, and choosing the chat you want.</p>
+<video src="/videos/ai/chathistory.mkv" controls="" width="100%"></video>
+<hr>
+<h1>Managing Long Prompts and Chats</h1>
+<p>If your chat gets lengthy, you’ll be asked whether you want to <strong>continue or start fresh</strong>.</p>
+<p>This helps keep conversations focused.</p>
+<p><img decoding="async" loading="lazy" src="/assets/images/warning-bd1f62825e898307ab1088720d98f0e6.png" width="1920" height="1052" class="img_ev3q"></p>
+<p><img decoding="async" loading="lazy" src="/assets/images/warning2-b76f7d5374be1fca6d97e7bee0679142.png" width="1152" height="648" class="img_ev3q"></p>
+<hr></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/category/build-with-ai"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Build with AI</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/ai/prompttip"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Prompting Tips</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#smart-selection--context" class="table-of-contents__link toc-highlight">Smart Selection &amp; Context</a></li><li><a href="#attaching-screens" class="table-of-contents__link toc-highlight">Attaching Screens</a></li><li><a href="#attaching-images" class="table-of-contents__link toc-highlight">Attaching Images</a></li><li><a href="#attaching-text-files" class="table-of-contents__link toc-highlight">Attaching Text Files</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Product</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://nowa.dev" target="_blank" rel="noopener noreferrer" class="footer__link-item">Main website<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://app.nowa.dev/signup" target="_blank" rel="noopener noreferrer" class="footer__link-item">Get started with Nowa<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://app.nowa.dev" target="_blank" rel="noopener noreferrer" class="footer__link-item">Sign In<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Resources &amp; Communities</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://www.youtube.com/channel/UCvP7LKeb2sW1yTUqHAFEKOw" target="_blank" rel="noopener noreferrer" class="footer__link-item">Youtube<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://discord.gg/ByKfn3H7gX" target="_blank" rel="noopener noreferrer" class="footer__link-item">Discord<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://www.reddit.com/r/nowa/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Reddit<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://www.instagram.com/nowa.dev/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Instagram<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://www.linkedin.com/company/nowaengine/" target="_blank" rel="noopener noreferrer" class="footer__link-item">LinkedIn<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://twitter.com/nowa_dev" target="_blank" rel="noopener noreferrer" class="footer__link-item">Twitter<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 Nowa. All rights reserved</div></div></div></footer></div>
 </body>
 </html>

@@ -7,6 +7,94 @@ title: "What's new"
 
 ---
 
+### **3.3.5 (30 December 2025)**  
+Say hi to **Commit History, one‑click GitHub integration, and faster loading for local projects**. Let's get into details:
+
+#### **New in This Version ✨**
+- 🕒 **Commit History in Nowa**  
+  You can now browse your **full commit history directly inside the Git panel** without needing GitHub.  
+  - Preview all previous commits and see which files were created, modified, or removed  
+  - Click any file to inspect **line‑by‑line changes**  
+  - Right‑click a commit and choose **“Revert”** to roll back its changes  
+  > Note: Commit History is currently available for **Cloud projects**. For Local projects, you can continue using GitHub Desktop, other IDEs, or the command line.  
+
+- 🐙 **One‑click GitHub Integration**  
+  Connecting your project to GitHub is now a **single click** away — no manual tokens required.  
+  - Go to `Project Settings → Git → Connect to GitHub`  
+  - Authenticate Nowa in the window that opens  
+  - Return to Nowa and you’re connected, ready to push and pull from your repository  
+
+- 💽 **Faster Loading for Local Projects**  
+  Local projects with lots of dependencies now **load much faster**.  
+  - Nowa 3.3.5 uses your **local Flutter SDK** to resolve dependencies  
+  - This removes the need to fetch them all again from `pub.dev`, especially for large projects  
+
+---
+
+### **3.3.2 (10 December 2025)**  
+Say hello to **Google Maps in Nowa!** This update brings new power to your apps with built-in Maps support, along with smoother performance across the board.  
+
+#### **New in This Version ✨**
+- 🗺️ **Google Maps Widget**  
+  You can now add and customize **Google Maps** directly inside Nowa — no need for custom code!  
+  - Add from the **Widget Picker**  
+  - Configure it visually or through AI  
+  - Run it in the simulator to view live map results  
+
+#### **Improved Experience ⚡**  
+- Better loading visuals when opening projects for more transparency.  
+- More consistent UI rendering when switching between screens and views.  
+
+#### **Coming Soon 🔮**
+- 🧩 **Supabase & Figma MCPs:** Connect your backend and design directly into Nowa.  
+- ⚙️ **AI Upgrade:** Faster, smarter, and more context-aware AI generation.  
+- 🎥 **New Video Series:** Full onboarding and crash course for new users.  
+
+---
+
+### **3.2.0 (14 Novemeber 2025)**  
+This update makes Nowa’s AI **smarter, more capable, and fully connected to the Flutter ecosystem** — introducing **AI that can use custom packages from pub.dev!**  
+
+#### **New in This Version ✨**
+- 🧠 **AI That Uses Custom Packages**  
+  The AI can now **fetch and use packages directly from pub.dev**, reading their docs, understanding their APIs, and implementing them automatically in your project — even if they aren’t built into Nowa.  
+  > ⚙️ Enabled by default for new projects  
+  > 🧪 For existing ones: Go to `Settings → Packages → Enable “Load Packages (Experimental)”`  
+
+- ⚡ **Smarter, Cleaner AI**  
+  The AI now fully understands Flutter’s **Material library** and core widgets — meaning no more “undefined” issues and more precise results.  
+  It also uses **new internal tools** to build cleaner architectures, connect logic and UI automatically, and follow your themes naturally.  
+
+- 🌐 **Built-in Cloud Git Integration**  
+  Every **cloud project** now comes with **Git pre-configured**.  
+  You’ll see visual indicators for pending changes and can commit directly within Nowa to keep your project’s version history clean and easy to manage.  
+
+#### **Coming Soon 🔮**
+- 🧩 **Supabase & Figma MCPs:** Build your frontend, backend, and UI all from Nowa AI.  
+- ⚙️ **AI Core Boost:** Improving reasoning, context awareness, and result accuracy.  
+- 🎥 **Nowa Onboarding Video:** Learn the platform in under 15 minutes.  
+
+---
+
+### **3.1.2 (25 October 2025)**  
+A quick update following the 3.1 release, improving the **AI agent experience and reliability** to make working with it smoother and more stable.  
+
+#### **New in This Version ✨**
+- 🧠 **Improved AI Stability**  
+  The AI now handles larger prompts, streams responses more reliably, and maintains more consistent performance in long chats.  
+
+- 🔗 **Better Sharing Experience**  
+  Shared links and public previews now open instantly without login issues.  
+
+- ⚙️ **Improved Bug Reporting Flow**  
+  You can now include more context automatically when submitting issues, helping the team fix things faster.  
+
+#### **Coming Soon 🔮**
+- 🎥 **AI Quick Guide:** Short video on how to use the new AI agent.  
+- 🚀 **Onboarding Walkthrough:** Learn everything new in Nowa 3.1 in minutes.  
+
+---
+
 ### **3.1.0 (21 October 2025)**  
 This is our biggest update since V3.0 - with a brand‑new AI agent, Cloud Local Sync, Instant Sharing, and major performance upgrades.  
 

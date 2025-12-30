@@ -6,6 +6,22 @@ title: "Changelog"
 
 ---
 
+## **3.3.5 (30 December 2025)**  
+
+#### **Added 🌟**  
+- **Commit History in Nowa** — view your full commit history directly in the Git panel, preview changed files line by line, and revert specific commits with a right‑click.  
+- **One‑click GitHub integration** — connect projects to GitHub from `Project Settings → Git → Connect to GitHub` without creating tokens manually.  
+- **Faster local project loading** — large local projects now load dependencies faster by using your local Flutter SDK instead of refetching everything from `pub.dev`.  
+
+
+#### **Fixed 🩹**  
+- Fixed an issue where some **imports disappeared** when loading projects.  
+- Fixed cases of **double `int` conversion** when using AI, causing incorrect expressions.  
+- Multiple fixes to **code generation and type mismatches** for more reliable AI output.  
+- General stability and performance improvements across editor and preview.  
+
+---
+
 ## **3.3.3 (15 December 2025)**  
 
 #### **Fixed 🩹**  

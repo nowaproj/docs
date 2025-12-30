@@ -7,6 +7,30 @@ title: "What's new"
 
 ---
 
+### **3.3.5 (30 December 2025)**  
+Say hi to **Commit History, one‑click GitHub integration, and faster loading for local projects**. Let's get into details:
+
+#### **New in This Version ✨**
+- 🕒 **Commit History in Nowa**  
+  You can now browse your **full commit history directly inside the Git panel** without needing GitHub.  
+  - Preview all previous commits and see which files were created, modified, or removed  
+  - Click any file to inspect **line‑by‑line changes**  
+  - Right‑click a commit and choose **“Revert”** to roll back its changes  
+  > Note: Commit History is currently available for **Cloud projects**. For Local projects, you can continue using GitHub Desktop, other IDEs, or the command line.  
+
+- 🐙 **One‑click GitHub Integration**  
+  Connecting your project to GitHub is now a **single click** away — no manual tokens required.  
+  - Go to `Project Settings → Git → Connect to GitHub`  
+  - Authenticate Nowa in the window that opens  
+  - Return to Nowa and you’re connected, ready to push and pull from your repository  
+
+- 💽 **Faster Loading for Local Projects**  
+  Local projects with lots of dependencies now **load much faster**.  
+  - Nowa 3.3.5 uses your **local Flutter SDK** to resolve dependencies  
+  - This removes the need to fetch them all again from `pub.dev`, especially for large projects  
+
+---
+
 ### **3.3.2 (10 December 2025)**  
 Say hello to **Google Maps in Nowa!** This update brings new power to your apps with built-in Maps support, along with smoother performance across the board.  
 

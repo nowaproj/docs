@@ -12,11 +12,28 @@ Integrating GitHub with Nowa lets you seamlessly manage your app development pro
 - Export your Nowa cloud projects to GitHub.
 - Perform essential Git operations like push, pull, and commit.
 
-As a start to be able to integrate Github with Nowa cloud projects, you will need to Authenticate your account on Nowa to access your repositories on Github.  This guide will help you do that using personal access tokens.
+As a start to be able to integrate GitHub with Nowa cloud projects, you will need to authenticate your account on Nowa to access your repositories on GitHub.
 
 ---
 
-## Step 1: Generate a Personal Access Token from GitHub
+## New: Connect with the "Connect to Gitub" Button
+:::tip[New way to connect to GitHub]
+You can now connect your GitHub account directly from Nowa using the **Connect to Gitub** button. This is the recommended way to authenticate, and it replaces the personal access token flow for most users.
+
+![Connect to GitHub button](/img/git/connect-github.png)
+
+Once connected, you can immediately clone, export, and sync your Nowa cloud projects with GitHub.
+:::
+
+---
+
+## Legacy Way: Personal Access Token (PAT)
+
+:::warning[This is a legacy method]
+Personal access tokens are now a legacy method. Prefer using the method above.
+:::
+
+### Step 1: Generate a Personal Access Token from GitHub
 
 Nowa uses GitHub’s **Personal Access Tokens (PAT)** to securely connect to your GitHub repositories. Follow these steps to create your token:
 
@@ -59,7 +76,7 @@ GitHub shows this token only once. Copy and save it immediately. If you lose it,
 
 ---
 
-## Step 2: Add the Token to Nowa
+### Step 2: Add the Token to Nowa
 
 Once you have your token, follow these simple steps to authenticate GitHub with Nowa:
 
@@ -95,9 +112,6 @@ For local repositories, you can manage them as you would do with standerd Flutte
 Now, your GitHub and Nowa accounts are connected. You can effortlessly manage, synchronize, and collaborate on your Flutter app projects between GitHub and Nowa.
 
 Start exploring Nowa’s seamless integration and elevate your app-building experience!
-
-
-
 
 
 

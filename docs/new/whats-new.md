@@ -7,6 +7,32 @@ title: "What's new"
 
 ---
 
+### **3.4 (19 January 2026)**  
+This is one of our biggest releases yet — introducing **Supabase MCP** and a new **Agent Creation Summary** for faster, clearer AI workflows.  
+
+#### **New in This Version ✨**
+- 🧠 **Supabase MCP (Frontend + Backend from one panel)**  
+  From now on, building a serious full stack app has never been easier! With Supabase MCP, Nowa agent can manage your full backend besides the frontend, allowing you to build the app you want with way less effort.
+  
+  Connect your Supabase project and let the AI Agent set up everything end‑to‑end such as:  
+  - Create tables and database structure  
+  - Generate RLS policies  
+  - Set up triggers and Edge Functions  
+  
+  To use it, enable Supabase MCP it in the agent chat, then describe what you want and let the agent do the full work for you!  
+
+- 📋 **Agent Creation Summary**  
+  After each AI chat, you’ll now see a summary box showing **everything the agent created**.  
+  - Drag and drop items to the board  
+  - Click any item to preview it in the file viewer  
+
+- 🎥 **New Tutorials**  
+We have released the following new tutorials on YouTube:
+  - Google Maps integration: https://www.youtube.com/watch?v=1aqqNMtRKQU  
+  - Instant preview sharing (testing & feedback): https://www.youtube.com/watch?v=ORa4ohpK4pQ  
+
+---
+
 ### **3.3.5 (30 December 2025)**  
 Say hi to **Commit History, one‑click GitHub integration, and faster loading for local projects**. Let's get into details:
 

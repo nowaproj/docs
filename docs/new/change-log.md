@@ -6,6 +6,23 @@ title: "Changelog"
 
 ---
 
+## **3.4 (19 January 2026)**  
+
+#### **Added 🌟**  
+- **Supabase MCP** — connect Supabase and let the AI agent build the frontend + backend (tables, RLS, triggers, and Edge Functions).  
+- **Agent Creation Summary** — a post‑chat summary box listing everything the agent created, with drag‑and‑drop to the board and file previews.  
+- **New tutorials** — Google Maps integration and instant preview sharing videos.  
+
+#### **Improved ⚙️**  
+- Showing publishing errors so if App Store deployment failed at the publishing stage (last stage) you will know exactly why.  
+
+#### **Fixed 🩹**  
+- Fixed “[AppState] not found” errors after AI changes.  
+- Improved generated code stability for more reliable outputs.  
+
+---
+
+
 ## **3.3.5 (30 December 2025)**  
 
 #### **Added 🌟**  

@@ -50,7 +50,7 @@ Welcome to Nowa, the place to build great Flutter apps fast with much fun.
     <p>Explore how to create apps right from your own computer.</p>
   </Link>
 
-  <Link to="category/deployment" className={styles.card}>
+  <Link to="deployment" className={styles.card}>
     <h3>Deployment</h3>
     <p>Learn how to deploy your app to any platform to run nativly.</p>
   </Link>

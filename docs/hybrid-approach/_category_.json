@@ -2,6 +2,7 @@
     "label": "Hybrid Approach & Custom code",
     "position": 13,
     "link": {
+        "slug": "/hybrid-approach",
         "description": "Learn how to use your IDE next to Nowa",
         "type": "generated-index"
     }

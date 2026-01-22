@@ -3,6 +3,7 @@
     "position": 4,
     "link": {
         "type": "generated-index",
+        "slug": "/vars-params-functions",
         "description": "How to use the basic building blocks of variables, parameters, functions and Objects "
     }
 }

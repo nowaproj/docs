@@ -3,6 +3,7 @@
     "position": 11,
     "link": {
         "type": "generated-index",
+        "slug": "/local-project-simulator",
         "description": "Explore how to create apps right from your own computer."
     }
 }

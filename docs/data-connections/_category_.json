@@ -3,6 +3,7 @@
     "position": 5,
     "link": {
         "type": "generated-index",
+        "slug": "/data-connections",
         "description": "Discover how to pull data from sources and transmit it to any destination."
     }
 }

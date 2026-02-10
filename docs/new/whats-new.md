@@ -7,6 +7,45 @@ title: "What's new"
 
 ---
 
+### **3.5 (9 February 2026)**  
+Nowa 3.5 is a big step forward. In this release, you’ll get **Nowa Agent V3** (a new AI foundation), a new routing system powered by **GoRouter**, **Git support for Local Projects**, and smoother performance across the editor.  
+
+#### **New in This Version ✨**
+- 🤖 **Nowa Agent V3 (4 modes)**  
+  This is the biggest change in 3.5 — we rebuilt how AI works in Nowa.  
+  
+  You now have four modes to choose from: **Instant, Thinking, Deep Thinking, and Max**. The new modes (except Max) consume **5× fewer credits**, run **4× faster**, and produce **2–3× better results**.  
+  
+  In practice, you’ll notice:  
+  - Better UI/UX generated out of the box  
+  - Stronger Supabase workflows using **Supabase MCP** (including more complex cases)  
+  - Better planning and debugging for bigger tasks  
+  - Deeper understanding of Nowa projects and newer Flutter capabilities  
+
+- 🧭 **Routing is now GoRouter by default**  
+  All new projects now use **GoRouter**. Each screen has a **path**, so your web apps can navigate with real links and URLs, and your mobile apps can support **deep linking** (for example from notifications).  
+  It also makes building navigation patterns like **Navigation Bars** and **Drawers** much simpler and cleaner.  
+
+- 🌿 **Git for Local Projects**  
+  Local projects now come with **Git enabled by default**, so you can track changes, discard them when needed, commit your work, review history, and push to GitHub (or any Git provider) — just like a real production workflow.  
+
+- ⚡ **Smoother UI boards**  
+  We improved how boards are rendered — moving between screens, panning, and zooming should feel **significantly smoother**, even when your board has many screens.  
+
+#### **New Content 📚**
+- 🎥 **Dev Diary (Nowa 3.5)**  
+  Want to see everything in action? Watch here:  
+  <iframe width="767" height="431" src="https://www.youtube.com/embed/CuR6uC32ulE" title="Nowa 3.5 | Introducing Nowa AI Agent V3 | Dev Diary" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>  
+
+#### **Community Reward 🎁**
+- 🎁 **Get 50 free AI credits**  
+  Share a **complete app** you built and deployed with Nowa on **LinkedIn or X**, tag us, and you’ll get **50 free AI credits**.  
+  The **top 5 apps** shared will get **1 month free on the Scale plan** (and if you’re already on Scale, you’ll get a refund for that month).  
+
+➡️ If you face any issue, use the **"Problem"** button to report it (attach a project snapshot if needed), or email us at `team@nowa.dev`.  
+
+---
+
 ### **3.4 (19 January 2026)**  
 This is one of our biggest releases yet — introducing **Supabase MCP** and a new **Agent Creation Summary** for faster, clearer AI workflows.  
 

@@ -6,6 +6,20 @@ title: "Changelog"
 
 ---
 
+## **3.5 (9 February 2026)**  
+
+#### **Added 🌟**  
+- **Nowa Agent V3** — new AI foundation with 4 modes: Instant, Thinking, Deep Thinking, and Max.  
+- **GoRouter by default** — all new projects use GoRouter routing with screen paths and deep linking support.  
+- **Git for Local Projects** — Git is enabled by default for local projects (commit, history, push/pull).  
+
+#### **Improved ⚙️**  
+- **AI efficiency & quality** — new modes (except Max) use 5× fewer credits, run 4× faster, and produce 2–3× better results.  
+- **Supabase workflows** — stronger results when working with Supabase MCP.  
+- **UI boards performance** — smoother screen switching, panning, and zooming on large boards.  
+
+---
+
 ## **3.4 (19 January 2026)**  
 
 #### **Added 🌟**  

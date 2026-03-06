@@ -6,7 +6,26 @@ title: "Changelog"
 
 ---
 
-## **3.5 (9 February 2026)**  
+## **3.6 (6 March 2026)**
+
+#### **Added 🌟**
+- **RevenueCat Integration** — monetize your iOS and Android apps with in-app purchases using RevenueCat, set up in just a few clicks.
+- **AI Planning Mode** — the AI now deeply analyzes your project, asks clarifying questions, and presents a detailed plan before implementing. Review and refine the plan, then get results built correctly from the first shot with fewer credits.
+- **Todos in Agent Mode** — for complex prompts, the agent creates an internal plan with todos and completes them one by one, ensuring nothing is missed.
+- **Google Sign-In with Supabase** — ask Nowa AI to implement Google Sign-In with Supabase directly.
+- **Onboarding for New Projects** — new projects now include a guided onboarding experience to help you get started.
+
+#### **Improved ⚙️**
+- **AI search & project analysis** — the agent searches across your project much faster and consumes far fewer credits. It can also trigger source-code analysis to catch issues Nowa might miss.
+- **Automatic AI issue reporting** — the AI can automatically report issues it encounters (without private data) and provide a report ID for follow-up.
+- General performance and stability improvements across the editor.
+
+#### **Fixed 🩹**
+- Fixed an issue where the AI was adding incorrect package versions. Package versions are now managed by Nowa and default to the latest from pub.dev unless the AI has a specific reason not to.
+
+---
+
+## **3.5 (9 February 2026)**
 
 #### **Added 🌟**  
 - **Nowa Agent V3** — new AI foundation with 4 modes: Instant, Thinking, Deep Thinking, and Max.  

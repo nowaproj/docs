@@ -7,7 +7,49 @@ title: "What's new"
 
 ---
 
-### **3.5 (9 February 2026)**  
+### **3.6 (6 March 2026)**
+Nowa 3.6 brings a big boost to what you can do. Now you can offer **in-app purchases with RevenueCat**, use **Planning Mode** to get much more accurate results from AI, get solid results for complex prompts in **Agent Mode**, and more improvements to make your day-to-day building smoother.
+
+#### **New in This Version ✨**
+- 💰 **In-App Purchases with RevenueCat**
+  You can now add in-app purchases to your iOS and Android apps with just a few clicks through **RevenueCat**. If you've been wanting to monetize your app, this is the easiest way to get started. A step-by-step tutorial is coming in the next few days.
+
+- 🧠 **AI Planning Mode**
+  Instead of jumping straight into implementation, **Planning Mode** takes the time to understand what you're trying to build, analyzes your project in depth, asks you the right questions, and lays out a clear plan for you to review before anything gets implemented.
+  You can keep refining the plan until you're happy with it, then let it build — so you get what you actually wanted without the back and forth.
+
+- ✅ **Todos in Agent Mode**
+  For complex requests and long prompts, the agent now creates its own **internal todo list** and works through tasks one by one, allowing it to stay focused and produce much better results along the way.
+
+- 🔍 **Smarter Search**
+  The AI agent is now much more efficient at searching across your project, making your prompts **faster** and **lighter on credits**.
+
+- 🔬 **Source-Code Analysis**
+  The agent can now trigger **deep analysis** directly on the source code to catch problems there, making it way more reliable at debugging and able to detect all kinds of issues.
+
+- 📋 **Automatic Issue Reporting**
+  If the AI runs into something unexpected, it reports it directly to us and shares a **report ID** with you to follow up. No personal data is collected — this just helps us support you better if something happens.
+
+- 🔐 **Google Sign-In with Supabase**
+  You can now implement Google Sign-In using Supabase easily. Just connect your project to Supabase and ask Nowa AI to set it up for you.
+
+- 🎓 **Onboarding for New Projects**
+  Starting a new project? You'll now get a guided **onboarding experience** to help you get up and running quickly.
+
+#### **New Content 📚**
+- 🎥 **Dev Diary (Nowa 3.6)**
+  Want to see everything in action? Watch the Dev Diary:
+  <iframe width="767" height="431" src="https://www.youtube.com/embed/dLsO05crdSk" title="Nowa 3.6 | Dev Diary" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+#### **Community Highlights 🌟**
+- 🇸🇪 **[Klubbrabatten](https://klubbrabatten.se/)** — Sweden's biggest loyalty rewards program, giving users discounts across restaurants and places all over the country. Used by over **150,000 users** and built entirely with Nowa and Supabase.
+- 🏋️ **[Zero-Trust Fitness App](https://github.com/EdoSag/Zero-Trust-Fitness)** — an open-source, privacy-first alternative to Google Fit that encrypts all your health data, built by **Edo**. Want to contribute? Clone the project and jump in!
+
+➡️ If you face any issue, use the **"Problem"** button to report it (attach a project snapshot if needed), or email us at `team@nowa.dev`.
+
+---
+
+### **3.5 (9 February 2026)**
 Nowa 3.5 is a big step forward. In this release, you’ll get **Nowa Agent V3** (a new AI foundation), a new routing system powered by **GoRouter**, **Git support for Local Projects**, and smoother performance across the editor.  
 
 #### **New in This Version ✨**

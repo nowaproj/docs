@@ -1,5 +1,6 @@
 ---
 title: "What's new"
+sidebar_position: 1
 ---
 # 📰 What's new 
 
@@ -9,6 +10,9 @@ title: "What's new"
 
 ### **3.6 (6 March 2026)**
 Nowa 3.6 brings a big boost to what you can do. Now you can offer **in-app purchases with RevenueCat**, use **Planning Mode** to get much more accurate results from AI, get solid results for complex prompts in **Agent Mode**, and more improvements to make your day-to-day building smoother.
+
+Want to see everything in action? Watch the Dev Diary:
+  <iframe width="767" height="431" src="https://www.youtube.com/embed/dLsO05crdSk" title="Nowa 3.6 | Dev Diary" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 #### **New in This Version ✨**
 - 💰 **In-App Purchases with RevenueCat**
@@ -35,11 +39,7 @@ Nowa 3.6 brings a big boost to what you can do. Now you can offer **in-app purch
 
 - 🎓 **Onboarding for New Projects**
   Starting a new project? You'll now get a guided **onboarding experience** to help you get up and running quickly.
-
-#### **New Content 📚**
-- 🎥 **Dev Diary (Nowa 3.6)**
-  Want to see everything in action? Watch the Dev Diary:
-  <iframe width="767" height="431" src="https://www.youtube.com/embed/dLsO05crdSk" title="Nowa 3.6 | Dev Diary" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  
 
 #### **Community Highlights 🌟**
 - 🇸🇪 **[Klubbrabatten](https://klubbrabatten.se/)** — Sweden's biggest loyalty rewards program, giving users discounts across restaurants and places all over the country. Used by over **150,000 users** and built entirely with Nowa and Supabase.

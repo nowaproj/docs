@@ -1,5 +1,6 @@
 ---
 title: "Changelog"
+sidebar_position: 2
 ---
 
 > Detailed log of all updates, improvements, and bug fixes for each version.

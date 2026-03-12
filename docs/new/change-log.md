@@ -7,6 +7,17 @@ sidebar_position: 2
 
 ---
 
+## **3.6.1 (12 March 2026)**
+
+#### **Improved ⚙️**
+- **Editable `main.dart`** — a new system now lets both you and the AI agent freely modify the `main.dart` file without running into issues.
+- **AI stability on weak connections** — Nowa now handles weak and moderate internet connections much more gracefully, preventing unexpected disconnects mid-task.
+
+#### **Fixed 🩹**
+- Fixed an issue where some projects weren't loading correctly after the 3.6 update.
+
+---
+
 ## **3.6 (6 March 2026)**
 
 #### **Added 🌟**

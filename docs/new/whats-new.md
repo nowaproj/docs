@@ -8,6 +8,13 @@ sidebar_position: 1
 
 ---
 
+### **3.6.1 (12 March 2026)**
+A hotfix following 3.6 that makes `main.dart` fully editable — a new system now lets both you and the AI agent freely modify the `main.dart` file without running into issues.
+
+➡️ If you face any issue, use the **"Problem"** button to report it (attach a project snapshot if needed), or email us at `team@nowa.dev`.
+
+---
+
 ### **3.6 (6 March 2026)**
 Nowa 3.6 brings a big boost to what you can do. Now you can offer **in-app purchases with RevenueCat**, use **Planning Mode** to get much more accurate results from AI, get solid results for complex prompts in **Agent Mode**, and more improvements to make your day-to-day building smoother.
 

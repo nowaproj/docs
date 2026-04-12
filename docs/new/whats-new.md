@@ -8,6 +8,35 @@ sidebar_position: 1
 
 ---
 
+### **3.7 (12 April 2026)**
+Nowa 3.7 makes it easier than ever to build, monetize, and maintain your apps. This release brings **Stripe payments**, **in-app support chat**, **in-app notifications**, **AI-powered project fixing**, and a **preview of Nowa's redesigned UI**.
+
+#### **New in This Version ✨**
+- 💳 **Stripe Payments Integration**
+  Want to monetize your app? Now you can! **Stripe is fully integrated** — whether it's subscriptions or one-time payments, Nowa sets everything up for you, including webhooks. You focus on your app, we handle the plumbing.
+  Watch the tutorial here: https://www.youtube.com/watch?v=8QjTKvSBTdM
+
+- 💬 **In-App Support Chat**
+  Building should never feel lonely. Click the **? icon** in the bottom-right corner to **chat with us directly** — ask questions, report issues, attach your project, and follow your report status from submitted all the way to done.
+
+- 🔔 **In-App Notifications**
+  New tutorials, updates, and tips — we'll now **notify you right inside Nowa** so you always have what you need to level up your apps.
+
+- 🤖 **AI Project Fixer**
+  Bugs slowing you down? Just say **"Fix problems in my project"** and let the AI do a full scan and fix issues before you deploy. Smoother builds, fewer headaches.
+
+- ✨ **Redesigned UI (Preview)**
+  We're redesigning Nowa from the ground up to make building even more intuitive. Curious? Turn it on in **Settings → Experiments** and tell us what you think!
+
+#### **More Updates 📢**
+- 🎥 **New tutorial** — Watch us build a [full CRM app for VCs](https://www.youtube.com/watch?v=IWlPbIRTE9Y&t=1528) from scratch
+- 📱 **Nowa GO is almost here** — build on your phone or tablet, anywhere you go
+- 💰 **Earn with Nowa** — Content creators can earn commissions through **Nowa Creators**. Reach out at `team@nowa.dev`
+
+➡️ If you face any issue, click the **? icon** to chat with us directly, or email us at `team@nowa.dev`.
+
+---
+
 ### **3.6.1 (12 March 2026)**
 A hotfix following 3.6 that makes `main.dart` fully editable — a new system now lets both you and the AI agent freely modify the `main.dart` file without running into issues.
 

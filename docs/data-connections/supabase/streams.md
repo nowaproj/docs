@@ -40,12 +40,12 @@ Click your **Stream query**, then **Run**.
 
 If your query is a **Stream query**, you’ll notice a yellow Stream word and yellow border lines.
 
-![Supabase Stream](\img\supabase\stream2.png)
+![Supabase Stream](/img/supabase/stream2.png)
 
 :::note
 How non-Stream query looks like:
 
-![Supabase Stream](\img\supabase\insert2.png)
+![Supabase Stream](/img/supabase/insert2.png)
 :::
 
 ---

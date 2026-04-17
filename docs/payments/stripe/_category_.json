@@ -1,0 +1,9 @@
+{
+    "label": "Stripe Integration",
+    "position": 1,
+    "link": {
+        "type": "generated-index",
+        "slug": "/payments/stripe",
+        "description": "Learn how to integrate Stripe payments within your Nowa project"
+    }
+}

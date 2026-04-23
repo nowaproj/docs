@@ -8,6 +8,29 @@ sidebar_position: 1
 
 ---
 
+### **3.7.2 (23 April 2026)**
+Nowa 3.7.2 is a big step forward — **packages are now way more stable**, the **experimental UI** is getting closer to a whole new way of building, and we solved some important issues along the way.
+
+#### **New in This Version ✨**
+- 📦 **New Packaging System**
+  We've massively improved how Nowa integrates with **pub.dev packages**. It's way more stable now, and Nowa AI handles external packages much better than before. Bonus: projects now load faster since packages load *after* the project opens ⚡
+
+- 🧪 **Experimental UI Updates**
+  Big changes landed here. AI has moved to a **toolbar at the bottom of the board** — just hit **/** to start chatting, while seeing your project components in real-time on the side. This is a step toward a completely new experience that'll make building faster and easier. Enable it from **App Settings → Project details → Experimentals**, then turn on **"New UX"** 🚀
+
+#### **What's Fixed 🛠️**
+- 🔗 **Missing imports** — AI can now work with imports properly, resolving issues some of you ran into on certain projects.
+- 🎞️ **Rive widget on Web** — Fixed.
+- 🌐 **AI + APIs** — We noticed some of you hit walls when asking AI to integrate APIs. That's sorted now.
+
+#### **What's Coming Next 🔮**
+- 🧠 **A new AI system** that delivers much better results while cutting credit costs by **5–15x**
+- 🚀 **A major deployment upgrade**, making deployments easier and clearer than ever
+- 🎨 **More experimental UI updates** on the way
+
+
+---
+
 ### **3.7 (12 April 2026)**
 Nowa 3.7 makes it easier than ever to build, monetize, and maintain your apps. This release brings **Stripe payments**, **in-app support chat**, **in-app notifications**, **AI-powered project fixing**, and a **preview of Nowa's redesigned UI**.
 

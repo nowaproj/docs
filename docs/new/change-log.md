@@ -7,6 +7,22 @@ sidebar_position: 2
 
 ---
 
+## **3.7.2 (23 April 2026)**
+
+#### **Added 🌟**
+- **New Packaging System** — completely revamped integration with pub.dev packages for much greater stability and better handling by Nowa AI when working with external packages.
+- **Experimental UI Updates** — AI has moved to a toolbar at the bottom of the board, accessible by hitting **/**, with project components visible in real-time. Enable it from **App Settings → Project details → Experimentals → "New UX"**.
+
+#### **Improved ⚙️**
+- **Faster project loading** — packages now load after the project opens, so you can start working sooner.
+- **AI handling of external packages** — Nowa AI is now significantly better at working with pub.dev packages across your projects.
+
+#### **Fixed 🩹**
+- Fixed issues with **missing imports** — AI can now work with imports properly, resolving problems some users faced on certain projects.
+- Fixed an issue with the **Rive widget on Web**.
+- Fixed issues with **AI integrating APIs** — resolved problems some users ran into when asking the AI to connect to external APIs.
+
+
 ## **3.6.1 (12 March 2026)**
 
 #### **Improved ⚙️**

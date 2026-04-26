@@ -8,6 +8,26 @@ sidebar_position: 1
 
 ---
 
+### **3.7.3 (26 April 2026)**
+Nowa 3.7.3 brings **localisation support**, **AI font downloads**, and **smarter package conflict handling** — making it easier to ship apps in multiple languages and match designs pixel-perfect.
+
+#### **New in This Version ✨**
+- 🌍 **Localisation Support**
+  You asked, we delivered! You can now make your app run in **multiple languages** with ease. Just ask Nowa AI to set it up and it'll handle everything for you, end to end.
+
+- 🔤 **AI Can Now Download Fonts**
+  Ask Nowa AI to set any font you want, and if it's not already in your project, it'll **download and set it up automatically**. Super handy when you're importing designs from Figma or other tools and want Nowa AI to match them pixel-perfect.
+
+- 📦 **Smarter Package Conflict Handling**
+  Another upgrade to our packaging system! If packages are clashing, Nowa AI now **detects and resolves the conflict automatically**, so you can stay focused on the big picture instead of digging through dependency errors.
+
+#### **More Updates 📢**
+- 📱 **Nowa GO is already rolling out in batches!** If you haven't signed up yet and want to give it a shot, now's the time. Build on your phone or tablet, anywhere you go.
+
+➡️ If you face any issue, click the **? icon** to chat with us directly, or email us at `team@nowa.dev`.
+
+---
+
 ### **3.7.2 (23 April 2026)**
 Nowa 3.7.2 is a big step forward — **packages are now way more stable**, the **experimental UI** is getting closer to a whole new way of building, and we solved some important issues along the way.
 

@@ -7,6 +7,20 @@ sidebar_position: 2
 
 ---
 
+## **3.7.3 (26 April 2026)**
+
+#### **Added 🌟**
+- **Localisation support** — make your app run in multiple languages with ease. Just ask Nowa AI to set it up and it'll handle everything end to end.
+- **AI font downloads** — ask Nowa AI to set any font and, if it's not already in your project, it'll download and set it up automatically. Useful when importing designs from Figma or other tools.
+
+#### **Improved ⚙️**
+- **Package conflict handling** — Nowa AI now automatically detects and resolves package conflicts, so you don't have to dig through dependency errors yourself.
+
+#### **Fixed 🩹**
+- Fixed an issue where the **widget menu wasn't working** on the web version.
+
+---
+
 ## **3.7.2 (23 April 2026)**
 
 #### **Added 🌟**

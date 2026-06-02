@@ -8,6 +8,37 @@ sidebar_position: 1
 
 ---
 
+### **3.8 (2 June 2026)**
+Nowa 3.8 is here, and it's a big one! 🚀 Say hello to **Nowa Agent 4**, our best AI agent ever. It runs **multiple agents in parallel** to take on longer, more complex tasks, **consumes fewer credits**, and now drops your **new screens onto the board automatically**.
+
+#### **New in This Version ✨**
+- 🤖 **Meet Nowa Agent 4**
+  Our brand new AI agent works very differently from the previous ones. Instead of one agent doing everything, it can now run **multiple agents in parallel** on your project at once. That means it can take on longer, more complex tasks and still stay precise, while you keep full visual control.
+
+- 🎯 **Better Results**
+  Agent 4 does noticeably better on things like **multi-screen generation, complex bug fixing, advanced designs, and tricky logic**. It can work for longer and split the work across subagents to get there.
+
+- 🪙 **Fewer Credits**
+  It now handles **reading and writing with separate agents** instead of one. That makes it more efficient and brings your costs down.
+
+- ⚙️ **Works with Platform Files**
+  Agent 4 can now touch **platform files**, not just Dart files. So it can **set permissions, manage packages, and more** — and you don't have to do that by hand anymore.
+
+- ⚡ **Faster "Instant" Tasks**
+  Instant is now up to **5x faster**, and uses at least **2x fewer credits** than before.
+
+- ✅ **See What the AI Did, Right Away**
+  New screens **show up on your board automatically** as Agent 4 adds them — no more dragging and dropping. 👀
+
+> ⚠️ **Heads up:** You might lose access to your previous AI conversation history with this update. We recommend **starting a new chat**. If you need to fetch a previous history, just let us know.
+
+#### **What's Coming Next 🔮**
+- 🛠️ We've got **another big Nowa update** in the works to make building even smoother. More on that soon! 🔜
+
+➡️ If you've built something in Nowa and want us to take a look, just let us know — we'd love to see it! Or click the **? icon** to chat with us directly, or email us at `team@nowa.dev`.
+
+---
+
 ### **3.7.3 (26 April 2026)**
 Nowa 3.7.3 brings **localisation support**, **AI font downloads**, and **smarter package conflict handling** — making it easier to ship apps in multiple languages and match designs pixel-perfect.
 

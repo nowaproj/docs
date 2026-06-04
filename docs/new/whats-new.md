@@ -8,6 +8,35 @@ sidebar_position: 1
 
 ---
 
+### **3.8.2 (4 June 2026)**
+Nowa 3.8.2 brings something we've wanted to ship for a long time: **Nowa Run** ⚡ — a live, fully interactive preview of your real Flutter app, right inside your editor, updating as you build. No more picturing how your app will behave — just run it and watch. 👀
+
+#### **New in This Version ✨**
+- 🎬 **It's the Real App**
+  Not a mockup or a rendered guess. **Tap, scroll, fill in forms, and test your logic** — it behaves exactly like your shipped app, because it *is* the app.
+
+- 📦 **Packages Actually Work**
+  Third-party packages now **run for real instead of being mocked**, so you see their true behavior right in the preview.
+
+- ⚡ **Edits Show Up in Seconds**
+  Change something in the builder and the preview updates **almost instantly** — no manual refresh.
+
+- 📱 **Preview on Your Phone**
+  Open the preview on your **actual device** and watch it update live as you make changes in Nowa. Build on your screen, see it on your phone.
+
+- 🔄 **Resilient**
+  If a preview ever hits a snag, just **restart it and keep going** in the same session — never starting from scratch.
+
+This is a big step toward making Nowa feel less like building blind and more like **building with your app in the room**. More on the way to make the loop even tighter. 🔜
+
+#### **What's Fixed 🛠️**
+- 🗂️ Fixed a bug where the editor would sometimes show **"file not found"** when compiling changes.
+- 🌐 Removed the **Development environment** for Web Preview/Deploy, as Nowa Run covers its use cases more efficiently.
+
+➡️ Built something in Nowa you're proud of? Show us — we love seeing what you make! Or click the **? icon** to chat with us directly, or email us at `team@nowa.dev`.
+
+---
+
 ### **3.8 (2 June 2026)**
 Nowa 3.8 is here, and it's a big one! 🚀 Say hello to **Nowa Agent 4**, our best AI agent ever. It runs **multiple agents in parallel** to take on longer, more complex tasks, **consumes fewer credits**, and now drops your **new screens onto the board automatically**.
 

@@ -106,7 +106,7 @@ Now that you have all the necessary information, you can go back to Nowa and bui
 :::info
 To deploy your app to the App Store, you need to have an active Apple Distribution Certificate account. You can either use an existing certificate or let Nowa generate a new one for you during the build process.
 
-To understand more about the Apple Distribution Certificate, check out [this section](#understanding-the-apple-distribution-certificate).
+To understand more about the Apple Distribution Certificate, check out [this section](#apple-distribution-certificate).
 :::
 
 With your project open in Nowa, follow these steps:

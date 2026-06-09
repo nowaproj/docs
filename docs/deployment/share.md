@@ -1,9 +1,15 @@
 ---
 sidebar_position: 4
-title: Instant Sharing
+title: Instant Preview Share
 ---
 
 # Instant Preview Share
+
+:::warning[Deprecated]
+Instant Preview Share is now deprecated and replaced by a new feature that allows you to share a QR code/link.
+
+Documentation for the new sharing feature is coming soon, this page will be updated to reflect the changes.
+:::
 
 As you might know, you can already [deploy your app to the App store](./ios-deploy.md), [play store or Android in general](./android-deploy.md) or [Web](./web-deploy.mdx), but deplopyment is usually suitable for final stages of testing and deploying the final app, but what about testing?
 

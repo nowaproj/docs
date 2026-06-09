@@ -1,6 +1,6 @@
 ---
 sidebar_position: 2
-title: Build For iOS
+title: Build for iOS
 description: Build and deploy your app to iOS devices.
 ---
 

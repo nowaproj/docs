@@ -7,6 +7,33 @@ sidebar_position: 2
 
 ---
 
+## **3.9 (13 June 2026)**
+
+#### **Added 🌟**
+- **Rebuilt multi-agent AI system** — several subagents now work on your project in parallel to plan, build, and refine at once, delivering better UI/UX, reliable complex logic across large projects, and smooth pub.dev package handling (including platform-file setup).
+- **Smart context fetching** — the AI reads exactly what it needs without over- or under-reading, keeping it fast and cost-efficient.
+- **App Run** — compile and run your real app directly inside Nowa, matching exactly what you'll get on deployment (pub.dev packages, custom code, and native parts included).
+- **App preview on the board** — hover over any screen and hit play to instantly run your app right where you're working.
+- **New Assets panel** — a dedicated panel for uploading and managing assets.
+- **Dedicated code editor** — open the full code panel from the `<>` icon in the top right; every change now compiles automatically.
+- **New deployment UI** — more detail and easier management for clearer, more controlled deployments.
+- **New settings page** — a cleaner, more organized home for your project settings.
+- **Refer a friend** — you and your friend each get 15 free credits when they sign up.
+
+#### **Improved ⚙️**
+- **Smarter Planning Mode** — presents a clear, readable plan anyone can follow and better matches what you want to build before work begins.
+- **Outline moved to the left side** — out of the board and into the left-side options for a cleaner workspace.
+- **Files merged into code editing** — the separate Files panel is gone; everything now lives alongside your code.
+- **Smarter logs** — now cover both App Run and preview for full visibility.
+
+#### **Fixed 🩹**
+- Fixed **high AI costs** — the new system is dramatically more efficient, so you get far more done per credit.
+- Fixed **AI struggling with complex tasks** — it now handles long, intricate jobs across your project reliably.
+- Fixed **platform file editing** — editing platform files and native parts is now smooth and stable.
+- Fixed **App Run issues** — running your app now reflects exactly what you'll get on deployment.
+
+---
+
 ## **3.7.3 (26 April 2026)**
 
 #### **Added 🌟**

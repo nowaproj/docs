@@ -8,6 +8,42 @@ sidebar_position: 1
 
 ---
 
+### **3.9 (13 June 2026)**
+Nowa 3.9 is our most powerful release yet. 🚀 It's the first version where building complex, top-tier apps with AI feels genuinely easy and efficient — powered by a **fully rebuilt AI system** and real in-app compiling with **App Run**. Together with a refreshed layout and a long list of improvements, this is where you can confidently build world-class apps, no matter the complexity, faster and easier than ever.
+
+#### **New in This Version ✨**
+- 🤖 **A Fully Rebuilt AI System**
+  We rebuilt our AI from the ground up into a **multi-agent system**, where several subagents work on your project in parallel — coordinating to plan, build, and refine your app at the same time. The result is **exceptional UI/UX** out of the box, **complex logic built reliably** even across large projects, smooth handling of **external pub.dev packages** (including any platform-file setup), and **smart context fetching** that reads exactly what's needed without over- or under-reading. Because it's so efficient, you get far more done **per credit** than ever before. This is the first version of our AI you can fully rely on for any use case.
+
+- 🗺️ **Smarter Planning Mode**
+  Planning mode now presents a clear, readable plan that anyone can follow — no technical skills required — and it's much better at matching what you actually want to build before any work begins.
+
+- ▶️ **App Run — Compile & Run Inside Nowa**
+  You can now **compile and build your app directly inside Nowa**. When you play your app, Nowa compiles and runs it for real — exactly as it'll behave on deployment, including every pub.dev package, custom code block, and native part. In other words: what you see in App Run is what you'll ship.
+
+- 🎬 **App Preview Is Back — Now on the Board**
+  Many of you loved the instant play experience, so we brought it back and made it even more convenient. Just **hover over any screen on the board** and hit the play button to run your app right where you're working — no extra steps, no switching views.
+
+- 🎨 **A Fresh, More Intuitive Layout**
+  We reworked the interface to make building more enjoyable and easier to navigate:
+  - **New Assets panel** for uploading and managing your assets.
+  - **Outline moved to the left side**, giving you a cleaner workspace.
+  - **A dedicated code editor** — click the `<>` icon in the top right to open the full code panel, and every change compiles automatically.
+  - **Files merged into code editing** — the separate Files panel is gone; everything now lives in one place alongside your code.
+  - **New deployment UI** with more detail and easier management.
+  - **New settings page** — a cleaner, more organized home for your project settings.
+  - **Smarter logs** that cover both App Run and preview, for full visibility into what's happening.
+
+- 🎁 **Invite a Friend, Get 15 Credits Each**
+  You can now **refer a friend** to Nowa. When they sign up, you both receive **15 free credits** — and with the new AI system, those credits go a long way.
+
+#### **More Updates 📢**
+- 🆓 **Nowa Free Weekend** — this coming **Saturday and Sunday**, Nowa is **completely free** to use. If there's something you've been waiting to build, now's the perfect time to dive in.
+
+➡️ We'd love to hear what you think once you've taken Nowa 3.9 for a spin — your feedback shapes where we go next. Click the **? icon** to chat with us directly, or email us at `team@nowa.dev`. Happy building!
+
+---
+
 ### **3.8.2 (4 June 2026)**
 Nowa 3.8.2 brings something we've wanted to ship for a long time: **Nowa Run** ⚡ — a live, fully interactive preview of your real Flutter app, right inside your editor, updating as you build. No more picturing how your app will behave — just run it and watch. 👀
 

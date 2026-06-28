@@ -35,7 +35,45 @@ I’ll show you how to download Nowa Desktop.
 
 ## Setting up Flutter SDK
 
-To run local projects, Nowa Desktop needs the Flutter SDK installed on your computer.
+To run local projects, Nowa Desktop needs the Flutter SDK installed on your computer. You can let Nowa install everything for you **automatically**, or point it to an existing Flutter install **manually**.
+
+### Install Flutter automatically (recommended)
+
+Nowa can download and configure Flutter and the Android toolchain for you — no terminal required.
+
+1. **Open Local Setup**  
+   In Nowa Desktop, click the **⚙️ Settings** icon, then go to the **Local Setup** tab. Under **Automatic setup**, click **Set up automatically**.  
+   ![](/img/nowadesktop/autosetup/1.png)
+
+2. **Download Flutter**  
+   Optionally choose an install location, or leave it as is to let Nowa use its own default folder (the path must not contain spaces). Then accept the licenses and click **Install** next to **Flutter**. The Flutter SDK is about 1 GB to download and installs the tools (about 10 GB) into the chosen folder.  
+   ![](/img/nowadesktop/autosetup/2.png)
+
+3. **Wait for the download to finish**  
+   Nowa downloads and unpacks the Flutter SDK. You can follow the progress in the dialog.  
+   ![](/img/nowadesktop/autosetup/3.png)
+
+4. **Verify the setup**  
+   Once Flutter is installed, Nowa moves to the **Verify** step and runs `flutter doctor` to check your environment.  
+   ![](/img/nowadesktop/autosetup/4.png)
+
+   When it finishes, you'll see what `flutter doctor` reports and which devices you can run on (for example iOS, macOS, and Chrome).  
+   ![](/img/nowadesktop/autosetup/5.png)
+
+5. **(Optional) Install the Android toolchain**  
+   The Android toolchain is only needed to build Android apps, and the emulator is optional too. Click **Install** to add them, or **Skip for now** if you only target web or desktop — you can always add them later from **Settings → Environment**.  
+   ![](/img/nowadesktop/autosetup/6.png)
+
+   Once they're installed, the toolchain and emulator show as **Ready · Managed by Nowa**. Click **Done** to finish.  
+   ![](/img/nowadesktop/autosetup/7.png)
+
+:::note  
+Nowa downloads these tools from Google and the Eclipse Foundation. By installing, you agree to their licenses and acknowledge their privacy policies.  
+:::
+
+### Set up Flutter manually
+
+If you already have Flutter installed, you can point Nowa to it instead.
 
 1. **Install Flutter SDK**  
    Download it from the [official Flutter website](https://flutter.dev/docs/get-started/install) and follow the steps to install.

@@ -37,6 +37,22 @@ I’ll show you how to download Nowa Desktop.
 
 To run local projects, Nowa Desktop needs the Flutter SDK installed on your computer. You can let Nowa install everything for you **automatically**, or point it to an existing Flutter install **manually**.
 
+### macOS: Install Xcode first {#macos-install-xcode}
+
+On **macOS**, Flutter needs **Xcode** to run. If it's missing, setup fails with an error like *"Flutter failed to initialize: xcode-select: No developer tools were found."*
+
+**To install Xcode:**
+
+1. Open the **App Store** on your Mac.
+2. Search for **Xcode** and click **Get / Install** (it's a large download, so it may take a while).
+3. Once installed, open Xcode at least once so it can finish setting up its components.
+4. Return to Nowa Desktop and run the Flutter setup again.
+
+:::note
+Xcode is required to build and run your apps on macOS — including **iOS**, which Nowa fully supports.
+:::
+
+
 ### Install Flutter automatically (recommended)
 
 Nowa can download and configure Flutter and the Android toolchain for you — no terminal required.
@@ -77,6 +93,10 @@ If you already have Flutter installed, you can point Nowa to it instead.
 
 1. **Install Flutter SDK**  
    Download it from the [official Flutter website](https://flutter.dev/docs/get-started/install) and follow the steps to install.
+
+   :::tip
+   On **macOS**, make sure **Xcode** is installed too. See [macOS: Install Xcode first](#macos-install-xcode) above.
+   :::
 
 2. **Connect Flutter to Nowa Desktop**  
    - Open Nowa Desktop and log in.  
@@ -131,5 +151,3 @@ Once Nowa Desktop is set up, you can start creating your first local project.
 
 Nowa will generate a ready-to-use Flutter project with all the files you need.  
 ![](/img/nowadesktop/createlocalproject/7.png)
-
----

@@ -8,6 +8,36 @@ sidebar_position: 1
 
 ---
 
+### **3.10 (2 July 2026)**
+Nowa 3.10 transforms how you test and deploy your apps. You can now run cloud projects directly on a **local simulator or physical device** — no cloning, no switching to local projects, with hot reload included. Combined with a brand-new **Run & Deploy UI** and major stability work, testing and shipping your apps has never been this simple.
+
+#### **New in This Version ✨**
+- 📱 **Local Run for Cloud Projects**
+  This is the big one! You no longer need to create a local project or clone your cloud project just to test on a simulator or physical device. Nowa now **generates temporary local files behind the scenes**, so any cloud project can run locally — and **hot reload works too**. Every change you make in Nowa shows up on your device instantly.
+
+- 🚀 **New Run & Deploy UI**
+  Every project now has **Run and Deploy buttons** in the top right, putting the whole flow in one place:
+  - **Run** launches your app anywhere — inside Nowa, on a local simulator, or on your physical device.
+  - **Deploy** ships your app to any platform, all from the same UI.
+
+- ☁️ **Redesigned Deployment**
+  All deployment options now live in one place. Once your setup is done, you can deploy to any platform from the main window with a **single click** — no more hunting through menus.
+
+- 🎨 **A Cleaner Layout**
+  Two refinements to give you more room to build:
+  - **Boards moved to the top right**, making it easier to jump between boards and keeping the workspace cleaner.
+  - **Toolbar moved to the bottom**, freeing up more space above for your work.
+
+- 🛠️ **Major Stability Improvements**
+  We've done significant work under the hood across the entire platform, so everything should feel smoother and more reliable.
+
+#### **More Updates 📢**
+- 🙏 **Thank you for the Free Weekend!** We loved seeing what you built — some of you created genuinely impressive apps that simply weren't possible before, and your feedback is already shaping what comes next. There are big things on the way. 🔜
+
+➡️ We'd love to hear what you think of Nowa 3.10! Click the **? icon** to chat with us directly, or email us at `team@nowa.dev`. Happy building as always!
+
+---
+
 ### **3.9 (13 June 2026)**
 Nowa 3.9 is our most powerful release yet. 🚀 It's the first version where building complex, top-tier apps with AI feels genuinely easy and efficient — powered by a **fully rebuilt AI system** and real in-app compiling with **App Run**. Together with a refreshed layout and a long list of improvements, this is where you can confidently build world-class apps, no matter the complexity, faster and easier than ever.
 

@@ -9,6 +9,9 @@ sidebar_position: 1
 ---
 
 ### **3.10 (2 July 2026)**
+
+![](/img/whats_new/Nowa-3.10-Option-B-landscape.png)
+
 Nowa 3.10 transforms how you test and deploy your apps. You can now run cloud projects directly on a **local simulator or physical device** — no cloning, no switching to local projects, with hot reload included. Combined with a brand-new **Run & Deploy UI** and major stability work, testing and shipping your apps has never been this simple.
 
 #### **New in This Version ✨**

@@ -7,6 +7,20 @@ sidebar_position: 2
 
 ---
 
+## **3.10.5 (14 July 2026)**
+
+#### **Added 🌟**
+- **Full mobile browser support** — access Nowa from your smartphone to check projects, make quick updates, and deploy directly from your mobile browser.
+- **Post-launch support package** — after successfully deploying an app, claim **$25 in Nowa AI credits**, direct support from the Nowa team, and help with exposure, monetization, feedback, and app improvements. The package is available from the deployment panel.
+
+#### **Improved ⚙️**
+- **Workspace experience** — improved team invitations and collaboration, workspace organization, and project management.
+
+#### **Fixed 🩹**
+- Fixed an issue that affected some **Windows users working with Git in Nowa**.
+
+---
+
 ## **3.9 (13 June 2026)**
 
 #### **Added 🌟**

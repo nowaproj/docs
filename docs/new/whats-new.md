@@ -8,9 +8,40 @@ sidebar_position: 1
 
 ---
 
-### **3.10 (2 July 2026)**
+### **3.10.5 (14 July 2026)**
 
-![](/img/whats_new/Nowa-3.10-Option-B-landscape.png)
+![Nowa 3.10.5 brings full mobile browser support](/img/whats_new/Nowa-3.10.5-Mobile.png)
+
+Nowa 3.10.5 brings the full Nowa experience to your phone! 📱 You can now open [Nowa](https://app.nowa.com/) in your mobile browser to check projects, make quick updates, and even deploy while you're on the go. This release also improves workspaces, introduces a post-launch support package, and fixes Git issues on Windows.
+
+#### **New in This Version ✨**
+- 📱 **Full Mobile Browser Support**
+  Open Nowa directly from your smartphone and build smoothly from your mobile browser. Whether you're checking a project, making an update, or deploying your app, you can now do it from your pocket.
+
+- 📂 **Improved Workspace Experience**
+  Workspaces are now easier to organize and manage, with improvements that help you:
+  - Invite and collaborate with team members.
+  - Organize your workspace.
+  - Manage your projects more efficiently.
+
+- 🎁 **Post-Launch Support Package**
+  Successfully deployed an app with Nowa? You can now claim a special package directly from the **deployment panel** after launch. It includes:
+  - **$25 in Nowa AI credits**.
+  - Direct post-launch support from the Nowa team.
+  - Help with gaining exposure, monetization, collecting feedback, and improving your app.
+
+#### **What's Fixed 🛠️**
+- 🪟 **Git on Windows**
+  Fixed an issue that affected some Windows users when working with Git in Nowa. Git should now work smoothly again.
+
+#### **More Updates 📢**
+- 🧪 **Nowa GO** — our dedicated Android and iOS app is still in private beta.
+
+➡️ We'd love to hear what you think of building with Nowa from your phone! Click the **? icon** to chat with us directly, or email us at `team@nowa.dev`. Happy building!
+
+---
+
+### **3.10 (2 July 2026)**
 
 Nowa 3.10 transforms how you test and deploy your apps. You can now run cloud projects directly on a **local simulator or physical device** — no cloning, no switching to local projects, with hot reload included. Combined with a brand-new **Run & Deploy UI** and major stability work, testing and shipping your apps has never been this simple.
 

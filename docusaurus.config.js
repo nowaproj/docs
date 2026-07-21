@@ -125,14 +125,14 @@ const config = {
         //... other Algolia params
       },
 
-      announcementBar: {
-        id: 'announcement-2',
-        content:
-          '🚀 <strong>Nowa 3.0 Docs are live!</strong> Missing something? Tell us at <a href="mailto:team@nowa.dev">team@nowa.dev</a> 💬',
-        backgroundColor: '#A3784A',
-        textColor: '#ffffff',
-        isCloseable: true,
-      },
+      // announcementBar: {
+      //   id: 'announcement-2',
+      //   content:
+      //     '🚀 <strong>Nowa 3.0 Docs are live!</strong> Missing something? Tell us at <a href="mailto:team@nowa.dev">team@nowa.dev</a> 💬',
+      //   backgroundColor: '#A3784A',
+      //   textColor: '#ffffff',
+      //   isCloseable: true,
+      // },
       
             navbar: {
         title: 'Nowa Documentation',

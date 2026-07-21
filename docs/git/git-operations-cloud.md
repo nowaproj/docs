@@ -36,7 +36,7 @@ When you commit changes, you're essentially saving a snapshot of your project at
 
 In the following video, we changed one of the colors of the chat bubble component. After the change, you can see that the `chat_bubble.dart` file (the component's file) appeared under **"Changes"** highlighted in **blue** since it was modified. Next, we clicked on **"Commit all"**, gave it a descriptive message, and committed the changes. After committing, we noticed the **"Sync"** button appeared with the number **1** beside it, indicating there's exactly one commit difference between the Nowa cloud repo and the GitHub remote repository. Clicking **"Sync"** pushed this commit to GitHub.
 
-<video controls width="720">
+<video controls playsInline preload="metadata" width="100%">
   <source src="/img/git/git-committing.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
@@ -94,7 +94,7 @@ Sometimes you might make changes you don't wish to keep. In these cases, you can
 
 In the following video, we changed the background color of a screen by modifying the file `chat_page.dart`. Once changed, the file appeared under **"Changes"**. To revert this change, we clicked on the **undo arrow** next to the file name. Instantly, the changes disappeared, and the background color reverted to its original state, as per the last commit.
 
-<video controls width="720">
+<video controls playsInline preload="metadata" width="100%">
   <source src="/img/git/discard.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
@@ -121,7 +121,7 @@ Staging allows you to commit specific changes separately rather than committing 
 
 In the following video, we selectively staged the file `audio_player_page.dart`. We added it explicitly to the staged area because we wanted to commit it separately. After staging, we created a commit with the message **"Adding audio player"**. Once the commit was made, `audio_player_page.dart` disappeared from the **staged** section, indicating it had been successfully committed. The remaining files under **"Changes"** stayed behind, ready for future commits or to be discarded.
 
-<video controls width="720">
+<video controls playsInline preload="metadata" width="100%">
   <source src="/img/git/staged-changes.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
@@ -149,7 +149,7 @@ In the following video, we created a new branch named feature-pageInfo from the 
 After syncing, the new branch feature-pageInfo appeared on GitHub, along with the commit we made for adding the event screen. Finally, we switched back to the master branch, and as expected, the newly created event screen was no longer visible, demonstrating how branches isolate specific changes from the main version of your app.
 
 
-<video controls width="720">
+<video controls playsInline preload="metadata" width="100%">
   <source src="/img/git/create-branch.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>

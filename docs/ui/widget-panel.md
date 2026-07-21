@@ -28,7 +28,7 @@ From the Widgets Panel, you can:
 - **Double-click** a screen or component to open it in its own editor.  
 - **Right-click** a screen or component to **rename** or **delete** it permanently.
 
-<video controls width="720">
+<video controls playsInline preload="metadata" width="100%">
   <source src="/img/designer/Clipboard-20251002-070855-035.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>

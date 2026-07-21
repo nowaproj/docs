@@ -94,7 +94,10 @@ Workspaces provide a structured way to keep projects organized.
 
 To create a workspace, click the **“+”** button, enter a name, and then click **Create**.
 
-<video src="/videos/getting-started/createworkspace.webm" controls width="100%" />  
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/getting-started/createworkspace.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
 
 ---
 
@@ -121,7 +124,10 @@ This means you can:
 3. Enter a **project name**.  
 4. Click **Create**.  
 
-<video src="/videos/getting-started/create-cloud.webm" controls width="100%" />  
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/getting-started/create-cloud.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
 
 ---
 

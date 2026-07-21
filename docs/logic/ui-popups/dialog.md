@@ -50,7 +50,7 @@ To show a dialog in Nowa, follow these steps:
 9. Now run the app. When you click the button, the dialog should appear with your custom text.
     
 This videos shows how to show a simple dialog:
-<video controls width="850">
+<video controls playsInline preload="metadata" width="100%">
   <source src="/img/circuit/ui-popups/dialog/show-basic-dialog.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>

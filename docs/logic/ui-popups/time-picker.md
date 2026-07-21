@@ -89,7 +89,7 @@ You can call the following methods on it:
 
 ## 💡 Real Use Case Example
 
-<video controls width="850">
+<video controls playsInline preload="metadata" width="100%">
   <source src="/img/circuit/ui-popups/time-picker/time-picker.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
@@ -115,7 +115,7 @@ Now when the user picks a time, it will appear in the Text widget!
 
 ## 🔁 Using `On Value` Instead of `await`
 
-<video controls width="850">
+<video controls playsInline preload="metadata" width="100%">
   <source src="/img/circuit/ui-popups/time-picker/time-picker-using-onvalue.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>

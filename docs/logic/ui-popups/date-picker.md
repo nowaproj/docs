@@ -79,7 +79,7 @@ If the user closes the Date Picker without selecting a date, the node will retur
 
 In this example video, we show a real use case:
 
-<video controls width="850">
+<video controls playsInline preload="metadata" width="100%">
   <source src="/img/circuit/ui-popups/date-picker/datapicker-full-example.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>

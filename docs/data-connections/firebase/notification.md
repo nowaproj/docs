@@ -18,8 +18,8 @@ Firebase Cloud Messaging (FCM) helps your app stay connected with users by sendi
 
 Click Settings, Firebase, and enable Push Notifications.
 
-<video controls width="850">
-  <source src="/videos/firebase/1.webm" type="video/mp4" />
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/firebase/1.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 
@@ -43,8 +43,8 @@ To learn how to rebuild to Android, [click here](./../../deployment/android-depl
 
 Now just add a message title, content, select the audience, choose if you want a notification sound, and click Send.
 
-<video controls width="850">
-  <source src="/videos/firebase/2.webm" type="video/mp4" />
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/firebase/2.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 

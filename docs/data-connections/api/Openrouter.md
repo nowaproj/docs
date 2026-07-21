@@ -19,7 +19,10 @@ You can begin by creating a new **API Request** inside **Nowa**
     4. Click on **Create**.
     5. Click on the created request.
 
-<video src="/videos/api2/post/1.webm" controls width="100%" />
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/api2/post/1.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
 
 ---
 
@@ -32,7 +35,10 @@ If you want to send data, you need to change the request to the **POST** method.
 1. Click on **GET** and change it to **POST** from the list.  
 2. Paste the **URL** into the field.  
 
-<video src="/videos/api2/post/2.webm" controls width="100%" />
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/api2/post/2.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
 
 ---
 
@@ -49,7 +55,10 @@ Most of the time, the text **before the colon** is the **key**, and the text **a
 :::
 
 Click Add header +, then set the key to `Authorization` and the value to `Bearer <your_token>`.
-<video src="/videos/api2/post/3.webm" controls width="100%" />
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/api2/post/3.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
 
 ---
 
@@ -75,7 +84,10 @@ In this example we show you how to use **Json**.
 
 Click Add header +, then set the key to `Content-Type` and the value to `application/json`.
 
-<video src="/videos/api2/post/4.webm" controls width="100%" />
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/api2/post/4.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
 
 ---
 
@@ -85,7 +97,10 @@ You can set up a **parameter** (e.g., `textinput`) that updates with whatever th
 
 Switch to Body (since parameters go in the request body), click the plus icon, and give parameter a name.
 
-<video src="/videos/api2/post/5.webm" controls width="100%" />
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/api2/post/5.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
 
 ---
 
@@ -111,7 +126,10 @@ Example:
 
 Click Json, insert your json.
 
-<video src="/videos/api2/post/6.webm" controls width="100%" />
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/api2/post/6.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
 
 ---
 
@@ -119,7 +137,10 @@ Click Json, insert your json.
 
 Click Test, enter a value for the parameter, and run the test.
 
-<video src="/videos/api2/post/7.webm" controls width="100%" />
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/api2/post/7.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
 
 ---
 
@@ -134,7 +155,10 @@ The response often contains a lot of data, but you only need the parts that matt
     5. Click **Save**
 
 
-<video src="/videos/api2/post/8.webm" controls width="100%" />
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/api2/post/8.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
 
 ---
 
@@ -147,7 +171,10 @@ You need two elements: a text field where you can type your request, and a butto
     4. Open **Widgets** again  
     5. Add **Button**  
 
-<video src="/videos/api2/post/9.webm" controls width="100%" />
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/api2/post/9.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
 
 ---
 
@@ -164,7 +191,10 @@ In this section, you will learn how to connect logic to the button.
   6. Then select the **Text** property inside the controller  
 
 
-<video src="/videos/api2/post/10.webm" controls width="100%" />
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/api2/post/10.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
 
 ---
 
@@ -200,7 +230,10 @@ Since you know how the data model is built, you know exactly which part is requi
   9. Click on **Eval**.  
   10. Close opened windows.  
 
-<video src="/videos/api2/post/11.webm" controls width="100%" />
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/api2/post/11.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
 
 ---
 
@@ -214,6 +247,9 @@ You can click the Play button, write something you want in the Textfield, and th
 **Eval** means *evaluate* — it checks your expression, and if it’s correct, adds it for visual editing.
 :::
 
-<video src="/videos/api2/post/12.webm" controls width="100%" />
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/api2/post/12.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
 
 ---

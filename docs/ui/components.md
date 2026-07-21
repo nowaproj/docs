@@ -44,7 +44,7 @@ To create a new component:
 4. Give your component a **unique name**.  
 5. Click **Create**.
 
-<video controls width="720">
+<video controls playsInline preload="metadata" width="100%">
   <source src="/img/designer/Clipboard-20251002-103334-808.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
@@ -80,7 +80,7 @@ that structure will also be reflected in every instance.
 You **cannot** edit a component’s design while it’s inside a screen.  
 To edit it, drag an instance **outside of any screen** onto the board.
 
-<video controls width="720">
+<video controls playsInline preload="metadata" width="100%">
   <source src="/img/designer/Clipboard-20251002-104038-822.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
@@ -100,7 +100,7 @@ To add variables:
 
 Learn more here → [Create Variables](../vars-params-functions/create-variable.mdx)
 
-<video controls width="720">
+<video controls playsInline preload="metadata" width="100%">
   <source src="/img/designer/Clipboard-20251002-104325-541.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>

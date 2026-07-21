@@ -44,7 +44,10 @@ To dive into more details, keep reading this page
 
 Select your **cloud project**, then click **Sync**. Next, click **Browse** to choose the folder where you want to save it, and finally, click **Clone to Local**.
 
-<video src="/videos/sync/local.mp4" controls width="100%" />
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/sync/local.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
 
 ---
 
@@ -52,7 +55,10 @@ Select your **cloud project**, then click **Sync**. Next, click **Browse** to ch
 
 Select your **local project**, then click **Sync**. Next, choose your **workspace**, and finally click **Clone to Cloud**.
 
-<video src="/videos/sync/cloud.mp4" controls width="100%" />
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/sync/cloud.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
 
 ---
 
@@ -71,7 +77,10 @@ You’ll see the direction of the sync — cloud to local or local to cloud.
 
 Then click **Proceed with Sync** to start the synchronization.
 
-<video src="/videos/sync/sync.mp4" controls width="100%" />
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/sync/sync.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
 
 ---
 
@@ -83,5 +92,8 @@ Simply click **Sync** and then **Unlink Project**.
 
 You’ll see which project you’re about to unlink, and after confirming, you’ll be asked if you want to sync with other project.
 
-<video src="/videos/sync/unlink.mp4" controls width="100%" />
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/sync/unlink.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
 

@@ -19,7 +19,10 @@ To get started, you’ll create a fresh project in Nowa.
 
 That’s it — you’ve just created your first project!
 
-<video src="/videos/qucikstart/1.webm" controls width="100%" />
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/qucikstart/1.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
 
 ---
 
@@ -45,7 +48,10 @@ If the stopwatch is running, the button shows 'Stop' and pauses the stopwatch.
 If the stopwatch is paused (stopped but not at 0:00), the button shows 'Reset' and resets the stopwatch back to 0:00.
 ```
 
-<video src="/videos/qucikstart/2.webm" controls width="100%" />
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/qucikstart/2.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
 
 ---
 
@@ -59,7 +65,10 @@ Here’s how to change the color of the your stopwatch button:
 
 Your app instantly updates to match your choice!
 
-<video src="/videos/qucikstart/3.webm" controls width="100%" />
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/qucikstart/3.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
 
 ---
 
@@ -71,6 +80,9 @@ Time to see your work in action!
 - ⏹️ Press **Stop** → the stopwatch pauses.  
 - 🔄 Press **Reset** → it resets back to 0:00.  
 
-<video src="/videos/qucikstart/4.webm" controls width="100%" />
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/qucikstart/4.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
 
 ---

@@ -13,9 +13,9 @@ Welcome! In this tutorial you can learn how bring your **Xano collections** into
 5. Click **"Create New Token"**.
 6. Copy your generated token.
 
-<video controls width="850">
-  <source src="/videos/api2/import/xano1.webm" type="video/mp4" />
-   Your browser does not support the video tag.
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/api2/import/xano1.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
 </video>
 
 ---
@@ -28,9 +28,9 @@ Welcome! In this tutorial you can learn how bring your **Xano collections** into
 4. Paste your Xano API token.
 5. Click **Import**.
 
-<video controls width="850">
-  <source src="/videos/api2/import/xano2.webm" type="video/mp4" />
-   Your browser does not support the video tag.
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/api2/import/xano2.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
 </video>
 
 ---

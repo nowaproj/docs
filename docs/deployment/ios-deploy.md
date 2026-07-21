@@ -39,7 +39,10 @@ A Bundle Identifier is a unique identifier that distinguishes your app from all 
 
 1. Find your app's Bundle Identifier in Nowa by going to **Settings > Project Details**. It should be in the format `com.yourcompany.yourappname`.
 
-<video src="/videos/ios_deploy/bundle_id.mp4" controls width="100%" />
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/ios_deploy/bundle_id.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
 
 2. Go to your [Apple Developer Account](https://developer.apple.com/account).
 3. Under **Certificates, IDs & Profiles**, select **Identifiers**.
@@ -51,7 +54,10 @@ A Bundle Identifier is a unique identifier that distinguishes your app from all 
     - **Description**: Provide a brief description of your app (this will be visible on the App Store).
     - **Capabilities**: Select the capabilities required for your app (for instance, if your app uses Apple Sign In or Apple Pay, ensure to check the corresponding boxes).
 
-<video src="/videos/ios_deploy/create_bundle_id.mp4" controls width="100%" />
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/ios_deploy/create_bundle_id.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
 
 ## 2. Create a New App in App Store Connect
 
@@ -76,7 +82,10 @@ Click **Create** once you're done.
 
 To enable Nowa to deploy your app to the App Store Connect account automatically, you need to generate an API key. Here's how:
 
-<video src="/videos/ios_deploy/create_api_key.mp4" controls width="100%" />
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/ios_deploy/create_api_key.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
 
 1. Go to your [App Store Connect](https://appstoreconnect.apple.com/) account.
 2. Select **Users and Access**.
@@ -111,7 +120,10 @@ To understand more about the Apple Distribution Certificate, check out [this sec
 
 With your project open in Nowa, follow these steps:
 
-<video src="/videos/ios_deploy/start_build.mp4" controls width="100%" />
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/ios_deploy/start_build.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
 
 1. Click on the **Settings** icon (`⚙︎`) in the top right corner of the screen. This will open the App Settings menu.
 2. In the left sidebar of the App Settings menu, slightly scroll down and click on the **Mobile** tab under **Deployment**.

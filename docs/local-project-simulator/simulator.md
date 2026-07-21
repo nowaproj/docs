@@ -34,8 +34,9 @@ However, keep in mind that the previewer has some limitations.
 For example, you can test flows like **Firebase Authentication**, but you won’t actually be signed in.  
 For testing real functionality, you’ll need to use a simulator or a physical device.
 
-<video width="600" controls>
-  <source src="/videos/simulator/builtinsimulator.webm" type="video/mp4" />
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/simulator/builtinsimulator.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
 </video>
 
 ---
@@ -63,8 +64,9 @@ Your app will launch, and the `Logs` tab at the bottom will show you what’s ha
 You can stop the app anytime with the Stop button.  
 And if you make changes, use **Hot Reload** to see them instantly without closing everything down.
 
-<video width="600" controls>
-  <source src="/videos/simulator/simulator.webm" type="video/mp4" />
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/simulator/simulator.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
 </video>
 
 ---

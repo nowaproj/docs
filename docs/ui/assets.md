@@ -27,7 +27,7 @@ You can import new assets into your project in three simple ways:
    They’ll automatically be imported into your project.  
 3. **Widget Details Panel** — Some widgets (like the **Image** widget) let you upload files directly from their **Source** property inside the Details panel.
 
-<video controls width="720">
+<video controls playsInline preload="metadata" width="100%">
   <source src="/img/designer/Clipboard-20251002-071748-744.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>

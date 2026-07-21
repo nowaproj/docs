@@ -21,7 +21,7 @@ We’ll walk through a simple example where the user selects an **image**, and i
 - You’ll see a `Bytes` field. Click **Create Variable**.
 - This creates a variable that stores the image in **bytes format**.
 
-<video controls width="720">
+<video controls playsInline preload="metadata" width="100%">
   <source src="/img/circuit/common-functionalities/media-picker/set-image-bytes.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
@@ -61,7 +61,7 @@ Let’s name this variable `var1`.
 > `XFile` is a cross-platform file representation from the `image_picker` package. It contains metadata like path, name, and functions like `readAsBytes()` to read the file’s data.
 
 This video shows the enire steps of building the logic
-<video controls width="720">
+<video controls playsInline preload="metadata" width="100%">
   <source src="/img/circuit/common-functionalities/media-picker/build-logic.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
@@ -109,7 +109,7 @@ This connects the picked image data to the UI.
 - Try picking an image.
 - The image should instantly appear inside the Image widget 🎉
 
-<video controls width="720">
+<video controls playsInline preload="metadata" width="100%">
   <source src="/img/circuit/common-functionalities/media-picker/final-result.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>

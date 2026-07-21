@@ -19,8 +19,8 @@ A **Supabase Bucket** is a storage container in **Supabase** where you can uploa
 First, go to the **Storage** section from the Supabase dashboard sidebar.  
 Click **new bucket**, then give your bucket a name (e.g. `user-uploads`) and choose whether it should be **Public** or **Private**, click **Create**.
 
-<video controls width="850">
-  <source src="/videos/supabase/storage/createbucket.webm" type="video/mp4" />
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/supabase/storage/createbucket.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 
@@ -61,8 +61,8 @@ You can generate one or multiple queries at the same time.
 
 You can use it similarly to database queries — just click the +, type what you want to do with storage, then click Generate. 
 
-<video controls width="850">
-  <source src="/videos/supabase/storage/createqueries.webm" type="video/mp4" />
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/supabase/storage/createqueries.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 
@@ -82,7 +82,7 @@ To view your uploaded file, just click the **downloadFile** query, type the file
 
 Now you can see the file’s content!
 
-<video controls width="850">
-  <source src="/videos/supabase/storage/example.webm" type="video/mp4" />
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/supabase/storage/example.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>

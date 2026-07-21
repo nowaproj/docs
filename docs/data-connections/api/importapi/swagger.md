@@ -18,7 +18,7 @@ Example:
 https://petstore.swagger.io/v2/swagger.json
 ```
 
-<video controls width="850">
+<video controls playsInline preload="metadata" width="100%">
   <source src="/videos/api/swagger-url.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>  
@@ -34,7 +34,7 @@ You can paste the JSON definition directly.
 3. Paste the Swagger JSON text.  
 4. Click **Import.**  
 
-<video controls width="850">
+<video controls playsInline preload="metadata" width="100%">
   <source src="/videos/api/swagger-json.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>  
@@ -50,8 +50,8 @@ If you have the Swagger JSON saved as a file, you can upload it directly.
 3. Choose **“Upload File”** and pick your `.json` file.  
 4. Click **Import.**  
 
-<video controls width="850">
-  <source src="/videos/api/swagger-file.webm" type="video/mp4" />
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/api/swagger-file.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>  
 

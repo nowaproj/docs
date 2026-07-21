@@ -22,8 +22,8 @@ Here’s how can you do it:
 3. In the Supabase website that opens, select the **organization** you want to connect.  
 4. Click the **Authorize Nowa** button.  
 
-<video controls width="850">
-  <source src="/videos/supabase/1.webm" type="video/mp4" />
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/supabase/1.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 
@@ -48,16 +48,16 @@ Here’s how you can:
 4. Set **your database password** — this is your own password that protects the database. 
 5. Finally, click **Create Project**.  
 
-<video controls width="850">
-  <source src="/videos/supabase/createproject.webm" type="video/mp4" />
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/supabase/createproject.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 
 #### 🅱️ Connect an existing project    
 Simply choose your project from the list and click the **Select** button.
 
-<video controls width="850">
-  <source src="/videos/supabase/selectproject.webm" type="video/mp4" />
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/supabase/selectproject.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video> 
 
@@ -79,8 +79,8 @@ Here’s how can you do it:
 3. In the Supabase Dashboard, go to **Connect → App framework** and copy the URL and key.  
 4. Click the **Connect** button.  
 
-<video controls width="850">
-  <source src="/videos/supabase/connectmanual.webm" type="video/mp4" />
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/supabase/connectmanual.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 
@@ -92,8 +92,8 @@ Once you connect, your data shows up instantly in Nowa.
  
 That means you can drag, drop, and design your app with **real data**.  
 
-<video controls width="850">
-  <source src="/videos/supabase/3.webm" type="video/mp4" />
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/supabase/3.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 

@@ -1,6 +1,6 @@
 # Website
 
-This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
+This website is built using [Docusaurus 3](https://docusaurus.io/), a modern static website generator.
 
 ### Installation
 
@@ -23,6 +23,26 @@ $ yarn build
 ```
 
 This command generates static content into the `build` directory and can be served using any static contents hosting service.
+
+The build also validates every video referenced by the active documentation. The
+validation requires `ffprobe`, which is included with
+[FFmpeg](https://ffmpeg.org/download.html).
+
+### Adding videos
+
+Documentation videos must be web-optimized MP4 files with H.264 video, optional
+AAC audio, a maximum resolution of 1920x1080, and a maximum frame rate of 30 fps.
+Use this markup in Markdown and MDX files:
+
+```mdx
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/example.mp4" type="video/mp4" />
+</video>
+```
+
+Run `yarn check:videos` before committing a new or replaced video. The check also
+verifies exact filename case, URL separators, codec compatibility, and MP4 fast
+start metadata.
 
 ### Deployment
 

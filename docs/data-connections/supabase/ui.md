@@ -20,8 +20,8 @@ If you don’t know what ListView is, [click here](../../ui/widgets/widget-desc/
 
 You need click on **Widget**s, then select **ListView**.
 
-<video controls width="850">
-  <source src="\videos\supabase\ui\listview.webm" type="video/mp4" />
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/supabase/ui/listview.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 
@@ -34,8 +34,8 @@ select **Databuilder**,
 change the source from **custom** to **Supabase**,
 then change **Query** to your **prefered query**.
 
-<video controls width="850">
-  <source src="\videos\supabase\ui\databuilder.webm" type="video/mp4" />
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/supabase/ui/databuilder.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 
@@ -58,8 +58,8 @@ After entering the expression, you can click the **Eval** button to evaluate it.
 
 Finally, click the **Play** button to preview the results.
 
-<video controls width="850">
-  <source src="\videos\supabase\ui\item.webm" type="video/mp4" />
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/supabase/ui/item.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 

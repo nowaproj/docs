@@ -33,7 +33,7 @@ Creating models helps you avoid repeating data structures manually and makes you
 
 4. After confirming, the model will appear in the Files panel as a Dart file.
 
-<video controls width="850">
+<video controls playsInline preload="metadata" width="100%">
   <source src="/img/vars-params-functions/data-models/create-model.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
@@ -71,7 +71,7 @@ Avoid `final` when:
 
 :::
 
-<video controls width="850">
+<video controls playsInline preload="metadata" width="100%">
   <source src="/img/vars-params-functions/data-models/create-vars-inside-model.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
@@ -90,7 +90,7 @@ In the video above, we:
    - Double-click the file name.
    - Click ➕ next to the model name to add or edit variables/functions.
 
-<video controls width="850">
+<video controls playsInline preload="metadata" width="100%">
   <source src="/img/vars-params-functions/data-models/see-code.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
@@ -111,7 +111,7 @@ You can use your model as a custom type for cases like:
 - Parameters
 - Function parameters and returns
 
-<video controls width="850">
+<video controls playsInline preload="metadata" width="100%">
   <source src="/img/vars-params-functions/data-models/model-as-datatype.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
@@ -136,7 +136,7 @@ In the logic editor (Circuit):
 - Choose the model you want to instantiate.
 - Fill in its properties.
 
-<video controls width="850">
+<video controls playsInline preload="metadata" width="100%">
   <source src="/img/vars-params-functions/data-models/create-instance-from-model.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>

@@ -30,7 +30,10 @@ When you name your collection, Nowa shows you two things:
 
 You can create a new collection by clicking the “**+**” icon, choosing **New Collection** from the list, and then confirming with **Submit**.
 
-<video src="/videos/api2/collection/create.webm" controls width="100%" />
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/api2/collection/create.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
 
 ---
 
@@ -43,7 +46,10 @@ https://api.thecatapi.com/
 
 You click on the **Settings** icon, and then simply type your **Base URL**.
 
-<video src="/videos/api2/collection/url.webm" controls width="100%" />
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/api2/collection/url.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
 
 ---
 
@@ -68,7 +74,10 @@ Accept: application/json
 
 Click **Add Header**, then type `Accept` as the **Key** and `application/json` as the **Value**.
 
-<video src="/videos/api2/collection/header.webm" controls width="100%" />
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/api2/collection/header.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
 
 ---
 
@@ -89,7 +98,10 @@ You don’t need the entire URL—just the specific endpoint. The base URL is al
     5. Set the **URL**.
     6. Click on **Test** – This step is required before moving to the next step.
 
-<video src="/videos/api2/request/1.webm" controls width="100%" />
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/api2/request/1.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
 
 ---
 
@@ -106,7 +118,10 @@ A structured model makes it much easier to work with the data, since it converts
     3: Click **Next**. You can modify what you want from the JSON.
     4. Finally, click **Save**. At this step, you can also change the generated model’s name or choose where to save it
 
-<video src="/videos/api2/request/3.webm" controls width="100%" />
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/api2/request/3.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
 
 ---
 
@@ -128,7 +143,10 @@ If you want to **inject data** into **your UI**, you need to **wrap your widget*
      7.3 Choose **Get Data**.  
      7.4 Then select **URL**.  
 
-<video src="/videos/api2/request/4.webm" controls width="100%" />
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/api2/request/4.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
 
 ---
 
@@ -139,6 +157,9 @@ In this step, you can try it out.
 2. Click on **Refresh** button to see a new image each time.  
 
 
-<video src="/videos/api2/request/5.webm" controls width="100%" />
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/api2/request/5.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
 
 ---

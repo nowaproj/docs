@@ -42,7 +42,7 @@ To create a global state:
 
 You’ll find the new Dart file under the `lib` folder unless you changed the location.
 
-<video controls width="850">
+<video controls playsInline preload="metadata" width="100%">
   <source src="/img/vars-params-functions/global-state/create-global-state.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
@@ -68,7 +68,7 @@ Click once on the global state file to open its editor:
   - Set name, type, default value, and whether it's `final`.
 - Click `+` next to **Functions** to add logic.
 
-<video controls width="850">
+<video controls playsInline preload="metadata" width="100%">
   <source src="/img/vars-params-functions/global-state/add-to-global-state.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
@@ -92,7 +92,7 @@ Before using the global state in your UI, you must add it to the app:
 2. Under `Globals`, click `Pick Global State`.
 3. Choose the one you created earlier.
 
-<video controls width="850">
+<video controls playsInline preload="metadata" width="100%">
   <source src="/img/vars-params-functions/global-state/adding-global-state.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
@@ -110,7 +110,7 @@ To display or use a global variable in your UI:
 1. Select a property in the **Details** panel (like `List` for `ListView` widget).
 2. In the linking menu, go to `Globals`, then pick your global state, then choose the variable you want to connect the field to.
 
-<video controls width="850">
+<video controls playsInline preload="metadata" width="100%">
   <source src="/img/vars-params-functions/global-state/connecting-to-global-state.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
@@ -130,7 +130,7 @@ To trigger UI updates after changing a variable in a global state, use the `noti
 - It’s available only when building functions **inside** the global state itself under `locals` category (as a local function)
 - It updates any widget that’s listening to a variable from that global state.
 
-<video controls width="850">
+<video controls playsInline preload="metadata" width="100%">
   <source src="/img/vars-params-functions/global-state/add-to-cart-function.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
@@ -181,7 +181,7 @@ If the function:
 
 For more, read about [functions](./functions/create-local-function.mdx)
 
-<video controls width="850">
+<video controls playsInline preload="metadata" width="100%">
   <source src="/img/vars-params-functions/global-state/use-add-to-cart.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>

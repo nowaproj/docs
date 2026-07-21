@@ -39,7 +39,7 @@ To show a Snackbar in your app, follow these steps:
 
 7. **Play the screen** to test the Snackbar in action.
 
-<video controls width="850">
+<video controls playsInline preload="metadata" width="100%">
   <source src="/img/circuit/ui-popups/snackbar/show-snackbar.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
@@ -76,7 +76,7 @@ You can right-click on any field and choose:
 - `Set to Default`: resets it to its original value
 - `Set to Null`: removes the value entirely
 
-<video controls width="850">
+<video controls playsInline preload="metadata" width="100%">
   <source src="/img/circuit/ui-popups/snackbar/reset-to-default.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
@@ -107,7 +107,7 @@ You can mix static text and dynamic values using Dart expressions. Here are some
 - `"Total is " + total.toString()`  
 - `"Online: ${isOnline.toString()}"`
 
-<video controls width="850">
+<video controls playsInline preload="metadata" width="100%">
   <source src="/img/circuit/ui-popups/snackbar/snackbar-custom-expression.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>

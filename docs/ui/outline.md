@@ -39,7 +39,7 @@ The Outline isn’t just for viewing — you can use it to navigate and manage y
   - Convert a widget into a reusable **Component**  
   - Perform other quick layout actions — without leaving the Outline view.
 
-<video controls width="720">
+<video controls playsInline preload="metadata" width="100%">
   <source src="/img/designer/Clipboard-20251002-074122-268.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>

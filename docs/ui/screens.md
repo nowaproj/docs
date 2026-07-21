@@ -20,7 +20,7 @@ To create a new screen:
 3. Give your screen a name.  
 4. Click **Submit**.
 
-<video controls width="720">
+<video controls playsInline preload="metadata" width="100%">
   <source src="/img/designer/Clipboard-20251002-101128-422.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>

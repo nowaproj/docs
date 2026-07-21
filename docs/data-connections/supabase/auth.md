@@ -16,8 +16,8 @@ You click on the **chat panel icon** on the left, write a prompt, attach by sele
 
 To try it out, you click on the **widget icon** on the **left side**, go to the **login page**, and then click on the **Play** button.
 
-<video controls width="850">
-  <source src="/videos/supabase/auth/ai.webm" type="video/mp4" />
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/supabase/auth/ai.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 
@@ -35,8 +35,8 @@ When you’re ready, just click the **Run** button
  **Supabase** will send you a verification email. Make sure to **click the link** inside, or you won’t be able to log in.
 :::
 
-<video controls width="850">
-  <source src="/videos/supabase/auth/register.webm" type="video/mp4" />
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/supabase/auth/register.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 
@@ -82,8 +82,8 @@ In this case, the username and email are the same, since in Supabase the usernam
 - Place it below the password field.  
 - Adjust the **size** and **position** as you needed.  
 
-<video controls width="850">
-  <source src="/videos/supabase/auth/ui.webm" type="video/mp4" />
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/supabase/auth/ui.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 
@@ -110,8 +110,8 @@ This is the page your users see when they logged in.
      - Open the **Color Picker** and choose a new text color.
 
 
-<video controls width="850">
-  <source src="/videos/supabase/auth/ui2.webm" type="video/mp4" />
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/supabase/auth/ui2.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 
@@ -131,8 +131,8 @@ I show how you can provide data to the **sign-in action**.
    - Here you select **password** from **Locals** (this is your password controller).
    - Don’t forget to select the **text**.
 
-<video controls width="850">
-  <source src="/videos/supabase/auth/signin1.webm" type="video/mp4" />
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/supabase/auth/signin1.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 
@@ -152,8 +152,8 @@ How can you do it:
 7. Close the opened window.
 
 
-<video controls width="850">
-  <source src="/videos/supabase/auth/signin2.webm" type="video/mp4" />
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/supabase/auth/signin2.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 
@@ -173,8 +173,8 @@ How can you do it:
 7. You can change the text in this case **Error**.
 8. Close the opened windows.
 
-<video controls width="850">
-  <source src="/videos/supabase/auth/signin3.webm" type="video/mp4" />
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/supabase/auth/signin3.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 
@@ -197,8 +197,8 @@ Steps, how can you do:
 9. Close the window.
 
 
-<video controls width="850">
-  <source src="/videos/supabase/auth/logout.webm" type="video/mp4" />
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/supabase/auth/logout.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 
@@ -210,7 +210,7 @@ You built a fully functional **Supabase Authentication** in **Nowa**.
 
 Click on play mode and try out your app.
 
-<video controls width="850">
-  <source src="/videos/supabase/auth/try.webm" type="video/mp4" />
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/supabase/auth/try.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>

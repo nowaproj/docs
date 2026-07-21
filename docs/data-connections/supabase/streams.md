@@ -12,8 +12,8 @@ In this section, we’ll look at how **Streams** let your app stay *live* by con
 
 First, you need to select the table you want in the **Table Editor**. Then, you can enable **Stream queries** by clicking **Enable Realtime**, and then clicking **Enable Realtime** again.
 
-<video controls width="850">
-  <source src="/videos/supabase/db/stream.webm" type="video/mp4" />
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/supabase/db/stream.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 
@@ -33,8 +33,8 @@ On the left side, you can see different icons that indicate whether a query is a
 
 Click your **Stream query**, then **Run**.
 
-<video controls width="850">
-  <source src="/videos/supabase/db/stream2.webm" type="video/mp4" />
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/supabase/db/stream2.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 

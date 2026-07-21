@@ -91,8 +91,8 @@ CREATE POLICY "Users can delete their own todos." ON todos
 
 ```
 
-<video controls width="850">
-  <source src="/videos/supabase/db/create.webm" type="video/mp4" />
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/supabase/db/create.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 
@@ -104,8 +104,8 @@ You don’t always have to write SQL queries — you can also create tables visu
 
 Click **AI Assistant**, type what you want it to do, click **Run Query** then **Run**, and go to the **Table Editor** to check the results.
 
-<video controls width="850">
-  <source src="/videos/supabase/db/supabaseai.webm" type="video/mp4" />
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/supabase/db/supabaseai.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 
@@ -113,8 +113,8 @@ Click **AI Assistant**, type what you want it to do, click **Run Query** then **
 
 Open the **Table Editor**, click **New Table**, enter a name, adjust the required settings, and click **Save**.  
 
-<video controls width="850">
-  <source src="/videos/supabase/db/visual.webm" type="video/mp4" />
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/supabase/db/visual.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 
@@ -137,8 +137,8 @@ You can generate single query at same time.
 **Example prompt:**  
 > “Generate a query to add a task for a user.”
 
-<video controls width="850">
-  <source src="/videos/supabase/db/ai.webm" type="video/mp4" />
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/supabase/db/ai.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 
@@ -149,8 +149,8 @@ You can generate multiple queries at same time.
 **Example prompt:**  
 > “Create queries for updating a task, marking it as done, and deleting.”  
 
-<video controls width="850">
-  <source src="/videos/supabase/db/multiquery.webm" type="video/mp4" />
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/supabase/db/multiquery.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 
@@ -192,8 +192,8 @@ You can add a task, here’s how:
 
 Click on **addTask**, enter **'Buy milk'** in the task field, and then click the **Play** button.
 
-<video controls width="850">
-  <source src="/videos/supabase/db/addtask.webm" type="video/mp4" />
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/supabase/db/addtask.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 
@@ -203,8 +203,8 @@ You can change a task, here’s how:
 
 Click on the **updateTask** query, copy the `taskID` from the **Supabase table**, add the new task, and then click the **Play** button.
 
-<video controls width="850">
-  <source src="/videos/supabase/db/updatequery.webm" type="video/mp4" />
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/supabase/db/updatequery.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 

@@ -52,8 +52,8 @@ You can pass data when navigating **if the destination screen has parameters**:
         - Pass an expression (can be using expression builder or using custom expressions)
 This video demonstrates how to add navigation to a blog screen, passing parameters like title, content, and image. The values are provided using local variables from the first screen.
 
-<video controls width="850">
-<source src="/img/circuit/common-functionalities/navigation/navigate-with-param.mp4" type="video/mp4" />
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/img/circuit/common-functionalities/navigation/navigate-with-param.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 
@@ -132,7 +132,7 @@ Instead of using await, you can handle the result by adding the rest of your log
 3. After the Navigator node, **set `name` = result**, and **call Refresh**.
 
 Here's how to build the full logic:   
-<video controls width="850">
+<video controls playsInline preload="metadata" width="100%">
   <source src="/img/circuit/common-functionalities/navigation/navigator-push-await.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
@@ -151,7 +151,7 @@ Here's how to build the full logic:
 
 Here’s how to add a Navigator node with Pop and return a value to the previous screen. At the end, you’ll see the final result in action.
 
-<video controls width="850">
+<video controls playsInline preload="metadata" width="100%">
   <source src="/img/circuit/common-functionalities/navigation/pop.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>

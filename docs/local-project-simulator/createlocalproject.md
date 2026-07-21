@@ -27,8 +27,9 @@ I’ll show you how to download Nowa Desktop.
 3. **Install**  
    Once downloaded, follow the installation instructions for your operating system.
 
-<video width="600" controls>
-  <source src="/videos/desktopversion/Download.webm" type="video/mp4" />
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/desktopversion/Download.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
 </video>
 
 ---

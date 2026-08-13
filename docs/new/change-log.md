@@ -7,6 +7,24 @@ sidebar_position: 2
 
 ---
 
+## **Gemini 3.7 Flash Upgrade (13 August 2026)**
+
+#### **Added 🌟**
+
+- **Nowa AI now runs on Gemini 3.7 Flash** — the agent moved to Google's new model the day it launched, replacing Gemini 3.6 Flash.
+- **Double the daily limits on every plan** — 3.7 Flash costs **50% less** than the model it replaces, and we passed the full saving on. Effective immediately, at the same price, with nothing to claim or upgrade.
+
+#### **Improved ⚙️**
+
+- **UI generation** — 3.7 Flash is ranked **#1 on Code Arena** for building real, working interfaces, so screens come out right on the first try more often.
+- **Design fidelity** — the agent follows a screenshot, image, or design system far more faithfully than before.
+- **Long, multi-step tasks** — long-horizon engineering work improved from **49% to 65%** on the DeepSWE benchmark, meaning fewer dropped threads and fewer retries.
+- **Code quality** — production code quality improved from **34.4% to 43.6%** on FrontierCode, so less debugging after a build.
+- **Token efficiency** — the new model completes the same task using fewer tokens, so credits stretch further on top of the doubled limits.
+- **Agent improvements** — a round of improvements to the agent itself, with a particular focus on UI generation.
+
+---
+
 ## **3.10.5 (14 July 2026)**
 
 #### **Added 🌟**

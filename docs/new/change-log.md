@@ -7,6 +7,46 @@ sidebar_position: 2
 
 ---
 
+## **3.12.0 (15 September 2026)**
+
+#### **Added 🌟**
+- **Connect your own AI agent**: the Nowa desktop app can now be driven by **Claude Code, Claude Desktop, or Cursor**. Your agent can open and switch projects, see your screens, components, theme and current selection, build with Nowa's own tools, open a screen or highlight a widget on the canvas, take a screenshot, and save, all while your board keeps up. **Enterprise only for now**, so email `team@nowa.dev` if you'd like access.
+- **Workspace and monorepo support**: import a Flutter app that lives inside a bigger repository, choose which package Nowa edits, and switch packages from a chip in the top bar. Git keeps covering the whole repository.
+- **Sign in with Apple**: sign in to Nowa with your Apple ID on the web and on iOS.
+- **Git over SSH**: local projects can push and pull over SSH, using a key you choose or the keys already loaded in your ssh-agent.
+- **Component descriptions**: write a short description for any screen or component in the details panel, right next to its fields.
+- **Preview links for a single screen**: playing a screen from the board now produces a share link that opens on that exact screen.
+- **Go to definition**: hold **⌘ (or Ctrl)** in the code editor and click a name to jump to where it's defined.
+- **Constructor picker**: choose which constructor to use for widgets that offer more than one.
+- **Diff navigator**: move between changes in the diff view instead of scrolling to find them.
+- **Cloning progress**: see how far along a project is while it clones from GitHub.
+- **Custom app bars**: your own widgets can now be used as a screen's app bar.
+
+#### **Improved ⚙️**
+- **A tidier interface**: the top bar was rebuilt and the dashboard cleaned up.
+- **Code mode**: switching to code now jumps to the code behind the widget you had selected, and the run and preview controls stay available while you're there.
+- **Formatting**: Nowa now reads your project's own rules from `analysis_options.yaml`, so saved files keep the shape your project already uses and diffs only show what actually changed.
+- **Project sync and loading**: faster and lighter when opening and syncing projects.
+- **Login screen**: now works with your password manager's autofill.
+- **Build quota**: running out of builds now shows a clear message explaining what happened.
+- **Field initializers in the designer**: widgets that set up their fields on creation now render and edit correctly.
+
+#### **Fixed 🩹**
+- Fixed **`$` inside a text value** breaking the text it sat in, so prices like `$20` stay as typed.
+- Fixed **variables inside loops** losing their value.
+- Fixed **Firebase screens** not displaying correctly in the designer.
+- Fixed **images stored inside packages** not rendering.
+- Fixed **Git** leaving a project stuck in a merge conflict after a commit.
+- Fixed the **outline and top bar** falling out of sync with the current selection.
+- Fixed the **QR code placement** in the run toolbar.
+- Fixed the **run target** pointing at the wrong place in projects with more than one package.
+- Fixed errors in the **widget list**.
+- Fixed the board **jumping to the wrong page** when opening a different project.
+- Fixed an issue in the **new project dialog**.
+- Fixed **build issues on macOS**.
+
+---
+
 ## **Gemini 3.7 Flash Upgrade (13 August 2026)**
 
 #### **Added 🌟**

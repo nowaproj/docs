@@ -8,6 +8,57 @@ sidebar_position: 1
 
 ---
 
+### **3.12.0 (15 September 2026)**
+
+Nowa 3.12 lets your AI coding agent work inside your project. Connect **Claude Code, Claude Desktop, or Cursor** to Nowa and it can open your projects, see what's on your canvas, and build using Nowa's own tools while your board updates in front of you. 🔌 This release also adds **workspace and monorepo support**, **Sign in with Apple**, **Git over SSH**, and a tidier interface throughout.
+
+#### **New in This Version ✨**
+
+- 🔌 **Connect Your Own AI Agent**
+  The Nowa desktop app can now talk to the coding agent you already use: **Claude Code, Claude Desktop, or Cursor**. Once it's connected, your agent can:
+  - **Open and switch between your projects** by name.
+  - **See what you see**: your screens and components, your theme and colours, the widget tree, and whatever you have selected on the canvas.
+  - **Build with Nowa's own tools**, so every change it makes is a real Nowa change and your board keeps up as it works.
+  - **Point at things visually.** Ask it to open a screen, highlight a widget, take a screenshot of the canvas, or save your project.
+
+  This one is **Enterprise only for now**. If you'd like access, email us at `team@nowa.dev` and we'll get you set up.
+
+- 📦 **Workspaces & Monorepos**
+  Nowa can now open a Flutter app that lives inside a bigger repository. When you import a local project, Nowa reads the folder and lets you choose which package to edit. Once you're inside, a chip in the top bar switches between packages without leaving the project, and Git still covers the whole repository, so nothing about your setup has to change.
+
+- 🍎 **Sign in with Apple**
+  You can now sign in to Nowa with your Apple ID on the web and on iOS, alongside Google and email.
+
+- 🔑 **Git over SSH**
+  Local projects can now push and pull over SSH. Point Nowa at a key, or let it use the keys already loaded in your ssh-agent, so the setup you use in the terminal works here too.
+
+- 📝 **Describe Your Components**
+  Your screens and components can now carry a short description, written in the details panel right next to their fields. It's a quick way to leave a note for your teammates, and for the AI, about what a component is for.
+
+- 🔗 **Share a Preview of One Screen**
+  Hit play on a screen from the board and the share link now opens on that exact screen, so whoever you send it to lands where you wanted them to.
+
+- 🧭 **Go to Definition in the Code Editor**
+  Hold **⌘ (or Ctrl)** and the name under your cursor turns into a link. Click it to jump straight to where it's defined.
+
+- ✨ **A Tidier Interface**
+  We rebuilt the top bar and cleaned up the dashboard. A few smaller touches come with it:
+  - Switching to code mode now takes you to the code behind the widget you had selected, instead of the top of the file.
+  - Run and preview controls stay with you in code mode, so you don't have to switch back to play your app.
+  - The diff view has a navigator for moving between changes, so you're not scrolling to find them.
+  - Widgets that offer more than one constructor now let you pick the one you want.
+  - Cloning a project from GitHub shows progress, so it no longer looks stuck.
+
+- 🎯 **Code That Looks Like Yours**
+  Nowa now follows your project's own formatting rules from `analysis_options.yaml`. Files it saves come back in the shape your project already uses, so your diffs only show what actually changed.
+
+- 🧩 **Custom App Bars**
+  Your own widgets can now be used as a screen's app bar, so a custom header you built once works everywhere a Flutter app bar does.
+
+➡️ We'd love to hear what you think of Nowa 3.12! Click the **? icon** to chat with us directly, or email us at `team@nowa.dev`. Happy building!
+
+---
+
 ### **Gemini 3.7 Flash Upgrade (13 August 2026)**
 
 ![Nowa's AI agent now runs on Gemini 3.7 Flash — smarter agent, double the limits](/img/whats_new/Nowa-Gemini-3.7-Flash.png)

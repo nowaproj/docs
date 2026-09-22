@@ -8,6 +8,52 @@ sidebar_position: 1
 
 ---
 
+### **3.12.3 (22 September 2026)**
+
+Nowa AI now works with **Figma**! 🎨 Connect your Figma account and the AI can bring your images, icons, colors and text styles straight into your project, so the app you build matches the design you made. The Figma MCP has been on our "coming soon" list for a while, and now it's here for everyone. This release also helps Nowa understand much more of the Flutter code you write yourself, cuts down on false alarms, and makes the board smoother to move around.
+
+#### **New in This Version ✨**
+
+- 🎨 **Figma MCP Is Here**
+  Nowa AI can now connect to your Figma account and work with your designs. Once it's connected, just ask, and the AI can:
+  - **Bring in your images and icons** as project assets, SVGs included.
+  - **Turn your Figma colors and text styles into your app's theme**, so every screen stays true to your design.
+
+  To connect, click the **Figma icon** in the AI chat, right next to the Supabase one, and approve access in the browser window that opens. That's it! You can connect or disconnect anytime from **Account Details → Connected Accounts** in your account settings. Figma works in both cloud and local projects, and the AI asks for your OK before each Figma action unless you turn on **Auto-approve tools** from the Figma icon's menu.
+
+- 📖 **Nowa Understands More of Your Code**
+  Bringing your own Flutter project into Nowa? Much more of it now opens and renders on the board just the way you wrote it, including:
+  - **Modern Dart patterns**, like `switch` expressions that match on records and objects, and destructuring.
+  - **Widgets that build on other widgets**, whether they're your own (even from another file) or Flutter's, with `super.` parameters passing their values along.
+  - **InheritedWidgets, mixins, enhanced enums and redirecting constructors**, all working the way you'd expect.
+  - **Up to 8 theme extensions** in your theme, up from 5.
+
+  And when Nowa meets a piece of code it can't read yet, it now skips just that part and tells you about it in the Problems panel, instead of giving up on the whole file.
+
+- 🔍 **Fewer False Alarms, Clearer Answers**
+  Nowa is now better at telling a real problem from perfectly good code, and at telling you what to do next:
+  - Projects without a `main.dart` or a `web/` folder, like packages or mobile-only apps, are no longer flagged as broken.
+  - If the in-app preview can't run your app, Nowa explains why as soon as you hit **Run**. When all it needs is web support, one click on **Add web support** sets it up for you.
+  - The **Problems panel** waits for your packages to finish loading before it reports anything, and lists any package that didn't load along with the reason.
+  - A new filter in the Problems panel lets you check **All files**, not just the code Nowa generated.
+
+- ⚡ **A Smoother Board**
+  Panning and zooming around the board feel smoother, and Nowa does less work behind the scenes as your project loads and as you edit. You'll notice it most in bigger projects.
+
+- 🔌 **More Power for Your Connected Agent**
+  Using Claude Code, Claude Desktop, or Cursor with Nowa? Your agent just got better at the job:
+  - **Connecting takes one command.** The **Connect External Agent** dialog now gives you a ready-made Claude Code command to copy and run.
+  - **It can set app permissions**, like camera or location access, the same way the Permissions panel does.
+  - **It knows Nowa's building rules** from the moment it connects, so its changes fit right in.
+  - **It can see layout problems.** Screenshots now tell it about overflows and widgets that failed to build, so it can catch and fix them itself.
+  - **Its edits are safer.** Code that doesn't parse is refused instead of saved, and an edit can't land on the wrong widget if the design changed in the meantime.
+
+  Connecting your own agent is still **Enterprise only**. If you'd like access, email us at `team@nowa.dev` and we'll get you set up.
+
+➡️ We can't wait to see what you build from your Figma designs! Click the **? icon** to chat with us directly, or email us at `team@nowa.dev`. Happy building!
+
+---
+
 ### **3.12.0 (15 September 2026)**
 
 Nowa 3.12 lets your AI coding agent work inside your project. Connect **Claude Code, Claude Desktop, or Cursor** to Nowa and it can open your projects, see what's on your canvas, and build using Nowa's own tools while your board updates in front of you. 🔌 This release also adds **workspace and monorepo support**, **Sign in with Apple**, **Git over SSH**, and a tidier interface throughout.

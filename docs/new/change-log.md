@@ -7,6 +7,43 @@ sidebar_position: 2
 
 ---
 
+## **3.12.3 (22 September 2026)**
+
+#### **Added 🌟**
+- **Figma MCP**: connect your Figma account and Nowa AI can bring your images and icons (SVGs included) into your project as assets, and turn your Figma colors and text styles into your app's theme. Turn it on from the **Figma icon** in the AI chat, and connect or disconnect anytime from **Account Details → Connected Accounts**. Works in cloud and local projects, and is available to everyone.
+- **One-click web support**: when the in-app preview can't run because your app has no `web/` folder, Nowa explains why and can add web support for you.
+- **Problems panel filter**: choose whether Nowa checks only the code it generated or **All files** in your project.
+- **Package problems**: the Problems panel now lists packages that failed to load and why, and points out when a package is only a dev dependency.
+- **Permissions for connected agents**: Claude Code, Claude Desktop, and Cursor can now add or remove platform permissions through Nowa's settings, the same way the Permissions panel does.
+- **Claude Code setup command**: the **Connect External Agent** dialog now includes a ready-made Claude Code command to copy and run.
+
+#### **Improved ⚙️**
+- **Dart support**: Nowa now opens and renders much more hand-written Flutter code, including Dart 3 patterns in `switch` expressions and destructuring, InheritedWidgets, mixins, enhanced enums, redirecting constructors, `super.` parameters, widgets that extend other widgets (your own or Flutter's), and generic function references like `identity<int>`.
+- **Theme extensions**: themes can now hold up to 8 theme extensions, up from 5.
+- **Partial file loading**: code Nowa can't read yet is skipped on its own, so the rest of the file still loads, and the Problems panel shows what was skipped.
+- **Placeholder values**: components that take records or typed lists now render in the designer with sensible placeholder values.
+- **Null-aware chains**: `?.` in widget arguments now resolves to null in the designer instead of breaking the widget, and is saved exactly as written instead of being turned into `!`.
+- **Project checks**: valid projects without a `main.dart` or `web/` folder, like packages or mobile-only apps, are no longer flagged as broken.
+- **Problems on open**: the Problems panel waits for packages to finish loading before reporting, so it no longer shows false errors while a project opens.
+- **Board performance**: smoother panning and zooming, plus faster code loading and lookups, especially in bigger projects.
+- **Safer AI edits**: an edit that would leave a Dart file with syntax errors is now refused and nothing is written, so a typo can't turn into mangled code. Applies to Nowa AI and connected agents.
+- **Imports after AI edits**: a file's imports now update automatically after an AI edit.
+- **AI code checks**: when `flutter analyze` can't run, the AI is told so instead of treating the project as clean.
+- **Connected agent guidance**: agents receive Nowa's building rules as soon as they connect, and can ask for them again at any time.
+- **Agent screenshots**: now report widgets that failed to build, overflows, and placeholder values, so agents can find and fix layout issues themselves.
+- **Agent safeguards**: edits based on an outdated widget reference are refused instead of landing on a neighboring widget, and switching projects is blocked while the current one has failed to save.
+
+#### **Fixed 🩹**
+- Fixed the **board not updating** when changing its color or grid.
+- Fixed the **Libraries panel** missing from the sidebar after the top bar was rebuilt.
+- Fixed one **canvas that fails to build** leaving every canvas after it stuck on its loading placeholder.
+- Fixed **widgets that extend a widget from another file** sometimes loading as plain classes and not rendering.
+- Fixed **constructors written by a connected agent** being dropped instead of applied.
+- Fixed **packages in local projects** sometimes failing to load when several resolved at the same time.
+- Fixed the **screenshot tool** for connected agents.
+
+---
+
 ## **3.12.0 (15 September 2026)**
 
 #### **Added 🌟**

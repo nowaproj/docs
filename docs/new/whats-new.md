@@ -8,6 +8,46 @@ sidebar_position: 1
 
 ---
 
+### **3.12.5 (25 September 2026)**
+
+Nowa 3.12.5 makes big projects feel light again. ⚡ Boards with lots of screens are now **up to 50x faster** to move around and work in, projects reopen faster, and Instant Play can now play anything on your board. This release also lets you switch Git branches without committing first, gives your connected agent a way to bring images (including the ones in your Figma designs) into your project, and helps Nowa understand even more of the Flutter code you write yourself.
+
+#### **New in This Version ✨**
+
+- ⚡ **Big Boards, Up to 50x Faster**
+  Nowa no longer runs every screen on your board at once. Instead, it puts its effort where you are:
+  - **What you're looking at loads first.** Screens build one at a time, starting with the ones in view, so a big board opens without freezing the editor.
+  - **Only the screen you're working on keeps moving.** Animations and timers run on the screen you're hovering, selecting or playing, and pause everywhere else.
+  - **Screens out of view wait.** Changes to screens you've scrolled away from are applied when you come back to them.
+  - **Crowded views stay smooth.** When lots of screens are in view at once, the ones you're not working on are shown as a still picture until you need them.
+
+  Reopening a project is faster too: Nowa now keeps its analysis of the packages your project uses, instead of redoing it every time you open the project.
+
+- ▶️ **Play Anything on Your Board**
+  Instant Play now works on any item on your board, not only screens and components. Right-click any widget and choose **Play** to play the item it belongs to. While something is playing, just select another item to play that one instead.
+
+- 🌿 **Switch Branches Without Committing First**
+  You no longer have to commit or discard your work before changing branches. Switch or create a branch and your changes come with you. If they touch files that are different on the other branch, Nowa asks before bringing them along, and if anything clashes, it opens the conflict resolver so you choose what to keep. Any unsaved edits are saved before the switch, so nothing gets left behind.
+
+- 🖼️ **Your Connected Agent Can Add Images**
+  Claude Code, Claude Desktop, and Cursor can now add images to your project. Your agent hands Nowa image links, like the ones it gets from Figma's own MCP, or files from your computer, and Nowa downloads them into `assets/images/` and registers them for you. PNG, JPG, GIF, WebP, BMP and SVG all work.
+
+  Connecting your own agent is still **Enterprise only**. If you'd like access, email us at `team@nowa.dev` and we'll get you set up.
+
+- 📖 **Nowa Understands Even More of Your Code**
+  More of the Flutter code you bring into Nowa now renders on the board just the way you wrote it:
+  - **More packages**: `equatable`, `auto_size_text`, and `package:collection` helpers like `mapIndexed` and `flattened`.
+  - **Projects exported from FlutterFlow**: pages using `safeSetState`, custom functions, and Firestore records now render with placeholder data, even without a Firebase connection on the board.
+  - **Smarter placeholders**: a widget Nowa has no value for now shows as a small slot, instead of taking over your layout.
+
+- ✨ **Smaller Touches**
+  - **More precise snapping** when you move or resize widgets, and resizing only snaps the edge you're dragging.
+  - **A lighter Widgets panel**: previews play their animations for a moment, then settle.
+
+➡️ We'd love to hear how your biggest projects feel now! Click the **? icon** to chat with us directly, or email us at `team@nowa.dev`. Happy building!
+
+---
+
 ### **3.12.3 (22 September 2026)**
 
 Nowa AI now works with **Figma**! 🎨 Connect your Figma account and the AI can bring your images, icons, colors and text styles straight into your project, so the app you build matches the design you made. The Figma MCP has been on our "coming soon" list for a while, and now it's here for everyone. This release also helps Nowa understand much more of the Flutter code you write yourself, cuts down on false alarms, and makes the board smoother to move around.

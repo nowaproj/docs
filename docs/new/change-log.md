@@ -7,6 +7,42 @@ sidebar_position: 2
 
 ---
 
+## **3.12.5 (25 September 2026)**
+
+#### **Added 🌟**
+- **Play any board item**: Instant Play now works on any item on the board, including plain widgets and wrapped components, not only screens and components. Right-click a widget and choose **Play** to play the item it belongs to, and while something plays, select another item to play that one instead.
+- **Switch branches with local changes**: switch or create a Git branch without committing first. Changes that don't clash with the other branch come along automatically. When they do clash, Nowa asks before bringing them along and opens the conflict resolver if they don't apply cleanly. Unsaved edits are saved before switching. Works in local and cloud projects.
+- **Images for connected agents**: the new `add_image_assets` tool lets Claude Code, Claude Desktop, and Cursor add images from links (like the asset links Figma's MCP returns) or from local files. Nowa downloads them into `assets/images/` and registers them in `pubspec.yaml`. Supports PNG, JPG, GIF, WebP, BMP, and SVG.
+- **Package support**: `equatable` (classes extending `Equatable` or using `EquatableMixin` compare by their `props`), `auto_size_text`, and `package:collection` iterable extensions like `mapIndexed` and `flattened` now work in the designer.
+
+#### **Improved ⚙️**
+- **Big board performance**: up to 50x faster on big boards. Canvases build one per frame with the visible ones first, off-screen canvases hold their rebuilds until they're back in view, animations and timers only run on the canvas you're hovering, selecting, or playing, and when more than 8 canvases are in view the rest are drawn from a snapshot. Panning no longer rebuilds canvas titles.
+- **Faster project opening**: the analysis of packages from the pub cache is now saved on disk and reused across sessions, only each package's API is read, and packages are analyzed one at a time so they no longer wait on each other.
+- **Widgets panel previews**: previews play their animations for a moment, then pause, and are no longer rebuilt from scratch every time the panel updates.
+- **Snapping**: moving and resizing snap more precisely to nearby edges and centers, and resizing only snaps the edge being dragged.
+- **FlutterFlow projects**: pages calling `safeSetState`, custom functions called through an import prefix, streams of Firestore records, and flags written as `flag!` now render in the designer with placeholder data. A field whose stream can't start without Firebase no longer stops the whole page from rendering.
+- **Placeholder widgets**: a widget the designer has no value for now shows as a small slot instead of taking over the layout.
+
+#### **Fixed 🩹**
+- Fixed **projects that import the same files from nearly everywhere**, like the theme and utility files in FlutterFlow exports, hanging while loading their dependencies.
+- Fixed **screens that import a design system through a single file that re-exports it** rendering before the theme it re-exports had loaded.
+- Fixed **custom app bars** that extend `AppBar` being rejected as a screen's app bar.
+- Fixed **custom fonts** declared in `pubspec.yaml` showing as a default font on the canvas. Font families now load under their own names in every weight, and Nowa keeps your own font declarations (families, weights, styles) when it updates the pubspec, instead of replacing them.
+- Fixed **stateful components** running `didUpdateWidget` before receiving their new values and without `oldWidget`, which kept components like text fields from reacting to their new values.
+- Fixed **overrides that read `super`**, like an app bar overriding `leading`, calling themselves until the editor froze.
+- Fixed **constructors that set fields in their initializer list**, like a tab bar creating its `TabBar` there, leaving those fields empty in the designer.
+- Fixed **gradient masks**: a `ShaderMask` given a method like `gradient.createShader` now paints its gradient.
+- Fixed **`NotificationListener`** passing its callback notifications of other types, which could stop the canvas from responding to the mouse.
+- Fixed **components with animations** showing an error when removed from the board, and not restarting when shown again.
+- Fixed **a missing SVG file** taking down the whole canvas. Now only that image stays empty.
+- Fixed **SVG colors defined with CSS variables** turning black when saved from the AI chat or by a connected agent.
+- Fixed **theme extensions from a previously opened project** carrying over into the next one.
+- Fixed **date pickers** failing in the designer when their optional dates were filled with placeholder values.
+- Fixed **items that size themselves** playing at the wrong size in Instant Play.
+- Fixed several **Dart expressions** in the designer: `int` values assigned to `double` properties (like `Paint()..strokeWidth = 2`), `??`, `&&` and `||` with an `await` operand, method calls on `dynamic` values, optional named parameters in function types, and `RegExp` defaulting to case-insensitive.
+
+---
+
 ## **3.12.3 (22 September 2026)**
 
 #### **Added 🌟**

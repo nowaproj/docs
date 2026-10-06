@@ -41,11 +41,18 @@ Git remotes, integrations that connect external services); copy those to
 3. **Look at the image** (Read tool) and check it shows exactly what the row asks for, with readable labels
    and no stray menus, tooltips or loading spinners. If not, fix the state and retake it. Never keep an image
    that doesn't match.
-4. Update the row: status `captured`, plus the file path and a one-sentence alt text that says what the image
-   shows. If it can't be done, set `not-possible: <why>`.
+4. Update the row's status to `captured` (or `not-possible: <why>`, or `skipped: low value`), and **append one line
+   to the table in `/home/user/docs/_rewrite/captures/log.md`** (create it with this header if missing):
+   `| id | file | alt text | checked |` → e.g.
+   `| design-boards-1 | /img/docs/design/design-boards-1.png | The board menu open, with Create new board at the bottom. | yes |`
+   The `file` is the site path (starts with `/img/` or `/videos/`). An embed script reads this table, so keep the
+   format exact: one row per capture, no line breaks in cells.
 
 Do **not** edit the docs pages (verifiers are editing them at the same time). A later step embeds your images
-from the request files.
+from `captures/log.md`.
+
+**Value first:** screenshots only where they genuinely help (finding a control in a busy UI, recognizing a dialog,
+seeing a result). Per page, capture at most the one or two most useful requests; mark the rest `skipped: low value`.
 
 ## Videos
 
@@ -59,8 +66,8 @@ Only for rows with type `mp4`, at most 4 in total, each ≤ 20 s: record with Pl
 - No sign-in, no deploys, no purchases, no invitations, no connecting external accounts.
 - AI prompts: the whole project may send at most 5. You may send at most **3**, only if Nowa AI works in the
   playground without an account (if it asks you to sign in, stop: no prompt was sent), and only for rows that need
-  an AI result. Log every prompt you send (time, text, which row) in `/home/user/docs/_rewrite/captures/log.md`.
+  an AI result. Log every prompt you send (time, text, which row) in `/home/user/docs/_rewrite/captures/ai-prompts.md`.
 - Never commit. Write only images/videos under `static/img/docs/`, `static/videos/docs/`, the request files,
-  `captures/to-capture.md`, `captures/log.md` and `captures/README.md`.
+  `captures/to-capture.md`, `captures/log.md`, `captures/ai-prompts.md` and `captures/README.md`.
 
 Final message (at most 15 lines): captured / not possible / needs sign-in counts, prompts sent, problems.

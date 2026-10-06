@@ -237,7 +237,7 @@ These stay reachable as long as the files stay in `static/` (they are copied as-
   `ui/widgets/widget-desc/expansion-tile.md`, `ui/themes/create-themes.md`; plus the image `docs/img/swipingcard.gif`
   (What's New 2.0.15) and the absolute link `https://docs.nowa.dev/git` (Changelog line 576).
   (What's New lines 874-1162, Changelog lines 576-759.)
-- `docs/index.md` (homepage cards) links to 13 category index URLs.
+- `docs/index.md` (homepage cards) links to 12 category index URLs and `/shortcuts`.
 - Old URLs are linked from outside the site too (YouTube descriptions, blog posts, the app). Every old URL above should
   get a redirect to its closest new page.
 

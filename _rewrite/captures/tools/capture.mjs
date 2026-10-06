@@ -550,21 +550,27 @@ function matchText(lines, query, exact) {
   const squash = (t) => normalize(t).replace(/[^\p{L}\p{N}]+/gu, '');
   const qs = squash(query);
   const hits = [];
-  const box = (ws, exactness) => {
+  // rank: 3 = the whole line is the query, 2 = whole words inside a longer line,
+  // 1 = partial words, 0 = only matches with spaces removed.
+  const box = (ws, rank) => {
     const x = Math.min(...ws.map((w) => w.x));
     const y = Math.min(...ws.map((w) => w.y));
     const x2 = Math.max(...ws.map((w) => w.x + w.w));
     const y2 = Math.max(...ws.map((w) => w.y + w.h));
-    return { text: ws.map((w) => w.text).join(' '), x, y, w: x2 - x, h: y2 - y, cx: Math.round((x + x2) / 2), cy: Math.round((y + y2) / 2), conf: Math.min(...ws.map((w) => w.conf)), exactness, source: 'ocr' };
+    return { text: ws.map((w) => w.text).join(' '), x, y, w: x2 - x, h: y2 - y, cx: Math.round((x + x2) / 2), cy: Math.round((y + y2) / 2), conf: Math.min(...ws.map((w) => w.conf)), rank, source: 'ocr' };
   };
   for (const line of lines) {
     const words = line.words.map((w) => clean(w.text));
+    if (words.filter(Boolean).join(' ') === q.join(' ')) {
+      hits.push(box(line.words, 3));
+      continue;
+    }
+    if (exact) continue;
     for (let i = 0; i + q.length <= words.length; i++) {
       const slice = words.slice(i, i + q.length);
-      const ok = exact
-        ? slice.every((w, k) => w === q[k])
-        : slice.every((w, k) => (q.length === 1 ? w.includes(q[k]) : k === 0 ? w.endsWith(q[k]) : k === q.length - 1 ? w.startsWith(q[k]) : w === q[k]));
-      if (ok) hits.push(box(line.words.slice(i, i + q.length), slice.join(' ') === q.join(' ') ? 2 : 1));
+      const whole = slice.every((w, k) => w === q[k]);
+      const partial = slice.every((w, k) => (q.length === 1 ? w.includes(q[k]) : k === 0 ? w.endsWith(q[k]) : k === q.length - 1 ? w.startsWith(q[k]) : w === q[k]));
+      if (whole || partial) hits.push(box(line.words.slice(i, i + q.length), whole ? 2 : 1));
     }
   }
   if (!hits.length && qs.length >= 3) {
@@ -574,15 +580,15 @@ function matchText(lines, query, exact) {
         let acc = '';
         for (let j = i; j < line.words.length && acc.length < qs.length + 2; j++) {
           acc += squash(line.words[j].text);
-          if (exact ? acc === qs : acc.includes(qs)) {
-            hits.push(box(line.words.slice(i, j + 1), acc === qs ? 1 : 0));
+          if (exact ? acc === qs && i === 0 && j === line.words.length - 1 : acc.includes(qs)) {
+            hits.push(box(line.words.slice(i, j + 1), 0));
             break;
           }
         }
       }
     }
   }
-  return hits.sort((a, b) => b.exactness - a.exactness || b.conf - a.conf);
+  return hits.sort((a, b) => b.rank - a.rank || b.conf - a.conf);
 }
 
 /**

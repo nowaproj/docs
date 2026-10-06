@@ -325,11 +325,26 @@ export async function openEditor(page, opts = {}) {
   return page;
 }
 
-/** Turns on Flutter's semantics tree (idempotent). Returns the node count. */
+/**
+ * Turns on Flutter's semantics tree (idempotent) and makes it read-only for the
+ * pointer. Returns the node count.
+ *
+ * Read-only matters: with semantics on, a full-screen tappable group node covers
+ * every region that has no node of its own (top bar, left panel, canvas), and the
+ * engine turns clicks on tappable nodes into a semantics "tap" on that node, so
+ * the real button under the pointer never gets the click. With pointer-events off
+ * on the semantics DOM, mouse events reach Flutter exactly as without semantics.
+ */
 export async function enableSemantics(page, { timeout = 30000 } = {}) {
   const deadline = Date.now() + timeout;
   while (Date.now() < deadline) {
     const count = await page.evaluate(() => {
+      if (!document.getElementById('capture-semantics-readonly')) {
+        const style = document.createElement('style');
+        style.id = 'capture-semantics-readonly';
+        style.textContent = 'flt-semantics-host, flt-semantics-host * { pointer-events: none !important; }';
+        document.head.appendChild(style);
+      }
       const nodes = document.querySelectorAll('flt-semantics').length;
       if (nodes > 0) return nodes;
       const placeholder = document.querySelector('flt-semantics-placeholder');

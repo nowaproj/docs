@@ -22,8 +22,10 @@ fs.mkdirSync(outDir, { recursive: true });
 const PICKER_LIST = { x: 505, y: 200, w: 430, h: 500 };
 const index = [];
 
-async function record(page, id, title, { ocrClip } = {}) {
-  await page.mouse.move(1430, 600); // park the pointer on an empty board spot (no hover effects)
+async function record(page, id, title, { ocrClip, park = true } = {}) {
+  // Park the pointer on an empty board spot (no hover effects), except for
+  // overlays such as pickers, which close when the pointer moves away.
+  if (park) await page.mouse.move(1430, 600);
   await cap.settle(page, { timeout: 4000 });
   const png = path.join(outDir, `${id}.png`);
   await cap.screenshot(page, png);
@@ -60,23 +62,23 @@ async function runA() {
 
     await cap.press(page, 'Control+k');
     await page.waitForTimeout(700);
-    await record(page, '11-widget-picker', 'Widget picker (Ctrl+K or the toolbar Widget button)');
+    await record(page, '11-widget-picker', 'Widget picker (Ctrl+K or the toolbar Widget button)', { park: false });
     await cap.press(page, 'Escape');
 
     await cap.clickAt(page, 650, 600); // empty board: clears the selection
     await cap.press(page, 'Control+o');
     await page.waitForTimeout(700);
-    await record(page, '12-file-search', 'File search palette (Ctrl+O)');
+    await record(page, '12-file-search', 'File search palette (Ctrl+O)', { park: false });
     await cap.press(page, 'Escape');
 
     await cap.click(page, 'Starter app', { clip: { x: 40, y: 0, w: 200, h: 42 } });
     await page.waitForTimeout(700);
-    await record(page, '13-starter-picker', 'Top bar starting-point picker (playground only)');
+    await record(page, '13-starter-picker', 'Top bar starting-point picker (playground only)', { park: false });
     await cap.press(page, 'Escape');
 
     await cap.click(page, '650,600', { button: 'right' });
     await page.waitForTimeout(500);
-    await record(page, '14-context-menu-board', 'Right-click on an empty part of the board');
+    await record(page, '14-context-menu-board', 'Right-click on an empty part of the board', { park: false });
     await cap.press(page, 'Escape');
     await cap.clickAt(page, 650, 600);
 
@@ -145,7 +147,7 @@ async function runB() {
 
     await cap.click(page, '600,300', { button: 'right' });
     await page.waitForTimeout(500);
-    await record(page, '19-context-menu-widget', 'Right-click on a widget placed on the board');
+    await record(page, '19-context-menu-widget', 'Right-click on a widget placed on the board', { park: false });
     await cap.press(page, 'Escape');
     await cap.clickAt(page, 650, 650);
 
@@ -157,7 +159,7 @@ async function runB() {
     await cap.clickAt(page, 1096, 168); // the panel's close (x) button
 
     await cap.hover(page, '930,232');
-    await record(page, '21-canvas-title-hover', 'Hovering a screen title: Play and Open in new tab appear');
+    await record(page, '21-canvas-title-hover', 'Hovering a screen title: Play and Open in new tab appear', { park: false });
     const play = { x: 986, y: 231 };
     await cap.clickAt(page, play.x, play.y);
     await page.waitForTimeout(2500);

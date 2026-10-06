@@ -1,0 +1,1281 @@
+{
+ "id": "16-code-mode",
+ "title": "Code mode (the </> button in the top bar)",
+ "viewport": {
+  "width": 1440,
+  "height": 900,
+  "deviceScaleFactor": 2
+ },
+ "ocr": [
+  {
+   "text": "Save",
+   "conf": 96,
+   "x": 1403,
+   "y": 16,
+   "w": 26,
+   "h": 9
+  },
+  {
+   "text": "bo 3",
+   "conf": 53,
+   "x": 1343,
+   "y": 12,
+   "w": 16,
+   "h": 17
+  },
+  {
+   "text": "@",
+   "conf": 77,
+   "x": 1382,
+   "y": 15,
+   "w": 17,
+   "h": 11
+  },
+  {
+   "text": "<>",
+   "conf": 97,
+   "x": 1307,
+   "y": 17,
+   "w": 13,
+   "h": 8
+  },
+  {
+   "text": "+",
+   "conf": 97,
+   "x": 547,
+   "y": 56,
+   "w": 12,
+   "h": 12
+  },
+  {
+   "text": "home_page.dart",
+   "conf": 31,
+   "x": 417,
+   "y": 57,
+   "w": 86,
+   "h": 12
+  },
+  {
+   "text": "CG O",
+   "conf": 41,
+   "x": 11,
+   "y": 58,
+   "w": 52,
+   "h": 19
+  },
+  {
+   "text": "Files",
+   "conf": 96,
+   "x": 72,
+   "y": 62,
+   "w": 28,
+   "h": 11
+  },
+  {
+   "text": "1",
+   "conf": 97,
+   "x": 399,
+   "y": 93,
+   "w": 6,
+   "h": 9
+  },
+  {
+   "text": "'package:flutter/material.dart';",
+   "conf": 90,
+   "x": 488,
+   "y": 91,
+   "w": 238,
+   "h": 14
+  },
+  {
+   "text": "import",
+   "conf": 93,
+   "x": 433,
+   "y": 92,
+   "w": 44,
+   "h": 13
+  },
+  {
+   "text": "android",
+   "conf": 91,
+   "x": 100,
+   "y": 99,
+   "w": 40,
+   "h": 9
+  },
+  {
+   "text": "2",
+   "conf": 97,
+   "x": 399,
+   "y": 111,
+   "w": 6,
+   "h": 9
+  },
+  {
+   "text": "'package:nowa_runtime/nowa_runtime.dart';",
+   "conf": 90,
+   "x": 488,
+   "y": 109,
+   "w": 307,
+   "h": 14
+  },
+  {
+   "text": "import",
+   "conf": 91,
+   "x": 433,
+   "y": 110,
+   "w": 44,
+   "h": 13
+  },
+  {
+   "text": "3",
+   "conf": 97,
+   "x": 399,
+   "y": 129,
+   "w": 6,
+   "h": 9
+  },
+  {
+   "text": "@ assets",
+   "conf": 79,
+   "x": 74,
+   "y": 134,
+   "w": 60,
+   "h": 11
+  },
+  {
+   "text": "®",
+   "conf": 74,
+   "x": 11,
+   "y": 139,
+   "w": 18,
+   "h": 17
+  },
+  {
+   "text": "4",
+   "conf": 87,
+   "x": 398,
+   "y": 147,
+   "w": 7,
+   "h": 9
+  },
+  {
+   "text": "@NowaGenerated()",
+   "conf": 91,
+   "x": 432,
+   "y": 145,
+   "w": 120,
+   "h": 12
+  },
+  {
+   "text": "Y",
+   "conf": 66,
+   "x": 412,
+   "y": 164,
+   "w": 7,
+   "h": 7
+  },
+  {
+   "text": "class HomePage",
+   "conf": 96,
+   "x": 432,
+   "y": 164,
+   "w": 105,
+   "h": 13
+  },
+  {
+   "text": "extends StatelessWidget",
+   "conf": 90,
+   "x": 547,
+   "y": 164,
+   "w": 174,
+   "h": 13
+  },
+  {
+   "text": "5",
+   "conf": 82,
+   "x": 399,
+   "y": 165,
+   "w": 7,
+   "h": 9
+  },
+  {
+   "text": "{",
+   "conf": 92,
+   "x": 730,
+   "y": 163,
+   "w": 6,
+   "h": 12
+  },
+  {
+   "text": "boards",
+   "conf": 95,
+   "x": 100,
+   "y": 171,
+   "w": 36,
+   "h": 9
+  },
+  {
+   "text": "@",
+   "conf": 50,
+   "x": 74,
+   "y": 170,
+   "w": 14,
+   "h": 11
+  },
+  {
+   "text": "Q",
+   "conf": 93,
+   "x": 13,
+   "y": 179,
+   "w": 15,
+   "h": 15
+  },
+  {
+   "text": "6",
+   "conf": 97,
+   "x": 399,
+   "y": 183,
+   "w": 7,
+   "h": 9
+  },
+  {
+   "text": "@NowaGenerated({'loader':",
+   "conf": 85,
+   "x": 448,
+   "y": 181,
+   "w": 187,
+   "h": 12
+  },
+  {
+   "text": "7",
+   "conf": 95,
+   "x": 399,
+   "y": 201,
+   "w": 7,
+   "h": 9
+  },
+  {
+   "text": "const HomePage({super.key});",
+   "conf": 92,
+   "x": 448,
+   "y": 199,
+   "w": 210,
+   "h": 14
+  },
+  {
+   "text": "lib",
+   "conf": 90,
+   "x": 100,
+   "y": 207,
+   "w": 12,
+   "h": 9
+  },
+  {
+   "text": "©",
+   "conf": 83,
+   "x": 74,
+   "y": 206,
+   "w": 14,
+   "h": 11
+  },
+  {
+   "text": "8",
+   "conf": 91,
+   "x": 399,
+   "y": 219,
+   "w": 6,
+   "h": 9
+  },
+  {
+   "text": "9",
+   "conf": 96,
+   "x": 399,
+   "y": 237,
+   "w": 6,
+   "h": 9
+  },
+  {
+   "text": "@override",
+   "conf": 92,
+   "x": 448,
+   "y": 236,
+   "w": 67,
+   "h": 11
+  },
+  {
+   "text": ">",
+   "conf": 93,
+   "x": 71,
+   "y": 244,
+   "w": 5,
+   "h": 8
+  },
+  {
+   "text": "globals",
+   "conf": 83,
+   "x": 116,
+   "y": 243,
+   "w": 38,
+   "h": 12
+  },
+  {
+   "text": "10",
+   "conf": 75,
+   "x": 391,
+   "y": 254,
+   "w": 28,
+   "h": 10
+  },
+  {
+   "text": "build(BuildContext context) {",
+   "conf": 92,
+   "x": 501,
+   "y": 253,
+   "w": 219,
+   "h": 12
+  },
+  {
+   "text": "Widget",
+   "conf": 93,
+   "x": 447,
+   "y": 254,
+   "w": 45,
+   "h": 13
+  },
+  {
+   "text": "Vv",
+   "conf": 49,
+   "x": 412,
+   "y": 252,
+   "w": 9,
+   "h": 17
+  },
+  {
+   "text": "v",
+   "conf": 83,
+   "x": 412,
+   "y": 272,
+   "w": 7,
+   "h": 7
+  },
+  {
+   "text": "lat",
+   "conf": 35,
+   "x": 391,
+   "y": 273,
+   "w": 14,
+   "h": 9
+  },
+  {
+   "text": "return Scaffold(",
+   "conf": 92,
+   "x": 463,
+   "y": 271,
+   "w": 120,
+   "h": 12
+  },
+  {
+   "text": "12",
+   "conf": 97,
+   "x": 391,
+   "y": 291,
+   "w": 14,
+   "h": 9
+  },
+  {
+   "text": "const Text('Home Page')),",
+   "conf": 91,
+   "x": 646,
+   "y": 289,
+   "w": 187,
+   "h": 14
+  },
+  {
+   "text": "AppBar(title:",
+   "conf": 92,
+   "x": 538,
+   "y": 289,
+   "w": 97,
+   "h": 14
+  },
+  {
+   "text": "appBar:",
+   "conf": 92,
+   "x": 478,
+   "y": 291,
+   "w": 50,
+   "h": 12
+  },
+  {
+   "text": "rd",
+   "conf": 37,
+   "x": 13,
+   "y": 299,
+   "w": 16,
+   "h": 16
+  },
+  {
+   "text": "v",
+   "conf": 83,
+   "x": 412,
+   "y": 308,
+   "w": 7,
+   "h": 7
+  },
+  {
+   "text": "13",
+   "conf": 97,
+   "x": 391,
+   "y": 309,
+   "w": 14,
+   "h": 9
+  },
+  {
+   "text": "const",
+   "conf": 93,
+   "x": 524,
+   "y": 309,
+   "w": 37,
+   "h": 9
+  },
+  {
+   "text": "body:",
+   "conf": 97,
+   "x": 478,
+   "y": 308,
+   "w": 35,
+   "h": 13
+  },
+  {
+   "text": "© pages",
+   "conf": 92,
+   "x": 90,
+   "y": 314,
+   "w": 57,
+   "h": 12
+  },
+  {
+   "text": "wy",
+   "conf": 87,
+   "x": 391,
+   "y": 326,
+   "w": 28,
+   "h": 10
+  },
+  {
+   "text": "child: Stack(",
+   "conf": 93,
+   "x": 493,
+   "y": 325,
+   "w": 98,
+   "h": 12
+  },
+  {
+   "text": "fit: StackFit.expand,",
+   "conf": 92,
+   "x": 508,
+   "y": 344,
+   "w": 157,
+   "h": 13
+  },
+  {
+   "text": "15",
+   "conf": 96,
+   "x": 391,
+   "y": 345,
+   "w": 14,
+   "h": 9
+  },
+  {
+   "text": "16",
+   "conf": 97,
+   "x": 391,
+   "y": 363,
+   "w": 14,
+   "h": 9
+  },
+  {
+   "text": "Alignment(0.0, 0.0),",
+   "conf": 88,
+   "x": 592,
+   "y": 361,
+   "w": 150,
+   "h": 14
+  },
+  {
+   "text": "alignment:",
+   "conf": 93,
+   "x": 508,
+   "y": 362,
+   "w": 73,
+   "h": 13
+  },
+  {
+   "text": "children: [],",
+   "conf": 90,
+   "x": 508,
+   "y": 379,
+   "w": 96,
+   "h": 14
+  },
+  {
+   "text": "17",
+   "conf": 97,
+   "x": 391,
+   "y": 381,
+   "w": 14,
+   "h": 9
+  },
+  {
+   "text": ">",
+   "conf": 91,
+   "x": 55,
+   "y": 388,
+   "w": 5,
+   "h": 8
+  },
+  {
+   "text": "@ macos",
+   "conf": 68,
+   "x": 74,
+   "y": 386,
+   "w": 61,
+   "h": 11
+  },
+  {
+   "text": "18",
+   "conf": 97,
+   "x": 391,
+   "y": 399,
+   "w": 14,
+   "h": 9
+  },
+  {
+   "text": "),",
+   "conf": 85,
+   "x": 494,
+   "y": 397,
+   "w": 11,
+   "h": 14
+  },
+  {
+   "text": "19",
+   "conf": 97,
+   "x": 391,
+   "y": 417,
+   "w": 14,
+   "h": 9
+  },
+  {
+   "text": "),",
+   "conf": 52,
+   "x": 478,
+   "y": 415,
+   "w": 12,
+   "h": 14
+  },
+  {
+   "text": "B",
+   "conf": 54,
+   "x": 76,
+   "y": 421,
+   "w": 11,
+   "h": 14
+  },
+  {
+   "text": "20",
+   "conf": 97,
+   "x": 391,
+   "y": 435,
+   "w": 14,
+   "h": 9
+  },
+  {
+   "text": "di",
+   "conf": 47,
+   "x": 463,
+   "y": 433,
+   "w": 12,
+   "h": 14
+  },
+  {
+   "text": "21",
+   "conf": 96,
+   "x": 391,
+   "y": 453,
+   "w": 14,
+   "h": 9
+  },
+  {
+   "text": "22",
+   "conf": 97,
+   "x": 391,
+   "y": 471,
+   "w": 14,
+   "h": 9
+  },
+  {
+   "text": "23",
+   "conf": 97,
+   "x": 391,
+   "y": 489,
+   "w": 14,
+   "h": 9
+  },
+  {
+   "text": "ra",
+   "conf": 66,
+   "x": 13,
+   "y": 806,
+   "w": 15,
+   "h": 5
+  },
+  {
+   "text": "La",
+   "conf": 85,
+   "x": 13,
+   "y": 815,
+   "w": 15,
+   "h": 5
+  },
+  {
+   "text": "V3.12.5-78",
+   "conf": 57,
+   "x": 74,
+   "y": 886,
+   "w": 56,
+   "h": 9
+  },
+  {
+   "text": "A0@O Ready",
+   "conf": 66,
+   "x": 175,
+   "y": 884,
+   "w": 98,
+   "h": 13
+  },
+  {
+   "text": "my_app",
+   "conf": 91,
+   "x": 17,
+   "y": 888,
+   "w": 41,
+   "h": 9
+  }
+ ],
+ "semantics": [
+  {
+   "id": "flt-semantic-node-1",
+   "label": "",
+   "role": "group",
+   "tappable": false,
+   "x": 0,
+   "y": 0,
+   "w": 1440,
+   "h": 900,
+   "cx": 720,
+   "cy": 450
+  },
+  {
+   "id": "flt-semantic-node-3",
+   "label": "Back v3.12.5-78",
+   "role": "group",
+   "tappable": true,
+   "x": 0,
+   "y": 0,
+   "w": 1440,
+   "h": 900,
+   "cx": 720,
+   "cy": 450
+  },
+  {
+   "id": "flt-semantic-node-251",
+   "label": "",
+   "role": "button",
+   "tappable": true,
+   "x": 2,
+   "y": 5,
+   "w": 30,
+   "h": 30,
+   "cx": 17,
+   "cy": 20
+  },
+  {
+   "id": "flt-semantic-node-252",
+   "label": "",
+   "role": "button",
+   "tappable": true,
+   "x": 1298,
+   "y": 5,
+   "w": 30,
+   "h": 30,
+   "cx": 1313,
+   "cy": 20
+  },
+  {
+   "id": "flt-semantic-node-253",
+   "label": "",
+   "role": "button",
+   "tappable": true,
+   "x": 1336,
+   "y": 5,
+   "w": 30,
+   "h": 30,
+   "cx": 1351,
+   "cy": 20
+  },
+  {
+   "id": "flt-semantic-node-254",
+   "label": "Save",
+   "role": "button",
+   "tappable": true,
+   "x": 1374,
+   "y": 5,
+   "w": 62,
+   "h": 30,
+   "cx": 1405,
+   "cy": 20
+  },
+  {
+   "id": "flt-semantic-node-34",
+   "label": "",
+   "role": "button",
+   "tappable": true,
+   "x": 5,
+   "y": 52,
+   "w": 30,
+   "h": 30,
+   "cx": 20,
+   "cy": 67
+  },
+  {
+   "id": "flt-semantic-node-255",
+   "label": "Files",
+   "role": "",
+   "tappable": false,
+   "x": 71,
+   "y": 60,
+   "w": 302,
+   "h": 16,
+   "cx": 222,
+   "cy": 68
+  },
+  {
+   "id": "flt-semantic-node-282",
+   "label": "",
+   "role": "group",
+   "tappable": false,
+   "x": 383,
+   "y": 44,
+   "w": 982,
+   "h": 36,
+   "cx": 873,
+   "cy": 62
+  },
+  {
+   "id": "flt-semantic-node-278",
+   "label": "home_page.dart",
+   "role": "group",
+   "tappable": true,
+   "x": 383,
+   "y": 44,
+   "w": 152,
+   "h": 36,
+   "cx": 458,
+   "cy": 62
+  },
+  {
+   "id": "flt-semantic-node-279",
+   "label": "",
+   "role": "button",
+   "tappable": true,
+   "x": 510,
+   "y": 54,
+   "w": 16,
+   "h": 16,
+   "cx": 518,
+   "cy": 62
+  },
+  {
+   "id": "flt-semantic-node-280",
+   "label": "New Tab CtrlT",
+   "role": "",
+   "tappable": false,
+   "x": 534,
+   "y": 44,
+   "w": 36,
+   "h": 36,
+   "cx": 552,
+   "cy": 62
+  },
+  {
+   "id": "flt-semantic-node-281",
+   "label": "",
+   "role": "button",
+   "tappable": true,
+   "x": 534,
+   "y": 44,
+   "w": 36,
+   "h": 36,
+   "cx": 552,
+   "cy": 62
+  },
+  {
+   "id": "flt-semantic-node-283",
+   "label": "Code download",
+   "role": "",
+   "tappable": false,
+   "x": 1364,
+   "y": 47,
+   "w": 30,
+   "h": 30,
+   "cx": 1379,
+   "cy": 62
+  },
+  {
+   "id": "flt-semantic-node-284",
+   "label": "",
+   "role": "button",
+   "tappable": true,
+   "x": 1364,
+   "y": 47,
+   "w": 30,
+   "h": 30,
+   "cx": 1379,
+   "cy": 62
+  },
+  {
+   "id": "flt-semantic-node-285",
+   "label": "Show preview",
+   "role": "",
+   "tappable": false,
+   "x": 1402,
+   "y": 47,
+   "w": 30,
+   "h": 30,
+   "cx": 1417,
+   "cy": 62
+  },
+  {
+   "id": "flt-semantic-node-286",
+   "label": "",
+   "role": "button",
+   "tappable": true,
+   "x": 1402,
+   "y": 47,
+   "w": 30,
+   "h": 30,
+   "cx": 1417,
+   "cy": 62
+  },
+  {
+   "id": "flt-semantic-node-35",
+   "label": "",
+   "role": "button",
+   "tappable": true,
+   "x": 5,
+   "y": 92,
+   "w": 30,
+   "h": 30,
+   "cx": 20,
+   "cy": 107
+  },
+  {
+   "id": "flt-semantic-node-36",
+   "label": "",
+   "role": "button",
+   "tappable": true,
+   "x": 5,
+   "y": 132,
+   "w": 30,
+   "h": 30,
+   "cx": 20,
+   "cy": 147
+  },
+  {
+   "id": "flt-semantic-node-37",
+   "label": "",
+   "role": "button",
+   "tappable": true,
+   "x": 5,
+   "y": 172,
+   "w": 30,
+   "h": 30,
+   "cx": 20,
+   "cy": 187
+  },
+  {
+   "id": "flt-semantic-node-38",
+   "label": "",
+   "role": "button",
+   "tappable": true,
+   "x": 5,
+   "y": 212,
+   "w": 30,
+   "h": 30,
+   "cx": 20,
+   "cy": 227
+  },
+  {
+   "id": "flt-semantic-node-39",
+   "label": "",
+   "role": "button",
+   "tappable": true,
+   "x": 5,
+   "y": 252,
+   "w": 30,
+   "h": 30,
+   "cx": 20,
+   "cy": 267
+  },
+  {
+   "id": "flt-semantic-node-40",
+   "label": "",
+   "role": "button",
+   "tappable": true,
+   "x": 5,
+   "y": 292,
+   "w": 30,
+   "h": 30,
+   "cx": 20,
+   "cy": 307
+  },
+  {
+   "id": "flt-semantic-node-41",
+   "label": "",
+   "role": "button",
+   "tappable": true,
+   "x": 5,
+   "y": 332,
+   "w": 30,
+   "h": 30,
+   "cx": 20,
+   "cy": 347
+  },
+  {
+   "id": "flt-semantic-node-42",
+   "label": "",
+   "role": "button",
+   "tappable": true,
+   "x": 5,
+   "y": 390,
+   "w": 30,
+   "h": 30,
+   "cx": 20,
+   "cy": 405
+  },
+  {
+   "id": "flt-semantic-node-43",
+   "label": "",
+   "role": "button",
+   "tappable": true,
+   "x": 5,
+   "y": 798,
+   "w": 30,
+   "h": 30,
+   "cx": 20,
+   "cy": 813
+  },
+  {
+   "id": "flt-semantic-node-44",
+   "label": "",
+   "role": "button",
+   "tappable": true,
+   "x": 5,
+   "y": 838,
+   "w": 30,
+   "h": 30,
+   "cx": 20,
+   "cy": 853
+  },
+  {
+   "id": "flt-semantic-node-274",
+   "label": "",
+   "role": "group",
+   "tappable": false,
+   "x": 41,
+   "y": 86,
+   "w": 340,
+   "h": 793,
+   "cx": 211,
+   "cy": 482
+  },
+  {
+   "id": "flt-semantic-node-258",
+   "label": "android",
+   "role": "group",
+   "tappable": true,
+   "x": 41,
+   "y": 86,
+   "w": 340,
+   "h": 36,
+   "cx": 211,
+   "cy": 104
+  },
+  {
+   "id": "flt-semantic-node-259",
+   "label": "",
+   "role": "button",
+   "tappable": true,
+   "x": 49,
+   "y": 96,
+   "w": 24,
+   "h": 16,
+   "cx": 61,
+   "cy": 104
+  },
+  {
+   "id": "flt-semantic-node-261",
+   "label": "assets",
+   "role": "group",
+   "tappable": true,
+   "x": 41,
+   "y": 122,
+   "w": 340,
+   "h": 36,
+   "cx": 211,
+   "cy": 140
+  },
+  {
+   "id": "flt-semantic-node-262",
+   "label": "",
+   "role": "button",
+   "tappable": true,
+   "x": 49,
+   "y": 132,
+   "w": 24,
+   "h": 16,
+   "cx": 61,
+   "cy": 140
+  },
+  {
+   "id": "flt-semantic-node-264",
+   "label": "boards",
+   "role": "group",
+   "tappable": true,
+   "x": 41,
+   "y": 158,
+   "w": 340,
+   "h": 36,
+   "cx": 211,
+   "cy": 176
+  },
+  {
+   "id": "flt-semantic-node-265",
+   "label": "",
+   "role": "button",
+   "tappable": true,
+   "x": 49,
+   "y": 168,
+   "w": 24,
+   "h": 16,
+   "cx": 61,
+   "cy": 176
+  },
+  {
+   "id": "flt-semantic-node-267",
+   "label": "lib",
+   "role": "group",
+   "tappable": true,
+   "x": 41,
+   "y": 194,
+   "w": 340,
+   "h": 36,
+   "cx": 211,
+   "cy": 212
+  },
+  {
+   "id": "flt-semantic-node-268",
+   "label": "",
+   "role": "button",
+   "tappable": true,
+   "x": 49,
+   "y": 204,
+   "w": 24,
+   "h": 16,
+   "cx": 61,
+   "cy": 212
+  },
+  {
+   "id": "flt-semantic-node-297",
+   "label": "globals",
+   "role": "group",
+   "tappable": true,
+   "x": 41,
+   "y": 230,
+   "w": 340,
+   "h": 36,
+   "cx": 211,
+   "cy": 248
+  },
+  {
+   "id": "flt-semantic-node-298",
+   "label": "",
+   "role": "button",
+   "tappable": true,
+   "x": 65,
+   "y": 240,
+   "w": 24,
+   "h": 16,
+   "cx": 77,
+   "cy": 248
+  },
+  {
+   "id": "flt-semantic-node-300",
+   "label": "main.dart",
+   "role": "button",
+   "tappable": true,
+   "x": 41,
+   "y": 266,
+   "w": 340,
+   "h": 36,
+   "cx": 211,
+   "cy": 284
+  },
+  {
+   "id": "flt-semantic-node-302",
+   "label": "pages",
+   "role": "group",
+   "tappable": true,
+   "x": 41,
+   "y": 302,
+   "w": 340,
+   "h": 36,
+   "cx": 211,
+   "cy": 320
+  },
+  {
+   "id": "flt-semantic-node-303",
+   "label": "",
+   "role": "button",
+   "tappable": true,
+   "x": 65,
+   "y": 312,
+   "w": 24,
+   "h": 16,
+   "cx": 77,
+   "cy": 320
+  },
+  {
+   "id": "flt-semantic-node-305",
+   "label": "home_page.dart",
+   "role": "button",
+   "tappable": true,
+   "x": 41,
+   "y": 338,
+   "w": 340,
+   "h": 36,
+   "cx": 211,
+   "cy": 356
+  },
+  {
+   "id": "flt-semantic-node-307",
+   "label": "macos",
+   "role": "group",
+   "tappable": true,
+   "x": 41,
+   "y": 374,
+   "w": 340,
+   "h": 36,
+   "cx": 211,
+   "cy": 392
+  },
+  {
+   "id": "flt-semantic-node-308",
+   "label": "",
+   "role": "button",
+   "tappable": true,
+   "x": 49,
+   "y": 384,
+   "w": 24,
+   "h": 16,
+   "cx": 61,
+   "cy": 392
+  },
+  {
+   "id": "flt-semantic-node-310",
+   "label": "pubspec.yaml",
+   "role": "button",
+   "tappable": true,
+   "x": 41,
+   "y": 410,
+   "w": 340,
+   "h": 36,
+   "cx": 211,
+   "cy": 428
+  },
+  {
+   "id": "flt-semantic-node-295",
+   "label": "",
+   "role": "button",
+   "tappable": true,
+   "x": 383,
+   "y": 82,
+   "w": 1058,
+   "h": 797,
+   "cx": 911,
+   "cy": 480
+  },
+  {
+   "id": "flt-semantic-node-49",
+   "label": "",
+   "role": "button",
+   "tappable": true,
+   "x": 1392,
+   "y": 836,
+   "w": 32,
+   "h": 32,
+   "cx": 1408,
+   "cy": 852
+  },
+  {
+   "id": "flt-semantic-node-45",
+   "label": "my_app",
+   "role": "button",
+   "tappable": true,
+   "x": 8,
+   "y": 881,
+   "w": 58,
+   "h": 18,
+   "cx": 37,
+   "cy": 890
+  },
+  {
+   "id": "flt-semantic-node-46",
+   "label": "0 0 0",
+   "role": "button",
+   "tappable": true,
+   "x": 145,
+   "y": 882,
+   "w": 86,
+   "h": 16,
+   "cx": 189,
+   "cy": 890
+  },
+  {
+   "id": "flt-semantic-node-47",
+   "label": "Ready",
+   "role": "button",
+   "tappable": true,
+   "x": 240,
+   "y": 883,
+   "w": 533,
+   "h": 14,
+   "cx": 506,
+   "cy": 890
+  },
+  {
+   "id": "flt-semantic-node-48",
+   "label": "Save options (CtrlS to save)",
+   "role": "button",
+   "tappable": true,
+   "x": 1400,
+   "y": 880,
+   "w": 32,
+   "h": 20,
+   "cx": 1416,
+   "cy": 890
+  }
+ ]
+}

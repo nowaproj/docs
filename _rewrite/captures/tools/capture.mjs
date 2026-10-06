@@ -472,26 +472,31 @@ function hasTesseract() {
 /**
  * OCR of the page (or a clip). Returns words and visual lines with CSS-px boxes:
  * {words: [{text, conf, x, y, w, h}], lines: [{text, conf, x, y, w, h, words}]}.
+ * opts: clip {x,y,w,h}; invert (default true: grayscale+negate for the dark UI);
+ * upscale (default 1; 1.5 helps small text such as the top bar chips); minConf.
  */
-export async function ocr(page, { clip, invert = true, minConf = 30 } = {}) {
+export async function ocr(page, { clip, invert = true, upscale = 1, minConf = 30 } = {}) {
   if (!hasTesseract()) throw new Error('tesseract not installed: run tools/setup.sh');
   const dpr = await page.evaluate(() => window.devicePixelRatio || 1);
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'nowa-ocr-'));
+  const BORDER = 24; // device px of margin: tesseract misses text that touches the edge
   try {
     const png = path.join(dir, 'in.png');
     const region = await pwClip(page, clip);
     await page.screenshot({ path: png, clip: region, scale: 'device' });
-    let input = png;
-    if (invert) {
-      // Dark UI: grayscale + negate gives tesseract dark-on-light text.
-      const neg = path.join(dir, 'neg.png');
-      const r = spawnSync('convert', [png, '-colorspace', 'Gray', '-negate', neg]);
-      if (r.status === 0) input = neg;
-    }
+    const prepared = path.join(dir, 'prepared.png');
+    const ops = [png, '-colorspace', 'Gray'];
+    if (invert) ops.push('-negate'); // dark UI -> dark text on light background
+    if (upscale !== 1) ops.push('-resize', `${Math.round(upscale * 100)}%`);
+    ops.push('-bordercolor', invert ? 'white' : 'black', '-border', String(BORDER), prepared);
+    const input = spawnSync('convert', ops).status === 0 ? prepared : png;
+    const border = input === prepared ? BORDER : 0;
+    const factor = input === prepared ? upscale : 1;
     const r = spawnSync('tesseract', [input, 'stdout', '--psm', '11', '-l', 'eng', 'tsv'], { encoding: 'utf8', maxBuffer: 32 * 1024 * 1024 });
     if (r.status !== 0) throw new Error(`tesseract failed: ${r.stderr}`);
     const ox = region ? region.x : 0;
     const oy = region ? region.y : 0;
+    const toCss = (v, o) => o + (Number(v) - border) / factor / dpr;
     const words = r.stdout
       .split('\n')
       .slice(1)
@@ -500,10 +505,10 @@ export async function ocr(page, { clip, invert = true, minConf = 30 } = {}) {
       .map((c) => ({
         text: c[11].trim(),
         conf: Number(c[10]),
-        x: ox + Number(c[6]) / dpr,
-        y: oy + Number(c[7]) / dpr,
-        w: Number(c[8]) / dpr,
-        h: Number(c[9]) / dpr,
+        x: toCss(c[6], ox),
+        y: toCss(c[7], oy),
+        w: Number(c[8]) / factor / dpr,
+        h: Number(c[9]) / factor / dpr,
       }));
     // Group words into visual lines by geometry (independent of tesseract's layout analysis).
     const sorted = [...words].sort((a, b) => a.y + a.h / 2 - (b.y + b.h / 2) || a.x - b.x);
@@ -530,7 +535,7 @@ export async function ocr(page, { clip, invert = true, minConf = 30 } = {}) {
     }
     for (const l of lines) {
       l.text = l.words.map((w) => w.text).join(' ');
-      l.conf = Math.round(l.words.reduce((s, w) => s + w.conf, 0) / l.words.length);
+      l.conf = Math.round(l.words.reduce((sum, w) => sum + w.conf, 0) / l.words.length);
     }
     const round = (o) => ({ ...o, x: Math.round(o.x), y: Math.round(o.y), w: Math.round(o.w), h: Math.round(o.h) });
     return { words: words.map(round), lines: lines.map((l) => ({ ...round(l), words: l.words.map(round) })) };
@@ -539,33 +544,59 @@ export async function ocr(page, { clip, invert = true, minConf = 30 } = {}) {
   }
 }
 
-/**
- * Finds visible text by OCR. Matches whole words/phrases inside a visual line.
- * Returns [{text, x, y, w, h, cx, cy, conf, source: 'ocr'}], best first.
- */
-export async function findText(page, query, { clip, exact = false, invert = true } = {}) {
-  const { lines } = await ocr(page, { clip, invert });
-  const q = normalize(query).split(' ');
+function matchText(lines, query, exact) {
   const clean = (t) => normalize(t).replace(/^[^\p{L}\p{N}]+|[^\p{L}\p{N}]+$/gu, '');
+  const q = normalize(query).split(' ').map(clean).filter(Boolean);
+  const squash = (t) => normalize(t).replace(/[^\p{L}\p{N}]+/gu, '');
+  const qs = squash(query);
   const hits = [];
+  const box = (ws, exactness) => {
+    const x = Math.min(...ws.map((w) => w.x));
+    const y = Math.min(...ws.map((w) => w.y));
+    const x2 = Math.max(...ws.map((w) => w.x + w.w));
+    const y2 = Math.max(...ws.map((w) => w.y + w.h));
+    return { text: ws.map((w) => w.text).join(' '), x, y, w: x2 - x, h: y2 - y, cx: Math.round((x + x2) / 2), cy: Math.round((y + y2) / 2), conf: Math.min(...ws.map((w) => w.conf)), exactness, source: 'ocr' };
+  };
   for (const line of lines) {
     const words = line.words.map((w) => clean(w.text));
     for (let i = 0; i + q.length <= words.length; i++) {
       const slice = words.slice(i, i + q.length);
       const ok = exact
         ? slice.every((w, k) => w === q[k])
-        : slice.every((w, k) => (k === 0 && k === q.length - 1 ? w.includes(q[k]) : k === 0 ? w.endsWith(q[k]) : k === q.length - 1 ? w.startsWith(q[k]) : w === q[k]));
-      if (!ok) continue;
-      const ws = line.words.slice(i, i + q.length);
-      const x = Math.min(...ws.map((w) => w.x));
-      const y = Math.min(...ws.map((w) => w.y));
-      const x2 = Math.max(...ws.map((w) => w.x + w.w));
-      const y2 = Math.max(...ws.map((w) => w.y + w.h));
-      const exactness = slice.join(' ') === q.join(' ') ? 1 : 0;
-      hits.push({ text: ws.map((w) => w.text).join(' '), x, y, w: x2 - x, h: y2 - y, cx: Math.round((x + x2) / 2), cy: Math.round((y + y2) / 2), conf: Math.min(...ws.map((w) => w.conf)), exactness, source: 'ocr' });
+        : slice.every((w, k) => (q.length === 1 ? w.includes(q[k]) : k === 0 ? w.endsWith(q[k]) : k === q.length - 1 ? w.startsWith(q[k]) : w === q[k]));
+      if (ok) hits.push(box(line.words.slice(i, i + q.length), slice.join(' ') === q.join(' ') ? 2 : 1));
+    }
+  }
+  if (!hits.length && qs.length >= 3) {
+    // OCR sometimes glues words ("Starterapp") or splits them: compare without spaces.
+    for (const line of lines) {
+      for (let i = 0; i < line.words.length; i++) {
+        let acc = '';
+        for (let j = i; j < line.words.length && acc.length < qs.length + 2; j++) {
+          acc += squash(line.words[j].text);
+          if (exact ? acc === qs : acc.includes(qs)) {
+            hits.push(box(line.words.slice(i, j + 1), acc === qs ? 1 : 0));
+            break;
+          }
+        }
+      }
     }
   }
   return hits.sort((a, b) => b.exactness - a.exactness || b.conf - a.conf);
+}
+
+/**
+ * Finds visible text by OCR. Matches whole words/phrases inside a visual line,
+ * first at 1x, then (if nothing matched) on a 1.5x upscaled image.
+ * Returns [{text, x, y, w, h, cx, cy, conf, source: 'ocr'}], best first.
+ */
+export async function findText(page, query, { clip, exact = false, invert = true } = {}) {
+  for (const upscale of [1, 1.5]) {
+    const { lines } = await ocr(page, { clip, invert, upscale });
+    const hits = matchText(lines, query, exact);
+    if (hits.length) return hits;
+  }
+  return [];
 }
 
 /* ------------------------------------------------------------------------ */

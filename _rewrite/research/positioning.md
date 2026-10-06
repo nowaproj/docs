@@ -39,7 +39,7 @@ refine every detail visually, and the Flutter code is yours."
 
 ## 2. Audience
 
-- **Primary: non-developers with an app idea** (founders, creators, small businesses). nowa.dev FAQ:
+- **Primary: non-developers with an app idea** (the site speaks to anyone with an idea). nowa.dev FAQ:
   "Do I need to know Flutter? No — all you need is an idea and some creative energy" (snippet). The showcase
   (nowa.dev/showcase/, "Made with Nowa") highlights an app built by one person with no IT or coding background.
 - **Secondary: developers and teams who want speed without lock-in.** "Download the full source anytime and
@@ -87,7 +87,7 @@ refine every detail visually, and the Flutter code is yours."
 | Visual editing of UI and logic | Widget Palette, properties, Circuit ("Open in Circuit", `packages/core/lib/src/fields/field_link_menu.dart:389`) | Feature researchers confirm current logic UI. |
 | Instant preview, no build step | Run menu "Embedded preview" (`onboarding_step.dart:92-95`); right-click → **Play** (What's New 3.12.5) | See vocabulary: Instant Play. |
 | Hot reload on simulators/devices with Nowa Desktop | "Get the Nowa desktop app for macOS or Windows to run this app on real devices and emulators." (`lib/project/run/run_button.dart:655`) | Badge **Desktop app only**. |
-| Publish to App Store, Google Play, web | Deploy settings and docs links exist (`packages/core/lib/src/settings/deployment_settings.dart:94`) | Plan gating per code only. |
+| Publish to App Store, Google Play, web | Cloud build workflows for Android and iOS link to the deploy docs (`packages/core/lib/src/cloud_build_v2/ui/workflow_manager.dart:679`, `:711`); web build settings (`packages/core/lib/src/settings/cloud_build/web_build_settings.dart:85`); deployment settings (`packages/core/lib/src/settings/deployment_settings.dart:94`) | Plan gating per code only. |
 | Custom domains (old docs intro) | Exists, gated: "Custom domains are available on higher plans. Upgrade to use your own domain." (`packages/core/lib/src/web_deploy/web_deploy_widgets/custom_domain/custom_domain_section.dart:50`) | Say "needs a higher plan" + link pricing. |
 | Download full source code | (feature researchers) | Don't state plan entitlement unless code enforces it. |
 | Open existing projects | "Import project" / "Bring an existing Flutter project into Nowa." (`lib/dashboard/create_new_project/import_project_dialog.dart:218-219`); "Clone from GitHub" (`lib/dashboard/create_new_project/github_clone_dialog.dart:261`) | |

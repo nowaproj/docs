@@ -150,7 +150,7 @@ Reading notes for writers:
 - **Labels:** **Store result** dropdown: **none**, **New Variable**, **Pick Variable**; with **Pick Variable** a **Variable** field appears.
 - **How to use:**
   1. Select the node.
-  2. **Store result** → **New Variable**: the node becomes a local variable (named `var`, `var1`...; its chip shows on the node). Rename it in Details.
+  2. **Store result** → **New Variable**: the node becomes a local variable (named `var1`, `var2`...: `var` itself is a reserved word; its chip shows on the node). Rename it in Details.
   3. Or **Pick Variable**, then click the **Variable** label and choose the variable to overwrite.
   4. Use the stored value in later nodes from **LOCALS**.
 - **Options:** none / New Variable / Pick Variable.
@@ -225,7 +225,7 @@ Reading notes for writers:
 - **Where:** add-node menu → **Create Local Variable**.
 - **Labels:** Details: **Expression:** (click to link the value), the expression details, **Store result**, then **Name**, **Type**, **Is Final**.
 - **How to use:**
-  1. Insert it (created as `var`, type String, nullable).
+  1. Insert it (created as `var1`, `var2`..., type String, nullable).
   2. Click **Expression:** and pick what it holds (a value, a function result...).
   3. Rename it and set **Type**.
   4. Use it in later nodes from **LOCALS**.
@@ -320,7 +320,7 @@ Reading notes for writers:
   2. Click `isWeb` in the value and pick the check you need.
   3. Combine checks with **OPERATORS** → `logicalAnd`/`logicalOr`, or a custom expression like `NPlatform.isAndroid || NPlatform.isIOS`.
 - **Options:** the member.
-- **Limits and rules:** `isDesktop` = macOS, Windows or Linux; all checks return false-for-native on web except `isWeb`.
+- **Limits and rules:** `isDesktop` = macOS, Windows or Linux. On web only `isWeb` is true (the native checks are all false).
 - **Gating:** none found.
 - **Code refs:** `packages/core/lib/src/state_management/global_state_suggestions.dart:55-59`, `packages/nowa_runtime/lib/src/nowa_platform.dart:3-40`, `packages/core/lib/src/interpreter/libraries/nowa_runtime_library.dart:449-510`, `packages/core/lib/src/fields/reference_field.dart:95-121`.
 - **Old docs:** `docs/logic/common-functionalities/platform-checking.md` — mostly accurate (member is `isMacOs`, not `isMacOS`; `currentPlatform` missing).
@@ -527,9 +527,9 @@ Reading notes for writers:
   3. Hover a section and click **+** to add; the new item is selected and ready to rename.
   4. Click an item to edit it in **Details**; double-click to rename; right-click → **Remove**; click a variable's type icon to change its type.
 - **Options:** none.
-- **Limits and rules:** variables and functions can also be added from a file's outline: single-click a screen file in Files → the class's **+** → **Add Function** / **Add Variable**.
+- **Limits and rules:** the same **Params** / **Variables** / **Functions** lists also appear in the preview popup when you single-click a screen/component file in the Files panel.
 - **Gating:** none found.
-- **Code refs:** `packages/designer/lib/src/designer_setup.dart:166-226`, `packages/designer/lib/src/panels/variables_panel.dart:7-93`, `packages/core/lib/src/widgets/code/declaration_list_widgets.dart:9-205`, `packages/core/lib/src/widgets/code/variable_widgets.dart:11-86`, `packages/core/lib/src/editors/dart_editor/dart_outline.dart:114-158`.
+- **Code refs:** `packages/designer/lib/src/designer_setup.dart:166-226`, `packages/designer/lib/src/panels/variables_panel.dart:7-93`, `packages/core/lib/src/widgets/code/declaration_list_widgets.dart:9-205`, `packages/core/lib/src/widgets/code/variable_widgets.dart:11-86`, `packages/core/lib/src/editors/dart_editor/dart_outline.dart:19-35`, `packages/core/lib/src/file_system/widgets/previews/widget_file_preview.dart:11-35`, `lib/project/panels/files_panel/files_list.dart:334-366`.
 - **Old docs:** `docs/vars-params-functions/create-variable.mdx`, `local-parameter.mdx` — partly outdated (panel location/labels: "Params" not "Parameters"; File Preview note outdated).
 - **Screenshot value:** high — Variables tile expanded for a screen with one item in each section.
 
@@ -538,14 +538,14 @@ Reading notes for writers:
 - **Where:** **Variables** panel → **Variables** → **+**; or a widget property's link menu → **Create Variable...**.
 - **Labels:** Details: **Name**, **Type**, **Default Value**, **Remove**. Delete confirmation when used: "<name> is in use" / "Removing <name> will affect the following references", **Cancel** / **Remove**.
 - **How to use:**
-  1. **+** creates `var` (String, nullable, default `''`); rename it.
+  1. **+** creates `var1` (then `var2`...; String, nullable, default `''`); rename it.
   2. Set **Type** and **Default Value** (the value when the screen opens; also what the designer shows).
   3. Link it to a widget property (click the property label → **LOCALS** → the variable), or create it directly from the property with **Create Variable...** (type and current value are copied).
   4. Change it in logic with **Set <name>** + **refresh**.
 - **Options:** Name, Type, Default Value.
 - **Limits and rules:** name errors: 'Name "x" is already taken', 'Name x is a reserved keyword', 'Name "x" is not a valid code name', 'Member name "x" is already taken in class Y'. Changing the type resets the default if it no longer fits. Adding a variable to a stateless component converts it to stateful automatically.
 - **Gating:** none found.
-- **Code refs:** `packages/core/lib/src/widgets/code/declaration_list_widgets.dart:496-532`, `packages/core/lib/src/widgets/code/variable_widgets.dart:309-465,503-542`, `packages/core/lib/src/panels/details/decl_details.dart:17-79`, `packages/core/lib/src/actions/block_actions.dart:10-85`, `packages/core/lib/src/widgets/declaration_references_dialog.dart:53-98`, `packages/core/lib/src/file_system/naming.dart:34-69`, `packages/core/lib/src/interpreter/generators/variable_generator.dart:16-41`, `packages/core/lib/src/interpreter/widget_declarations.dart:407-416`, `packages/core/lib/src/fields/field_link_menu.dart:241-266`.
+- **Code refs:** `packages/core/lib/src/widgets/code/declaration_list_widgets.dart:496-532`, `packages/core/lib/src/widgets/code/variable_widgets.dart:309-465,503-542`, `packages/core/lib/src/panels/details/decl_details.dart:17-79`, `packages/core/lib/src/actions/block_actions.dart:10-85`, `packages/core/lib/src/widgets/declaration_references_dialog.dart:53-98`, `packages/core/lib/src/file_system/naming.dart:34-69,125-154,268-290`, `packages/core/lib/src/interpreter/generators/variable_generator.dart:16-41`, `packages/core/lib/src/interpreter/widget_declarations.dart:407-416`, `packages/core/lib/src/fields/field_link_menu.dart:241-266`.
 - **Old docs:** `docs/vars-params-functions/create-variable.mdx` — partly outdated (core flow right; labels "Create Variable...", "Set <name>", "refresh"; Arcade demos old).
 - **Screenshot value:** high — variable Details (Name, Type, Default Value).
 

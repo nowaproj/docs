@@ -59,7 +59,7 @@ Scope notes for the IA step:
 - **Responsive design**: no breakpoints; built with Expand/Auto/Fixed, spacing, constraints and screen **Size** presets.
 - **Outline** panel: the widget tree of the board or open widget; select, reveal, drag to reorder, right-click menu, branches, wrappers.
 - **Device preview** (**Play Settings**, **Device Size**, **Full Screen**): device frames on the shared preview page and in AI play mode.
-- **Placeholder values on the board** (behavior): empty data shows as `[name]`, 3 sample items, grey images, small widget slots.
+- **Placeholder values on the board** (behavior): empty data shows as `[name]`, 3 sample items, a placeholder picture for images, small widget slots.
 - **This screen failed to render** / **Reload screen**: per-item error recovery on the board.
 - **View only** boards: viewers can select, copy and export, not edit. (Viewer role)
 - **Designer keyboard shortcuts**: the real bindings, and where the in-app cheat sheet disagrees.
@@ -348,8 +348,8 @@ Scope notes for the IA step:
 - **What it does:** Edits a screen's frame: background, app bar, drawer, floating action button, bottom navigation
   bar, design size, route and home status.
 - **Where:** select the screen (click its title on the board) → **Details** box. A screen's root widget is shown
-  with its wrappers: the Scaffold appears as a wrapper section (the **Screen** wrapper), usually above a
-  **Safe Area** wrapper, and the body group's **Group** section.
+  with its wrappers: the Scaffold appears as a wrapper section (the **Screen** wrapper), next to other wrapper
+  sections such as **Safe Area** (Empty Page), plus the body group's **Group** section.
 - **Labels:** **Color** (background; defaults to the theme's surface color), **App Bar**, **Drawer**,
   **Floating Action Button**, **Bottom Navigation Bar** (widget slots), **Size** (presets **Pixel 3a**,
   **iPhone 11 Pro**, **Galaxy S20+**, **iPhone 12**, **MacBook Pro**, **1920x1080**), then **Route Settings**
@@ -668,8 +668,8 @@ Scope notes for the IA step:
   - **Empty board space:** becomes its own board item; snaps to other items.
   - **Stack / Group (free layout):** goes on top of the other children at the drop position (Positioned),
     snapping to the group's edges/center and siblings; the group is outlined in purple.
-  - **Row, Column, Wrap, List View (ordered):** inserted between children at the pointer position; an orange box
-    shows the preview spot. No free positioning.
+  - **Row, Column, Wrap, List View (ordered):** inserted between children at the pointer position (the children
+    move to make room; a translucent orange box follows the dragged item). No free positioning.
   - **Screen (Scaffold):** a single App Bar, Floating Action Button, Bottom Navigation Bar or Drawer drops into
     that slot; anything else goes into the body.
   - **App Bar:** three zones: left (leading), middle (title), right (actions).
@@ -840,7 +840,10 @@ Scope notes for the IA step:
 - **How to use:** select → **Add Wrapper** → search → pick. To unwrap, open the wrapper section's … menu →
   **Remove**.
 - **Limits and rules:** shown only for a single selected widget that can be wrapped. A Group's **Padding** field
-  adds a Padding wrapper when you type a value. **Outline** shows wrappers behind a layers icon. Undoable.
+  adds a Padding wrapper when you type a value. **Outline** shows wrappers behind a layers icon. A widget that is
+  only wrappers (e.g. a shape drawn with **Shape**) shows **Empty** with a + in Details: click + and pick a widget
+  (e.g. **Group**) to put content inside it (`packages/designer/lib/src/details/widget_details.dart:247-310`).
+  Undoable.
 - **Gating:** none found.
 - **Code refs:** `packages/designer/lib/src/details/widget_details.dart:66-113`, `:145-148`, `:188-200`;
   `packages/core/lib/src/wrappers_to_add.dart:12-180`; `packages/designer/lib/src/details/wrapper_details.dart:54-70`;
@@ -933,7 +936,8 @@ Scope notes for the IA step:
     full width/height. Not offered along a Scroll View's scroll direction.
 - **Limits and rules:** which section you get depends on the parent: board item (X/Y/W/H), Stack child
   (constraints), Row/Column/Wrap child (Fixed/Auto/Expand), List View child (size box). Widgets in single-child
-  parents have no Layout fields. The dropdown hides when only one mode applies.
+  parents show an empty **Layout** section; its + gives them a fixed-size box. The dropdown hides when only one
+  mode applies.
 - **Gating:** none found.
 - **Code refs:** `packages/designer/lib/src/details/layout_details.dart:15-80`, `:82-133`;
   `packages/designer/lib/src/details/size_fields.dart:5-132`, `:154`, `:162`, `:227-283`;

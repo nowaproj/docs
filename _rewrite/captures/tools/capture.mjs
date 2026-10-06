@@ -299,12 +299,16 @@ export async function stopSession() {
 /**
  * Opens a Nowa route (default /playground) and waits until the editor is usable.
  * @param {import('playwright').Page} page
- * @param {{path?: string, starter?: 'starter'|'simple'|'empty', fresh?: boolean, timeout?: number}} opts
+ * @param {{path?: string, starter?: 'starter'|'simple'|'empty', fresh?: boolean, semantics?: boolean, timeout?: number}} opts
  *   starter: which playground app to seed ("Starter app", "Simple app", "Empty app").
  *   fresh (default true): drop any playground stored in this browser first.
+ *   semantics (default false): also turn on the semantics tree. Keep it off when
+ *   you need to type into the left panel, the AI chat or a palette: with semantics
+ *   on, Flutter edits text through the field's semantics node, and those fields
+ *   have none (blocked by the board), so keystrokes are lost until a reload.
  */
 export async function openEditor(page, opts = {}) {
-  const { path: route = '/playground', starter, fresh = true, timeout = 120000, baseUrl = config.baseUrl } = opts;
+  const { path: route = '/playground', starter, fresh = true, timeout = 120000, baseUrl = config.baseUrl, semantics: withSemantics = false } = opts;
   if (starter || fresh) {
     // localStorage is per origin: visit a static file of the same origin first.
     await page.goto(`${baseUrl}/manifest.json`);
@@ -317,7 +321,7 @@ export async function openEditor(page, opts = {}) {
     );
   }
   await page.goto(`${baseUrl}${route.startsWith('/') ? route : `/${route}`}`);
-  await waitForEditor(page, { timeout });
+  await waitForEditor(page, { timeout, semantics: withSemantics });
   return page;
 }
 
@@ -338,21 +342,35 @@ export async function enableSemantics(page, { timeout = 30000 } = {}) {
   throw new Error('Semantics did not turn on (no <flt-semantics> nodes).');
 }
 
+/** True when the semantics tree is on in this page. */
+export async function semanticsEnabled(page) {
+  return page.evaluate(() => document.querySelectorAll('flt-semantics').length > 0);
+}
+
 /**
- * Waits for the editor: Flutter view up, splash gone, semantics on, and the
- * board toolbar ("Select tool V") or the code-mode tab bar ("New Tab") present.
+ * Waits for the editor: Flutter view up, splash gone, then the top bar's
+ * "Save" (playground/guest) or "Run"/"Deploy" (own projects) visible (OCR), or,
+ * with semantics on, the board toolbar ("Select tool V") or the code-mode tab
+ * bar ("New Tab"). Then waits for the screen to stop changing.
  */
-export async function waitForEditor(page, { timeout = 120000 } = {}) {
+export async function waitForEditor(page, { timeout = 120000, semantics: withSemantics } = {}) {
   const deadline = Date.now() + timeout;
+  const left = () => Math.max(1000, deadline - Date.now());
   await page.waitForSelector('flutter-view', { state: 'attached', timeout });
-  await page.waitForFunction(() => !document.getElementById('splash'), null, { timeout: Math.max(1000, deadline - Date.now()) });
-  await enableSemantics(page, { timeout: Math.max(1000, deadline - Date.now()) });
-  while (Date.now() < deadline) {
-    const nodes = await semantics(page);
-    if (nodes.some((n) => /^Select tool\b/.test(n.label) || /^New Tab\b/.test(n.label))) break;
-    await sleep(500);
+  await page.waitForFunction(() => !document.getElementById('splash'), null, { timeout: left() });
+  if (withSemantics === undefined) withSemantics = await semanticsEnabled(page);
+  if (withSemantics) await enableSemantics(page, { timeout: left() });
+  let ready = false;
+  while (!ready && Date.now() < deadline) {
+    if (withSemantics) {
+      ready = (await semantics(page)).some((n) => /^Select tool\b/.test(n.label) || /^New Tab\b/.test(n.label));
+    } else {
+      const { lines } = await ocr(page, { clip: { x: 1100, y: 0, w: 340, h: 42 } }).catch(() => ({ lines: [] }));
+      ready = lines.some((l) => /\b(Save|Run|Deploy)\b/.test(l.text));
+    }
+    if (!ready) await sleep(500);
   }
-  if (Date.now() >= deadline) throw new Error('Editor did not finish loading in time.');
+  if (!ready) throw new Error('Editor did not finish loading in time.');
   await removeCookieBanner(page);
   await settle(page, { timeout: 8000 });
   return true;
@@ -369,15 +387,26 @@ export async function removeCookieBanner(page) {
 /** Labels of buttons that only dismiss something (never "Save", never AI chips). */
 export const DISMISS_LABELS = ['Close', 'Skip', 'Skip tour', 'Not now', 'Maybe later', 'Got it', 'Dismiss', 'No thanks', 'Cancel'];
 
-/** Closes the cookie banner and known dismiss-only dialogs. Returns what it closed. */
+/**
+ * Closes the cookie banner and known dismiss-only dialogs. Returns what it closed.
+ * Uses semantics when on, otherwise OCR (whole-line matches only).
+ */
 export async function dismissDialogs(page, { labels = DISMISS_LABELS, escape = false } = {}) {
   const closed = [];
   if (await removeCookieBanner(page)) closed.push('cookie banner');
+  const useSemantics = await semanticsEnabled(page);
   for (let round = 0; round < 3; round++) {
-    const nodes = await semantics(page);
-    const hit = nodes.find((n) => n.tappable && labels.includes(n.label));
+    let hit = null;
+    if (useSemantics) {
+      const n = (await semantics(page)).find((node) => node.tappable && labels.includes(node.label));
+      if (n) hit = { x: n.cx, y: n.cy, label: n.label };
+    } else {
+      const { lines } = await ocr(page);
+      const l = lines.find((line) => labels.includes(line.text.trim()) && line.conf >= 70);
+      if (l) hit = { x: Math.round(l.x + l.w / 2), y: Math.round(l.y + l.h / 2), label: l.text };
+    }
     if (!hit) break;
-    await page.mouse.click(hit.cx, hit.cy);
+    await page.mouse.click(hit.x, hit.y);
     closed.push(hit.label);
     await sleep(600);
   }
@@ -472,10 +501,10 @@ function hasTesseract() {
 /**
  * OCR of the page (or a clip). Returns words and visual lines with CSS-px boxes:
  * {words: [{text, conf, x, y, w, h}], lines: [{text, conf, x, y, w, h, words}]}.
- * opts: clip {x,y,w,h}; invert (default true: grayscale+negate for the dark UI);
+ * opts: clip {x,y,w,h}; invert ('auto' = negate when the region is mostly dark, or true/false);
  * upscale (default 1; 1.5 helps small text such as the top bar chips); minConf.
  */
-export async function ocr(page, { clip, invert = true, upscale = 1, minConf = 30 } = {}) {
+export async function ocr(page, { clip, invert = 'auto', threshold = 'auto', upscale = 1, minConf = 30 } = {}) {
   if (!hasTesseract()) throw new Error('tesseract not installed: run tools/setup.sh');
   const dpr = await page.evaluate(() => window.devicePixelRatio || 1);
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'nowa-ocr-'));
@@ -484,9 +513,18 @@ export async function ocr(page, { clip, invert = true, upscale = 1, minConf = 30
     const png = path.join(dir, 'in.png');
     const region = await pwClip(page, clip);
     await page.screenshot({ path: png, clip: region, scale: 'device' });
+    if (invert === 'auto') {
+      // Light text on dark UI reads best negated; dark text on light panels (palettes, canvas) as is.
+      const r = spawnSync('convert', [png, '-colorspace', 'Gray', '-format', '%[fx:mean]', 'info:'], { encoding: 'utf8' });
+      invert = r.status === 0 ? Number(r.stdout) < 0.5 : true;
+    }
+    // Light regions: a hard threshold keeps colored text (purple search highlights, orange links)
+    // that tesseract's own binarization drops. Dark regions read best negated without one.
+    if (threshold === 'auto') threshold = invert ? null : 85;
     const prepared = path.join(dir, 'prepared.png');
     const ops = [png, '-colorspace', 'Gray'];
     if (invert) ops.push('-negate'); // dark UI -> dark text on light background
+    if (threshold) ops.push('-threshold', `${threshold}%`);
     if (upscale !== 1) ops.push('-resize', `${Math.round(upscale * 100)}%`);
     ops.push('-bordercolor', invert ? 'white' : 'black', '-border', String(BORDER), prepared);
     const input = spawnSync('convert', ops).status === 0 ? prepared : png;
@@ -544,10 +582,13 @@ export async function ocr(page, { clip, invert = true, upscale = 1, minConf = 30
   }
 }
 
+// OCR look-alikes folded together when matching: I/l/1/| and O/0.
+const fold = (t) => t.replace(/[il1|!]/g, 'i').replace(/0/g, 'o');
+
 function matchText(lines, query, exact) {
-  const clean = (t) => normalize(t).replace(/^[^\p{L}\p{N}]+|[^\p{L}\p{N}]+$/gu, '');
+  const clean = (t) => fold(normalize(t).replace(/^[^\p{L}\p{N}]+|[^\p{L}\p{N}]+$/gu, ''));
   const q = normalize(query).split(' ').map(clean).filter(Boolean);
-  const squash = (t) => normalize(t).replace(/[^\p{L}\p{N}]+/gu, '');
+  const squash = (t) => fold(normalize(t).replace(/[^\p{L}\p{N}]+/gu, ''));
   const qs = squash(query);
   const hits = [];
   // rank: 3 = the whole line is the query, 2 = whole words inside a longer line,
@@ -561,7 +602,7 @@ function matchText(lines, query, exact) {
   };
   for (const line of lines) {
     const words = line.words.map((w) => clean(w.text));
-    if (words.filter(Boolean).join(' ') === q.join(' ')) {
+    if (words.filter(Boolean).join(' ') === q.join(' ') || squash(line.text) === qs) {
       hits.push(box(line.words, 3));
       continue;
     }
@@ -596,13 +637,33 @@ function matchText(lines, query, exact) {
  * first at 1x, then (if nothing matched) on a 1.5x upscaled image.
  * Returns [{text, x, y, w, h, cx, cy, conf, source: 'ocr'}], best first.
  */
-export async function findText(page, query, { clip, exact = false, invert = true } = {}) {
-  for (const upscale of [1, 1.5]) {
-    const { lines } = await ocr(page, { clip, invert, upscale });
+export async function findText(page, query, { clip, exact = false, invert } = {}) {
+  if (!String(query || '').trim()) throw new Error('Empty text query');
+  // Passes, most likely first; stops at the first pass that finds the text.
+  // Clip to the region you care about: each full-screen pass costs 1.5-7 s.
+  const dark = invert === undefined ? await regionIsDark(page, clip) : invert;
+  const passes = dark
+    ? [{ invert: true, threshold: null }, { invert: true, threshold: 60 }, { invert: false, threshold: 85 }, { invert: true, threshold: null, upscale: 1.5 }]
+    : [{ invert: false, threshold: 85 }, { invert: false, threshold: null }, { invert: true, threshold: null }, { invert: false, threshold: 85, upscale: 1.5 }];
+  for (const pass of passes) {
+    const { lines } = await ocr(page, { clip, ...pass });
     const hits = matchText(lines, query, exact);
     if (hits.length) return hits;
   }
   return [];
+}
+
+/** Mean brightness of a region below 50%? */
+async function regionIsDark(page, clip) {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'nowa-lum-'));
+  try {
+    const png = path.join(dir, 'in.png');
+    await page.screenshot({ path: png, clip: await pwClip(page, clip), scale: 'css' });
+    const r = spawnSync('convert', [png, '-colorspace', 'Gray', '-format', '%[fx:mean]', 'info:'], { encoding: 'utf8' });
+    return r.status === 0 ? Number(r.stdout) < 0.5 : true;
+  } finally {
+    fs.rmSync(dir, { recursive: true, force: true });
+  }
 }
 
 /* ------------------------------------------------------------------------ */
@@ -624,6 +685,7 @@ function parsePoint(target) {
  * @returns {{x:number, y:number, source:string, node?:object}}
  */
 export async function locate(page, target, { exact = false, role, index = 0, ocr: useOcr = true, clip, offset } = {}) {
+  if (target === undefined || target === null || (typeof target === 'string' && !target.trim())) throw new Error('Empty target');
   const point = parsePoint(target);
   if (point) return { ...point, source: 'coords' };
   if (typeof target === 'string' && target.startsWith('sidebar:')) {
@@ -747,7 +809,17 @@ export async function screenshot(page, file, { clip, label, pad = 8, fullPage = 
     region = { x: n.x - pad, y: n.y - pad, w: n.w + 2 * pad, h: n.h + 2 * pad };
   }
   ensureDir(path.dirname(path.resolve(file)));
-  await page.screenshot({ path: file, clip: await pwClip(page, region), fullPage, scale });
+  const clipRegion = await pwClip(page, region);
+  await page.screenshot({ path: file, clip: clipRegion, fullPage, scale });
+  if (scale === 'css') {
+    // Over CDP (session mode) Playwright cannot emulate the scale: downscale the file instead.
+    const [vw, dpr] = await page.evaluate(() => [window.innerWidth, window.devicePixelRatio || 1]);
+    const expected = Math.round(clipRegion ? clipRegion.width : vw);
+    const r = spawnSync('identify', ['-format', '%w', file], { encoding: 'utf8' });
+    if (dpr !== 1 && r.status === 0 && Math.abs(Number(r.stdout) - expected) > 2) {
+      spawnSync('convert', [file, '-resize', `${expected}x`, file]);
+    }
+  }
   return path.resolve(file);
 }
 
@@ -876,6 +948,8 @@ export function helpers(page) {
     SIDEBAR,
     UI,
     semantics: (o) => semantics(page, o),
+    enableSemantics: () => enableSemantics(page),
+    semanticsEnabled: () => semanticsEnabled(page),
     find: (q, o) => find(page, q, o),
     ocr: (o) => ocr(page, o),
     findText: (q, o) => findText(page, q, o),
@@ -940,14 +1014,19 @@ export async function recordVideo(scenario, output, opts = {}) {
 const HELP = `Usage: node capture.mjs <command> [args] [--options]
 
 Session (one headless browser kept open between commands; fastest for exploring):
-  start [--path /playground] [--starter starter|simple|empty] [--keep] [--headed]
-                              launch, open the editor, turn on semantics
+  start [--path /playground] [--starter starter|simple|empty] [--keep] [--semantics]
+                              launch headless Chromium and open the editor
+                              (--semantics: also turn the semantics tree on; see below)
   stop                        close the session browser
   status                      session info and current URL
-  goto <path> [--starter s] [--keep]   open a route and wait for the editor
+  goto <path> [--starter s] [--keep] [--semantics]   open a route, wait for the editor
                                        (--keep: don't clear the stored playground)
-  ready                       wait for the editor, semantics on, dismiss dialogs
-  dump [--all] [--json] [--out f.json] [--filter text]   semantics nodes on screen
+  ready                       wait for the editor and dismiss dialogs
+  semantics                   turn the semantics tree on (until the next goto/reload).
+                              While on, typing into the left panel, AI chat or palettes
+                              is lost; do typing first, or use a fresh goto.
+  dump [--all] [--json] [--out f.json] [--filter text] [--enable]
+                              semantics nodes on screen (--enable turns semantics on)
   find <label> [--exact] [--role r]   matching semantics nodes
   ocr [--clip x,y,w,h] [--json] [--words]   text on screen by OCR (lines with boxes)
   text <phrase> [--clip x,y,w,h]      where a visible phrase is (OCR)
@@ -966,7 +1045,7 @@ Session (one headless browser kept open between commands; fastest for exploring)
   eval <js>                   evaluate JS in the page, print the result
 
 Scripted (fresh browser per run):
-  run <scenario.mjs> [--session] [--path p] [--starter s] [--headed]
+  run <scenario.mjs> [--session] [--path p] [--starter s] [--semantics]
         scenario: export default async ({ page, cap }) => { ... }; optional export const options = {...}
   video <scenario.mjs> <out.mp4> [--fps 25] [--path p] [--starter s] [--keep-webm]
   convert <in.webm> <out.mp4> [--trim seconds] [--fps 25]
@@ -1049,7 +1128,7 @@ async function cli(argv) {
     const mod = await import(pathToFileURL(path.resolve(rest[0])).href);
     const session = await launch({ headless: !options.headed });
     try {
-      const o = { ...(mod.options || {}), ...(options.path ? { path: options.path } : {}), ...(options.starter ? { starter: options.starter } : {}) };
+      const o = { ...(mod.options || {}), ...(options.path ? { path: options.path } : {}), ...(options.starter ? { starter: options.starter } : {}), ...(options.semantics ? { semantics: true } : {}) };
       if (o.open !== false) await openEditor(session.page, o);
       await mod.default({ page: session.page, cap: helpers(session.page) });
     } finally {
@@ -1061,7 +1140,7 @@ async function cli(argv) {
   if (cmd === 'start') {
     const info = await startSession({ headless: !options.headed });
     const s = await attachSession();
-    await openEditor(s.page, { path: options.path || '/playground', starter: options.starter, fresh: !options.keep });
+    await openEditor(s.page, { path: options.path || '/playground', starter: options.starter, fresh: !options.keep, semantics: !!options.semantics });
     console.log(`Session up: pid ${info.pid}, CDP ${info.port}, ${s.page.url()}`);
     await s.detach();
     return;
@@ -1076,14 +1155,22 @@ async function cli(argv) {
         console.log(JSON.stringify({ ...s.info, url: page.url(), viewport: await page.evaluate(() => [innerWidth, innerHeight, devicePixelRatio]) }, null, 2));
         break;
       case 'goto':
-        await openEditor(page, { path: rest[0] || '/playground', starter: options.starter, fresh: !options.keep });
+        await openEditor(page, { path: rest[0] || '/playground', starter: options.starter, fresh: !options.keep, semantics: !!options.semantics });
         console.log(page.url());
+        break;
+      case 'semantics':
+        console.log(`semantics on: ${await enableSemantics(page)} nodes`);
         break;
       case 'ready':
         await waitForEditor(page);
         console.log('closed:', (await dismissDialogs(page)).join(', ') || 'nothing');
         break;
       case 'dump': {
+        if (!(await semanticsEnabled(page))) {
+          if (!options.enable) throw new Error('Semantics are off. Run `semantics` first or pass --enable (typing into the left panel/palettes stops working until the next goto).');
+          await enableSemantics(page);
+          await sleep(800);
+        }
         let nodes = await semantics(page, { all: !!options.all });
         if (options.filter) nodes = nodes.filter((n) => normalize(n.label).includes(normalize(options.filter)));
         if (options.out) {

@@ -59,3 +59,30 @@ Left out / why:
 Assumptions / open questions:
 - "Clone from GitHub needs a plan that includes it": code gates on the `github` entitlement; plan names not stated (D3).
 - Page is about 850 words.
+
+## docs/account/workspaces.md
+
+Key claims and code refs:
+- Switcher entries (**Personal** "Projects not in a workspace", **WORKSPACES**, **Create workspace**, gear): `packages/nowa_ui/lib/dashboard/dashboard_side_bar.dart:560-680`.
+- Create dialog ("Create Workspace", **Workspace Name** hint, **Create**, "Name cannot be empty", random color): `lib/dashboard/side_bar/workspace_widgets.dart:10-103`;
+  new workspace becomes selected: `projects_view_provider.dart:196-200`.
+- Workspace settings dialog (**Members**, invite row owner-only `_isOwner`, roles **Editor**/**View Only** default Editor, **Invite**, "Please enter a valid email address",
+  **Save changes** owner-only, **Delete workspace** / **Leave workspace** + texts): `workspace_widgets.dart:105-512`.
+- Member role badge menu (**Remove member**, **Make <role>**), **Pending**, **Cancel invitation** / **Resend invitation**, self-role warning:
+  `packages/core/lib/src/settings/member_settings.dart:214-421`. Role names: `packages/core/lib/src/models/project.dart:7-38`.
+- Accept invitation ("Invitation accepted!", **Ok**): `lib/invitation_page.dart:18-46`; `email` query param sign-out: `lib/router.dart:46-71,305-313`.
+- **Move to...** / **Move**: `lib/dashboard/projects_view/move_project_dialog.dart:31-65`; local projects never in a workspace: `projects_view_provider.dart:28-30,64-65`.
+- View Only behaviour: `project_provider.dart:573` (role == viewer), `designer_tools.dart:208-219` (**View only**), `widget_context_menu.dart:20-31` (**Copy**, **Export as image...**),
+  `status_bar.dart:42` (no Save), `nowa_code_editor.dart:181` (read-only), `files_panel.dart:221` (**Add**/**Import** disabled), `file_context_menu.dart:36-56`,
+  `project_detail_settings.dart:87` (Sharing hidden).
+
+Left out / why:
+- No claim about live co-editing, comments or seat limits: not found in the client (research summary says none exist in 3.12.5); I did not state the absence on the page.
+- Per-role permissions beyond View Only: the client only restricts viewers (`isViewOnly`); server mapping unknown. **Editor** is described only as the default role.
+- Workspace member count badge ("N people") not documented (counts "taken seats", server value).
+
+Assumptions / open questions:
+- "Nowa emails an invitation": the email is server-side; the code only calls `sendInvitation`.
+- The role-badge menu is shown to every member (`MemberItem` ignores `canEdit`, `member_settings.dart:265-301`). The page describes the menu without saying who may use it;
+  verify whether the server rejects non-owners.
+- Delete workspace "projects move to your Personal space" is the app's own confirmation text.

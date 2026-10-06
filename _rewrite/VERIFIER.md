@@ -10,6 +10,14 @@ statement true to the released code, and fix what isn't.
 2. `/home/user/docs/_rewrite/pages.md`: your batch's rows (must-cover lists, anchors).
 3. The writer's notes: `/home/user/docs/_rewrite/reviews/<batch>-writer-notes.md` (code refs per claim).
 
+## Work incrementally
+
+Usage limits can stop you mid-task. Finish one page at a time: check it, fix it, append its section to the review
+log, then move on. If a previous run left a review log, continue from where it stopped.
+
+Be efficient: grep `/home/user/nowa-master` for the exact quoted label (`grep -rn "Label text" --include=*.dart`)
+instead of reading whole files; open a file only around the hit.
+
 ## For every page in your batch
 
 1. **List every factual claim**: UI labels (exact text and case), where things are, menu paths, steps and their
@@ -26,7 +34,8 @@ statement true to the released code, and fix what isn't.
 4. **Check the rest**: front matter (title, description, keywords), no H1 in body, relative links point to files in
    pages.md (`docs/...` paths; list any that don't), required anchors present (`{#id}`), capture placeholders well
    formed, style rules (no hype words, no emoji, no `---` rules, sentence-case headings, one action per step,
-   ≤2 admonitions).
+   ≤2 admonitions). Tighten wordy passages; if a page is over ~1,200 words (tutorials ~1,400), cut repetition
+   without losing steps.
 
 ## Review log (required)
 

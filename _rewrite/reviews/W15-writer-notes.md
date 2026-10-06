@@ -58,3 +58,33 @@ Left out / assumptions:
 - **Open Supabase** (menu) only opens a URL when the Supabase URL ends in `.supabase.co` (`sb_outline.dart:261-272`); not mentioned.
 - Constants page: `supabaseUrl` / `supabaseAnonKey` have no config token, so they should list under **Custom Constants**
   (`app_constants_service.dart:70-79`, `constants_settings.dart:55-70`); the page only says they can be seen and edited in Settings -> General -> Constants.
+
+## auth.md
+
+Research: `features-data.md` "Authentication (Supabase panel)", "Testing a Supabase function", "Connect (Supabase)" (generated functions);
+`features-logic.md` "All nodes for this circuit", "Future Options", "Link <field> menu", "Show snackbar"; `features-ai.md` "Supabase MCP".
+Code refs relied on:
+- Generated `signIn(String email, String password)` (`auth.signInWithPassword`), `signUp(email, password)`, `signOut()`:
+  `packages/data/lib/src/supabase/supabase_manager.dart:228-238`.
+- **Authentication** section, "Not logged in" / "Testing as: <email or id>", lists `authMethods` = functions whose source contains `.auth.s`:
+  `ui/sb_outline.dart:73-111`, `supabase_manager.dart:252`. So password-reset style functions (`.auth.resetPasswordForEmail`) would NOT be listed in any panel section
+  (they match no filter), and the page says only "signs a user in, up or out".
+- **Testing values**, **Run**, **Edit Code**, "Error: ..." text, `Uint8List` params use a file field: `ui/func_test_section.dart:156-247`.
+- Field labels come from parameter names via `camelCaseToSpaces()` (`packages/core/lib/src/fields/block_field.dart:213-225`, `packages/core/lib/src/utils.dart:77-79`), so
+  **Email**, **Password** (and **Bucket Name**, **File Name**, **File Data**, **File Path** on the storage page).
+- Tests call the real Supabase client; the session is shared with the other tests ("run as this user"): `common/test_section/func_test_provider.dart:52-72`.
+- Circuit steps: a singleton class (`SupabaseService`: private `_instance` + factory) is offered by the add-node menu and opens a members list:
+  `packages/core/lib/src/interpreter/suggestion.dart:636-723` (`_canAddClass`, `isSingleton`, `ClassAccessSuggestions`), `packages/core/lib/src/fields/link_menu.dart:129-161`.
+  The menu search matches the entry name (`link_menu.dart:85-88`). Not verified in the running app which category holds `SupabaseService`; the page only says "search for".
+- Text Field gets its own controller variable automatically when added (`TextFieldConnector`, `packages/core/lib/src/interpreter/widget/text_field_info.dart:10-37`,
+  `widget_blocks.dart:195-199`, name via `generateSymbolName` -> `text`, `text1`...: `packages/core/lib/src/file_system/naming.dart:125-152`); Variables panel lists all instance variables
+  (`packages/core/lib/src/widgets/code/declaration_list_widgets.dart:336`). Linking: click the label, **LOCALS**, controller, `text` (members of a value of another type): `features-logic.md` "Link <field> menu".
+- **Future Options**: **+** next to **onValue** creates both `then` and the `onError` function (pre-filled with `print('error: ${error}')`) and opens onValue; after that both rows show the function field:
+  `packages/code/lib/src/fields/future_options.dart:54-92`. So step 7 says **Edit** next to **onError**.
+- **Authentication Template** exists as a free built-in screen template (login + register pages with `emailController` / `passwordController`):
+  `packages/core/lib/src/services/templates/built_in/auth_template.dart:3-40`, registered `templates_service.dart:386-387`. Its button already has `onPressed: _submitForm`, so the page says "click **+**, or **Edit** if it already has logic".
+- Google sign-in with Supabase = ask the AI (What's New 3.6, `docs/new/whats-new.md:438-439`); Google client IDs live on the **Google Sign-In** settings page (research "Google Sign-In").
+- Email confirmation sentence is Supabase behavior (also in the AI's Supabase instructions: `packages/ai/lib/src/tools/instruction_tools.dart:155-158`), phrased as "If your Supabase project asks...".
+Left out / assumptions:
+- Instant Play runs the Supabase calls for real (research "Data Builder": "Real data appears in Instant Play/App Run"); not described beyond "click Play".
+- Session persistence across app restarts and "is the user signed in at startup" checks: no template or panel support found; not covered.

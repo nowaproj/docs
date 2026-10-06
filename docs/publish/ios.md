@@ -5,7 +5,7 @@ sidebar_label: App Store
 keywords: [ios, iphone, app store, apple, testflight, app store connect, api key, distribution certificate, certificate, signing, code signing, p12, p8, ipa, bundle id, build for ios, provisioning]
 ---
 
-Nowa builds and signs your iOS app in the cloud, so the build needs no Mac or Xcode. You give Nowa two things from Apple, an App Store Connect API key and a distribution certificate key, and every build is sent to your App Store Connect account.
+Nowa builds and signs your iOS app in the cloud, so you don't build on your own computer. You give Nowa two things from Apple, an App Store Connect API key and a distribution certificate key, and every build is sent to your App Store Connect account.
 
 <Badge type="cloud" /> <Badge type="paid" />
 
@@ -28,7 +28,7 @@ You do these three things on Apple's side. Apple's own guides cover the clicks:
 1. Click **Settings** → **Deployment** and open the **iOS** tab. The **Distribution Certificate** card holds an **App Store Connect** section with a warning icon. Hover over it to read **Missing App Store Connect credentials**.
 2. Enter your **Key ID** and **Issuer ID**.
 3. Next to **Private Key File**, click **Browse** and pick your `.p8` file. You can also paste the key text into the field.
-4. Click **Save**. The icon turns into a check mark (**App Store Connect credentials saved**).
+4. Click **Save**. The icon turns into a check mark (hover to read **App Store Connect credentials saved**).
 
 {/* CAPTURE: id=publish-ios-1 | state: signed in, paid plan, cloud project with no iOS credentials yet; Settings → Deployment → iOS tab | show: Distribution Certificate card with Generate, Certificate Private Key + Browse + Save, and the App Store Connect section with Key ID, Issuer ID, Private Key File | crop: Deployment page, iOS tab */}
 
@@ -42,18 +42,18 @@ A distribution certificate is Apple's proof that an app comes from you. Nowa sig
 
 1. In the **Distribution Certificate** card, click **Generate**. A warning icon means no key is saved yet (**Missing distribution certificate**).
 2. Read the **Important!** warning. Apple allows only three active certificates at a time. If you have already used three, the build fails. Reusing a certificate is best. If you need a new one anyway, revoke an existing one in your Apple Developer account first, which breaks any builds that use the revoked one. Click **Generate anyways** to go on, or **Cancel**.
-3. In the next **Important!** dialog, click **Download** and save `ios_distribution_certificate_key.p12` somewhere safe. If you lose it, you can't sign other iOS apps with this certificate and you have to generate a new one.
+3. In the next **Important!** dialog, click **Download** and save `ios_distribution_certificate_key.p12` somewhere safe. If you lose it, you can't sign other iOS apps and you have to generate a new one.
 
 ### Use a key you already have
 
 1. Click **Browse** next to **Certificate Private Key** and pick the key file for your Apple Distribution certificate. The file picker lists `.p12` files.
 2. Click **Save**.
 
-Nowa reads this file as plain text, so use a key file in the same format as the one you get when you click **Generate**. Reuse one key for all your apps.
+Nowa reads this file as plain text, so use a key file in the same format as the one you get when you click **Generate**. Nowa recommends reusing one certificate across your apps.
 
 ### Manage the saved key
 
-Once a key is saved, the card shows a check mark (**Distribution certificate saved**). The download icon (**Download Certificate**) saves the key file again. **Remove** asks "Are you sure?" and then deletes the key from Nowa. It doesn't touch your Apple account, so the certificate stays there until you revoke it.
+Once a key is saved, the card shows a check mark (hover to read **Distribution certificate saved**). The download icon (**Download Certificate**) saves the key file again. **Remove** asks "Are you sure?" and then deletes Nowa's copy of the key. To remove the certificate itself, revoke it in your Apple Developer account.
 
 ## Build and send to App Store Connect
 

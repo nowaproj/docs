@@ -54,3 +54,25 @@ Left out / open questions:
 - Whether Google accounts must also confirm an email code is not visible in the client; the page says nothing about it.
 - Whether the verification email contains a link as well as the code is unknown (research open question); the page only says "6-digit code".
 - The survey is shown on first dashboard load for accounts that have not answered; after email sign-up it follows the code step. The page describes both as "the first time you reach the dashboard".
+
+## docs/get-started/editor-tour.md
+
+Research: features-editor-shell (Editor layout, Top bar, Board chip, Sidebar and side panels, Widgets, Files, Outline, Search, Variables and Details, Status bar, Console, Problems, Save options, Shortcuts, Settings, Support, Notifications, Welcome tour, Nothing is open); features-designer-core (Designer toolbar, Board items); features-logic "Variables panel". Screenshots viewed: `captures/ui-map/01`, `10`, `13`, `15`, `16`, `19`, `23` (playground editor, so no **Git** icon and **Save** instead of **Run**/**Deploy**).
+
+Code checked directly:
+- Sidebar icon names and order, **Git** hidden for sandboxed projects (playground/guest), **Outline** hidden while a screen is open alone, **Router** below the divider, **Enter Fullscreen** web only, **Shortcuts** (Ctrl/⌘ + .): `lib/project/side_bar.dart:13-188`.
+- Number shortcuts Ctrl/⌘ + 1..9 map to the icon index list built once from `MainSidebar.getIcons()`: `lib/setup_general_actions.dart:24-61`, `lib/project/panels/panel_actions.dart:12-26`. Numbers in the page assume a normal (non-sandboxed) project with Outline shown.
+- Top bar order (logo, sandbox/package chips, breadcrumbs left; Upgrade, avatar, bell, `<>`, gear, Run/Deploy or Save right), avatar menu (**General Settings**, **Logout**), **Upgrade** condition (`showPurchaseUi && free plan or no subscription`): `packages/nowa_ui/lib/top_bar/top_bar_view.dart:48-160,595-700`, `lib/project/top_bar_mapper.dart:100-135`.
+- Floating Variables/Details hidden under 600 px board width, Variables closed by default, Details open: `packages/designer/lib/src/designer_setup.dart:166-231`.
+- Welcome tour steps and their targets (The Design Board = board area, Create Screen = screen tool, Widget Palette = widget palette tool, AI Agent = assistant icon, Run your app = local play button, Data Sources = Api + Supabase icons, Screens & Components = widgets icon; extended: Git, Project Settings, Themes): `lib/project/onboarding/onboarding_step.dart:57-139`; completion dialog **Explore more features** / **Start building** / **You're all set!**: `lib/project/onboarding/completion_dialog.dart:25-97`.
+
+Left out on purpose:
+- **New UX** experimental layout and the **Debug** panel (experimental flag, D2); debug-only panels (Libraries, Trace, ManualTool).
+- Context menus, Action History, Save options detail (only the three entries are named), pickers (Ctrl/⌘ + O): belong to other pages (shortcuts reference, files page).
+- The in-app **Shortcuts** cheat sheet has wrong entries in 3.12.5 (research); the page only names the sheet and points to the reference page.
+
+Open questions:
+- Tooltip shortcut shown on the **Assistant** icon may be Ctrl/⌘ + Shift + F instead of Ctrl/⌘ + 1 (research open question); the page does not quote tooltips for shortcuts.
+- In the playground the **Git** icon is absent, so the numbers after **Search** may differ there; the page does not give playground numbers.
+- Status bar: the warning and info counts are log counts, not Problems (research); the page says only "counts of errors, warnings and info messages".
+- The `<>` code-mode toggle has no tooltip in the code, so the page calls it `<>`.

@@ -55,7 +55,7 @@ Below them, the items sit in categories. Categories start closed and open on the
 | **GENERAL** | **Create...** and **parse**. |
 | **EXPRESSIONS** | **Conditional** and **ifNull**. |
 
-Connected integrations add categories too, such as **FIREBASE**. An item ending in `(...)` takes inputs; `()` takes none. Click a class, such as `HapticFeedback`, to see its functions.
+Connected integrations add categories too, such as **FIREBASE**. Click a class, such as `HapticFeedback`, to see its functions.
 
 ## Select, move and remove nodes
 
@@ -135,16 +135,16 @@ Nothing can be added after a Return in the same branch.
 
 ## Hold values and write formulas
 
-- **Create Local Variable** adds `var1` (then `var2`, and so on), a text value that lives only while the function runs. In **Details**, click **Expression:** to say what it holds, then set **Name**, **Type** and **Is Final**. Later nodes find it under **LOCALS**.
-- **Add Custom Expression** opens the expression builder so you can type a formula, such as `items.removeAt(0)`. It must be one expression, not a statement such as `if`. See [Write your own expression](expressions.md#custom-expression).
+- **Create Local Variable** adds `var1` (then `var2`, and so on), a variable that lives only while the function runs. In **Details**, click **Expression:** to say what it holds, then set **Name**, **Type** and **Is Final**. Later nodes find it under **LOCALS**.
+- **Add Custom Expression** opens a dialog where you type a formula, such as `items.removeAt(0)`. See [Write your own expression](expressions.md#custom-expression).
 
 ## Loops
 
-There's no node you can add for loops. A `while` loop that's already in the function, written in code or by Nowa AI, shows as a **While** node with a **True** branch and a **Condition**, and you edit it like an If. To go through a list, click **+** after the list and pick one of its functions, such as `forEach`.
+There's no node for loops. A `while` loop that's already in the function, written in code or by Nowa AI, shows as a **While** node with a **True** branch and a **Condition**. You edit it like an If. To go through a list, click **+** after the list and pick one of its functions, such as `forEach`.
 
 ## Fix missing permissions with Hot Fix
 
-Some actions need permissions or packages in your project. `showMediaPicker` does: it needs permissions such as camera and photo library access. When an action needs something, its **Details** show a **Dependencies** section that lists it under **Permissions:** and **Packages:**, with a check mark next to each item that's already on.
+Some actions, such as `showMediaPicker`, need permissions or packages in your project. Their **Details** then show a **Dependencies** section that lists what's needed under **Permissions:** and **Packages:**, with a check mark next to each item that's already on.
 
 Click **Hot Fix** to switch on everything that's missing. Click a section title to open that part of the [project settings](../account/project-settings.md).
 

@@ -23,6 +23,17 @@ In the [playground](../get-started/playground.md), and in a project you opened f
 
 A small dot next to **Run** shows the state. Hover it to read it: "Not running", "Starting…", "Running", "Restarting…", "Stopping…", "Failed to start" or "Last restart failed".
 
+## Choose where to run
+
+**Run** is a split button. The main part runs your app on the current target. The arrow next to it opens the **Run on** menu (the app shows it as RUN ON), where you pick the target.
+
+| Menu row | What it does |
+|---|---|
+| **Embedded preview** | Runs the app inside Nowa, as on this page. Its status line reads "Instant · runs inside Nowa" until the app is running, then "Running · visible in the editor" or "Running · hidden". **Hide** closes the preview and keeps the app running. |
+| Devices and emulators | Runs the real app on a phone, an emulator or your computer. Desktop app only. See [Run on a device or emulator](devices.md). |
+
+Only one target runs at a time. In the web app the menu has no devices. It shows **iOS & Android devices** with "Download the desktop app" instead.
+
 ## Use the run toolbar
 
 While the preview is open, these buttons replace the breadcrumbs in the top bar.

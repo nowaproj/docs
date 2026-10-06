@@ -112,3 +112,25 @@ Assumptions / open questions:
 - Store-side statements: "Google Play takes the app bundle" (linked to Android docs), Play App Signing note (linked to Google Help 9842756). Links not fetched.
 - The code does not say a Debug build "can't be published to Google Play"; the page only says debug builds are for quick tests and unsigned (UI wording).
 - I did not document the Android `applicationId`/package change side effects beyond the one sentence.
+
+## docs/publish/ios.md (Publish to the App Store)
+
+Research: features-code-ship.md "iOS builds", "Build history and build details", "App details for store builds". Keeps `{#apple-distribution-certificate}` on "Add a distribution certificate" (app link `packages/core/lib/src/cloud_build_v2/ui/current_build_card.dart:525`, shown as **Documentation** on a failed **iOS code signing** step, `:483-491,518-530`).
+
+Key claims and refs:
+- iOS tab: single **Distribution Certificate** card that also holds the **App Store Connect** section: `packages/core/lib/src/cloud_build_v2/ui/ios_details.dart:13-347`. Tab and plan lock "iOS builds are not available on your current plan.": `deployment_settings.dart:274-327`.
+- **Generate** -> warning dialog (**Important!**, 3-active-certificates text, **Cancel** / **Generate anyways**) -> **Important!** dialog with **Download** ("If you lose this certificate, you will not be able to sign other iOS apps and you will have to generate a new one."): `ios_details.dart:105-130`, `warning_dialogs.dart:5-71`. Download saves `ios_distribution_certificate_key.p12` (save dialog title 'Save the iOS distribution certificate private key'): `workflow_manager.dart:442-464`.
+- Upload: **Certificate Private Key**, extension filter `p12`, **Browse**, **Save**: `ios_details.dart:142-175`, `file_picker_field.dart:39-83`; read with `utf8.decode` (`packages/core/lib/src/file_system/encoding.dart:8-10`, `workflow_manager.dart:418-440`) so the file must be text.
+- **Remove** only deletes variable `CERTIFICATE_PRIVATE_KEY`: `workflow_manager.dart:466-483`; confirm popup `remove_button_with_confirmation.dart:36-76`.
+- App Store Connect form: **Key ID**, **Issuer ID** (errors "Key ID is required", "Issuer ID is required"), **Private Key File** (`p8`, `pem`, editable so you can paste, 5 lines), **Save**, tooltips **Change credentials** / **Discard changes**, status "Missing App Store Connect credentials" / "App Store Connect credentials saved": `ios_details.dart:184-347`. Status messages show on hover only (`MessageIndicator`, `android_signing_key_card.dart:302-328`).
+- BUNDLE_ID is written from `AppNameService.model.bundleId` only inside `saveAppStoreConnectCreds` and updated when different: `workflow_manager.dart:485-548` (answers the research open question: re-save the credentials after changing the Bundle Identifier). Build needs all five variables (`workflow.variables`, `:693-699`; `missingConfiguration` `:401`).
+- What the iOS build does (default yaml): Install pods, **iOS code signing** (`app-store-connect fetch-signing-files "$BUNDLE_ID" --type IOS_APP_STORE --create`), dependencies, `flutter build ipa --release`; artifacts `.ipa` + logs; `publishing: app_store_connect` with the saved API key; instance `mac_mini_m1`: `packages/core/lib/src/file_system/codemagic_file.dart:78-125`. No `submit_to_testflight` / `submit_to_app_store` flags, so Nowa stops at the upload (the page says so). Older changelog: "if App Store deployment failed at the publishing stage (last stage) you will know exactly why" (`docs/new/change-log.md:264`).
+- Failed-step actions: `BuildActionTile` shows **Documentation** (only for the step named `iOS code signing`) and **Explain with AI**: `current_build_card.dart:483-491`.
+
+Assumptions / open questions:
+- "Nowa stops at the upload", "build shows up in App Store Connect once Apple has processed it", TestFlight/review pointers: derived from the default yaml plus Apple behavior; the server's yaml might differ. Apple Help root link used rather than deep links.
+- Apple-side steps (register bundle ID, create app, create API key; "download the key only once") are brief and linked, not step-by-step. The old docs' API key access level ("Admin or App Manager") is not in code and was left out; consider adding after an Apple-side check.
+- The old docs' "use the same certificate for all updates or Apple rejects the update" was dropped (not in code; not accurate for Apple in general). The page only passes on Nowa's own advice to reuse one certificate.
+- Whether **Generate** creates the certificate in the Apple account immediately or at build time is server-side. The page avoids saying when.
+- Which exact key format users with an existing certificate have is unclear (see product-issue candidate in General); the page says only that Nowa reads the file as text.
+- "builds and signs ... in the cloud, so you don't build on your own computer": cloud builds on Apple hardware (`instance_type: mac_mini_m1`).

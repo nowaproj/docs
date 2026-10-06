@@ -255,7 +255,7 @@ Scope notes for the IA step:
   `packages/core/lib/src/file_system/dart_file.dart:226-235`;
   `packages/designer/lib/src/design_experience/designer_board_controller.dart:244-286`;
   `packages/designer/lib/src/actions/add_actions.dart:16`; `packages/core/lib/src/widgets/widget_picker.dart:172`, `:191`;
-  `lib/project/drop_from_outside.dart:35`; `packages/designer/lib/src/design/drop_on_board.dart:17-29`.
+  `lib/project/drop_from_outside.dart:35`; `packages/designer/lib/src/design/drop_on_board.dart:17-33`.
 - **Old docs:** `docs/ui/screens.md` ("Adding Screens from the Files Panel"): partly outdated (the Widgets panel is
   the main place; Files drag still works). `docs/ui/widget-panel.md`: accurate on drag/double-click.
 - **Screenshot value:** medium: dragging a page tile from the Widgets panel to the board.
@@ -486,7 +486,7 @@ Scope notes for the IA step:
 - **Code refs:** `packages/designer/lib/src/menus/widget_context_menu.dart:43-47`;
   `packages/core/lib/src/actions/general_actions.dart:14-16`, `:20-98`; `packages/core/lib/src/actions/block_actions.dart:57-85`, `:87-100`, `:202-235`;
   `lib/project/panels/widgets_panel/widgets_context_menu.dart:38`; `lib/project/panels/files_panel/file_context_menu.dart:61`;
-  `packages/core/lib/src/file_system/actions/file_actions.dart:124`, `:130`, `:151`, `:207`;
+  `packages/core/lib/src/file_system/actions/file_actions.dart:124`, `:130`, `:151`, `:204`;
   `packages/core/lib/src/widgets/declaration_references_dialog.dart:61-62`.
 - **Old docs:** `docs/ui/screens.md` ("Removing Screens"): accurate (says "Files library"; the menu label is
   **Remove file**). `docs/ui/components.md` ("Deleting Components"): partly outdated (label **Remove file**; the
@@ -507,7 +507,7 @@ Scope notes for the IA step:
   classes are not listed. `Delete` key and undo/redo work inside the panel.
 - **Gating:** none found.
 - **Code refs:** `lib/project/side_bar.dart:43`; `lib/project/panels/left_panel.dart:36`;
-  `lib/project/panels/widgets_panel/widgets_panel.dart:15`, `:47-49`, `:91-96`, `:164`, `:301`, `:313-337`, `:345-347`;
+  `lib/project/panels/widgets_panel/widgets_panel.dart:15`, `:49-50`, `:91-96`, `:164`, `:301`, `:311-337`, `:345-347`;
   `lib/project/panels/widgets_panel/preview_tiles.dart:32-38`, `:74-79`;
   `lib/project/panels/widgets_panel/widgets_context_menu.dart:32`, `:35`, `:38`.
 - **Old docs:** `docs/ui/widget-panel.md`: mostly accurate (tab labels are **Page** / **Component** on desktop;
@@ -534,7 +534,7 @@ Scope notes for the IA step:
   `packages/core/lib/src/widgets/nowa_widgets.dart:161-163`; `packages/designer/lib/src/details/name_group.dart:113-117`;
   `packages/designer/lib/src/designer_setup.dart:50`, `:179-195`; `packages/designer/lib/src/actions/designer_actions.dart:298-313`;
   `packages/designer/lib/src/widgets/widget_designer.dart:34`, `:49`, `:70`; `packages/designer/lib/src/board/single_widget_canvas.dart:10`;
-  `packages/nowa_ui/lib/top_bar/top_bar_view.dart:330`, `:455`; `lib/project/panels/vibe_designer.dart:36-43`.
+  `packages/nowa_ui/lib/top_bar/top_bar_view.dart:330`, `:455`; `lib/project/panels/vibe_designer.dart:33-42`.
 - **Old docs:** `docs/ui/screens.md` ("Open in a new tab"): accurate in name only; `docs/ui/boards.mdx` calls this a
   "Widgets Board" (wrong term).
 - **3.13 (dev) changes:** a component's own view also shows its `@Preview` variants, with **Add to board**
@@ -1024,7 +1024,7 @@ Scope notes for the IA step:
   `packages/designer/lib/src/play_mode/board_play_controller.dart:137`, `:149`, `:161`, `:173-190`;
   `packages/designer/lib/src/play_mode/play_mode_permissions.dart:6-16`;
   `packages/designer/lib/src/play_mode/play_mode_settings.dart:40`, `:47`, `:54`, `:67`, `:82`, `:131`, `:150`;
-  `packages/designer/lib/src/play_mode/play_mode_warning.dart:88`, `:95-152`;
+  `packages/designer/lib/src/play_mode/play_mode_warning.dart:88`, `:100-152`;
   `packages/device_preview/lib/src/device_preview.dart:110-119`;
   `packages/device_preview/lib/src/views/tool_panel/sections/device.dart:62-170`;
   `packages/device_frame/lib/src/devices/devices.dart:27-33`.
@@ -1044,8 +1044,8 @@ Scope notes for the IA step:
   an enum shows its first value; classes get each field mocked; values compared or defaulted with `??` are not
   mocked; some classes (with a non-project supertype) can't be mocked. Real local values are kept.
 - **Gating:** none found.
-- **Code refs:** `packages/core/lib/src/interpreter/mock.dart:66-98`, `:131-139`, `:210-217`, `:244-289`, `:291-305`,
-  `:307-353`.
+- **Code refs:** `packages/core/lib/src/interpreter/mock.dart:66-98`, `:130-139`, `:210-217`, `:244-289`, `:291-305`,
+  `:308-353`.
 - **Old docs:** missing. Note: `docs/pure_ui_manifesto.md` (repo) has a similar table that is partly outdated vs
   this code.
 - **Screenshot value:** medium: a list screen showing `[title]` placeholders.
@@ -1076,7 +1076,7 @@ Scope notes for the IA step:
 - **Code refs:** `packages/designer/lib/src/widgets/designer_tools.dart:208-219`;
   `packages/designer/lib/src/design_experience/designer_board_controller.dart:343-423`;
   `packages/designer/lib/src/menus/widget_context_menu.dart:20-31`; `packages/designer/lib/src/designer_setup.dart:119`, `:133`;
-  `lib/setup_general_actions.dart:61-66`.
+  `lib/setup_general_actions.dart:63-68`.
 - **Old docs:** missing.
 - **Screenshot value:** low.
 
@@ -1111,7 +1111,7 @@ Scope notes for the IA step:
 | DefaultDragRule (slot picker overlay) | `packages/designer/lib/src/design_experience/drag_rule.dart:93` | not mapped by `findRule`; unused |
 | Developer panel ("Input Fields", "Test widget") | `packages/designer/lib/src/panels/developer_panel.dart:26` | debug/internal |
 | ViewsOverlay, CursorFollower overlays | `packages/designer/lib/src/panels/designer_board.dart:112`, `:149-184` | debug, unused |
-| Board code view (TextEditor) | `packages/designer/lib/src/board/board_editor.dart:40-43` | `kDebugMode` only; users see **Code view is not available for boards** |
+| Board code view (TextEditor) | `packages/designer/lib/src/board/board_editor.dart:39-43` | `kDebugMode` only; users see **Code view is not available for boards** |
 | Side bar **Libraries**, **Trace**, **ManualTool** | `lib/project/side_bar.dart:77-92` | `kDebugMode` only |
 | Files menu "Reanalyze file", "Export template", "Import template" | `lib/project/panels/files_panel/file_context_menu.dart:91-119`, `lib/project/panels/files_panel/add_lib_menu.dart:147-154` | `kDebugMode` only |
 | StageViewer / stageThumbnail | `packages/designer/lib/src/thumbnail.dart:38-110` | unused internal helpers |

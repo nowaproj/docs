@@ -5,7 +5,7 @@ Source: /home/user/nowa-master (v3.12.5). Researcher: features-logic research ag
 Reading notes for writers:
 - The UI still calls the visual logic editor **Circuit** ("Open in Circuit", "Edit in circuit"). Use that name.
 - In the add-node menu, category headers are shown in UPPERCASE (`packages/core/lib/src/fields/link_menu.dart:331`). This file writes them in uppercase too.
-- Fields generated from a Flutter/Dart parameter are labelled with the parameter name split into words, first letter capitalised (`barrierDismissible` → "Barrier Dismissible") (`packages/core/lib/src/fields/block_field.dart:211-217`, `packages/core/lib/src/utils.dart:77-79`). Labels marked "(derived)" below come from that rule, not from a literal string.
+- Fields generated from a Flutter/Dart parameter are labelled with the parameter name split into words, first letter capitalised (`barrierDismissible` → "Barrier Dismissible") (`packages/core/lib/src/fields/block_field.dart:213-224`, `packages/core/lib/src/utils.dart:77-79`). Labels marked "(derived)" below come from that rule, not from a literal string.
 - Nothing in this area is gated (no Beta / plan / platform / local-vs-cloud checks found in `packages/code`, the link menus, the expression builder, the Variables panel or the global-state code).
 
 ## Summary
@@ -106,7 +106,7 @@ Reading notes for writers:
 - **Options:** none.
 - **Limits and rules:** categories start collapsed. Library categories list only top-level functions and classes that have public static members or are singletons. The category list is dynamic: adding a pub.dev package adds its libraries as categories.
 - **Gating:** integration categories appear only after the integration is connected (Firebase: `packages/data/lib/src/firebase/firebase_manager.dart:68,113,180`).
-- **Code refs:** `packages/code/lib/src/widgets/add_statement_menu.dart:56-123`, `packages/core/lib/src/fields/link_menu.dart:58-207,277-420`, `packages/core/lib/src/interpreter/suggestion.dart:443-567,588-669`, `packages/core/lib/src/interpreter/services/suggestion_service.dart:6-29`, `packages/core/lib/src/interpreter/library.dart:43,275,307-326,489-497`, `packages/core/lib/src/interpreter/packages/dart_package.dart:91`, `packages/core/lib/src/state_management/global_state_suggestions.dart:23-75`.
+- **Code refs:** `packages/code/lib/src/widgets/add_statement_menu.dart:56-123`, `packages/core/lib/src/fields/link_menu.dart:58-207,277-420`, `packages/core/lib/src/interpreter/suggestion.dart:443-567,588-669`, `packages/core/lib/src/interpreter/services/suggestion_service.dart:6-29`, `packages/core/lib/src/interpreter/library.dart:43,275,307-326,494-502`, `packages/core/lib/src/interpreter/packages/dart_package.dart:91`, `packages/core/lib/src/state_management/global_state_suggestions.dart:23-75`.
 - **Old docs:** `docs/logic/intro-circuit.md`, all `docs/logic/**` pages — partly outdated: the old "Nowa" category items (print, showDialog, showTimePicker, OpenUrl, Show Media Picker) now live in **DART:CORE**, **MATERIAL** and **NOWA_RUNTIME**; showDatePicker is in **MATERIAL**, not Globals; the menu is click-to-insert, not drag-and-drop; no page explains the categories.
 - **Screenshot value:** high — add-node menu with the five top items and collapsed categories; a second capture of a search (e.g. "show") with categories expanded.
 
@@ -292,7 +292,7 @@ Reading notes for writers:
 - **Options:** Type; Location/Name; Path Parameters; Query Parameters; Extra; result.
 - **Limits and rules:** Location is plain text (no route picker). Needs a project whose app uses GoRouter.
 - **Gating:** none found.
-- **Code refs:** `packages/core/lib/src/state_management/global_state_suggestions.dart:44-54`, `packages/code/lib/src/customizations/go_router_field.dart:9-156`, `packages/core/lib/src/interpreter/libraries/go_router_library.dart:3714-4050` (method parameters), `packages/core/lib/src/project/env_services/go_router_routing_service.dart:13-27`, `packages/core/lib/src/file_system/actions/file_actions.dart:46-51`, `packages/core/lib/src/editors/router_editor/go_route_node_view.dart:9-46,147-195,316-381`.
+- **Code refs:** `packages/core/lib/src/state_management/global_state_suggestions.dart:44-54`, `packages/code/lib/src/customizations/go_router_field.dart:9-156`, `packages/core/lib/src/interpreter/libraries/go_router_library.dart:4005-4120` (method parameters), `packages/core/lib/src/project/env_services/go_router_routing_service.dart:13-27`, `packages/core/lib/src/file_system/actions/file_actions.dart:46-51`, `packages/core/lib/src/editors/router_editor/go_route_node_view.dart:9-46,147-195,316-381`.
 - **Old docs:** none — missing (What's New mentions GoRouter for new projects).
 - **Screenshot value:** high — GoRouter node with Type and Location; router editor route with Route Parameters chips.
 
@@ -381,7 +381,7 @@ Reading notes for writers:
 - **Options:** class and constructor; constructor inputs.
 - **Limits and rules:** widget classes are not listed (widgets are added in the designer).
 - **Gating:** none found.
-- **Code refs:** `packages/core/lib/src/interpreter/suggestion.dart:168-194,509-516,725-757`, `packages/core/lib/src/fields/link_menu.dart:95-127,378-387`, `packages/code/lib/src/providers/expr_helper.dart:15-18`, `packages/core/lib/src/fields/basic_fields.dart:1898-1944` (Duration), `packages/core/lib/src/interpreter/libraries/dart_core_library.dart:2241-2300` (Future constructors incl. `delayed`), `packages/core/lib/src/interpreter/libraries/dart_async_library.dart:878-910` (Timer, `periodic`, `cancel`).
+- **Code refs:** `packages/core/lib/src/interpreter/suggestion.dart:168-194,509-516,725-757`, `packages/core/lib/src/fields/link_menu.dart:95-127,378-387`, `packages/code/lib/src/providers/expr_helper.dart:15-18`, `packages/core/lib/src/fields/basic_fields.dart:1898-1945` (Duration), `packages/core/lib/src/interpreter/libraries/dart_core_library.dart:2241-2300` (Future constructors incl. `delayed`), `packages/core/lib/src/interpreter/libraries/dart_async_library.dart:878-910` (Timer, `periodic`, `cancel`).
 - **Old docs:** `docs/vars-params-functions/data-models.md` ("Create" node) — partly outdated (no mention of Pick a constructor; delays/timers undocumented).
 - **Screenshot value:** medium — Pick a constructor list and a "Create Future" node with Duration.
 
@@ -445,7 +445,7 @@ Reading notes for writers:
 - **Options:** as listed (all Flutter parameters).
 - **Limits and rules:** **Context** is filled with the screen's `context` automatically when one is available, so use these inside screens/components.
 - **Gating:** none found.
-- **Code refs:** `packages/core/lib/src/interpreter/block_utils.dart:238-279`, `packages/core/lib/src/interpreter/libraries/material_library_custom.dart:3149-3175`, `packages/core/lib/src/fields/basic_fields.dart:445-517,2023-2043`, `packages/core/lib/src/fields/expression_builder/expression_details.dart:79-106`.
+- **Code refs:** `packages/core/lib/src/interpreter/block_utils.dart:238-279`, `packages/core/lib/src/interpreter/libraries/material_library_custom.dart:3149-3175`, `packages/core/lib/src/fields/basic_fields.dart:448-529,2023-2043`, `packages/core/lib/src/fields/expression_builder/expression_details.dart:79-106`.
 - **Old docs:** `docs/logic/ui-popups/dialog.md` — partly outdated (category is MATERIAL not "Nowa"; "Pick Widget" label; Traversal Edge Behavior missing). Bottom sheets: missing.
 - **Screenshot value:** high — showDialog node with Builder and brush; edited AlertDialog popup.
 
@@ -810,7 +810,7 @@ Reading notes for writers:
 - **Options:** Name, Value.
 - **Limits and rules:** values are Strings.
 - **Gating:** none found.
-- **Code refs:** `packages/core/lib/src/settings/constants_settings.dart:9-290`, `packages/core/lib/src/interpreter/packages/package_config/app_constants_service.dart:10-80`, `lib/setup_general_actions.dart:34`.
+- **Code refs:** `packages/core/lib/src/settings/constants_settings.dart:9-290`, `packages/core/lib/src/interpreter/packages/package_config/app_constants_service.dart:10-80`, `lib/setup_general_actions.dart:33`.
 - **Old docs:** none — missing.
 - **Screenshot value:** low.
 
@@ -820,12 +820,12 @@ Reading notes for writers:
 | Copy/paste of Circuit nodes | `packages/code/lib/src/circuit_actions.dart:79-103`, `packages/code/lib/src/providers/circuit.dart:28-57` | Commented-out code; not available |
 | Circuit test harness (code cases, test app) | `packages/code/lib/code_test_app.dart`, `packages/code/lib/code_cases.dart` | Dev-only |
 | **Import template** in the Add to library menu | `lib/project/panels/files_panel/add_lib_menu.dart:147-154` | Debug builds only (`kDebugMode`) |
-| `ClassView` / `ClassEditor` class editor | `packages/core/lib/src/fields/class_editor.dart:81-143` | Never instantiated; replaced by the default Dart file editor (`packages/core/lib/src/plugin.dart:117`) |
+| `ClassView` / `ClassEditor` class editor | `packages/core/lib/src/fields/class_editor.dart:81-143` | Never instantiated; replaced by the default Dart file editor (`packages/core/lib/src/plugin.dart:118`) |
 | Get/Set suggestions ("Get x" / "Set x") | `packages/core/lib/src/interpreter/suggestion.dart:151-165,431-441` | Not used by any menu |
 | **Set item** for lists | `packages/core/lib/src/interpreter/suggestion.dart:45-82`; filtered in `packages/core/lib/src/fields/field_link_menu.dart:340`, `packages/core/lib/src/fields/expression_builder/expression_builder_provider.dart:79-81` | Filtered out of every menu |
 | Items in the **NOWA** category (`dynamic`, `void`, `BoardPosition`, `WidgetsBinding`, `usePathUrlStrategy`) | `packages/core/lib/src/interpreter/library.dart:605-612` | Internal declarations; meaningless to users |
 | `AutoCopyWith` | `packages/core/lib/src/interpreter/auto_blocks.dart:243-317`, `packages/core/lib/src/themes/theme_class_declaration.dart:19` | Used for theme classes only, not added to models |
-| Circuit analytics events | `packages/code/lib/src/circuit_commands.dart:13,37,47`, `packages/code/lib/src/widgets/add_statement_menu.dart:42` | Internal telemetry |
+| Circuit analytics events | `packages/code/lib/src/circuit_commands.dart:14,38,50`, `packages/code/lib/src/widgets/add_statement_menu.dart:56,65,73,83,100` | Internal telemetry |
 
 ## Open questions
 - **Globals view may hide global variables.** The Variables panel's Globals list uses `ClassVarList` with its default `onlyFinalVars: true` (`packages/core/lib/src/state_management/global_state_widgets.dart:60`, `packages/core/lib/src/widgets/code/declaration_list_widgets.dart:315,339`), while **+** creates non-final variables for global states (`calculateIsFinal` is false without an auto constructor, `:329,353`). Check in the UI whether non-final global variables appear there (they do appear in the global state's file editor, `packages/core/lib/src/fields/class_editor.dart:43`).

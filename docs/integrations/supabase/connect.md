@@ -26,7 +26,7 @@ Pick **Connect** unless you only have keys. You can switch later with **Change A
 ## Connect with your Supabase account
 
 1. Click the **Supabase** icon in the left sidebar, then click **Connect**.
-2. Finish in the browser. A Supabase page opens: choose your organization and approve the request. Nowa shows **Waiting for Authorization...** and carries on by itself. After two minutes it stops with "Authorization timed out. Please try again."
+2. Finish in the browser. A Supabase page opens: choose your organization and approve the request. Nowa shows **Waiting for Authorization...** and carries on by itself, for up to two minutes.
 3. In the project list (titled **Projects in** and your organization's name), click **Select** next to the project you want, or [create a new one](#create-a-new-supabase-project).
 4. Wait for the "Connecting to ..." message. The panel now lists your Supabase functions.
 
@@ -35,7 +35,7 @@ Pick **Connect** unless you only have keys. You can switch later with **Change A
 If you already authorized Nowa for this project, Nowa skips step 2 and shows your projects right away. Nowa works with one organization at a time: click **Change organization** to authorize a different one. Projects that aren't active show **Unavailable** and can't be selected.
 
 :::tip
-You can also start from Nowa AI. Click the Supabase icon in the chat field of the **AI Assistant** panel. If the project isn't connected yet, the same connection flow opens.
+You can also start from the chat. Click the Supabase icon in the chat field of the **AI Assistant** panel. If the project isn't connected yet, the same connection flow opens.
 :::
 
 ### Create a new Supabase project {#create-a-new-supabase-project}
@@ -53,14 +53,14 @@ You can also start from Nowa AI. Click the Supabase icon in the chat field of th
 
 ## Connect with keys
 
-1. Click the **Supabase** icon in the left sidebar, then click **Use Keys**. The page is called **Supabase Setup**, and its arrow takes you back.
+1. Click the **Supabase** icon in the left sidebar, then click **Use Keys**. The page is called **Supabase Setup**.
 2. Paste your project URL into **API Url**.
 3. Paste your anon key into **Key**.
 4. Click **Connect**.
 
 Each field has a help icon that tells you where to find the value in your Supabase project settings: **Data API** for the URL and **API Keys** for the anon key. **Open Supabase** on this page takes you to your Supabase dashboard.
 
-Use the anon key, not a publishable or secret key. If you paste one of those, Nowa shows "Using the new Supabase keys is not currently supported, please use the anon key."
+Use the anon key, not a publishable or secret key. Nowa doesn't support the new key types yet.
 
 ## What Nowa adds to your project
 
@@ -107,7 +107,7 @@ The ⋮ menu at the top of the panel has these items:
 
 Click ⋮, then **Tables**. You get a read-only list of your Supabase tables with their column names. Click the back arrow to return.
 
-Nowa has no table editor. Create and change tables in Supabase, or ask Nowa AI to do it. Created a table after you connected? Opening **Tables** refreshes the list. An empty project shows "No tables found, create tables in Supabase and you will see them here."
+Nowa has no table editor. Create and change tables in Supabase, or ask Nowa AI to do it. Created a table after you connected? Opening **Tables** refreshes the list. If there are no tables, Nowa says "No tables found, create tables in Supabase and you will see them here."
 
 ## If something goes wrong
 
@@ -117,7 +117,7 @@ Nowa has no table editor. Create and change tables in Supabase, or ask Nowa AI t
 | No organizations found. Please create a Supabase organization first. | Create an organization in Supabase, then click **Connect** again. |
 | **Unavailable** next to a project | Only active projects can be selected. The project's status is shown under its name. |
 | Anon key not found for project … | Nowa couldn't read an anon key for that project. Check the project's API keys in Supabase. |
-| Using the new Supabase keys is not currently supported… | Paste the project's anon key into **Key**. |
+| Using the new Supabase keys is not currently supported, please use the anon key. | You pasted a publishable or secret key. Paste the project's anon key into **Key**. |
 
 ## Next steps
 

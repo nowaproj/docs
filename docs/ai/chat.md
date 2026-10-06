@@ -35,17 +35,17 @@ Changes made before you stopped stay in your project. To undo them, see [Undo AI
 {/* CAPTURE: id=ai-chat-1 | state: signed-in project with a finished Agent run that added a screen and a component | show: the user message with an attachment chip, a collapsed Thinking process block, several step rows with status icons, a code card listing the created classes, the Created Widgets card and the Suggested next steps strip above the chat field | crop: Assistant panel */}
 
 - **Thinking process**: Nowa AI's reasoning, collapsed. Click it to read.
-- **Steps**: one row for each action, such as "Reading file", "Writing code", "Editing" a file, "Adding" a package, "Downloading font" or "Saving image to assets". The icon shows the state. Hover it to read **Tool is running**, **Tool executed successfully**, **Tool execution failed** or **Tool execution was canceled**.
+- **Steps**: one row for each action, such as reading a file, writing code, adding a package or downloading a font. The icon shows the state. Hover it to read **Tool is running**, **Tool executed successfully**, **Tool execution failed** or **Tool execution was canceled**.
 - **Code cards**: titled **Writing code** or **Modified code**, with a **Show raw code** button. Each screen or component it created is listed. Hover one to highlight it on the board, click it to open it, or drag a widget onto the board.
-- **Open in New Tab**: appears on rows for files, and opens the file.
+- **Open in New Tab**: appears on rows that work on a file, and opens that file.
 - **Tasks**, **Questions** and plans: see [Design, Plan and Agent modes](modes.md).
-- **Using &lt;tool&gt;...**: a step from a connector. See [Connect Figma and Supabase to Nowa AI](connectors.md).
+- **Using &lt;tool&gt;...** and **Approval Required**: steps from a connector. See [Connect Figma and Supabase to Nowa AI](connectors.md#approve-what-a-connector-does).
 
 To see the raw content behind any message, hover it and click **⋮** (**View Raw Data**). It's read-only, and useful when you talk to support.
 
 ## Use what the agent created
 
-When a request ends, Nowa AI summarizes the result:
+When a request ends, Nowa shows what was created:
 
 - **New screens** are placed on your open board automatically, to the right of the screens already there, and the board pans to them. This happens only when a board is the active tab.
 - **Created Widgets** lists the other new widgets, such as components, or screens made while no board was open. Drag a thumbnail onto the board, or click it to open the widget. Click **×** to close the card.
@@ -66,9 +66,9 @@ Errors appear in the conversation, with a way to continue.
 
 - **Retry**: click the refresh icon under an error. If your first request failed before Nowa AI did anything, Retry sends your original message again. Otherwise it sends "continue with your last task", so Nowa AI picks up where it stopped. Long error messages have **Show more** and **Show less**, and a copy button next to Retry.
 - **Service under load**: Nowa AI is retrying your request, several times with growing waits. Click **Dismiss** to hide the notice. If the problem stays, try again later.
-- **Server is not reachable.** and **Server took too long to respond.**: check your connection, then click **Retry**.
+- **Server is not reachable** or **Server took too long to respond**: check your connection, then click **Retry**.
 - **Session Limit Reached**: the session is full. Start a new session. See [Undo AI changes and reopen chats](undo-and-history.md#start-a-new-session).
-- **You ran out of credits.**: see [Plans, billing and AI usage](../account/plans-and-usage.md).
+- **You ran out of credits**: see [Plans, billing and AI usage](../account/plans-and-usage.md).
 
 ## Send a bug report
 

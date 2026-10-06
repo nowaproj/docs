@@ -1,10 +1,10 @@
 ---
 title: Get ready to publish
-description: Publish your app to the web, Google Play and the App Store from one Deploy menu, and set its name, identifier, version and icon before you build.
+description: Put your app on the web or build it for Android and iOS from one Deploy menu, after you set its name, identifier, version and icon.
 keywords: [publish, deploy, deployment, release, go live, ship, build for android, build for ios, build for web, app store, google play, cloud build, web deploy, deployment and sharing]
 ---
 
-When your app is ready for real people, Nowa builds it in the cloud and publishes it for you. Click **Deploy** in the top bar to put your app on the web, build it for Android, or send an iOS build to your App Store Connect account.
+When your app is ready for real people, Nowa builds it for you in the cloud. Click **Deploy** in the top bar to put your app on the web, build it for Android, or send an iOS build to your App Store Connect account.
 
 <Badge type="cloud" /> <Badge type="paid" />
 
@@ -47,7 +47,7 @@ Each row keeps you posted:
 
 | Row | Status text | Buttons |
 |---|---|---|
-| **Web** | **Not published yet**, **Publishing…**, **Last publish failed**, or the address of your live site | **Deploy**, then **Redeploy** once the site is live. **Cancel** while it publishes. |
+| **Web** | **Not published yet**, **Publishing…**, **Last publish failed**, or the host name of your live site | **Deploy**, then **Redeploy** once the site is live. **Cancel** while it publishes. |
 | **Android Debug**, **Android Release**, **iOS** | **Not deployed yet**, the build status such as **Building…**, or **Deployed**, **Failed** or **Canceled** with how long ago | **Deploy**, or **Cancel** while it builds |
 
 - On a mobile row, **Set up** replaces **Deploy** when something is missing: a signing key, App Store Connect credentials or a Git repository. It opens the **Deployment** page, where you pick the tab you need.

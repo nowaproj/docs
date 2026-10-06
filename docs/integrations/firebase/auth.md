@@ -9,15 +9,16 @@ Firebase Authentication lets people create accounts and sign in to your app. Tur
 
 ## Before you start
 
-- [Connect Firebase](connect.md).
-- Turn on the sign-in methods you want in the Firebase console. Nowa reminds you on the Firebase page, and **Enable on Firebase.** opens the right console page.
+- A project connected to Firebase. See [Connect Firebase](connect.md).
+- The sign-in methods you want, turned on in the Firebase console. Nowa reminds you under the **Authentication** switch, and **Enable on Firebase.** opens the Authentication page of your project in the console.
 
 ## Turn on Authentication and add providers
 
-1. Open **Settings** → **Integrations** → **Firebase** and turn on **Authentication**.
-2. Click **Add Provider**. Once Email/Password or Google is on, the button reads **Manage Providers**.
-3. On **Available Providers**, click the **+** on **Email/Password**, **Google** or **Phone**. A check mark means the provider is on. Click it to remove the provider.
-4. Click the back arrow. The **Providers** row shows an icon for each provider that's on.
+1. Open **Settings** → **Integrations** → **Firebase**.
+2. Turn on **Authentication**. **Add Provider** appears below the **Push Notifications (FCM)** section.
+3. Click **Add Provider**. Once Email/Password or Google is on, the button reads **Manage Providers**.
+4. On **Available Providers**, click the **+** on **Email/Password**, **Google** or **Phone**. A check mark means the provider is on. Click it to remove the provider.
+5. Click the back arrow. The **Providers** row shows an icon for each provider that's on.
 
 {/* CAPTURE: id=integrations-firebase-auth-1 | state: connected project, Authentication on, Available Providers open with one provider added | show: the Email/Password, Google and Phone tiles (one with a check mark) and the note above them | crop: Settings window content area */}
 
@@ -36,7 +37,7 @@ Nowa puts the functions in `FirebaseService`, in `lib/firebase/firebase.dart`.
 | `signUpWithEmailAndPassword(email, password)` | **Email/Password** | Creates an account with that email and password. |
 | `signInWithEmailAndPassword(email, password)` | **Email/Password** | Signs in an existing user. |
 | `sendPasswordResetEmail(email)` | **Email/Password** | Sends a password reset email. |
-| `signInWithGoogle()` | **Google** | Signs in with a Google account. It opens a popup on web and uses the `google_sign_in` package on mobile. |
+| `signInWithGoogle()` | **Google** | Signs in with a Google account. It opens a popup on web and uses the `google_sign_in` package everywhere else. |
 | `verifyPhoneNumber(phoneNumber)` | **Phone** | Sends an SMS code and returns a verification ID. |
 | `signInWithPhoneNumber(verificationId, smsCode)` | **Phone** | Signs in with the verification ID and the code the user typed. |
 
@@ -51,9 +52,10 @@ In Nowa 3.12.5, `signInWithGoogle()` is generated for an older release of the `g
 Call them from an event, such as a button's **On Pressed**.
 
 1. Select the widget and click **+** next to its event to open [Circuit](../../logic/circuit.md). If the event already has logic, click **Edit**.
-2. Hover the dot under a node and click **+**. In **All nodes for this circuit**, open the **FIREBASE** category and pick a function. The category appears once Firebase is connected.
-3. Fill in the parameters with your own values, such as [variables](../../logic/variables.md) that hold what the user typed.
-4. These functions return a Future, so open **Future Options**. Use **onValue** for what happens after a successful sign-in, such as [opening the home screen](../../logic/navigation.md), and **onError** for failures.
+2. Hover the dot under a node and click **+**. The **All nodes for this circuit** menu opens.
+3. Open the **FIREBASE** category and pick a function. The category appears once Firebase is connected.
+4. Fill in the parameters with your own values, such as [variables](../../logic/variables.md) that hold what the user typed.
+5. Most of these functions return a Future. On those nodes, open **Future Options**. Use **onValue** for what happens after a successful sign-in, such as [opening the home screen](../../logic/navigation.md), and **onError** for failures.
 
 :::tip
 Prefer to describe it? Once a provider is on, ask Nowa AI in **Agent** mode, for example: "Build a sign-in screen with email and password fields that signs the user in with Firebase and opens the home screen."
@@ -72,7 +74,10 @@ Google sign-in on Android needs your app's SHA fingerprints registered in Fireba
 1. On the Firebase page, click **Setup** under **SHA Certificate Fingerprints (For Google Sign in)**.
 2. The table lists the fingerprints Firebase already has for your Android app, with their **Type**. It reads "No keys found" when there are none.
 3. Under **Release key**, click **Add** next to **SHA-1** and **SHA-256**. A check mark replaces **Add** once the key is in Firebase. This section shows up when Nowa can read your project's Android signing key. See [Publish to Google Play](../../publish/android.md).
-4. To use Google sign-in in debug builds you run from your own computer, add your debug key too. Copy the `keytool` command under **Add a key**, run it in a terminal, and copy the SHA-1 it prints. Paste it into **Enter SHA-1 or SHA-256** and click **Add Key**.
+4. To use Google sign-in in debug builds you run from your own computer, add your debug key too:
+   1. Copy the `keytool` command under **Add a key** and run it in a terminal.
+   2. Copy the SHA-1 it prints.
+   3. Paste it into **Enter SHA-1 or SHA-256** and click **Add Key**. The key appears in the table.
 5. Go back and click **Refresh/Update apps and config files** so your config files match Firebase.
 
 Paste a SHA-1 with its colons, exactly as `keytool` prints it. Nowa treats a value of exactly 59 characters as SHA-1 and anything else as SHA-256.

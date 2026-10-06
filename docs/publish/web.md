@@ -17,7 +17,7 @@ Publish your Flutter app as a website straight from Nowa. One click builds it, h
 ## Publish your app
 
 1. Click **Deploy** in the top bar, then **Deploy** on the **Web** row. Or click **Settings** → **Deployment**, open the **Web** tab and click **Publish**.
-2. Wait while Nowa works. The status moves through **Saving** and **Creating** to **Deploying**: Nowa saves your project, checks it, then builds and hosts it. **Creating** appears only the first time. Click **Cancel** to stop.
+2. Wait while Nowa works. The status moves through **Saving** and **Creating** to **Deploying**: Nowa saves your project, checks it, then builds and hosts it. **Creating** appears when Nowa first sets up your site. Click **Cancel** to stop.
 3. When it finishes, the **Your Website** card shows **Published** with the date, and your site's address below it.
 4. Click the open icon (**Open in browser**) to visit the site, or the copy icon (**Copy**) to copy the address and share it.
 
@@ -32,7 +32,7 @@ When the card shows **Expires In:**, the countdown is the time left until the si
 A red bar on the card names what went wrong, and the button changes to **Republish**.
 
 - **Analysis Failed** means the code check found errors. The Console opens on its **Logs** tab with the messages. Fix them, then publish again.
-- **Publish Failed** (or another title) means the build or hosting step failed. Click **Show Details** to read the log on the **Error in Deployment** page.
+- **Publish Failed** means the build or hosting step failed. Click **Show Details** to read the log on the **Error in Deployment** page.
 
 Click **Fix with AI** next to the bar to hand the failure to Nowa AI. It closes Settings and sends the error log to the chat, asking Nowa AI to fix the project and tell you when it's safe to republish. See [How Nowa AI works](../ai/index.md).
 
@@ -66,7 +66,7 @@ Serve your site from an address you own, such as `example.com`. Custom domains n
 
 {/* CAPTURE: id=publish-web-2 | state: signed in, paid plan, custom domain set on the live site (throwaway domain), clicked DNS | show: DNS Records page with Pending status, Verify button and the Name/Type/Value table with copy icons | crop: the DNS Records page */}
 
-You can't change the **Also www.** switch after you set the domain. To change it, or to switch domains, click the trash icon in the field (**Remove custom domain**) and start again.
+Once your domain is set, the field and the **Also www.** switch are locked. To change either, click the trash icon in the field (**Remove custom domain**) and start again.
 
 :::note
 Each project has one live site. The separate Development mode from older versions is gone, as [What's New](../new/whats-new.md) explains.

@@ -33,8 +33,8 @@ Capture requests: test-instant-play-1.
 Research: `features-code-ship.md` "Run button and Run on menu", "Embedded preview (Nowa Run / App Run)", "Add web support", "Console (Problems / Logs)"; `features-ai.md` "Fix with AI / Explain with AI", "What the agent can do"; `features-editor-shell.md` "Top bar", "Status bar", "Console (Problems and Logs)"; What's New 3.8.2, 3.9, 3.10.
 
 Code spot-checks (all matched the research unless noted):
-- **Run** split button (main part + caret) and labels **Run** / **Hide**, status-dot tooltips: `lib/project/run/run_button.dart:155-226`, `packages/nowa_ui/lib/src/components/top_bar_button.dart:10-60`; placed left of **Deploy**, replaced by **Save** in playground/guest sessions: `lib/project/top_bar.dart:328-335`.
-- **Run on** menu (header is upper-cased by `MenuSectionHeader`, so the UI shows RUN ON; the glossary writes "Run on", the page writes **Run on** and says it is shown as RUN ON): `lib/project/run/menu_widgets.dart:12-26`, `run_button.dart:411-640`; **Embedded preview** row statuses and **Hide**: `run_button.dart:577-606`; web notice "iOS & Android devices" / "Download the desktop app": `run_button.dart:625-640`.
+- **Run** split button (main part + caret) and labels **Run** / **Hide**, status-dot tooltips: `lib/project/run/run_button.dart:153-226`, `packages/nowa_ui/lib/src/components/top_bar_button.dart:10-60`; placed left of **Deploy**, replaced by **Save** in playground/guest sessions: `lib/project/top_bar.dart:328-335`.
+- **Run on** menu (header is upper-cased by `MenuSectionHeader`, so the UI shows RUN ON; the glossary writes "Run on", the page writes **Run on** and says it is shown as RUN ON): `lib/project/run/menu_widgets.dart:12-26`, `run_button.dart:423-580`; **Embedded preview** row statuses and **Hide**: `run_button.dart:588-625`; web notice "iOS & Android devices" / "Download the desktop app": `run_button.dart:641-660`.
 - <kbd>Ctrl</kbd>/<kbd>Cmd</kbd>+<kbd>P</kbd> on the board runs the embedded preview (`PlayInDesignerIntent` -> `RunAppAction`): `packages/designer/lib/src/designer_setup.dart:47,125`, `packages/nowa_run/lib/src/actions/nowa_run_actions.dart:8-12`; designer shortcuts are off while an item plays or in view-only projects (`designer_setup.dart:133-136`).
 - Opening the preview checks blockers, saves, boots if idle: `packages/nowa_run/lib/src/ui/nowa_run_overlay.dart:13-22`. The session boots in the background at project load unless a blocker exists: `packages/nowa_run/lib/src/nowa_run_plugin.dart:22-45`. Each save restarts (or retries after an error): `nowa_run_plugin.dart:60`, `nowa_run_manager.dart:84`.
 - Stage messages ("Starting app...", "This may take a few minutes...", **Start App**): `packages/nowa_run/lib/src/ui/nowa_run_preview.dart:74-130`.
@@ -59,3 +59,28 @@ Open questions:
 - Time to first start: the UI says "This may take a few minutes..." and the mobile sheet "first start can take a minute"; no number is stated on the page.
 
 Capture requests: test-run-1 (needs-sign-in).
+
+## devices.md (`docs/test/devices.md`)
+
+Research: `features-code-ship.md` "Run on devices and emulators", "Local cache (cloud projects run locally)", "Local Setup / Set up local environment", "Run button and Run on menu"; `features-account-projects.md` "Cloud projects vs Local-only projects", "Desktop app (Nowa Desktop)", "Local Setup"; What's New 3.10 ("Local Run for Cloud Projects").
+
+Code spot-checks (all matched the research unless noted):
+- Desktop only: the device list and the cache row are built only when `!kIsWeb`; the web menu shows "iOS & Android devices" / "Download the desktop app" / "Get the Nowa desktop app for macOS or Windows to run this app on real devices and emulators.": `lib/project/run/run_button.dart:459-460,547-560,641-660`. The device-run managers are registered for local projects and for cloud projects (`kLocalRunForCloud = true`): `packages/core/lib/src/plugin.dart:54-64`, `packages/core/lib/src/runner/local_run_config.dart:13`.
+- Device list labels ("Looking for devices…", "No devices connected. Plug in a device or set up an emulator." / "...start an emulator below.", "Start an emulator", row statuses), tapping a row starts the run: `lib/local_export.dart:11-200`. Emulator launch selects the new device when it appears: `packages/core/lib/src/runner/local_build_manager.dart:85-100,170-180`. Unplugging the selected device returns the run target to the embedded preview: `run_button.dart:55-69`.
+- Button states: device name label, spinner + **Cancel** while building, **Stop** / **Hot restart** (bolt) / **Run target** (caret) while running: `run_button.dart:232-325`. Saving hot reloads the device run (sends `r`), the bolt does a hot restart (`R`): `packages/core/lib/src/plugin.dart:186-199`, `packages/core/lib/src/models/local_build.dart:12-26`, `run_button.dart:124-133,311`. The comment at `plugin.dart:180-185` says themes and other top-level/global state need a hot restart, which the page paraphrases ("for example a theme change").
+- Flutter SDK check opens Local Setup: `run_button.dart:99-149`; **Local environment settings** row: `run_button.dart:559-579`. Xcode wording ("Xcode is required to build and run apps on macOS, including iOS."): `packages/core/lib/src/environment/environment_setup_dialog.dart:455-470`.
+- Cloud copy: steps "Saving project…", "Packaging project…", "Downloading project…", "Extracting project…", "Setting up platforms…", "Syncing files…": `packages/core/lib/src/runner/cloud_local_run_service.dart:130-138,236-249`; eviction after 14 days: `:60-62`; clear / show in folder / re-download, "Stop the app before clearing", status lines: `run_button.dart:667-759`; "forceFresh" is for rare changes such as a native plugin needing regenerated registration: `cloud_local_run_service.dart:104-112`.
+- Device output goes to the project log (Logs tab) and a failed run opens the **Log** panel: `packages/core/lib/src/io_utils.dart:127-142`, `run_button.dart:118-120`.
+- Device kinds listed (web, desktop, emulators): `packages/core/lib/src/environment/environment_setup_dialog.dart:632-650`. The page says "a connected phone, a running emulator, a browser or your own computer" and "whatever your Flutter SDK finds"; it does not promise a specific list.
+
+Left out and why:
+- USB debugging / "trust this computer" steps: not in Nowa's code, so not stated. The page links Android's emulator guide and Apple's simulator guide (both URLs return 200; the Apple link was in the old simulator page).
+- Which platform folders cloud projects get ("Setting up platforms…") and whether Windows/Linux desktop targets work: `features-code-ship.md` open question, not claimed.
+- The old claim "only local projects can run on devices" is wrong since 3.10 (corrected).
+- Plan/entitlement needed for the desktop app (`lib/router.dart:76-82`): not mentioned here (D3), the desktop-app page owns it.
+- iOS device signing and provisioning: nothing in the code, not mentioned.
+
+Open questions:
+- Same as `features-code-ship.md`: do Windows/Linux desktop run targets work for projects without those platform folders? Not mentioned.
+
+Capture requests: test-devices-1 (needs-sign-in; also needs the desktop app).

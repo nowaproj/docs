@@ -35,7 +35,7 @@ When you turn it on, Nowa also:
 
 {/* CAPTURE: id=integrations-revenuecat-1 | state: playground starter open, a screen on the board, RevenueCat Paywall added from the widget picker | show: the placeholder card labeled RevenueCat Paywall / Run to preview inside a screen | crop: the screen on the board */}
 
-The real paywall appears only in a running app on a simulator, emulator or device. In **Play**, the widget shows "Run on a simulator/emulator or mobile device to preview". See [Run on a device or emulator](../test/devices.md).
+The real paywall appears only in a running app on a simulator, emulator or device. In **Play**, the widget shows "Run on a simulator/emulator or mobile device to preview". Running on a device needs the desktop app: see [Run on a device or emulator](../test/devices.md).
 
 ## Call RevenueCat from logic
 

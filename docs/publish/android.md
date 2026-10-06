@@ -22,7 +22,7 @@ Debug builds are for quick tests. They are unsigned, so you can build one withou
 1. Click **Settings** → **Deployment** and open the **Android** tab.
 2. Turn on **Debug mode**. Its note reads "Unsigned builds for quick testing on devices. Turn off for store-ready release builds."
 3. Pick a **Branch** and click **Build**. [Build history and logs](./builds.md) explains the build card.
-4. When the build finishes, click the `.apk` file under **Artifacts** to download it, then install it on an Android device.
+4. When the build finishes, open **Latest Build**, click the `.apk` file under **Artifacts** to download it, then install it on an Android device.
 
 You can also click **Deploy** in the top bar, then **Deploy** on the **Android Debug** row. To test without a cloud build, [run your app](../test/run.md) instead.
 
@@ -47,7 +47,7 @@ If you lose this key, you can't release new updates for your app. Download it, s
 
 Once a key is saved, the icon turns into a check mark (hover to read **Signing key saved**), and the card shows these controls:
 
-- **SHA-1** and **SHA-256**: the key's fingerprints, each with a copy button. Services such as Google Sign-In ask for them. With Firebase, add them as described in [Sign users in with Firebase](../integrations/firebase/auth.md). If Google Play re-signs your app with its own key (Play App Signing), also add the fingerprints that [Play Console shows](https://support.google.com/googleplay/android-developer/answer/9842756).
+- **SHA-1** and **SHA-256**: the key's fingerprints, each with a copy button. Services such as Google Sign-In ask for them. With Firebase, Nowa can add them for you: see [Add SHA fingerprints for Google sign-in on Android](../integrations/firebase/auth.md#sha-fingerprints). If Google Play re-signs your app with its own key (Play App Signing), also add the fingerprints that [Play Console shows](https://support.google.com/googleplay/android-developer/answer/9842756).
 - The download icon (**Download Signing Key**) saves the zip again.
 - **Remove** asks "Are you sure?" before it deletes the key.
 

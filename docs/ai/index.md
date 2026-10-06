@@ -5,7 +5,7 @@ sidebar_label: How it works
 keywords: [Nowa AI, AI assistant, AI agent, AI chat, prompt, vibe coding, build an app with AI, design mode, plan mode, agent mode, think mode, AI credits, AI usage]
 ---
 
-Nowa AI is an agent that works inside your project. Tell it what you want in plain words, and it designs screens, writes logic, adds packages and images, and fixes errors, while you watch every step and fine-tune the result on the board.
+Tell Nowa AI what you want in plain words, and it designs screens, writes logic, adds packages and images, and fixes errors while you watch every step and fine-tune the result on the board. It is a full agent that works inside your real project and writes real Flutter code that you own.
 
 ## Open the AI Assistant
 
@@ -25,7 +25,7 @@ You can try the editor in the [playground](../get-started/playground.md) without
 
 ## What Nowa AI can do
 
-Ask in plain language. The agent decides which steps to take, and each one shows up in the conversation.
+Ask in plain language. The agent decides which steps to take, and each one shows up in the conversation. **Agent** mode can do all of this. **Design** and **Plan** use only part of it.
 
 | Area | What it does |
 |---|---|
@@ -34,7 +34,7 @@ Ask in plain language. The agent decides which steps to take, and each one shows
 | Change what you selected | Edits the exact widget you selected on the board. |
 | Edit other files | Changes files such as `pubspec.yaml` and platform files, and creates new ones. |
 | Check its work | Reads the problems Nowa finds, runs a code analysis, and reads the logs of your running app (run the app first). |
-| Packages | Adds or removes pub.dev packages. This needs the **load packages** experimental setting, which is on in new projects. |
+| Packages | Adds or removes pub.dev packages. This needs the **load packages** experimental setting, which is on in new projects. See [Add packages](../code/packages.md). |
 | APIs | Builds an API request from a cURL command, tests it and creates the response models. |
 | Fonts and images | Downloads a Google Fonts family into your project. Saves an image you attached to your assets. |
 | Backend and design files | With a connector turned on, works on your Supabase backend or brings in Figma images, icons, colors and text styles. See [Connect Figma and Supabase to Nowa AI](connectors.md). |
@@ -67,7 +67,7 @@ Nowa saves your project automatically when a request finishes.
 
 - **Dashboard**: describe an app in **What do you want to build?** and click **Build it**. Nowa creates the project and starts the AI. See [Build your first app](../get-started/first-app.md).
 - **Errors**: **Fix with AI** appears when the embedded preview can't start or a web deployment fails, and **Explain with AI** appears on a failed build step. Each sends the error log to the chat. See [Run your app](../test/run.md) and [Build history and logs](../publish/builds.md).
-- **Supabase backend setup**: when a template's backend is ready, **Connect app with AI** opens the assistant with a ready-made prompt. If setup stopped, the button is **Fix with AI**. See [Manage your Supabase backend](../integrations/supabase/backend.md).
+- **Supabase backend setup**: when a template's backend is ready, **Connect app with AI** opens the assistant, turns on the Supabase connector and sends a ready-made prompt. If setup stopped, the button is **Fix with AI**. See [Manage your Supabase backend](../integrations/supabase/backend.md).
 - **Your phone**: the mobile layout has its own AI chat. See [Use Nowa on your phone](../get-started/mobile.md).
 - **Your own agent**: Claude Code, Claude Desktop and Cursor can build in Nowa too. See [Connect your own AI agent](external-agent.md).
 

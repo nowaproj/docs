@@ -11,10 +11,10 @@ An event is a property that starts logic when something happens in your app: a t
 
 1. Select a widget on the board, for example a button.
 2. In **Details**, find the event. A button's **On Pressed** is in its **Button** section.
-3. Click **+** next to the event. Nowa creates an empty function for it and opens it in [Circuit](circuit.md).
+3. Click the button next to the event. If it reads **+**, Nowa creates an empty function for the event first. If it reads **Edit** (with a bolt), the event already has a function. Either way, [Circuit](circuit.md) opens.
 4. Add the steps you want, then close Circuit with **×**.
 
-The event now shows a bolt button, **Edit**. Click it any time to reopen the logic.
+A new button already has an empty function for **On Pressed**, so it reads **Edit** from the start. Click **Edit** any time to reopen the logic.
 
 {/* CAPTURE: id=logic-events-1 | state: playground starter open, the Button selected on the board | show: Details scrolled to the Button section with the Enabled switch and the On Pressed row showing the Edit (bolt) button | crop: right-hand Details panel */}
 
@@ -22,13 +22,13 @@ The orange node at the top of the circuit is the function Nowa made for the even
 
 ## Example: show a message when a button is tapped
 
-1. Select the button. In **Details**, click **+** next to **On Pressed**. Circuit opens.
+1. Select the button. In **Details**, click the button next to **On Pressed**. Circuit opens.
 2. Hover the dot under the orange node and click the **+** that appears. The **All nodes for this circuit** menu opens.
 3. Search for `snack`, or open **GLOBALS**, and click **Show snackbar**. A node is added.
 4. In **Details**, click the brush next to **Content** and change the text, which starts as "Hello World". For example, write `Saved!`.
 5. Close Circuit. Click **Play** in the screen's title bar and tap the button. The message appears at the bottom of the screen.
 
-{/* CAPTURE: id=logic-events-2 | state: playground starter open, Button selected, On Pressed showing + | show: click + next to On Pressed, add GLOBALS → Show snackbar, change its Content text, close Circuit, click Play on the screen title, tap the button and see the snackbar (about 15 s, no audio) | crop: whole editor */}
+{/* CAPTURE: id=logic-events-2 | state: playground starter open, Button selected, On Pressed showing Edit | show: click Edit next to On Pressed, add GLOBALS → Show snackbar, change its Content text, close Circuit, click Play on the screen title, tap the button and see the snackbar (about 15 s, no audio) | crop: whole editor */}
 
 To learn more about **Play**, see [Play your app on the board](../test/instant-play.md).
 
@@ -42,7 +42,7 @@ Each widget lists its own events in **Details**, named after what they do:
 
 ## Turn a button on or off
 
-Buttons also have an **Enabled** switch in **Details**. If the button already has logic, you can't switch it off: Nowa says "Disabling button will remove your function, use compute instead".
+Buttons also have an **Enabled** switch in **Details**. Switch it off to disable the button. If its logic already has steps, Nowa won't let you and says "Disabling button will remove your function, use compute instead".
 
 Click **Compute** next to the switch and link a true or false variable. The button then works only while that value is true. Click the detach icon to unlink it.
 

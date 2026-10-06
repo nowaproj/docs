@@ -76,3 +76,79 @@ Open questions:
 - In the playground the **Git** icon is absent, so the numbers after **Search** may differ there; the page does not give playground numbers.
 - Status bar: the warning and info counts are log counts, not Problems (research); the page says only "counts of errors, warnings and info messages".
 - The `<>` code-mode toggle has no tooltip in the code, so the page calls it `<>`.
+
+## docs/get-started/cloud-and-local.md
+
+Research: features-account-projects "Cloud projects vs Local-only projects", "On this device", "Project menu (⋮)", "New project (dialog)", "Project Sync", "Import project", "Clone from GitHub"; features-code-ship "Git panel", "Hybrid approach", "Run on devices and emulators", "Local cache", "Embedded preview", "Share Preview", "Code download", "Project Sync (deploying a local project)".
+
+Code checked directly:
+- Deploy hidden for local projects: `lib/project/run/deploy_button.dart:21`.
+- "Share preview is not available on local projects" + **Sync to cloud** (`SyncNotice`): `packages/designer/lib/src/play_mode/play_mode.dart:44-55`, `packages/core/lib/src/settings/project_sync_settings.dart:482-545`.
+- Code download button only for cloud (local shows "Code"/Open in VS Code): `lib/project/download_code_button.dart:27-37`.
+- **On this device** / **LOCAL-ONLY** / "Opted out of the cloud — no Cloud Build, sharing or backups.": `packages/nowa_ui/lib/dashboard/projects_view.dart:495-522`; **Cloud**/**Local** badge only in list rows: `packages/nowa_ui/lib/dashboard/projects_grid.dart:160-178,226-258`.
+- Local-only option in New project (**Advanced** → **Local-only project**, "Stored only on this device. No Cloud Build or backups."), footer help "Your project lives in the cloud — run it on simulators and devices anytime.": `lib/dashboard/create_new_project/new_project_dialog.dart:248-285`, `creation_dialog_widgets.dart:38,92,129-136`.
+- Delete semantics (Delete erases the folder unless the project sits inside a larger Git repository, then only **Remove**): `lib/dashboard/dashboard_page.dart:253-300`, `packages/core/lib/src/providers/projects_view_provider.dart:278-289`.
+- Import project is desktop-only (cloud or local); Clone from GitHub can be cloud or **Local-only**: research `import_project_dialog.dart`, `github_clone_dialog.dart`.
+
+Assumptions / open questions:
+- "Download a zip from code mode (depends on your plan)": the code gates it with the `codeDownload` entitlement ("Time to level up"); the plan is not named in code, so the page only says "depends on your plan".
+- Git row: both project types need the plan with Git support (`github` entitlement); the page leaves the plan out and relies on the Git page.
+- Did not state any claim about offline use (old docs said "offline mode"; not verified in code).
+- Badge table lists the seven badges the site component supports (`src/components/Badge/index.js`).
+
+## docs/get-started/desktop-app.md
+
+Research: features-account-projects "Download Desktop App → Download Nowa", "Desktop app (Nowa Desktop)", "Local Setup", "Update prompts and Version out of date", "Dashboard"; features-code-ship "Local Setup / Set up local environment", "Run button and Run on menu". Old page used only for the Flutter-SDK / Xcode flow (`old-docs/local-project-simulator/createlocalproject.md`); every label re-checked in code.
+
+Code checked directly:
+- **Download Desktop App** (web only) and the **Download Nowa** dialog (**MacOS**, **Windows**, "Download Nowa version: …", "No download available at the moment"): `packages/nowa_ui/lib/dashboard/dashboard_side_bar.dart:181-186`, `packages/core/lib/src/dialogs/download_nowa_dialog.dart:7-79`. Installer for macOS is a DMG (`.github/workflows/macos-build.yml:166-217`), Windows has an Inno Setup installer (`installer.iss`); the page only says "open the downloaded installer".
+- Desktop access check after sign-in, `/upgrade` page text "Upgrade to unlock desktop version, or use on web at app.nowa.dev" and embedded billing page: `lib/router.dart:76-82`, `lib/upgrade_page.dart:8-71`. The code does not say which plans include desktop access (the code comment says "Has to be paid for the desktop version"; What's New 3.0.1 says "available for all plans"). The page only states the check and links to pricing (D3).
+- Update flow strings (**Update to v…**, **Install & Restart**, **Later**, **Skip**, **Or download manually**, **Update failed**…): `lib/dashboard/overlays/update_overlay.dart:116-255`. Required update screen ("Version out of date", **Download**): `lib/update_required_screen.dart:27-70`.
+- **Local Setup** tab (**Account Settings** / **Editor Settings** groups; page header "Environment"; **Automatic setup**, **Set up automatically**, **Update Flutter SDK**, "Flutter SDK is outdated", **Flutter SDK Path**, **Default Projects Path**, **VS code Path**, "Invalid Flutter SDK path", help link to the `#setting-up-flutter-sdk` anchor): `packages/core/lib/src/settings/account_editor_settings/account_editor_settings.dart:19-35,130-160`, `packages/core/lib/src/settings/editor_settings/local_setup.dart:63-236`. `isFlutterSdkPath` needs `bin/flutter` (`flutter.bat` on Windows): `packages/core/lib/flutter_tool.dart:15-18`.
+- **Browse** button on path fields: `packages/core/lib/src/fields/path_field.dart:131-136`.
+- Setup dialog ("Set up local environment", steps **Flutter** / **Verify** / **Android**, "Download the Flutter SDK (~1 GB)…", "Xcode must be installed on macOS before setting up Flutter.", help text for Xcode with link to `#macos-install-xcode`, "Install location" / "about 10 GB. The path must not contain spaces.", consent text, **Install** / **Try again** / **Reinstall** / **Update**, **Re-run checks**, **Skip for now** / **Done**, tool rows **Flutter**, **Android toolchain**, **Android emulator**, status "Ready"): `packages/core/lib/src/environment/environment_setup_dialog.dart:313,396-560,715-730,760-960`, `packages/core/lib/src/environment/tool_check.dart:1-11`.
+- Entry points into Local Setup (**Setup flutter SDK** in New project, **Fix** in Clone from GitHub, **Local environment settings** in the **Run** menu): research `new_project_dialog.dart:230-238`, `github_clone_dialog.dart`, `lib/project/run/run_button.dart:134-149`.
+- On this device section only renders when at least one local project exists: `packages/nowa_ui/lib/dashboard/projects_view.dart:138-150`.
+
+Anchors kept: `{#setting-up-flutter-sdk}` on "Set up Flutter" (H2) and `{#macos-install-xcode}` on "macOS: install Xcode first" (H3), both used by in-app links (`local_setup.dart:189`, `environment_setup_dialog.dart:470`). The app links to `/local-project-simulator/createlocalproject#...`: the orchestrator must redirect that path to `/get-started/desktop-app` and keep the hash (D13).
+
+Left out / open questions:
+- Linux: the code supports local projects on Linux and dev hides a Linux download; no Linux button in 3.12.5, so the page says macOS and Windows only.
+- Which plans include desktop access (see above). The old docs' "no premium plan required" was not carried over.
+- The old page's quoted Xcode error ("xcode-select: No developer tools were found") is not a string in the product code; not quoted.
+- Android toolchain/emulator sizes (~0.7 GB / ~1.5 GB) not stated; only the Flutter (~1 GB) and install location (~10 GB) figures that the dialog shows.
+
+## docs/get-started/playground.md
+
+Research: features-account-projects "Playground (`/playground`)", "Starting-point picker (Playgrounds / Templates)", "Save / Save to keep changes → Save your app", "Public projects opened as a guest"; features-ai "AI Assistant" (playground sign-in gate), "Restore Checkpoint" (not in the playground); features-editor-shell "Settings". Screenshots viewed: `captures/ui-map/01`, `13`, `15`.
+
+Code checked directly:
+- Route without auth gate: `lib/router.dart:266-276`; page and storage: `lib/playground/playground_page.dart:9-35`, `packages/core/lib/src/playground/playground_manager.dart:10-67` (stored on each save via `onSave`, cap 3 MB encoded, so very large playgrounds are not kept; `reseed` drops the stored app).
+- Starting-point chip (**Playgrounds**: **Starter app** "Routing, theme and a home page", **Simple app** "A single page, no routing", **Empty app** "A blank canvas for the assistant to fill"; **Templates** with "No templates to show"; footer **See all projects** disabled; "Discard this app?" / **Discard** / **Cancel**, only asked when something is stored or changed): `lib/sandbox/sandbox_picker.dart:20-128`, `packages/core/lib/src/playground/playground_starter.dart:8-23`. Templates = first 5 sample apps that have a source project.
+- Save button label **Save** (playground never shows "Save to keep changes", because `PlaygroundManager` doesn't override `hasChanges`; guests do): `lib/sandbox/sandbox_save.dart:11-56`, `packages/core/lib/src/project/sandbox_session.dart:26`, `packages/core/lib/src/guest/guest_manager.dart:20`.
+- Save flow (sign-in dialog, **Save your app** / "Keep this app in your Nowa account.", workspace chip with **Personal** first, name hint "My awesome app", **Cancel** / **Save**, conversation claimed into the new project, "Could not save the project: …"): `lib/auth/save_prompts.dart:21-233`, `lib/sandbox/sandbox_save.dart:95-131`. Name validation: `validateAppName` (research: `packages/core/lib/src/file_system/naming.dart:176-266`).
+- AI needs an account in sandbox sessions: `packages/ai/lib/src/chat_session.dart:257-265`.
+- Sandboxed projects hide Git icon, Deployment / Permissions / Git / Project Sync settings, Sharing section, and have no Nowa Run: `lib/project/side_bar.dart:55-61`, `packages/core/lib/src/settings/project_settings.dart:21-31`, `packages/core/lib/src/settings/project_detail_settings.dart:87`, `packages/nowa_run/lib/src/nowa_run_plugin.dart:12`. Guests: public project not owned by you is promoted to guest, anonymous visitors included: `packages/core/lib/src/models/project.dart:148-162`, `packages/core/lib/src/providers/project_provider.dart:962-979`, `lib/router.dart:116-135`.
+
+Open questions:
+- **Share preview** in the playground's Play bar is not explicitly gated in code (`packages/designer/lib/src/play_mode/play_mode.dart:46-65`), but the playground project has no backend id, so the link probably doesn't work. The page does not mention it. Needs a test in the product.
+- The page says "A guest copy has the same limits as the playground" (`isSandboxed` covers both).
+- Whether there is a browser "leave page?" warning for unsaved guest edits was not found in code; the page only says edits are lost when you close the tab.
+- Google sign-in from the dialog can leave the page; `returnTo` brings you back to `/playground` and the work is restored from browser storage (comment in `lib/sandbox/sandbox_save.dart:84-93`).
+
+## docs/get-started/mobile.md
+
+Research: features-editor-shell "Mobile layout (phone browsers and the iOS/Android app)"; features-ai "AI chat in the phone browser (mobile layout)"; features-code-ship "Mobile browser Build and Run pages"; positioning.md (Nowa GO is private beta, don't document).
+
+Code checked directly:
+- Mobile shell condition: native iOS/Android or web viewport narrower than 840 px (`windowSize.index < expanded.index`, `Breakpoints.expanded = 840`): `packages/nowa_ui/lib/src/globals/responsive_utils.dart:40-68`, `lib/project/project_page.dart:103-107`.
+- Top row (back arrow to `/`, `MobileLogStatus` pill = green check or error count, `MobileBuildStatusChip` **Build** / progress chip, **Play**, **More** with **View code** (iOS/Android app only) and **Support**): `lib/project/nowago/mobile_view.dart:19-61,318-366`, `lib/project/nowago/mobile_log_status.dart`, `lib/project/nowago/mobile_build_status.dart:111-190`.
+- **Play your app** sheet (**Instant preview** / `SIMULATED`, **Run real app** / `REAL APP` or `LIVE`, texts "A design preview that opens instantly. Great for checking layout and flows.", "…first start can take a minute."): `lib/project/nowago/mobile_view.dart:63-128`. Floating edit button → **Stop** / **Restart** / **Share preview**: `mobile_view.dart:391-466`. **Real app** page (statuses "Starting real app…", "Live — your app is ready", **Launch App**, **Hot Restart**, **Stop**, **Start**, "This may take a minute... Please wait."): `lib/project/nowago/mobile_run_page.dart:62-215`.
+- Build page ("Build <project>", tabs **Android** / **iOS** / **Web** reuse the Deployment tabs): `lib/project/nowago/mobile_build_page.dart:59-96`.
+- Screens list (**Search project...**, **All** / **Pages** / **Components**, carousel/list toggle, tap = attach/detach, long-press = **Play alone** / **Attach to chat** / **Rename** / **Delete**): `lib/project/panels/widgets_panel/widgets_panel.dart:277-347,418-438`, `lib/project/project_dashboard.dart:49-149`.
+- AI pill hints, chips (**Mode**, **Model**, **Attach** → **Image** / **Components**, **Supabase**, **History**, **⋯** → **Custom Instructions** / **New Session**), voice button: `lib/project/nowago/sheet_panel.dart:248-310,360-381`, `lib/project/nowago/sheet_panel/chips.dart:133,339,410,459,521`. The **Model** sheet lists the selectable agents (thinking levels).
+
+Assumptions / open questions:
+- One sentence says the iOS and Android app uses the same layout and is in private beta. Source: What's New 3.10.5 ("Nowa GO — our dedicated Android and iOS app is still in private beta"). pages.md asks to mention the iOS/Android app, positioning.md says not to document Nowa GO; I kept it to that one clause. Orchestrator may remove it.
+- The credits/usage chip and starter chips of the pill are not described (internal detail, conditional).
+- Local projects can't be opened in the phone layout (desktop app only); the page doesn't say so explicitly.

@@ -134,3 +134,56 @@ Assumptions / open questions:
 - Whether **Generate** creates the certificate in the Apple account immediately or at build time is server-side. The page avoids saying when.
 - Which exact key format users with an existing certificate have is unclear (see product-issue candidate in General); the page says only that Nowa reads the file as text.
 - "builds and signs ... in the cloud, so you don't build on your own computer": cloud builds on Apple hardware (`instance_type: mac_mini_m1`).
+
+## docs/publish/builds.md (Build history and logs)
+
+Research: features-code-ship.md "Build history and build details", "Android builds", "iOS builds", "Deploy button and menu"; features-ai.md "Fix with AI / Explain with AI".
+
+Key claims and refs:
+- **Start New Build** card: **Branch** dropdown or **Init Repository** (`gitManager.initRepo()`), info line "Starting a build will commit all changes to the selected branch.", **Build**, hover hints ("Finish the workflow configuration above", "A build is already running", "Select a branch to build from", "Loading the workflow status…"), error hint "Missing configuration. Check your workflow settings above", quota dialog (**Time to level up**, "Your build quota has been used up. Please upgrade your plan to continue using this feature."): `packages/core/lib/src/cloud_build_v2/ui/workflow_details_page.dart:337-496` (quota check `:358-370`, reasons `:373-379`). Branch menu locked while a build is active: `:436-438`.
+- Deploy menu path builds the checked-out branch; no repo gives the "Connect a repository in settings to deploy to the app stores." text; **Cancel** on the row: `lib/project/run/deploy_button.dart:166-184,240-249,276-281`. New cloud projects normally get a repo at creation (`lib/project/project_page.dart:333`, `packages/git_nowa/lib/src/git_manager.dart:209-227`); not mentioned on the page.
+- Statuses (Queued, Initializing, Preparing, Fetching, Building, Testing, Publishing, Finishing, Finished, Failed, Canceled, Skipped, Timeout): `packages/core/lib/src/cloud_build_v2/models/build_models.dart:145-181` (the research list missed Initializing). Polling every 5 s: `workflow_manager.dart:190-225`. Order of statuses is not promised on the page.
+- **Active Build** (spinner, status text, **Cancel**) / **Latest Build** (collapsible; **Build Info**: ID, Status, Branch, Started, Duration only when finished; **Artifacts**; **Steps**): `.../ui/current_build_card.dart:16-316`. Artifact click opens `shortLivedDownloadUrl` externally: `:318-343`.
+- Steps: icons per status, duration, click to load logs ("No logs available" fallback), failed steps show **Explain with AI** (and **Documentation** for the step named `iOS code signing`); prompt uses the tail of the log (`truncateLogForAi`, 4000 chars, number not stated on the page): `current_build_card.dart:384-516`, `packages/core/lib/src/widgets/fix_with_ai_button.dart:9-43`.
+- **History**: newest first (`lastBuild = buildHistory.firstOrNull`, `workflow_manager.dart:128`), relative times (`formatDateTime`), "No builds yet", pagination "<page> of <pages>", row opens **Build Details** page: `workflow_details_page.dart:114-335`; `.../ui/build_details_page.dart:7-50`.
+- `codemagic.yaml` and **Reset to default** banner (shown when the yaml file has an error): `packages/core/lib/src/widgets/code_editor/nowa_code_editor.dart:273-293`, `codemagic_file.dart:5-9`.
+
+Assumptions / open questions:
+- "Download links are short-lived, open the build again from History for a fresh link": inferred from the field name `shortLivedDownloadUrl` and the fact that opening **Build Details** reloads the details (`current_build_card.dart:121-135`).
+- "Builds run ... from your project's Git repository" and the `codemagic.yaml` sentence are inferred from the branch/commit UI, the workflow ids matching the yaml keys, and the "Reset to default" banner. The client repo never creates `codemagic.yaml` (server-side?), hence "If your project has a `codemagic.yaml` file".
+- The mobile **Deploy** menu path does not run the quota check in the client (`deploy_button.dart:166-184`); only the **Build** button does (`workflow_details_page.dart:358-370`). Server may still refuse. Not documented.
+
+## docs/publish/download-code.md (Download your code)
+
+Research: features-code-ship.md "Code download".
+
+Key claims and refs:
+- Button location: code mode tab bar (`CodePanel`), tooltip **Code download** with download icon for cloud projects; local projects get **Open in VS Code** there: `lib/project/panels/vibe_designer.dart:46-81`, `lib/project/download_code_button.dart:8-59`.
+- Popup: "Compress to get the latest code download.", **Compress Project**, "Compressing...", "Compress your project to download it", zip row (name truncated past 20 chars, local date/time), download icon: `download_code_button.dart:144-257`. Compress saves the project first (`gProject.save()`, `:96`) then calls the service.
+- Plan check runs only on compress (`_checkCanDownloadPlan`, `:130-142`): grant missing, or `remainingAmount <= 0` without an unlimited limit, shows `PaymentDialog` (**Time to level up**, default text "Looks like you used all your available usage for this feature. Upgrade your plan to unlock more power", **Upgrade**): `packages/core/lib/src/widgets/nowa_dialogs.dart:89-138`. Entitlement key `code_download`: `packages/core/lib/src/billing/entitlement_keys.dart:4`. No "paid plans" wording, so no Paid badge; only the Cloud badge.
+- Download: web -> `launchUrl` of `/projects/download/<id>`; desktop -> `FilePicker.saveFile(dialogTitle: 'Save project')`, writes file, opens the folder, snackbar "Project downloaded successfully to <path>": `download_code_button.dart:110-128`, `packages/core/lib/src/services/project_service.dart:142-173`.
+- Errors during compress show a red snackbar with the error text (`:100-104`), not documented.
+- The Flutter-project/editor/Flutter-install paragraph is generic Flutter knowledge (new projects have `pubspec.yaml` with `version: 1.0.0+1`, `packages/core/lib/src/file_system/templates/common/pubspec_template.dart:12-37`).
+
+Assumptions / open questions:
+- Archive format is not named in the client; the zip icon (`Icons.folder_zip_outlined`, `:217`) and the research say zip, so the page says "zip". What exactly the zip contains (e.g. `.git`, `.nowa/` files) is server-side and not stated.
+- Web app: after clicking the zip row the spinner never resets until the popup closes (product-issue candidate in General).
+- `kLocalRunForCloud` internals (the same compress/download endpoints feed the local cache) are not user-facing and not mentioned.
+
+## Coverage notes (whole batch)
+
+- Every item in the six "Must cover" lists is on a page. Mapping: Deploy menu + checklist + Project Sync = index; Web tab, update, deactivate, download, Custom Domain, errors = web; Debug/Release, signing key (generate, own key, download), SHA, Build, artifacts, Google Play handoff = android; Distribution Certificate, App Store Connect key, Build, TestFlight/App Store handoff = ios; **Start New Build**, Latest/Active Build, steps, artifacts, **Explain with AI**, failed steps = builds; code download, plan gate, local = download-code.
+- Added although not listed in pages.md: **Init Repository** and the no-repo message; build-quota dialog; **Cancel** a build/publish; **Remove** for signing key and certificate; **Change credentials** pencil and the Bundle Identifier re-save rule; **Download Certificate**; status/button tables for the Deploy menu; `codemagic.yaml` + **Reset to default**; mobile-browser **Build** chip pointer; per-platform behavior of **Download Files** and code download.
+- Not documented (reason): Launch Benefits row (promo); mobile-browser Run page (W1 `get-started/mobile.md` / W7 own it); macOS deployment tab (`kDebugMode`, `deployment_settings.dart:54,126,138`); dead `CloudBuildV2Page`/`WorkflowCard`; `Unavailable` wording of **Premium** on the native iOS/Android Nowa apps (`nowa_dialogs.dart:177`); Web Development environment (removed).
+- Anchors: `index.md#app-details` (explicit id, linked from android/ios), `ios.md#apple-distribution-certificate` (required by the app, `current_build_card.dart:525`). In-app links to redirect (for the redirects agent): `/deployment` -> `/publish`, `/deployment/web-deploy` -> `/publish/web`, `/deployment/android-deploy` -> `/publish/android`, `/deployment/ios-deploy` (+ `#apple-distribution-certificate`) -> `/publish/ios`, and old `/deployment/share` -> `/test/share` (W7). Note `deployment_settings.dart:94` still opens `https://docs.nowa.dev/deployment` for the Web tab and `project_sync_settings.dart:539` opens `/git/intro-git`.
+
+## Open questions (summary for the verifier / orchestrator)
+
+1. Android Release artifacts: page says `.aab` + `.apk` (default yaml). Does the server's yaml match? Does Debug list only an `.apk`?
+2. iOS: is the `.ipa` always uploaded to App Store Connect (default yaml `publishing: app_store_connect`), and never auto-submitted to TestFlight groups or review?
+3. Does the build number need a manual bump? (`flutter build ipa/appbundle` get no `--build-number`; step titles still say "automatic versioning".) The pages tell users to raise **Build number** themselves.
+4. Web **Expires In:** which sites get an expiry? Page only describes the countdown.
+5. After **Deactivate**, does a later **Publish** keep the same address and custom domain? Page makes no promise.
+6. There is no UI to remove a custom domain that is still **Pending** (trash icon needs a verified domain). Product gap or intended?
+7. What key format do users with an existing Apple distribution certificate need to upload (client reads UTF-8 text but filters `.p12`)? Page only says "Nowa reads this file as plain text".
+8. External links not fetched: see General (Google Play Help 9859152, 9859348, 9842756; Apple creating-API-keys doc).

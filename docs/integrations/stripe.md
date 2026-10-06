@@ -100,7 +100,7 @@ You can click **Deploy Configuration** again after any change, for example to ad
 3. In **Details**, set `recordId` to the item's ID (a value from your **ID Field** column), or `priceId` to your Stripe Price ID for `subscribe`.
 4. Under **Future Options**, add logic to **onValue** for a successful payment and to **onError** for a failed one.
 
-Stripe's payment sheet opens in your app. Test on a device or emulator ([Run on a device or emulator](../test/devices.md)) with Stripe's [test cards](https://docs.stripe.com/testing) while your keys are in test mode.
+Stripe's payment sheet opens in your app. Test it on a device or emulator with Stripe's [test cards](https://docs.stripe.com/testing) while your keys are in test mode. Running on a device needs the desktop app: see [Run on a device or emulator](../test/devices.md).
 
 :::tip[Or ask Nowa AI]
 After you deploy, ask the agent to wire the button, for example: "When the user taps Buy, charge the selected product with StripePaymentService.processPayment and show a snackbar when it succeeds."

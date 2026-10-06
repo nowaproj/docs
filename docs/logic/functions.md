@@ -27,7 +27,7 @@ A parameter is a value the function receives. The return value is what it hands 
 2. Click the parameter. Set **Name** to `celsius` and **Type** to `double`.
 3. Set **Return Type** to `double`.
 4. Click the dot under the top node and choose **Add Return**.
-5. Select the Return node. In **Details**, click the **Return** label, choose **Custom Expression...**, type `celsius * 1.8 + 32` and press <kbd>Enter</kbd>.
+5. With the Return node selected, click the **Return** label in **Details**, choose **Custom Expression...**, type `celsius * 1.8 + 32` and press <kbd>Enter</kbd>. Click the back arrow to close the dialog.
 
 Nodes in the function find `celsius` under **LOCALS**. See [Expressions and conditions](expressions.md) for more ways to set a value.
 
@@ -38,14 +38,14 @@ Nodes in the function find `celsius` under **LOCALS**. See [Expressions and cond
 
 A screen's or component's functions are available only inside that screen or component. To share a function across your app, put it in a global state: [Share data across your app](global-state.md).
 
-## Run logic when a screen opens or closes
+## Run logic when a screen opens or closes {#lifecycle}
 
 Screens and components have two built-in moments you can add steps to:
 
 - **InitState Function** runs once when the screen or component opens. Use it to load data or start a timer.
 - **Dispose Function** runs once when it closes. Use it to clean up, such as stopping a timer you started.
 
-1. Hover **Functions** and click **+**. The menu lists **Add Function**, **InitState Function** and **Dispose Function**. Each of the last two appears until you add it.
+1. Hover **Functions** and click **+**. The menu lists **Add Function**, **InitState Function** and **Dispose Function**. The last two leave the menu once you've added them.
 2. Choose **InitState Function** or **Dispose Function**, select it and click **Edit**.
 3. Circuit shows one node named `initState` or `dispose`. Keep it as the first step and add your own steps below it.
 

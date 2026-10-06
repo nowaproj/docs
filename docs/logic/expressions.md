@@ -25,7 +25,7 @@ The menu also has these items:
 | Item | What it does |
 |---|---|
 | **Custom Expression...** | Lets you type a formula. See [below](#custom-expression). |
-| **Detach...** | Breaks the link. The property keeps the value it had. Shown when the property is linked. |
+| **Detach...** | Breaks the link and puts the current value in its place. Shown when the property is linked. |
 | **Create Param...** | Makes a new parameter of the right type and links it. Inside a function it's a function parameter, otherwise a screen or component param. See [Pass data with parameters](parameters.md). |
 | **Create Variable...** | Makes a new variable of the right type, starting with the property's current value, and links it. |
 | **Compute...** | Makes a function that works out the value. See [below](#compute). |
@@ -46,7 +46,7 @@ After a linked value, click **+** to use something from it: a field of a model (
 
 ## Choose between two values {#conditional}
 
-A **Conditional** picks one of two values depending on a true or false value. It works for a text that reads "Online" or "Offline", a color that changes with a variable, and anything else.
+A **Conditional** picks one of two values depending on a true or false value. Use it for a text that reads "Online" or "Offline", or a color that changes with a variable.
 
 1. Click the property's label, open **EXPRESSIONS** and click **Conditional**. The **Conditional Expression** popup opens.
 2. Click **condition** and link a true or false value, such as a `bool` variable.
@@ -98,7 +98,7 @@ The **Visibility** wrapper shows or hides a widget from a true or false value.
 3. Optional: set **Replacement** to a widget to show while the first one is hidden.
 4. In your logic, change the variable and add **refresh**.
 
-See [Wrappers](../reference/wrappers.md) for the others.
+See [Wrappers](../reference/wrappers.md) for the full list of wrappers.
 
 ## Reset a property
 

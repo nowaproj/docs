@@ -20,9 +20,11 @@ Two icons sit in the chat field next to **+**: the Supabase icon and the Figma i
 Before you start, sign in to Nowa. Nowa AI reaches your Supabase project through Supabase's own MCP server, with your authorization.
 
 1. Click the Supabase icon in the chat field.
-2. If the project isn't connected to Supabase yet, authorize Nowa in the browser window that opens. Then click **Select** next to your Supabase project, or choose **Create New Project**. See [Connect Supabase](../integrations/supabase/connect.md) for the details.
-3. If the project is connected with keys only, Nowa asks **OAuth Authentication Required**. Click **Authenticate** and authorize in the browser.
-4. When the icon turns green, switch to **Agent** mode and describe what you want.
+2. Follow what Nowa asks for:
+   - If the project isn't connected to Supabase yet, authorize Nowa in the browser window that opens. Then click **Select** next to your Supabase project, or choose **Create New Project**. See [Connect Supabase](../integrations/supabase/connect.md) for the details.
+   - If the project is connected with keys only, Nowa asks **OAuth Authentication Required**. Click **Authenticate** and authorize in the browser.
+   - If the project is already connected, there is nothing more to do.
+3. When the icon turns green, switch to **Agent** mode and describe what you want.
 
 Click the green icon to open its menu:
 
@@ -58,9 +60,11 @@ With the connector on, Nowa AI can:
 
 For example: "Bring the icons from my Figma design into the project and use its colors and text styles as the theme." The theme results are written to your theme files, such as `lib/globals/app_colors.dart` and `lib/globals/app_text.dart`. Figma works in cloud and local projects.
 
-The Figma link belongs to your account, not to one project. Click the Figma icon to open its menu: **Connected**, **Auto-approve tools** and **Turn off MCP**. To unlink Figma completely, open your account settings, go to **Account Details**, and click **Disconnect** next to Figma under **Connected Accounts**. You can also click **Connect** there to link it ahead of time. See [Account settings](../account/account-settings.md).
+Click the Figma icon again to open its menu: **Connected**, **Auto-approve tools** and **Turn off MCP**.
 
 {/* CAPTURE: id=ai-connectors-1 | state: signed-in project with a Figma account linked, Figma icon clicked in the chat field | show: the Figma menu with Connected, Auto-approve tools and Turn off MCP above the chat field | crop: chat field + menu */}
+
+The Figma link belongs to your account, not to one project. To link or unlink Figma outside the chat, open your account settings, go to **Account Details**, and use **Connect** or **Disconnect** next to Figma under **Connected Accounts**. See [Account settings](../account/account-settings.md).
 
 ## Approve what a connector does
 

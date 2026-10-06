@@ -36,7 +36,7 @@ Nowa saves your **Bundle Identifier** together with these credentials. If you ch
 
 ## Add a distribution certificate {#apple-distribution-certificate}
 
-A distribution certificate is Apple's proof that an app comes from you. Nowa signs every iOS build with it, using the certificate's private key. You hand Nowa that key in one of two ways. A failed **iOS code signing** step in a build brings you back to this section.
+A distribution certificate is Apple's proof that an app comes from you. Nowa signs every iOS build with it, using the certificate's private key. You hand Nowa that key in one of two ways. If a build failed at **iOS code signing**, start with [the troubleshooting steps](#if-the-ios-code-signing-step-fails) at the end of this page.
 
 ### Let Nowa generate a key
 
@@ -49,7 +49,7 @@ A distribution certificate is Apple's proof that an app comes from you. Nowa sig
 1. Click **Browse** next to **Certificate Private Key** and pick the key file for your Apple Distribution certificate. The file picker lists `.p12` files.
 2. Click **Save**.
 
-Nowa reads this file as plain text, so use a key file in the same format as the one you get when you click **Generate**. Nowa recommends reusing one certificate across your apps.
+Nowa reads this file as plain text, so use a key file in the same format as the one you get when you click **Generate**. Nowa recommends reusing an existing certificate when you can.
 
 ### Manage the saved key
 

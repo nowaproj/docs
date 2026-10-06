@@ -93,3 +93,36 @@ Left out / open questions:
 
 Capture requests: design-assets-1.
 
+## templates.md (`docs/design/templates.md`)
+
+Research: `features-theme-assets.md` "Templates (Search for templates)" and "Playground starting points"; `features-designer-core.md` "Screen tool / Create a page".
+
+Code spot-checks:
+- Entry points: toolbar **Screen** (`packages/designer/lib/src/widgets/designer_tools.dart:150-160`), board context menu **Create a page** (`packages/designer/lib/src/menus/board_context_menu.dart:19`), Files **lib** row **Add to library** -> **New Widget...** (`lib/project/panels/files_panel/add_lib_menu.dart:48-67`).
+- Picker (command palette): hint "Search for templates", tabs `Screens` / `Components`, preview pane, "Premium" label, free templates before premium (`premiumFirst` sorts false first), hover or arrow keys highlight, Enter or click select: `packages/core/lib/src/services/templates/add_template_action.dart:41-107`, `packages/command_palette/lib/src/widgets/options/command_palette_body.dart:200-210`, `.../command_palette_modal.dart:146-148`.
+- Template list and flags (premium: Article, Dashboard, Event Info, Audio Player Page; components: Audio Player, Google Button; Animated Onboarding commented out): `packages/core/lib/src/services/templates/templates_service.dart:372-389`, `.../built_in/*.dart`. The "Empty" size-list branch is dead code because the template is named "Empty Page" (`add_template_action.dart:~160`).
+- Premium check: `EntitlementKeys.premiumTemplates` (`packages/core/lib/src/billing/entitlement_keys.dart:8`), `PaymentDialog` "Time to level up" / "Upgrade" (and "Feature unavailable" when `kShowPurchaseUi` is false): `add_template_action.dart:19-36`, `packages/core/lib/src/widgets/nowa_dialogs.dart:88-133`. Code does not name a plan, so the page doesn't either (badge `paid` only).
+- Single-file flow: `FileDialog` titled "New <template name>", name field with hint "<template name> name", **Class name**, **Path**, **Cancel** / **Submit**, target `lib/pages` or `lib/components`; route added with `addRouteByWidget('/${name.camelCaseToHyphenCase()}')` which does something only for GoRouter (`packages/core/lib/src/file_system/actions/file_actions.dart:28-73`, `packages/core/lib/src/file_system/widgets/create_file_dialog.dart:94-126`, `file_name_text_field.dart:140-210`, `packages/core/lib/src/project/env_services/app_routing_service.dart:105-109`, `go_router_routing_service.dart:79-82`). The route is NOT added for multi-file templates.
+- Multi-file flow: dialog "Add <template name>", list "Files in <name>" with checkboxes (`showCheckbox`), rename/move, **Cancel** / **Import**, overwrite confirmation, tooltip "Please fix the problems before importing": `packages/core/lib/src/file_system/widgets/template_widgets/add_template_dialog.dart`, `template_files_list.dart:100-270`.
+- Board placement (only screens when several files, 400 px apart, default size Pixel 3a 393x808): `packages/designer/lib/src/actions/add_template_designer.dart:7-37`, `packages/core/lib/src/screen_sizes.dart:12-21`. From the Files panel the file opens instead of being placed: `add_lib_menu.dart:53-63`.
+- Playground picker groups **Playgrounds** / **Templates**: `lib/sandbox/sandbox_picker.dart:20-65`.
+
+Left out: template previews fetched from storage for some templates (Onboarding Screen, Chat Template use image previews); `Request a Template` dialog, local/marketplace templates, import/export templates (debug only, see research "Not user-facing"). The `Audio Player` template component is mentioned only as a name.
+
+Capture requests: design-templates-1.
+
+## localization.md (`docs/design/localization.md`)
+
+Research: `features-theme-assets.md` "Localization (multiple languages)" and "Text direction (right-to-left)"; `features-ai.md` "What the agent can do" (limits: `flutter_localizations`); What's New 3.7.3 (`docs/new/whats-new.md:334-338`) and change-log 3.7.3 (`docs/new/change-log.md:185`): "Just ask Nowa AI to set it up and it'll handle everything for you, end to end."
+
+Basis for "Nowa AI can set up localization": What's New 3.7.3 plus `features-theme-assets.md` (verdict "accurate"). The AI package itself only contains the refusal of `flutter_localizations` (`packages/ai/lib/src/tools/packages_tool.dart:164-170`: "flutter_localizations is not supported by nowa, use a different approach."), no localization prompt text is visible in the client (prompts are server-side). The page therefore says only "ask Nowa AI to set it up" and does not describe how (no ARB files, no locale list, nothing about output).
+
+Code spot-checks:
+- Board honors `locale`, `localizationsDelegates`, `supportedLocales` (default `[Locale('en','US')]`), `darkTheme` and `themeMode` (default `ThemeMode.system`) of the app's `MaterialApp`: `packages/core/lib/src/interpreter/declaration_info/widget_info.dart:103-161`. Custom `LocalizationsDelegate` classes are modelled: `packages/core/lib/src/localization/localization_blocks.dart:4-9`, `packages/core/lib/src/interpreter/visitors/ast_to_block_visitor.dart:733-740`.
+- Text **Text Direction** property: `packages/designer/lib/src/details/widget_fields.dart:300-310`; value dropdown lists enum members `ltr` / `rtl` (`BFEnum`, `packages/core/lib/src/fields/basic_fields.dart:1509-1535`).
+- **Text Direction** wrapper = `Directionality(textDirection: ltr)`: `packages/core/lib/src/wrappers_to_add.dart:115-119`; display name `packages/core/lib/src/interpreter/declaration_info/widget_info.dart:712-717`.
+
+Left out: no app-wide RTL switch exists in the editor (research); the page says to wrap the screen's main widget. "Rows included" relies on Flutter's `Directionality` semantics (Row resolves its direction from it); not tested on the board. Device-preview Locale/Theme sections are disabled in code (`packages/device_preview/lib/src/device_preview.dart:112-118`), so no locale preview exists; not mentioned.
+
+Capture requests: none (text-only page).
+

@@ -2,14 +2,14 @@
 title: Design, Plan and Agent modes
 description: Pick Design, Plan or Agent to decide whether Nowa AI sketches the look of your app, writes a plan for you to review, or builds everything.
 sidebar_label: Modes
-keywords: [design mode, plan mode, planning mode, agent mode, switch mode, thinking level, instant, thinking, deep thinking, think mode, make it real, implementation plan, instant preview]
+keywords: [design mode, plan mode, planning mode, agent mode, switch mode, thinking level, instant, thinking, deep thinking, think mode, make it real, implementation plan]
 ---
 
 Nowa AI has three modes. **Design** builds the look and flow first, **Plan** works out what to build before anything changes, and **Agent** does everything. Pick the one that fits the job, and switch whenever you like.
 
 ## Switch mode
 
-1. Click the mode chip, the first chip under the chat field. Its tooltip is **Switch mode**.
+1. Click the mode chip at the bottom left of the chat field. Its tooltip is **Switch mode**.
 2. Choose **Design**, **Plan** or **Agent**.
 
 | Mode | Description in the menu | The chat field says |
@@ -20,9 +20,9 @@ Nowa AI has three modes. **Design** builds the look and flow first, **Plan** wor
 
 {/* CAPTURE: id=ai-modes-1 | state: playground starter open, Assistant panel open, mode chip clicked | show: the open mode menu with Design, Plan and Agent and their descriptions, above the chat field | crop: chat field + menu */}
 
-The mode chip and the thinking-level chip are disabled while Nowa AI is working. Wait for the request to finish, or stop it first.
+The mode chip and the thinking-level chip are disabled while Nowa AI is working. Wait for the request to finish, or [stop it](chat.md#stop-a-request) first.
 
-A project you just created opens in **Design** mode, unless you picked another mode in the dashboard's **What do you want to build?** box, where **Design** carries a **Start here** badge. Any other project opens in the last mode you chose in it on this device, or in **Agent** if you never chose one.
+A new project opens in **Design** mode, unless you picked another mode in the dashboard's **What do you want to build?** box, where **Design** carries a **Start here** badge. Any other project opens in the last mode you chose in it on this device, or in **Agent** if you never chose one.
 
 ## Design mode
 
@@ -30,7 +30,7 @@ Design mode designs screens, navigation and theming with demo data. It never con
 
 An empty Design chat explains the idea: describe the app, and Nowa designs it screen by screen, then makes it work one feature at a time.
 
-When every agreed screen is designed, a card titled **Your app design is complete** appears. It reminds you that the screens use demo data, so nothing saves yet. You have three choices:
+When Nowa AI has designed all the screens you talked about, a card titled **Your app design is complete** appears. It reminds you that the screens use demo data, so nothing saves yet. You have three choices:
 
 - **Keep refining.** Tell Nowa AI what to change in the chat.
 - **Pick a feature.** Click one of the chips under **Pick what to make work first:**. Nowa switches to Agent mode and starts with that feature.
@@ -40,7 +40,7 @@ Only the latest card is active.
 
 ## Plan mode
 
-Plan mode works out what to build before anything is built. It reads your project, asks you questions and writes a plan you can review. It changes nothing: it can't edit your files, and adding or removing packages is blocked. It doesn't use connectors either.
+Plan mode works out what to build before anything is built. It reads your project, asks you questions and writes a plan you can review. It changes nothing: it can't edit your files or add and remove packages. It doesn't use connectors either.
 
 1. Switch to **Plan** and describe what you want.
 2. If a **Questions** card appears, pick an answer for each question. Nowa moves on to the next question by itself. Choose **Other...** to type your own answer.
@@ -59,7 +59,7 @@ On long requests it keeps a **Tasks** card with a progress bar and ticks items o
 
 ## Set the thinking level
 
-The second chip sets how much Nowa AI reasons before it acts.
+The chip next to the mode chip sets how much Nowa AI reasons before it acts. It shows the current level.
 
 | Level | Description in the menu | Good for |
 |---|---|---|

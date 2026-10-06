@@ -88,3 +88,92 @@ Code refs relied on:
 Left out / assumptions:
 - Instant Play runs the Supabase calls for real (research "Data Builder": "Real data appears in Instant Play/App Run"); not described beyond "click Play".
 - Session persistence across app restarts and "is the user signed in at startup" checks: no template or panel support found; not covered.
+
+## database.md
+
+Research: `features-data.md` "Query Templates (Supabase "Generate a Query")", "Testing a Supabase function", "Edit Code (Query Source Code)", "Stream queries (Supabase realtime)",
+"Supabase panel (connected)", "Tables (Supabase)", "Data Builder"; `features-ai.md` "Supabase MCP".
+Code refs relied on (spot-checked):
+- **Generate a Query** **+**, **Add Supabase Function** ("Choose how to create your function"), **Templates**, **Query Templates** ("CRUD operations"): `ui/sb_outline.dart:163-198`, `ui/sb_add_function_dialog.dart:26-95`.
+- Template list, names and descriptions: `templates/supabase_template_definitions.dart:20-70`; dialog **Supabase Templates**: `templates/ui/sb_template_dialog.dart:33-36`;
+  **No Tables Found** / **Fetch Tables** / **Fetching...**: `templates/ui/template_category_view.dart:57-68, 127-166`; table step (search, "<n> columns"): `templates/ui/table_selection_view.dart`.
+- **Research correction:** the model step starts with NOTHING selected (`_isCreatingNew = false`, `_selectedModelName = null`; **Generate Function** disabled until a choice:
+  `templates/ui/model_selection_view.dart:17-22, 328-337`). The research says "Keep **Create new model class**" as if preselected. Clicking it shows the pre-filled name
+  (`<TablePascalCase>Model`, `+2`, `+3` if taken, `:37-52`). **Use Existing Model** lists only classes whose file path contains `/models/` (`:54-70`).
+- Function name = operation + table name with first letter capitalized, e.g. `getAllTodos` (`templates/supabase_template_manager.dart:94-96`; `camelCaseToSpaces` capitalizes and would insert spaces
+  before capitals, so only plain lowercase table names give clean names; not mentioned). Regenerating the same name replaces the member (`packages/ai/lib/src/tools/ai_response_actions.dart:145-222`).
+- Generated code (return types, `.eq('id', id)`, `maybeSingle`, `insert(...).select('*').single()`, id type from the `id` column, fallback to first column): `templates/template_source_generator.dart:40-103`.
+- New model file `lib/models/<snake>.dart`, all fields nullable, type mapping string/integer/boolean else dynamic: `supabase_template_manager.dart:157-181`, `models/sb_table.dart:25-71`.
+  Success snackbar text: `template_category_view.dart:35`, `model_selection_view.dart:93`.
+- Testing panel, **Testing values**, **Run**, **Edit Code**, "Run test to see result", "Error: ...", **Empty Result - Possible RLS Filtering** (any empty list), **RLS Policy Error**,
+  **Open Supabase Dashboard**, **Check RLS Policies**, **Streaming** border: `ui/func_test_section.dart:93-247`, `ui/rls_error_widget.dart:56-185`; header "Testing <name>": `func_test_section.dart:138-154`.
+- Stream test listens until re-run or panel close: `common/test_section/func_test_provider.dart:48-90`, `func_test_section.dart:30-34` (dispose cancels).
+- **Edit Code** labels, **Discard** / **Save** only when changed, **Test Function**, errors, rename = replace: `ui/code_preview.dart:54-88, 115-195`.
+- Panel sorting: STREAM badge when the chain's `from(...)` parent is `stream`: `block/sb_func_helper.dart:41-52`; Queries filter excludes `.rpc`, `.storage`, `.realtime`, `.functions`: `supabase_manager.dart:276-288`;
+  **RPC** = `.rpc` and **Other Functions** = `.functions` sections: `supabase_manager.dart:254-258`.
+- Data Builder **Source** > **Supabase** > **Query** button > popup **Select Supabase Functions** (+ **None**); params shown below: `ui/sb_field.dart:23-57`, `common/data_link_menu.dart:22-93`.
+  Board placeholders / real data on Play: `research/features-data.md` Data Builder (`block_tree.dart:786-797`, `mock.dart:243-298`).
+- Realtime tip: AI's own Supabase rules enable realtime for live use cases (`packages/ai/lib/src/tools/instruction_tools.dart:164-165`).
+Unverified / assumptions:
+- The stream snippet (`Stream<List<Map<String, dynamic>>> streamTodos() { return Supabase.instance.client.from('todos').stream(primaryKey: ['id']); }`) was NOT run in the app. It is standard supabase_flutter usage, the
+  interpreter binds `stream(primaryKey:)` (`packages/core/lib/src/interpreter/libraries/supabase_flutter_library.dart:8699-8702`), and the panel/test/Data Builder logic only needs a declared return type named `Stream` with a type argument
+  (`sb_func_helper.dart:41-50`, `func_test_provider.dart:48-60`, `data_link_menu.dart:35-49`). I avoided `.map(...)` on the stream because the interpreter's `Stream` binding lists few members (`dart_async_library.dart:487-`) and I could not confirm `Stream.map`.
+- Edit Code can only replace the open function (renaming replaces it); to keep both a list query and a stream, the page says to ask Nowa AI. Pasting two functions into the editor would add both (`addMemberAction` adds every member), but I did not document that.
+- Supabase docs link `https://supabase.com/docs/guides/realtime` is unverified (host blocked by egress policy).
+- "Testing values" for model-typed inputs (`create...`, `update...` take a model) not described; the field editor for a class-typed input was not checked.
+- Dashboard steps (turn on Realtime for a table) are Supabase UI and not described beyond the docs link.
+
+## storage.md
+
+Research: `features-data.md` "Storage Templates (Supabase)", "Testing a Supabase function", "Supabase panel (connected)"; `features-logic.md` "showMediaPicker"; `features-theme-assets.md`
+"Pick or upload an asset from a widget property" (Image source tabs Network / Asset / Bytes).
+Code refs relied on (spot-checked):
+- **Storage Templates** card ("File operations"): `ui/sb_add_function_dialog.dart:81-89`; templates **Upload File** / **Download File** / **Delete File** and their parameters: `templates/supabase_template_definitions.dart:73-110`;
+  clicking a storage template generates at once (no table/model step), shows the success snackbar and closes: `templates/ui/template_category_view.dart:22-46`; fixed names = operation names:
+  `templates/supabase_template_manager.dart:94-96`.
+- Generated signatures (`uploadFile(String bucketName, String fileName, Uint8List fileData)` via `uploadBinary`, `downloadFile(String bucketName, String filePath)` -> `Future<Uint8List>`, `deleteFile(String bucketName, String fileName)`):
+  `templates/template_source_generator.dart:105-137`.
+- **Storage** section = functions whose source contains `.storage`: `supabase_manager.dart:256`, `ui/sb_outline.dart:58`.
+- Test inputs: `Uint8List` params use `BFBinary` (`ui/func_test_section.dart:208-211`). Its button shows the field label ("File Data") before a file is picked and the file name after
+  (`common/widgets/binary_field.dart:58-105, 127-150`; label from `block_field.dart:213-225`). **Research correction:** the research says an **Upload File** picker, but that is only `BinaryField`'s default title; the test panel passes the field label.
+  The picker is `showMediaPicker(sourceType: gallery)` with the default media type image (`binary_field.dart:40`, `packages/nowa_runtime/lib/src/media_picker/media_picker.dart:3-12`), so panel uploads are images only. The page says "pick an image".
+- Download result view (image types jpg/png/gif/webp via magic bytes; tooltip **Download image**; **File downloaded successfully**, **Type**, **Size**, **Save File to Disk**): `ui/func_test_section.dart:249-363`.
+- **RLS Policy Error** matches error text containing "row-level security" etc.: `ui/rls_error_widget.dart:11-33`.
+- showMediaPicker chain (await, **Store result**, `first`, `readAsBytes`, **Dependencies** / **Hot Fix**): `features-logic.md` "showMediaPicker" (code `packages/core/lib/src/fields/expression_builder/expression_details.dart:483-524`).
+  **refresh** is in **LOCALS**: `packages/core/lib/src/interpreter/suggestion.dart:607-633`.
+Left out / assumptions:
+- Linking **File Name** to the picked file's `name`: not confirmed that the interpreter binding exposes `XFile.name`, so the page says "type" the file name.
+- Bucket creation, public vs private and policies are Supabase-side; the page only points to the Supabase dashboard (**Storage**, label from the old docs) and Supabase's Storage docs (unverified link, host blocked).
+- "Public bucket files have web addresses" is Supabase behavior, not in the product code.
+- Pull/Set up Backend carry the bucket list but not the files; covered on backend.md.
+
+## backend.md
+
+Research: `features-data.md` "Pull Backend Files (Supabase)", "Set up Backend (Set up Supabase backend)", "Disconnect (Supabase)", "Supabase MCP (AI chat Supabase icon)", "Supabase panel (connected)";
+`features-ai.md` "Supabase MCP", "Connect app with AI / Fix with AI (Supabase backend setup)".
+Code refs relied on (spot-checked, read in full):
+- **Pull Backend Files**: menu item and authorization first when not OAuth-authenticated: `ui/sb_outline.dart:237-245, 316-325`; dialog texts and titles (**Pull backend files**, **Pulling backend files**, **Backend files pulled**,
+  **Pull failed**, **Cancel** / **Pull** / **Done**): `migrations/ui/sb_backend_pull_dialog.dart:24-117`; what it writes and replaces (`supabase/migrations/<version>_<name>.sql`, `supabase/functions/<slug>/index.ts`,
+  `supabase/nowa_setup.json`; only these three paths are cleared first, other files in `supabase/` stay), the "no migration history" error, buckets list, notes text:
+  `migrations/sb_backend_bundle_service.dart:52-142, 351-388`. Only the schema history, deployed edge functions and the bucket rows are read; table data and bucket files are never copied (nothing in the service reads them).
+  "Supabase CLI layout" comment: `sb_backend_bundle_service.dart:52-54`.
+- **Set up Backend**: offered after **Connect** (`ui/sb_setup/sb_oauth_setup.dart:149-153`) and after **Use Keys** (`ui/sb_setup/sb_keys_setup.dart:62-65`), or from the menu (`ui/sb_outline.dart:247-258`);
+  needs OAuth, with a code comment "Migrations run through the Management API, so a URL + anon key connection cannot apply them" (`migrations/sb_backend_setup_flow.dart:19-36`).
+  **Observation:** after the keys-only authorization finishes, `offerSetupIfPending` just returns the dialog result and `popIfDone` closes the dialog without project selection (`sb_oauth_setup.dart:160-172`),
+  so no setup dialog follows; the user must run **Set up Backend** again. The page does not spell this out for keys-only users beyond "Nowa opens the authorization step first".
+  Dialog labels and states (**Set up Supabase backend**, **Skip**, **Set up**, **Setting up backend**, **Backend ready**, **Setup stopped**, **Done**, **Connect app with AI**, **Close**, **Fix with AI**, "Your backend was already up to date."):
+  `migrations/ui/sb_backend_setup_dialog.dart:121-194`; step order and what is created (pending migrations by version/name, edge function deploys, buckets `on conflict do nothing`, refresh tables, stops at first failure, notes from `nowa_setup.json`):
+  `sb_backend_bundle_service.dart:144-276`. Snackbars "Connect Supabase first." and "This project's backend is already set up.": `ui/sb_outline.dart:247-258`.
+- **Menu item visibility:** **Set up Backend** is shown only when `hasBundleCached` is true (`ui/sb_outline.dart:326`), and that flag is refreshed only when the bundle is read (connect offer, pull, setup), not when a project opens
+  (`sb_backend_bundle_service.dart:63-79`; callers listed by grep: only `sb_outline.dart`, `sb_oauth_setup.dart`, `sb_keys_setup.dart`). In a freshly opened, already-connected project that ships backend files the item may not show until one of those runs.
+  **Open question for the team / verifier:** confirm in the app; the page says "This item shows when the project has backend files."
+- **Connect app with AI** / **Fix with AI**: both open the Assistant panel, turn on the first MCP (Supabase), leave Plan mode and **send the prompt automatically** (so they use Nowa AI): `migrations/sb_backend_setup_flow.dart:38-74`.
+  **Observation (possible product issue):** the Fix prompt is a fixed text ("Connect this project to my Supabase backend. The backend is already configured... replace the mock data. Reuse the same models.") and does not include the failed step or message even though `startFixChat` receives `failure`
+  (`sb_backend_setup_flow.dart:40-49`); the doc comment says it should diagnose the failure. The page therefore says "open Nowa AI with a ready-made prompt" and does not claim it diagnoses the error.
+- **Disconnect**: confirm text and **Cancel** / **Yes**: `ui/sb_outline.dart:216-231`; effects (`SupabaseService` removed from scope, `lib/integrations/supabase_service.dart` deleted, `supabase_flutter` removed, startup line removed; constants and `supabase/` bundle files not touched):
+  `supabase_manager.dart:142-158, 248`.
+- Nowa AI connector summary (Agent mode, approvals, what it can do): `features-ai.md` "Supabase MCP"; details live on `docs/ai/connectors.md` (W2).
+Left out / assumptions:
+- Supabase CLI usage (`supabase db push`), mentioned only as "also work with it".
+- Resetting of the connector on project reopen and **Switch project…** are W2's page.
+- The first table (migrations / edge functions / buckets) uses generic Supabase meanings.

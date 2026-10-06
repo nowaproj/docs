@@ -6,7 +6,7 @@ keywords: [keyboard shortcuts, hotkeys, key bindings, cheat sheet, shortcuts she
 
 Keep your hands on the keyboard while you build: add a widget, group a few, run your app or undo a mistake without reaching for the mouse. This page lists the editor's shortcuts, grouped by where you use them.
 
-Most shortcuts use <kbd>Ctrl</kbd> on Windows and Linux and <kbd>Cmd</kbd> on macOS, so every table shows both. On a Mac, the app writes <kbd>Cmd</kbd> as ⌘, <kbd>Option</kbd> as ⌥, <kbd>Control</kbd> as ⌃ and <kbd>Shift</kbd> as ⇧. You can't change the shortcuts.
+Most shortcuts use <kbd>Ctrl</kbd> on Windows and Linux and <kbd>Cmd</kbd> on macOS, so every table shows both. In tooltips and menus on a Mac, <kbd>Cmd</kbd> shows as ⌘, <kbd>Option</kbd> as ⌥, <kbd>Control</kbd> as ⌃ and <kbd>Shift</kbd> as ⇧. You can't change the shortcuts.
 
 :::tip
 Hover a board tool or a sidebar icon, or open a right-click menu, to see its shortcut next to the name.
@@ -19,12 +19,12 @@ The editor has a built-in cheat sheet with common shortcuts.
 1. Click the keyboard icon (**Shortcuts**) at the bottom of the left sidebar, or press <kbd>Ctrl</kbd> + <kbd>.</kbd> (<kbd>Cmd</kbd> + <kbd>.</kbd> on macOS). The sheet opens over the editor.
 2. Close it with the same keys, the close button, <kbd>Esc</kbd> or a click outside the sheet.
 
-The sheet shows its shortcuts in four groups, **General**, **Tab Actions**, **Widgets** and **Designer**, and leaves out many that are on this page. In the current release (3.12.5), four entries show keys that don't match what the keys do:
+The sheet shows its shortcuts in four groups, **General**, **Tab Actions**, **Widgets** and **Designer**, and leaves out many that are on this page. In the current release (3.12.5), four entries don't match what the keys really do:
 
 | Sheet entry | The sheet shows | What happens |
 |---|---|---|
 | **Open widget picker** | <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>P</kbd> | <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd> opens the widget picker. <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>P</kbd> runs your app in the **Embedded preview**. |
-| **Show/Hide panels** | <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>&#92;</kbd> | Nothing. To open or close a sidebar panel, use <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> and a number, as in [Sidebar panels](#sidebar-panels). |
+| **Show/Hide panels** | <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>&#92;</kbd> | Not bound to anything. To open or close a sidebar panel, use <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> and a number, as in [Sidebar panels](#sidebar-panels). |
 | **Group/Ungroup** | <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>G</kbd> | It only groups. To ungroup, right-click the group and choose **Ungroup**. |
 | **Bring to front** and **Bring to back** | <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>]</kbd> and <kbd>[</kbd> | Each press moves the widget one step, not all the way. To go all the way, right-click and choose **Move To Top** or **Move To Bottom**. |
 
@@ -32,7 +32,7 @@ The right-click menu has a similar slip: **Move Up** and **Move Down** both show
 
 ## General
 
-These work anywhere in the project editor.
+These work across the project editor. Some act on the area you're in.
 
 | Action | Windows / Linux | macOS |
 |---|---|---|
@@ -44,12 +44,12 @@ These work anywhere in the project editor.
 | Cut the selected widgets | <kbd>Ctrl</kbd> + <kbd>X</kbd> | <kbd>Cmd</kbd> + <kbd>X</kbd> |
 | Paste widgets you copied, or an image or text from another app | <kbd>Ctrl</kbd> + <kbd>V</kbd> | <kbd>Cmd</kbd> + <kbd>V</kbd> |
 | Remove the selection (widgets, files, screens, components, routes) | <kbd>Delete</kbd> | <kbd>Backspace</kbd> (⌫) |
-| Search for a file | <kbd>Ctrl</kbd> + <kbd>O</kbd> | <kbd>Cmd</kbd> + <kbd>O</kbd> |
+| Open the **Search for a file** picker | <kbd>Ctrl</kbd> + <kbd>O</kbd> | <kbd>Cmd</kbd> + <kbd>O</kbd> |
 | Open **Settings** | <kbd>Ctrl</kbd> + <kbd>,</kbd> | <kbd>Cmd</kbd> + <kbd>,</kbd> |
 | Show or hide the Shortcuts sheet | <kbd>Ctrl</kbd> + <kbd>.</kbd> | <kbd>Cmd</kbd> + <kbd>.</kbd> |
 | Go to the board, or to the next board when you're already on one | <kbd>Ctrl</kbd> + <kbd>B</kbd> | <kbd>Cmd</kbd> + <kbd>B</kbd> |
 
-Undo and Redo work on the area you're in, and each area keeps its own history: every board or open screen, **Files**, **Widgets**, **Themes**, the **Router** editor and **Circuit**. **Action History** lists the changes of that area. Click an entry to go back to it.
+Undo and Redo work on the area you're in, and each area keeps its own history: every board or open screen, **Files**, **Widgets**, **Themes**, the **Router** editor and **Circuit**. **Action History** lists the changes of that area. Click an entry to undo it and every change after it.
 
 ## Sidebar panels
 
@@ -71,7 +71,7 @@ Press <kbd>Ctrl</kbd> (<kbd>Cmd</kbd> on macOS) and a number to open a panel. Pr
 
 ## Design on the board
 
-These work on a board and on a screen or component opened on its own. See [Select, move and resize](../design/select-and-edit.md) and [Add widgets](../design/add-widgets.md) for what they do.
+These work on a board, on a screen or component opened on its own, and in the **Outline** panel. See [Select, move and resize](../design/select-and-edit.md) and [Add widgets](../design/add-widgets.md) for what they do.
 
 | Action | Windows / Linux | macOS |
 |---|---|---|
@@ -79,7 +79,7 @@ These work on a board and on a screen or component opened on its own. See [Selec
 | Switch to the **Select tool** | <kbd>V</kbd> | <kbd>V</kbd> |
 | Switch to the **Shape** tool (draws a Container) | <kbd>R</kbd> | <kbd>R</kbd> |
 | Switch to the **Text** tool | <kbd>T</kbd> | <kbd>T</kbd> |
-| Select all the widgets next to the selected one, or all board items when nothing is selected | <kbd>Ctrl</kbd> + <kbd>A</kbd> | <kbd>Cmd</kbd> + <kbd>A</kbd> |
+| Select all: the widgets next to the selected one, or every board item when nothing is selected | <kbd>Ctrl</kbd> + <kbd>A</kbd> | <kbd>Cmd</kbd> + <kbd>A</kbd> |
 | Zoom the board to the selection | <kbd>F</kbd> | <kbd>F</kbd> |
 | Group the selected widgets | <kbd>Ctrl</kbd> + <kbd>G</kbd> | <kbd>Cmd</kbd> + <kbd>G</kbd> |
 | Move the selected widget one step later in its parent (**Move Down**) | <kbd>Ctrl</kbd> + <kbd>]</kbd> | <kbd>Cmd</kbd> + <kbd>]</kbd> |
@@ -97,7 +97,7 @@ In a Stack, later widgets are drawn in front, so <kbd>]</kbd> brings a widget fo
 
 | Action | Windows / Linux | macOS |
 |---|---|---|
-| Pan the board | Scroll, or swipe with two fingers | Scroll, or swipe with two fingers |
+| Pan the board | Scroll, or slide two fingers on a trackpad | Scroll, or slide two fingers on a trackpad |
 | Pan sideways | <kbd>Shift</kbd> + scroll | <kbd>Shift</kbd> + scroll |
 | Pan by dragging | Hold <kbd>Space</kbd> and drag, or drag with the middle mouse button | Hold <kbd>Space</kbd> and drag, or drag with the middle mouse button |
 | Zoom toward the pointer | <kbd>Ctrl</kbd> + scroll, or pinch on a trackpad | <kbd>Cmd</kbd> + scroll, or pinch on a trackpad |
@@ -137,11 +137,12 @@ These work in the chat field of the **Assistant** panel. See [Chat with Nowa AI]
 | Add a new line | <kbd>Shift</kbd> + <kbd>Enter</kbd> or <kbd>Ctrl</kbd> + <kbd>Enter</kbd> | <kbd>Shift</kbd> + <kbd>Return</kbd> or <kbd>Cmd</kbd> + <kbd>Return</kbd> |
 | Delete the previous word | <kbd>Alt</kbd> + <kbd>Backspace</kbd> | <kbd>Option</kbd> + <kbd>Backspace</kbd> (⌫) |
 | Paste text or an image | <kbd>Ctrl</kbd> + <kbd>V</kbd> | <kbd>Cmd</kbd> + <kbd>V</kbd> |
-| Mention a screen or component: type <kbd>@</kbd>, choose with <kbd>↑</kbd> <kbd>↓</kbd>, insert with <kbd>Enter</kbd> | <kbd>Esc</kbd> closes the list | <kbd>Esc</kbd> closes the list |
+| Mention a screen or component | Type <kbd>@</kbd>, pick with <kbd>↑</kbd> <kbd>↓</kbd> and <kbd>Enter</kbd> | Type <kbd>@</kbd>, pick with <kbd>↑</kbd> <kbd>↓</kbd> and <kbd>Return</kbd> |
+| Close the mention list | <kbd>Esc</kbd> | <kbd>Esc</kbd> |
 
 ## Pickers
 
-Pickers are the search lists that open in the middle of the editor: **Search for a file**, the widget picker, the template picker and **Add context** in the AI chat. Type to filter the list, then use these keys.
+Pickers are search lists with a field at the top, such as **Search for a file**, the widget picker, the template picker and **Add context** in the AI chat. Type to filter the list, then use these keys.
 
 | Action | Windows / Linux | macOS |
 |---|---|---|
@@ -173,7 +174,7 @@ In code mode, files open as tabs. See [Edit code in Nowa](../code/code-mode.md).
 | Go to the previous tab | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Tab</kbd> | <kbd>Control</kbd> + <kbd>Shift</kbd> + <kbd>Tab</kbd> |
 | Close the current tab | <kbd>Ctrl</kbd> + <kbd>W</kbd> | <kbd>Cmd</kbd> + <kbd>W</kbd> |
 
-On macOS, the tab keys use <kbd>Control</kbd>, not <kbd>Cmd</kbd>. In the designer, <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>W</kbd> closes the board or screen you're on and shows **Nothing is open**.
+On macOS, switching tabs uses <kbd>Control</kbd>, not <kbd>Cmd</kbd>. In the designer, <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>W</kbd> closes the board or screen you're on and shows **Nothing is open**.
 
 ## Code editor
 
@@ -199,11 +200,11 @@ Select all, cut, copy, paste, undo, redo and moving the cursor by word or line w
 
 ## When a shortcut does nothing
 
-- **Focus.** Designer shortcuts work when the board has focus. Click the board or an item on it first.
-- **Typing.** While you type in a field, the tool keys, arrow keys, select all, copy, cut, paste, undo, redo and remove are ignored, so they don't change your work.
+- **Focus.** Designer shortcuts work when the board or **Outline** has focus. Click the board or an item on it first.
+- **Typing.** While you type in a field, the tool keys (<kbd>V</kbd>, <kbd>R</kbd>, <kbd>T</kbd>), <kbd>F</kbd>, the arrow keys, <kbd>[</kbd> and <kbd>]</kbd>, select all, copy, cut, paste, remove, undo and redo are ignored, so they don't change your design by accident.
 - **Playing.** Designer shortcuts are off while an item plays on the board. Click **Stop**, then try again.
-- **View only.** In a **View only** project only copy, the two tab-switching keys and <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>W</kbd> work. Panning and zooming still work.
-- **Open overlays.** <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>O</kbd> and <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd> don't open while another overlay, such as the Shortcuts sheet or a picker, is open.
+- **View only.** If you have the **View Only** role, only copy, the two tab-switching keys and <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>W</kbd> work. Panning and zooming still work.
+- **Pop-ups.** <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>O</kbd> and <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd> don't open while another pop-up, such as the Shortcuts sheet or a picker, is open.
 - **Browser.** A browser keeps some combinations for itself, such as <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>W</kbd>, so a few shortcuts may not reach the web app. Use the buttons instead.
 
 ## Next steps

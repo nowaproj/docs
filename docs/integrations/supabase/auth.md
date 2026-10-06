@@ -21,7 +21,7 @@ The **Authentication** section of the **Supabase** panel lists three functions:
 | `signIn` | **Email**, **Password** | Signs in with an email and a password. |
 | `signOut` | Nothing | Signs the current user out. |
 
-The section also tells you who you're testing as: **Not logged in**, or **Testing as:** followed by an email. Any function that you or Nowa AI add to `SupabaseService` that signs a user in, up or out shows up here too.
+The section also tells you who you're testing as: **Not logged in**, or **Testing as:** followed by an email. Functions that you or Nowa AI add to `SupabaseService` to sign users in, up or out show up here too.
 
 ## Test sign-up and sign-in
 
@@ -38,7 +38,7 @@ The test uses your real Supabase project, so every `signUp` creates a real user.
 
 Sign in before you test queries on tables that use Row Level Security (RLS). Signed out, such a query can come back empty or with an **RLS Policy Error**. See [Read and write Supabase data](database.md#test-a-function).
 
-## Add sign-in to a login screen
+## Add sign-in to a login screen {#login-screen}
 
 Call the functions from an event, such as a button's **On Pressed**. Here is the usual flow for a login screen.
 
@@ -48,8 +48,8 @@ Call the functions from an event, such as a button's **On Pressed**. Here is the
 4. Hover the dot under the top node until it becomes **+**, and click it. Search for `SupabaseService`, click it, then click `signIn`.
 5. In **Details**, link **Email** and **Password** to the fields. Click the **Email** label, open **LOCALS**, pick the email controller, then choose `text`. Do the same for **Password**. See [Expressions and conditions](../../logic/expressions.md).
 6. With the `signIn` node selected, find **Future Options** in **Details**. Click **+** next to **onValue**. A new Circuit opens: add a **GoRouter** or **Navigator** node from **GLOBALS** that opens your home screen. See [Navigate between screens](../../logic/navigation.md).
-7. Back in **Future Options**, click **Edit** next to **onError** and add **Show snackbar**, so people see why signing in failed. Nowa pre-fills **onError** with a `print` of the error.
-8. Click **Play** on the screen, enter the email and password of a user you created, and tap the button. See [Play your app on the board](../../test/instant-play.md).
+7. Select the `signIn` node again, open **Future Options**, and click **Edit** next to **onError**. Add **Show snackbar**, so people see why signing in failed. Nowa pre-fills **onError** with a `print` of the error.
+8. Click **Play** on the screen, enter the email and password of a user you created, and click the button. See [Play your app on the board](../../test/instant-play.md).
 
 Sign-up works the same way with `signUp`. If your Supabase project asks for email confirmation, show a message such as "Check your email" in **onValue** instead of opening the home screen.
 
@@ -61,7 +61,7 @@ Or ask Nowa AI. In **Agent** mode, try: "Add a sign-in screen that uses Supabase
 
 ## Other ways to sign in
 
-Google sign-in with Supabase needs Google client IDs in **Settings** → **Integrations** → **Google Sign-In**, then Nowa AI can wire it to your `SupabaseService`. See [Google Sign-In](../google-sign-in.md). For anything else Supabase Authentication offers, ask Nowa AI to add a function to `SupabaseService`, or write it in [code](../../code/custom-code.md).
+For Google sign-in with Supabase, set up your Google client IDs in **Settings** → **Integrations** → **Google Sign-In**, then ask Nowa AI to set it up with Supabase. See [Google Sign-In](../google-sign-in.md). For anything else Supabase Authentication offers, ask Nowa AI to add a function to `SupabaseService`, or write it in [code](../../code/custom-code.md).
 
 ## Next steps
 

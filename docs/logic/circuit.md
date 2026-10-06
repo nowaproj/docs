@@ -15,7 +15,7 @@ Every circuit is one function. The orange node at the top is the function itself
 
 Open Circuit from the logic you want to edit:
 
-- **An event**: in **Details**, click **+** next to an event such as **On Pressed**. Once it has logic, the button reads **Edit**. See [Respond to taps and other events](events.md).
+- **An event**: in **Details**, click the button next to an event such as **On Pressed**. It reads **+** until the event has a function, then **Edit**. See [Respond to taps and other events](events.md).
 - **A function**: select it in the **Variables** panel and click **Edit** in **Details**. See [Create functions](functions.md).
 - **A linked function or computed value**: click the property's label and choose **Open in Circuit**.
 - **A widget builder**: click a dialog's **Builder** field and choose **Edit in circuit**.
@@ -50,7 +50,7 @@ Below them, the items sit in categories. Categories start closed and open on the
 | One per library: **DART:CORE**, **MATERIAL**, **SERVICES**, **NOWA_RUNTIME** and more | Ready-made Flutter, Dart and package actions ([More actions](actions.md)). A package you add brings its own. |
 | **OPERATORS** | Math, comparison and logic. |
 | **LOCALS** | Variables, params and functions of the current screen or component, plus **refresh** ([Store data in variables](variables.md)). |
-| **GLOBALS** | **Navigator**, **GoRouter**, **checkPlatform**, **Media Query**, **Show snackbar** and your global states. |
+| **GLOBALS** | **Navigator** and **GoRouter** ([Navigate between screens](navigation.md)), **checkPlatform**, **Media Query**, **Show snackbar** and your global states. |
 | **SHARED PREFERENCES** | **clear**, **remove key**, **set** and **get**. |
 | **GENERAL** | **Create...** and **parse**. |
 | **EXPRESSIONS** | **Conditional** and **ifNull**. |
@@ -129,7 +129,7 @@ There's one **On Error** branch, and it catches any error.
 ## Return a value
 
 1. Choose **Add Return** at the end of the function or of a branch.
-2. In **Details**, set the **Return** value. It starts with a default for the return type. A function with no return type shows **Returning void**.
+2. In **Details**, set the **Return** value. It starts with a default for the return type. A function that returns nothing shows **Returning void**.
 
 Nothing can be added after a Return in the same branch.
 
@@ -142,7 +142,7 @@ Nothing can be added after a Return in the same branch.
 
 There's no node for loops. A `while` loop that's already in the function, written in code or by Nowa AI, shows as a **While** node with a **True** branch and a **Condition**. You edit it like an If. To go through a list, click **+** after the list and pick one of its functions, such as `forEach`.
 
-## Fix missing permissions with Hot Fix
+## Fix missing permissions with Hot Fix {#hot-fix}
 
 Some actions, such as `showMediaPicker`, need permissions or packages in your project. Their **Details** then show a **Dependencies** section that lists what's needed under **Permissions:** and **Packages:**, with a check mark next to each item that's already on.
 

@@ -18,8 +18,6 @@ A param is fixed once it arrives. If a value has to change while the screen is o
 
 The **Default Value** is used when nothing is passed in, and it is what the board shows. Until a param has a value, the board shows a placeholder such as `[title]` wherever the param is used. Give the param a default, or pass a value, to see your own content.
 
-Params you create can be left empty, because their type allows it. To empty a param's field on an instance, right-click the field in **Details** and choose **Set to null**.
-
 ## Use a param in a widget
 
 1. Select the widget and click the label of the property you want to fill, such as the text of a text widget.
@@ -45,6 +43,8 @@ Each time you place a component, you can give that copy its own values.
 3. Type a value, or click a field's label to link a variable, one of the screen's params or an expression. See [Expressions and conditions](./expressions.md).
 
 Values set this way belong to that one copy. Edit the component itself to change every copy.
+
+To go back to the param's default on a copy, right-click its field in **Details** and choose **Reset to default**. To pass nothing at all, choose **Set to null**. Params you create allow this, because their type can be empty.
 
 {/* CAPTURE: id=logic-parameters-1 | state: playground starter with a component that has a title param, placed on HomePage and selected | show: Details with the component's param field, and the Variables tile with Params open for the component | crop: right-hand panels */}
 

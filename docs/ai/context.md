@@ -9,9 +9,9 @@ Nowa AI makes better changes when it knows exactly what you mean. Select a widge
 
 ## Select what you want to change
 
-Click a screen or widget on the board. A chip with its name appears above the chat field, and your next message goes to Nowa AI together with that part of your app.
+Click a screen or widget on the board. A chip with its name appears at the top of the chat field, and your next message goes to Nowa AI together with that part of your app.
 
-- A component instance attaches the component itself, so Nowa AI can change it. A plain widget, such as a text or a button, attaches just that widget.
+- A component instance attaches the component itself, so Nowa AI can change it. A plain widget, such as a text or a button, attaches only that widget.
 - If you select several widgets, Nowa AI gets the first one.
 - With nothing selected, Nowa AI gets the screen or component that is open in the code editor.
 - Hover a chip to highlight its widget on the board. Click **×** on the chip to remove it. A removed selection stays removed until you select something else.
@@ -23,7 +23,7 @@ Click a screen or widget on the board. A chip with its name appears above the ch
    - **Attach image** opens a file picker. You can choose several images.
    - **Attach text file** opens a file picker for a text file.
    - A screen, component or class under **From your app**.
-3. The attachment appears as a chip above your message. Click **×** to remove one, or **Remove all attachments** to clear them all.
+3. The attachment appears as a chip at the top of the chat field. Click **×** to remove one, or **Remove all attachments** to clear them all.
 
 {/* CAPTURE: id=ai-context-1 | state: playground starter open, Assistant panel open, + (Add context) clicked | show: the Add context palette with the search field, the UPLOAD section (Attach image, Attach text file) and the FROM YOUR APP list | crop: left panel + palette */}
 

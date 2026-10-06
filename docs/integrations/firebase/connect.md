@@ -11,16 +11,17 @@ Sign in with Google, pick your Firebase project and click **Connect Apps**. Nowa
 
 - Create a Firebase project in the [Firebase console](https://console.firebase.google.com/). Nowa can't create projects.
 - Use a Google account that can manage that project.
-- Check your **Bundle Identifier** in **Settings** → **Project Details**. Nowa uses it to find or create your Firebase apps. See [Project settings](../../account/project-settings.md).
+- Set your **Bundle Identifier** in **Settings** → **Project Details** before you connect. Nowa uses it as the Android package name and the iOS bundle ID of your Firebase apps. See [Project settings](../../account/project-settings.md).
 - On the Windows desktop app you can connect and build, but you can't test Firestore queries inside Nowa. See [Firebase on Windows](../../troubleshooting/known-issues.md#firebase-on-windows).
 
 ## Connect your project
 
 1. Click **Settings** in the top bar (or press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>,</kbd>), then open **Integrations** → **Firebase**.
-2. Click **Continue with Google** and approve the request in the Google window. In the desktop app, Nowa opens your browser for this.
-3. Under **Projects**, click your Firebase project.
-4. Check the **Apps** list. Nowa reuses matching apps that already exist in the project (same package name or bundle ID). For each missing app it shows "Android App will be automatically created", "iOS App will be automatically created" or "Web App will be automatically created".
-5. Click **Connect Apps**. A spinner shows while Nowa works. When it finishes, the page switches to the connected view.
+2. Click **Continue with Google**. Google's sign-in opens in a window, or in your browser in the desktop app.
+3. Approve the request. Your Firebase projects appear under **Projects**.
+4. Click your project. The **Apps** list shows what Nowa will connect.
+5. Check the list. Nowa reuses matching apps that already exist in the project (same package name or bundle ID). For each missing app it shows "Android App will be automatically created", "iOS App will be automatically created" or "Web App will be automatically created".
+6. Click **Connect Apps**. A spinner shows while Nowa works. When it finishes, the page switches to the connected view.
 
 {/* CAPTURE: id=integrations-firebase-connect-1 | state: Settings → Integrations → Firebase, signed in with Google, a Firebase project clicked | show: the Apps list with the three "will be automatically created" lines and the Connect Apps button | crop: Settings window content area */}
 

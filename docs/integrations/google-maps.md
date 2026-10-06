@@ -1,0 +1,57 @@
+---
+title: Add Google Maps
+description: Show an interactive Google map in your app by adding your API keys and placing the Google Maps widget.
+sidebar_label: Google Maps
+keywords: [google maps, map, maps api key, google_maps_flutter, marker, location, gps]
+---
+
+Put an interactive Google map on any screen. Add your API keys once in Settings, place the **Google Maps** widget, then run your app to see the map.
+
+## Before you start
+
+You need a Google Cloud API key for each platform you ship, with the matching Maps SDK enabled for it. Google explains how for [Android](https://developers.google.com/maps/documentation/android-sdk/get-api-key), [iOS](https://developers.google.com/maps/documentation/ios-sdk/get-api-key) and the [web](https://developers.google.com/maps/documentation/javascript/get-api-key). You manage your keys in the [Google Cloud console](https://console.cloud.google.com/).
+
+## Turn on Google Maps
+
+1. Click the gear in the top bar (**Settings**) or press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>,</kbd>. Under **Integrations**, click **Google Maps**.
+2. Turn on **Enabled**. Nowa adds the `google_maps_flutter` package and makes sure the iOS minimum version is at least 14.0.
+3. Under **Configuration**, paste your **Android API Key**, **iOS API Key** and **Web API Key** for the platforms you ship. Keys look like `AIza...`. Press <kbd>Enter</kbd> or click the send icon (**Submit**) after each one. A check mark confirms the save.
+
+Nowa puts each key where its platform needs it:
+
+| Key | Where Nowa writes it |
+|---|---|
+| **Android API Key** | The Android manifest, as the `com.google.android.geo.API_KEY` setting. |
+| **iOS API Key** | The iOS `AppDelegate`, as `GMSServices.provideAPIKey`, with `import GoogleMaps`. |
+| **Web API Key** | A Google Maps script tag in the web `index.html`. |
+
+{/* CAPTURE: id=integrations-google-maps-1 | state: playground starter open, Settings open on Integrations → Google Maps, Enabled on | show: the Enabled switch and the Android API Key, iOS API Key and Web API Key fields | crop: Settings window content area */}
+
+## Add the map
+
+1. Open the widget picker (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd>) or click the **Widget** tool, and search for **Google Maps**. If Nowa shows **Add Missing Dependencies**, click **Add**.
+2. Place the widget on a screen and size it.
+3. In **Details**, set the starting position and the other map options.
+
+On the board the widget is a placeholder labeled "Google Maps" with the text "Run to preview". If you have not saved any key yet, **Details** shows "Google Maps API keys are not set. Please configure them in the project settings to use the Google Map widget." Click the gear next to the message to open the **Google Maps** page.
+
+:::tip[Or ask Nowa AI]
+Try: "Add a Google Map to the Contact screen and put a marker on our office."
+:::
+
+## See the map
+
+The board and **Play** do not draw a live map: **Play** shows "Run on a simulator/emulator or mobile device to preview". Run your app on a simulator, emulator or device to see the real map. That needs the desktop app: see [Run on a device or emulator](../test/devices.md). A web build uses your **Web API Key**.
+
+:::note[Show the user's location]
+A new map starts with the my-location button on. For it to find the user, turn on a location permission under **Permissions** in Settings: **Fine Location** or **Coarse Location** for Android, **Location When In Use** for iOS. Nowa does not turn them on for you. See [Project settings](../account/project-settings.md).
+:::
+
+## Turn Google Maps off
+
+Turn **Enabled** off to remove the package, your keys and their platform entries. Remove any **Google Maps** widgets from your screens first.
+
+## Next steps
+
+- [Run on a device or emulator](../test/devices.md)
+- [Project settings](../account/project-settings.md)

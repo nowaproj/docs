@@ -16,7 +16,7 @@ Nowa gives you hints in several places.
 - **The dashboard** box **What do you want to build?** shows ideas such as "A habit tracker with streaks and reminders..." and "A booking app for my salon...". Under **Or try an example prompt**, chips such as **Habit Streak Tracker** and **Split the Bill** fill the box with a full prompt, and the refresh button shows other examples.
 - **The quick tour** step **AI Agent** says: "Use the AI agent to build, edit, or fix anything. Select a screen or widget from the board to attach as context, or use the attach button to include any part of your project or upload an image."
 
-Click **Habit Streak Tracker** and you get a prompt like this one:
+Click **Habit Streak Tracker** and Nowa fills the box with this prompt:
 
 > A habit tracking app where users build daily routines and watch their streaks grow. Each habit should have a custom color, icon, target frequency, and reminder time, with a heatmap calendar showing consistency over months. Include a weekly summary screen with completion rates, longest streaks, and gentle nudges when a streak is about to break.
 
@@ -32,7 +32,7 @@ It says what the app is for, what it keeps track of, and which screens it needs.
 - **Say what it is for.** Who uses the screen and how they move through it helps Nowa AI make fewer guesses.
 - **Plan big or unclear work first.** Use **Plan** mode and answer its questions. A choice marked **(Recommended)** is Nowa AI's suggestion, and **Other...** lets you type your own answer. See [Design, Plan and Agent modes](modes.md).
 - **Start a new session for a new topic.** Old context can carry over, so begin a new session when you move to an unrelated feature. See [Undo AI changes and reopen chats](undo-and-history.md#start-a-new-session).
-- **Check each result.** Look at the board or click **Play** on the screen, then ask for the next change.
+- **Check each result.** Look at the board or [play the screen](../test/instant-play.md), then ask for the next change.
 
 When a request has several parts, this order keeps it clear:
 

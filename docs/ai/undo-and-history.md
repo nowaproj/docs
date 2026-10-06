@@ -9,6 +9,10 @@ Every time Nowa AI changes your files, Nowa saves a checkpoint. Restore it to ta
 
 ## Restore a checkpoint
 
+:::warning
+Restoring a checkpoint also undoes every later request in the same session. It puts each file the AI touched back to its earlier version, so edits you made yourself to those files after the request are lost. **Reapply Checkpoint** brings back only the AI's version of them.
+:::
+
 1. Find the AI reply that made the changes you want to undo. Above it is a bookmark icon and a dotted line.
 2. Hover the dotted line. The **Restore Checkpoint** button appears.
 3. Click **Restore Checkpoint**. The **Undo Last Request?** dialog lists the files that request changed.
@@ -16,13 +20,9 @@ Every time Nowa AI changes your files, Nowa saves a checkpoint. Restore it to ta
 
 {/* CAPTURE: id=ai-undo-1 | state: signed-in project with a finished Agent run that changed files, pointer hovering the dotted line above the reply | show: the bookmark icon, the dotted line and the Restore Checkpoint button | crop: Assistant panel, conversation area */}
 
-Your project goes back to how it was before that request, and files the request created are deleted. The messages stay in the conversation.
-
-:::warning
-Restoring a checkpoint also undoes every later request in the same session. It puts each file the AI touched back to its earlier version, so edits you made yourself to those files after the request are lost. **Reapply Checkpoint** brings back only the AI's version of them.
-:::
-
 {/* CAPTURE: id=ai-undo-2 | state: same project, Restore Checkpoint clicked | show: the Undo Last Request? dialog with the file list, Cancel and Continue | crop: dialog */}
+
+Your project goes back to how it was before that request, and files the request created are deleted. The messages stay in the conversation.
 
 ## Reapply a checkpoint
 
@@ -49,9 +49,9 @@ A new session starts with a clean conversation in the same project. Nowa AI stil
 
 The button is disabled while Nowa AI is working, and does nothing on an empty chat.
 
-Nowa also nudges you. When a session gets long, a note appears above the chat field: "This session is getting long. For better results, start a new session and continue there." Click **Start new session**, or **Dismiss** to keep going.
+Nowa also nudges you. When a session gets long, a note appears above the chat field: "This session is getting long. For better results, start a new session and continue there." Click the **Start new session** icon, or the **Dismiss** icon to keep going.
 
-If the conversation fills up completely, the chat shows **Session Limit Reached**. Nowa AI can't take more messages in that session, so click **Start new session** to continue building.
+If the conversation fills up completely, the chat shows **Session Limit Reached**. Nowa AI can't take more messages in that session, so click the **Start new session** icon to continue building.
 
 ## Reopen a past chat
 
@@ -59,7 +59,7 @@ If the conversation fills up completely, the chat shows **Session Limit Reached*
 2. Click a session. Nowa loads it, and the chat shows "Please wait a minute while we load this conversation..." meanwhile.
 3. Keep chatting from where it ended.
 
-Each row shows the session's name and when it was last active, such as "Just now", "Yesterday" or "3 days ago". A session that has no name yet shows **New Chat**. Click **Load More** to show more sessions, 25 at a time, and the back arrow to return to your current chat.
+Each row shows the session's name and when it was last active, such as "Just now", "Yesterday" or "3 days ago". A session that has no name yet shows **New Chat**. Click **Load More** to show more sessions, 25 at a time. Click the back arrow to return to your current chat.
 
 History belongs to the project, and Nowa stores it on its servers. You can't open a session while Nowa AI is working. When you reopen a session, its checkpoints show again where the project still holds them.
 

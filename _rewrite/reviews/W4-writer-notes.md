@@ -1,0 +1,95 @@
+# W4 writer notes (Design your app: properties, layout, responsive, themes, theme-styles, assets, fonts-icons, templates, localization)
+
+Paths are relative to `/home/user/nowa-master` (v3.12.5) unless marked "dev". Research files: `_rewrite/research/features-*.md`.
+Code wins over research; contradictions are noted per page.
+
+## themes.md (`docs/design/themes.md`)
+
+Research: `features-theme-assets.md` sections Themes (panel), Create New Theme, Active theme, Rename / Delete a theme, Colors, Brightness/Mode/Seed Color/Scheme Variant, Typography, Widgets theme, Theme extensions, Create Theme Setup.
+
+Code spot-checks (all matched the research unless noted):
+- Ctrl/Cmd+3 = Themes: sidebar order Assistant, Widgets, Themes (`lib/project/side_bar.dart:34-50`), digit keys by index (`lib/setup_general_actions.dart:47-61`). The Git icon is inserted after Search in real projects but Themes stays third.
+- Panel title/Refresh/Open in New Tab/Create New Theme/Active: `packages/core/lib/src/panels/details/theme_panel/themes_panel.dart:154-175,255-287,336-390`; `packages/core/lib/src/widgets/nowa_widgets.dart:161-163`.
+- Clicking a theme tile applies it (`_setDefault`, `themes_panel.dart:333-339,382-383`); the arrow button only expands the list (`:340-355,397`). After **Create New Theme** the theme is selected but not applied (`:107-140`).
+- Rename/Delete + "Cannot delete applied theme": `themes_context_menu.dart:24-35`; delete asks when references exist: `packages/core/lib/src/actions/block_actions.dart:10-84`; rename updates references (`DeclGen.rename`, `packages/core/lib/src/interpreter/generators/declaration_generator.dart:27-60`).
+- Name rules/errors: `packages/core/lib/src/file_system/naming.dart:36-59`, `packages/core/lib/src/widgets/rename_declaration_field.dart:112-140`.
+- Colors/Brightness/Mode/Seed/Scheme Variant: `theme_panel_fields.dart:57-240` (variant labels via `camelCaseToSpaces`, `packages/core/lib/src/utils.dart:77-79`; enum values `/home/user/flutter/packages/flutter/lib/src/material/color_scheme.dart:30-62`). Color picker (eyedropper, HEX, OP, opacity slider): `packages/core/lib/src/fields/color_fields.dart:849-989`. Role list and deprecated roles excluded: `models.dart:4-45`.
+- Typography groups/15 styles/Default Font only for plain `ThemeData(` constructor: `packages/core/lib/src/fields/text_fields.dart:821-924`; reset icon tooltips: `text_fields.dart:943-1047`, `theme_panel_details.dart:121-135`; style editor popup: `theme_panel_fields.dart:606-665`.
+- Widgets theme (Fields / Buttons -> Button, Icon Button; field labels): `theme_panel_details.dart:152-178`, `packages/core/lib/src/file_system/widgets/previews/themes_preview/theme_details.dart:169-359`, `packages/core/lib/src/fields/button_fields.dart:316-391`.
+- Extensions tabs ("Default Theme" + class names), up to 8: `theme_panel_details.dart:15-46`, `packages/core/lib/src/themes/theme_class_instance.dart:31`; What's New 3.12.3 line 69.
+- Create Theme Setup: `packages/core/lib/src/file_system/widgets/previews/main_preview/theme_setup_view.dart`, `packages/core/lib/src/project_environment/env_manager.dart:145-170`.
+
+Left out / changed vs research:
+- Research said "other forms (e.g. `ThemeData.dark()`) show only a basic field". The code only falls back to the basic field when the block is not a `ThemeData` call (`theme_panel_details.dart:102-104`); I could not confirm what happens for `ThemeData.dark()`, so the page says nothing about it. It states instead what I confirmed: a theme without a `colorScheme` gets `ColorScheme.fromSeed(seedColor: Colors.deepPurple)` added when opened (`theme_panel_fields.dart:44-50,206-209`), and **Default Font** shows only for the plain `ThemeData(` constructor.
+- Listing all addable color roles: left out (list comes from the Flutter version's `ColorScheme`); the page names a few.
+- Undo/redo inside the panel (Ctrl/Cmd+Z, Ctrl/Cmd+Y): `themes_panel.dart:167-171`. Shift+Z is not bound in the panel.
+- Create Theme Setup dialog text lists `lib/global/theme.dart` and `lib/global/app_state.dart` but the real files are `lib/globals/themes.dart` / `lib/globals/app_state.dart` (`theme_setup_view.dart:59-61` vs `file_template.dart:33-34`). The page names the real paths. Product team may want to fix the dialog text.
+- Default MaterialApp in new projects has only `theme:` (no `darkTheme`/`themeMode`), so the app never follows the device's dark mode by itself (`packages/core/lib/src/file_system/templates/common/main_dart_template.dart:41-52`); the page says so in "Apply a theme" and links to theme-styles for `changeTheme`.
+- Not mentioned: "Open in New Tab" for `themes.dart` also reachable from Files (`main.dart` -> **Themes Options**, `themes.dart` -> **Open Themes Panel**); minor.
+
+Capture requests: design-themes-1, design-themes-2.
+
+## theme-styles.md (`docs/design/theme-styles.md`)
+
+Research: `features-theme-assets.md` sections Colors From Theme, Text Styles, Connect to Theme, Switch themes while the app runs, Import a theme from Figma; `features-logic.md` (Events, Circuit, All nodes for this circuit, Using global states); `features-ai.md` Figma MCP.
+
+Code spot-checks:
+- Theme color list under the color picker, "Colors From Theme" header + detach icon, `Theme.of(context).colorScheme.<role>` written: `packages/core/lib/src/fields/color_fields.dart:699-849` (`BFColorPicker`, `_buildTheme`). Raw role names (`primary`, `onPrimary`...) and the extra list: `color_fields.dart:25-83`.
+- Expander label is "Show more colors" / "Hide more colors" (not "more colors"): `AdvancedOptions` builds `'Show ${message}'` (`packages/core/lib/src/fields/block_field.dart:1318-1355`), message `'more colors'` at `color_fields.dart:822`. Same for `With values` -> "Show more" (`color_fields.dart:270`).
+- Hover **Edit** on theme color/style tiles: `packages/core/lib/src/fields/style_fields/style_fields.dart:270-335`; opens the Active theme's field (`color_fields.dart:150-165`).
+- Linked color field shows role name + x; x keeps the current value (`blockFromValue(val)`): `color_fields.dart:520-531`; detach icon in picker: `color_fields.dart:765-783`.
+- **With values** menu item (only when the field is a `ReferenceBlock`) and **Alpha**/**Show more**/Red/Green/Blue: `color_fields.dart:241-312`. Old `withOpacity` note with **Update** button exists (`color_fields.dart:243-266`), not mentioned on the page.
+- Text **Style**: button shows the linked or default style (`bodyMedium` / `titleLarge`), `packages/designer/lib/src/details/widget_fields.dart:266-310`; **Text Styles** popup with raw names: `style_fields.dart:131-255`; **CopyWith** / **Remove CopyWith** / **Modify Style** menu items: `packages/core/lib/src/fields/text_fields.dart:181-232`; the x on the style button replaces the style with an empty `TextStyle()` (so after detaching the text starts empty): `style_fields.dart:162`.
+- Button style: header shows **Button Theme** / **Icon Button Theme** when the field is null or linked, **Connect...** when custom; x calls `setupButtonStyle` (custom `ButtonStyle` with null values); popup **Connect to Theme** -> **Default theme**; no applied theme -> `ThemeSetupDialog`: `packages/core/lib/src/fields/button_fields.dart:281-489`. Style fields (labels): `button_fields.dart:316-391`.
+- `changeTheme`: `packages/core/lib/src/file_system/templates/common/app_state_template.dart:28-35`; MaterialApp uses `AppState.of(context).theme` only (`main_dart_template.dart:41-52`). **GLOBALS** lists attached global states only inside screens/components (`packages/core/lib/src/state_management/global_state_suggestions.dart:66-93`). ThemeData-typed inputs use `BFThemeData` (button **Select theme**, link menu category "Themes"): `packages/core/lib/src/fields/basic_fields.dart:2045-2070`, registered at `packages/core/lib/src/fields/block_field.dart:72`.
+- Figma: `packages/ai/lib/src/mcp/figma_mcp.dart:31-37,71-86` (cloud projects write `lib/globals/app_colors.dart` / `app_text.dart` and reimport `themes.dart`).
+
+Left out / assumptions:
+- Old docs said theme changes can be seen "by testing the app". I wrote "Run your app, then tap the button". I did not verify whether Instant Play shows the switch on the board.
+- Persisting the chosen theme across app restarts: not by default (`AppState._theme = lightTheme`); not stated on the page.
+- The theme color list appears only when the field can access a `BuildContext` (widget fields on the board or inside a build method; `block_field.dart:724-730`); not stated on the page.
+- Step list for `changeTheme` is the minimal flow; W5/W6 pages (`circuit.md`, `global-state.md`) own the detail. Needs verification of the **+** member picker on a global-state node in Details (taken from `features-logic.md` "Using global states").
+
+Capture requests: design-theme-styles-1.
+
+## fonts-icons.md (`docs/design/fonts-icons.md`)
+
+Research: `features-theme-assets.md` sections Fonts picker, Custom fonts declared in pubspec.yaml, Icons picker; `features-ai.md` "What the agent can do" (Fonts); What's New 3.7.3 and change-log 3.12.5 line 30.
+
+Code spot-checks:
+- Fonts popup (title "Fonts", **Import**, search, tune-icon filter with **All Fonts** / **Default Fonts** / **Imported by you**, "We recommend checking the fonts on Google Fonts", "No Fonts"): `packages/core/lib/src/fields/text_fields.dart:365-455,457-758`. Font button shows the name or **Default** (`text_fields.dart:370-395`).
+- Google Fonts download of the family's `regular` file to `assets/fonts/<Name>.ttf` (`capability=VF`), skipped if the file exists: `text_fields.dart:25-55`. Whether that file is a variable font (all weights) is unconfirmed, so the page says only "regular file".
+- Import: `.ttf`/`.otf`, `allowMultiple: false`, saved in `assets/fonts/`, pubspec refreshed, family = file name without extension: `text_fields.dart:16-23,724-748`; `packages/core/lib/src/file_system/file_object.dart:469-498`.
+- Web vs desktop list size (first 100 Google Fonts, search `take(20)`): `text_fields.dart:520-533`. **Imported by you** lists every `FontFile` under `assets/` (so downloaded Google Fonts show there too): `text_fields.dart:507-521`.
+- The picker lists `FontFile.family` (file name without extension), so family names declared in `pubspec.yaml` are NOT listed (answers the research open question): `text_fields.dart:507-521`, `file_object.dart:481`. Declared families still render on the board: `packages/core/lib/src/settings/pubspec_manager.dart:78-116`; declarations kept, undeclared font files added, missing files dropped: `pubspec_manager.dart:165-203`; change-log 3.12.5 line 30.
+- Icons picker (popup title "Icons", search, grid; button shows icon + name or "none"; lists `Icons` class members only): `packages/core/lib/src/fields/icon_field.dart:14-191`. Icon widget fields (size, color, advanced options list): `packages/core/lib/src/fields/button_fields.dart:35-69`; expander label is "Show advanced options" (`block_field.dart:1318-1355`).
+- Font Family field is part of every text style editor (`BFTextStyleFields`, `text_fields.dart:233-260`); on a Text widget those fields appear only after **CopyWith** or detaching (`text_fields.dart:181-232`).
+
+Left out: Google Fonts download uses the web API key and `proxyLink` (internal). A theme's **Default Font** exists only for the plain `ThemeData(` constructor (`text_fields.dart:~833`); not repeated here (stated on themes.md).
+
+Capture requests: design-fonts-icons-1, design-fonts-icons-2.
+
+## assets.md (`docs/design/assets.md`)
+
+Research: `features-theme-assets.md` sections Assets in the Files panel, Pick or upload an asset from a widget property, Paste an image onto the board, Drag an asset onto the board, Asset file actions; `features-designer-core.md` Copy / Cut / Paste, Adding things to a board.
+
+Code spot-checks:
+- Files panel rows **lib** / **boards** / **assets**; the **assets** row has the upload icon with tooltip **Import asset** (`DirAddButton`, `lib/project/panels/files_panel/files_list.dart:395-409,440-516`); screenshot `captures/ui-map/05-panel-files.png` confirms the rows. Click shows a preview popup (board view), double-click opens (`files_list.dart:300-330`, `file_preview_body.dart`). Moving inside **assets** only: `files_list.dart:106-126`.
+- Import: `gProject.upload` -> any file type, multiple files -> `importInDir` -> `PubspecManager.refresh()` (`packages/core/lib/src/providers/project_provider.dart:697-715,787-804`). Pubspec lists every non-empty folder under `assets/` and rewrites `fonts:` (`packages/core/lib/src/settings/pubspec_manager.dart:127-132,205-235`). Recognized extensions and importers: `packages/core/lib/src/file_system/file_info.dart:10-80`, `importer.dart`. Other extensions fall back to the text importer.
+- Widget picker: `BFAsset` button **Pick <name>**, popup header **Pick <name>** + **Upload <name>** + search + thumbnails; uploads are created directly in `assets/` (undo removes them): `packages/core/lib/src/fields/asset_fields.dart:12-227`. Tabs: Image/Container decoration **Network / Asset / Bytes** (`basic_fields.dart:888-953`), Video **Network / Asset** (`:956-1027`), Audio **Network / Asset / Bytes** with the note "Asset file will work only on Android and iOS" (`:1029-1140`), Lottie (`:1142-1194`), SVG (`:1196-1256`, `packages/designer/lib/src/details/widget_fields.dart:120-210`), Rive (`:1258-1300`). Widget picker names: Image, SVG, Video Player, Lottie, Rive (`packages/core/lib/src/widgets_to_add/widgets_to_add.dart`). `AudioSource` fields appear for audio players such as the **Audio Player** template (`packages/core/lib/src/services/templates/built_in/audio_player.dart:38`); there is no audio widget in the picker, so the page says "an audio player's source".
+- Paste: `packages/designer/lib/src/design/copy_paste.dart:79-141`, `nowa_copy_paste.dart:40-112` (files only when `!kIsWeb`). RESOLVED research open question: web image paste goes through `Pasteboard.image` which reads `navigator.clipboard` on web (`~/.pub-cache/hosted/pub.dev/pasteboard-0.4.0/lib/src/pasteboard_platform_web.dart`), so Ctrl/Cmd+V with a copied image can work in the web app (browser clipboard permission needed; not tested). The page says "Copy an image ... press Ctrl/Cmd+V" without a platform restriction and only restricts copying files to the desktop app.
+- Drag from **assets**: `createDragData` per file type (`packages/core/lib/src/file_system/file_object.dart:410-467,519-535,604-616,643-686`); Lottie `.json` and audio have none; image size = pixel size / 6 (`file_object.dart:437`).
+- File menu labels and the view-only variant: `lib/project/panels/files_panel/file_context_menu.dart:33-121`; delete confirmation `Are you sure you want to delete "<name>"?` Cancel/Yes: `packages/core/lib/src/file_system/actions/file_actions.dart:121-203`, `packages/core/lib/src/widgets/nowa_dialogs.dart:6-26`.
+
+Contradiction between research files (code wins): `features-designer-core.md` "Adding things to a board" step 4 says you can drag a file from your computer onto the board and it is imported. `features-theme-assets.md` says that code is never called. Code check: `DropFromOutside` (`lib/project/drop_from_outside.dart`) is never instantiated, only the AI chat field uses `PlatformDropFromOutside` (`packages/ai/lib/src/ui/chat_field/ai_chat_field.dart:255`). So dropping files on the board does nothing in 3.12.5; assets.md says so. W3's `add-widgets.md` should not claim otherwise.
+
+Left out / open questions:
+- Renaming or moving an asset does not rewrite widget paths: `NFile.move` only updates Dart import references (`packages/core/lib/src/file_system/nfile_impl.dart:102-128`, `file_system.dart:430-465`). Not stated on the page (unconfirmed in the running app).
+- Uploading from a widget property (**Upload Image** etc.) does not call `PubspecManager.refresh()` itself (`asset_fields.dart:119-136`); only imports, pastes, font imports, package changes and AI image saves do. The page says "When you import a file, Nowa updates `pubspec.yaml`" and does not claim it for property uploads. Open: is `assets/` registered if the first asset is added only through a widget property?
+- Importing a file whose name exists: error is thrown (`nfile_impl.dart:486-489`); not shown to the user for **Import asset**? (open question from research). Not on the page.
+- Empty tab (**New Tab** -> **Upload a File**, `lib/empty_editor.dart:56-65`) also uploads to `assets/`; left out (code mode route).
+- Playground: stored only while the encoded project is under 3 MB (`packages/core/lib/src/playground/playground_manager.dart:19-37`); the page says "large files can stop your app from being saved in the browser" with a link to `get-started/playground.md` (W1). 
+- No upload size limit found in the client.
+
+Capture requests: design-assets-1.
+

@@ -131,7 +131,7 @@ Reading notes for writers:
 ### Function node (Name, Return Type, Params)
 - **What it does:** the top node of every circuit represents the function itself; it shows the name and parameter chips and lets you edit the function's signature.
 - **Where:** Circuit → click the top (yellow) node.
-- **Labels:** for screen/component/global-state/model functions: **Name**, **Return Type**, **Params** (with **+** on hover). Clicking a parameter chip adds **Edit parameter** with **Name**, **Type**, **Default Value** and **Remove**. For inline event functions: **Return Type** and **Params** are read-only. Hovering the top node shows the return type when it is not void.
+- **Labels:** for screen/component/global-state/model functions: **Name**, **Return Type**, **Params** (with **+** on hover). Clicking a parameter chip adds **Edit parameter** with **Name**, **Type**, **Default Value** and **Remove**. For inline event functions: **Return Type** is shown but cannot be changed, and **Params** lists the values the event provides (e.g. `value` for On Changed). Hovering the top node shows the return type when it is not void.
 - **How to use:**
   1. Click the top node.
   2. Rename in **Name**; choose **Return Type** (the type picker includes **void**).

@@ -9,9 +9,9 @@ Resume from these files alone: `BRIEF.md` (context + rules), `decisions.md`, `op
 | # | Phase | Output | Status |
 |---|---|---|---|
 | 0 | Setup: branch `docs-rewrite`, workspace, brief, decisions | `_rewrite/*` | done |
-| 1 | Research (parallel): current-docs inventory + old URL list; feature inventory from code by area; positioning + reference IAs; capture setup (build Nowa web, Playwright) | `research/*.md`, `captures/tools/*` | done except widgets, data, capture setup |
+| 1 | Research (parallel): current-docs inventory + old URL list; feature inventory from code by area; positioning + reference IAs; capture setup (build Nowa web, Playwright) | `research/*.md`, `captures/tools/*` | done; widgets research relaunched; capture setup: build + 23 reference shots done, README missing |
 | 2 | Information architecture: sections, pages, slugs, old→new URL map | `structure.md`, `pages.md`, `redirects.md`, `style-guide.md` | pages.md done except integrations + widgets; redirects todo |
-| 3 | Writing (parallel writer per section) | `docs/**` new pages, `captures/requests/*.md` | in progress: W1, W2, W5-W12 launched |
+| 3 | Writing (parallel writer per section) | `docs/**` new pages, `captures/requests/*.md` | in progress (relaunched 09:00 UTC after a usage-limit stop): W1-W12, W14-W17 on Sonnet; W13 widgets after research |
 | 4 | Verification against code by a different agent per section; fixes applied | `reviews/*.md`, page status `verified` | todo |
 | 5 | Screenshots/videos: capture, check each image, embed | `static/img/...`, `captures/log.md`, `captures/to-capture.md` | todo |
 | 6 | Integration: sidebar, homepage, legacy tutorials, redirects, remove old pages, `yarn build` clean | config + build log | todo |

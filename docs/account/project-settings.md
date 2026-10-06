@@ -105,7 +105,7 @@ Click **Apply** after a change (the button reads **Cancel** if you changed nothi
 ## Shared Preferences and the project ID
 
 - **Shared Preferences** → **Clear** erases the values your app saved with Shared Preferences while you tested it on the board.
-- Click the project name at the left of the status bar to see its **Project ID**. Click the ID to copy it ("Copied"). Support may ask for it. See [Get help](./help.md).
+- Click the project name at the left of the status bar to see its **Project ID**. Click the ID to copy it ("Copied"). It's handy when you [contact support](./help.md).
 
 ## Next steps
 

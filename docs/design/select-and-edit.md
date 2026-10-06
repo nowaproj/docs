@@ -64,7 +64,7 @@ Double-click a **Text**, **Markdown** or **Html** widget, or place one with the 
 
 Press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>C</kbd>, <kbd>X</kbd> or <kbd>V</kbd>, or use **Copy**, **Cut** and **Paste** in the right-click menu. A paste lands at your pointer. With a widget selected, it goes into that widget's parent. Pasting a copied screen adds another board item that shows the same screen. Pasting images and text is covered in [Add widgets](add-widgets.md).
 
-## Use the right-click menu
+## Use the right-click menu {#use-the-right-click-menu}
 
 Right-click a widget to act on it. An unselected widget is selected first.
 

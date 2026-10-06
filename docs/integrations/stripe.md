@@ -10,7 +10,7 @@ Stripe lets your app take card, Apple Pay and Google Pay payments. Nowa sets up 
 ## Before you start
 
 - A Stripe account with your [API keys](https://docs.stripe.com/keys). Use test keys while you build.
-- Supabase connected with **Connect**. **Use Keys** is not enough, because Nowa creates tables, deploys functions and saves secrets in your Supabase project through that authorization. See [Connect Supabase](./supabase/connect.md).
+- Supabase connected with **Connect**. **Use Keys** is not enough: Nowa creates tables, deploys functions and saves secrets in your Supabase project through that authorization. See [Connect Supabase](./supabase/connect.md).
 - Users who sign in with Supabase Auth. The payment functions refuse anyone who is not signed in. See [Sign users in with Supabase](./supabase/auth.md).
 - For **One-Time** and **Consumable**: a Supabase table with one row per item you sell, a unique ID column and a price column. For **Subscription**: a price created in Stripe (you need its Price ID).
 
@@ -31,7 +31,7 @@ You can select more than one type, and at least one always stays selected.
 
 {/* CAPTURE: id=integrations-stripe-1 | state: playground starter open, Settings open on Integrations → Stripe, Enabled on | show: Enabled switch, 1. API Keys fields and the Purchase Types buttons | crop: Settings window content area */}
 
-Nowa saves the three values from step 3 in **Constants** (**Settings** → **General**) and compiles them into your app, which is what a publishable key is for. Your secret key is handled separately.
+Nowa saves the three values from step 3 in **Constants** (**Settings** → **General**) and compiles them into your app. Your secret key is handled separately.
 
 ## Add your secret key and webhook
 
@@ -89,7 +89,7 @@ Check your Supabase dashboard to confirm the tables and functions are there.
 
 ![Supabase dashboard listing the nowa_stripe_one_time_payments and nowa_stripe_consumable_payments tables created by Deploy Configuration](/img/docs/integrations/stripe-supabase-tables.png)
 
-You can click **Deploy Configuration** again after any change, for example to add a purchase type. Existing payment tables are kept.
+After any change, such as a new purchase type or a different table, click **Deploy Configuration** again. Existing payment tables are kept.
 
 {/* CAPTURE: id=integrations-stripe-2 | state: signed-in cloud project, Supabase connected, Stripe enabled, One-Time selected, a table picked | show: 3. Business Table, 4. Map Fields and the Deploy Configuration button | crop: Settings window content area, lower half */}
 
@@ -124,11 +124,9 @@ After you deploy, ask the agent to wire the button, for example: "When the user 
 | "Payment already completed for this order" | A **One-Time** item can be bought once per user. Use **Consumable** for items people buy again. |
 | A payment stays `pending` | The webhook is not reaching Supabase. Check the endpoint URL, the events selected in Stripe and **Webhook Secret**. |
 
-## Change or remove Stripe
+## Remove Stripe
 
-Change a key, a purchase type or a mapping, then click **Deploy Configuration** again.
-
-To remove Stripe, turn **Enabled** off. Nowa deletes the Stripe settings, `lib/integrations/stripe_payment_service.dart` and the Android and iOS changes, so remove any logic that calls `StripePaymentService` first. Your Supabase project is not touched: delete its tables, functions and secrets yourself if you no longer need them.
+Turn **Enabled** off. Nowa deletes the Stripe settings, `lib/integrations/stripe_payment_service.dart` and the Android and iOS changes, so remove any logic that calls `StripePaymentService` first. Your Supabase project is not touched: delete its tables, functions and secrets yourself if you no longer need them.
 
 ## Next steps
 

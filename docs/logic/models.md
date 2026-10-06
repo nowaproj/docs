@@ -43,7 +43,7 @@ If you have a sample of the data, such as an API response, Nowa can build the mo
 3. In **Select Data**, tick the fields to keep. **Select All**, **Collapse All** and **Expand All** help with long data. Click **Next**.
 4. In **Generated Models**, set the **Name** of the main class (it starts as `Root`) and the **Path**. The path starts as `lib/models` and must be inside `lib`. Click **Save and Open**.
 
-All the generated classes go into one file, and every field can be empty. If the JSON has no fields to turn into a model, such as a list of plain values, Nowa shows a message and stops.
+All the generated classes go into one file. Nested objects become their own classes, and text, number and true/false fields can be empty. If the JSON has no fields to turn into a model, such as a list of plain values, Nowa shows a message and stops.
 
 The [REST API](../integrations/rest-api/index.md) tools can create response models for you as well.
 

@@ -36,8 +36,8 @@ Each query is a function of `FirestoreService`, in `lib/firebase/queries.dart`. 
 2. In the **Function Name** dialog, type a name and click **Create**. The query opens in the editor. Under **Query**, the builder starts with `FirebaseFirestore.instance`.
 3. Open **Select Collection** and pick a collection. It reads "No Collections" until you define one.
 4. Open the dropdown that appears and pick the next step. Fill in its arguments: **Select Field**, **Select Operator** and **Select Value**.
-5. Keep adding steps until the query ends in a step that reads or writes data.
-6. Check the icon at the lower right of the builder. A check mark says "Query is Future or Stream, you can run it". Click the backspace icon to remove the last step.
+5. Keep adding steps until the query ends in a step that reads or writes data. Click the backspace icon at the top right of the builder to remove the last step.
+6. Check the icon at the lower right of the builder. A check mark (tooltip: "Query is Future or Stream, you can run it") means you can test the query. A warning icon means it isn't ready yet.
 
 | Step | What it does | What can follow |
 |---|---|---|

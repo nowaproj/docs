@@ -139,3 +139,26 @@ Left out / assumptions:
 - Step 6 of "Add variables and functions" (variable → **+** → `add`, input from a param, then `notifyListeners`) follows the research's example flow; exact member labels (`add`, input label **Value**) are from the Dart `List.add` signature, not re-checked in the UI.
 - Circuit "dot under a node" interaction wording is from research (Circuit section).
 - The `changeTheme` flow: old doc says "Choose the desired theme (e.g. Dark Theme)"; code shows the **Select theme** button for ThemeData inputs. The first theme list may be named `lightTheme` / `darkTheme` (template); I wrote "such as `darkTheme`".
+
+## models.md
+
+Research: `features-logic.md` "New Model...", "Generate Models From Json...", "Using models", "Select type", "Create... (GENERAL)".
+Code refs relied on (spot-checked):
+- **New Model...** in the **Add to library** menu, dialog "New Model", file in `lib/models`: `lib/project/panels/files_panel/add_lib_menu.dart:81-95`, `packages/core/lib/src/providers/project_provider.dart:376`,
+  `packages/core/lib/src/file_system/widgets/create_file_dialog.dart:84-130`; name → class/file conversion: `packages/core/lib/src/file_system/widgets/file_name_text_field.dart:7-38`.
+- Model class = `ClassDeclImpl.model` (auto constructor, `fromJson(Map<String, dynamic> json)`, `toJson()`; regenerated when fields change; field default becomes the constructor default):
+  `packages/core/lib/src/interpreter/declaration_runtime.dart:285-309`, `packages/core/lib/src/interpreter/auto_blocks.dart:41-240`.
+- Model file editor (same default Dart editor as global states; **View Code**, class list, **Variables**/**Functions** with fields non-final-by-default via `calculateIsFinal`): `packages/core/lib/src/editors/dart_editor/dart_editor.dart:139-268`,
+  `packages/core/lib/src/fields/class_editor.dart:10-48`, `packages/core/lib/src/widgets/code/declaration_list_widgets.dart:309-369`; **Is Final** / **Is Static** + tooltips: `packages/core/lib/src/widgets/code/variable_widgets.dart:341-403`.
+- **Generate Models** dialog (steps **Content** / **Select Data** / **Generated Models**; **Cancel**/**Back**, **Next**, **Save and Open**/**Save**; Next disabled for invalid JSON): `packages/core/lib/src/model_generator/generate_models_dialog.dart:9-205`;
+  editor menu **Wrap** / **Compress** / **Prettify**: `packages/core/lib/src/model_generator/json_editor.dart:145-162`; **Select All** / **Collapse All** / **Expand All**: `.../generate_models_dialog_selection/selecting_data_section.dart:30-70`;
+  **Name** (default `Root`) / **Path** (default `lib/models`, must start with `lib`, one `DartFile` for all classes): `.../generated_models_section.dart:60-80`, `.../generate_models_provider.dart:12-20, 130-150`;
+  nullable field types and nested classes: `.../data_analysers/json_analyser.dart:86-160`.
+- **Create...** under **GENERAL**, **Pick a constructor**, **Default** label: `packages/core/lib/src/interpreter/suggestion.dart:168-194, 509-516, 725-757`, `packages/core/lib/src/fields/link_menu.dart:95-127`.
+- API entry points to **Generate Model...** (linked only): `packages/data/lib/src/api/model/test_api_func_provider.dart:113`, `packages/data/lib/src/api/views/api_panel/api_request_settings/api_request_settings.dart:49` (via research).
+Left out / assumptions:
+- Research says the generate dialog's "no fields" snackbar reads "You can generate model for List of primitives" (`generate_models_dialog.dart:35`): the wording is confusing, so I paraphrased ("shows a message and stops").
+- "text, number and true/false fields can be empty": from `_findTypeOfValue` (nullable String/int/double/bool); I did not claim list fields are nullable.
+- No map editor exists for `fromJson`'s `json` input (research open question), so `fromJson` is only mentioned as a constructor choice; no steps for feeding it a map.
+- `Copy`/`AutoCopyWith` is theme-only (not user-facing for models), per research "Not user-facing".
+- Dev (3.13): New Model... / Generate Models From Json... also appear in the new Library panel menu (`/home/user/nowa/lib/project/panels/library_panel/library_host.dart:183`); not documented (D1).

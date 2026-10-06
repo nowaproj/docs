@@ -197,3 +197,20 @@ Assumptions / open questions:
 - **Community forum** https://community.nowa.dev/ appears only in code that is never mounted (`lib/widgets/help_icon.dart:57-58`, `lib/dashboard/learning_resources/learning_resources_view.dart:63`). Kept because pages.md lists it;
   please confirm the URL is live before publishing.
 - Editor-shell research says "Enter sends" in the support chat; not supported by my reading of the code, so the page says "click the send button" (see Corrections above).
+
+## docs/account/index.md
+
+Key claims and code refs:
+- Dashboard sidebar order and labels (**Notifications** bell next to the version, workspace switcher, **RECENTS**, **Upgrade your plan**, **Invite a Friend**, **Download Desktop App** web only, **Hire an Expert**,
+  **Learning Resources**, **Settings**, name + plan badge + logout tooltip **Logout**): `packages/nowa_ui/lib/dashboard/dashboard_side_bar.dart:57-254`.
+  Plan badge only shown when `showPurchaseUi` (`:231-233`): not stated on the page.
+- Main area (prompt box, **Projects** header, **On this device**, **?** button): `packages/nowa_ui/lib/dashboard/projects_view.dart:66-155`; support launcher `lib/dashboard/dashboard_page.dart:~361`. Drawer on mobile shell: research (`dashboard_view.dart:22-58`).
+- Dialogs on load: `lib/dashboard/dashboard_provider.dart:10-135` (**VersionNotice**, **SurveyNotice**, **FeedbackNotice**, **TicketNotice**, **UpgradePlanNotice**); update dialog text `lib/dashboard/overlays/update_overlay.dart:116`.
+- Intro and "in this section" list: structure from `pages.md` rows for this section.
+
+Left out / why:
+- Version number text (v3.12.5): changes each release.
+- The dashboard's hero state for users with no projects (centered prompt box) and the "More ways to start" cards (hidden flag): not described.
+
+Assumptions / open questions:
+- None beyond those on the linked pages. Links to `../get-started/*`, `../troubleshooting/index.md#update-prompts` rely on those pages/ids existing (the troubleshooting id is defined in my page).

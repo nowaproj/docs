@@ -103,7 +103,7 @@ function ensureDir(dir) {
   return dir;
 }
 
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+export const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 /** {x,y,w,h} (or {x,y,width,height}) -> Playwright clip, clamped to the viewport. */
 async function pwClip(page, c) {
@@ -827,37 +827,64 @@ export async function screenshot(page, file, { clip, label, pad = 8, fullPage = 
 /* Editor recipes                                                            */
 /* ------------------------------------------------------------------------ */
 
-/** Reads the left panel's title by OCR (null when the panel is closed or untitled). */
+/** Reads the left panel's header text by OCR (headers differ per panel; null if none). */
 export async function leftPanelTitle(page) {
   const { lines } = await ocr(page, { clip: { x: UI.leftPanelHeader.x + 20, y: UI.leftPanelHeader.y, w: UI.leftPanelHeader.w - 90, h: UI.leftPanelHeader.h } });
   return lines.length ? lines.sort((a, b) => b.w - a.w)[0].text : null;
 }
 
 /**
+ * Which left-sidebar panel is open, from the orange highlight behind its icon
+ * (null when the left panel is closed). Reads pixels, so it works without semantics.
+ */
+export async function activePanel(page) {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'nowa-side-'));
+  try {
+    const png = path.join(dir, 'side.png');
+    await page.screenshot({ path: png, clip: { x: 0, y: 0, width: 40, height: 440 }, scale: 'css' });
+    const width = Number(spawnSync('identify', ['-format', '%w', png], { encoding: 'utf8' }).stdout) || 40;
+    const f = width / 40; // 1 or the device pixel ratio (CDP sessions ignore scale: 'css')
+    for (const item of SIDEBAR) {
+      const size = Math.round(16 * f);
+      const crop = `${size}x${size}+${Math.round((item.x - 8) * f)}+${Math.round((item.y - 8) * f)}`;
+      const r = spawnSync('convert', [png, '-crop', crop, '+repage', '-format', '%[fx:mean.r] %[fx:mean.g] %[fx:mean.b]', 'info:'], { encoding: 'utf8' });
+      const [red, green, blue] = r.stdout.trim().split(/\s+/).map(Number);
+      // The selected icon sits on an orange rounded square; idle icons are gray (r = g = b).
+      if (red - blue > 0.2 && red > green + 0.05) return item.name;
+    }
+    return null;
+  } finally {
+    fs.rmSync(dir, { recursive: true, force: true });
+  }
+}
+
+/**
  * Opens a left-sidebar panel by name (see SIDEBAR). Clicking the icon of the open
- * panel would close it, so it checks the panel title first.
+ * panel would close it, so it checks which panel is open first.
  */
 export async function openPanel(page, name) {
   const item = SIDEBAR.find((s) => normalize(s.name) === normalize(name));
   if (!item) throw new Error(`Unknown panel ${name}. Known: ${SIDEBAR.map((s) => s.name).join(', ')}`);
-  const title = await leftPanelTitle(page).catch(() => null);
-  if (title && normalize(title).includes(normalize(item.title))) return { already: true, title };
-  await page.mouse.click(item.x, item.y);
-  await sleep(700);
-  await page.mouse.move(700, 870); // away from the icon so its tooltip closes
-  await settle(page, { timeout: 3000 });
-  return { already: false, title: await leftPanelTitle(page).catch(() => null) };
+  if ((await activePanel(page)) === item.name) return { panel: item.name, already: true };
+  for (let attempt = 0; attempt < 2; attempt++) {
+    await page.mouse.click(item.x, item.y);
+    await sleep(700);
+    await page.mouse.move(700, 870); // away from the icon so its tooltip closes
+    await settle(page, { timeout: 3000 });
+    if ((await activePanel(page)) === item.name) return { panel: item.name, already: false };
+  }
+  throw new Error(`Could not open the ${name} panel`);
 }
 
 /** Closes the left panel (clicks the open panel's icon again). */
 export async function closePanel(page) {
-  const title = await leftPanelTitle(page).catch(() => null);
-  if (!title) return false;
-  const item = SIDEBAR.find((s) => normalize(title).includes(normalize(s.title)));
-  if (!item) return false;
+  const open = await activePanel(page);
+  if (!open) return false;
+  const item = SIDEBAR.find((s) => s.name === open);
   await page.mouse.click(item.x, item.y);
   await sleep(600);
   await page.mouse.move(700, 870);
+  await settle(page, { timeout: 3000 });
   return true;
 }
 
@@ -969,6 +996,7 @@ export function helpers(page) {
     openPanel: (name) => openPanel(page, name),
     closePanel: () => closePanel(page),
     leftPanelTitle: () => leftPanelTitle(page),
+    activePanel: () => activePanel(page),
     dismissDialogs: (o) => dismissDialogs(page, o),
     openEditor: (o) => openEditor(page, o),
   };

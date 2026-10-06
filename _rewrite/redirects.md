@@ -396,3 +396,8 @@ Other notes for the orchestrator:
 - Algolia (`indexName: nowa`) still holds old URLs until it re-crawls; the redirects cover them.
 - Old `static/old_versions/*.md` URLs are not redirected (they stay untouched, D8).
 - Case matters on GitHub Pages: the entry for `/data-connections/api/Openrouter` keeps the capital O. The typo slugs `/ui/temlpates`, `/ui/layout/constrains`, `/ui/themes/typograhies` are kept exactly.
+
+### Empty link removed (D11)
+
+- `docs/new/whats-new.md:666`: "[try the app yourself here]()" had an empty URL, which fails the build now that
+  broken Markdown links throw. The link markup was removed and the words kept; no target URL is known.

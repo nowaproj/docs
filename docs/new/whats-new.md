@@ -663,7 +663,7 @@ We excited to introduce two powerful new features — **Notifications** and **Su
   👉 Explore it here: [docs.nowa.dev](https://docs.nowa.dev)  
 
 - 🎥 **New Tutorial:**  
-  Learn how to build a beautiful **Movie App** using Nowa and APIs — [Watch Part 1](https://www.youtube.com/watch?v=COpngAiqm0o). You can [try the app yourself here]()
+  Learn how to build a beautiful **Movie App** using Nowa and APIs — [Watch Part 1](https://www.youtube.com/watch?v=COpngAiqm0o). You can try the app yourself here
 
 #### **Coming Soon 🔮**
 - 🚀 **Nowa 3.1:** Our biggest update since 3.0 — featuring a more stable AI, restore points, chat history, a token-based credit system, and instant Cloud + Local sync.  

@@ -23,7 +23,7 @@ A dialog is a box in the middle of the screen, often used to confirm something.
 
 1. Choose **MATERIAL** → `showDialog`. Its content starts as an **AlertDialog** with the title "Hello World".
 2. Click the brush next to it (tooltip **Edit AlertDialog**) to change the title, content and buttons.
-3. To use your own design, click the **Builder** row and choose **Pick Widget**, then pick a component you built. **Edit in circuit** opens the builder as a function instead.
+3. To use your own design, click the **AlertDialog** button in the **Builder** row and choose **Pick Widget**, then pick a component you built. **Edit in circuit** opens the builder as a function instead.
 
 {/* CAPTURE: id=logic-popups-1 | state: Circuit open for On Pressed, MATERIAL → showDialog added and selected | show: the showDialog node in Circuit and Details with the Builder row (AlertDialog and the brush button) and Barrier Dismissible | crop: Circuit panel */}
 
@@ -46,7 +46,7 @@ Or skip **await** and click **+** next to **onValue**. That function gets the re
 A bottom sheet slides up from the bottom edge and holds content you design.
 
 - `showModalBottomSheet` (**MATERIAL**) sits on top of the screen and closes when someone taps outside it or drags it down. It starts with a centered text, "Bottom Sheet Opened", and a minimum height of 400. Edit it like a dialog. Extra options include **Background Color**, **Is Scroll Controlled**, **Is Dismissible**, **Enable Drag**, **Show Drag Handle** and **Constraints**. It can send an answer back, like a dialog.
-- `showBottomSheet` (**MATERIAL**) attaches a persistent sheet to the screen. Choose its content in **Builder** → **Pick Widget**.
+- `showBottomSheet` (**MATERIAL**) attaches a persistent sheet to the screen. Choose its content in the **Builder** row.
 
 ## Pick a date or time
 

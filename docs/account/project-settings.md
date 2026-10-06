@@ -89,7 +89,9 @@ Nowa stores constants in `lib/globals/app_constants.dart`, which is part of your
 
 At the bottom of **Project Details**, **Sharing** sets the **Cover** image shown on your project card. For cloud projects it also has a **Public project** switch, which gives you a link anyone can open to edit their own copy. Turning it on asks you to confirm "Make this project public?" because every file, including any keys, becomes readable. View Only members and playground sessions don't see **Sharing**. For the link options, see [Share your app](../test/share.md).
 
-## Experimental flags <Badge type="beta" />
+## Experimental flags {#experimental-flags}
+
+<Badge type="beta" />
 
 **Project Details** → **Experimental flags** → **Edit** opens a short list of switches. Changing one saves your project and reopens it.
 

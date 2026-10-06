@@ -32,7 +32,7 @@ The window has two groups. On the iOS and Android apps, **Billing** and **Usage*
 
 A status line at the top right confirms each change, for example "Profile updated" or "Profile picture updated".
 
-## Change your email
+## Change your email {#change-email}
 
 You can change your email if you signed up with an email address. If you use Google to sign in, **Account Details** shows "Google SignedIn" instead of **Change Email**.
 
@@ -40,7 +40,7 @@ You can change your email if you signed up with an email address. If you use Goo
 2. Type the new address in **New Email** and click **Verify Email**. Nowa sends a code to that address and says "OTP Code Sent on" followed by the address.
 3. Type the code in **OTP Code** and click **Verify OTP**. "Email verified" confirms it.
 
-## Change or set your password
+## Change or set your password {#change-password}
 
 1. In **Account Details**, click **Change Password**. If your account has no password yet, for example because you signed up with Google, the button reads **Set Password**.
 2. Type your **Current Password** (only if you have one), then your **New Password** and **Repeat New Password**.
@@ -48,7 +48,7 @@ You can change your email if you signed up with an email address. If you use Goo
 
 If the two new passwords differ, Nowa says "Please make sure the passwords match". If you've forgotten your current password, click **Restore Password** in the line "Forgot your Password?" and Nowa takes you to the page that emails you a reset link. You can also start from **Forgot Password?** on the sign-in page. See [Create your account](../get-started/create-account.md).
 
-## Connect Figma
+## Connect Figma {#connect-figma}
 
 Under **Connected Accounts**, the **Figma** row lets Nowa AI use your Figma account, for example to bring in images, icons, colors and text styles.
 
@@ -62,7 +62,7 @@ To disconnect, click **Disconnect** and confirm. Nowa warns "You will need to re
 - On the dashboard, click the logout icon next to your name in the sidebar (tooltip **Logout**).
 - In a project, click your avatar, then **Logout**.
 
-## Delete your account
+## Delete your account {#delete-account}
 
 :::warning
 Deleting your account is permanent. Nowa tells you "This action can not be reversed" and deletes all the resources listed on the next page.

@@ -126,3 +126,24 @@ Left out: no app-wide RTL switch exists in the editor (research); the page says 
 
 Capture requests: none (text-only page).
 
+## layout.md (`docs/design/layout.md`)
+
+Research: `features-designer-core.md` sections Group / Ungroup, Group section, Rows and columns, Stacks and constraints, Layout section (sizing), Scrolling and wrapping, Add Wrapper. Anchor `{#groups}` is on "Groups" (app link `/ui/layout/groups`, `packages/core/lib/src/widgets_to_add/widgets_to_add.dart:249`).
+
+Code spot-checks:
+- Group/Ungroup rules: `_createGroup` copies the parent when the common ancestor is a children list, else a Stack; **Ungroup** menu item only for one group; Ctrl/Cmd+G always groups (nests): `packages/designer/lib/src/design/common_design.dart:25-130`, `packages/designer/lib/src/actions/designer_actions.dart:46-113`, `packages/designer/lib/src/menus/widget_context_menu.dart:68-75`.
+- Group header buttons (Stack icon `NowaIcons.stack` rendered as an asterisk in the editor, right arrow = Row, down arrow = Column, no tooltips), conversion from Stack orders children and derives the gap, **Padding** field with **Individual padding** tooltip, **Test <Type>** / **Edit Test** / **Clear**: `packages/designer/lib/src/details/group_details.dart:44-157,243-298`, `inline_wrapper_fields.dart:8-148`. Screenshot `captures/ui-map/10-screen-selected.png` confirms the three buttons and the Stack fields (**Alignment** X/Y sliders, **Text Direction**, **Fit**, **Clip Behavior**, **Children**, **Padding**).
+- Rows/columns settings: **Alignment** 3x3, **Main Axis Size** (enum dropdown `max`/`min`, label derived from `mainAxisSize`), **Spacing** (Fixed/Between/Around/Evenly), **Gap** only when Fixed (min 0), **Children**: `packages/designer/lib/src/details/flex_field.dart:11-52,382-446`. Around/Between/Evenly wording follows Flutter's `MainAxisAlignment` docs.
+- Stack child layout (L/T/R/B/W/H fields enabled only when set; constraint dropdowns; constraint box; Shift-click second bar pins both only when the opposite side is already pinned; center + clears pins): `packages/designer/lib/src/details/positioned_details.dart:26-279`.
+- Layout section variants by parent (Stack -> Positioned, Row/Column/NFlex/Wrap -> FlexLayout, ListView -> SizedLayout, board item -> BoardPosition; anything else shows an empty section with a + that adds a `SizedBox`): `packages/core/lib/src/layout/layout.dart:52-66`, `packages/designer/lib/src/details/layout_details.dart:15-171`.
+- Size modes: **Fixed** / **Expand** (only if `canExpandField`) / **Auto** (only if the widget has an intrinsic size, never for TextField width); dropdown hidden with a single option; Expand along the main axis sets flex 1, across it sets infinity; Scroll View blocks Expand along the scroll direction (any ancestor Scroll View): `packages/designer/lib/src/details/size_fields.dart:5-132,154-227`, `flex_size_field.dart:6-137`.
+- Scroll View wrapper name `Scroll View` (`packages/core/lib/src/wrappers_to_add.dart:56-60`); widget picker names **Wrap**, **List View**, **Grid View**, **Page View** (`widgets_to_add.dart`).
+
+Left out / assumptions:
+- "Plain box first in the selection becomes the group's background" (`common_design.dart:_firstIsBg`): condition depends on selection order; not stated.
+- **Expand** inside **Wrap** is listed because `Wrap` uses `FlexLayout`; behavior inside Wrap not verified in the running app.
+- "Main Axis Size" semantics (`max` fills / `min` shrinks) is Flutter's `MainAxisSize` meaning; not tested in the editor.
+- Link to `../reference/widgets/index.md` assumes W13 creates that page (pages.md lists `widgets/index.md`).
+
+Capture requests: design-layout-1, design-layout-2.
+

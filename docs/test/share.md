@@ -50,7 +50,7 @@ On a computer, the app opens in a phone frame (an iPhone 13 at first) with a too
 
 | Button | What it does |
 |---|---|
-| **Share App** | Opens the same link and QR code. |
+| **Share App** | Opens the **Share Preview** popup with the link and QR code. |
 | **Full Screen** | Shows the preview full screen. |
 | **Device Settings** | Opens **Play Settings**. |
 | **Restart** | Restarts the preview. Only owners and editors see it. |
@@ -63,14 +63,16 @@ People without access to a private preview may see **Preview Not Available**, wi
 
 ## Open your project to others
 
+This works for cloud projects. In a local project, **Sharing** has only the **Cover**.
+
 1. Click the gear in the top bar, or press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>,</kbd>, then click **Project Details**.
-2. Scroll to **Sharing** and turn on **Public project**.
-3. Confirm "Make this project public?" as described above.
+2. Scroll to **Sharing** and turn on **Public project**. Nowa asks "Make this project public?".
+3. Tick "I checked, there are no secrets in this project" and click **Make public**.
 4. Click **Copy link**, or **Open in a new tab** to try it yourself.
 
-{/* CAPTURE: id=test-share-2 | state: signed-in cloud project, Settings open on Project Details, scrolled to Sharing with Public project on, Link options popup open | show: the Cover field, the Public project switch with the link and its buttons (Copy link, Open in a new tab, Link options), and the four link options | crop: Settings page, Sharing section */}
+The link looks like `https://app.nowa.dev/project/<project>`, with your link options added.
 
-Local projects don't have the **Public project** switch, only the **Cover**.
+{/* CAPTURE: id=test-share-2 | state: signed-in cloud project, Settings open on Project Details, scrolled to Sharing with Public project on, Link options popup open | show: the Cover field, the Public project switch with the link and its buttons (Copy link, Open in a new tab, Link options), and the four link options | crop: Settings page, Sharing section */}
 
 Visitors can open the link without an account. Nowa opens your project in a private copy in their browser, so "your project is never changed by a visitor". They can explore, play and edit. Their edits are lost when they close the tab, unless they click **Save to keep changes**, which copies the project into their own account. **Run** and **Deploy** aren't available to them. See [Try Nowa without an account](../get-started/playground.md).
 

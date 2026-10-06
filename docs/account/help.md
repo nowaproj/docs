@@ -24,7 +24,7 @@ The panel opens on "Hey There" and "Let’s help you build a great app!" with th
 
 {/* CAPTURE: id=account-help-1 | state: signed in, a project open, click the ? button | show: the support panel home with Hey There, Your tickets (if any), Report an issue, Chat with support, Documentation, YouTube Channel and Hire an Expert | crop: the panel at the bottom right of the window */}
 
-## Report an issue
+## Report an issue {#report-an-issue}
 
 1. Open the project that has the problem, click **?**, then **Report an issue**.
 2. Describe what happened in the message box ("Type a detailed message..."). Say what you did, what you expected and what you saw instead.
@@ -36,11 +36,11 @@ For a local project, the snapshot goes up as a zip file. Replies appear on the *
 
 Two other places open the same form with the details filled in: **Report** on Nowa AI's "Bug report ready" card (see [Chat with Nowa AI](../ai/chat.md)), and **Report issue** on a preview error that says the problem is on Nowa's side (see [Run your app](../test/run.md)).
 
-## Ask a question
+## Ask a question {#ask-a-question}
 
 Click **?**, then **Chat with support**, type your question and send it. You can attach images. Questions don't have the snapshot checkbox. Your conversation stays under **Your tickets**.
 
-## Hire an expert
+## Hire an expert {#hire-an-expert}
 
 Click **Hire an Expert** in the dashboard sidebar or the support panel. The dialog says "Get hands-on help from certified Nowa experts." Click **Book a Free Consultation** to open a booking page, or **Become an expert** to apply. The dialog also shows the expert rate.
 
@@ -50,7 +50,7 @@ Click **Hire an Expert** in the dashboard sidebar or the support panel. The dial
 - **Documentation** and **YouTube Channel** in the support panel open the docs and the [Nowa YouTube channel](https://www.youtube.com/@nowadev).
 - [What's new](../new/whats-new.md) lists every release.
 
-## Stay up to date
+## Stay up to date {#notifications}
 
 The bell (tooltip **Notifications**) sits next to the version number on the dashboard and next to your avatar in the editor. A red badge counts what's new. Open the bell to read the list, which Nowa then marks as read. Click a notification to open its link or release notes. "No notifications" means you're caught up.
 
@@ -62,7 +62,7 @@ Announcements can also appear as banners at the bottom right. Click the close bu
 - The [community forum](https://community.nowa.dev/) for questions and answers.
 - Email [team@nowa.dev](mailto:team@nowa.dev).
 
-## Share feedback
+## Share feedback {#share-feedback}
 
 From your second visit to the dashboard, Nowa asks "How much would you rate Nowa?" a couple of minutes after it loads. Pick a rating, add a comment under "Tell us more about it (optional)" and click **Submit Feedback**. If you click **Cancel** instead, it asks again on your next visit.
 

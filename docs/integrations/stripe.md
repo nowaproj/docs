@@ -38,7 +38,7 @@ Nowa saves the three values from step 3 in **Constants** (**Settings** → **Gen
 These fields appear once Supabase is connected. Until then the page shows "Connect to Supabase to configure backend settings, secrets, and deploy edge functions."
 
 1. Paste your **Secret Key** (starts with `sk_`) and submit it. Nowa saves it as a Supabase secret (`STRIPE_SECRET_KEY`), never in your app.
-2. Click the copy icon next to **Webhook URL**.
+2. Click the copy icon (**Copy webhook URL**) next to **Webhook URL**.
 3. In your Stripe Dashboard, add a webhook endpoint with that URL and the events in the table below. [Stripe's webhook guide](https://docs.stripe.com/webhooks) covers the dashboard steps.
 4. Copy the endpoint's signing secret (starts with `whsec_`) into **Webhook Secret** and submit it. Nowa saves it as `STRIPE_WEBHOOK_SECRET`.
 
@@ -60,7 +60,7 @@ Cards work without extra setup. To add wallets, use **2. Payment Methods**. Both
 
 Skip this section if you only chose **Subscription**.
 
-1. Under **3. Business Table** ("Select the table containing your orders or transactions"), open **Table** and pick the table that holds your items. If the list is empty, click **Refresh** or the refresh icon (**Refresh tables**).
+1. Under **3. Business Table** ("Select the table containing your orders or transactions"), open **Table** and pick the table that holds your items. If you see "No tables found", click **Refresh**. After you add a table in Supabase, click the refresh icon (**Refresh tables**) next to **Table**.
 2. Under **4. Map Fields**, set **ID Field** to the column that identifies each row and **Amount Field** to the column with the price.
 3. Set **Currency** to **From Column** and pick a **Currency Column**, or to **Fixed Value** and type a **Fixed Currency** such as `USD`.
 
@@ -83,7 +83,7 @@ Nowa creates these in your Supabase project:
 | **Subscription** | `nowa_stripe_subscriptions` | `stripe-create-subscription`, `stripe-cancel-subscription` |
 | Any type | | `stripe-webhook` |
 
-In your project, Nowa also generates `lib/integrations/stripe_payment_service.dart` and updates the platform files Stripe needs: on Android the minimum SDK (23), `MainActivity`, ProGuard rules and the app theme; on iOS the Apple Pay entitlement and the **Camera** permission.
+In your project, Nowa also generates `lib/integrations/stripe_payment_service.dart` and updates the platform files Stripe needs: on Android the minimum SDK (at least 23), `MainActivity`, ProGuard rules and the app theme; on iOS the **Camera** permission and, when Apple Pay is on, the Apple Pay entitlement.
 
 Check your Supabase dashboard to confirm the tables and functions are there.
 
@@ -97,7 +97,7 @@ You can click **Deploy Configuration** again after any change, for example to ad
 
 1. Select your button. In **Details**, click **+** next to **On Pressed**. Circuit opens ([Respond to taps and other events](../logic/events.md)).
 2. Hover the dot under the top node and click **+**. In **All nodes for this circuit**, search for `StripePaymentService`, pick it, then pick `processPayment` (or `subscribe`). See [Build logic in Circuit](../logic/circuit.md).
-3. In **Details**, set `recordId` to the item's ID (a value from your **ID Field** column), or `priceId` to your Stripe Price ID for `subscribe`.
+3. In **Details**, set `recordId` to the item's ID, a value from your **ID Field** column: click its label to open the link menu and pick the value ([Expressions and conditions](../logic/expressions.md)). For `subscribe`, set `priceId` to your Stripe Price ID.
 4. Under **Future Options**, add logic to **onValue** for a successful payment and to **onError** for a failed one.
 
 Stripe's payment sheet opens in your app. Test it on a device or emulator with Stripe's [test cards](https://docs.stripe.com/testing) while your keys are in test mode. Running on a device needs the desktop app: see [Run on a device or emulator](../test/devices.md).

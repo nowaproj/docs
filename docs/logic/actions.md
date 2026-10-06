@@ -30,7 +30,7 @@ Dialogs, sheets, snackbars and pickers are on their own page: [Show dialogs, she
 
 1. Choose **GLOBALS** → **checkPlatform**, or pick it while you link a true or false property. It starts as `isWeb`.
 2. Click `isWeb` and pick another check: `isAndroid`, `isIOS`, `isMacOs`, `isWindows`, `isLinux` or `isDesktop`. `isDesktop` is true on macOS, Windows and Linux. `currentPlatform` gives the platform itself.
-3. Use it as the **Condition** of an If. To check two platforms at once, link the **Condition** to `logicalOr` under **OPERATORS** and put a check on each side.
+3. Use it as the **Condition** of an If. To check two platforms at once, link the **Condition** to `logicalOr` under **OPERATORS**, then set **Left side** and **Right side** to a **checkPlatform** each.
 
 On the web, only `isWeb` is true.
 

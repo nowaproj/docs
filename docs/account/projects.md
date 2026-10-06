@@ -45,7 +45,7 @@ On the desktop app you can keep a project only on your computer instead. Expand 
 
 Both dialogs have a workspace chip, so you can choose where a cloud copy goes. [Import an existing Flutter project](../code/import.md) has the details, including monorepos.
 
-## Name your project
+## Name your project {#name-your-project}
 
 Your name can use letters, numbers, spaces, underscores and hyphens. It can't be empty, and it can't be only a Dart reserved word such as `class` or `import`. Nowa shows one of these messages when a name breaks a rule:
 
@@ -62,7 +62,7 @@ The name you type is your **Project Name** on the dashboard. Nowa also sets up t
 
 Change the **Bundle Identifier** before you publish, because app stores use it to identify your app.
 
-## Find a project
+## Find a project {#find-a-project}
 
 The **Projects** header shows how many projects the current workspace has. Click a card or row to open the project.
 

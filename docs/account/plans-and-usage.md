@@ -25,7 +25,7 @@ The badge next to your name on the dashboard and in the avatar menu shows your p
 The iOS and Android Nowa apps hide **Billing**, **Usage** and every upgrade button.
 :::
 
-## Change your plan
+## Change your plan {#change-plan}
 
 1. Open **Billing** and click **Adjust Plan**. Two shortcuts lead to the same page: **Upgrade your plan** in the dashboard sidebar, and **Upgrade** in the editor's top bar on the free plan.
 2. Choose **Monthly** or **Annual** under "Plans that grow with you".
@@ -37,7 +37,7 @@ Plan names, prices and features come from Nowa's servers, so the cards always sh
 
 {/* CAPTURE: id=account-plans-and-usage-1 | state: signed in, dashboard Settings then Usage | show: Plan Usage Limits with progress bars and "N% used", and the Extra AI Usage block with Current balance and Buy credits (blur the balance) | crop: the Usage page */}
 
-## Check your usage
+## Check your usage {#usage}
 
 Open **Settings** → **Usage**. It has two parts:
 
@@ -52,7 +52,7 @@ Inside a project, the **AI Assistant** panel keeps you posted as you work:
 
 Nowa shows usage per session, not per message.
 
-## Buy extra AI credits
+## Buy extra AI credits {#buy-credits}
 
 Extra credits keep Nowa AI working after you've used your plan's allowance.
 
@@ -63,7 +63,7 @@ Extra credits keep Nowa AI working after you've used your plan's allowance.
 
 Not every plan can buy extra credits. If yours can't, the page says "Your current plan doesn't support buying additional credits. Upgrade to a higher tier plan to unlock this feature." with an **Upgrade Plan** button.
 
-## When you run out of AI credits
+## When you run out of AI credits {#out-of-credits}
 
 When no credits are left, the chat says "You ran out of credits." and tells you when it resets, and the **Send** button stops working. You can:
 
@@ -73,13 +73,13 @@ When no credits are left, the chat says "You ran out of credits." and tells you 
 
 On the iOS and Android apps the message reads "You reached your usage limit." and has no buttons.
 
-## Invite a friend
+## Invite a friend {#invite-a-friend}
 
 Click **Invite a Friend** in the dashboard sidebar. The dialog **Invite a friend, earn credits** shows your personal invite link under **Your invite link**. Click the copy button (tooltip **Copy link**) and share it.
 
 You and your friend both get AI credits when your friend signs up and verifies their email. The dialog shows how many friends have joined and how many are still waiting to verify. Rewards are capped. When you reach the cap, the dialog says all your invites are rewarded, and friends who join with your link still get their credits.
 
-## When Nowa asks you to upgrade
+## When Nowa asks you to upgrade {#time-to-level-up}
 
 Some features need a plan that includes them, or have an allowance you can use up. When you try one, a **Time to level up** dialog appears. Its default text reads "Looks like you used all your available usage for this feature. Upgrade your plan to unlock more power." Other places write their own text, such as "Publishing to a live web URL is available on paid plans. Upgrade to go live." Click **Upgrade** to open **Billing**.
 

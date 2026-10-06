@@ -42,21 +42,23 @@ Some projects ship with a backend: a template, a copy of someone's project, or o
 1. Connect Supabase with **Connect**. If the project has backend files that your Supabase project doesn't have yet, Nowa opens **Set up Supabase backend**. It tells you how many migrations it will apply.
 2. Click **Set up**. Click **Skip** to do it later.
 3. Watch **Setting up backend**. Nowa applies each migration, deploys each edge function and creates the storage buckets that don't exist yet, then refreshes your tables.
-4. When **Backend ready** appears, click **Done**, or click **Connect app with AI** (see below).
+4. When **Backend ready** appears, click **Done**, or click **Connect app with AI**.
 
 {/* CAPTURE: id=integrations-supabase-backend-1 | state: signed-in cloud project that contains a supabase/ folder with migration files, freshly connected to an empty Supabase project with Connect (needs a Supabase account) | show: the Set up Supabase backend dialog with its message and the Skip and Set up buttons | crop: the dialog */}
 
-To run it later, click ⋮, then **Set up Backend**. This item shows when the project has backend files. If nothing is left to apply, Nowa says "This project's backend is already set up."
+To run it later, click ⋮, then **Set up Backend**. This item shows when the project has backend files. If nothing is left to apply, Nowa says "This project's backend is already set up." If you connected with **Use Keys**, Nowa asks you to authorize first. Afterward, click ⋮, then **Set up Backend** again.
 
 Nowa skips migrations your Supabase project already has, and stops at the first step that fails. The result lists what it did: how many migrations it applied, edge functions it deployed and buckets it created, or "Your backend was already up to date." It also shows the setup note stored in `supabase/nowa_setup.json`. For a backend you saved with **Pull Backend Files**, the note reads: "Auth provider settings and secrets are not included; configure them manually after setup."
 
 {/* CAPTURE: id=integrations-supabase-backend-2 | state: same project after clicking Set up and the run finished (needs a Supabase account) | show: the Backend ready dialog with its summary line, the setup note, and the Done and Connect app with AI buttons | crop: the dialog */}
 
-Your app still runs on the sample data it came with. **Connect app with AI** switches it to your new backend. Nowa opens the **AI Assistant**, turns on the Supabase connector and sends a ready-made prompt for you, so this uses Nowa AI. If a step fails, the dialog says **Setup stopped** and names the step. Click **Fix with AI** to open Nowa AI with a ready-made prompt, or **Close** to stop. After a fix, run **Set up Backend** again from ⋮.
+**Backend ready** reminds you that your app still runs on the data it shipped with. Click **Connect app with AI** to switch it to your new backend. Nowa opens the **AI Assistant**, turns on the Supabase connector and sends a ready-made prompt for you, so this uses Nowa AI.
+
+If a step fails, the dialog says **Setup stopped** and names the step. Click **Fix with AI** to open Nowa AI with a ready-made prompt, or **Close** to stop. After a fix, run **Set up Backend** again from ⋮.
 
 ## Let Nowa AI manage your backend {#nowa-ai}
 
-With the Supabase connector on, Nowa AI can look at your backend and change it: tables, SQL, Row Level Security policies, triggers and database functions, edge functions and migrations. It works in **Agent** mode and asks you to approve each backend action. Turn it on with the Supabase icon in the chat field. See [Connect Figma and Supabase to Nowa AI](../../ai/connectors.md).
+With the Supabase connector on, Nowa AI can look at your backend and change it: tables, SQL, Row Level Security policies, triggers and database functions, edge functions and migrations. It works in **Agent** mode and asks for your approval before it acts. Turn it on with the Supabase icon in the chat field. See [Connect Figma and Supabase to Nowa AI](../../ai/connectors.md).
 
 ## Disconnect Supabase {#disconnect-supabase}
 

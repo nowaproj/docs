@@ -141,9 +141,10 @@ async function runB() {
     await cap.enableSemantics(page);
     await page.waitForTimeout(800);
 
-    const buttonOnCanvas = (await cap.findText(page, 'Button', { clip: { x: 883, y: 300, w: 300, h: 560 }, exact: true }))[0];
-    await cap.clickAt(page, buttonOnCanvas.cx, buttonOnCanvas.cy);
-    await record(page, '18-widget-selected', 'Widget selected on the canvas: Details shows its properties');
+    // A click on the canvas selects most widgets (the Container on the board here).
+    await cap.clickAt(page, 650, 650);
+    await cap.clickAt(page, 600, 300);
+    await record(page, '18-widget-selected', 'Widget selected with a click: Details shows its properties');
 
     await cap.click(page, '600,300', { button: 'right' });
     await page.waitForTimeout(500);
@@ -151,19 +152,25 @@ async function runB() {
     await cap.press(page, 'Escape');
     await cap.clickAt(page, 650, 650);
 
-    await cap.clickAt(page, buttonOnCanvas.cx, buttonOnCanvas.cy);
+    // Text-based widgets (Button, Text) take canvas clicks themselves: select them in the Outline.
+    await cap.openPanel(page, 'Outline');
+    await cap.clickAt(page, 79, 103); // expand HomePage
+    await page.waitForTimeout(600);
+    const node = (await cap.findText(page, 'Button', { clip: { x: 40, y: 80, w: 343, h: 300 } }))[0];
+    await cap.clickAt(page, node.cx, node.cy);
+    await record(page, '20-outline-selection', 'Outline panel: Button selected in the widget tree');
+
     const edit = (await cap.findText(page, 'Edit', { clip: { x: 1290, y: 600, w: 150, h: 300 }, exact: true }))[0];
     await cap.clickAt(page, edit.cx, edit.cy);
     await page.waitForTimeout(800);
-    await record(page, '20-logic-editor', 'Logic editor for On Pressed (Details > On Pressed > Edit)');
+    await record(page, '21-logic-editor', 'Logic editor for On Pressed (Details > On Pressed > Edit)');
     await cap.clickAt(page, 1096, 168); // the panel's close (x) button
 
     await cap.hover(page, '930,232');
-    await record(page, '21-canvas-title-hover', 'Hovering a screen title: Play and Open in new tab appear', { park: false });
-    const play = { x: 986, y: 231 };
-    await cap.clickAt(page, play.x, play.y);
+    await record(page, '22-canvas-title-hover', 'Hovering a screen title: Play and Open in new tab appear', { park: false });
+    await cap.clickAt(page, 986, 231); // Play
     await page.waitForTimeout(2500);
-    await record(page, '22-instant-play', 'Instant Play running on the board');
+    await record(page, '23-instant-play', 'Instant Play running on the board');
   } finally {
     await s.close();
   }

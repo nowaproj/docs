@@ -13,11 +13,18 @@ so cite what you rely on.
 5. The research files your rows cite (`/home/user/docs/_rewrite/research/features-*.md`). They are detailed and
    cite code as `path:line` (relative to `/home/user/nowa-master`). Search them for the feature names.
 
+## Work incrementally (important)
+
+Usage limits can stop you mid-task. **Write each page to disk as soon as it's drafted**, then move to the next, and
+append to your notes file as you go. Before starting, check which of your pages already exist (a previous run may
+have written some): keep and improve those rather than starting over.
+
 ## How to write each page
 
-- **Check the code before you state anything.** Research is good but not infallible: open the cited
-  `/home/user/nowa-master` files for every label, step, menu path, limit and gate you write. If code and research
-  disagree, the code wins; note it. If you can't confirm something, leave it out and note it.
+- **Rely on the research files, spot-check the code.** The research files were built from the code and cite
+  `path:line` for every label. Use their exact labels. Open `/home/user/nowa-master` only when a detail you need
+  is missing, unclear, or looks contradictory (the code wins; note it). Don't re-verify everything: a separate
+  verifier checks every claim against the code after you. If you can't confirm something, leave it out and note it.
 - Cover every item in the page's "Must cover" list, in a sensible order for a reader doing the task. If an item
   turns out not to exist or not to be user-facing, skip it and note why. If you find a user-facing feature that
   belongs on your page but isn't listed, add it and note it.
@@ -43,9 +50,10 @@ so cite what you rely on.
 
 ## Notes file (required)
 
-Write `/home/user/docs/_rewrite/reviews/<batch>-writer-notes.md`: for each page, a list of the claims that matter
-with their code refs (`path:line`), anything you left out and why, assumptions, open questions, and "coverage
-notes" (features you found that aren't in pages.md, or must-cover items that don't exist).
+Write `/home/user/docs/_rewrite/reviews/<batch>-writer-notes.md` (append per page as you go): for each page, the
+research sections and code refs (`path:line`) behind its key claims, anything you left out and why, assumptions,
+open questions, and "coverage notes" (features you found that aren't in pages.md, or must-cover items that don't
+exist). Keep it concise.
 
 ## Boundaries
 

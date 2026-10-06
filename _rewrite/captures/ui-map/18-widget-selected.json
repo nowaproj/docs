@@ -1,6 +1,6 @@
 {
  "id": "18-widget-selected",
- "title": "Widget selected on the canvas: Details shows its properties",
+ "title": "Widget selected with a click: Details shows its properties",
  "viewport": {
   "width": 1440,
   "height": 900,
@@ -149,6 +149,14 @@
    "x": 1399,
    "y": 410,
    "w": 16,
+   "h": 10
+  },
+  {
+   "text": "Button",
+   "conf": 96,
+   "x": 961,
+   "y": 446,
+   "w": 40,
    "h": 10
   },
   {
@@ -418,7 +426,7 @@
    "cy": 473
   },
   {
-   "id": "flt-semantic-node-25",
+   "id": "flt-semantic-node-94",
    "label": "Container",
    "role": "",
    "tappable": false,
@@ -430,7 +438,7 @@
    "cy": 151
   },
   {
-   "id": "flt-semantic-node-26",
+   "id": "flt-semantic-node-95",
    "label": "Create a component",
    "role": "",
    "tappable": false,
@@ -442,7 +450,7 @@
    "cy": 151
   },
   {
-   "id": "flt-semantic-node-27",
+   "id": "flt-semantic-node-96",
    "label": "",
    "role": "button",
    "tappable": true,
@@ -454,7 +462,7 @@
    "cy": 151
   },
   {
-   "id": "flt-semantic-node-28",
+   "id": "flt-semantic-node-97",
    "label": "Layout",
    "role": "",
    "tappable": false,
@@ -466,7 +474,7 @@
    "cy": 203
   },
   {
-   "id": "flt-semantic-node-30",
+   "id": "flt-semantic-node-99",
    "label": "double X X",
    "role": "button",
    "tappable": true,
@@ -491,7 +499,7 @@
    "value": ""
   },
   {
-   "id": "flt-semantic-node-33",
+   "id": "flt-semantic-node-102",
    "label": "double Y Y",
    "role": "button",
    "tappable": true,
@@ -516,7 +524,7 @@
    "value": ""
   },
   {
-   "id": "flt-semantic-node-36",
+   "id": "flt-semantic-node-105",
    "label": "double? W W",
    "role": "button",
    "tappable": true,
@@ -541,7 +549,7 @@
    "value": ""
   },
   {
-   "id": "flt-semantic-node-39",
+   "id": "flt-semantic-node-108",
    "label": "double? H H",
    "role": "button",
    "tappable": true,
@@ -566,7 +574,7 @@
    "value": ""
   },
   {
-   "id": "flt-semantic-node-41",
+   "id": "flt-semantic-node-110",
    "label": "Empty",
    "role": "",
    "tappable": false,
@@ -578,7 +586,7 @@
    "cy": 327
   },
   {
-   "id": "flt-semantic-node-42",
+   "id": "flt-semantic-node-111",
    "label": "",
    "role": "button",
    "tappable": true,
@@ -590,7 +598,7 @@
    "cy": 327
   },
   {
-   "id": "flt-semantic-node-43",
+   "id": "flt-semantic-node-112",
    "label": "Container",
    "role": "",
    "tappable": false,
@@ -602,7 +610,7 @@
    "cy": 379
   },
   {
-   "id": "flt-semantic-node-45",
+   "id": "flt-semantic-node-114",
    "label": "Color? Color Color",
    "role": "button",
    "tappable": true,
@@ -614,7 +622,7 @@
    "cy": 415
   },
   {
-   "id": "flt-semantic-node-46",
+   "id": "flt-semantic-node-115",
    "label": "",
    "role": "group",
    "tappable": false,
@@ -626,7 +634,7 @@
    "cy": 415
   },
   {
-   "id": "flt-semantic-node-47",
+   "id": "flt-semantic-node-116",
    "label": "",
    "role": "button",
    "tappable": true,
@@ -664,7 +672,7 @@
    "value": ""
   },
   {
-   "id": "flt-semantic-node-51",
+   "id": "flt-semantic-node-120",
    "label": "BoxBorder? Border Border",
    "role": "button",
    "tappable": true,
@@ -676,7 +684,7 @@
    "cy": 451
   },
   {
-   "id": "flt-semantic-node-53",
+   "id": "flt-semantic-node-122",
    "label": "BorderRadiusGeometry? Radius Radius",
    "role": "button",
    "tappable": true,
@@ -688,7 +696,7 @@
    "cy": 487
   },
   {
-   "id": "flt-semantic-node-55",
+   "id": "flt-semantic-node-124",
    "label": "DecorationImage? Image Image",
    "role": "button",
    "tappable": true,
@@ -700,7 +708,7 @@
    "cy": 523
   },
   {
-   "id": "flt-semantic-node-57",
+   "id": "flt-semantic-node-126",
    "label": "BlendMode? Blend Mode Blend Mode",
    "role": "button",
    "tappable": true,
@@ -712,7 +720,7 @@
    "cy": 559
   },
   {
-   "id": "flt-semantic-node-58",
+   "id": "flt-semantic-node-127",
    "label": "Custom",
    "role": "button",
    "tappable": true,
@@ -725,7 +733,7 @@
    "expanded": "false"
   },
   {
-   "id": "flt-semantic-node-59",
+   "id": "flt-semantic-node-128",
    "label": "List<BoxShadow>? Shadows Shadows",
    "role": "button",
    "tappable": true,
@@ -737,7 +745,7 @@
    "cy": 595
   },
   {
-   "id": "flt-semantic-node-60",
+   "id": "flt-semantic-node-129",
    "label": "",
    "role": "button",
    "tappable": true,
@@ -749,7 +757,7 @@
    "cy": 595
   },
   {
-   "id": "flt-semantic-node-62",
+   "id": "flt-semantic-node-131",
    "label": "AlignmentGeometry? Alignment Alignment",
    "role": "button",
    "tappable": true,
@@ -761,7 +769,7 @@
    "cy": 631
   },
   {
-   "id": "flt-semantic-node-64",
+   "id": "flt-semantic-node-133",
    "label": "EdgeInsetsGeometry? Padding Padding",
    "role": "button",
    "tappable": true,
@@ -773,7 +781,7 @@
    "cy": 667
   },
   {
-   "id": "flt-semantic-node-66",
+   "id": "flt-semantic-node-135",
    "label": "EdgeInsetsGeometry? Margin Margin",
    "role": "button",
    "tappable": true,
@@ -785,7 +793,7 @@
    "cy": 703
   },
   {
-   "id": "flt-semantic-node-67",
+   "id": "flt-semantic-node-136",
    "label": "Add Wrapper",
    "role": "button",
    "tappable": true,

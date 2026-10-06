@@ -47,7 +47,7 @@ A widget inside a Stack, such as a widget on a screen's main group, is positione
 
 **Left and right** and **Top and bottom** stretch the widget as the screen grows. **Center** keeps it centered. Constraints work for several selected widgets at once.
 
-## Size widgets {#size-widgets}
+## Size widgets
 
 Select a widget and open **Layout**. **W** and **H** each have a mode dropdown.
 
@@ -63,7 +63,7 @@ The sections you get depend on the parent. A screen on the board shows **X**, **
 
 ## Scroll or wrap content
 
-- **Scroll View**: select a Column, or any widget that may not fit, click **Add Wrapper** and choose **Scroll View**. Inside a Scroll View a widget can't **Expand** along the scroll direction, because there is no end to fill.
+- **Scroll View**: select a Column, or any widget that may not fit, click **Add Wrapper** and choose **Scroll View**. Inside a Scroll View, **Expand** isn't offered along the scroll direction, because a scrolling area has no fixed end to fill.
 - **Wrap**: add it from the widget picker. Children sit side by side and continue on a new line when they run out of room.
 - **List View**: add it from the widget picker for a scrolling list. Children are dropped in order like a Column, and each gets a size box. See the [widget catalog](../reference/widgets/index.md).
 

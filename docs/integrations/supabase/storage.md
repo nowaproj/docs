@@ -32,7 +32,7 @@ The names are fixed, so you get one of each, and generating a template again rep
 ## Test the functions
 
 1. Click `uploadFile` under **Storage**. The test panel opens at the bottom of the editor.
-2. Type a **Bucket Name** and a **File Name**.
+2. Type a **Bucket Name** and a **File Name**. The file name can include folders, such as `images/photo.png`.
 3. Click **File Data** and pick an image from your device. The field then shows the file's name.
 4. Click **Run**.
 5. Click `downloadFile`. Type the same **Bucket Name**, and the name you uploaded under as **File Path**. Click **Run**.
@@ -41,7 +41,7 @@ The names are fixed, so you get one of each, and generating a template again rep
 
 A downloaded image (JPG, PNG, GIF or WebP) shows as a preview, with a download icon (tooltip **Download image**) to save it. Any other file shows **File downloaded successfully**, its type and size, and **Save File to Disk**.
 
-To remove a file, click `deleteFile`, fill in **Bucket Name** and **File Name**, and click **Run**.
+The generated `uploadFile` doesn't replace existing files, so use a new **File Name** each time. To remove a file, click `deleteFile`, fill in **Bucket Name** and **File Name**, and click **Run**.
 
 If a test fails with **RLS Policy Error**, your bucket needs a Row Level Security policy that allows that action. Add one in Supabase, or ask Nowa AI. See [Read and write Supabase data](database.md#test-a-function).
 

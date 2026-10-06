@@ -74,7 +74,7 @@ Key code refs (re-checked):
 - **Visibility** wrapper (**Visible** default true, **Replacement**): `packages/core/lib/src/wrappers_to_add.dart:27-31`, `packages/core/lib/src/fields/text_fields.dart:805-818`. **Reset to default** / **Set to null** (nullable only): `packages/core/lib/src/fields/block_field.dart:826-832`.
 Left out: bitwise operators (`bitwiseAnd`, `bitwiseOr`, `bitwiseXor`, `leftShift`, `rightShift`; they are in OPERATORS but not math or logic groups, so the **Math** popup does not list them), the "Field is not enabled" message, the **Change** button inside the arguments popup of a linked call, AI-generated expressions (What's New "Coming Soon", not in 3.12.5).
 Assumptions / to confirm in the UI:
-- "**Detach...** keeps the value it had": research says it replaces the link with the current value or a default (`block_field.dart:703-714`); worded as "keeps the value it had".
+- **Detach...**: research says it replaces the link with the current value or a default (`packages/core/lib/src/fields/block_field.dart:703-714`); the page says "puts the current value in its place".
 - Hidden Visibility behavior ("takes no space") is not stated on the page; only show/hide and **Replacement** are described.
 - The Math popup's operator dropdown lists only the six math operators (code), the Logical popup lists the compare and combine operators; the doc's table mirrors that.
 

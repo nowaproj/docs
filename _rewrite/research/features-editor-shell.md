@@ -9,7 +9,7 @@ undo, settings shells, help/support, onboarding, mobile layout. Panel *contents*
 with a one-line pointer.
 
 Notation: "Ctrl/⌘ + X" means Ctrl on Windows/Linux and ⌘ (Command) on macOS (`AdaptiveActivator`,
-`packages/core/lib/src/inputs.dart:22-25`). Where the code uses Control on every OS it says "Ctrl (also on macOS)".
+`packages/core/lib/src/inputs.dart:22-25`). Where the code uses Control on every OS, the macOS column shows ⌃ (Control).
 
 ## Summary
 - **Editor layout** (no UI label): top bar, 40 px icon sidebar on the left, resizable side panel, workspace (board, open screen/component, code), floating **Variables** / **Details** panels on the right of the board, a docked bottom panel slot, a status bar, and a floating support button.
@@ -27,7 +27,8 @@ Notation: "Ctrl/⌘ + X" means Ctrl on Windows/Linux and ⌘ (Command) on macOS 
 - **Problems**: **From Nowa** (instant, with **All files** / **Only @NowaGenerated** scope, **Refresh**) or **From Code Analysis** (`flutter analyze`, severity filter); **Navigate** / **Copy**; **Fix** quick fixes on some problems.
 - **Save options** / **Auto save**: Ctrl/⌘ + S, auto save on by default every 20 seconds (10 s to 5 min), unsaved `*` markers, unsaved-changes dialog when leaving.
 - **Undo / Redo** and **Action History** (Ctrl/⌘ + Shift + H): per-area undo stacks, clickable history list.
-- **Keyboard shortcuts** and the **Shortcuts** cheat sheet (Ctrl/⌘ + .): complete list below; the in-app cheat sheet has several wrong entries.
+- **Keyboard shortcuts**: the complete list from code (general, designer, mouse modifiers, play/run, Circuit, AI chat, pickers, code editor), with differences vs the old page.
+- **Shortcuts** (cheat sheet, Ctrl/⌘ + .): built-in overlay of common shortcuts; several entries are wrong in 3.12.5.
 - **Search for a file** (Ctrl/⌘ + O) and other pickers: built on the `command_palette` package. There is no global command palette in 3.12.5.
 - **Context menus**: board, canvas widget / outline row, files, Widgets panel, code-mode tabs; index of all other right-click menus.
 - **Board navigation**: scroll to pan, Ctrl/⌘ + scroll or pinch to zoom, Space + drag or middle-drag to pan, **F** to zoom to selection, view remembered per board. No zoom buttons, fit button or minimap.
@@ -45,6 +46,7 @@ Notation: "Ctrl/⌘ + X" means Ctrl on Windows/Linux and ⌘ (Command) on macOS 
 - **Mobile layout** (phone browsers under 840 px wide and the iOS/Android app): **Play**, **More** (⋮) menu, screens/components list, AI chat sheet.
 - **View only** mode (workspace viewer role): read-only editor, reduced shortcuts and menus.
 - **Package chip** (workspaces/monorepos): switch the package being edited (shown only with 2+ packages).
+- **Opening the editor from a link**: public-project link options (**Code mode**, **Preview**, **Assistant**, **Opened file**) open the editor pre-arranged.
 
 ## Features
 
@@ -145,10 +147,10 @@ Notation: "Ctrl/⌘ + X" means Ctrl on Windows/Linux and ⌘ (Command) on macOS 
 ### Widgets
 - **What it does:** Lists every public screen and component in the project, to open, drag onto a board, rename or delete.
 - **Where:** Sidebar → **Widgets** (Ctrl/⌘ + 2).
-- **Labels:** header **Widgets**; search field **Search...**; toggle tooltip **Switch to grid view** / **Switch to list view**; segmented control **Page** / **Component**; right-click **Open in Editor**, **Rename**, **Delete** / **Delete N widgets** (`lib/project/panels/widgets_panel/widgets_panel.dart:163-166`, `:284-331`, `lib/project/panels/widgets_panel/widgets_context_menu.dart:30-42`).
+- **Labels:** header **Widgets**; search field **Search...**; toggle tooltip **Switch to grid view** / **Switch to list view**; segmented control **Page** / **Component**; right-click **Open in Editor**, **Rename**, **Delete** / **Delete N widgets** (`lib/project/panels/widgets_panel/widgets_panel.dart:163-166`, `:265-338`, `lib/project/panels/widgets_panel/widgets_context_menu.dart:30-42`).
 - **How to use:**
-  1. Choose **Page** (screens) or **Component**; or type in search (searches both by name and file path, fuzzy; the Page/Component control hides while searching) (`widgets_panel.dart:116-129`, `:304-306`).
-  2. Click to select; Ctrl/⌘-click or Shift-click to multi-select (`lib/project/panels/widgets_panel/switchable_list_grid_view.dart:86-92`).
+  1. Choose **Page** (screens) or **Component**; or type in search (searches both by name and file path, fuzzy; the Page/Component control hides while searching) (`widgets_panel.dart:114-130`, `:312`).
+  2. Click to select; Ctrl/⌘-click adds or removes one item, Shift-click selects a range (`lib/project/panels/widgets_panel/switchable_list_grid_view.dart:84-96`).
   3. Double-click to open the screen/component in the editor (`lib/project/panels/widgets_panel/preview_tiles.dart:36-38`).
   4. Drag a tile onto the board to place it (`preview_tiles.dart:74-79`).
   5. Right-click for **Open in Editor** / **Rename** (single selection) / **Delete**.
@@ -156,7 +158,7 @@ Notation: "Ctrl/⌘ + X" means Ctrl on Windows/Linux and ⌘ (Command) on macOS 
 - **Options:** list or grid view (default list).
 - **Limits and rules:** only public widget classes from loaded Dart files under `lib/` (`widgets_panel.dart:91-96`). Previews play their animations for a moment, then settle (What's New 3.12.5).
 - **Gating:** none found.
-- **Code refs:** `lib/project/panels/widgets_panel/widgets_panel.dart:21-331`.
+- **Code refs:** `lib/project/panels/widgets_panel/widgets_panel.dart:21-338`.
 - **Old docs:** `ui/widget-panel.md`: partly outdated (tabs are **Page**/**Component**, not "Pages"/"Components"; missing search, grid, multi-select, **Open in Editor**).
 - **3.13 (dev) changes:** replaced by the **Library** panel (`/home/user/nowa/lib/project/panels/left_panel.dart:35`).
 - **Screenshot value:** medium: panel in list view with the right-click menu open.
@@ -166,7 +168,7 @@ Notation: "Ctrl/⌘ + X" means Ctrl on Windows/Linux and ⌘ (Command) on macOS 
 - **Where:** Sidebar → **Files** (Ctrl/⌘ + 6); opens automatically in code mode.
 - **Labels:** header **Files**; section rows for each root folder with add buttons: lib → **Add to library** (+ menu), assets → **Import asset** (upload icon), boards → **Add board** (dialog **Create board**) (`lib/project/panels/files_panel/files_list.dart:157-160`, `:498-511`). The + menu: **New Widget...**, **New Folder...**, **New Model...**, **New Global State...**, **Generate Models From Json...**, **API Collection...**, **Import Dart code...** (`lib/project/panels/files_panel/add_lib_menu.dart:53-146`, `packages/data/lib/src/api/utils/api_util.dart:115`).
 - **How to use:**
-  1. Click a folder to expand it; click a file to select; Ctrl/⌘/Shift-click for multi-select.
+  1. Click a folder to expand it; click a file to select; Ctrl/⌘-click adds or removes one item, Shift-click selects a range (`packages/core/lib/src/common/selectable_tree_controller.dart:18-31`).
   2. Double-click a file to open it (`files_list.dart:395-410`).
   3. Drag files to move them (only within `lib` or within `assets`) (`lib/project/panels/files_panel/files_panel.dart:186-192`).
   4. Right-click for the file menu (see Context menus).
@@ -183,14 +185,14 @@ Notation: "Ctrl/⌘ + X" means Ctrl on Windows/Linux and ⌘ (Command) on macOS 
 - **Where:** Sidebar → **Outline** (Ctrl/⌘ + 7) on a board. When a single screen/component is open: a floating **Outline** tile at the top-left of the canvas, open by default (closed by default in New UX); the sidebar icon hides (`packages/designer/lib/src/designer_setup.dart:157-194`, `packages/core/lib/src/panels/panel.dart:235-245`).
 - **Labels:** header **Outline** (`packages/nowa_ui/lib/outline/outline_view.dart:209-213`); branch eye tooltips **Shown on click. Click again to let the condition decide**, **Shown by the condition**, **Click to show this branch** (`outline_view.dart:434-442`); wrappers icon tooltip lists the wrappers (`outline_view.dart:467`).
 - **How to use:**
-  1. Click a row to select the widget; Shift-click adds to the selection (`outline_view.dart:294-297`).
+  1. Click a row to select the widget; Shift-click adds to the selection (`outline_view.dart:295-298`).
   2. Double-click a row to zoom the board to that widget; if it is not on the board: **Cannot find widget … on the board.** (`packages/designer/lib/src/panels/outline_panel.dart:145-153`).
   3. Drag a row onto another (above / inside / below) to move it (`outline_panel.dart:166-187`).
   4. Right-click a row for the widget menu (same as on the canvas) (`outline_panel.dart:189-196`).
   5. Condition rows have branch rows: click a branch to force it to show; click again to let the condition decide (`outline_panel.dart:155-164`).
   6. Click the layers icon on a row to unfold its wrappers (e.g. Padding) as extra rows (`outline_view.dart:193-198`).
 - **Options:** none.
-- **Limits and rules:** row kinds: widget, component (purple label), loop, condition, branch, slot (`packages/nowa_ui/lib/outline/outline_contract.dart:8`, `outline_view.dart:346-350`). Home screen rows show a home icon in the primary (amber `#FFAB3F`) color (`outline_view.dart:363-367`, `packages/nowa_ui/lib/src/globals/nowa_colors.dart:3`). Inactive branches are dimmed.
+- **Limits and rules:** row kinds: widget, component (purple label), loop, condition, branch, slot (`packages/nowa_ui/lib/outline/outline_contract.dart:8`, `outline_view.dart:346-350`). Home screen rows show a home icon in the primary (amber `#FFAB3F`) color (`outline_view.dart:364-367`, `packages/nowa_ui/lib/src/globals/nowa_colors.dart:3`). Inactive branches are dimmed.
 - **Gating:** none found.
 - **Code refs:** `packages/designer/lib/src/panels/outline_panel.dart:17-201`, `packages/nowa_ui/lib/outline/outline_view.dart:200-530`.
 - **Old docs:** `ui/outline.md`: partly outdated (location "top-left corner of the Design Board" now only for single screens; menu entries differ: no "duplicate"; missing drag-reorder, Shift-click, branches, wrappers).
@@ -252,7 +254,7 @@ Notation: "Ctrl/⌘ + X" means Ctrl on Windows/Linux and ⌘ (Command) on macOS 
 - **What it does:** Floating panel with two tabs: **Problems** and **Logs**.
 - **Where:** Status bar → click the counts (Problems tab) or the last log line (Logs tab).
 - **Labels:** panel title **Console**; tabs **Problems**, **Logs**; on Logs: **Pub get** (runs `pub get`, output goes to the log) and **Clear** (`lib/status_bar.dart:166-176`, `packages/core/lib/src/panels/logs_and_errors_panel.dart:11-33`, `:64-67`).
-- **How to use:** drag the title bar to move; drag edges/corners to resize; X to close (`packages/core/lib/src/providers/panel_provider.dart:520-565`). Log text is selectable; the list keeps scrolling to the newest entry when you are at the bottom (`packages/core/lib/src/panels/logs_panel.dart:51-86`).
+- **How to use:** drag the title bar to move; drag edges/corners to resize; X to close (`packages/core/lib/src/providers/panel_provider.dart:521-565`). Log text is selectable; the list keeps scrolling to the newest entry when you are at the bottom (`packages/core/lib/src/panels/logs_panel.dart:51-86`).
 - **Options:** none.
 - **Limits and rules:** a failed device run opens a separate floating **Log** panel with **Clear** (`lib/project/run/run_button.dart:118-120`, `logs_panel.dart:10-31`).
 - **Gating:** none found.
@@ -269,7 +271,7 @@ Notation: "Ctrl/⌘ + X" means Ctrl on Windows/Linux and ⌘ (Command) on macOS 
   2. Groups (problem checker names first, then file paths) collapse with a click; counts on the right (`problems_panel.dart:104-138`).
   3. Click a row → **Navigate** (opens the file and selects the widget) or **Copy**; click **Fix** where shown.
 - **Options:** scope **Only @NowaGenerated** (default) or **All files** (`packages/core/lib/src/interpreter/services/problem_service.dart:99-114`); analysis severities (default Errors only) (`problems_panel.dart:65`).
-- **Limits and rules:** Nowa reports nothing until packages finish loading (`problem_service.dart:116-128`); file problems cover loaded files under `lib/` (`problem_service.dart:136-160`). Quick fixes in code:
+- **Limits and rules:** Nowa reports nothing until packages finish loading (`problem_service.dart:118-128`); file problems cover loaded files under `lib/` (`problem_service.dart:142-160`). Quick fixes in code:
   - `main` group: **Main file is not found** / **Main function is not found** → **Fix** opens **Reset main file** (**By resetting the main file, you get a new main file with the default setup.**, **Reset**, **Cancel**); **No Home screen Selected, select one of screens as Home Screen** (no fix) (`packages/core/lib/src/project/env_services/main_problems_finder.dart:13-56`).
   - **Packages**: **'X' is imported but is not in the pubspec.** → **Fix** adds it; dev-dependency and failed-to-load messages have no fix (`packages/core/lib/src/interpreter/packages/package_service.dart:384-405`).
   - **PackageConfig**: **Setup statement in main.dart for "X" is required but not found.** → **Fix** adds it; **Android/iOS permission "X" is required by Y but not enabled.** → **Fix** enables it (`packages/core/lib/src/interpreter/packages/package_config/package_config_service.dart:388-430`).
@@ -298,10 +300,10 @@ Notation: "Ctrl/⌘ + X" means Ctrl on Windows/Linux and ⌘ (Command) on macOS 
 ### Undo, Redo and Action History
 - **What it does:** Reverts and reapplies edits; shows the history of the focused area.
 - **Where:** Ctrl/⌘ + Z, Ctrl/⌘ + Shift + Z or Ctrl/⌘ + Y; board right-click **Undo** / **Redo**; Ctrl/⌘ + Shift + H opens **Action History**.
-- **Labels:** floating panel **Action History**, heading **History for <area>**, empty **No undo history found** (`packages/core/lib/src/actions/undo_actions.dart:44-54`, `:107-116`, `:131`).
-- **How to use:** in **Action History**, click an entry to undo back to it; dimmed entries above the divider are redos, click to redo up to them (`undo_actions.dart:76-96`, `:133-156`).
+- **Labels:** floating panel **Action History**, heading **History for <area>**, empty **No undo history found** (`packages/core/lib/src/actions/undo_actions.dart:44-54`, `:110-116`, `:138`).
+- **How to use:** in **Action History**, click an entry to undo back to it; dimmed entries above the divider are redos, click to redo up to them (`undo_actions.dart:85-106`, `:138-150`).
 - **Options:** none.
-- **Limits and rules:** each area has its own history (each board, the Files panel, the Widgets panel, the Themes panel, the Router editor, an opened screen/component) (`packages/designer/lib/src/board/board_editor.dart:21`, `lib/project/panels/files_panel/files_panel.dart:30`, `lib/project/panels/widgets_panel/widgets_panel.dart:141`). Undo/redo shortcuts do nothing while typing in a field (`undo_actions.dart:20`, `:35`). The heading shows the area's internal label.
+- **Limits and rules:** each area has its own history (each board, the Files panel, the Widgets panel, the Themes panel, the Router editor, an opened screen/component) (`packages/designer/lib/src/board/board_editor.dart:21`, `lib/project/panels/files_panel/files_panel.dart:30`, `lib/project/panels/widgets_panel/widgets_panel.dart:138`). Undo/redo shortcuts do nothing while typing in a field (`undo_actions.dart:20`, `:35`). The heading shows the area's internal label.
 - **Gating:** none found.
 - **Code refs:** `packages/core/lib/src/actions/undo_actions.dart:8-160`.
 - **Old docs:** `shortcuts.md`: undo/redo rows accurate; Action History missing.
@@ -333,7 +335,7 @@ Notation: "Ctrl/⌘ + X" means Ctrl on Windows/Linux and ⌘ (Command) on macOS 
   | Delete | ⌫ Backspace | Remove the selection (`packages/core/lib/src/inputs.dart:11-13`) |
   | Ctrl + Shift + H | ⌘ ⇧ H | **Action History** |
   | Ctrl + 1 … 9 | ⌘ 1 … 9 | Toggle sidebar panel by position (Assistant, Widgets, Themes, Search, Git, Files, Outline, Api, Supabase) |
-  | Ctrl + 0 | ⌘ 0 | 10th panel when present (New UX **Debug**) |
+  | Ctrl + 0 | ⌘ 0 | 10th sidebar panel, when the sidebar has one (New UX **Debug**) |
 
   **Designer (boards and opened screens/components)** (`packages/designer/lib/src/designer_setup.dart:15-53`)
 
@@ -361,9 +363,9 @@ Notation: "Ctrl/⌘ + X" means Ctrl on Windows/Linux and ⌘ (Command) on macOS 
   |---|---|---|
   | Scroll | Scroll | Pan the board |
   | Shift + scroll | Shift + scroll | Pan horizontally |
-  | Ctrl + scroll, pinch | ⌘ + scroll, pinch | Zoom at the pointer (`packages/core/lib/src/board/board_view.dart:182-197`, `:229-246`) |
-  | Space + drag, middle-button drag | same | Pan (hand cursor) (`board_view.dart:147-153`, `:199-213`) |
-  | Shift + click | Shift + click | Add to the selection (board, outline, canvas titles, Widgets/Files panels) |
+  | Ctrl + scroll, pinch | ⌘ + scroll, pinch | Zoom at the pointer (`packages/core/lib/src/board/board_view.dart:183-196`, `:237-250`) |
+  | Space + drag, middle-button drag | same | Pan (hand cursor) (`board_view.dart:145-153`, `:198-212`) |
+  | Shift + click | Shift + click | Add to the selection (board, outline, canvas titles); range select in the Widgets and Files panels |
   | Ctrl + click | ⌘ + click | Try the innermost widget under the pointer first (`packages/designer/lib/src/design_experience/selection_manager.dart:50-53`) |
   | Alt + drag | ⌥ + drag | Drag a copy of the selection |
   | Shift + drag | Shift + drag | Move along one axis only (`packages/designer/lib/src/design_experience/designer_board_controller.dart:203`) |
@@ -456,7 +458,8 @@ Notation: "Ctrl/⌘ + X" means Ctrl on Windows/Linux and ⌘ (Command) on macOS 
 
 ### Context menus
 - **What it does:** Right-click menus. Open with right-click; on touch, long-press; close by clicking outside (`packages/context_menus/lib/src/context_menu_region.dart:32-36`, `packages/context_menus/lib/src/context_menu_overlay.dart:103-105`). Items created from actions show the shortcut on the right (`packages/core/lib/src/widgets/menu.dart:50-60`).
-- **Where / Labels:**
+- **Where:** right-click (or long-press on touch) the item.
+- **Labels:**
   - **Board background** (right-click empty board): **Undo**, **Redo**, **Save**, **Create a page** (template picker), **Paste** (`packages/designer/lib/src/menus/board_context_menu.dart:16-20`).
   - **Widget on the canvas or Outline row**: **Play** (only when no canvas is playing and the item sits in a canvas), **Remove**, **Replace with...** (widget picker), **Group**, **Ungroup** (only for one selected group), **Copy**, **Cut**, **Move Up**, **Move Down**, **Move To Top**, **Move To Bottom**, **Create component**, **Detach** (enabled only on a component instance), **Copy as new widget** (enabled only on a class component), **Export as image...** (`packages/designer/lib/src/menus/widget_context_menu.dart:34-113`). View only: **Copy**, **Export as image...** (`widget_context_menu.dart:20-31`). Right-clicking an unselected hovered widget selects it first (`packages/designer/lib/src/design_experience/designer_board_controller.dart:320-340`).
   - **File or folder** (Files panel): **Remove file** / **Remove N files**, **Rename** (one item), **Copy as path**, **View in folder** (local projects), **Show file content** / **Show files content** (files only) (`lib/project/panels/files_panel/file_context_menu.dart:58-90`). View only: **Copy as path**, **View in folder** (local) (`file_context_menu.dart:36-56`).
@@ -483,7 +486,7 @@ Notation: "Ctrl/⌘ + X" means Ctrl on Windows/Linux and ⌘ (Command) on macOS 
   4. Select something and press **F** to zoom to it; double-click a row in **Outline** for the same.
   5. Clicking a search result, or **Play** on a canvas title, also moves the view to it (`packages/designer/lib/src/panels/canvas_titles.dart:247-253`).
 - **Options:** per board: **Show Grid**, **Board Color**, **Reset** in **Details** with nothing selected (`packages/designer/lib/src/details/board_details.dart:38-70`).
-- **Limits and rules:** zoom between about 10% and 1000% (`packages/core/lib/src/board/board_view.dart:117-130`); panning is clamped near the board's content (`board_view.dart:91-115`). The last zoom and position of each board are remembered per project on that device (`packages/designer/lib/src/board/board_editor.dart:15-31`). No zoom-percentage display, zoom buttons, fit-to-screen button or minimap exist in 3.12.5 (no such UI strings).
+- **Limits and rules:** zoom between about 10% and 1000% (`packages/core/lib/src/board/board_view.dart:123-131`); panning is clamped near the board's content (`board_view.dart:94-121`). The last zoom and position of each board are remembered per project on that device (`packages/designer/lib/src/board/board_editor.dart:15-31`, `packages/core/lib/src/file_system/board_file_state.dart:62-69`). No zoom-percentage display, zoom buttons, fit-to-screen button or minimap exist in 3.12.5 (no such UI strings).
 - **Gating:** none found.
 - **Code refs:** `packages/core/lib/src/board/board_view.dart:28-316`.
 - **Old docs:** `shortcuts.md` zoom row accurate; `ui/boards.mdx` customization accurate; pan/focus missing.
@@ -491,7 +494,8 @@ Notation: "Ctrl/⌘ + X" means Ctrl on Windows/Linux and ⌘ (Command) on macOS 
 
 ### Opening screens, components and files
 - **What it does:** The ways to get from the board to a screen, component or file and back.
-- **Where / How to use:**
+- **Where:** board canvas titles, Widgets and Files panels, top bar, keyboard, Search and Problems.
+- **How to use:**
   1. Hover a canvas title on the board → **Open in new tab** (opens that screen/component on its own) (`packages/designer/lib/src/panels/canvas_titles.dart:262-276`).
   2. Double-click a screen/component in **Widgets**, or a file in **Files**.
   3. Select a widget and press Ctrl/⌘ + I to open the file that defines it.
@@ -500,7 +504,7 @@ Notation: "Ctrl/⌘ + X" means Ctrl on Windows/Linux and ⌘ (Command) on macOS 
   6. Back to the board: click the dimmed board chip in the top bar, or press Ctrl/⌘ + B (reopens the board you were last on) (`packages/designer/lib/src/actions/file_actions.dart:51-58`).
 - **Labels:** **Open in new tab**, **Play** / **Stop** (canvas title, designer research).
 - **Options:** none.
-- **Limits and rules:** in the designer only one thing is open at a time: opening a file replaces the board view (despite the "new tab" wording); tabs exist only in code mode (`packages/core/lib/src/providers/editor_provider.dart:46-67`). The editor remembers what was open per project and restores it next time (`editor_provider.dart:137-188`).
+- **Limits and rules:** in the designer only one thing is open at a time: opening a file replaces the board view (despite the "new tab" wording); tabs exist only in code mode (`packages/core/lib/src/providers/editor_provider.dart:46-67`). The editor remembers what was open per project on that device and restores it next time (`editor_provider.dart:137-188`, `packages/core/lib/src/project/project_state.dart:53-57`).
 - **Gating:** none found.
 - **Code refs:** `packages/core/lib/src/providers/editor_provider.dart:5-240`.
 - **Old docs:** `ui/boards.mdx`: wrong (tabs bar, "+" to create a board); `ui/widget-panel.md`: double-click accurate.
@@ -521,14 +525,15 @@ Notation: "Ctrl/⌘ + X" means Ctrl on Windows/Linux and ⌘ (Command) on macOS 
 
 ### Resizing, collapsing and floating panels
 - **What it does:** Adjusts the space each area takes.
+- **Where:** panel dividers, tile headers and floating-panel title bars across the editor.
 - **How to use:**
   1. Side panel: drag the divider between it and the workspace (default 340 px, min 200 px); hide it by clicking its sidebar icon again (`lib/project/project_page.dart:588-602`, `packages/core/lib/src/panels/panel.dart:625-707`).
   2. Bottom panel: drag its top divider (default 400 px, min 150 px); close with X.
   3. **Variables** / **Details** and the floating **Outline**: click titles to collapse/expand; drag the inner edge to resize (240 px start, 200 px min, 35% max).
   4. Code-mode preview: drag its divider (420 px start, 320 px min) (`lib/project/panels/vibe_designer.dart:85-90`).
-  5. Floating panels (**Console**, **Action History**, **Log**, code **Errors**): drag the title bar, resize from any edge or corner, X to close (`packages/core/lib/src/providers/panel_provider.dart:420-565`).
+  5. Floating panels (**Console**, **Action History**, **Log**, code **Errors**): drag the title bar, resize from any edge or corner, X to close (`packages/core/lib/src/providers/panel_provider.dart:299-565`).
   6. Web: **Enter Fullscreen** / **Exit Fullscreen** at the bottom of the sidebar.
-- **Labels:** **Enter Fullscreen**, **Exit Fullscreen**; floating panel **Open in a new tab** (only on panels that support it) (`panel_provider.dart:540-550`).
+- **Labels:** **Enter Fullscreen**, **Exit Fullscreen**; floating panel **Open in a new tab** (only on panels that support it) (`panel_provider.dart:550`).
 - **Options:** none.
 - **Limits and rules:** panel sizes are not saved between sessions (no persistence in `PanelSlot`; New UX pinned panels are saved in the project settings file, `packages/core/lib/src/panels/panel.dart:31-57`).
 - **Gating:** fullscreen web only.
@@ -676,6 +681,7 @@ Notation: "Ctrl/⌘ + X" means Ctrl on Windows/Linux and ⌘ (Command) on macOS 
 - **What it does:** A project link can open the editor already set up.
 - **Where:** public-project link options in **Settings** → **Project Details** → **Sharing** (account research): **Code mode**, **Preview**, **Assistant**, **Opened file** (`packages/core/lib/src/settings/sharing_settings.dart:232-280`).
 - **Labels:** as above.
+- **Options:** the four link options above.
 - **How to use:** the link carries `mode=code`, `preview=play|run`, `panel=<sidebar panel name>` (or `none`), `file=<path>` (`packages/core/lib/src/panels/workspace_options.dart:1-41`).
 - **Limits and rules:** `panel` matches sidebar names case-insensitively; unknown names are ignored (`lib/project/workspace_options.dart:99-105`).
 - **Gating:** none found.

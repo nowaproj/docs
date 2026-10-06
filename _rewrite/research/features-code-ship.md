@@ -1059,11 +1059,22 @@ Shipping and sharing
 
 ### Mobile browser Build and Run pages
 - **What it does:** Phone-sized Deploy and Run when Nowa is opened in a mobile browser (3.10.5).
-- **Where:** mobile shell (editor-shell research).
-- **Labels:** "Build <project>" with tabs "Android", "iOS", "Web"; Run page "Real app", "Launch App", "Hot Restart",
-  "Stop", "Start", "This may take a minute... Please wait.", "Run is not available for this project".
-- **Code refs:** `lib/project/nowago/mobile_build_page.dart:59-96`; `lib/project/nowago/mobile_run_page.dart:40-215`;
-  `lib/project/nowago/mobile_build_status.dart:140`.
+- **Where:** mobile shell top bar (shell itself: editor-shell research). **Build** chip → "Build <project>" page;
+  **Play** → "Play your app" sheet → "Run real app" → Run page.
+- **Labels:** top bar "Build" (or the live build/web status as the chip), "Play", "More"; Build page "Build <project>"
+  with tabs "Android", "iOS", "Web"; sheet "Play your app", "Two ways to see it — pick one:", "Instant preview"
+  (badge "SIMULATED"), "Run real app" (badge "REAL APP", or "LIVE" once running); Run page "Real app", "Launch App",
+  "Hot Restart", "Stop", "Start", "This may take a minute... Please wait.", "Run is not available for this project".
+- **How to use:** 1. Tap **Build**, pick a tab: same content as the Deployment settings tabs. 2. Tap **Play** →
+  **Run real app** to open the Run page ("first start can take a minute"); tap **Start** if it is not running.
+  3. Once ready, **Launch App** opens the running app's URL; **Hot Restart** and **Stop** control it.
+- **Gating:** only in the mobile shell: native iOS/Android Nowa apps, or a web window narrower than 840 px
+  (`useMobileShell`, `packages/nowa_ui/lib/src/globals/responsive_utils.dart:63-68`). The Build tabs reuse the desktop
+  Deployment tabs, so their plan gating applies. If no run manager is registered, **Play** goes straight to the
+  simulated preview, and the Run page shows "Run is not available for this project".
+- **Code refs:** `lib/project/project_page.dart:105-106`; `lib/project/nowago/mobile_view.dart:66-130`, `:338-347`;
+  `lib/project/nowago/mobile_build_page.dart:59-96`; `lib/project/nowago/mobile_run_page.dart:16-44`, `:40-215`;
+  `lib/project/nowago/mobile_build_status.dart:131-140`.
 - **Old docs:** none.
 - **Screenshot value:** low.
 

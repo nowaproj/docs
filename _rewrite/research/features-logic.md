@@ -97,7 +97,7 @@ Reading notes for writers:
   5. **SHARED PREFERENCES** (**clear**, **remove key**, **set**, **get**)
   6. Integration categories, e.g. **FIREBASE** once Firebase is connected (see data research)
   7. **GENERAL** (**Create...**, **parse**, and **null** when the place accepts null)
-  8. **EXPRESSIONS** (**Conditional**, **Math** or **Logical**, **ifNull**)
+  8. **EXPRESSIONS** (**Conditional**, **ifNull**; **Math** or **Logical** appear only in link menus where a type is expected)
   Each item shows its name, `(...)`/`()` for functions with/without parameters, and a type icon (tooltip = type). Constructors read **Create** + type.
 - **How to use:**
   1. Type in the search box to filter items (the five top items are filtered too); matching categories open automatically while searching.
@@ -277,7 +277,6 @@ Reading notes for writers:
 - **Gating:** none found.
 - **Code refs:** `packages/core/lib/src/state_management/global_state_suggestions.dart:31-43`, `packages/code/lib/src/customizations/navigator_field.dart:9-172`, `packages/core/lib/src/fields/nowa_fields.dart:409-525` (brush), `packages/core/lib/src/widgets/widget_picker.dart:131-175`.
 - **Old docs:** `docs/logic/common-functionalities/navigation.md` — partly outdated (labels are lowercase `push`/`pushReplacement`/`to`/`result type`; GoRouter, which new projects use, is not covered).
-- **3.13 (dev) changes:** none material.
 - **Screenshot value:** high — Navigator node with Type and screen brush popup showing screen parameters.
 
 ### GoRouter
@@ -313,7 +312,7 @@ Reading notes for writers:
 
 ### checkPlatform
 - **What it does:** a true/false value telling where the app runs, for platform-specific logic.
-- **Where:** add-node menu → **GLOBALS** → **checkPlatform** (also available in any bool field's link menu inside Circuit, e.g. an If **Condition**).
+- **Where:** add-node menu → **GLOBALS** → **checkPlatform** (also offered under **GLOBALS** in link menus, e.g. an If **Condition** or a Visibility wrapper's **Visible**).
 - **Labels:** inserted as `NPlatform.isWeb`; click `isWeb` to choose another member: `isWeb`, `isMacOs`, `isWindows`, `isLinux`, `isAndroid`, `isIOS`, `isDesktop`, `currentPlatform` (and the platform constants `android`, `ios`, `web`, `macos`, `windows`, `linux`, `fuchsia`).
 - **How to use:**
   1. In an If, click **Condition** → **GLOBALS** → **checkPlatform**.
@@ -371,7 +370,7 @@ Reading notes for writers:
 
 ### Create... (GENERAL)
 - **What it does:** creates any object: a data model instance, a `Duration`, `DateTime.now()`, `Future.delayed(...)` (wait), `Timer.periodic(...)` (repeat), etc.
-- **Where:** add-node menu (or a link menu inside Circuit) → **GENERAL** → **Create...**.
+- **Where:** add-node menu (or the link menu of an If **Condition**, a node's **Expression:** or a **Return** value) → **GENERAL** → **Create...**.
 - **Labels:** **Create...** → headline **Pick a constructor** → list of classes → if the class has several constructors, a second list (the unnamed one shows as **Default**). The node reads **Create <Class>** and Details lists the constructor's inputs. GENERAL also has **parse** (`double.parse`) and **null** (only where null is allowed).
 - **How to use:**
   1. Insert **Create...**, search the class (e.g. your model, `Future`, `Timer`, `DateTime`).
@@ -387,14 +386,14 @@ Reading notes for writers:
 
 ### Operators
 - **What it does:** inserts a calculation, comparison or logic expression with left and right values.
-- **Where:** add-node menu, or the link menu of a field inside Circuit (e.g. If **Condition**) → **OPERATORS**.
+- **Where:** add-node menu, or the link menu of a statement-level field in Circuit (an If **Condition**, a node's **Expression:**, a **Return** value) → **OPERATORS**.
 - **Labels:** items `plus`, `minus`, `multiply`, `divide`, `intDivide`, `greaterThan`, `smallerThan`, `greaterThanOrEqual`, `smallerThanOrEqual`, `equal`, `notEqual`, `logicalOr`, `logicalAnd`, `ifNull`, `mod`, `bitwiseAnd`, `bitwiseOr`, `bitwiseXor`, `leftShift`, `rightShift`. Details: header **Math Expression** / **Logic Expression** / **If Null Expression**, **Operator**, **Type**, **Left side**, **Right side** (for ifNull: **Value**, **If null**).
 - **How to use:**
   1. Pick an operator.
   2. Set **Type** (e.g. int), then type or link **Left side** and **Right side**.
   3. Switch operators later in **Operator** (only operators of the same group are listed).
 - **Options:** Operator, Type, sides.
-- **Limits and rules:** OPERATORS is only offered in Circuit menus (not in a widget property's link menu; there use **EXPRESSIONS** → **Math**/**Logical**).
+- **Limits and rules:** OPERATORS is offered only in those menus. Other link menus (widget properties, and inputs of a node such as print's **Msg** or a Set node's **Value**) list only LOCALS, GLOBALS and EXPRESSIONS: use **EXPRESSIONS** → **Math**/**Logical** there.
 - **Gating:** none found.
 - **Code refs:** `packages/core/lib/src/interpreter/suggestion.dart:265-286,467-479,569-586`, `packages/core/lib/src/interpreter/block_tree.dart:2348-2420`, `packages/core/lib/src/fields/expression_builder/expression_details.dart:249-326`, `packages/core/lib/src/fields/field_link_menu.dart:341`.
 - **Old docs:** `docs/logic/control-flow/if-statement.mdx` (Operators) — accurate.
@@ -409,7 +408,7 @@ Reading notes for writers:
   2. In the popup, link **condition** to a bool, set **then** and **else**.
   3. Reopen later with **Edit condition**.
 - **Options:** as listed.
-- **Limits and rules:** **Math** and **Logical** open the operator editor described in **Operators**.
+- **Limits and rules:** **Math** appears only where a non-bool value is expected and **Logical** only where a bool is expected, so where no type is expected (e.g. the add-node menu) only **Conditional** and **ifNull** are listed. **Math** and **Logical** open the operator editor described in **Operators**.
 - **Gating:** none found.
 - **Code refs:** `packages/core/lib/src/interpreter/suggestion.dart:526-566`, `packages/core/lib/src/fields/field_link_menu.dart:167-173`, `packages/core/lib/src/fields/expression_builder/expression_details.dart:192-247`, `packages/core/lib/src/fields/expression_builder/expression_field.dart:41-97`.
 - **Old docs:** none (old pages point to an "Expressions section" that does not exist) — missing.
@@ -584,7 +583,7 @@ Reading notes for writers:
 - **How to use:**
   1. **+** → **Add Function** creates `func` (returns void); rename it.
   2. Select it → **Edit** to open Circuit; add parameters on the top node.
-  3. **InitState Function**: opens with a node `initState` (the required `super.initState()`); keep it and add nodes below it (e.g. load data, start a Timer).
+  3. **InitState Function** adds `initState` containing one node `initState` (the required `super.initState()`): select it → **Edit**, keep that node and add nodes below it (e.g. load data, start a Timer).
   4. **Dispose Function**: same, with `dispose` (e.g. cancel a Timer).
   5. Call a function from other logic via **LOCALS**, or attach it to an event by linking the event to it.
 - **Options:** Name, Return Type, parameters.
@@ -592,7 +591,6 @@ Reading notes for writers:
 - **Gating:** none found.
 - **Code refs:** `packages/core/lib/src/widgets/code/declaration_list_widgets.dart:371-494`, `packages/core/lib/src/panels/details/decl_details.dart:53-59`, `packages/core/lib/src/widgets/code/variable_widgets.dart:467-500`.
 - **Old docs:** `docs/vars-params-functions/functions/create-local-function.mdx` — partly outdated (menu items now **Add Function** / **InitState Function** / **Dispose Function**); `functions/override-functions` — accurate content but the file has no .md/.mdx extension, so it is not rendered.
-- **3.13 (dev) changes:** menus restyled, same labels.
 - **Screenshot value:** high — the Functions **+** menu.
 
 ### Events (On Pressed, On Tap, On Changed...)
@@ -615,15 +613,15 @@ Reading notes for writers:
 ### Link <field> menu
 - **What it does:** the menu behind every property and input label: connects the value to variables, parameters, global state, functions or expressions, and creates new ones.
 - **Where:** click a field's label (in Details, in Circuit node details, in popups). Fields that cannot be linked show "Field is not enabled".
-- **Labels:** headline **Link <field>** (with the expected type); items **Custom Expression...**, **Detach...** (red, when linked), **Create Param...**, **Create Variable...**, **Compute...**, **Edit** (linked to a variable), **Open in Circuit** (linked to a function); categories: in widget properties **LOCALS**, **GLOBALS**, **EXPRESSIONS**; in Circuit fields the full add-node category list.
+- **Labels:** headline **Link <field>** (with the expected type); items **Custom Expression...**, **Detach...** (red, when linked), **Create Param...**, **Create Variable...**, **Compute...**, **Edit** (linked to a variable), **Open in Circuit** (linked to a function); categories: for statement-level fields in Circuit (an If **Condition**, a node's **Expression:**, a **Return** value) the full add-node category list; everywhere else (widget properties, inputs of a node) **LOCALS**, **GLOBALS**, **EXPRESSIONS** (plus integration categories that are not Circuit-only).
 - **How to use:**
   1. Click the label (it highlights on hover).
-  2. Pick a value from a category (only values of a fitting type are offered), or an item above.
+  2. Pick a value from a category, or an item above. Items that return nothing are hidden; picking a value of another type opens its members so you can reach a fitting one (e.g. a number → `toString`).
   3. A linked field shows the value's path (e.g. `product.name`) with a **+** to go deeper.
 - **Options:** none.
 - **Limits and rules:** **Create Param...** inside a function creates a function parameter, otherwise a screen/component parameter. **Create Variable...** needs a class (screen/component, global state, model). **Detach...** replaces the link with its current value (or a default).
 - **Gating:** none found.
-- **Code refs:** `packages/core/lib/src/fields/field_link_menu.dart:9-416`, `packages/core/lib/src/fields/block_field.dart:990-1036,703-714`, `packages/core/lib/src/fields/link_menu.dart:90-93,163-172`.
+- **Code refs:** `packages/core/lib/src/fields/field_link_menu.dart:9-416`, `packages/core/lib/src/fields/block_field.dart:990-1036,703-714`, `packages/core/lib/src/fields/link_menu.dart:90-93,138-172`.
 - **Old docs:** spread over `create-variable.mdx`, `local-parameter.mdx`, `if-statement.mdx` ("linking menu") — partly outdated (item names now end with "...", no separate "Expression Builder").
 - **Screenshot value:** high — link menu open on a Text property.
 
@@ -695,7 +693,7 @@ Reading notes for writers:
 ### Global states
 - **What it does:** app-wide state: classes holding data and functions that any screen can read and change (cart, signed-in user, settings). Built on Flutter's ChangeNotifier + Provider.
 - **Where:**
-  - Files panel → hover `lib` → **+** (tooltip **Add to library**) → **New Global State...** (created in `lib/globals` and attached automatically).
+  - Files panel → the **+** next to `lib` (tooltip **Add to library**; the panel's **Add** button opens the same menu while you are inside `lib`) → **New Global State...** (created in `lib/globals` and attached automatically).
   - **Variables** panel with nothing selected → **Globals** → **Create global state** (created in `lib`) or **Pick global state** (attach an existing one: "Loading global states...", "No global states found").
   - Each listed global state: **...** → **Open in new tab**, **Detach global state**.
   - main.dart preview → **Globals Options** → **Global Providers** (same actions).
@@ -707,7 +705,7 @@ Reading notes for writers:
 - **Options:** name, path.
 - **Limits and rules:** "attached" means Nowa adds a `ChangeNotifierProvider` for it in `main.dart` (inside `MultiProvider`); only attached states appear in **GLOBALS**. New projects already have **AppState** (`lib/globals/app_state.dart`) with `theme` and `changeTheme` (themes research).
 - **Gating:** none found.
-- **Code refs:** `lib/project/panels/files_panel/add_lib_menu.dart:98-110`, `lib/project/panels/files_panel/files_list.dart:500-502`, `packages/core/lib/src/state_management/global_state_widgets.dart:8-184`, `packages/core/lib/src/state_management/global_state_menu.dart:6-43`, `packages/core/lib/src/fields/class_editor.dart:52-79`, `packages/core/lib/src/project/env_services/global_state_service.dart:15-96`, `packages/core/lib/src/file_system/widgets/previews/main_preview/globals_review_section.dart:8-125`, `packages/core/lib/src/file_system/widgets/create_file_dialog.dart:85-130`, `packages/core/lib/src/file_system/templates/common/app_state_template.dart:6-38`, `packages/core/lib/src/file_system/templates/common/main_dart_template.dart:42-49`.
+- **Code refs:** `lib/project/panels/files_panel/add_lib_menu.dart:98-110`, `lib/project/panels/files_panel/files_list.dart:500-502`, `lib/project/panels/files_panel/files_panel.dart:200-232`, `packages/core/lib/src/state_management/global_state_widgets.dart:8-184`, `packages/core/lib/src/state_management/global_state_menu.dart:6-43`, `packages/core/lib/src/fields/class_editor.dart:52-79`, `packages/core/lib/src/project/env_services/global_state_service.dart:15-96`, `packages/core/lib/src/file_system/widgets/previews/main_preview/globals_review_section.dart:8-125`, `packages/core/lib/src/file_system/widgets/create_file_dialog.dart:85-130`, `packages/core/lib/src/file_system/templates/common/app_state_template.dart:6-38`, `packages/core/lib/src/file_system/templates/common/main_dart_template.dart:42-49`.
 - **Old docs:** `docs/vars-params-functions/global-states.md` — partly outdated (labels "New Global State...", "Pick global state"; "click once on the file to open its editor" is wrong: single-click shows a small preview, double-click opens it; New Global State now attaches automatically).
 - **3.13 (dev) changes:** the same **New Global State...** entry is also in the new Library panel's add menu (`/home/user/nowa/lib/project/panels/library_panel/library_host.dart:183`).
 - **Screenshot value:** high — Variables panel Globals view; New GlobalState dialog.
@@ -756,7 +754,7 @@ Reading notes for writers:
 
 ### New Model...
 - **What it does:** creates a data model class (Task, Product, User...) to use as a type for variables, parameters and lists. Nowa keeps its constructor, `fromJson` and `toJson` up to date automatically as you add fields.
-- **Where:** Files panel → hover `lib` → **+** (**Add to library**) → **New Model...** (created in `lib/models`).
+- **Where:** Files panel → the **+** next to `lib` (**Add to library**) or **Add** → **New Model...** (created in `lib/models`).
 - **Labels:** dialog **New Model** with **Model name**, **Class name** (PascalCase), **Path** (snake_case file), **Cancel**, **Submit**. In the file editor: **Variables**, **Functions**; field editor **Name**, **Type**, **Default Value**, **Is Final**, **Is Static**.
 - **How to use:**
   1. **New Model...**, type a name (e.g. "task model" → class `TaskModel`, file `task_model.dart`), **Submit**.
@@ -766,14 +764,14 @@ Reading notes for writers:
 - **Options:** as listed.
 - **Limits and rules:** name rules as in **Variables**. The constructor takes every field; `fromJson(Map<String, dynamic> json)` and `toJson()` are regenerated whenever fields change.
 - **Gating:** none found.
-- **Code refs:** `lib/project/panels/files_panel/add_lib_menu.dart:85-97`, `packages/core/lib/src/interpreter/declaration_runtime.dart:290-309`, `packages/core/lib/src/interpreter/auto_blocks.dart:41-241`, `packages/core/lib/src/widgets/code/declaration_list_widgets.dart:309-369`, `packages/core/lib/src/providers/project_provider.dart:376`.
+- **Code refs:** `lib/project/panels/files_panel/add_lib_menu.dart:85-97`, `lib/project/panels/files_panel/files_panel.dart:200-232`, `packages/core/lib/src/interpreter/declaration_runtime.dart:290-309`, `packages/core/lib/src/interpreter/auto_blocks.dart:41-241`, `packages/core/lib/src/widgets/code/declaration_list_widgets.dart:309-369`, `packages/core/lib/src/providers/project_provider.dart:376`.
 - **Old docs:** `docs/vars-params-functions/data-models.md` — partly outdated ("Create new object" is **New Model...**; the single-click popup with variables/functions no longer exists; auto fromJson/toJson, Is Static not mentioned).
 - **3.13 (dev) changes:** also offered from the new Library panel's add menu (`/home/user/nowa/lib/project/panels/library_panel/library_host.dart:183`).
 - **Screenshot value:** high — model file editor with fields and the code view.
 
 ### Generate Models From Json...
 - **What it does:** creates model classes (including nested ones) from a JSON sample, e.g. an API response.
-- **Where:** Files panel → **+** on `lib` (**Add to library**) → **Generate Models From Json...** (also reachable from API flows: data research).
+- **Where:** Files panel → the **+** next to `lib` (**Add to library**) or **Add** → **Generate Models From Json...** (also reachable from API flows: data research).
 - **Labels:** dialog **Generate Models** with steps **Content** ("Enter a JSON text and instantly generate usable models for your project.", editor buttons **Wrap**, **Compress**, **Prettify**), **Select Data** (**Select All**, **Collapse All**, **Expand All**), **Generated Models** (**Name**: "Enter the name of the class you want to generate, this is the main class name"; **Path** with browse); buttons **Cancel**/**Back**, **Next**, **Save and Open** (or **Save**).
 - **How to use:**
   1. Paste JSON, **Next** (disabled while the JSON is invalid).
@@ -782,12 +780,13 @@ Reading notes for writers:
 - **Options:** fields; name; path.
 - **Limits and rules:** generated fields are nullable (`String?`, `int?`, `double?`, `bool?`, nested models). If the JSON's root has no fields (e.g. a list of plain values) the snackbar says "You can generate model for List of primitives".
 - **Gating:** none found.
-- **Code refs:** `lib/project/panels/files_panel/add_lib_menu.dart:111-117`, `packages/core/lib/src/model_generator/generate_models_dialog.dart:9-205`, `packages/core/lib/src/model_generator/generate_models_dialog_selection/json_editor_section.dart:6-24`, `packages/core/lib/src/model_generator/generate_models_dialog_selection/selecting_data_section.dart:30-70`, `packages/core/lib/src/model_generator/generate_models_dialog_selection/generated_models_section.dart:60-80`, `packages/core/lib/src/model_generator/json_editor.dart:145-162`, `packages/core/lib/src/model_generator/generate_models_provider.dart:12-20`, `packages/core/lib/src/model_generator/data_analysers/json_analyser.dart:86-160`.
+- **Code refs:** `lib/project/panels/files_panel/add_lib_menu.dart:111-117`, `packages/core/lib/src/model_generator/generate_models_dialog.dart:9-205`, `packages/core/lib/src/model_generator/generate_models_dialog_selection/json_editor_section.dart:6-24`, `packages/core/lib/src/model_generator/generate_models_dialog_selection/selecting_data_section.dart:30-70`, `packages/core/lib/src/model_generator/generate_models_dialog_selection/generated_models_section.dart:60-80`, `packages/core/lib/src/model_generator/json_editor.dart:145-162`, `packages/core/lib/src/model_generator/generate_models_provider.dart:12-20`, `packages/core/lib/src/model_generator/data_analysers/json_analyser.dart:86-160`, `packages/data/lib/src/api/model/test_api_func_provider.dart:113`, `packages/data/lib/src/api/views/api_panel/api_request_settings/api_request_settings.dart:49` (API entry points).
 - **Old docs:** none — missing.
+- **3.13 (dev) changes:** also offered from the new Library panel's add menu (`/home/user/nowa/lib/project/panels/library_panel/library_host.dart:183`).
 - **Screenshot value:** high — the three steps of the dialog.
 
 ### Using models
-- **What it does:** uses model classes as types and creates/convert instances in logic.
+- **What it does:** uses model classes as types, and creates and converts instances in logic.
 - **Where:** any **Type** picker (**show more...** or search the model name); add-node menu → **GENERAL** → **Create...** → the model; the **+** member menu on a model value.
 - **Labels:** **Create...** → model → **Default** or `fromJson`; node **Create <Model>** with one input per field.
 - **How to use:**
@@ -817,7 +816,7 @@ Reading notes for writers:
 ## Not user-facing (leave out)
 | Thing | Code ref | Why (internal / debug / dev-only / hidden flag / unreleased) |
 |---|---|---|
-| Copy/paste of Circuit nodes | `packages/code/lib/src/circuit_actions.dart:79-103`, `packages/code/lib/src/providers/circuit.dart:28-57` | Commented-out code; not available |
+| Copy/paste of Circuit nodes | `packages/code/lib/src/circuit_actions.dart:77-103`, `packages/code/lib/src/providers/circuit.dart:28-57` | Commented-out code; not available |
 | Circuit test harness (code cases, test app) | `packages/code/lib/code_test_app.dart`, `packages/code/lib/code_cases.dart` | Dev-only |
 | **Import template** in the Add to library menu | `lib/project/panels/files_panel/add_lib_menu.dart:147-154` | Debug builds only (`kDebugMode`) |
 | `ClassView` / `ClassEditor` class editor | `packages/core/lib/src/fields/class_editor.dart:81-143` | Never instantiated; replaced by the default Dart file editor (`packages/core/lib/src/plugin.dart:118`) |

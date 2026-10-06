@@ -139,14 +139,14 @@ Postman/Swagger/Xano, use data in UI), `supabase/` (connect, auth, database, sto
 | Path | Title | Type | Must cover | Sources | Old pages | Status | Batch |
 |---|---|---|---|---|---|---|---|
 | `index.md` | Troubleshooting | TS | By symptom (quote the app's text): **Preview Not Available**, version out of date / update prompts, **Project not found**, **No Internet Connection**, **We'll Be Right Back** / maintenance, **This screen failed to render**, **Open in safe mode**, code Nowa skipped, packages that failed to load, embedded preview can't run (**Add web support**), Clone list empty (connect GitHub). Link to feature pages. | all research "Limits and rules", code-ship open questions | none | planned | W11 |
-| `known-issues.md` | Known issues | TS | Platform caveats confirmed in code/research (e.g. Firebase on Windows). **Keep anchor** for the Firebase-on-Windows section `{#firebase-on-windows}`. | data, current-docs | data-connections/firebase/known-issues/firebase-windows.md | planned | W11 |
+| `known-issues.md` | Known issues | TS | Platform caveats confirmed in code/research (e.g. Firebase on Windows). **Keep anchor** for the Firebase-on-Windows section `{#firebase-on-windows}`. | data, current-docs | data-connections/firebase/known-issues/firebase-windows.md | planned | W14 |
 
 ## 11. Reference (`docs/reference/`)
 
 | Path | Title | Type | Must cover | Sources | Old pages | Status | Batch |
 |---|---|---|---|---|---|---|---|
 | `shortcuts.md` | Keyboard shortcuts | R | Complete list from code (general, designer, mouse modifiers, play/run, Circuit, AI chat, pickers, code editor), Windows/Linux and macOS keys, the in-app **Shortcuts** sheet (Ctrl/⌘ + .) and where the real bindings differ from it (e.g. widget picker is Ctrl/⌘+K, Ctrl/⌘+P runs). | editor-shell, designer-core | shortcuts.md | planned | W12 |
-| `glossary.md` | Glossary | R | Every product term with the exact UI name, 1-2 lines, link to its page; renames (e.g. Instant Play = **Play**; old "Think Mode" → thinking levels; "New Chat" → **New Session**). | all | none | planned | W12 |
+| `glossary.md` | Glossary | R | Every product term with the exact UI name, 1-2 lines, link to its page; renames (e.g. Instant Play = **Play**; old "Think Mode" → thinking levels; "New Chat" → **New Session**). | all | none | planned | W15 (after all pages exist) |
 | `widgets/index.md` (+ key pages) | Widget catalog | R | Pending `research/features-widgets.md` (D5). | widgets | ui/widgets/** | planned | W13 |
 | `wrappers.md` | Wrappers | R | Pending widgets research. | widgets | ui/wrappers/** | planned | W13 |
 
@@ -176,7 +176,8 @@ Writers (W) and verifiers (V) are different agents. V<n> verifies W<n>'s pages.
 | W8 | Publish (6) |
 | W9 | Code: index, code-mode, files, packages, custom-code, limitations (6) |
 | W10 | Code: local-projects, vs-code, import, git, github (5) |
-| W11 | Projects and account (7) + Troubleshooting (2) |
-| W12 | Reference: shortcuts, glossary (2) |
+| W11 | Projects and account (7) + Troubleshooting index (1) |
+| W12 | Reference: shortcuts (1) |
 | W13 | Reference: widget catalog + key widget pages + wrappers (pending) |
-| W14+ | Integrations (pending) |
+| W14+ | Integrations (pending) + known-issues |
+| W15 | Glossary (after all pages exist) |

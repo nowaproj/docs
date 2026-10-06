@@ -171,8 +171,12 @@ Also in batch W14: `docs/troubleshooting/known-issues.md` (see section 10).
 |---|---|---|---|---|---|---|---|
 | `shortcuts.md` | Keyboard shortcuts | R | Complete list from code (general, designer, mouse modifiers, play/run, Circuit, AI chat, pickers, code editor), Windows/Linux and macOS keys, the in-app **Shortcuts** sheet (Ctrl/⌘ + .) and where the real bindings differ from it (e.g. widget picker is Ctrl/⌘+K, Ctrl/⌘+P runs). | editor-shell, designer-core | shortcuts.md | planned | W12 |
 | `glossary.md` | Glossary | R | Every product term with the exact UI name, 1-2 lines, link to its page; renames (e.g. Instant Play = **Play**; old "Think Mode" → thinking levels; "New Chat" → **New Session**). | all | none | planned | W18 (after all pages exist) |
-| `widgets/index.md` (+ key pages) | Widget catalog | R | Pending `research/features-widgets.md` (D5). | widgets | ui/widgets/** | planned | W13 |
-| `wrappers.md` | Wrappers | R | Pending widgets research. | widgets | ui/wrappers/** | planned | W13 |
+| `widgets/index.md` | Widget catalog | R | All 45 built-in widgets from the picker, grouped by the code's categories (**Basic**, **Images**, **Buttons**, **Layout**, **Players**, **Animations**, **Progress Indicators**, **Forms**, **Screen Components**, **Integrations**), one row each (name, what it is, notable properties, setup tags), and how the picker also lists your own components; an explicit anchor per widget: the 36 ids in `redirects.md` "Anchor targets" (old slugs, e.g. `{#textfield}`, `{#navigation-bar}`, `{#switch}`, `{#expansion-tile}`) plus kebab-case for the rest. Each row links to its dedicated page or integration page when one exists. | widgets | ui/widgets/** | planned | W13a |
+| `widgets/forms.md` | Text fields and forms | H | Text Field (auto-created controller variable, decoration, validator), Dropdown menu, Pin Code Field, **Form** wrapper and validation steps. | widgets, logic | ui/widgets/widget-desc/textfield.md, legacy form-validation | planned | W13b |
+| `widgets/lists.md` | Lists and grids | H | List View, Grid View (Builder vs Normal, list linking, preview rules), Swipeable Stack. | widgets, data | listview.md, gridview.md | planned | W13b |
+| `widgets/navigation.md` | Navigation bars and screen parts | H | Screen slots (App Bar, Drawer, Floating Button, Bottom Navigation Bar; auto `pageIndex`), switching content (Indexed Stack, Page View, TabView, Cross Fade). | widgets, designer-core | navigation-bar.md, appbar.md, drawer.md, floating-action-button.md, tabview.md, pageview.md, index-stack.md, cross-fade.md | planned | W13b |
+| `widgets/media.md` | Images, video, animations and web content | H | Image (Network / Asset / Bytes, **Pick Image**), SVG, Video Player, YouTube Player, Lottie, Rive (assets, packages, platform limits), Web View, Html, Markdown. | widgets, theme-assets | image.md, svg.md, video-player.md, youtube-player.md, lottie.md, rive.md, webview.md, html.md, markdown.md | planned | W13b |
+| `wrappers.md` | Wrappers | R | **Add Wrapper**: all 32 wrappers with one-liners, reorder by drag, remove from the **...** menu; explicit anchors for the 7 ids in `redirects.md` (old wrapper slugs). | widgets | ui/wrappers/** | planned | W13a |
 
 ## 12. What's new (unchanged, `docs/new/`)
 
@@ -202,7 +206,9 @@ Writers (W) and verifiers (V) are different agents. V<n> verifies W<n>'s pages.
 | W10 | Code: local-projects, vs-code, import, git, github (5) |
 | W11 | Projects and account (7) + Troubleshooting index (1) |
 | W12 | Reference: shortcuts (1) |
-| W13 | Reference: widget catalog + key widget pages + wrappers (pending) |
+| W13a | Reference: widget catalog + wrappers (2) |
+| W13b | Reference: forms, lists, navigation, media widget pages (4) |
+| W19 | Leftovers after the usage-limit stops: design/properties, design/responsive (W4b); test/index, test/problems (W7b); code/packages, code/custom-code, code/limitations (W9b); troubleshooting/index, troubleshooting/known-issues (W11b) |
 | W14 | Integrations: index, show-data, constants, rest-api (2) + troubleshooting/known-issues (6) |
 | W15 | Integrations: Supabase (5) |
 | W16 | Integrations: Firebase (4) |

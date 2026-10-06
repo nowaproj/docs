@@ -177,7 +177,12 @@ const sidebars = {
           type: 'category',
           label: 'Widgets',
           link: {type: 'doc', id: 'reference/widgets/index'},
-          items: [],
+          items: [
+            'reference/widgets/forms',
+            'reference/widgets/lists',
+            'reference/widgets/navigation',
+            'reference/widgets/media',
+          ],
         },
         'reference/wrappers',
         'reference/shortcuts',

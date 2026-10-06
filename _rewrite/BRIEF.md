@@ -54,12 +54,14 @@ everything. User-visible strings are usually literal `Text('...')`, `label:`, `t
 
 ## Decisions already made (do not re-litigate)
 
+IDs match `_rewrite/decisions.md` (the full log). The ones that matter most for your work:
+
 - **D1 Source of truth** is `/home/user/nowa-master` (v3.12.5, released). Changes only on `dev` (v3.13)
   are logged in `_rewrite/upcoming-3.13.md`, not documented as current behavior.
 - **D2 Scope**: document everything a user can reach in the released app. Mark gated features with a
-  badge: **Beta**, **Enterprise**, **Desktop app only**, **Local projects only**, **Cloud projects only**, etc.,
-  only where the code gates it. Internal, debug, developer-only and hidden-flag features are not documented;
-  they are listed in `_rewrite/left-out.md` with the reason.
+  badge (**Beta**, **Enterprise**, **Desktop app**, **Local projects**, **Cloud projects**, ...) only where the
+  code gates it. Internal, debug, developer-only and hidden-flag features are not documented; they are listed
+  in `_rewrite/left-out.md` with the reason.
 - **D3 Pricing**: no prices, credit amounts or plan limits in the docs. Link to https://nowa.dev/pricing.
   Say a feature needs a plan only where the code enforces it, naming the plan as the code does.
 - **D4 Legacy tutorials**: the long tutorials and design courses (`docs/ui/design-courses/*`,
@@ -67,8 +69,11 @@ everything. User-visible strings are usually literal `Text('...')`, `label:`, `t
   Only links that would otherwise break get fixed.
 - **D5 Widget reference**: one catalog page listing every widget in the Widgets panel (from code), plus
   full pages only for widgets that need Nowa-specific setup.
-- **D6** What's New and Changelog: content untouched.
-- **D7** Old unbuilt folders (`docsOld`, `docsold2`, `docsold3`, `archive`, `.history`, `static/old_versions`)
+- **D7 + D11** What's New and Changelog: wording untouched, URLs kept; only their links to removed pages are
+  re-pointed to the new pages.
+- **D8** Old unbuilt folders (`docsOld`, `docsold2`, `docsold3`, `archive`, `.history`, `static/old_versions`)
   stay untouched.
-- **D8** Audience: non-developers first. Explain Flutter concepts only as far as needed to use Nowa;
+- **D13** Every docs URL the released app opens (44, incl. 3 anchors) must keep resolving (new page or
+  widget-catalog anchor); old anchors are kept on new pages with explicit heading IDs (`## Title {#old-anchor}`).
+- **Audience**: non-developers first. Explain Flutter concepts only as far as needed to use Nowa;
   power-user topics (custom code, Git, local projects) are covered but clearly separated.

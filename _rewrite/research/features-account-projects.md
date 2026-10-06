@@ -378,12 +378,15 @@ light/dark switch, see "Theme" at the end).
   **Move**; the dashboard switches to that workspace. Upload to cloud = see "Project Sync". Remove from list
   = drop a local project from Nowa, files stay. Delete = confirm.
 - **Options:** —
-- **Limits and rules:** **Delete on a local project deletes its folder from disk** unless the folder sits
-  inside a Git repository (then it's only removed from the list). **Move** is disabled while the target is
+- **Limits and rules:** **Delete on a local project deletes its folder from disk.** The only exception is a
+  project Nowa found inside a larger Git repository (repository root above the project folder): then Delete
+  only removes it from the list ("The files stay on disk."). A project whose own folder is the repository root
+  is deleted from disk like any other. Use **Remove from list** to keep the files. **Move** is disabled while the target is
   the workspace the dashboard is showing. There is no rename or duplicate here (rename: App Settings →
   Project Details → **Project Name**).
 - **Gating:** Move to workspace... Cloud projects only; Upload to cloud / Remove from list Local projects only.
 - **Code refs:** `packages/nowa_ui/lib/dashboard/projects_grid.dart:289-331`, `lib/dashboard/dashboard_page.dart:155-167,253-303`,
+  `packages/core/lib/src/services/local_project_service.dart:88`, `packages/core/lib/src/models/project.dart:187-192`,
   `lib/dashboard/projects_view/move_project_dialog.dart:31-65`, `packages/core/lib/src/providers/projects_view_provider.dart:95-114,278-289`,
   `packages/core/lib/src/providers/editor_provider.dart:166-171`, `lib/router.dart:254-258`.
 - **Old docs:** missing.
@@ -719,7 +722,7 @@ light/dark switch, see "Theme" at the end).
 - **Options:** —
 - **Limits and rules (from code):**
   - Local projects: desktop app only (macOS/Windows/Linux builds); not on web; listed only under Personal;
-    stored on this computer; Delete removes the folder (unless inside a Git repo).
+    stored on this computer; Delete removes the folder (except projects inside a larger Git repository).
   - Cloud only: **Deploy** button (hidden for local projects), Cloud Build ("Cloud build is not available on
     local projects" + **Sync to cloud**), Share preview ("Share preview is not available on local projects"),
     **Public project** switch, **Move to workspace...**, code download (**Compress Project**), workspaces.
@@ -1005,8 +1008,7 @@ light/dark switch, see "Theme" at the end).
   (e.g. `NSCameraUsageDescription`), switch; enabled iOS rows show the description text field.
 - **How to use:** Flip a switch; for iOS, edit the message users see in the permission prompt.
 - **Options:** iOS defaults e.g. "Camera permission is required to take photos and videos.".
-- **Limits and rules:** Permissions already present in the platform files show as enabled (unknown Android
-  ones listed by key).
+- **Limits and rules:** Permissions already present in the platform files show as enabled.
 - **Gating:** hidden in playground/guest sessions.
 - **Code refs:** `packages/core/lib/src/settings/permissions/permission_settings.dart:8-151`, `packages/core/lib/src/services/permissions_service.dart:103-213`.
 - **Old docs:** none found — missing.
@@ -1375,5 +1377,9 @@ light/dark switch, see "Theme" at the end).
   large playgrounds aren't kept"?
 - **Guest sessions and closing the tab:** is there a browser warning before losing unsaved guest edits? (Not found
   in the code reviewed.)
+- **Deleting imported local projects:** Delete removes the folder from disk for any local project not found inside
+  a *larger* Git repository — including an imported repo whose root is the project folder
+  (`packages/core/lib/src/providers/projects_view_provider.dart:278-289`, `local_project_service.dart:88`). Intended?
+  Docs should at least warn and recommend **Remove from list**.
 - **Account deletion reasons:** which conditions block deletion (e.g. active subscription, workspace ownership)? The
   reasons come from the server.

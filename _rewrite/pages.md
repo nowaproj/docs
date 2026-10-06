@@ -80,9 +80,33 @@ gates; capture placeholders + requests per style guide.
 
 ## 5. Connect data and services (`docs/integrations/`)
 
-Pending `research/features-data.md`. Planned shape: `index.md` (Choose a backend), `rest-api/` (create, import
-Postman/Swagger/Xano, use data in UI), `supabase/` (connect, auth, database, storage, realtime), `firebase/`
-(connect, auth, Firestore, notifications), payments (Stripe, RevenueCat), ads (AdMob), secrets/constants.
+Main source: `research/features-data.md` (40 features). Integration settings live in **Settings → Integrations**
+(App Settings); keys in **Constants** (Settings → General).
+
+| Path | Title | Type | Must cover | Sources | Old pages | Status | Batch |
+|---|---|---|---|---|---|---|---|
+| `index.md` | Connect data and services | O | Choose a backend (Supabase vs Firebase vs REST API: when to use which, table), other integrations (Stripe, RevenueCat, AdMob, Google Maps, Google Sign-In, Deep Links), where settings live, **Add Missing Dependencies** dialog, Nowa AI can wire data too (Supabase connector). | data, ai | data-connections/_category_, docsold2/whatissupabase | planned | W14 |
+| `show-data.md` | Show data in your UI | H | **Data Builder** (wrapper and widget): sources **Firestore** / **Supabase** / **API Request**, `data` in the child, **Loading Widget**, **Error Builder**, placeholder data on the board; lists from data. | data, widgets | ui/widgets/widget-desc/data-builder.md | planned | W14 |
+| `constants.md` | Keys and constants | H | **Constants** page (Settings → General): integration keys + **Custom Constants**; stored in `lib/globals/app_constants.dart` (they ship inside your app: don't put server secrets there); using constants in logic. | data, account-projects (Constants) | data-connections/api/.authkey.md (unbuilt) | planned | W14 |
+| `rest-api/index.md` | Connect a REST API | H | **Api** panel → **Collections**, **New Collection** (**Create New Collection**), collection settings (**Name**, **Base URL**, **Auth Key**, **Headers**), **New Request** (method, URL, **Headers** / **Body**, **Params**, **Model**), **Test** / **Run Test** (+ **Auth token value**), **Generate Model** / **Generate from Schema** / **Select Model** / **Return as Response Object**, calling a request from logic. | data | data-connections/api/createapi.md, Openrouter.md | planned | W14 |
+| `rest-api/import.md` | Import an API | H | **Import from curl**; **Import From** → **Import from Swagger** (URL, paste, file) / **Import from Postman** / **Import from Xano** (instance → workspace → API group, bearer token); starts from **Collections** → **+** and creates a new collection. | data | data-connections/api/importapi/*.md | planned | W14 |
+| `supabase/connect.md` | Connect Supabase | H | **Supabase** panel → **Connect** (browser authorization; pick or **Create New Project**; needs a signed-in account), **Use Keys** (URL + anon key; what you lose), connected panel lists, ⋮ menu (**Open Supabase**, **Tables**, **Change API Keys**, **Pull Backend Files**, **Set up Backend**, **Disconnect**), **Tables** view. | data | data-connections/supabase/connect-supabase.md | planned | W15 |
+| `supabase/auth.md` | Sign users in with Supabase | H | **Authentication** list: generated `signIn`, `signUp`, `signOut`; testing ("Testing as: …"); using them from a login screen (events + navigation). | data, logic | data-connections/supabase/auth.md, ui.md | planned | W15 |
+| `supabase/database.md` | Read and write Supabase data | H | **Query Templates** ("CRUD operations": `getAll…`, `getById…`, `create…`, `update…`, `delete…` + model), **Generate a Query**, **Testing <function>** (**Testing values**, **Run**, RLS help), **Edit Code** (**Query Source Code**, **Save** / **Discard**, **Test Function**), stream (realtime) queries (**Stream** badge, live testing; created with AI or Edit Code), **RPC**, **Other Functions**, show results with Data Builder. | data | data-connections/supabase/db.md, streams.md | planned | W15 |
+| `supabase/storage.md` | Store files in Supabase | H | **Storage Templates** ("File operations": `uploadFile`, `downloadFile`, `deleteFile`), testing with file preview/download, using with the media picker. | data, logic | data-connections/supabase/storage.md | planned | W15 |
+| `supabase/backend.md` | Manage your Supabase backend | H | **Pull Backend Files** (migrations, edge functions, buckets into `supabase/`), **Set up Backend** / **Set up Supabase backend** for projects with a bundled backend, then **Connect app with AI** / **Fix with AI**, **Disconnect** (removes `SupabaseService`), Supabase connector for Nowa AI (link `../../ai/connectors.md`). | data, ai | data-connections/supabase/mcp.md (AI part goes to ai/connectors) | planned | W15 |
+| `firebase/connect.md` | Connect Firebase | H | Settings → Integrations → **Firebase**: **Continue with Google**, pick a Firebase project, **Connect Apps** (Android, iOS, Web apps + config files), refresh/update apps and config files (package-name mismatch fix), **Disconnect Project** (**Keep Files** / **Clear All Files**). | data | data-connections/firebase/firebase-connect.md | planned | W16 |
+| `firebase/auth.md` | Sign users in with Firebase | H | **Authentication** switch + providers (**Email/Password**, **Google**, **Phone**), generated sign-in functions in `FirebaseService`, **SHA Certificate Fingerprints (For Google Sign in)** (add SHA-1/SHA-256, one-click add of Nowa's release key). | data | data-connections/firebase/firebase-email-auth.md | planned | W16 |
+| `firebase/firestore.md` | Use Cloud Firestore | H | Firestore **Collections** (`lib/firebase/collections.dart`: collections, sub collections, fields), **Queries** builder (`lib/firebase/queries.dart`: add/doc/get/where/orderBy/count/snapshots/set/delete) with **Test** (not in the Windows desktop app), show results with Data Builder. | data | data-connections/firebase/firestore.md | planned | W16 |
+| `firebase/notifications.md` | Send push notifications | H | **Push Notifications (FCM)**: what it adds, **Test Push Notifications** (**All Users** / **Topic**), platform notes from code. | data | data-connections/firebase/notification.md | planned | W16 |
+| `stripe.md` | Accept payments with Stripe | H | Settings → Integrations → **Stripe**: needs Supabase **Connect**; one-time, consumable and subscription payments; tables, edge functions and webhook deployed by **Deploy Configuration**; **Enabled** toggle, **Webhook Secret**, events; calling checkout from logic. | data | payments/stripe/stripe-integration.md (labels mostly current) | planned | W17 |
+| `revenuecat.md` | In-app purchases with RevenueCat | H | Settings → Integrations → **RevenueCat**: API keys per platform, generated `RevenuecatService`, **RevenueCat Paywall** widget. | data, widgets | none | planned | W17 |
+| `admob.md` | Show ads with AdMob | H | Settings → Integrations → **AdMob**, **Admob Banner** widget (test ads on by default), `loadAndShowInterstitialAd`, real ads on Android/iOS only. | data, widgets | ui/widgets/widget-desc/admob-banner.md | planned | W17 |
+| `google-maps.md` | Add Google Maps | H | Settings → Integrations → **Google Maps** (Android/iOS/Web API keys), **Google Maps** widget (previews only when run on a simulator/device). | data, widgets | none | planned | W17 |
+| `google-sign-in.md` | Google Sign-In | H | Settings → Integrations → **Google Sign-In** (standalone keys, e.g. for Supabase), **Managed by Firebase** when Firebase Google auth is on. | data | none | planned | W17 |
+| `deep-links.md` | Deep links | H | Settings → Integrations → **Deep Links**: **URL Scheme** and **Host**; relation to GoRouter paths (link `../logic/navigation.md`). | data, logic | none | planned | W17 |
+
+Also in batch W14: `docs/troubleshooting/known-issues.md` (see section 10).
 
 ## 6. Preview and test (`docs/test/`)
 
@@ -146,7 +170,7 @@ Postman/Swagger/Xano, use data in UI), `supabase/` (connect, auth, database, sto
 | Path | Title | Type | Must cover | Sources | Old pages | Status | Batch |
 |---|---|---|---|---|---|---|---|
 | `shortcuts.md` | Keyboard shortcuts | R | Complete list from code (general, designer, mouse modifiers, play/run, Circuit, AI chat, pickers, code editor), Windows/Linux and macOS keys, the in-app **Shortcuts** sheet (Ctrl/⌘ + .) and where the real bindings differ from it (e.g. widget picker is Ctrl/⌘+K, Ctrl/⌘+P runs). | editor-shell, designer-core | shortcuts.md | planned | W12 |
-| `glossary.md` | Glossary | R | Every product term with the exact UI name, 1-2 lines, link to its page; renames (e.g. Instant Play = **Play**; old "Think Mode" → thinking levels; "New Chat" → **New Session**). | all | none | planned | W15 (after all pages exist) |
+| `glossary.md` | Glossary | R | Every product term with the exact UI name, 1-2 lines, link to its page; renames (e.g. Instant Play = **Play**; old "Think Mode" → thinking levels; "New Chat" → **New Session**). | all | none | planned | W18 (after all pages exist) |
 | `widgets/index.md` (+ key pages) | Widget catalog | R | Pending `research/features-widgets.md` (D5). | widgets | ui/widgets/** | planned | W13 |
 | `wrappers.md` | Wrappers | R | Pending widgets research. | widgets | ui/wrappers/** | planned | W13 |
 
@@ -179,5 +203,8 @@ Writers (W) and verifiers (V) are different agents. V<n> verifies W<n>'s pages.
 | W11 | Projects and account (7) + Troubleshooting index (1) |
 | W12 | Reference: shortcuts (1) |
 | W13 | Reference: widget catalog + key widget pages + wrappers (pending) |
-| W14+ | Integrations (pending) + known-issues |
-| W15 | Glossary (after all pages exist) |
+| W14 | Integrations: index, show-data, constants, rest-api (2) + troubleshooting/known-issues (6) |
+| W15 | Integrations: Supabase (5) |
+| W16 | Integrations: Firebase (4) |
+| W17 | Integrations: Stripe, RevenueCat, AdMob, Google Maps, Google Sign-In, Deep Links (6) |
+| W18 | Glossary (after all pages exist) |

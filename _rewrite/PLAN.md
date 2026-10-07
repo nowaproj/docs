@@ -36,10 +36,9 @@ Phase 9 is in progress:
 
 **Verification of phase 9 text (non-author agents), state at the pause:**
 - Done: `reviews/P9-gaps-review.md` (coverage gap fixes, integrations overview additions, share.md),
-  `reviews/P9-guides-b-review.md` (ai-tips, data-and-state-tips, ship-tips; 19 rows fixed).
-- Paused, resume from each log's "Stopped here" line: `reviews/P9-guides-a-review.md` (guides index, complete-app,
-  design-tips),
-  `reviews/P9-routes-review.md` (logic/router.md, logic/navigation.md, one-line links),
+  `reviews/P9-guides-b-review.md` (ai-tips, data-and-state-tips, ship-tips; 19 rows fixed),
+  `reviews/P9-guides-a-review.md` (guides index, complete-app, design-tips; 22 fixed, 2 removed).
+- Paused, resume from each log's "Stopped here" line: `reviews/P9-routes-review.md` (logic/router.md, logic/navigation.md, one-line links),
   `reviews/P9-recipes-review.md` (publish, devices, themes, test/index, guide links). Prompts: same scope as in the
   logs' headers; tell each verifier to continue from its log.
 - Not started: the new text from the structure fixes (`reviews/phase9-fixes.md` "Structure fixes": troubleshooting
@@ -53,7 +52,9 @@ guides verifier is done; update `PR-REPORT.md` (Add logic now 13 pages; videos; 
 **Then:** style pass, capture wave 2 + embed, final build, update the PR, list what's left.
 
 **Live checks for later** (need the running app): typing `.id` after `element` in a GoRouter **Location**
-(`logic/navigation.md#open-a-detail-screen`), plus the backlog below.
+(`logic/navigation.md#open-a-detail-screen`); a new `id` param is `String?` while `getByIdRecipes` takes a non-null
+`String`/`int`: run `guides/complete-app.md` steps 5-6 once and check **Problems** (same for the navigation recipe);
+plus the backlog below.
 
 **Usage limits:** runs keep hitting account usage limits after ~1 hour of 5 Sonnet agents (D14). Keep waves at
 ~4-5 agents, every agent saving incrementally.

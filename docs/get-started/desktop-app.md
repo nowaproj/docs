@@ -51,12 +51,14 @@ On a Mac, Flutter needs Xcode, which also builds iOS apps. The setup dialog warn
 
 This is the quickest route.
 
-1. In **Local Setup**, under **Automatic setup**, click **Set up automatically**. The **Set up local environment** dialog opens. If Flutter is already installed and up to date, it starts on the **Verify** step: skip to step 4.
+1. In **Local Setup**, under **Automatic setup**, click **Set up automatically**. The **Set up local environment** dialog opens. If Flutter is already installed and up to date, it starts on the **Verify** step: skip to step 6.
 2. On the **Flutter** step, check the **Install location**. Nowa installs about 10 GB of tools there, and the path must not contain spaces. The Flutter SDK download itself is about 1 GB.
-3. Tick the box that accepts the licenses (Nowa downloads these tools from Google and the Eclipse Foundation), then click **Install** next to **Flutter**. Keep Nowa open while it downloads. When the row says **Ready**, click **Next**.
-4. On the **Verify** step, Nowa runs `flutter doctor` and lists the devices you can run on. Fix anything it reports, then click **Re-run checks**.
-5. To build for Android, click **Download** next to "Android isn't set up". On the **Android** step, click **Install** next to **Android toolchain**. The **Android emulator** is optional too. Click **Skip for now** if you only target web or desktop. You can add them later from **Local Setup**.
-6. Click **Done**.
+3. Tick the box that accepts the licenses. Nowa downloads these tools from Google and the Eclipse Foundation.
+4. Click **Install** next to **Flutter**. Keep Nowa open while it downloads.
+5. When the row says **Ready**, click **Next**.
+6. On the **Verify** step, Nowa runs `flutter doctor` and lists the devices you can run on. Fix anything it reports, then click **Re-run checks**.
+7. To build for Android, click **Download** next to "Android isn't set up". The next screen lists **Android toolchain** and an optional **Android emulator**: click **Install** next to each one you want. Click **Skip for now** if you only target web or desktop. You can add them later from **Local Setup**.
+8. Click **Done**.
 
 {/* CAPTURE: id=get-started-desktop-app-2 | state: desktop app, Local Setup page open, Set up automatically clicked, Flutter step showing | show: the Set up local environment dialog on the Flutter step with Install location, the license checkbox and the Install button | crop: the dialog */}
 

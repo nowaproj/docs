@@ -101,3 +101,131 @@ Status: checked and fixed. Breakpoints: the page states plainly that Nowa 3.12.5
 | A screen's size is its board item's size on the board and in Play | ok | `packages/designer/lib/src/play_mode/play_mode.dart:405-411`, `board_canvas.dart:203-218` | `MediaQuery.copyWith(size: constraints)`. |
 
 Links: all targets exist, including the anchors `../test/share.md#what-people-see-in-a-preview`, `../test/instant-play.md#placeholders-on-the-board-real-values-in-play`, `../logic/actions.md#read-the-screen-size`, `../logic/expressions.md#custom-expression`, `../reference/wrappers.md#scrollview` / `#visibility`, `../legacy/tutorials/design-responsive.md`.
+
+## themes.md
+
+Status: checked, 2 claims fixed. Priority labels all confirmed in code and in `captures/ui-map/03-panel-themes.png`: **Fixed** / **Seed** (Mode), **Brightness** (**Light** / **Dark**), **Scheme Variant**, **Seed Color**, **Add Color**, **Active**, theme extensions (**Default Theme** tab plus one per class, maximum 8). Length: 1,167 `wc -w` / ~1,000 body words (no cut needed).
+
+| Claim | Verdict | Code ref | Note |
+|---|---|---|---|
+| **Themes** sidebar icon, Ctrl/Cmd+3 | ok | `lib/project/side_bar.dart:34-50`, `lib/setup_general_actions.dart:47-61` | Themes is the third icon (Assistant, Widgets, Themes); Git is inserted after Search. Ctrl on Windows/Linux, Cmd on macOS. |
+| Panel title **Themes**, **Refresh** and **Open in New Tab** buttons | ok | `packages/core/lib/src/panels/details/theme_panel/themes_panel.dart:154-175` | **Refresh** calls `evalEnv()` (clears the environment cache and rebuilds), so "re-renders the app with the current theme" is a fair summary. |
+| Active theme opens with **Colors**, **Typography**, **Widgets** below; arrow next to the name shows the list | ok | `themes_panel.dart:58-80,191-262`, `theme_panel_details.dart:78-140` | |
+| New projects have `lightTheme` and `darkTheme` in `lib/globals/themes.dart` | ok | `packages/core/lib/src/file_system/templates/common/themes_dart_template.dart`, `packages/core/lib/src/file_system/templates/file_template.dart:33-34` | |
+| Ctrl/Cmd+Z and Ctrl/Cmd+Y inside the panel | ok | `themes_panel.dart:167-171` | |
+| Note: a theme without a color scheme gets `ColorScheme.fromSeed` with a purple seed | ok | `theme_panel_fields.dart:44-50,206-209` | `Colors.deepPurple` (0xFF673AB7). |
+| **Create New Theme** at the end of the list; type a name, Enter; naming rules and errors | ok | `themes_panel.dart:107-140,300-330`, `packages/core/lib/src/widgets/rename_declaration_field.dart:112-140`, `packages/core/lib/src/file_system/naming.dart:36-59` | Names allow `$` too (not mentioned). Errors: empty, already taken, reserved keyword, not a valid code name. Click-away also submits. |
+| New theme opens in **Seed** mode with a purple seed, not applied | ok | `themes_panel.dart:107-140` | Only a tile click calls `_setDefault` (apply). |
+| Click a theme: **Active** moves to it; saved as the starting theme in `lib/globals/app_state.dart` | ok | `themes_panel.dart:333-339,382-383`, `packages/core/lib/src/project/env_services/theme_service.dart:51-100`, `packages/core/lib/src/file_system/templates/common/app_state_template.dart:28-35` | `_applyThemeToGetterDefault` rewrites the `_theme` variable's start value. |
+| "Your app doesn't switch between light and dark on its own" | fixed | `packages/core/lib/src/file_system/templates/common/main_dart_template.dart:41-52` | True for new projects (`MaterialApp` has only `theme:`). An imported project may set `darkTheme`/`themeMode`, so the sentence now starts "In a new project". |
+| Right-click **Rename** / **Delete**; delete asks if code uses the theme; applied theme can't be deleted | ok | `packages/core/lib/src/panels/details/theme_panel/themes_context_menu.dart:24-35`, `packages/core/lib/src/actions/block_actions.dart:10-84`, `packages/core/lib/src/interpreter/generators/declaration_generator.dart:27-60` | Tooltip on the disabled item: "Cannot delete applied theme". References inside `main.dart` are ignored by the check. |
+| Colors: tiles **Primary**, **Secondary**, **Tertiary**, **Surface** with "on" colors | ok | `models.dart:4-45`, `theme_panel_fields.dart:300-355` | |
+| Color popup: role/"on" chips, color area, hue and opacity sliders, eyedropper, **HEX**, **OP**, **Preview**, back arrow, reset icon | ok | `theme_panel_fields.dart:395-560,667-720`, `packages/core/lib/src/fields/color_fields.dart:849-989` | Popup title is `Edit "Primary"`. |
+| **Add Color** → **Override Color Role** (Primary Container, Error, Outline, Surface Container ...) | ok | `theme_panel_fields.dart:230-290`, `override_color_popup.dart:20-165`, `material_library.dart` (19 hits for `surfaceContainerHighest`) | The list comes from the library's `ColorScheme`; deprecated roles are excluded. |
+| **Brightness** (**Light**/**Dark**), **Mode** (**Fixed**/**Seed**), **Seed Color**, **Scheme Variant** (seed only) | ok | `theme_panel_fields.dart:57-240` | Matches the screenshot. |
+| Scheme Variant names: Tonal Spot, Fidelity, Monochrome, Neutral, Vibrant, Expressive, Content, Rainbow, Fruit Salad | ok | `theme_panel_fields.dart:225-233`, `packages/core/lib/src/utils.dart:77-79`, `packages/core/lib/src/interpreter/libraries/material_library.dart:10380-10440` | Labels are the enum names split at capitals. |
+| Switching **Mode** keeps the look (Primary becomes the **Seed Color** and back) | ok | `theme_panel_fields.dart:79-108` | |
+| **Typography**: 15 styles in **Display**, **Title**, **Headline**, **Body**, **Label**; weight and size on each row | ok | `packages/core/lib/src/fields/text_fields.dart:821-1000` | |
+| **Default Font** only for plain `ThemeData(` | ok | `text_fields.dart:~856-860` | `constructorName == ''`. |
+| Style editor fields; hover **Edit**; reset icon on the row; **Reset all to default** next to **Typography** | ok | `text_fields.dart:233-260,943-1047`, `packages/core/lib/src/fields/style_fields/style_fields.dart:257-335`, `theme_panel_details.dart:121-135` | Fields: Font Family, Font Weight, Decoration, Font Size, Color, Background, letter spacing, line height, Shadows. |
+| **Widgets**: **Fields**, **Buttons** (**Button** / **Icon Button**, button style fields, reset) | ok | `theme_panel_details.dart:152-178`, `packages/core/lib/src/file_system/widgets/previews/themes_preview/theme_details.dart:169-359`, `packages/core/lib/src/fields/button_fields.dart:316-391` | |
+| Theme extensions: **Default Theme** tab plus one tab per extension, named after its class | ok | `theme_panel_details.dart:15-46` | |
+| "Nowa supports up to 8 theme extensions"; "no button to create one" | ok | `packages/core/lib/src/themes/theme_class_instance.dart:21-34`, `docs/new/whats-new.md:69` | Throws "Cannot have more than 8 Theme Extensions". Extension classes are read from user code (`ast_to_block_visitor.dart:726`). |
+| "...or from Nowa AI, for example when it imports a Figma design" | removed | `packages/ai/lib/src/mcp/figma_mcp.dart:71-86` | Nothing shows that Figma import creates theme extensions (the tools write `app_colors.dart` / `app_text.dart` and reimport `themes.dart`). Removed. |
+| **Create Theme Setup** button and dialog; files created; existing files skipped | ok | `packages/core/lib/src/file_system/widgets/previews/main_preview/theme_setup_view.dart:8-70`, `packages/core/lib/src/project_environment/env_manager.dart:145-170` | The dialog text itself names `lib/global/theme.dart` (wrong); the page uses the real paths. Product team may want to fix the dialog text. |
+| Tip: AI can turn Figma colors and text styles into theme code | ok | `docs/new/whats-new.md:57-60` | |
+
+Links: `theme-styles.md#switch-themes-while-the-app-runs`, `#connect-buttons-to-the-theme`, `fonts-icons.md`, `properties.md`, `../ai/connectors.md` all exist.
+
+## theme-styles.md
+
+Status: checked, 2 claims fixed, 1 unverified step kept with a check. Length: 778 `wc -w` / ~655 body words (no cut needed).
+
+| Claim | Verdict | Code ref | Note |
+|---|---|---|---|
+| Color picker lists theme colors below it (`primary`, `surface` ...); **Show more colors** adds container, fixed, surface, outline roles | ok | `packages/core/lib/src/fields/color_fields.dart:25-83,699-849` | Raw role names. The list only appears when the field can read a `BuildContext` (widget fields on the board). Expander label is "Show" + "more colors" (`block_field.dart:1318-1352`). |
+| Picking a role links the field (shows the role name); list is the **Active** theme's | ok | `color_fields.dart:714-725,816-849` | Writes `Theme.of(context).colorScheme.<role>`; `env.appliedThemeVar`. |
+| Hover **Edit** on a theme color edits the active theme in place | ok | `packages/core/lib/src/fields/style_fields/style_fields.dart:257-335`, `color_fields.dart:150-165` | |
+| Stop following: **x** on the field, or the detach icon next to **Colors From Theme**; keeps the current color | ok | `color_fields.dart:520-531,765-783` | The detach icon has no tooltip. |
+| **With values**: **Alpha** 0 to 1, **Show more** reveals **Red**/**Green**/**Blue** | ok | `color_fields.dart:241-312` | The menu item only shows when the field is a theme reference. An old `withOpacity` note with an **Update** button exists (not mentioned). |
+| Text **Style** button shows `bodyMedium`; **Text Styles** popup; hover **Edit** | ok | `packages/designer/lib/src/details/widget_fields.dart:266-310`, `style_fields.dart:131-255` | Popup lists raw names (`displayLarge` ...). |
+| **CopyWith**, **Remove CopyWith** | fixed | `packages/core/lib/src/fields/text_fields.dart:181-232` | A text with no style set (the default) shows **Modify Style** in that menu instead of **CopyWith**. Added one sentence. |
+| **x** on the style button makes the style your own and empty | ok | `style_fields.dart:162` | Replaces it with `TextStyle()`. |
+| **Button Style** shows **Button Theme** / **Icon Button Theme**; **x** gives a custom style with the six fields | ok | `packages/core/lib/src/fields/button_fields.dart:27-28,281-391` | Field label "Button Style" is explicit. |
+| **Connect...**, **Connect to Theme**, **Default theme**; no applied theme opens **Create Theme Setup** | ok | `button_fields.dart:396-489` | |
+| `AppState` with `changeTheme` in new projects; app does not follow device dark mode | ok | `packages/core/lib/src/file_system/templates/common/app_state_template.dart:5-35`, `main_dart_template.dart:41-52` | |
+| Switch-theme step 1: "click **+** next to **On Pressed**" | fixed | `packages/core/lib/src/widgets_to_add/widgets_to_add.dart:206`, `nowa_fields.dart:793-825` | A new Button is created with an empty `onPressed` function, so the button reads **Edit** (bolt), not **+** (also `captures/ui-map/20-outline-selection.png`, `docs/logic/events.md:21`). Now "click the button next to **On Pressed**; it reads **Edit** on a new button and **+** if the button has no action yet". `logic/global-state.md:73` has the same inaccurate step (other batch, not edited). |
+| Steps 2-4: dot under the top node, **GLOBALS** → `AppState`; **+** in Details → `changeTheme`; **Select theme** | ok (partly checked) | `packages/core/lib/src/state_management/global_state_suggestions.dart:66-93`, `packages/code/lib/src/fields/expression_statement_field.dart:35-95`, `basic_fields.dart:2045-2070` | **Select theme** button and its **Themes** list are in code. The "+" member picker follows the generic reference editor ("Reach deeper with +" on `logic/expressions.md`); not clicked through in the running app. |
+| Figma: AI writes theme files under `lib/globals/` and reloads themes | ok | `packages/ai/lib/src/mcp/figma_mcp.dart:71-86` | `app_colors.dart` and `app_text.dart`, then `themes.dart` reimported. |
+
+Links: `themes.md` anchors (`#style-text-fields-and-buttons`, `#add-themes-to-a-project-that-has-none`), `../logic/circuit.md`, `../logic/global-state.md`, `../logic/events.md`, `fonts-icons.md`, `../ai/connectors.md` all exist.
+
+## assets.md
+
+Status: checked, 4 claims fixed or added. The priority flow is confirmed: **Files** → **assets** row → upload icon with the tooltip **Import asset** (screenshot `captures/ui-map/05-panel-files.png`). Length: 794 `wc -w` / ~650 body words (no cut needed).
+
+| Claim | Verdict | Code ref | Note |
+|---|---|---|---|
+| Files panel: **assets** row with the upload icon **Import asset**; one or more files go into `assets/` | ok | `lib/project/panels/files_panel/files_list.dart:440-516`, `packages/core/lib/src/providers/project_provider.dart:787-804` | `pickFiles(withData: true, allowMultiple: true)`; any extension. The **lib** row has **Add to library**, the **boards** row **Add board**. |
+| Click a file for a preview, double-click to open | ok | `files_list.dart:300-345` | In code mode a single click opens the file. |
+| Import updates `pubspec.yaml` (`flutter:` → `assets:` per non-empty folder, `fonts:`) | ok | `packages/core/lib/src/providers/project_provider.dart:697-715`, `packages/core/lib/src/settings/pubspec_manager.dart:127-132,160-235` | Only imports, pastes, font imports and package changes call `refresh()`; the page limits the claim to "when you import a file". |
+| Recognized types table | ok | `packages/core/lib/src/file_system/file_info.dart:10-80` | Also `.yaml`, `.dart`, `.board`, `.txt` are known types (not asset kinds). |
+| "Any other file is imported as a text file" | fixed | `packages/core/lib/src/file_system/importer.dart:12-16`, `packages/core/lib/src/file_system/encoding.dart:8-10` | The text importer decodes UTF-8 strictly, so a binary file of another type cannot be read as text. Reworded to "read as plain text, so stick to the types above for images, media and fonts". |
+| Drag files between folders inside **assets** | ok | `files_list.dart:106-126` | |
+| Playground note | ok | `packages/core/lib/src/playground/playground_manager.dart:19-37` | The stored project is capped at 3 MB (not stated on the page, no numbers per D3). |
+| **Asset** tab, **Pick Image**, **Upload Image**, search; upload saves into `assets/` | ok | `packages/core/lib/src/fields/asset_fields.dart:12-227`, `basic_fields.dart:888-953` | Image provider tabs **Network** / **Asset** / **Bytes**. |
+| Button names **Pick Image/SVG/Lottie/Rive/Video/Audio** | ok | `basic_fields.dart:956-1300`, `packages/designer/lib/src/details/widget_fields.dart:120-210` | Each list is `getAll<T>(assetsDir)` of the matching file class; Lottie lists `.json` files. |
+| An asset audio file plays only on Android and iOS | ok | `basic_fields.dart:1117` | The code note says "Asset file will work only on Android and iOS". |
+| Paste: Ctrl/Cmd+V or board right-click **Paste**; saved in `assets/` as `pasted_image_<id>`; image files from the file manager (desktop) | ok | `packages/designer/lib/src/menus/board_context_menu.dart:19`, `packages/designer/lib/src/design/copy_paste.dart:79-141`, `nowa_copy_paste.dart:40-112` | File paste only when not on the web. |
+| Drag from **assets**: Image (1/6 pixel size), SVG, Rive, Video Player, Font → Text | ok | `packages/core/lib/src/file_system/file_object.dart:410-467,519-535,604-616,643-686` | |
+| Drag of a text file | added | `file_object.dart:574-577` | A `TextFile` drags as a Text widget with its content; the table lacked this row. |
+| Lottie and audio create no widget | ok | `file_object.dart:580-602,653-660` | No `createDragData` override. |
+| Dropping files from the computer onto the board does nothing | ok | `lib/project/drop_from_outside.dart:8-47` | `DropFromOutside` is never instantiated; only the AI chat field uses `PlatformDropFromOutside` (`packages/ai/lib/src/ui/chat_field/ai_chat_field.dart:255`). Consistent with `design/add-widgets.md`. |
+| File menu: **Rename**, **Remove file** / **Remove N files**, **Copy as path**, **View in folder** (local), **Show file content** | fixed | `lib/project/panels/files_panel/file_context_menu.dart:33-121` | **Rename** appears only for a single file. Added to the intro of the table. View-only projects get a shorter menu. |
+| **Remove file** confirms with **Yes**; Ctrl/Cmd+Z undoes | ok | `packages/core/lib/src/file_system/actions/file_actions.dart:121-203`, `packages/core/lib/src/widgets/nowa_dialogs.dart:6-26` | Message "Are you sure you want to delete ...?" with **Cancel** / **Yes**. `lib/main.dart` can't be deleted. |
+| **Rename**: type a name and press Enter | ok | `packages/core/lib/src/file_system/widgets/files_widgets.dart:105-150` | Clicking away cancels the rename. |
+| Renaming an asset and widgets that use it | added | `packages/core/lib/src/file_system/nfile_impl.dart:102-128`, `packages/core/lib/src/file_system/dart_file.dart:274-290` | `NFile.move` only refreshes Dart imports; asset paths in widgets are plain strings, not dependencies. Added "Widgets that already use the file keep its old path, so pick the file again in them." Derived from code, not run in the app. |
+
+Links: `fonts-icons.md`, `properties.md`, `../get-started/playground.md`, `../ai/context.md`, `../code/files.md` exist.
+
+## fonts-icons.md
+
+Status: checked, 1 claim sharpened. Priority items confirmed: Google Fonts download on pick (family's regular file to `assets/fonts/<Name>.ttf`, pubspec refreshed) and **Import** of `.ttf` / `.otf` (one file at a time, saved in `assets/fonts/`, selected afterwards). Length: 655 `wc -w` / ~510 body words (no cut needed).
+
+| Claim | Verdict | Code ref | Note |
+|---|---|---|---|
+| Entry points: theme **Default Font**, a style's **Font Family**; font button shows the font or **Default** | ok | `packages/core/lib/src/fields/text_fields.dart:365-395,233-260,821-860`, screenshot `captures/ui-map/03-panel-themes.png` | |
+| One text: **Style** label → **CopyWith** → **Font Family** | fixed | `text_fields.dart:181-232` | A text that uses the default style shows **Modify Style** instead of **CopyWith** (same finding as theme-styles). Added "(**Modify Style** if it uses the default style)" and "the **Style** label". |
+| Picking a Google Font downloads its regular file to `assets/fonts/<Font Name>.ttf` and registers it | ok | `text_fields.dart:25-55,397-413` | Skipped when the file exists. Uses the Google Fonts web API; whether the file is a variable font is unconfirmed, so the page says only "regular file". |
+| **Import**: `.ttf`/`.otf`, one file, saved in `assets/fonts/`, registered, selected; name = file name without extension | ok | `text_fields.dart:16-23,724-748`, `packages/core/lib/src/file_system/file_object.dart:469-498` | |
+| Popup title **Fonts**, search, filter button, "All Fonts" / "Default Fonts" / "Imported by you" | ok | `text_fields.dart:560-700` | The filter is an unlabeled tune icon. |
+| Filter meanings | ok | `text_fields.dart:507-533` | **Imported by you** lists every `FontFile` under `assets/`, so used Google Fonts show there too. |
+| Web app: 100 Google Fonts at first, search shows up to 20; desktop lists all | ok | `text_fields.dart:520-533` | `kIsWeb` check. |
+| Declared `pubspec.yaml` fonts are kept, shown under their own names; undeclared font files added; missing files dropped; popup lists file names | ok | `packages/core/lib/src/settings/pubspec_manager.dart:78-116,165-203`, `docs/new/change-log.md:30` | |
+| **Icons** popup: icon + name or **none**, search, grid; Material Icons only | ok | `packages/core/lib/src/fields/icon_field.dart:14-191` | Lists the `Icons` class members. |
+| Icon widget: **Size**, **Color**, **Show advanced options** list | ok | `packages/core/lib/src/fields/button_fields.dart:35-69` | |
+| Tip: Nowa AI downloads and sets up a missing font | ok | `docs/new/whats-new.md:341` | |
+
+Links: `theme-styles.md#use-a-theme-text-style`, `../get-started/desktop-app.md`, `themes.md`, `assets.md`, `properties.md` exist.
+
+## templates.md
+
+Status: checked, 4 claims fixed or added. Length: 658 `wc -w` / ~545 body words (no cut needed).
+
+| Claim | Verdict | Code ref | Note |
+|---|---|---|---|
+| Entry points: **Screen** tool, board right-click **Create a page** | ok | `packages/designer/lib/src/widgets/designer_tools.dart:150-160`, `packages/designer/lib/src/menus/board_context_menu.dart:19` | Both invoke `OpenTemplatePickerIntent`. |
+| Picker: hint **Search for templates**, **Screens** / **Components**, preview, arrows and Enter | ok | `packages/core/lib/src/services/templates/add_template_action.dart:41-107,135-170`, `packages/command_palette/lib/src/widgets/options/command_palette_body.dart:200-210` | |
+| New item is placed near the pointer; screen doesn't become the home screen | ok | `packages/designer/lib/src/actions/add_template_designer.dart:7-37` | Nothing in the add flow sets the home screen. Reworded to "screen or component" since components are placed the same way. |
+| "Most templates add one file ..." | fixed | `packages/core/lib/src/services/templates/built_in/*.dart`, `packages/core/lib/src/file_system/actions/file_actions.dart:58-72` | The dialog depends on `templateFiles.length == 1`. Of the 13 listed templates, 7 have one file (Empty Page, Basic Cards 1, Basic Cards 3, Event Info, Audio Player Page, Audio Player, Google Button) and 6 have several (Basic Cards 2, Onboarding Screen, Article, Dashboard, Chat Template, Authentication Template). "Most" was borderline, so the page now names examples of each kind. |
+| Single-file dialog: **New** + name, **Class name**, **Path**, **Submit**; `lib/pages/` or `lib/components/`; route added for GoRouter | ok | `file_actions.dart:28-73`, `packages/core/lib/src/file_system/widgets/create_file_dialog.dart:94-126`, `packages/core/lib/src/project/env_services/go_router_routing_service.dart:79-82`, `app_routing_service.dart:105-109` | The simple (widget-based) router does nothing in `addRouteByWidget`. |
+| Empty Page is 393 x 808 | ok | `packages/designer/lib/src/actions/add_template_designer.dart:28-34`, `packages/core/lib/src/services/templates/built_in/empty_page.dart` | No size metadata, so the first preset is used. |
+| Multi-file dialog: **Add** + name, files with checkboxes, rename/move, **Import**, overwrite confirmation, tooltip, screens side by side | ok | `packages/core/lib/src/file_system/widgets/template_widgets/add_template_dialog.dart:95-215`, `template_files_list.dart:100-270`, `add_template_designer.dart:7-37` | |
+| Multi-file import adds routes | added (negative) | `add_template_dialog.dart:98-121` | Only `_onSubmitSingleFile` calls `addRouteByWidget`; the multi-file path never does. Added a sentence with a pointer to **Route Settings** (go_router projects, `docs/design/screens.md`). |
+| Built-in list | ok | `packages/core/lib/src/services/templates/templates_service.dart:372-389` | 11 screens and 2 components as listed. "Animated Onboarding Screen" is commented out. |
+| **Premium** label on Article, Dashboard, Event Info, Audio Player Page; listed after free ones | ok | `built_in/article.dart:4-5`, `dashboard.dart:4-5`, `event_info.dart`, `audio_player.dart:4-5`; `templates_service.dart:16-25` | `premiumFirst` sorts free (false) first despite its name. |
+| Without the entitlement: **Time to level up** with **Upgrade** | ok | `add_template_action.dart:19-36`, `packages/core/lib/src/widgets/nowa_dialogs.dart:88-133` | With `kShowPurchaseUi` off it reads "Feature unavailable" with no button. No plan is named in code, so the badge is `paid` only and no price is given (D3). |
+| **Files** → **lib** row **Add to library** → **New Widget...** opens the picker and opens the file instead of placing it | ok | `lib/project/panels/files_panel/add_lib_menu.dart:48-67` | |
+| Playground picker has **Playgrounds** and **Templates** | ok | `lib/sandbox/sandbox_picker.dart:20-65` | Also shown for public projects opened as a guest. |
+
+Links: `screens.md#name-the-route`, `components.md`, `themes.md`, `properties.md`, `../get-started/playground.md`, `../ai/index.md` exist.

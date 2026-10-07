@@ -16,7 +16,7 @@ Click to select, drag to move, pull a handle to resize. Purple guides snap thing
 | Pick the innermost widget | <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + click. |
 | Add or remove a widget | <kbd>Shift</kbd> + click, on the board or in the [Outline](outline.md). |
 | Select with a box | Drag on empty space. Start on the board to select whole screens and components. Start inside a screen to select the widgets placed freely in its main **Stack** group. <kbd>Shift</kbd> toggles. |
-| Select all | <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>A</kbd> selects the widgets next to the selected one, or every board item if none is selected. |
+| Select all | <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>A</kbd> selects the selected widget and its siblings. With nothing or a whole screen selected, it selects every board item. |
 | Select a parent | Click its name in the breadcrumbs at the top of **Details**. |
 | Clear the selection | Click empty board space. |
 
@@ -37,10 +37,11 @@ What happens when you drop depends on what is under the pointer.
 |---|---|
 | Empty board | The widget becomes its own board item and snaps to nearby items. |
 | A **Stack** | It is placed where you drop it, on top of the others. The stack is outlined in purple. |
-| A **Row**, **Column**, **Wrap** or **List View** | It is inserted between the children at the pointer, and the others move to make room. An orange box outlines the dragged widget. |
+| A **Row**, **Column**, **Wrap** or **List View** | It is inserted between the children at the pointer. An orange box outlines the dragged widget. |
 | A screen | An App Bar, Floating Action Button, Bottom Navigation Bar or Drawer goes into its slot. Anything else goes into the body. |
 | An app bar | The left, middle and right zones fill the leading, title and actions. |
 | A **Text** or a **Padding** | A text can't hold children, so the drop goes to the container behind it. **Padding** passes it to its child. |
+| Any other widget, such as a **Container** | It doesn't take drops. The drop goes to whatever is behind it. To put a widget inside, use **+** in **Details**. |
 
 A component can't be dropped into itself.
 
@@ -50,7 +51,7 @@ A component can't be dropped into itself.
 
 Select a widget and drag a corner handle, or an edge, to resize it. Hold <kbd>Shift</kbd> to keep the proportions. Hold <kbd>Alt</kbd>/<kbd>Option</kbd> to resize from the center. With several widgets selected, they resize together.
 
-Some widgets have no handles, for example when their size comes from their parent. Set their size in **Layout** instead. See [Lay out widgets](layout.md).
+Some widgets have no handles, for example a widget placed directly inside a **Container** or **Padding**. Set their size in **Layout** instead. See [Lay out widgets](layout.md).
 
 ## Snapping and guides
 
@@ -58,11 +59,11 @@ While you move or resize, edges and centers snap to nearby items and purple guid
 
 ## Edit text on the board
 
-Double-click a **Text**, **Markdown** or **Html** widget, or place one with the **Text** tool, and type. Press <kbd>Esc</kbd> or click away to save. Rich text is edited in **Details**.
+Double-click a **Text**, **Markdown** or **Html** widget, or place one with the **Text** tool, and type. Press <kbd>Esc</kbd> or click away to save. Rich text is edited in **Details**. If the text comes from a variable, editing it here replaces that link with the text you typed. Undo brings the link back.
 
 ## Copy, cut and paste
 
-Press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>C</kbd>, <kbd>X</kbd> or <kbd>V</kbd>, or use **Copy**, **Cut** and **Paste** in the right-click menu. A paste lands at your pointer. With a widget selected, it goes into that widget's parent. Pasting a copied screen adds another board item that shows the same screen. Pasting images and text is covered in [Add widgets](add-widgets.md).
+Press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>C</kbd>, <kbd>X</kbd> or <kbd>V</kbd>. A widget's right-click menu has **Copy** and **Cut**, and the menu on empty board space has **Paste**. A paste lands at your pointer. With a widget selected, it goes into that widget's parent. Pasting images and text is covered in [Add widgets](add-widgets.md).
 
 ## Use the right-click menu {#use-the-right-click-menu}
 
@@ -70,7 +71,7 @@ Right-click a widget to act on it. An unselected widget is selected first.
 
 | Entry | What it does |
 |---|---|
-| **Remove** | Deletes the selected widgets. For a board item, it only takes the item off the board. Key: <kbd>Delete</kbd>, or <kbd>Backspace</kbd> on macOS. |
+| **Remove** | Takes the selected widgets out of your design. A screen or component only leaves the board and stays in your project. Key: <kbd>Delete</kbd>, or <kbd>Backspace</kbd> on macOS. |
 | **Replace with...** | Opens the widget picker and swaps the widget for the one you pick. Nowa keeps its children and the properties the new widget also has. |
 | **Group** | Puts the selected widgets into one group. Key: <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>G</kbd>. Inside a **Row**, **Column** or **Stack** the group matches its parent. Elsewhere it is a **Stack**. |
 | **Ungroup** | Shows when one group is selected. It moves the children out and removes the group. The key only groups. It never ungroups. |
@@ -78,11 +79,11 @@ Right-click a widget to act on it. An unselected widget is selected first.
 | **Move To Top**, **Move To Bottom** | Moves the widget to the first or last place. |
 | **Export as image...** | Saves a widget or screen as a picture. |
 
-Earlier means higher in a **Column**, further left in a **Row**, and further back in a **Stack**, where later widgets sit on top. The menu shows <kbd>Ctrl</kbd> + <kbd>&#93;</kbd> next to both **Move Up** and **Move Down**. The keys in the table are the real ones.
+Earlier means higher in a **Column**, further left in a **Row**, and further back in a **Stack**, where later widgets sit on top. The menu shows the same <kbd>&#93;</kbd> hint next to both **Move Up** and **Move Down**. The keys in the table are the real ones.
 
 {/* CAPTURE: id=design-select-and-edit-2 | state: playground starter open, drop a Container with the Shape tool, right-click it | show: the widget right-click menu with Play, Remove, Replace with..., Group, Copy, Cut, Move Up, Move Down, Move To Top, Move To Bottom, Create component, Detach, Copy as new widget and Export as image... | crop: the menu and the selected widget */}
 
-The menu also has **Play**, **Create component**, **Detach** and **Copy as new widget**. They are covered in [Play your app on the board](../test/instant-play.md) and [Build reusable components](components.md).
+**Play**, **Create component**, **Detach** and **Copy as new widget** are covered in [Play your app on the board](../test/instant-play.md) and [Build reusable components](components.md). Right-click empty board space for **Undo**, **Redo**, **Save**, **Create a page** and **Paste**.
 
 ## Export as image
 

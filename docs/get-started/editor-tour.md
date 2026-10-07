@@ -27,8 +27,8 @@ The editor is a handful of areas that always stay in the same place. This tour n
 | Nowa logo | Returns to the dashboard. If files are unsaved, Nowa asks first. |
 | Starting-point chip | Playground, and public projects you open as a guest. Switches to another starter app or a template. See [Try Nowa without an account](./playground.md). |
 | Package chip | Appears only when a project has several packages. Picks the one you edit. |
-| Board chip | Shows the current board. Click it to switch boards, **Rename** or **Delete** one, or **Create new board**. See [Work with boards](../design/boards.md). |
-| Screen chip | Names the screen or component open on its own. If its file holds several views, click it to switch between them. |
+| Board chip | Shows the current board. Click it to switch boards, **Rename** or **Delete** one, or **Create new board**. When a screen is open on its own, the chip is dimmed and takes you back to the board. See [Work with boards](../design/boards.md). |
+| Screen or component chip | Appears after the board chip when a screen or component is open on its own, and names it. If its file holds several views, click it to switch between them. |
 | **Upgrade** | Shown when your account is on the free plan. See [Plans, billing and AI usage](../account/plans-and-usage.md). |
 | Avatar | Opens your name and plan, **General Settings** and **Logout**. See [Account settings](../account/account-settings.md). |
 | Bell | Opens **Notifications** from Nowa. |

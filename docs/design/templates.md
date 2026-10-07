@@ -16,11 +16,11 @@ Skip the blank page. A template gives you a finished screen or component, such a
 
 {/* CAPTURE: id=design-templates-1 | state: playground starter open, Screen tool clicked in the bottom toolbar, a template highlighted | show: the template picker with the Screens and Components tabs, the search box and the preview pane | crop: center of the editor, picker dialog */}
 
-The new screen is placed on the board near your pointer. It doesn't become your home screen automatically. See [Create and set up screens](screens.md).
+The new screen or component is placed on the board near your pointer. A screen doesn't become your home screen automatically. See [Create and set up screens](screens.md).
 
 ## Name a single-file template
 
-Most templates add one file. The dialog is titled **New** followed by the template's name, for example **New Empty Page**.
+A template with a single file, such as **Empty Page**, **Basic Cards 1** or **Event Info**, opens a naming dialog. It is titled **New** followed by the template's name, for example **New Empty Page**.
 
 1. Type a name. Nowa fills in a **Class name** and a **Path** from it. Screens go in `lib/pages/` and components in `lib/components/`.
 2. Click **Submit**. For a screen, Nowa also adds a route in projects that use GoRouter.
@@ -29,12 +29,12 @@ An **Empty Page** is a blank screen, sized like the Pixel 3a preset (393 × 808)
 
 ## Import a multi-file template
 
-Some templates are made of several files, for example the **Authentication Template**, which has a login page and a register page. The dialog is titled **Add** followed by the template's name.
+A template made of several files, such as the **Authentication Template** (a login page and a register page), **Chat Template** or **Onboarding Screen**, opens an import dialog. It is titled **Add** followed by the template's name.
 
 1. Review the files the template will add. Untick the ones you don't need, or rename and move them.
 2. Click **Import**. If a file with the same name already exists, Nowa asks before it overwrites it.
 
-**Import** stays off while a file has a problem, and a tooltip asks you to fix it first. Only the template's screens are placed on the board, side by side.
+**Import** stays off while a file has a problem, and a tooltip asks you to fix it first. Only the template's screens are placed on the board, side by side. Unlike a single-file template, a multi-file import doesn't add routes. In a go_router project, set each screen's route in its **Route Settings**. See [Name the route](screens.md#name-the-route).
 
 ## Built-in templates
 

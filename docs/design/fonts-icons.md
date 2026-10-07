@@ -11,7 +11,7 @@ Give your app its own voice with a Google Font or your own font file, and choose
 
 1. Open a font field.
    - For the whole app, open **Themes** and click **Default Font**. Or open a text style and use **Font Family**.
-   - For one text, select it, click **Style**, choose **CopyWith**, then use **Font Family**. See [Use theme colors and text styles](theme-styles.md#use-a-theme-text-style).
+   - For one text, select it, click the **Style** label, choose **CopyWith** (**Modify Style** if it uses the default style), then use **Font Family**. See [Use theme colors and text styles](theme-styles.md#use-a-theme-text-style).
 2. Click the font button. It shows the current font, or **Default**.
 3. Search by name or scroll the list. Click a font to use it.
 

@@ -12,7 +12,7 @@ Nowa is a visual Flutter app builder with a full AI agent inside. Describe the a
 Most projects follow the same loop. Jump in at any step and go back whenever you like.
 
 1. **Describe.** Tell Nowa AI what you want in plain words. See [Build with Nowa AI](../ai/index.md).
-2. **Watch it build.** Nowa AI creates screens, components and logic on the board while you follow each step in the chat.
+2. **Watch it build.** Nowa AI designs your screens on the board while you follow each step in the chat. In Agent mode it also writes the logic.
 3. **Refine visually.** Click any widget, change it in the **Details** panel, drag it into place, and restyle it with themes. See [Design your app](../design/index.md).
 4. **Play.** **Play** (Instant Play) runs a screen right on the board, instantly, so you can tap through it. See [Preview and test](../test/index.md).
 5. **Run.** **Run** builds and runs the real app: in the editor, on your phone, or on a device with the desktop app.

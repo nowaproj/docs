@@ -9,7 +9,7 @@ Add a widget in seconds: press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd>, ty
 
 ## Add a widget with the widget picker
 
-1. Click **Widget** in the toolbar, or press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd> with your pointer over the board. The picker opens with the hint **Search for a widget**.
+1. Click **Widget** in the toolbar, or press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd>. The picker opens with the hint **Search for a widget**.
 2. Type part of a name, such as `text` or `button`. The closest matches come first. Under **Search for:**, choose **All**, **BuiltIn** (the widgets that come with Nowa) or **Components** (the screens and components in your project).
 3. Move through the list with the arrow keys. The preview on the right shows the widget, a short description and, for many built-in widgets, an **Open Documentation.** link.
 4. Press <kbd>Enter</kbd> or click the widget. Press <kbd>Esc</kbd> to close the picker without adding anything.
@@ -20,7 +20,7 @@ You can click to place a widget, or drag it from the list to choose the exact sp
 
 | | Click or press Enter | Drag from the list |
 |---|---|---|
-| Where it lands | At the last spot your pointer was on the board, inside the container under that spot if there is one. | Exactly where you drop it. |
+| Where it lands | At the last spot your pointer was on the board, so point at the board first. Same drop rules as a drag. | Where you drop it. |
 | Widget needs a missing package | Nowa asks you to add it first. | You can't drag it until the package is added. |
 
 While you drag, the picker closes and the board shows where the widget will land. See [where a dragged widget lands](select-and-edit.md#where-a-dragged-widget-lands).
@@ -33,7 +33,7 @@ Some widgets rely on a Flutter package. The preview lists it under **Dependencie
 
 ## Draw a shape or text
 
-- **Shape** (<kbd>R</kbd>): click the board to place a gray container, or click inside a container to place it there. Click and drag to draw its size. Hold <kbd>Shift</kbd> to keep the proportions and <kbd>Alt</kbd>/<kbd>Option</kbd> to draw from the center.
+- **Shape** (<kbd>R</kbd>): click the board to place a gray container. Click over a **Stack**, **Row** or **Column** and it goes inside. Click and drag to draw its size. Hold <kbd>Shift</kbd> to keep the proportions and <kbd>Alt</kbd>/<kbd>Option</kbd> to draw from the center.
 - **Text** (<kbd>T</kbd>): click to place a text that says "Write something" and type right away. Click and drag to draw its size.
 
 Both tools switch back to **Select tool** after one use. Tool keys don't work while you type in a field.
@@ -41,7 +41,7 @@ Both tools switch back to **Select tool** after one use. Tool keys don't work wh
 ## Drag screens, components and files
 
 - **Widgets panel.** Drag a **Page** or **Component** tile onto the board. A screen always becomes its own board item. Drop a component inside a screen to use it there. See [Build reusable components](components.md).
-- **Files panel.** Drag a Dart file onto the board to place the first public widget it contains.
+- **Files panel.** Drag a Dart file onto the board to place the first widget it contains.
 - **Assets.** Drag an image, SVG, font, Rive animation or video from **assets** to create the matching widget. A font file creates a text that uses that font. See [Images, videos and other files](assets.md).
 
 ## Paste images, links and text
@@ -49,13 +49,13 @@ Both tools switch back to **Select tool** after one use. Tool keys don't work wh
 Copy something, point at the board and press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>V</kbd>, or right-click empty board space and choose **Paste**. With a widget selected, the paste goes into that widget's parent.
 
 - A copied widget is pasted as a copy of it.
-- A copied image becomes an **Image** widget. Nowa saves the image in `assets/`. JPEG, PNG, WebP and BMP images work. In the desktop app you can also copy image files from your file manager.
+- A copied image becomes an **Image** widget, and Nowa saves the image in `assets/`. In the desktop app you can also copy image files from your file manager.
 - A link that starts with `http` becomes an **Image** widget that loads it.
 - Any other text becomes a **Text** widget.
 
 ## Put a widget inside a container
 
-A shape you draw is a **Container** with nothing in it, and **Details** shows **Empty** with a **+** button. Select the container, click **+** and pick a widget from the same picker. Any property that takes a widget, such as an app bar slot, opens this picker too, and so does **Replace with...** in the right-click menu.
+A shape you draw is a **Container** with nothing in it, and **Details** shows **Empty** with a **+** button. Select the container, click **+** and pick a widget from the same picker. Dropping a widget onto a container doesn't put it inside. Any property that takes a widget, such as an app bar slot, opens this picker too, and so does **Replace with...** in the right-click menu.
 
 ## Can't find a widget?
 

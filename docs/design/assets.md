@@ -29,7 +29,7 @@ Nowa recognizes these file types:
 | Audio | `.mp3`, `.wav` |
 | Fonts | `.ttf`, `.otf` (see [Fonts and icons](fonts-icons.md)) |
 
-Any other file is imported as a text file. You can drag files between folders inside **assets** to move them.
+Any other file type is read as plain text, so stick to the types above for images, media and fonts. You can drag files between folders inside **assets** to move them.
 
 :::note
 In the playground, large files can stop your app from being saved in the browser. See [Try Nowa without an account](../get-started/playground.md).
@@ -69,16 +69,17 @@ Drag a file from **assets** onto the board or into a screen. Nowa creates the ma
 | Rive | Rive |
 | Video | Video Player |
 | Font | Text, set in that font |
+| Text file, such as `.txt` | Text, with the file's content |
 
 Lottie and audio files don't create a widget. Dropping files from your computer onto the board doesn't import them: import them first, then drag them from **assets**.
 
 ## Rename, remove and find files
 
-Right-click a file in **assets**. Select several files first to act on all of them.
+Right-click a file in **assets**. Select several files first to act on all of them, except **Rename**, which needs a single file.
 
 | Menu item | What it does |
 |---|---|
-| **Rename** | Type a new name and press <kbd>Enter</kbd>. |
+| **Rename** | Type a new name and press <kbd>Enter</kbd>. Widgets that already use the file keep its old path, so pick the file again in them. |
 | **Remove file** | Deletes the file after you confirm with **Yes**. <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Z</kbd> undoes it. With several files selected, it reads **Remove N files**. |
 | **Copy as path** | Copies the file's path. |
 | **View in folder** | Opens the file's folder on your computer. <Badge type="local" /> |

@@ -12,7 +12,7 @@ Account settings is the one place for who you are in Nowa: your profile, your si
 - On the dashboard, click **Settings** in the sidebar.
 - In a project, click your avatar in the top bar, then **General Settings**.
 
-The window has two groups. On the iOS and Android apps, **Billing** and **Usage** are hidden. On a phone-sized window it opens as a full-screen list of the account pages instead.
+The window has two groups. On a phone-sized window it opens as a full-screen list of the account pages instead.
 
 | Group | Page | What's there |
 |---|---|---|

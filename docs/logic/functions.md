@@ -12,7 +12,7 @@ A function is a named list of steps that you build once and run from many places
 1. Select a screen or component and open the **Variables** panel. See [Store data in variables](variables.md).
 2. Hover **Functions** and click **+**. If a menu opens, click **Add Function**.
 3. A function named `func` appears, ready to rename. Type a name and press <kbd>Enter</kbd>. Names follow the same rules as variable names.
-4. In **Details**, choose a **Return Type** if the function gives something back. Leave it as `void` if it only does things.
+4. Select the function. In **Details**, choose a **Return Type** if it gives something back. Leave it as `void` if it only does things.
 5. Click **Edit**. [Circuit](circuit.md) opens, ready for your steps.
 
 With a function selected, **Details** shows **Name**, **Return Type**, **Edit** and **Remove**.
@@ -33,8 +33,12 @@ Nodes in the function find `celsius` under **LOCALS**. See [Expressions and cond
 
 ## Call a function
 
-- **From an event or another function**: in Circuit, click the dot where it should run, then find your function under **LOCALS**. Fill in its parameters in **Details**: type a value, or click a parameter's label to link one. If it returns a value, use [Store result](circuit.md#store-result) to keep it. To jump to the function, hover its name at the top of **Details** and click **Open**.
-- **As an event**: click the event's name, open **LOCALS** and pick the function. See [Respond to taps and other events](events.md).
+1. In Circuit, click the dot where the function should run. This can be in an event's circuit ([Respond to taps and other events](events.md)) or in another function.
+2. Find your function under **LOCALS** and click it. A node is added.
+3. In **Details**, fill in its parameters: type a value, or click a parameter's label to link one.
+4. If it returns a value, use [Store result](circuit.md#store-result) to keep it.
+
+To jump to the function from its node, hover its name at the top of **Details** and click the open icon.
 
 A screen's or component's functions are available only inside that screen or component. To share a function across your app, put it in a global state: [Share data across your app](global-state.md).
 
@@ -47,7 +51,7 @@ Screens and components have two built-in moments you can add steps to:
 
 1. Hover **Functions** and click **+**. The menu lists **Add Function**, **InitState Function** and **Dispose Function**. The last two leave the menu once you've added them.
 2. Choose **InitState Function** or **Dispose Function**, select it and click **Edit**.
-3. Circuit shows one node named `initState` or `dispose`. Keep it as the first step and add your own steps below it.
+3. Circuit shows one node named `initState` or `dispose`. It runs the built-in behavior, so keep it and add your own steps above or below it.
 
 The **Return Type** of these two functions is locked.
 

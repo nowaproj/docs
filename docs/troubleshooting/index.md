@@ -20,7 +20,7 @@ Nowa's servers returned an error, or they are down for maintenance. "Maintenance
 
 ## A new version of Nowa is available {#update-prompts}
 
-An update is out, and the dashboard shows this dialog with your version and the new one. The iOS and Android app doesn't show it.
+An update is out, and the dashboard shows this dialog with your version and the new one.
 
 - **Desktop app:** click **Update to v…**, which names the new version. When the dialog says "Download complete!", click **Install & Restart**. Nowa closes and opens again on the new version. **Later** and **Skip** wait, and **Or download manually** opens the download link.
 - **Web app:** click **Update**. The page reloads on the new version.

@@ -71,7 +71,6 @@ When no credits are left, the chat says "You ran out of credits." and tells you 
 - Click **Invite a friend** to earn more (below).
 - Wait for the reset. The banner shows how long it takes ("Resets in" a time).
 
-On the iOS and Android apps the message reads "You reached your usage limit." and has no buttons.
 
 ## Invite a friend {#invite-a-friend}
 
@@ -83,7 +82,7 @@ You and your friend both get AI credits when your friend signs up and verifies t
 
 Some features need a plan that includes them, or have an allowance you can use up. When you try one, a **Time to level up** dialog appears. Its default text reads "Looks like you used all your available usage for this feature. Upgrade your plan to unlock more power." Other places write their own text, such as "Publishing to a live web URL is available on paid plans. Upgrade to go live." Click **Upgrade** to open **Billing**.
 
-A **Premium** pill next to a feature does the same when you click it. On the iOS and Android apps the pill reads **Unavailable**, and the dialog says "Feature unavailable" and "This feature is not available on your account."
+A **Premium** pill next to a feature does the same when you click it.
 
 ## Next steps
 

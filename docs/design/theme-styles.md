@@ -29,7 +29,7 @@ With a theme color linked, click the property name, for example **Color**, to op
 2. Click the button and choose a style in **Text Styles**.
 3. To change the style for the whole app, hover it in the list and click **Edit**. This edits the active theme.
 
-To change only part of a style on one text, click **Style** (the property name) and choose **CopyWith**. Change the fields that appear. Everything you leave alone still follows the theme. **Remove CopyWith** goes back to the plain theme style.
+To change only part of a style on one text, click **Style** (the property name) and choose **CopyWith**. Change the fields that appear. Everything you leave alone still follows the theme. **Remove CopyWith** goes back to the plain theme style. On a text that still uses the default style, the menu item is **Modify Style** instead.
 
 To cut the text loose from the theme, click the **x** on the style button. The style becomes your own and starts empty, so set the fields you need.
 
@@ -46,7 +46,7 @@ If no theme is applied to your app yet, clicking **Button Style** opens **Create
 
 New projects include a global state called `AppState` with a `changeTheme` function. Call it from an event and the running app switches theme, for example between `lightTheme` and `darkTheme`. The app doesn't follow the device's dark mode by itself, so this is how you add a dark mode switch.
 
-1. Select a Button on a screen and click **+** next to **On Pressed**. [Circuit](../logic/circuit.md) opens.
+1. Select a Button on a screen and click the button next to **On Pressed**. It reads **Edit** on a new button and **+** if the button has no action yet. [Circuit](../logic/circuit.md) opens.
 2. Hover the dot under the top node, click **+**, open **GLOBALS** and click `AppState`.
 3. In the node's **Details**, click **+** and choose `changeTheme`.
 4. Click **Select theme** and pick a theme, such as `darkTheme`.

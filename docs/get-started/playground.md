@@ -10,13 +10,13 @@ The playground is the full Nowa editor on a throwaway app, with no account and n
 ## Open the playground
 
 1. Go to [app.nowa.dev/playground](https://app.nowa.dev/playground). You can also click **Build an app, no account needed** on the [sign-up page](./create-account.md).
-2. The editor opens on a starter app with a home screen on the board.
+2. The editor opens on the **Starter app**, with a home screen on the board.
 
 **You should see:** the editor from the [editor tour](./editor-tour.md), with **Save** at the top right where **Run** and **Deploy** would be.
 
 You can design on the board, change widgets in **Details**, edit themes, **Play** a screen and write code. When you send your first message to Nowa AI, Nowa asks you to sign in or create an account first, because the AI needs an account, not a project.
 
-Some things wait for your account: **Run**, **Deploy**, the **Git** panel, the **Deployment**, **Permissions**, **Git** and **Project Sync** settings, and **Restore Checkpoint** for Nowa AI. They come back when you save the app.
+Some things wait for your account: **Run**, **Deploy**, the **Git** panel, the **Deployment**, **Permissions** and **Git** pages in **Settings**, the **Sharing** section of **Project Details**, and **Restore Checkpoint** for Nowa AI. They come back when you save the app.
 
 ## Pick a starting point
 
@@ -47,7 +47,7 @@ Nowa stores your playground in this browser whenever it saves, so a reload picks
 
 ## Open a public project as a guest
 
-Anyone with the link to a public project can open it, signed in or not. The editor opens a private copy in your browser. You can edit and play it, but nothing changes the owner's project.
+Anyone with the link to a public project can open it, signed in or not. Unless you're a member of the project, the editor opens a private copy in your browser. You can edit and play it, but nothing changes the owner's project.
 
 Edits are lost when you close the tab. To keep them, click **Save to keep changes**, sign in if asked, and name the copy in **Save your app**. A guest copy has the same limits as the playground.
 

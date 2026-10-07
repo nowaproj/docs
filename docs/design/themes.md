@@ -31,7 +31,7 @@ The new theme opens for editing in **Seed** mode with a purple seed color. It is
 
 Click a theme in the list. The label **Active** moves to it. The active theme is the one your app starts with and the one the board shows. Nowa saves the choice in your code: in new projects it is the starting theme in `lib/globals/app_state.dart`.
 
-Your app doesn't switch between light and dark on its own. To let people switch while the app runs, see [Switch themes while the app runs](theme-styles.md#switch-themes-while-the-app-runs).
+In a new project, your app doesn't switch between light and dark on its own. To let people switch while the app runs, see [Switch themes while the app runs](theme-styles.md#switch-themes-while-the-app-runs).
 
 ## Rename or delete a theme
 
@@ -89,7 +89,7 @@ Buttons pick up the theme once you connect them. See [Connect buttons to the the
 
 If a theme has custom extensions, such as a set of brand colors, the editor shows a **Default Theme** tab plus one tab per extension, named after its class. Click a tab to edit that extension's values.
 
-There is no button to create an extension. They come from your code, or from Nowa AI, for example when it imports a Figma design. A project can use up to 8 extension types.
+There is no button to create an extension. They come from your code. Nowa supports up to 8 theme extensions.
 
 ## Add themes to a project that has none
 

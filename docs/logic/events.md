@@ -10,11 +10,11 @@ An event is a property that starts logic when something happens in your app: a t
 ## Add logic to an event
 
 1. Select a widget on the board, for example a button.
-2. In **Details**, find the event. A button's **On Pressed** is in its **Button** section.
+2. In **Details**, find the event. For a **Button**, **On Pressed** is in the **Button** section.
 3. Click the button next to the event. If it reads **+**, Nowa creates an empty function for the event first. If it reads **Edit** (with a bolt), the event already has a function. Either way, [Circuit](circuit.md) opens.
 4. Add the steps you want, then close Circuit with **×**.
 
-A new button already has an empty function for **On Pressed**, so it reads **Edit** from the start. Click **Edit** any time to reopen the logic.
+A new **Button** or **Icon Button** already has an empty function for **On Pressed**, so it reads **Edit** from the start. Click **Edit** any time to reopen the logic.
 
 {/* CAPTURE: id=logic-events-1 | state: playground starter open, the Button selected on the board | show: Details scrolled to the Button section with the Enabled switch and the On Pressed row showing the Edit (bolt) button | crop: right-hand Details panel */}
 
@@ -36,20 +36,20 @@ To learn more about **Play**, see [Play your app on the board](../test/instant-p
 
 Each widget lists its own events in **Details**, named after what they do:
 
-- **Buttons**: **On Pressed**, **On Long Press** and **On Hover**.
+- **Button** and **Icon Button**: **On Pressed**, **On Long Press** and **On Hover**.
 - **Text fields**: **On Tap**, **On Changed**, **On Editing Complete**, and **On Submitted** (**On Field Submitted** in a form field).
 - **Any other widget**: select it, click **Add Wrapper** in **Details** and choose **Gesture Detector** or **Ink Well**. Their events, such as **On Tap**, then appear in **Details**. The **Dismissible** (swipe away) and **Refresh Indicator** (pull to refresh) wrappers have events too.
 
 ## Turn a button on or off
 
-Buttons also have an **Enabled** switch in **Details**. Switch it off to disable the button. If its logic already has steps, Nowa won't let you and says "Disabling button will remove your function, use compute instead".
+A **Button** or **Icon Button** also has an **Enabled** switch in **Details**. Switch it off to disable the button. If its logic already has steps, Nowa won't let you and says "Disabling button will remove your function, use compute instead".
 
 Click **Compute** next to the switch and link a true or false variable. The button then works only while that value is true. Click the detach icon to unlink it.
 
 ## Reuse a function, or let a parent decide
 
-- **Use a function you already made**: click the event's name (not the button), open **LOCALS** and pick one of your screen's functions. The event now runs that function, so its parameters must match what the event gives you. See [Create functions](functions.md).
-- **Let the parent decide**: click the event's name and choose **Create Param...**. Nowa adds a function parameter to your component, so each place that uses the component can set its own logic. See [Pass data with parameters](parameters.md).
+- **Run a function you already made**: open the event in Circuit, add a node, open **LOCALS** and pick the function. The event now runs it. See [Create functions](functions.md).
+- **Let the parent decide**: click the event's name and choose **Create Param...**. Nowa adds a param to your component and links the event to it, so each place that uses the component can set its own logic. See [Pass data with parameters](parameters.md).
 
 ## Remove an event's logic
 

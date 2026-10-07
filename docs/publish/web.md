@@ -54,7 +54,7 @@ If you'd rather host the site yourself, click **Download Files** once your site 
 
 ## Use your own domain
 
-Serve your site from an address you own, such as `example.com`. Custom domains need a higher plan. Without one, **Custom Domain** shows **Premium**.
+Serve your site from an address you own, such as `example.com`. Custom domains need a higher plan: see [pricing](https://nowa.dev/pricing) for what each plan includes. Without one, **Custom Domain** shows **Premium**.
 
 1. Publish your site. The **Custom Domain** field appears below the address once the site is live.
 2. Type your domain without `www.`. Nowa shows **Please remove "www."** if you include it.

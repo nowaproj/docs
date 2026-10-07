@@ -19,6 +19,19 @@ Give your app real data and real services: sign-in, a database, payments, ads an
 
 A **Data Builder** loads data from a request, a Supabase function or a Firestore query. It shows a loading widget while it waits and gives the widgets inside it the result as `data`. See [Show data in your UI](./show-data.md).
 
+## Add sign-in
+
+Nowa supports three ways to sign people in. Choose the one that matches your backend.
+
+| | Supabase | Firebase | Google Sign-In |
+|---|---|---|---|
+| Sign-in methods | Email and password | Email/Password, Google and Phone | Google |
+| What Nowa adds | `signUp`, `signIn` and `signOut` in your `SupabaseService` | Sign-in functions in your `FirebaseService` for each provider you turn on | Your Google client IDs and the iOS setup. It adds no sign-in function or button |
+| Good to know | For other Supabase sign-in methods, ask Nowa AI or write the code | Turn each provider on in the Firebase console too | Meant for use without Firebase, with a backend that accepts Google sign-in, such as Supabase |
+| Guide | [Sign users in with Supabase](./supabase/auth.md) | [Sign users in with Firebase](./firebase/auth.md) | [Google Sign-In](./google-sign-in.md) |
+
+If you keep your data in Supabase, sign users in with Supabase too: your queries then run as the signed-in user, which Row Level Security and [Stripe](./stripe.md) rely on. For a login screen to start from, use the **Authentication Template**: see [Start from a template](../design/templates.md). Nowa has no built-in Sign in with Apple: see [What Nowa doesn't include](#what-nowa-doesnt-include).
+
 ## Add payments, ads, maps and more
 
 Each has a settings page with an **Enabled** switch. If Firebase handles Google sign-in, the **Google Sign-In** page shows **Managed by Firebase** instead.
@@ -31,6 +44,13 @@ Each has a settings page with an **Enabled** switch. If Firebase handles Google 
 - [Deep links](./deep-links.md): open your app from a custom URL scheme, or from links on your own domain on Android.
 
 Maps, ads and paywalls come with widgets: **Google Maps**, **Admob Banner** and **RevenueCat Paywall**. If a widget's package is missing, Nowa shows **Add Missing Dependencies** when you add it. Click **Add**: Nowa adds the package, then places the widget. See [Add a widget that needs a package](../design/add-widgets.md#add-a-widget-that-needs-a-package).
+
+### Stripe or RevenueCat?
+
+Both sell things in your app, and they work differently in Nowa.
+
+- **Stripe** takes card, Apple Pay and Google Pay payments through your Supabase backend. Nowa creates the payment tables, server functions and webhook in your Supabase project, and people must be signed in with Supabase to pay. It covers one-time items from a Supabase table, consumables such as credits, and subscriptions. See [Stripe](./stripe.md).
+- **RevenueCat** sells in-app purchases and subscriptions on iOS, Android and the web, with a ready-made **RevenueCat Paywall** widget. You set up your products in RevenueCat, and Nowa needs only your RevenueCat keys. See [RevenueCat](./revenuecat.md).
 
 ## What Nowa doesn't include
 
@@ -47,3 +67,9 @@ Click the gear (**Settings**) in the top bar, or press <kbd>Ctrl</kbd>/<kbd>Cmd<
 :::tip[Or ask Nowa AI]
 In **Agent** mode, paste a cURL command and ask: "Add a request for this and show the results in a list on the home screen." To let Nowa AI work on your Supabase backend, turn on the Supabase connector first. See [Connect Figma and Supabase to Nowa AI](../ai/connectors.md).
 :::
+
+## Next steps
+
+- [Preview and test](../test/index.md): try your app at every step.
+- [Get ready to publish](../publish/index.md): put your app on the web, Android and iOS.
+- [Build a complete app](../guides/complete-app.md): follow one app from idea to published.

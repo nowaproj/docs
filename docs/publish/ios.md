@@ -1,7 +1,7 @@
 ---
 title: Publish to the App Store
 description: Save your Apple credentials once, then build and sign your iOS app in the cloud and send it to App Store Connect.
-sidebar_label: App Store
+sidebar_label: iOS and App Store
 keywords: [ios, iphone, app store, apple, testflight, app store connect, api key, distribution certificate, certificate, signing, code signing, p12, p8, ipa, bundle id, build for ios, provisioning]
 ---
 
@@ -57,15 +57,25 @@ Once a key is saved, the card shows a check mark (hover to read **Distribution c
 
 ## Build and send to App Store Connect
 
-1. In **Start New Build**, pick a **Branch** and click **Build**. The button stays off until both the certificate and the App Store Connect credentials are saved.
+1. In **Start New Build**, pick a **Branch** and click **Build**. Leave the default unless you work with several branches: [Start a build](./builds.md#start-a-build) explains what a branch is. The button stays off until both the certificate and the App Store Connect credentials are saved.
 2. Follow the build. It signs your app in the **iOS code signing** step, builds the `.ipa` and ends with a **Publishing** stage that uploads it to App Store Connect. [Build history and logs](./builds.md) explains the build card.
 3. When the build finishes, check your app in App Store Connect. By default, the `.ipa` is also listed under **Artifacts**.
 
 You can also click **Deploy** in the top bar, then **Deploy** on the **iOS** row. It shows **Set up** until everything above is saved.
 
-By default, Nowa's part ends at the upload. TestFlight testing and App Store review happen in App Store Connect, and Apple's [App Store Connect Help](https://developer.apple.com/help/app-store-connect/) covers both.
+By default, Nowa's part ends at the upload. [After the upload](#after-the-upload) says what comes next in App Store Connect.
 
 To send a new build, raise **Build number** in **Settings** → **Project Details** (and **Build version** for a new release), then build again.
+
+## After the upload
+
+Nowa's part ends when the build reaches App Store Connect. The rest happens in [App Store Connect](https://appstoreconnect.apple.com/):
+
+1. Wait for Apple to process the build. It appears in App Store Connect when processing is done, and Apple emails you. See [Upload builds](https://developer.apple.com/help/app-store-connect/manage-builds/upload-builds).
+2. To try the app with testers first, use TestFlight. See [TestFlight overview](https://developer.apple.com/help/app-store-connect/test-a-beta-version/testflight-overview).
+3. To release the app, fill in the information Apple requires for it, choose the build for your app version and submit it for review. See [Required, localizable, and editable properties](https://developer.apple.com/help/app-store-connect/reference/app-information/required-localizable-and-editable-properties) and [Submit an app](https://developer.apple.com/help/app-store-connect/manage-submissions-to-app-review/submit-an-app).
+
+Apple's [App Store Connect Help](https://developer.apple.com/help/app-store-connect/) covers the rest.
 
 ## If the iOS code signing step fails
 

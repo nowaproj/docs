@@ -1,7 +1,7 @@
 ---
 title: Publish to Google Play
 description: Build a quick test version or a signed release of your app for Android in the cloud, then upload the release to Google Play.
-sidebar_label: Google Play
+sidebar_label: Android and Google Play
 keywords: [android, google play, play store, apk, aab, app bundle, signing key, keystore, release, debug mode, sha-1, sha-256, fingerprint, build for android]
 ---
 
@@ -21,7 +21,7 @@ Debug builds are for quick tests. They are unsigned, so you can build one withou
 
 1. Click **Settings** → **Deployment** and open the **Android** tab.
 2. Turn on **Debug mode**. Its note reads "Unsigned builds for quick testing on devices. Turn off for store-ready release builds."
-3. Pick a **Branch** and click **Build**. [Build history and logs](./builds.md) explains the build card.
+3. Pick a **Branch** and click **Build**. Leave the default unless you work with several branches. [Start a build](./builds.md#start-a-build) explains what a branch is and the build card.
 4. When the build finishes, open **Latest Build**, click the `.apk` file under **Artifacts** to download it, then install it on an Android device.
 
 You can also click **Deploy** in the top bar, then **Deploy** on the **Android Debug** row. To test without a cloud build, [run your app](../test/run.md) instead.
@@ -70,7 +70,13 @@ When the build finishes, open **Latest Build** and click a file under **Artifact
 
 ## Upload to Google Play
 
-Nowa doesn't upload to Google Play for you. In [Google Play Console](https://play.google.com/console), create your app and add the `.aab` to a release. Google's help covers the store side: [Play Console Help](https://support.google.com/googleplay/android-developer) and [Publish your app](https://developer.android.com/studio/publish).
+Nowa doesn't upload to Google Play for you. When your release build is done, you finish in [Google Play Console](https://play.google.com/console):
+
+1. Create your app there.
+2. Add its listing details and promotional materials. Google's [Publish your app](https://developer.android.com/studio/publish) names screenshots, videos, graphics and text, and details such as the category and content rating. [Export as image](../design/select-and-edit.md#export-as-image) saves a screen from your board as a PNG or JPG.
+3. Add the `.aab` to a release and publish it. Once it passes Google's review, your app is live.
+
+[Play Console Help](https://support.google.com/googleplay/android-developer) covers the store side in full.
 
 ## Release an update
 

@@ -9,7 +9,7 @@ Your app opens on a small phone, a tablet and a wide browser window. Build the l
 
 ## Nowa has no breakpoints
 
-Nowa 3.12.5 has no breakpoints, no setting for a separate phone or tablet layout, and no per-device options in **Details**. Each screen has one layout, so you make that layout flexible. You can still [switch widgets by width](#show-different-widgets-on-wide-and-narrow-screens) yourself.
+Nowa has no breakpoints, no setting for a separate phone or tablet layout, and no per-device options in **Details**. Each screen has one layout, so you make that layout flexible. You can still [switch widgets by width](#show-different-widgets-on-wide-and-narrow-screens) yourself.
 
 ## Make a layout that adapts
 

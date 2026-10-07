@@ -69,3 +69,9 @@ If you followed older tutorials, these names changed:
 | Instant Preview Share | **Share preview**, a link and QR code |
 | New Cloud Project | **New project** on the dashboard, or **What do you want to build?** |
 | Assets panel | The **assets** folder in the **Files** panel |
+
+## Next steps
+
+- [Tour the editor](../get-started/editor-tour.md): find your way around the panels and the board.
+- [Build your first app](../get-started/first-app.md): put the words to work.
+- [Widget catalog](./widgets/index.md): every built-in widget.

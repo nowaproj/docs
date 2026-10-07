@@ -1,7 +1,7 @@
 ---
 title: Navigate between screens
 description: Open, close and replace screens with GoRouter or Navigator, pass data between them, and manage your app's routes in the Router panel.
-sidebar_label: Navigation
+sidebar_label: Navigate between screens
 keywords: [navigation, navigate, route, path, GoRouter, go_router, Navigator, push, pop, go, replace, pushReplacement, pushAndRemoveUntil, deep link, query parameter, path parameter, home screen, Make home screen, Router panel, Router Settings, redirect, Enable GoRouter]
 ---
 
@@ -75,6 +75,22 @@ The destination screen receives data through its **Params**, so add one there fi
 3. Navigate to `/search?q=` followed by `$` and a variable.
 
 Values arrive as text. If you drag a chip onto a parameter of another type, such as a whole number or a true/false value, Nowa adds the conversion for you.
+
+## Open a detail screen when a list item is tapped {#open-a-detail-screen}
+
+Tap a row in a list and open a screen about that row. Inside a list item, `element` is the row it shows, so every row can send its own id to the next screen.
+
+Before you start, connect a list to a **List View** or **Grid View** in **Builder** mode: see [Fill a list from your data](../reference/widgets/lists.md#connect-a-list). The list can be a variable or the `data` of a **Data Builder**. Also set up the detail screen with a path such as `/product/:id`, using steps 1 and 2 of the **Path parameter** in [Pass data to the next screen](#pass-data-to-the-next-screen).
+
+1. Select the item in the list. A **List Tile** has **On Tap** in **Details**. For any other widget, click **Add Wrapper** and choose **Gesture Detector** or **Ink Well**. See [Respond to taps and other events](./events.md).
+2. Click the button next to **On Tap**, then add a **GoRouter** node as in [Go to another screen](#go-to-another-screen). Keep **Type** on `push`.
+3. In **Location**, type `/product/` and then `$`. In the menu, open **LOCALS** and click `element`, the tapped row. Then type `.id` after `element`, so the text reads `/product/${element.id}`. Use the field that holds your id.
+4. On the detail screen, wrap the widget that shows the row in a **Data Builder**. Set **Source** to **Supabase** and pick your **Get Record by ID** function as the **Query**. Link its id input to the screen's param under **LOCALS**, then link the widgets inside to `data`. See [Show data in your UI](../integrations/show-data.md).
+5. Click **Play** on the list screen and tap a row. The list screen needs a route for navigation to work in **Play**.
+
+The path carries text, so this recipe sends the id and the detail screen loads the row. **Extra** can carry a whole row, but the Router panel can't connect it to a screen's param. In a project that uses the Navigator, you can send the whole row: give the destination's param your model as its type, then click its name in the node's popup and pick `element` under **LOCALS**. See [Use the Navigator](#use-the-navigator).
+
+To have Nowa AI build it, ask in **Agent** mode: "When I tap a product in the list, open a detail screen that shows it."
 
 ## Use the Navigator
 

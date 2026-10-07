@@ -15,6 +15,8 @@ Every Android and iOS build runs in the cloud and leaves a record. Start a build
 2. In **Start New Build**, pick a **Branch**. It starts on the branch you have checked out.
 3. Click **Build**. Above the button, Nowa reminds you: "Starting a build will commit all changes to the selected branch."
 
+A branch is a named line of saved versions of your project, kept with Git. The build starts from the branch you pick, and starting it commits all your changes to that branch. Leave the default, the branch you have checked out, unless you work with several branches. To create or switch branches, see [Work with branches](../code/git.md#work-with-branches).
+
 If **Branch** shows **Init Repository** instead of a menu, your project has no Git repository yet. Click **Init Repository** once, and Nowa selects the checked-out branch for you. The **Deploy** menu points at the same gap with "Connect a repository in settings to deploy to the app stores."
 
 You can also click **Deploy** in the top bar, then **Deploy** on an Android or iOS row. That builds the branch you have checked out.

@@ -28,7 +28,7 @@ For example, a button's **On Pressed** event runs a function that adds one to a 
 | Global state | Values and functions the whole app shares, such as a cart. | [Share data across your app](global-state.md) |
 | Model | A custom type that groups related values, such as a Product. | [Data models](models.md) |
 | Expression | A formula that gives a value: a link, a calculation or a condition. | [Expressions and conditions](expressions.md) |
-| Action | A ready-made step, such as showing a message or opening a link. | [Show dialogs, sheets, snackbars and pickers](popups.md), [Navigate between screens](navigation.md), [More actions](actions.md) |
+| Action | A ready-made step, such as showing a message or opening a link. | [Show dialogs, sheets, snackbars and pickers](popups.md), [Navigate between screens](navigation.md), [Use ready-made actions](actions.md) |
 
 Everything you build is real Dart code in your project, which you can read in [code mode](../code/code-mode.md).
 
@@ -43,4 +43,9 @@ Switch to **Agent** mode and describe what should happen: "When the user taps Ad
 3. [Build logic in Circuit](circuit.md): branch with If, handle errors with Try and more.
 4. [Navigate between screens](navigation.md): send people to another screen.
 
-Something not working? See [Find and fix problems](../test/problems.md).
+## Next steps
+
+- [Connect data and services](../integrations/index.md): need data from a server, or sign-in?
+- [Preview and test](../test/index.md): try your app at every step.
+- [Find and fix problems](../test/problems.md): something not working?
+- [Build a great app](../guides/index.md): a complete walkthrough and tips for design, Nowa AI, data and shipping.

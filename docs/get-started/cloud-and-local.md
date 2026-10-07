@@ -57,3 +57,9 @@ Pages mark what a feature needs with a badge.
 | <Badge type="beta" /> | Beta or experimental. |
 | <Badge type="enterprise" /> | Enterprise only. |
 | <Badge type="paid" /> | Needs a paid plan. See [pricing](https://nowa.dev/pricing). |
+
+## Next steps
+
+- [Install the desktop app](./desktop-app.md): set up Flutter so you can use local projects.
+- [Work with local projects](../code/local-projects.md): create one, link it to the cloud and find it again if it goes missing.
+- [Create and manage projects](../account/projects.md): start, find and move your projects.

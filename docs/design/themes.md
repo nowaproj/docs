@@ -5,7 +5,7 @@ sidebar_label: Themes
 keywords: [theme, themes panel, colors, color scheme, typography, text styles, dark mode, light theme, seed color, brand colors, ThemeData]
 ---
 
-A theme holds the colors, text styles and widget looks that every screen shares. Change a color once in the **Themes** panel and your whole app follows, live on the board.
+A theme holds the colors, text styles and widget looks that every screen shares. Change a color once in the **Themes** panel and every widget that uses it follows, live on the board.
 
 ## Open the Themes panel
 
@@ -84,6 +84,12 @@ To reset one style, hover the icon at the start of its row and click it (**Reset
 - **Buttons**: choose **Button** or **Icon Button**, then set **Background Color**, **Foreground Color**, **Shadow Color**, **Elevation**, **Side** and **Radius**. The reset icon restores the default button style.
 
 Buttons pick up the theme once you connect them. See [Connect buttons to the theme](theme-styles.md#connect-buttons-to-the-theme).
+
+## Widgets that keep their own color
+
+A theme restyles only the widgets that use it. When a widget's color field shows a role's name, such as `primary`, the widget follows the theme. A widget with its own color, picked in the color picker or typed as a HEX value, keeps that color when you edit the theme. So does a text style you cut loose from the theme.
+
+To bring a widget back, pick one of the theme's colors for it, or a theme text style. See [Use theme colors and text styles](theme-styles.md).
 
 ## Edit theme extensions
 

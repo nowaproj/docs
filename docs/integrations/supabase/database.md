@@ -108,6 +108,8 @@ On the board, you see placeholder values built from your model. Click **Play** o
 
 To change data, call the function from an event, such as a button's **On Pressed**. [Sign users in with Supabase](auth.md#login-screen) shows the same steps with `signIn`.
 
+To open a detail screen when someone taps a row, load that row with **Get Record by ID**: see [Open a detail screen when a list item is tapped](../../logic/navigation.md#open-a-detail-screen).
+
 ## Next steps
 
 - [Store files in Supabase](storage.md)

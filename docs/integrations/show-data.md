@@ -54,6 +54,8 @@ If the source returns a model, the fields have names. That is why it helps to [g
 
 Every row repeats the item you designed. A new List View starts with three placeholder items.
 
+To open a detail screen when someone taps a row, see [Open a detail screen when a list item is tapped](../logic/navigation.md#open-a-detail-screen).
+
 ## What you see while it loads
 
 - **Loading Widget** shows while the data is on its way. By default it is a centered progress circle.

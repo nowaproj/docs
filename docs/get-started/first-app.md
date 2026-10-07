@@ -67,7 +67,7 @@ Select a widget, then type in the chat: "Make this button orange with rounded co
 
 ## 5. Make it real
 
-Design mode builds every screen with demo data, so the app doesn't save anything yet. **Make it real** hands your design to **Agent** mode, which makes the features work, starting with the one you pick.
+Design mode builds every screen with demo data, so the app doesn't save anything yet. **Make it real** hands your design to **Agent** mode, which makes the features work, starting with the one you pick. To keep data in a database and let people sign in, connect a backend: see [Connect data and services](../integrations/index.md).
 
 1. On the **Your app design is complete** card, pick the feature you want first under **Pick what to make work first:**. Or click **Make it real** and let Nowa AI choose. To change the design first, type what you want in the chat instead.
 2. Watch the steps in the chat.
@@ -103,7 +103,7 @@ If an error screen offers **Fix with AI**, click it. Nowa AI gets the error and 
 
 ## Next steps
 
-- [How Nowa AI works](../ai/index.md): modes, thinking levels, context and checkpoints.
-- [How designing works](../design/index.md): boards, screens, widgets and themes.
-- [Preview and test](../test/index.md): Play, Run and sharing in depth.
+- [Build a complete app](../guides/complete-app.md): follow one app from idea to published.
+- [How logic works](../logic/index.md): make your app react to taps, remember values and move between screens.
+- [Connect data and services](../integrations/index.md): save data in a database and add sign-in.
 - [Get ready to publish](../publish/index.md): put your app on the web, Android and iOS.

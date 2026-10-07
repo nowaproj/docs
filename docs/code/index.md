@@ -7,6 +7,10 @@ keywords: [code, Dart, Flutter, source code, own your code, sync, NowaGenerated,
 
 Every screen you design and every change Nowa AI makes ends up as ordinary Dart in an ordinary Flutter project, and the project is yours. Read the code, edit it by hand, add code of your own, and keep using the board and Nowa AI on the same files.
 
+:::tip[Already a Flutter developer?]
+Install the [desktop app](../get-started/desktop-app.md) and [set up Flutter](../get-started/desktop-app.md#setting-up-flutter-sdk). Then [import your folder](import.md) as a local-only project, [open it in VS Code](vs-code.md) and keep its history with [Git](git.md).
+:::
+
 ## What's in your project
 
 Open [code mode](code-mode.md) to browse the whole project. Nowa creates new files in these places:
@@ -56,9 +60,17 @@ Nowa reads your code to draw it on the board. It doesn't run it there the way a 
 | [Add packages](packages.md) | Add, update and remove pub.dev packages. |
 | [Write your own code](custom-code.md) | Use your own widgets, functions and classes on the board, and import Dart code. |
 | [What Nowa can show on the board](limitations.md) | See what the board can't draw yet, and check the real result with **Run**. |
-| [Import an existing Flutter project](import.md) | Bring in an app you already have. |
+| [Import an existing Flutter project](import.md) | Bring in an app you already have, from a folder or from GitHub. |
+| [Work with local projects](local-projects.md) | Keep your app in a Flutter folder on your computer, link it to the cloud and find it again if it goes missing. |
+| [Use Nowa with VS Code](vs-code.md) | Open the same folder in Nowa and VS Code at once and see every save in both. |
 | [Use Git](git.md) and [Connect GitHub](github.md) | Keep a history of your code and sync it with GitHub. |
 
 :::tip
 You never have to open code mode. Describe the change to [Nowa AI](../ai/index.md), then read what it changed here if you're curious.
 :::
+
+## Next steps
+
+- [Install the desktop app](../get-started/desktop-app.md): set up Flutter so you can use local projects.
+- [Download your code](../publish/download-code.md): take the full Flutter source with you.
+- [Get ready to publish](../publish/index.md): put your app on the web, Android and iOS.

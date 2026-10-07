@@ -1,6 +1,6 @@
 ---
 title: Known issues
-description: Platform limits in Nowa 3.12.5 that you might run into, and how to work around each one.
+description: Platform limits that you might run into when you use Nowa, and how to work around each one.
 sidebar_label: Known issues
 keywords: [known issues, limitations, Windows, Firebase, Firestore, Apple sign-in, Google Maps, AdMob, CORS, desktop app, Linux]
 ---
@@ -57,3 +57,8 @@ preview is not 100% accurate, run the app to see the real output". Use **Run** t
 The desktop app is available for macOS and Windows. On Linux, use the web app at
 [app.nowa.dev](https://app.nowa.dev). Local projects need the desktop app (see
 [Cloud and local projects](../get-started/cloud-and-local.md)).
+
+## Next steps
+
+- [Troubleshooting](index.md): find a fix by the message you see.
+- [Get help](../account/help.md): chat with the Nowa team, report an issue or find the community.

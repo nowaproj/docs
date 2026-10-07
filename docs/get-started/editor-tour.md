@@ -129,3 +129,4 @@ If you close everything, or open a project in safe mode, the workspace says **No
 - [Build your first app](./first-app.md): put the editor to work.
 - [How designing works](../design/index.md): boards, screens, widgets and themes.
 - [Keyboard shortcuts](../reference/shortcuts.md): every key in one place.
+- [Glossary](../reference/glossary.md): what each Nowa term means.

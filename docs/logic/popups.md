@@ -90,5 +90,5 @@ In **Agent** mode, try: "When the user taps Pick a date, open a date picker and 
 ## Next steps
 
 - [Navigate between screens](navigation.md) to send people to another screen after a choice.
-- [More actions](actions.md) for opening links, saving values on the device and more.
+- [Use ready-made actions](actions.md) for opening links, saving values on the device and more.
 - [Build logic in Circuit](circuit.md) for **await**, **onValue** and **Store result**.

@@ -1,7 +1,7 @@
 ---
 title: Sign users in with Supabase
 description: Let people sign up, sign in and sign out of your app with Supabase Authentication, and test it in the editor first.
-sidebar_label: Sign users in
+sidebar_label: Sign-in
 keywords: [Supabase auth, Supabase authentication, login, sign in, sign up, sign out, signIn, signUp, signOut, email and password, Testing as, login screen, Supabase user]
 ---
 

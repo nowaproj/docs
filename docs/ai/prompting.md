@@ -52,6 +52,7 @@ Rules: Use my theme colors. Keep it to one screen.
 | Change one widget | Select it on the board | Make this button full width, with rounded corners and the primary color. |
 | Restyle the app | **Design** | Make the whole app feel calmer: softer colors, more spacing and rounded cards. |
 | Add behavior | **Agent** | When I tap Save, show a message that says "Saved". |
+| [Open a detail screen](../logic/navigation.md#open-a-detail-screen) | **Agent** | When I tap a product in the list, open a detail screen that shows its name, photo and price. |
 | Fix a problem | **Agent** | The checkout screen shows an error. Find the cause and fix it. |
 | Use an API | **Agent** | Show the products from this API on the home screen: `curl -X GET 'https://api.example.com/products' -H 'accept: application/json'` |
 | Use an image | **Agent**, image attached | Use the attached image as the logo on the first screen. |

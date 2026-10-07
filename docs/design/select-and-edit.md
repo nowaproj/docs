@@ -98,3 +98,9 @@ Each area keeps its own history: every board, the **Widgets** panel, and a scree
 :::tip Or ask Nowa AI
 Select a widget, then type something like "Make this button full width with rounded corners." The selected widget is attached to your message automatically. See [Give Nowa AI context](../ai/context.md).
 :::
+
+## Next steps
+
+- [Change widget properties](properties.md): edit what you selected in **Details**.
+- [Lay out widgets](layout.md): rows, columns, stacks and sizes.
+- [Use the Outline](outline.md): select any widget from the widget tree.

@@ -1,7 +1,7 @@
 ---
 title: Try Nowa without an account
 description: Open the full Nowa editor in your browser, build and play an app with no account, and save it to your account when you are ready.
-sidebar_label: Playground
+sidebar_label: Try without an account
 keywords: [playground, try Nowa, no account, without signing up, guest, demo, public project, template, Save your app, starter app]
 ---
 

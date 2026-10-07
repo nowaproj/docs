@@ -112,4 +112,4 @@ Select a widget and ask in **Agent** mode: "Show this text only when the user is
 
 - [Build logic in Circuit](circuit.md) to use conditions in If nodes.
 - [Store data in variables](variables.md) to create the values you link.
-- [More actions](actions.md) for ready-made steps.
+- [Use ready-made actions](actions.md) to open links, save values and more.

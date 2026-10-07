@@ -90,7 +90,7 @@ import styles from './cards.module.css';
     <p>Find a fix by symptom.</p>
   </Link>
 
-  <Link to="/reference/shortcuts" className={styles.sectionCard}>
+  <Link to="/reference" className={styles.sectionCard}>
     <h3>Reference</h3>
     <p>Keyboard shortcuts, the glossary and the widget catalog.</p>
   </Link>
@@ -106,7 +106,7 @@ import styles from './cards.module.css';
   </Link>
 </div>
 
-Want the newest features first? Read [what's new](./new/whats-new.md) or the [changelog](./new/change-log.md).
+Want the newest features first? Read [what's new](./new/whats-new.md) or the [changelog](./new/change-log.md). Not sure what a word means? See the [glossary](./reference/glossary.md).
 
 ## Get help
 

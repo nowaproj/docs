@@ -1,7 +1,7 @@
 ---
-title: More actions
+title: Use ready-made actions
 description: A quick reference to ready-made steps in Circuit, such as opening a link, writing to the logs, checking the platform, saving values on the device, copying text and vibrating.
-sidebar_label: More actions
+sidebar_label: Ready-made actions
 keywords: [openUrl, open link, print, logs, checkPlatform, platform, Media Query, screen size, Shared Preferences, save data, local storage, Create, Future.delayed, delay, Timer, periodic, clipboard, copy, haptic, vibrate, operators, library, functions]
 ---
 

@@ -39,6 +39,8 @@ To stop following the list, click the detach icon next to its name.
 
 A [component](../../design/components.md) makes a good item. Give it params, use it as the item, and link each param to `element`. See [Pass values to a component](../../logic/parameters.md#pass-values-to-a-component).
 
+To open a screen when someone taps an item, see [Open a detail screen when a list item is tapped](../../logic/navigation.md#open-a-detail-screen).
+
 ## Know what the board shows
 
 On the board, a Builder list or grid shows the first item at full strength and fades the rest. If Nowa can't work out how many items there are, for example because the list has no value yet, the board shows 20.

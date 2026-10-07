@@ -1,7 +1,7 @@
 ---
 title: Sign users in with Firebase
 description: Turn on Firebase Authentication, add Email/Password, Google or Phone sign-in, and call the generated sign-in functions from your screens.
-sidebar_label: Authentication
+sidebar_label: Sign-in
 keywords: [Firebase Authentication, sign in, sign up, login, email and password, Google sign-in, phone sign-in, SHA-1, SHA-256, SHA fingerprint, signInWithGoogle, FirebaseService, password reset, verify email, current user]
 ---
 

@@ -93,6 +93,7 @@ Or ask Nowa AI: "Add the logo I attached to the login screen." Attach the image 
 
 ## Next steps
 
+- [Images, video and web content](../reference/widgets/media.md): show your files with the right widget.
 - [Change widget properties](properties.md).
 - [Fonts and icons](fonts-icons.md).
 - [Manage project files](../code/files.md).

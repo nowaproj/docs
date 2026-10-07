@@ -13,9 +13,19 @@ It works for cloud projects and for local projects.
 
 ## Before you start
 
-- Use the [Nowa desktop app](../get-started/desktop-app.md). In the web app, the **Run on** menu has no devices. It shows **iOS & Android devices** with "Download the desktop app" instead.
+- Use the [Nowa desktop app](../get-started/desktop-app.md). In the web app, the **Run on** menu has no devices. It shows **iOS & Android devices** with "Download the desktop app" instead. No desktop app? See [No desktop app?](#no-desktop-app).
 - Set up Flutter in **Local Setup**. See [Set up Flutter](../get-started/desktop-app.md#setting-up-flutter-sdk). If Flutter isn't set up when you pick a device, Nowa opens Local Setup for you.
 - On a Mac, install Xcode first to run on an iPhone or the iOS Simulator. See [Install Xcode](../get-started/desktop-app.md#macos-install-xcode).
+
+## No desktop app?
+
+You can still see your real app on a phone from the web app.
+
+1. Click **Run**. The **Embedded preview** compiles your app and shows it in a phone frame. See [Run your app](run.md).
+2. When the app is running, click **Open on Mobile** in the top bar. A **Scan the QR** code drops down.
+3. Scan the code with your phone's camera to open the running app on your phone.
+
+The preview runs your app as a web app. To install a build on a phone instead, [test a debug build on Android](../publish/android.md#test-on-a-device), or [send an iOS build to App Store Connect](../publish/ios.md) and test it with TestFlight. Both need a cloud project on a paid plan.
 
 ## Run on a device
 

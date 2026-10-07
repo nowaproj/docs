@@ -36,7 +36,7 @@ Under them, the items sit in categories, which start closed and open on their ow
 | Category | What's inside |
 |---|---|
 | **PACKAGE:** and your package name, such as `PACKAGE:MY_APP` | Functions and static class members from your own code, if you have any. |
-| One per library: **DART:CORE**, **MATERIAL**, **SERVICES**, **NOWA_RUNTIME** and more | Ready-made actions ([More actions](actions.md)). A package you add brings its own. |
+| One per library: **DART:CORE**, **MATERIAL**, **SERVICES**, **NOWA_RUNTIME** and more | Ready-made actions, such as `openUrl` and `print`. See [Use ready-made actions](actions.md). A package you add brings its own. |
 | **OPERATORS** | Math, comparison and logic. |
 | **LOCALS** | Variables, params and functions of the current screen or component, plus **refresh** ([Store data in variables](variables.md)). |
 | **GLOBALS** | **Navigator** and **GoRouter** ([Navigate between screens](navigation.md)), **checkPlatform**, **Media Query**, **Show snackbar** and your global states. |

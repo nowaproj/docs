@@ -15,7 +15,7 @@ Send a link, and people can try your app in their browser, with nothing to build
 |---|---|---|
 | What people get | A preview they can tap through but not edit. | Your project opened in Nowa. They edit their own copy. |
 | Where you set it up | **Share preview** in the controls shown while an item plays. | **Settings** → **Project Details** → **Sharing**. |
-| Who can open it | **Private**: project members. **Public**: anyone with the link. | Anyone with the link, once **Public project** is on. |
+| Who can open it | **Private**: [project members](../account/workspaces.md#invite-people). **Public**: anyone with the link. | Anyone with the link, once **Public project** is on. |
 
 Both options use the same switch. **Public** in **Share preview** and **Public project** in **Sharing** control one setting of your project.
 
@@ -24,6 +24,14 @@ Both options use the same switch. **Public** in **Share preview** and **Public p
 
 Choose **Private** again to turn the project back to private. People outside your project can then no longer open either link.
 :::
+
+## Share with a client
+
+Pick what your client needs to see.
+
+- **A quick look.** Send the preview link set to **Public**. Read the warning above first, because **Public** opens your whole project.
+- **A look without making the project public.** Keep the preview **Private** and give your client access. Put the project in a [workspace](../account/workspaces.md) and [invite your client](../account/workspaces.md#invite-people) as a member. Choose **View Only** if they should look but not change anything. They sign in to Nowa to open the link.
+- **The finished app.** The preview is not the compiled app. To hand over the real thing at its own address, [publish your app to the web](../publish/web.md). Publishing needs a paid plan.
 
 ## Share a preview
 

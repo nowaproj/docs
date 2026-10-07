@@ -14,9 +14,12 @@ Most projects follow the same loop. Jump in at any step and go back whenever you
 1. **Describe.** Tell Nowa AI what you want in plain words. See [Build with Nowa AI](../ai/index.md).
 2. **Watch it build.** Nowa AI designs your screens on the board while you follow each step in the chat. In Agent mode it also writes the logic.
 3. **Refine visually.** Click any widget, change it in the **Details** panel, drag it into place, and restyle it with themes. See [Design your app](../design/index.md).
-4. **Play.** **Play** (Instant Play) runs a screen right on the board, instantly, so you can tap through it. See [Preview and test](../test/index.md).
-5. **Run.** **Run** builds and runs the real app: in the editor, on your phone, or on a device with the desktop app.
-6. **Publish.** **Deploy** builds your app for the web, Android and iOS. See [Get ready to publish](../publish/index.md).
+4. **Add logic.** Make your app react to taps, remember values and move between screens. In Agent mode, Nowa AI can build it for you. See [Add logic](../logic/index.md).
+5. **Connect data and sign-in.** Save data in a database and let people sign in with Supabase or Firebase, or call a REST API. See [Connect data and services](../integrations/index.md).
+6. **Play.** **Play** (Instant Play) runs a screen right on the board, instantly, so you can tap through it. See [Preview and test](../test/index.md).
+7. **Run.** **Run** builds and runs the real app: in the editor, on your phone, or on a device with the desktop app.
+8. **Publish.** **Deploy** builds your app for the web, Android and iOS. See [Get ready to publish](../publish/index.md).
+9. **Update.** Change your app, then publish it again. See [Ship an update](../publish/index.md#ship-an-update).
 
 Nowa AI and the visual editor work on the same project. Change a widget by hand and ask Nowa AI to build on it, or let Nowa AI make a change and fine-tune it yourself.
 
@@ -35,7 +38,7 @@ Nowa builds Flutter apps, so one project can reach several platforms.
 ## Who Nowa is for
 
 - **Anyone with an app idea.** You describe the app, watch it take shape, and change what you don't like. No Flutter knowledge needed.
-- **Developers and teams.** You get real Flutter code, Git, packages, your own custom code, and workspaces to share projects. With a local project you can keep Nowa and VS Code open on the same folder.
+- **Developers and teams.** You get real Flutter code, [Git](../code/git.md), [packages](../code/packages.md), [your own custom code](../code/custom-code.md), and [workspaces](../account/workspaces.md) to share projects. Already have a Flutter app? [Import it](../code/import.md) in the desktop app as a [local project](../code/local-projects.md), and keep Nowa and [VS Code](../code/vs-code.md) open on the same folder.
 
 ## Where Nowa runs
 
@@ -55,9 +58,11 @@ Nowa builds Flutter apps, so one project can reach several platforms.
 | **Details** | The panel on the right that shows the properties of what you selected. |
 | **Cloud project** and **local project** | Where a project's files live: in your Nowa account, or in a folder on your computer. See [Cloud and local projects](./cloud-and-local.md). |
 
-## Where to go next
+More terms are in the [glossary](../reference/glossary.md).
 
-- [Build your first app](./first-app.md): describe an app and run it.
+## Next steps
+
 - [Create your account](./create-account.md): sign up and sign in.
-- [Tour the editor](./editor-tour.md): find your way around.
-- [Try Nowa without an account](./playground.md): open the editor right now.
+- [Build your first app](./first-app.md): describe an app and run it.
+- [Build with Nowa AI](../ai/index.md): modes, prompts, context and checkpoints.
+- [Build a complete app](../guides/complete-app.md): follow one app from idea to published.

@@ -52,4 +52,8 @@ When the dashboard loads, Nowa may open a dialog on its own:
 - [Plans, billing and AI usage](./plans-and-usage.md): your plan, invoices and AI credits.
 - [Get help](./help.md): support chat, bug reports and the community.
 
-Having trouble right now? Go to [Troubleshooting](../troubleshooting/index.md).
+## Next steps
+
+- [Build your first app](../get-started/first-app.md): describe an app in the dashboard's prompt box.
+- [Get ready to publish](../publish/index.md): set your app's name, identifier and icon, then deploy it.
+- [Troubleshooting](../troubleshooting/index.md): having trouble right now? Start here.

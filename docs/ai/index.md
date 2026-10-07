@@ -79,6 +79,7 @@ Plans, extra credits and billing are covered in [Plans, billing and AI usage](..
 
 ## Next steps
 
-- [Design, Plan and Agent modes](modes.md)
-- [Chat with Nowa AI](chat.md)
-- [Write prompts that work](prompting.md)
+- [Chat with Nowa AI](chat.md): send requests, follow every step and recover from errors.
+- [Write prompts that work](prompting.md): example prompts by task, and Custom Instructions.
+- [How designing works](../design/index.md): refine what Nowa AI builds, by hand.
+- [Build a great app](../guides/index.md): a complete walkthrough and tips for design, Nowa AI, data and shipping.

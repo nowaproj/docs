@@ -7,6 +7,11 @@ keywords: [import project, Clone from GitHub, existing Flutter project, FlutterF
 
 Already have a Flutter app? Bring it into Nowa and keep going with Nowa AI and visual editing, on the code you already wrote. Import a folder from your computer, or clone a repository from GitHub.
 
+## Before you start
+
+- To import a folder, install the [desktop app](../get-started/desktop-app.md). **Import project** isn't in the web app.
+- To keep the project on your computer, set up Flutter first. Local projects need the Flutter SDK, for example to run your app. See [Set up Flutter](../get-started/desktop-app.md#setting-up-flutter-sdk).
+
 ## Choose how to bring it in
 
 | | **Import project** | **Clone from GitHub** |

@@ -67,8 +67,19 @@ In the playground, **Save** your app to your account first. The playground has n
 
 On a phone, **Build** in the top bar opens the same **Android**, **iOS** and **Web** tabs. See [Use Nowa on your phone](../get-started/mobile.md).
 
+## Ship an update
+
+Changed something? Publish it again. Each target updates in its own way.
+
+| Target | How to update |
+|---|---|
+| **Web** | Click **Update** on the **Web** tab, or **Redeploy** on the **Web** row of the **Deploy** menu. Your site keeps the same address. See [Update your site](./web.md#update-your-site). |
+| **Android** | Raise **Build number** in **Settings** → **Project Details**, build a release again with the same signing key, and upload the new `.aab` in Google Play Console. See [Release an update](./android.md#release-an-update). |
+| **iOS** | Raise **Build number** in **Settings** → **Project Details** (and **Build version** for a new release), then build again. See [Build and send to App Store Connect](./ios.md#build-and-send-to-app-store-connect). |
+
 ## Next steps
 
 - [Build history and logs](./builds.md): start builds, follow them and read their logs.
 - [Download your code](./download-code.md): take the full Flutter source with you.
 - [Share a preview](../test/share.md): get feedback from others without a build.
+- [Build a great app](../guides/index.md): a complete walkthrough and tips for design, Nowa AI, data and shipping.

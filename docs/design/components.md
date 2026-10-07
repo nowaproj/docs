@@ -64,3 +64,9 @@ Open **Widgets** in the left sidebar. It lists the screens and components in you
 - Right-click and choose **Rename**, type the new name and press <kbd>Enter</kbd>. Nowa updates every place that uses it.
 - Right-click and choose **Delete**, or press <kbd>Delete</kbd> (<kbd>Backspace</kbd> on macOS). If something uses it, Nowa lists the places and asks you to confirm with **Remove**. If it is the only widget in its file, the file is deleted too. While the panel is focused, <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Z</kbd> undoes a delete.
 - The button next to the search box switches between list and grid (**Switch to grid view** and **Switch to list view**).
+
+## Next steps
+
+- [Pass data with parameters](../logic/parameters.md): give a screen or component values from outside.
+- [Add widgets](add-widgets.md): drop your components in from the widget picker.
+- [Lists and grids](../reference/widgets/lists.md): repeat one item design for every entry in a list.

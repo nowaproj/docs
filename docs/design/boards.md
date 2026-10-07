@@ -82,3 +82,9 @@ If one item fails while drawing, only that item shows **This screen failed to re
 ## View-only boards
 
 With the **View Only** role in a shared project you can browse, select, copy and export, but not edit. The toolbar shows **View only** instead of the tools. To copy a widget or export it as an image, right-click its row in the [Outline](outline.md) and choose **Copy** or **Export as image...**. See [Workspaces and team members](../account/workspaces.md).
+
+## Next steps
+
+- [Create and set up screens](screens.md): add a screen and choose your home screen.
+- [Add widgets](add-widgets.md): fill a screen with the widget picker.
+- [Play your app on the board](../test/instant-play.md): tap through a screen without leaving the editor.

@@ -48,7 +48,7 @@ Try "Create a Home screen with a search bar and a list of recipes." Then select 
 
 Hover a screen's title and click **Play** to tap through it right on the board. See [Play your app on the board](../test/instant-play.md).
 
-## Where to go next
+## What's in this section
 
 Set up the board and its parts:
 
@@ -65,6 +65,14 @@ Build a screen:
 - [Lay out widgets](layout.md): rows, columns, stacks and sizing.
 - [Design for every screen size](responsive.md): screen sizes without breakpoints.
 
+Set up common widgets:
+
+- [Lists and grids](../reference/widgets/lists.md): repeat one item design for every entry in a list.
+- [Text fields and forms](../reference/widgets/forms.md): add a text field and check what people type.
+- [Navigation bars and screen parts](../reference/widgets/navigation.md): add an app bar, drawer, floating button and bottom navigation bar.
+- [Images, video and web content](../reference/widgets/media.md): show pictures, video, animations and web pages.
+- [Widget catalog](../reference/widgets/index.md): every built-in widget and what it needs.
+
 Style your app:
 
 - [Create and edit themes](themes.md) and [Use theme colors and text styles](theme-styles.md)
@@ -72,3 +80,8 @@ Style your app:
 - [Fonts and icons](fonts-icons.md)
 - [Start from a template](templates.md)
 - [Languages and right-to-left text](localization.md)
+
+## Next steps
+
+- [How logic works](../logic/index.md): make your design react to taps, remember values and move between screens.
+- [Build a great app](../guides/index.md): a complete walkthrough and tips for design, Nowa AI, data and shipping.

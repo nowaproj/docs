@@ -57,6 +57,15 @@ Copy something, point at the board and press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <k
 
 A shape you draw is a **Container** with nothing in it, and **Details** shows **Empty** with a **+** button. Select the container, click **+** and pick a widget from the same picker. Dropping a widget onto a container doesn't put it inside. Any property that takes a widget, such as an app bar slot, opens this picker too, and so does **Replace with...** in the right-click menu.
 
+## Set up lists, forms, navigation bars and media
+
+A few widgets need more than a drop onto the board. Each has its own guide:
+
+- [Lists and grids](../reference/widgets/lists.md): repeat one item design for every entry in a list.
+- [Text fields and forms](../reference/widgets/forms.md): add a text field and check what people type.
+- [Navigation bars and screen parts](../reference/widgets/navigation.md): add an app bar, drawer, floating button and bottom navigation bar.
+- [Images, video and web content](../reference/widgets/media.md): show pictures, video, animations and web pages.
+
 ## Can't find a widget?
 
 Browse every built-in widget in the [widget catalog](../reference/widgets/index.md). If one is missing, click **Request a Widget** in the picker's search bar, describe it and click **Submit Request**.

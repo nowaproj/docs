@@ -26,7 +26,7 @@ import styles from './cards.module.css';
 
   <Link to="/ai" className={styles.startCard}>
     <h3>Build with Nowa AI</h3>
-    <p>Pick a mode, give the agent context, and undo anything it changes.</p>
+    <p>Pick a mode, give the agent context, and restore a checkpoint to undo a request.</p>
     <span className={styles.cta}>Explore Nowa AI</span>
   </Link>
 

@@ -66,3 +66,22 @@ Word count after edits: about 1,230 rendered words (about 1,390 by `wc -w` inclu
 Counts for this page: about 45 claims checked, 9 fixed, 1 added, 0 removed, 1 open.
 
 ---
+
+## docs/index.md (home)
+
+Verifier: batch V1 continuation (Sonnet). The page is `.md`, not `.mdx` as pages.md says; Docusaurus 3 parses `.md` as MDX here (no `markdown.format` override in `docusaurus.config.js`), so the imports and JSX work. All CSS classes used exist in `docs/cards.module.css`.
+
+| Claim | Verdict | Code ref | Note |
+|---|---|---|---|
+| Hero: "Build the exact app you imagine." + "Nowa AI builds it, you refine every detail visually, and the Flutter code is yours." | ok | `research/positioning.md` §1 (nowa.dev headline, approved hero), BRIEF.md | Positioning copy, not a code fact. The in-body `<h1>` is the hero (`hide_title: true` hides the auto title), so there is still one H1. |
+| Start card 1: describe an app, watch Nowa AI build it on the board, then play it and run it | ok | matches `first-app.md` (checked above) | |
+| Start card 2: "undo anything it changes" | fixed | `packages/ai/lib/src/checkpoints/checkpoint_warning.dart:40-115`, `docs/ai/undo-and-history.md` ("Package changes, downloaded fonts and Figma imports aren't recorded") | Checkpoints undo file edits only, so "anything" was untrue. Now "restore a checkpoint to undo a request". |
+| Start card 3 and 13 section cards: titles and one-line descriptions | ok | `sidebars.js` labels; each section's overview page | Titles equal the sidebar labels. Every sidebar section except Home has one card. Each description names topics that have a page in that section. |
+| Support hint: "click the **?** button at the bottom right" in the editor, to "chat with support or report an issue" | ok | `lib/project/project_page.dart:137` (`Positioned(right: 16, bottom: 32, child: SupportLauncher())`), `packages/nowa_ui/lib/src/components/nicons.dart:11` (`Icons.question_mark`), `packages/nowa_ui/lib/components/support_dialog.dart:509,520` | Cards **Report an issue** and **Chat with support**. The old `HelpIcon` (`lib/widgets/help_icon.dart`) is never mounted, so it is not the button. Same wording as `account/help.md`. |
+| Discord `https://discord.gg/ByKfn3H7gX`, community `https://community.nowa.dev/`, YouTube `https://www.youtube.com/@nowadev`, `team@nowa.dev` | ok | `lib/project/onboarding/completion_dialog.dart:19-20,61`, `lib/dashboard/learning_resources/learning_resources_view.dart:36,63`, `support_dialog.dart:535` | URLs identical to the app's. |
+| Links (15 internal) | ok | n/a | Every `to="..."` and both markdown links resolve to an existing file: `/get-started/first-app`, `/get-started/welcome`, `/ai`, `/design`, `/logic`, `/integrations`, `/test`, `/publish`, `/code`, `/account`, `/account/help`, `/troubleshooting`, `/reference/shortcuts`, `/new/whats-new`, `/legacy`, `./new/whats-new.md`, `./new/change-log.md`. Checked with a script against `docs/`. |
+| Style | ok | n/a | Front matter ok, sentence-case H2s, no emoji, no `---` rules, no admonitions, no capture placeholders. |
+
+Counts for this page: 8 rows (about 30 claims and links) checked, 1 fixed, 0 removed, 0 open.
+
+---

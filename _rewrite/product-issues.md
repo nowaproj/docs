@@ -43,3 +43,8 @@ the product team. "Verified" means the orchestrator re-checked it in the code.
 | P36 | master (3.12.5) REST request editor | An `x-www-form-urlencoded` body is saved as JSON text only (no form fields). | W14 verifier | yes (code) |
 | P37 | master (3.12.5) API collection settings | Clearing or touching **Base URL** saves an empty string, and **Import from curl** then drops the host. | W14 verifier | yes (code) |
 | P38 | master (3.12.5) custom code | `@CustomWidget` exists, but nothing uses its `preview` and it doesn't switch a widget to custom code (`ast_to_block_visitor.dart:586-596`, `declaration_hybrid.dart:182-230`), unlike `@CustomFunction`. | gap fixer | yes (code) |
+| P39 | master (3.12.5) Deep Links | Saving **URL Scheme** rewrites only iOS `Info.plist`; the Android manifest gets it only on its next rewrite (e.g. after saving **Host**). Enabling writes nothing. | W17 verifier (checked in the running web build) | yes |
+| P40 | master (3.12.5) Deep Links + Google Sign-In | Both write a `CFBundleURLTypes` key, producing a duplicate key in `Info.plist`. | W17 verifier | yes (code) |
+| P41 | master (3.12.5) Google Maps / AdMob | The Details warning (Maps) and the "No API Keys" panel (AdMob) are registered only when the package is added in the current session; after a reload they're missing. | W17 verifier | yes (running app) |
+| P42 | master (3.12.5) Deep Links settings text | The in-app text promises `myapp://path` links and iOS Universal Links, which the setting doesn't configure. | W17 verifier | yes (code) |
+| P43 | master (3.12.5) Google Sign-In | **Managed by Firebase** stays after removing the Google provider in Firebase. | W17 verifier | no (code reading) |

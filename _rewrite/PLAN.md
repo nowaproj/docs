@@ -12,10 +12,10 @@ Resume from these files alone: `BRIEF.md` (context + rules), `decisions.md`, `op
 | 1 | Research: current docs + old URLs; features from code by area (10 files incl. widgets); positioning + reference IAs; capture setup | `research/*.md`, `captures/tools/*`, `captures/ui-map/*` | done (capture `README.md` not written; see CAPTURE.md) |
 | 2 | Information architecture: sections, pages, slugs, old→new URL map | `structure.md`, `pages.md`, `redirects.md`, `redirects.js`, `style-guide.md`, `glossary.md` | done |
 | 3 | Writing | `docs/**`, `captures/requests/*.md`, `reviews/*-writer-notes.md` | done (all sidebar pages exist) |
-| 4 | Verification against code by a non-author agent per batch | `reviews/<batch>-review.md` | 14 of 17 batches done; W13, W17 partial; W12+W18 to redo (see Resume here) |
+| 4 | Verification against code by a non-author agent per batch | `reviews/<batch>-review.md` | done (all 17 batches); phase 9 additions get their own check |
 | 5 | Screenshots/videos | `static/img/docs/...`, `captures/log.md`, `captures/to-capture.md` | 35 captured (34 embedded), 50 need sign-in, videos pending (phase 9) |
 | 6 | Integration | config, sidebar, redirects, build | done; final build check pending |
-| 7 | Final QA: coverage audit, style pass, link check | `coverage.md`, `reviews/final-*.md` | todo |
+| 7 | Final QA: coverage audit, style pass, link check | `coverage.md`, `reviews/final-*.md` | coverage done (348/358, gaps closed); style pass = phase 9 item 3 |
 | 8 | Draft PR with report | PR | todo (open once phases 4-7 are done; update it after phase 9) |
 | 9 | Final quality pass: the user's acceptance criteria (see below) | pages, videos, annotated screenshots, best-practice guides | todo (trigger when phases 4-8 are done) |
 

@@ -34,7 +34,7 @@ Ask in plain language. The agent decides which steps to take, and each one shows
 | Change what you selected | Edits the exact widget you selected on the board. |
 | Edit other files | Changes files such as `pubspec.yaml` and platform files, and creates new ones. |
 | Check its work | Reads the problems Nowa finds, runs a code analysis, and reads the logs of your running app (run the app first). |
-| Packages | Adds or removes pub.dev packages. This needs the **load packages** experimental setting, which is on in new projects. See [Add packages](../code/packages.md). |
+| Packages | Adds or removes pub.dev packages. Adding one needs the **load packages** experimental setting, which is on in new projects. See [Add packages](../code/packages.md). |
 | APIs | Builds an API request from a cURL command, tests it and creates the response models. |
 | Fonts and images | Downloads a Google Fonts family into your project. Saves an image you attached to your assets. |
 | Backend and design files | With a connector turned on, works on your Supabase backend or brings in Figma images, icons, colors and text styles. See [Connect Figma and Supabase to Nowa AI](connectors.md). |

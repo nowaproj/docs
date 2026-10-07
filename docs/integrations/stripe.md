@@ -31,7 +31,7 @@ You can select more than one type, and at least one always stays selected.
 
 {/* CAPTURE: id=integrations-stripe-1 | state: playground starter open, Settings open on Integrations → Stripe, Enabled on | show: Enabled switch, 1. API Keys fields and the Purchase Types buttons | crop: Settings window content area */}
 
-Nowa saves the three values from step 3 in **Constants** (**Settings** → **General**) and compiles them into your app. Your secret key is handled separately.
+Nowa saves the three values from step 3 in **Constants** (**Settings** → **General**) and compiles them into your app.
 
 ## Add your secret key and webhook
 
@@ -53,18 +53,18 @@ Saved secrets are never shown again, so both fields are empty when you reopen th
 
 Cards work without extra setup. To add wallets, use **2. Payment Methods**. Both wallets need the **Country Code** from step 3.
 
-- **Apple Pay**: turn it on and enter your **Apple Merchant ID**, for example `merchant.com.example.yourapp`. Create the Merchant ID in your Apple Developer account and connect it to Stripe first ([Stripe's Apple Pay guide](https://docs.stripe.com/apple-pay)). Nowa writes the entitlement into `ios/Runner/Runner.entitlements`.
-- **Google Pay**: turn it on and enable it in your Stripe Dashboard ([Stripe's Google Pay guide](https://docs.stripe.com/google-pay)). The generated code sets `testEnv: true`, which is Google's test environment. Before you publish, change it in `lib/integrations/stripe_payment_service.dart` ([Code mode](../code/code-mode.md)) or ask Nowa AI.
+- **Apple Pay**: turn it on and enter your **Apple Merchant ID**. Create the Merchant ID in your Apple Developer account and connect it to Stripe first ([Stripe's Apple Pay guide](https://docs.stripe.com/apple-pay)). Nowa writes the entitlement into `ios/Runner/Runner.entitlements`.
+- **Google Pay**: turn it on and enable it in your Stripe Dashboard ([Stripe's Google Pay guide](https://docs.stripe.com/google-pay)). The generated code uses `testEnv: true`, Google's test environment. Change it before you publish, in `lib/integrations/stripe_payment_service.dart` ([Code mode](../code/code-mode.md)) or by asking Nowa AI.
 
 ## Connect your table
 
 Skip this section if you only chose **Subscription**.
 
-1. Under **3. Business Table** ("Select the table containing your orders or transactions"), open **Table** and pick the table that holds your items. If you see "No tables found", click **Refresh**. After you add a table in Supabase, click the refresh icon (**Refresh tables**) next to **Table**.
+1. Under **3. Business Table**, open **Table** and pick the table that holds your items. If you see "No tables found", click **Refresh**. After you add a table in Supabase, click the refresh icon (**Refresh tables**) next to **Table**.
 2. Under **4. Map Fields**, which appears once you pick a table, set **ID Field** to the column that identifies each row and **Amount Field** to the column with the price.
 3. Set **Currency** to **From Column** and pick a **Currency Column**, or to **Fixed Value** and type a **Fixed Currency** such as `USD`.
 
-Your app sends only the row's ID. The function reads the price and currency from your table as the signed-in user, so the app can't change the amount, and your [row-level security](https://supabase.com/docs/guides/database/postgres/row-level-security) rules must let signed-in users read these rows.
+Your app sends only the row's ID. The function reads the price (and the currency, when it comes from a column) from your table as the signed-in user, so the app can't change the amount. Your [row-level security](https://supabase.com/docs/guides/database/postgres/row-level-security) rules must let signed-in users read these rows.
 
 :::warning
 Nowa multiplies the **Amount Field** by 100 before it sends the amount to Stripe. Store prices in whole currency units (`9.99`), not in cents, or customers are charged 100 times too much.
@@ -83,7 +83,7 @@ Nowa creates these in your Supabase project:
 | **Subscription** | `nowa_stripe_subscriptions` | `stripe-create-subscription`, `stripe-cancel-subscription` |
 | Any type | | `stripe-webhook` |
 
-In your project, Nowa also generates `lib/integrations/stripe_payment_service.dart` and updates the platform files Stripe needs: on Android the minimum SDK (at least 23), `MainActivity`, ProGuard rules and the app theme; on iOS the **Camera** permission and, when Apple Pay is on, the Apple Pay entitlement.
+In your project, Nowa also generates `lib/integrations/stripe_payment_service.dart` and updates the platform files Stripe needs: on Android `MainActivity`, ProGuard rules and the app theme; on iOS the **Camera** permission and, when Apple Pay is on, the Apple Pay entitlement.
 
 A failed Supabase step does not always show an error, so open your Supabase dashboard and confirm that the tables, functions and secrets are there.
 
@@ -97,7 +97,7 @@ After any change, such as a new purchase type or a different table, click **Depl
 
 1. Select your button. In **Details**, click the button next to **On Pressed**. Circuit opens ([Respond to taps and other events](../logic/events.md)).
 2. Hover the dot under the top node and click **+**. In **All nodes for this circuit**, search for `StripePaymentService`, pick it, then pick `processPayment` (or `subscribe`). See [Build logic in Circuit](../logic/circuit.md).
-3. In **Details**, link **Record Id** (the `recordId` input) to the item's ID, a value from your **ID Field** column: click its label to open the link menu and pick the value ([Expressions and conditions](../logic/expressions.md)). For `subscribe`, set **Price Id** to your Stripe Price ID.
+3. In **Details**, click the **Record Id** label and link it to the item's ID, the value of your **ID Field** column ([Expressions and conditions](../logic/expressions.md)). For `subscribe`, set **Price Id** to your Stripe Price ID.
 4. Under **Future Options**, add logic to **onValue** for a successful payment and to **onError** for a failed one.
 
 Stripe's payment sheet opens in your app. Test it on a device or emulator with Stripe's [test cards](https://docs.stripe.com/testing) while your keys are in test mode. Running on a device needs the desktop app: see [Run on a device or emulator](../test/devices.md).
@@ -126,7 +126,7 @@ After you deploy, ask the agent to wire the button, for example: "When the user 
 
 ## Remove Stripe
 
-Turn **Enabled** off. Nowa deletes the Stripe settings, `lib/integrations/stripe_payment_service.dart` and the Android and iOS changes, so remove any logic that calls `StripePaymentService` first. Your Supabase project is not touched: delete its tables, functions and secrets yourself if you no longer need them.
+Turn **Enabled** off. Nowa deletes the Stripe settings, `lib/integrations/stripe_payment_service.dart`, the Android changes and the Apple Pay entitlement, so remove any logic that calls `StripePaymentService` first. The iOS **Camera** permission (**Settings** → **General** → **Permissions**) and your values in **Constants** stay. Your Supabase project is not touched: delete its tables, functions and secrets yourself if you no longer need them.
 
 ## Next steps
 

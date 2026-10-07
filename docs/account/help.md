@@ -9,13 +9,13 @@ Stuck, or something looks broken? The support button puts the Nowa team one clic
 
 ## Open the support panel
 
-Click the round **?** button at the bottom right of the dashboard or the editor. A red badge on it means you have unread replies. On a phone-sized window, open **More** (⋮) and click **Support**.
+Click the round **?** button at the bottom right of the dashboard or the editor. A red badge on it counts your unread replies. In the editor in a narrow browser window, such as on a phone, open **More** (⋮) and click **Support** instead.
 
 The panel opens on "Hey There" and "Let’s help you build a great app!" with these options:
 
 | Option | What it does |
 |---|---|
-| **Your tickets** | Lists your recent conversations with the team. Each shows a status (**New**, **In Progress**, **Resolving** or **Resolved**) and its age. When you have more than a couple, a **Show all** link expands the list. Click a ticket to read replies and answer. |
+| **Your tickets** | Lists your recent conversations with the team. Each shows a status (**New**, **In Progress**, **Resolving** or **Resolved**) and its age. When you have more than two, a link such as "Show all 4 tickets" expands the list. Click a ticket to read replies and answer. |
 | **Report an issue** | Tells the team something is broken. It needs an open project. On the dashboard it reads "Open a project to report an issue". |
 | **Chat with support** | Asks a question ("Have a question? We are here to help"). |
 | **Documentation** | Opens these docs. |
@@ -32,7 +32,7 @@ The panel opens on "Hey There" and "Let’s help you build a great app!" with th
 4. To add screenshots, click the image button and choose files.
 5. Click the send button.
 
-For a local project, the snapshot goes up as a zip file. Replies appear on the **?** badge and under **Your tickets**. If you follow a link from a reply email, the dashboard opens that ticket. If it says "This support conversation isn't accessible with your current account.", sign in with the account that created the ticket.
+For a local project, the snapshot goes up as a zip file. Replies appear on the **?** badge and under **Your tickets**. A dashboard link that carries a ticket ID opens that ticket. If Nowa says "This support conversation isn't accessible with your current account.", sign in with the account that created the ticket.
 
 Two other places open the same form with the details filled in: **Report** on Nowa AI's "Bug report ready" card (see [Chat with Nowa AI](../ai/chat.md)), and **Report issue** on a preview error that says the problem is on Nowa's side (see [Run your app](../test/run.md)).
 
@@ -48,11 +48,11 @@ Click **Hire an Expert** in the dashboard sidebar or the support panel. The dial
 
 - **Learning Resources** in the dashboard sidebar opens these docs.
 - **Documentation** and **YouTube Channel** in the support panel open the docs and the [Nowa YouTube channel](https://www.youtube.com/@nowadev).
-- [What's new](../new/whats-new.md) lists every release.
+- [What's new](../new/whats-new.md) shows what each version added.
 
 ## Stay up to date {#notifications}
 
-The bell (tooltip **Notifications**) sits next to the version number on the dashboard and next to your avatar in the editor. A red badge counts what's new. Open the bell to read the list, which Nowa then marks as read. Click a notification to open its link or release notes. "No notifications" means you're caught up.
+The bell (tooltip **Notifications**) sits next to the version number on the dashboard and next to your avatar in the editor. A badge counts the ones you haven't seen. Open the bell to read the list, which Nowa then marks as read. Click a notification that has an action to follow it, either a link or the full announcement. "No notifications" means you're caught up.
 
 Announcements can also appear as banners at the bottom right. Click the close button (**Dismiss announcement**) to hide one.
 

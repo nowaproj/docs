@@ -32,7 +32,7 @@ Nowa writes the Android App ID into the Android manifest and the iOS App ID into
 
 **Show Test Ads** is on by default. While it is on, the banner uses Google's test ad units instead of your unit IDs. Turn it off before you publish.
 
-If **Details** shows "No API Keys", or a button named **AdMob Android setup** or **AdMob IOS setup** in place of a unit ID field, click it to open the AdMob page and add the missing App ID.
+If **Details** shows "No API Keys" with an **AdMob setup** button, or a button named **AdMob Android setup** or **AdMob IOS setup** in place of a unit ID field, click the button to open the **AdMob** page and add the missing App ID.
 
 {/* CAPTURE: id=integrations-admob-2 | state: playground starter open, AdMob enabled with both App IDs set, an Admob Banner selected on a screen | show: the Details panel with Android Unit ID, Ios Unit ID and Show Test Ads, and the red editor-preview banner on the board | crop: board item + Details panel */}
 
@@ -51,7 +51,7 @@ To see a real ad, run the app on an Android or iOS device or emulator. That need
 `loadAndShowInterstitialAd` loads a full-screen ad and shows it as soon as it is ready. Call it from an event, for example when a level ends or the user taps **Next**.
 
 1. Open the event's function in Circuit ([Respond to taps and other events](../logic/events.md)).
-2. Click **+** to open **All nodes for this circuit**, search for `loadAndShowInterstitialAd` and insert it.
+2. Hover the dot under the top node and click **+**. In **All nodes for this circuit**, search for `loadAndShowInterstitialAd` and click it.
 3. In **Details**, set **Android Unit ID** and **Ios Unit ID** to your full-screen ad unit IDs. **Show Test Ads** is on by default; turn it off for your published app.
 
 Like the banner, it only shows ads on Android and iOS.

@@ -1,11 +1,35 @@
 # W11 review (Projects and account)
 
-Verifier: Opus-class run, source of truth `/home/user/nowa-master` (v3.12.5). Pages: `docs/account/index.md`, `projects.md`, `project-settings.md`, `account-settings.md`, `workspaces.md`, `plans-and-usage.md`, `help.md`.
-All code refs are relative to `/home/user/nowa-master` unless noted. Progress: pages are appended below as each one is finished (summary at the end is rewritten last). Lint (front matter, H1, `---`, emoji, hype words, admonitions, relative links and anchors, capture placeholders) is a local script run on every page.
+Verifier: source of truth `/home/user/nowa-master` (v3.12.5). Run 1 (stopped by a usage limit) checked `index.md` and `projects.md`; run 2 checked `project-settings.md`, `account-settings.md`, `workspaces.md`, `plans-and-usage.md`, `help.md` and wrote this summary. Pages: `docs/account/index.md`, `projects.md`, `project-settings.md`, `account-settings.md`, `workspaces.md`, `plans-and-usage.md`, `help.md`.
+All code refs are relative to `/home/user/nowa-master` unless noted. Lint (front matter, H1, `---`, emoji, hype words, admonitions, relative links and anchors, capture placeholders) is a local script run on every page, plus an MDX compile check; all 7 pages pass (the only lint hits are headings that quote UI labels or proper nouns).
 
 ## Summary
 
-(in progress: index.md, projects.md done; project-settings.md, account-settings.md, workspaces.md, plans-and-usage.md, help.md pending)
+- **Pages checked:** 7 of 7 (batch W11, `docs/account/`). Word counts: index 513, projects 1,156, project-settings 1,168, account-settings 694, workspaces 763, plans-and-usage 1,027, help 693.
+- **Claims checked:** 160 table rows below; each row is one claim or a small group of labels or steps from one passage.
+- **Fixed or reworded:** 54 rows. **Removed:** 2 claims. The other rows were already right.
+- **D3 (no prices, credit amounts, limits):** a scan of all 7 pages finds none. The preset credit amounts, the dollar balance, the invite reward size and the expert hourly rate are shown in the app but not quoted.
+- **D15 (Nowa GO):** no mention left in the 7 pages. Removed the note "The iOS and Android Nowa apps hide Billing, Usage and every upgrade button" from `plans-and-usage.md`. The narrow-browser layout stays documented.
+
+Most serious errors fixed in run 2:
+1. **load packages** (`project-settings.md`): the page said it loads packages from `pubspec.yaml` and slows opening. In 3.12.5 the flag only gates the AI `packages` tool's `add` action; **Packages** works without it. Rewritten, anchor `{#experimental-flags}` kept.
+2. **Permissions** (`project-settings.md`): "Nowa updates the manifest or `Info.plist`" understated it. Nowa regenerates both files from its template and settings, so hand edits are lost. Added a `:::warning`.
+3. **Constants** (`project-settings.md`): the page repeated the app's "all Secret keys" blurb. Only Dart-only keys (Stripe, RevenueCat, Google Sign-In web client ID) are listed; Google Maps and AdMob keys go to platform files. Fixed.
+4. **New UX** (`project-settings.md`): "library panel ... new way to edit classes" came from the dialog text. The **Libraries** panel exists only in debug builds. Now says what the code shows (panel icons in the top bar, **More panels**, **Debug** panel).
+5. **Plans** (`plans-and-usage.md`): the toggle reads **Monthly** / **Annually** (not Annual); **Show** / **Hide** appears only on long feature lists; **Manage** and the billing-portal redirect are separate facts; the invite dialog says "credits" (not "AI credits"); AppSumo link opens sign-in or sign-up with the email (it does not sign you in); the Billing plan section is empty without a subscription; added the usage-row **Upgrade** / **Buy credits** button.
+6. **Account Details** (`account-settings.md`): **Restore Password** opens **Reset your password** (enter your email, **Send reset link**); the **OTP Code** box appears only after the code is sent; Figma disconnect confirms with **Yes**; **Billing** also holds **Extra AI Usage**.
+7. **Workspaces** (`workspaces.md`): a mismatched invitation email signs you out and opens the sign-in page (it does not ask for a specific email); View Only hides the status-bar save icon (the top-bar **Save** is the playground's); removed an unreachable **View in folder** case; Delete workspace text attributed to the app's own confirmation; the capture placeholder no longer asks for a **WORKSPACES** heading that only exists in the **Move to...** dialog.
+8. **Help** (`help.md`): "release notes" and "reply email" were not in the code; the **More** > **Support** path is the editor's narrow-window layout; the ticket list link reads "Show all N tickets".
+
+Run 1 fixes (kept): `index.md` (bell, **RECENTS**, **Upgrade your plan** opens **Adjust Plan**, **Download Nowa** dialog, **Hire an Expert** dialog) and `projects.md` (web **Local-only project** card, **Package Name** and **Bundle Identifier** rules, **Move to...** and **Upload to cloud** dialogs, local **Delete** warning).
+
+Open issues (could not resolve here):
+- `ai/index.md:37` (not in this batch) says the AI's **Packages** tool needs **load packages** to add or remove; only `add` is gated (`packages/ai/lib/src/tools/packages_tool.dart:137`).
+- Server-side behavior the client does not show, relayed as the app states it: the invitation email and link (kept; `docsOld/collaboration/adding_members.md:25` agrees), what **Delete workspace** does with projects, who the server lets change roles (the role-badge menu is shown to every member), whether the free plan counts as a subscription, and "a project from **New project** starts in **Personal**" (the client sends no workspace).
+- The community forum URL appears only in the docs site footer and in dead app code (`lib/widgets/help_icon.dart`, `learning_resources_view.dart`); the proxy blocks it, so it could not be tested. Kept because `pages.md` lists it.
+- Capture `account-project-settings-1` is `skipped: low value` in `captures/requests/W11.md`; the placeholder stays. `captures/ui-map/15-settings.png` is a playground view without **Deployment**, **Permissions**, **Git**, **Project Sync**.
+- Glossary row "Project settings" lists **Sharing** as a settings page; it is a section at the bottom of **Project Details** (fix when `reference/glossary.md` is built).
+- The editor-shell research says "Enter sends" in the support chat; the code shows a multi-line box, so the pages say "click the send button".
 
 ## docs/account/index.md
 
@@ -190,4 +214,33 @@ Open issues (workspaces.md):
 Open issues (plans-and-usage.md):
 - Whether the free plan counts as a subscription (so **Billing** shows its plan name and **Adjust Plan**) is a server fact; the page covers both cases by what the app does.
 - The billing-portal sentence assumes the portal is Stripe's (`paymentProvider == .stripe`); the page avoids naming the provider.
+
+## docs/account/help.md
+
+| Claim | Verdict | Code ref | Note |
+|---|---|---|---|
+| Front matter, no H1, 0 admonitions, no `---`, no emoji/hype words, links resolve (`../ai/chat.md`, `../test/run.md`, `../new/whats-new.md`, `../troubleshooting/index.md`, `./account-settings.md`, `./plans-and-usage.md`), anchors `{#report-an-issue}`, `{#ask-a-question}`, `{#hire-an-expert}`, `{#notifications}`, `{#share-feedback}` present (`index.md` links to `#notifications`, `#hire-an-expert`, `#share-feedback`), capture placeholder `account-help-1` well formed; MDX compiles; 692 words; lint 0 problems | ok | lint script, `check-mdx.mjs` | |
+| Round **?** button at the bottom right of the dashboard and the editor; red badge counts unread replies | ok | `packages/nowa_ui/lib/support_icon_button.dart:9-42` (`errorColor` badge, `9+` cap), `packages/nowa_ui/lib/dashboard/dashboard_view.dart:46-52`, `lib/project/project_page.dart:137` | |
+| "On a phone-sized window, open **More** (⋮) and click **Support**" | fixed (scoped) | `lib/project/nowago/mobile_view.dart:20-60,340-365` (tooltip `More`, `Icons.more_vert_rounded`, bottom sheet item **Support**; "View code" only for native iOS/Android), `packages/nowa_ui/lib/src/globals/responsive_utils.dart:60-70` | The sheet belongs to the editor's mobile layout (a browser under 840 px wide); the dashboard keeps the **?** button in every width (`dashboard_view.dart:46-52`). Wording now "In the editor in a narrow browser window, such as on a phone ...". |
+| Panel home: "Hey There", "Let’s help you build a great app!"; options **Your tickets**, **Report an issue**, **Chat with support**, **Documentation**, **YouTube Channel**, **Hire an Expert** | ok | `packages/nowa_ui/lib/components/support_dialog.dart:205-206,473,509,520,528,534,540` | Descriptions "Let us know if something is broken" and "Have a question? We are here to help" are the cards' own subtitles. |
+| Ticket rows: status **New** / **In Progress** / **Resolving** / **Resolved** and age; collapsed after two; "Show all" link | ok / fixed | `packages/core/lib/src/tickets/ticket_models.dart:33-52`, `support_dialog.dart:445-495,590-600` (`'Show all ${tickets.length} tickets'`, `Show fewer`) | The link text includes the count; the page now says 'a link such as "Show all 4 tickets"' and "more than two". |
+| **Report an issue** needs an open project; the dashboard says "Open a project to report an issue" | ok | `support_dialog.dart:503-515` (disabled at half opacity), `packages/core/lib/src/tickets/ticket_mapper.dart:28` (`canReportIssue: provider.hasProject`) | |
+| Report steps: message box hint "Type a detailed message...", **Include a snapshot of the current project** (default on, first message of a report only), image button, send button | ok | `support_dialog.dart:255-410` (`_canIncludeSnapshot` at `:276`, `_includeSnapshot = true` at `:255`) | The box is multi-line (`maxLines: 10`), so Enter adds a line; the page says "click the send button" (the editor-shell research said "Enter sends"; not supported by the code). |
+| Local project: snapshot goes up as a zip | ok | `packages/core/lib/src/tickets/ticket_service.dart:76-97` (`snapshot.zip`) | Cloud projects take the snapshot server side. |
+| Deep link: dashboard opens the ticket; error text | fixed | `lib/router.dart:180-181` (`/?ticketId=`), `lib/dashboard/dashboard_provider.dart:103-120` ("This support conversation isn't accessible with your current account." shown as a snackbar) | "from a reply email" removed: the code shows a link that carries a ticket ID, not who sends it. |
+| **Report** on the "Bug report ready" card; **Report issue** on a preview error that is on Nowa's side | ok | `packages/ai/lib/src/ui/tool_inline_views.dart:636-694` ("Bug report ready - want to send it to the Nowa team?", **Report**), `packages/nowa_run/lib/src/ui/nowa_run_error_actions.dart:111-114,123` (`NowaRunErrorKind.internal`, "The preview hit a problem on our side") | Both call `TicketProvider.openWithPrefill`. |
+| **Chat with support**: attach images, no snapshot checkbox, stays under **Your tickets** | ok | `support_dialog.dart:276,395-420` | |
+| **Hire an Expert**: sidebar or panel; "Get hands-on help from certified Nowa experts."; **Book a Free Consultation**; **Become an expert**; shows the rate | ok | `packages/nowa_ui/lib/hire_expert_dialog.dart:55-105`, `dashboard_side_bar.dart:193` (`hireExpert`), `support_dialog.dart:540` | The hourly rate in the dialog is not quoted (D3). |
+| **Learning Resources** opens the docs; **Documentation** and **YouTube Channel** | ok | `lib/dashboard/dashboard_page.dart:197`, `support_dialog.dart:528-535` (`https://docs.nowa.dev`, `https://www.youtube.com/@nowadev`) | |
+| "[What's new] lists every release" | fixed | `docs/new/whats-new.md:8` ("the latest features and enhancements for each version") | Now "shows what each version added". |
+| Bell (tooltip **Notifications**) next to the version on the dashboard and next to the avatar in the editor; badge; opening marks as read; "No notifications" | ok | `dashboard_side_bar.dart:69-100`, `packages/nowa_ui/lib/top_bar/top_bar_view.dart:139-141`, `packages/nowa_ui/lib/src/components/notification_bell.dart:60-120` | The badge is a plain count (`9+` cap), so "red" was dropped. |
+| "Click a notification to open its link or release notes" | fixed | `packages/core/lib/src/announcements/widgets/notification_bell.dart:43-50` (does nothing without an action), `notification_action_handler.dart:6-40` (`/walkthrough`, the `nowa.version.latest` popup, any other URL), `announcement_widgets.dart:9-50` (**Got it!**) | "release notes" is not in the code (same finding as on `index.md`). Now "a notification that has an action ... either a link or the full announcement". |
+| Banners at the bottom right; close button **Dismiss announcement** | ok | `packages/core/lib/src/announcements/widgets/notification_banner.dart:76`, `lib/project/project_page.dart:138` (`NowaBannerHost`), `packages/nowa_ui/lib/dashboard/dashboard_view.dart:53` | |
+| Discord `https://discord.gg/ByKfn3H7gX`; email `team@nowa.dev` | ok | `lib/project/onboarding/completion_dialog.dart:20,61` | |
+| Community forum `https://community.nowa.dev/` | ok (kept, not testable) | `lib/widgets/help_icon.dart:58` and `lib/dashboard/learning_resources/learning_resources_view.dart:63` (both unmounted), `docusaurus.config.js:201` and `docs/index.md:117` (the docs site links it) | No reachable UI in the app links to it; the docs site footer does. Reachability can't be tested from here (the proxy refuses `community.nowa.dev` with 403). |
+| Feedback: "How much would you rate Nowa?" from the second visit, about two minutes after load; "Tell us more about it (optional)"; **Submit Feedback**; **Cancel** asks again next visit | ok | `lib/dashboard/dashboard_provider.dart:72-101` (`FeedbackNotice`, `FeedbackState` null -> 0 -> dialog after 2 minutes, set to 1 only on success), `packages/core/lib/src/dialogs/feedback_dialogs.dart:46`, `content_dialogs.dart:33-49`, `common_dialog_widgets.dart:87-102` | With no rating the dialog says "Please select a rating before submitting." (`dialog_controller.dart:88`); not on the page. |
+
+Open issues (help.md):
+- Community forum URL: see the row above (only the docs site and dead app code link to it).
+- The panel's "Enter sends" claim in the editor-shell research is not supported by the code (the message field is multi-line); the page tells readers to click send.
 

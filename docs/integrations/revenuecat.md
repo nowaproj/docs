@@ -16,7 +16,7 @@ RevenueCat handles in-app purchases and subscriptions across iOS, Android and th
 
 1. Click the gear in the top bar (**Settings**) or press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>,</kbd>. Under **Integrations**, click **RevenueCat**.
 2. Turn on **Enabled**. Nowa adds the `purchases_flutter` package.
-3. Under **Configuration**, paste your keys: **Apple API Key** (starts with `appl_`), **Android API Key** (`goog_`) and **Web API Key** (`strp_`). Press <kbd>Enter</kbd> or click the send icon (**Submit**) after each one. A check mark confirms the save.
+3. Under **Configuration**, paste your keys: **Apple API Key**, **Android API Key** and **Web API Key**. The field hints show the usual prefixes: `appl_`, `goog_` and `strp_`. Press <kbd>Enter</kbd> or click the send icon (**Submit**) after each one. A check mark confirms the save.
 
 Your app uses the key for the platform it runs on, so add a key for every platform you test or ship.
 
@@ -35,7 +35,7 @@ When you turn it on, Nowa also:
 
 {/* CAPTURE: id=integrations-revenuecat-1 | state: playground starter open, a screen on the board, RevenueCat Paywall added from the widget picker | show: the placeholder card labeled RevenueCat Paywall / Run to preview inside a screen | crop: the screen on the board */}
 
-The real paywall appears only in a running app on a simulator, emulator or device. In **Play**, the widget shows "Run on a simulator/emulator or mobile device to preview". Running on a device needs the desktop app: see [Run on a device or emulator](../test/devices.md).
+The board and **Play** show only placeholders. In **Play**, the widget reads "Run on a simulator/emulator or mobile device to preview". To see the real paywall, run your app on a simulator, emulator or device. That needs the desktop app: see [Run on a device or emulator](../test/devices.md).
 
 ## Call RevenueCat from logic
 
@@ -54,7 +54,7 @@ Try: "When the user taps Upgrade, open a screen that shows the RevenueCat Paywal
 
 ## Turn RevenueCat off
 
-Turn **Enabled** off to remove the package, `lib/integrations/revenuecat_service.dart` and the `main()` line. Remove any logic that calls `RevenuecatService` first.
+Turn **Enabled** off to remove the package, `lib/integrations/revenuecat_service.dart` and the `main()` line. Your keys stay in **Constants**. Remove any logic that calls `RevenuecatService`, and any **RevenueCat Paywall** widgets, first.
 
 ## Next steps
 

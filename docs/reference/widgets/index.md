@@ -9,7 +9,7 @@ Nowa comes with 45 ready-made widgets, from a plain **Container** to a Google ma
 ## Find a widget in the picker
 
 - Press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd> with a board open, or click **Widget** in the toolbar. Type part of a name and press <kbd>Enter</kbd>. [Add widgets](../../design/add-widgets.md) has the full steps, including drag and drop.
-- Your own components appear in the same list. Under **Search for:**, choose **Components** to see only them, or **BuiltIn** to see only the widgets on this page.
+- Your own screens and components appear in the same list. Under **Search for:**, choose **Components** to see only them, or **BuiltIn** to see only the widgets on this page.
 - Missing a widget? Click **Request a Widget** in the picker's search bar, describe it and click **Submit Request**.
 
 With nothing typed, the picker lists the widgets in the order of the tables below, without group headings. The groups here are only to help you browse.
@@ -39,9 +39,9 @@ Nine widgets need a Flutter package: SVG, Swipeable Stack, YouTube Player, Lotti
 
 | Widget | What it does | Good to know |
 |---|---|---|
-| <a id="button"></a>**Button** | A button that runs an action when pressed. | Its label is a Text widget inside it. Click **+** next to **On Pressed** to build the action: see [Respond to taps and other events](../../logic/events.md). |
+| <a id="button"></a>**Button** | A button that runs an action when pressed. | Its label is a Text widget inside it. Click **Edit** next to **On Pressed** to build the action: see [Respond to taps and other events](../../logic/events.md). |
 | <a id="icon-button"></a>**Icon Button** | A tap target that shows only an icon. | Same events as Button: **On Pressed**, **On Long Press** and **On Hover**. |
-| <a id="floating-action-button"></a>[**Floating Button**](./navigation.md) | A round button that floats above the content of a screen. | Drop it on a screen and it goes into the screen's floating button slot. |
+| <a id="floating-action-button"></a>[**Floating Button**](./navigation.md) | A button that floats above the content of a screen. | Drop it on a screen and it goes into the screen's floating button slot. |
 
 ## Layout
 
@@ -52,11 +52,11 @@ Nine widgets need a Flutter package: SVG, Swipeable Stack, YouTube Player, Lotti
 | <a id="listview"></a>[**List View**](./lists.md) | A scrolling list: **Builder** repeats one item for each entry of a list, **Normal** holds widgets you add yourself. | Starts in **Builder** with three placeholder items. Click **Connect** next to **List** to use a list variable. |
 | <a id="gridview"></a>[**Grid View**](./lists.md) | A scrolling grid with the same **Builder** and **Normal** choice. | Starts in **Builder** with two columns and three placeholder items. |
 | <a id="swipeable-stack"></a>[**Swipeable Stack**](./lists.md) | A deck of cards that people swipe away. | Needs the `flutter_card_swiper` package and creates a `swiperController` variable. The board draws at most two cards. |
-| <a id="pageview"></a>[**Page View**](./navigation.md) | Pages that people swipe between, one at a time, with a row of dots underneath. | The dots are a separate indicator on top of the pages: choose its style with **Effect type**. |
+| <a id="pageview"></a>[**Page View**](./navigation.md) | Pages that people swipe between, one at a time, with a row of dots at the bottom. | The dots are a separate indicator on top of the pages: choose its style with **Effect type**. |
 | <a id="index-stack"></a>[**Indexed Stack**](./navigation.md) | Widgets on top of each other, where only the one at **Index** shows. | Link **Index** to a variable to switch content, for example the `pageIndex` of a Bottom Navigation Bar. |
 | <a id="cross-fade"></a>[**Cross Fade**](./navigation.md) | Fades between two widgets, **First Child** and **Second Child**. | **Cross Fade State** picks which one shows. **Duration** sets the fade time. |
 | <a id="wrap"></a>**Wrap** | Lays widgets out in a row (or column) and continues on a new line when it runs out of room. | Set the gaps with **Spacing** and **Run Spacing**. See [Lay out widgets](../../design/layout.md#scroll-or-wrap-content). |
-| <a id="data-builder"></a>[**Data Builder**](../../integrations/show-data.md) | Loads data and builds the widgets inside it from the result, with loading and error states. | Pick a **Source**: **API Request**, **Supabase** or **Firestore**. Also a [wrapper](../wrappers.md#data-builder), which is usually easier. |
+| <a id="data-builder"></a>[**Data Builder**](../../integrations/show-data.md) | Loads data and builds the widgets inside it from the result, with loading and error states. | Pick a **Source**: **API Request**, **Supabase** or **Firestore**. Also a [wrapper](../wrappers.md#data-builder), which keeps the widget you already built. |
 
 ## Players
 

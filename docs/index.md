@@ -104,14 +104,9 @@ import styles from './cards.module.css';
     <h3>What's new</h3>
     <p>The latest features, improvements and fixes.</p>
   </Link>
-
-  <Link to="/legacy" className={styles.sectionCard}>
-    <h3>Legacy tutorials</h3>
-    <p>Longer tutorials made with an earlier version of Nowa.</p>
-  </Link>
 </div>
 
-Want the newest features first? Read [what's new](./new/whats-new.md) or the [changelog](./new/change-log.md). Not sure what a word means? See the [glossary](./reference/glossary.md).
+Not sure what a word means? See the [glossary](./reference/glossary.md). Looking for the older video tutorials? They're in [Legacy tutorials](./legacy/index.md), made with an earlier version of Nowa.
 
 ## Get help
 

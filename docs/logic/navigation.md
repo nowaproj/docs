@@ -113,7 +113,7 @@ Select a route to edit it:
 
 | Setting | What it does |
 |---|---|
-| **Path** | The route's own path, which can contain parameters like `:id`. **Full Path** adds its parents' paths. |
+| **Path** | The route's own path, which can contain parameters like `:id`. **Full Path** shows it with its parents' paths. |
 | **Screen** | The screen the route shows. Click it to pick another one. The bolt button (**Edit Function**) opens the route's builder in Circuit. |
 | **Route Parameters** | Path and query parameters as chips. Path chips carry a red `*`. Right-click a chip to **Rename** or **Delete** it. |
 | **Screen Parameters** | The screen's own params, shown when it has any. Drag a chip onto one to feed it. |

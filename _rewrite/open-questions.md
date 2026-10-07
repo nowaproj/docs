@@ -5,3 +5,4 @@ Questions for the user that came up during the unattended run. Each has the opti
 | ID | Question | Picked meanwhile | Where it matters |
 |---|---|---|---|
 | Q1 | Should the signed-in screens (dashboard, account, AI chat with a real project, deploy dialogs) be captured in a follow-up session once `NOWA_TEST_EMAIL` / `NOWA_TEST_PASSWORD` are added to the environment? | Listed in `_rewrite/captures/to-capture.md`. | Screenshots |
+| Q2 | Connect External Agent: What's New calls it **Enterprise**, but the code checks a per-account `external_agent` grant (comment: "beta plan"). Is "Enterprise" the right badge? | Kept the Enterprise badge (What's New says it three times) plus Desktop app. | `docs/ai/external-agent.md` |

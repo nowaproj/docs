@@ -30,7 +30,7 @@ Nowa builds Flutter apps, so one project can reach several platforms.
 | Android and iOS | **Deploy** builds your Android and iOS apps. You can also run them on devices and emulators with the desktop app. |
 | Desktop | Run your app on desktop targets from the desktop app. |
 
-Publishing to a live web URL and building for Android and iOS are available on paid plans. See [pricing](https://nowa.dev/pricing).
+**Deploy** is for cloud projects. Publishing to a live web URL and building for Android and iOS are available on paid plans. See [pricing](https://nowa.dev/pricing).
 
 ## Who Nowa is for
 
@@ -39,7 +39,7 @@ Publishing to a live web URL and building for Android and iOS are available on p
 
 ## Where Nowa runs
 
-- **The web app** at [app.nowa.dev](https://app.nowa.dev). Everything starts here. On a phone-sized window you get a [phone layout](./mobile.md).
+- **The web app** at [app.nowa.dev](https://app.nowa.dev). Sign in and build in your browser. On a phone-sized window you get a [phone layout](./mobile.md).
 - **The desktop app** for macOS and Windows. It adds local projects, running on devices and emulators, and importing existing Flutter projects. See [Install the desktop app](./desktop-app.md).
 - **The playground** at [app.nowa.dev/playground](https://app.nowa.dev/playground). Try the editor without an account. See [Try Nowa without an account](./playground.md).
 

@@ -19,7 +19,7 @@ An account gives you the dashboard, your projects and Nowa AI. Sign up with an e
 
 **You should see:** the dashboard with **What do you want to build?** Before that, new accounts answer four short questions (see [Answer the four questions](#answer-the-four-questions)).
 
-If the form won't submit, read the message under the field. Passwords need at least 8 characters, both password fields must match, and the terms box must be ticked. If no code arrives, click **Resend the code**. The link changes to **Sent!**
+If the form won't submit, read the message under the field or in the banner below the form. Passwords need at least 8 characters, both password fields must match, and the terms box must be ticked. If no code arrives, click **Resend the code**. The link changes to **Sent!**
 
 ## Sign up with Google
 
@@ -42,14 +42,15 @@ If you opened a link that needs an account, such as a link to a project, Nowa ta
 
 1. On the sign-in page, click **Forgot Password?**
 2. Enter your email and click **Send reset link**. Nowa shows **Check your email**.
-3. Open the link in the email. Enter **New password** and **Repeat new password** (at least 8 characters), then click **Reset password**.
-4. When you see **Password changed**, go back to the sign-in page and log in with the new password.
+3. Open the link in the email.
+4. Enter **New password** and **Repeat new password** (at least 8 characters), then click **Reset password**.
+5. When you see **Password changed**, go back to the sign-in page and log in with the new password.
 
-If the page says **Invalid link**, the link has expired. Request a new one from the sign-in page.
+If the page says **Invalid link**, the reset link is missing or has expired. Request a new one from the sign-in page.
 
 ## Answer the four questions
 
-The first time you reach the dashboard, Nowa asks four short questions about what you want to build first and how you found Nowa. They are labeled **Question 1 of 4** and so on. Click an answer and Nowa moves on. Answers that need detail, such as **Other** and **Yes**, ask for a few words: type them and click **Continue**. You answer the questions once, and you can't skip them.
+New accounts answer four short questions before they can use the dashboard: what you want to build first, what best describes you, whether you've used another app builder, and where you heard about Nowa. They are labeled **Question 1 of 4** and so on. Click an answer and Nowa moves on. **Other** on the second question and **Yes** on the third also ask for a few words: type them and click **Continue**. Use **Back** to change an earlier answer. You answer the questions once, and you can't skip them.
 
 ## Log out
 

@@ -10,10 +10,10 @@ Screens are the pages of your app: a home page, a settings page, a profile page.
 ## Add a screen
 
 1. Click **Screen** in the toolbar at the bottom of the board. Or right-click empty board space and choose **Create a page**. The template picker opens.
-2. Keep **Screens** selected. The other tab is **Components**. Type in **Search for templates** or scroll, and highlight a template to preview it on the right.
+2. Next to **Search for:**, keep **Screens** selected. The other choice is **Components**. Type in **Search for templates** or scroll, and highlight a template to preview it on the right.
 3. Click a template, for example **Empty Page**.
 4. Name it and click **Submit**. The dialog is titled after the template, such as **New Empty Page**, and also shows the **Class name** and the file **Path** (`lib/pages/` for screens).
-5. The screen appears on the board, and Nowa adds a route for it.
+5. The screen appears on the board. In projects that use go_router, Nowa also adds a route for it.
 
 {/* CAPTURE: id=design-screens-1 | state: playground starter open, click Screen in the toolbar, highlight a template that has a preview | show: the template picker with the Search for templates box, the Screens and Components tabs, the template list and the preview pane | crop: the picker dialog */}
 
@@ -46,7 +46,7 @@ You can also drag an App Bar, Floating Action Button, Bottom Navigation Bar or D
 
 {/* CAPTURE: id=design-screens-2 | state: playground starter open, click the title of the home screen, scroll Details down to the Screen section | show: Details for a selected screen: the name with the pencil and Open in New Tab buttons, Add description, and the Screen section with Color, the slots, Size, Route Settings and the home screen line | crop: the Details panel */}
 
-Other sections of **Details**, such as **Group** and **Safe Area**, control the content inside. See [Lay out widgets](layout.md) and [Change widget properties](properties.md). A screen is a widget with the **Screen** wrapper. Remove the wrapper and it becomes a component.
+Other sections of **Details**, such as **Group** and **Safe Area**, control the content inside. See [Lay out widgets](layout.md) and [Change widget properties](properties.md). A widget counts as a screen when it has the **Screen** wrapper. Without it, it is a component.
 
 ## Name the route
 
@@ -69,13 +69,13 @@ The current home screen shows **This is the home screen** instead of the button.
 
 ## Rename, describe, copy and open
 
-- **Rename.** Double-click the title on the board, type the new name and press <kbd>Enter</kbd>. Or click the pencil (**Rename**) next to the name in **Details**. Nowa updates every place that uses the screen. Renaming from **Details** also renames the file.
-- **Add description.** Click **Add description** under the name in **Details**, write a short note, then click **Back to fields**. Teammates and Nowa AI can read it.
-- **Copy as new widget.** Right-click the screen and choose **Copy as new widget**, name it and click **Submit**. You get a separate copy in a new file. Copy and paste only adds another board item that shows the same screen.
+- **Rename.** Double-click the title on the board, type the new name and press <kbd>Enter</kbd>. Or click the pencil (**Rename**) next to the name in **Details**. Nowa updates every place that uses the screen. It also renames the file when the file is named after the screen, and always when you rename from **Details**.
+- **Add description.** Click **Add description** under the name in **Details**, write a short note, then click the back arrow (**Back to fields**). The note is saved in the screen's code and shows in the widget picker when you pick the screen.
+- **Copy as new widget.** Right-click the screen's title and choose **Copy as new widget**, name it and click **Submit**. You get a separate copy in a new file, placed on the board. Copy and paste only adds another board item that shows the same screen.
 - **Open in new tab.** Hover the title and click **Open in new tab**, or select the screen and press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>I</kbd>. The screen opens on its own, with the **Outline** floating at the top left. Click the dimmed **Board** chip in the top bar to go back.
 
 ## Delete a screen
 
-Right-click a screen on the board and choose **Remove** to take it off the board. Its file stays in your project.
+To take a screen off the board, click its title, then right-click the title and choose **Remove**, or press <kbd>Delete</kbd> (<kbd>Backspace</kbd> on macOS). Its file stays in your project.
 
 To delete the screen itself, open the **Widgets** panel, choose **Page**, right-click the screen and choose **Delete**. If other places use it, Nowa lists them and asks you to confirm. See [Build reusable components](components.md#manage-screens-and-components).

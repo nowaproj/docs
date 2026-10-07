@@ -5,16 +5,16 @@ sidebar_label: Boards
 keywords: [board, design board, canvas, workspace, new board, rename board, delete board, board color, show grid, zoom, pan, toolbar, view only]
 ---
 
-A board is your design surface: a large, free-form space where your screens, components and widgets sit side by side, so you see the whole app at once. Make as many boards as you like, for example one per flow.
+A board is your design surface: a large, free-form space where your screens, components and widgets sit side by side. Make as many boards as you like, for example one per flow.
 
 ## Create, switch and manage boards
 
 1. Click the board chip in the top bar. It shows the name of the current board. The menu lists every board in your project.
 2. Click a board to open it.
 3. To make a new one, click **Create new board**, type a name and click **Submit**. The new board opens.
-4. To rename or delete a board, hover its row and click **Rename** or **Delete**.
+4. To rename or delete a board, hover its row and click the **Rename** or **Delete** icon.
 
-Nowa turns the name you type into one word, so **Login flow** becomes `loginFlow`. Each board is saved as a `.board` file in the `boards` folder.
+When you create a board, Nowa turns the name you type into one word, so **Login flow** becomes `loginFlow`. Each board is saved as a `.board` file in the `boards` folder.
 
 Deleting asks **Are you sure you want to delete "…"?** Click **Yes**. The screens and components that were on the board stay in your project. Loose widgets on it are deleted with the board.
 
@@ -81,4 +81,4 @@ If one item fails while drawing, only that item shows **This screen failed to re
 
 ## View-only boards
 
-With the **View Only** role in a shared project you can browse, select, copy and export, but not edit. The toolbar shows **View only**, and right-clicking gives **Copy** and **Export as image...**. See [Workspaces and team members](../account/workspaces.md).
+With the **View Only** role in a shared project you can browse, select, copy and export, but not edit. The toolbar shows **View only** instead of the tools. To copy a widget or export it as an image, right-click its row in the [Outline](outline.md) and choose **Copy** or **Export as image...**. See [Workspaces and team members](../account/workspaces.md).

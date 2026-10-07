@@ -14,3 +14,6 @@ the product team. "Verified" means the orchestrator re-checked it in the code.
 | P7 | master (3.12.5) `widgets_to_add.dart` | 32 widget `docUrl`s point at the old `/ui/widgets/widget-desc/<slug>` pages (14 were "Coming soon" stubs; `/switch` never existed). The docs now redirect them to `/reference/widgets#<slug>`; updating the URLs in the app would skip the redirect. | redirect mapping | yes |
 | P8 | master (3.12.5) `deploy_button.dart:220,290` | The "Set up" button on the iOS row of the Deploy menu opens the Android tab. | W8 writer | no |
 | P9 | master (3.12.5) `download_code_button.dart:110-117` | On the web app, the code-download spinner never resets after the download. | W8 writer | no |
+| P10 | master (3.12.5) AI chat **Add context** → **Attach text file** | Reads the file with `dart:io`, which has no file path in a browser, so it likely does nothing in the web app. | W2 verifier | partly (code path read; not run) |
+| P11 | master (3.12.5) AI checkpoints | The restore dialog says "Undo Last Request?" but restoring also undoes every later request in the session. | W2 verifier | yes (code) |
+| P12 | master (3.12.5) AI connectors | The single **Auto-approve tools** switch (which also covers Supabase actions) is only reachable from the Figma menu. | W2 verifier | yes (code) |

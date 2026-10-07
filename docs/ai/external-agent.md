@@ -14,7 +14,7 @@ Already work with a coding agent? Connect Claude Code, Claude Desktop or Cursor 
 - Use the Nowa [desktop app](../get-started/desktop-app.md), signed in with an account that has access. Connecting your own agent is **Enterprise only** for now. To get access, email `team@nowa.dev` and the Nowa team will set you up.
 - Use Claude Code, Claude Desktop, Cursor or another coding agent that can add an MCP server by URL.
 
-Until your account has access, the **⋮** menu in the **AI Assistant** header doesn't show **Connect External Agent**. Access starts and stops as soon as your account's access changes.
+Until your account has access, the **⋮** menu in the **AI Assistant** header doesn't show **Connect External Agent**. Nowa rechecks your account's access while it runs, so access starts and stops without a restart.
 
 ## Connect your agent
 

@@ -35,10 +35,10 @@ Requests after the one you reapply stay undone until you reapply them too. To br
 
 A few rules apply to checkpoints:
 
-- A checkpoint exists only for replies that edited code or files, generated API code or saved an image. Package changes, downloaded fonts and Figma imports aren't recorded, so a restore leaves them in place.
+- A checkpoint exists only for replies that edited code or files, generated API code or saved an image. Package changes, downloaded fonts, Figma imports and changes made in your Supabase project aren't recorded, so a restore leaves them in place.
 - The buttons are disabled while Nowa AI is working.
 - Checkpoints are saved with your project, in its `.nowa/temp/` folder, which Git ignores.
-- They aren't available in the [playground](../get-started/playground.md), which has no account.
+- They aren't available in the [playground](../get-started/playground.md) or in a public project you open as a guest.
 
 ## Start a new session
 

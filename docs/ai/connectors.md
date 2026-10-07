@@ -45,7 +45,7 @@ With the connector on, Nowa AI can look at your database and change it:
 
 It also writes the matching functions in your app's `SupabaseService`, so your screens can use what it built. For example: "Create a tasks table where each person sees only their own tasks, then list them on the home screen."
 
-If Supabase isn't connected, Nowa AI tells you to connect it from the Supabase panel or this icon, then stops.
+If your project isn't connected to Supabase, or the connector is off, Nowa AI tells you to connect it from the Supabase panel or the Supabase icon, then stops.
 
 ## Connect Figma
 
@@ -68,7 +68,7 @@ The Figma link belongs to your account, not to one project. To link or unlink Fi
 
 ## Approve what a connector does
 
-Before a connector action runs, an **Approval Required** card appears in the conversation. It shows the tool's name after **Tool:** and its **Arguments**, which you can expand to read.
+Before a connector action runs, an **Approval Required** card appears in the conversation. It shows the tool's name after **Tool:** and its **Arguments**, open so you can read them. Click **Arguments** to collapse them.
 
 1. Read what the action will do.
 2. Click **Approve** to run it, or **Deny** to skip it. Nowa AI is told the action wasn't allowed and carries on without it.
@@ -77,7 +77,7 @@ The card then reads **Tool Request**, with an **Approved** or **Denied** badge. 
 
 {/* CAPTURE: id=ai-connectors-2 | state: signed-in project with the Supabase connector on and a request that needs a backend change | show: an Approval Required card with Tool, the expanded Arguments, Deny and Approve | crop: Assistant panel conversation */}
 
-To skip the cards, use **Auto-approve tools**. The switch lives in the Figma menu, so turn the Figma connector on, click its icon, then click **Auto-approve tools**. One switch covers every connector in the project, Supabase included. Click it again to turn it off. Nowa remembers the setting for the project on this device.
+To skip the cards, use **Auto-approve tools**. The switch lives in the Figma menu, so turn the Figma connector on, click its icon, then click **Auto-approve tools**. One switch covers every connector in the project, Supabase included. Its check mark is highlighted while it is on. To turn it off, open the menu and click **Auto-approve tools** again. Nowa remembers the setting for the project on this device.
 
 :::warning
 With **Auto-approve tools** on, connector actions run without asking, including changes to your Supabase backend such as tables, policies and functions. Turn it on only when you trust the request.

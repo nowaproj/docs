@@ -11,7 +11,7 @@ Layout decides where widgets sit and how they react when space changes. You set 
 
 A **Group** holds several widgets so you can move, align and size them as one. A **Stack** layers widgets on top of each other and lets you place them freely. A **Row** lines them up side by side. A **Column** stacks them top to bottom.
 
-To group widgets, select them on the board or in the **Outline**, then press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>G</kbd> or right-click and choose **Group**. Inside a Row, Column or Stack, the new group is the same kind as its parent. Anywhere else it is a Stack. To take a group apart, select it and right-click **Ungroup**. Pressing the shortcut again nests the group in a new one, so use **Ungroup** instead.
+To group widgets, select them on the board or in the **Outline**, then press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>G</kbd> or right-click and choose **Group**. If the widgets sit together in one list of children, such as a Row, Column or Stack, the new group is the same kind as their parent. Otherwise it is a Stack. To take a group apart, select it and right-click **Ungroup**. Pressing the shortcut again nests the group in a new one, so use **Ungroup** instead.
 
 You can also add an empty **Group** from the widget picker (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd>).
 
@@ -43,9 +43,9 @@ A widget inside a Stack, such as a widget on a screen's main group, is positione
 
 - **L**, **T**, **R**, **B** are the distances to the left, top, right and bottom edges. A field is greyed out when the widget isn't pinned to that edge.
 - **W** and **H** are the width and height, each with **Fixed** or **Auto**.
-- The constraints decide which edges the widget keeps its distance to when the stack, usually the screen, changes size. Pick them in the two dropdowns: **Left**, **Right**, **Left and right** or **Center** across, and **Top**, **Bottom**, **Top and bottom** or **Center** down. Or click the bars in the constraints box. <kbd>Shift</kbd>-click a second bar on the opposite side to pin both. The **+** in the middle clears the pins and centers the widget.
+- The constraints decide which edges the widget keeps its distance to when the stack, usually the screen, changes size. Pick them in the two dropdowns: **Left**, **Right**, **Left and right** or **Center** across, and **Top**, **Bottom**, **Top and bottom** or **Center** down. Or click the bars in the constraints box. <kbd>Shift</kbd>-click a second bar on the opposite side to pin both. The **+** in the middle clears all the pins.
 
-**Left and right** and **Top and bottom** stretch the widget as the screen grows. **Center** keeps it centered. Constraints work for several selected widgets at once.
+**Left and right** and **Top and bottom** stretch the widget as the screen grows. **Center** leaves the widget unpinned, so it sits at the stack's **Alignment**, which is centered unless you change it. Constraints work for several selected widgets at once.
 
 ## Size widgets
 
@@ -55,17 +55,23 @@ Select a widget and open **Layout**. **W** and **H** each have a mode dropdown.
 |---|---|
 | **Fixed** | Keeps the size you type. Switching to **Fixed** fills in the current size. |
 | **Auto** | Sizes to the content. Offered only when the widget has a natural size. |
-| **Expand** | In a Row, Column or Wrap: along the row or column it takes the space left over, and across it fills the full width or height. |
+| **Expand** | In a Row or Column: along the row or column it takes the space left over, and across it fills the full width or height. |
 
 {/* CAPTURE: id=design-layout-2 | state: a Button inside a Column on a screen is selected (select the Button, then group it with Ctrl/Cmd+G and click the down arrow) | show: the Layout section with the W mode dropdown open showing Fixed, Expand and Auto | crop: right Details panel */}
 
-The sections you get depend on the parent. A screen on the board shows **X**, **Y**, **W** and **H**. A widget in a Stack shows the distances and constraints. A widget in a Row, Column or Wrap shows **Fixed**, **Auto** and **Expand**. A widget in a List View shows **Fixed** and **Auto**. A widget with any other parent shows an empty **Layout** section. Click its **+** to give it a fixed-size box.
+The **Layout** section changes with the parent:
+
+- A screen or a loose widget on the board shows **X**, **Y**, **W** and **H**.
+- A widget in a Stack shows the distances and constraints above.
+- A widget in a Row, Column or Wrap shows **W** and **H** with **Fixed**, **Auto** and **Expand**.
+- A widget in a List View shows **W** and **H** with **Fixed** and **Auto**.
+- A widget with any other parent shows an empty section. Click its **+** to add a size box with **W** and **H**.
 
 ## Scroll or wrap content
 
 - **Scroll View**: select a Column, or any widget that may not fit, click **Add Wrapper** and choose **Scroll View**. Inside a Scroll View, **Expand** isn't offered along the scroll direction, because a scrolling area has no fixed end to fill.
 - **Wrap**: add it from the widget picker. Children sit side by side and continue on a new line when they run out of room.
-- **List View**: add it from the widget picker for a scrolling list. Children are dropped in order like a Column, and each gets a size box. See the [widget catalog](../reference/widgets/index.md).
+- **List View**: add it from the widget picker for a scrolling list. It starts with three placeholder items that repeat one item design. See [Lists and grids](../reference/widgets/lists.md).
 
 :::tip
 Or ask Nowa AI: "Put these three cards in a column with 16 px between them and make it scroll."

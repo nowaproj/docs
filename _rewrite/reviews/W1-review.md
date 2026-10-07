@@ -85,3 +85,57 @@ Verifier: batch V1 continuation (Sonnet). The page is `.md`, not `.mdx` as pages
 Counts for this page: 8 rows (about 30 claims and links) checked, 1 fixed, 0 removed, 0 open.
 
 ---
+
+## docs/get-started/welcome.md
+
+718 words by `wc -w` (front matter included). Within budget.
+
+| Claim | Verdict | Code ref | Note |
+|---|---|---|---|
+| What Nowa is, who it is for, "no Flutter knowledge needed", "real Flutter code that you own" | ok | `research/positioning.md` §1-3, BRIEF.md | Positioning copy, not code facts. No model name, plan name or number is given (D3). |
+| Loop: Describe, watch it build, refine (**Details**, themes), **Play** (Instant Play), **Run**, **Publish** | ok | first-app checks (above), `lib/project/run/run_button.dart:174` (**Run**), `lib/project/run/deploy_button.dart:100` (**Deploy**) | Labels as in the app. **Play** is given with its feature name, as the glossary asks. |
+| **Run**: "in the editor, on your phone, or on a device with the desktop app" | ok | `run_button.dart:609` (**Embedded preview**), `packages/nowa_run/lib/src/ui/nowa_run_play_tools.dart:7-60` (QR of the preview URL "from a phone"), `run_button.dart:457,545,655` (device runs desktop-only, **Run on**) | Cloud projects also run on devices in the desktop app (`run_button.dart:90-94,510-511`). |
+| **Deploy** builds for the web, Android and iOS; web row publishes a live URL | ok | `lib/project/run/deploy_button.dart:186,250-253,333-356` (menu rows: web, Android debug, Android release, iOS; `_deployWeb` publishes) | |
+| "Publishing to a live web URL and building for Android and iOS are available on paid plans" | ok | `deploy_button.dart:188,287,302` | The app's own wording ("paid plans"); gated by entitlements `webPreviewDeploys` and `cloudBuilds` (`deploy_button.dart:56-61`). No plan name or number. Matches `publish/index.md`. |
+| **Deploy** works for any project | fixed | `deploy_button.dart:21` (`if (isLocal) return SizedBox.shrink()`) | Button is hidden for local projects. Added "**Deploy** is for cloud projects." |
+| Desktop row: "Run your app on desktop targets from the desktop app" | ok | `packages/core/lib/flutter_tool.dart:83` (`flutter devices --machine`), `packages/core/lib/src/runner/device.dart:5-15` (macOS, Windows, Linux parsed), `lib/project/onboarding/onboarding_step.dart:~95` ("iOS, Android, Chrome, macOS and more") | The device list is whatever the local Flutter SDK reports. The page does not claim desktop installers (no deploy for them). |
+| Developers: Git, packages, custom code, workspaces; "keep Nowa and VS Code open on the same folder" for a local project | ok | `lib/project/side_bar.dart:56-58` (**Git**), `packages/core/lib/src/services/local_file_service.dart:120-136` (recursive folder watcher), `lib/project/download_code_button.dart:40-57` (**Open in VS Code**, local projects only, `lib/project/panels/vibe_designer.dart:62`) | |
+| Web app "Everything starts here" | fixed | n/a | Not true as written (the desktop app signs in and creates projects too). Now "Sign in and build in your browser." |
+| Phone layout under 840 px | ok | `packages/nowa_ui/lib/src/globals/responsive_utils.dart:40-68` | Same as first-app. |
+| Desktop app: macOS and Windows; adds local projects, device runs, importing existing Flutter projects | ok | `packages/core/lib/src/dialogs/download_nowa_dialog.dart:46-70` (**MacOS**, **Windows**), `lib/dashboard/create_new_project/new_project_dialog.dart:267` ("Local projects are only available in the desktop app."), `packages/nowa_ui/lib/dashboard/projects_view.dart:330-335` (`if (NPlatform.isDesktop)` **Import project**; `isDesktop` excludes web, `packages/nowa_runtime/lib/src/nowa_platform.dart:21`) | |
+| Playground at `/playground`, no account | ok | `lib/router.dart:266-276` | |
+| Key terms: **AI Assistant** panel, **Assistant** icon, **Widgets** panel lists screens as **Page**, **Details** panel, cloud/local | ok | `packages/ai/lib/src/ui/chat_panel/ai_chat_panel.dart:46` ("AI Assistant" until a session title exists), `lib/project/side_bar.dart:37` (`name: "Assistant"`), `lib/project/panels/widgets_panel/widgets_panel.dart:15,318-331` (`PreviewType { page, component }`, labels **Page** / **Component**) | |
+| Links (11) | ok | n/a | `../ai/index.md`, `../design/index.md`, `../test/index.md`, `../publish/index.md`, `./mobile.md`, `./desktop-app.md`, `./playground.md`, `./cloud-and-local.md`, `./first-app.md`, `./create-account.md`, `./editor-tour.md` all exist. |
+| Style | ok | n/a | Front matter ok, no H1, sentence-case headings, no `---`, no emoji, no admonitions, no capture placeholders. |
+
+Counts for this page: about 35 claims checked, 2 fixed, 0 removed, 0 open.
+
+---
+
+## docs/get-started/create-account.md
+
+About 690 words by `wc -w`. Within budget.
+
+| Claim | Verdict | Code ref | Note |
+|---|---|---|---|
+| Sign-up page `app.nowa.dev/signup`; form fields **First name**, **Last name**, **Email**, **Password** ("At least 8 characters"), **Repeat password**; **I accept the terms & conditions**; **I want to receive emails on latest updates and features** ticked by default; **Create account** (13 labels) | ok | `lib/router.dart:191-196`, `lib/auth/auth_view.dart:446-522`, `lib/auth/auth_widgets.dart:12-35` (`AuthValidators.password`: under 8 characters fails) | `_acceptTerms = false`, `_newsletter = true` at `auth_view.dart:393-394`. |
+| After **Create account**, the **Confirm your email** step opens | ok | `auth_view.dart:95-110` (`_accept`: unverified user goes to `AuthMode.verify`), `:745` | |
+| Six boxes; checked on the last digit or **Verify**; **Resend the code** becomes **Sent!** | ok | `auth_view.dart:737-806` (`onCompleted: (_) => _verify()`, `AuthPrimaryButton(label: 'Verify')` at `:793`, `_sent ? 'Sent!' : 'Resend the code'` at `:797`) | The step also has **Log out**, not mentioned. |
+| After the code, the dashboard with **What do you want to build?**, after the survey | ok | `auth_view.dart:175,702-703,737` (`showSurvey: onLoggedIn == null` → `SurveyForm` → `context.go('/')`) | On the standalone sign-up page the survey comes right after the code, before the dashboard. |
+| "If the form won't submit, read the message under the field" | fixed | `auth_widgets.dart:120,132` (`AuthErrorBanner` below the form), `auth_view.dart:410` | The terms error ("Accepting terms and conditions is required") shows in a banner below the form, not under a field. Page now says "under the field or in the banner below the form". |
+| Google: **Continue with Google** on both pages; first time **Complete your account** with **First name** / **Last name** prefilled, terms box, **Create account** | ok | `auth_widgets.dart:541-580`, `lib/auth/google_signup.dart:80-127`, `lib/router.dart:197-209` | Newsletter box also shown there (ticked by default); the page says only "tick the terms box". |
+| Apple: web and iOS only, not the desktop app | ok | `auth_widgets.dart:512` (`kAppleSignInSupported => NPlatform.isIOS || NPlatform.isWeb`), `:534` | One call signs in or signs up (`packages/core/lib/src/services/user_service.dart:132-156`). |
+| Sign in: signed out at `app.nowa.dev` you see **Welcome back!**; **Email**, **Password**, **Log In** | ok | `lib/router.dart:60-73,175-189` (signed-out `/` redirects to `/signin`), `auth_view.dart:286-325` | |
+| Unconfirmed account sees **Confirm your email** after signing in | ok | `auth_view.dart:95-110` | |
+| A link that needs an account (for example a project link) opens after sign-in | ok | `lib/router.dart:28,67,85` (`AuthRedirectManager.remember(intendedUri)` / `take()`) | |
+| Reset: **Forgot Password?**, **Send reset link**, **Check your email**; reset page **New password**, **Repeat new password**, **Reset password**, **Password changed** | ok | `auth_view.dart:351,602,621,647`, `lib/auth/reset_password_page.dart:57-98` | Page title there is "Set a new password". |
+| **Invalid link** means the link has expired | fixed | `reset_password_page.dart:60-68` | Shown when the token is missing; message says "missing or has expired". Now "missing or has expired". Split step 3 (open the link) from the form step to keep one action per step. |
+| Survey: four questions, **Question 1 of 4**, click advances, **Other** / **Yes** ask for words and **Continue**, once, not skippable | fixed | `lib/dashboard/overlays/survey_overlay.dart:31-90,183,244`, `lib/dashboard/dashboard_provider.dart:53-70` (`barrierDismissible: false`, `canPop: false`, skipped once `didSurvey`) | Page said the questions were about "what you want to build first and how you found Nowa" and that **Other** and **Yes** ask for words. The four questions are: what to build first, what best describes you, whether you used another app builder, where you heard about Nowa. Only **Other** (question 2) and **Yes** (question 3) have a follow-up field; **Other** on question 4 has none. Page now lists the four and names those two. Also timing: "before they can use the dashboard" (email sign-ups see it right after the code, Google sign-ups on the dashboard). **Back** added (`survey_overlay.dart:267`). |
+| Log out: icon beside your name at the bottom of the dashboard sidebar; in a project avatar then **Logout** | ok | `packages/nowa_ui/lib/dashboard/dashboard_side_bar.dart:237-247` (tooltip **Logout**), `packages/nowa_ui/lib/top_bar/top_bar_view.dart:677-685` | |
+| "Want to look around first?" playground pointer in the intro | ok | `auth_view.dart:542-549` | Shown on the standalone sign-up page only. |
+| Links | ok | n/a | `./playground.md`, `./first-app.md`, `./editor-tour.md#welcome-tour` (heading at `editor-tour.md:101`), `../account/account-settings.md` (covers name, email, password, Figma) all resolve. `#answer-the-four-questions` is the heading below. |
+| Style | ok | n/a | Front matter ok, no H1, sentence-case H2s, no `---`, no emoji, no admonitions. CAPTURE placeholder well formed, row `get-started-create-account-1` exists in `captures/requests/W1.md`. |
+
+Counts for this page: about 55 claims checked, 3 fixed, 0 removed, 0 open.
+
+---

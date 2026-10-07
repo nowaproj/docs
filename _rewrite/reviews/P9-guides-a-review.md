@@ -2,7 +2,22 @@
 
 Batch "P9 guides A": `docs/guides/index.md`, `docs/guides/complete-app.md`, `docs/guides/design-tips.md`. Verifier: not the author. Source of truth: `/home/user/nowa-master` (Nowa 3.12.5). Writer notes: `reviews/W19-writer-notes.md`. Code refs are relative to the repo root.
 
-SUMMARY_PLACEHOLDER
+## Summary
+
+- Pages checked: 3 of 3 (`index.md`, `complete-app.md`, `design-tips.md`).
+- Claims checked: 114 rows below (index 18, complete-app 64, design-tips 32), each row grouping one or more statements; about 130 individual claims. Every UI label, menu path, step order, gate and product behavior was opened in code.
+- Verdicts: 90 ok, 22 fixed (complete-app 18, design-tips 4, index 0), 2 removed (complete-app).
+- Most serious errors fixed in `complete-app.md`:
+  - Step 1 said Plan mode helps "make the app work"; Plan changes nothing.
+  - Step 5 order: the table is created after connecting, so the cached table list is stale and **No Tables Found** / **Fetch Tables** is the normal path; **List** exists only when **Type** is **Builder**; the function names `getAllRecipes` and `getByIdRecipes` hold only for a table named `recipes`; "(it reads **Connect**)" is wrong for a list that is already linked.
+  - Step 6: `RecipeCard` is not in the **Widgets** panel until **Component** is selected; the Router-panel drag needs the route selected and lands under **Screen Parameters**.
+  - Step 3 and 6: the example table now has a uuid `id` (the ID templates filter on a column named `id`, and a new param is text).
+  - Step 8: a debug build needs **Build** too; the App Store path and label were vague; "raise **Build number**" does not apply to the web.
+- Fixed in `design-tips.md`: an invented number ("fifty"); "a new screen's default path" implied every new screen has a route; the board-name rule holds only at creation; Seed mode needed its **Mode** switch named.
+- Plan gates and badges: `cloud` + `paid` on step 8 and the "paid plan" wording match `publish/index.md`, `web.md`, `android.md`, `ios.md` (code: `lib/project/run/deploy_button.dart:21,188,287`). No prices, credit amounts or plan limits in the three pages (D3).
+- Links: 64 relative links and anchors in the three pages resolve (script check against files and headings, re-run at the end); all three pages compile as MDX. No emoji, no hype words, no `---` rules, no H1, at most one admonition per page.
+- Length: `complete-app.md` 1,427 words (`wc -w`, whole file) before, 1,405 after, all steps kept (about 1,310 words of body text). `design-tips.md` 986, `index.md` 643.
+- Open issues: 6, listed at the end.
 
 ## index.md (Build a great app)
 
@@ -171,3 +186,16 @@ Status: checked, 4 fixes. Most bullets restate pages that W3 and W4 verified (`d
 | 14 relative links and anchors; inbound anchors kept | ok | script check | Other pages link to `#set-the-theme-first`, `#build-once-reuse-everywhere`, `#start-from-a-template` (`design/themes.md`, `components.md`, `templates.md`): headings unchanged. |
 
 Design-tips result: 32 rows, 4 fixed, 0 removed, 28 ok.
+
+## Open issues
+
+1. **Nullable `id` param (needs one live run).** A new screen or component param starts as `String?` (`packages/core/lib/src/widgets/code/declaration_list_widgets.dart:294-300`), while `getByIdRecipes` takes a non-null `String` or `int` (`packages/data/lib/src/supabase/templates/template_source_generator.dart:40-44,56-63`). The link menu compares types by name and ignores nullability (`packages/core/lib/src/interpreter/type.dart:144-146`), so Nowa lets you link them. I did not confirm whether the generated Dart then analyzes and builds cleanly (I stopped while reading `packages/core/lib/src/interpreter/generators/variable_generator.dart`). Run steps 5 and 6 once and look at **Problems** and **Run**. The page makes no claim about this; I found no UI label for making a param non-nullable, so it says nothing about it. `logic/navigation.md#open-a-detail-screen` (step 4) has the same exposure.
+2. **Steps 4 to 6 were not run end to end** (code read only). Unknowns: whether AI-built screens come with routes (the page now says "give each screen you open a path"), whether an AI-built list is already a Builder linked to a demo list (the page covers both: "If **Type** shows **Normal**, choose **Builder**"), and whether typing `$` in **Location** and picking a component param writes `${id}` as expected (code: `packages/core/lib/src/fields/basic_fields.dart:101`, `packages/core/lib/src/fields/interpolated_text_field.dart:41-55`).
+3. **W20 is changing the neighbors while this batch ran.** `logic/router.md#start-on-login-or-home` (redirect and "stay signed in") is new and not verified here. `complete-app.md` makes the login screen the home screen and does not mention skipping login for a signed-in person. After W20 is verified, consider one line in step 4 that links it; not added now (the page is at its length cap and the target is unverified). `logic/navigation.md` is being split: the two links I use (`navigation.md` and `navigation.md#open-a-detail-screen`) resolve now, so re-run the link check after W20.
+4. **Anchors into the other guides.** `ship-tips.md#publish-checklist`, `#test-in-the-right-place`, `#keep-a-way-back` and `data-and-state-tips.md#keep-secrets-out-of-your-app` resolve now; P9-guides-b may rename headings, so re-run the link check after that batch. Anchors other pages use into these three pages must stay: `design-tips.md#set-the-theme-first`, `#build-once-reuse-everywhere`, `#start-from-a-template`.
+5. **Capture `guides-complete-app-1`** needs sign-in and an AI run (request in `captures/requests/W19.md`); the page has the well-formed placeholder.
+6. **Not run in the app, kept from verified pages:** the **Visibility** plus `MediaQuery` width recipe in `design-tips.md` (W4 read it from code), and "Login flow becomes `loginFlow`" (W3, creation only). The writer's note about `docs/test/share.md` (the **Single Screen Preview** warning appears only for a screen without a route) is outside this batch and was not checked here.
+
+Style note: steps 2.2, 4.5 and 6.2 chain several actions on one control (select, wrap, open the event, add the node). I left them as chains to stay within the length cap; the old step 4.1 held five actions and is now two steps.
+
+Stopped here; left: no page unchecked (index.md, complete-app.md, design-tips.md are done and logged). Not done: the live runs and the nullable-`id` check in open issues 1 and 2, and a re-check of the links after W20 and P9-guides-b finish.

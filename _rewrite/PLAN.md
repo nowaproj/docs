@@ -35,9 +35,10 @@ Phase 9 is in progress:
 | 6 Tips | Done: guides + one-line links from 8 feature pages. |
 
 **Verification of phase 9 text (non-author agents), state at the pause:**
-- Done: `reviews/P9-gaps-review.md` (coverage gap fixes, integrations overview additions, share.md).
+- Done: `reviews/P9-gaps-review.md` (coverage gap fixes, integrations overview additions, share.md),
+  `reviews/P9-guides-b-review.md` (ai-tips, data-and-state-tips, ship-tips; 19 rows fixed).
 - Paused, resume from each log's "Stopped here" line: `reviews/P9-guides-a-review.md` (guides index, complete-app,
-  design-tips), `reviews/P9-guides-b-review.md` (ai-tips, data-and-state-tips, ship-tips),
+  design-tips),
   `reviews/P9-routes-review.md` (logic/router.md, logic/navigation.md, one-line links),
   `reviews/P9-recipes-review.md` (publish, devices, themes, test/index, guide links). Prompts: same scope as in the
   logs' headers; tell each verifier to continue from its log.
@@ -45,7 +46,8 @@ Phase 9 is in progress:
   "My app shows an error", publish "Ship an update", code index tip, import "Before you start", reference
   overview, add-widgets section, welcome steps, first-app step 5).
 
-**Small follow-ups:** link `guides/complete-app.md` step 4 to `../logic/router.md#start-on-login-or-home` once the
+**Small follow-ups:** `integrations/rest-api/index.md` warning says "tokens you type here" (imprecise; say what
+the warning is about); `design/boards.md` big-board note should say "in or near view" like `guides/ship-tips.md`; link `guides/complete-app.md` step 4 to `../logic/router.md#start-on-login-or-home` once the
 guides verifier is done; update `PR-REPORT.md` (Add logic now 13 pages; videos; phase 9 results) and the PR body.
 
 **Then:** style pass, capture wave 2 + embed, final build, update the PR, list what's left.

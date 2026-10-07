@@ -21,7 +21,7 @@ A **Data Builder** loads data from a request, a Supabase function or a Firestore
 
 ## Add payments, ads, maps and more
 
-Each has a settings page with an **Enabled** switch.
+Each has a settings page with an **Enabled** switch. If Firebase handles Google sign-in, the **Google Sign-In** page shows **Managed by Firebase** instead.
 
 - [Stripe](./stripe.md): one-time, consumable and subscription payments. Builds on Supabase.
 - [RevenueCat](./revenuecat.md): in-app purchases and subscriptions, with a ready-made paywall.

@@ -27,3 +27,7 @@ the product team. "Verified" means the orchestrator re-checked it in the code.
 | P20 | master (3.12.5) board | A Ctrl+mouse-wheel zoom with a large step breaks the board view, and the broken zoom is saved in the browser (localStorage), so it survives reloads. | capture agent (seen in the running app) | yes (observed) |
 | P21 | master (3.12.5) playground starter | Switching the home screen's Group from Column to Row paints the screen gray with a status-bar "Canvas error ... preferredSize". | capture agent (seen in the running app) | yes (observed) |
 | P22 | master (3.12.5) code sync | A top-level function or enum that Nowa fails to load may be dropped when Nowa rewrites the file after a visual edit (possible data loss). Needs a runtime check. | W9 verifier | no (code reading) |
+| P23 | master (3.12.5) Supabase **Set up Backend** | Edge functions from a bundled backend are deployed with `verify_jwt: false`, so they accept calls without a signed-in user's token unless the function checks itself. Worth a security review. | W15 verifier | yes (code) |
+| P24 | master (3.12.5) Supabase connect | The "No organizations found" message is never shown; the waiting dialog just stays open. | W15 verifier | yes (code) |
+| P25 | master (3.12.5) Supabase **Query Templates** | Generated names mix styles for snake_case tables, e.g. `getAllUser_profiles`. | W15 verifier | yes (code) |
+| P26 | master (3.12.5) Supabase backend setup **Fix with AI** | Sends a fixed prompt that doesn't include the actual failure. | W15 verifier | yes (code) |

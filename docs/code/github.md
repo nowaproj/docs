@@ -26,19 +26,20 @@ While GitHub is connected, Nowa uses it instead of any access tokens you added.
 
 ## Create or connect a repository {#connect-a-repository}
 
-A project needs a remote before it can push and pull. **Manage Remotes** sets one up. Open it from the **Git** panel: hover the branch row, click the **...** button and choose **Manage Remotes**. It also opens by itself when you click **Sync** in a project with no remote.
+A project needs a remote before it can push and pull. **Manage Remotes** sets one up. Open it from the **Git** panel: hover the branch row, click the **...** button and choose **Manage Remotes**. It also opens by itself when you click **Publish Branch** (or **Sync**) in a project with no remote.
 
 To create a new repository:
 
-1. In **Create GitHub Repository**, check the **Name**. It starts as your project's name and sits after your GitHub username.
+1. In **Create GitHub Repository**, check the **Name**. It starts as your project's name, after your GitHub account name. Use letters, numbers, hyphens, underscores and periods only.
 2. Keep **Private** ticked to keep the repository to yourself and the people you share it with.
 3. Click **Create Repository**. Nowa creates it on GitHub, adds it as the remote `origin` and pushes your commits.
 
 To connect a repository you already have:
 
 1. Under **OR**, expand **Add Existing Repository**.
-2. Pick a repository from the list (type in **Search repositories** to filter), or paste its **Repository URL**. Nowa accepts `http://` and `https://` URLs here.
-3. Click **Connect Repository**, then click **Sync** in the **Git** panel.
+2. Pick a repository from the list (it appears once GitHub is connected; type in **Search repositories** to filter), or paste its **Repository URL**. Nowa accepts `http://` and `https://` URLs here.
+3. Click **Connect Repository**.
+4. In the **Git** panel, click the button under the commit box: **Publish Branch** if the repository doesn't have your branch yet, otherwise **Sync**.
 
 :::warning
 Make sure the repository is the right one for this project. Nowa warns that connecting the wrong repository may lead to the loss of your current changes.
@@ -46,9 +47,9 @@ Make sure the repository is the right one for this project. Nowa warns that conn
 
 {/* CAPTURE: id=code-github-2 | state: signed in, GitHub connected, a project without a remote; Git panel → ... → Manage Remotes | show: the Create GitHub Repository form (Name with your username prefix, Private, Create Repository), the OR divider and the Add Existing Repository row | crop: the dialog */}
 
-Once a repository is connected, **Connected Remote Repository** shows its address. The icon beside it (tooltip **View Repository in Browser**) opens it on GitHub, and **Disconnect** removes the remote from the project.
+Once a repository is connected, **Connected Remote Repository** shows its address. The icon beside it (tooltip **View Repository in Browser**) opens it in your browser, and **Disconnect** removes the remote from the project. The repository on GitHub stays.
 
-If GitHub isn't connected yet, the create section says "You need to connect your GitHub account to create a repository." and offers **Connect GitHub**. If GitHub didn't give Nowa permission to create repositories, you see "No permission to create repository. Try again" and **Grant Permission**.
+If GitHub isn't connected yet, **Create GitHub Repository** shows **Connect GitHub** instead of the form, and its info icon explains "You need to connect your GitHub account to create a repository." If GitHub didn't give Nowa permission to create repositories, you see "No permission to create repository. Try again" and **Grant Permission**.
 
 ## Set your Git identity {#set-your-git-identity}
 
@@ -58,13 +59,13 @@ Every commit carries a name and an email. New projects use your account's. To ch
 2. Under **Identity**, type your **Name** and **Email**.
 3. Click **Set Identity**.
 
-The identity belongs to this project. If a commit needs one and there isn't any, Nowa asks first with "You need to set your identity first".
+The identity belongs to this project. If the page says "No repository found", click **Create Git Repository...** in the **Git** panel first. In a cloud project without an identity, Nowa asks when you commit ("You need to set your identity first"). A local project with no identity in its repository or in Git on your computer can't commit until you set one.
 
 ## Use an access token instead (legacy) {#legacy-remote-credentials}
 
-Before GitHub Integration, Nowa signed in to Git hosts with personal access tokens. They still work when GitHub isn't connected. For a cloud project, Nowa's servers use the token to reach your repository.
+Personal access tokens are the older way to sign in to your Git provider, and the settings call them legacy. They still work when GitHub isn't connected. For a cloud project, Nowa's servers use the token to reach your repository.
 
-1. Create a personal access token with your Git host, with permission to read and write the repository's code. For GitHub, see [GitHub's guide to personal access tokens](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
+1. Create a personal access token in your account settings on your Git provider's website, with permission to push to the repository. For GitHub, see [GitHub's guide to personal access tokens](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
 2. Open the Git settings (see above). Under **Legacy Remote Credentials**, click **Add Credentials**.
 3. In **Set Git Credentials**, type your **Username**, paste the token into **Access Token** and click **Add Credentials**.
 
@@ -76,17 +77,18 @@ Before GitHub Integration, Nowa signed in to Git hosts with personal access toke
 
 Git for a local project runs on your computer, so Nowa signs in from your computer too.
 
-- **HTTPS remotes.** Nowa uses GitHub Integration if it's connected. Otherwise it uses **External Local Credentials**: click **+** beside the heading and add a **Username** and **Access Token**. Nowa says "No credentials found" until you do.
-- **SSH remotes.** For a remote such as `git@github.com:you/app.git` or `ssh://...`, Nowa never sends a token. It tries the keys in your ssh-agent first, then `~/.ssh/id_ed25519` and `~/.ssh/id_rsa`, each with its matching `.pub` file. A key protected by a passphrase works only through the agent. **Add Existing Repository** takes only `http://` and `https://` URLs, so an SSH remote is one you set up outside Nowa, for example by cloning with `git clone` in a terminal.
+- **HTTPS remotes.** Nowa uses GitHub Integration if it's connected. Otherwise it uses **External Local Credentials** in the Git settings: click **+** beside the heading and add a **Username** and **Access Token**. Nowa says "No credentials found" until you do.
+- **SSH remotes.** For a remote such as `git@github.com:you/app.git` or `ssh://...`, Nowa never sends a token. It tries the keys in your ssh-agent first, then `id_ed25519` and `id_rsa` in the `.ssh` folder of your home folder (found through the `HOME` environment variable), each with its matching `.pub` file. A key protected by a passphrase works only through the agent.
+- **Adding an SSH remote.** **Add Existing Repository** takes only `http://` and `https://` URLs, so set an SSH remote up outside Nowa, for example by cloning with `git clone` in a terminal and then [importing the folder](import.md#import-a-project-from-a-folder).
 
 ## Fix connection problems
 
 | You see | Do this |
 |---|---|
-| An empty repository list in **Clone from GitHub** | Connect GitHub first, as above. The list stays empty until you do. |
-| "You need to provide authentication for this action" | Connect GitHub, or add an access token. |
+| No repository list in **Clone from GitHub** | Connect GitHub first, as above. The list doesn't appear until you do. |
+| "You need to provide authentication for this action" or "You need to add your credentials to access the remote repository" | Connect GitHub, or add an access token: under **Legacy Remote Credentials** for a cloud project, under **External Local Credentials** for a local project. |
 | "You don't have access to this repository, please check your credentials" | Click **Manage** under **GitHub Integration** and make sure Nowa can use that repository, or check your token. |
-| "Authorization timed out. Please try again." | Click **Connect GitHub** again and finish in the browser within two minutes. |
+| The waiting window closes after two minutes and **Connect GitHub** is still there | You didn't approve in time. Click **Connect GitHub** again and approve Nowa in the browser within two minutes. |
 
 ## Next steps
 

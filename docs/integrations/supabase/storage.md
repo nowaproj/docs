@@ -35,7 +35,9 @@ The names are fixed, so you get one of each, and generating a template again rep
 2. Type a **Bucket Name** and a **File Name**. The file name can include folders, such as `images/photo.png`.
 3. Click **File Data** and pick an image from your device. The field then shows the file's name.
 4. Click **Run**.
-5. Click `downloadFile`. Type the same **Bucket Name**, and the name you uploaded under as **File Path**. Click **Run**.
+5. Click `downloadFile`.
+6. Type the same **Bucket Name**, and the name you uploaded under as **File Path**.
+7. Click **Run**.
 
 {/* CAPTURE: id=integrations-supabase-storage-2 | state: same project, uploadFile run with a small PNG, then downloadFile run for it | show: the bottom test panel titled Testing downloadFile with the image preview, the download icon beside it, and Testing values, Run and Edit Code on the right | crop: bottom test panel */}
 
@@ -55,17 +57,17 @@ Both flows below run from an event, such as a button's **On Pressed**. See [Buil
 
 ### Upload a picked image
 
-1. Add `showMediaPicker`. If Nowa lists missing packages or permissions under **Dependencies**, click **Hot Fix**. See [Show dialogs, sheets, snackbars and pickers](../../logic/popups.md).
+1. Add `showMediaPicker`. **Source Type** starts as `camera`: choose `gallery` to pick from the photo library. If Nowa lists missing packages or permissions under **Dependencies**, click **Hot Fix**. See [Show dialogs, sheets, snackbars and pickers](../../logic/popups.md).
 2. Turn on **await**, then use **Store result** → **New Variable**. The variable holds a list of the files the person picked.
-3. Add a node for that variable. Click **+**, choose `first`, then `readAsBytes`. Turn on **await** and store the result in a new variable. This is the file's data.
+3. Add a node and pick that variable from **LOCALS**. Click **+**, choose `first`, then `readAsBytes`. Turn on **await** and store the result in a new variable. This is the file's data.
 4. Add `SupabaseService` → `uploadFile`. Type the **Bucket Name** and **File Name**, and link **File Data** to the variable from step 3.
 
 ### Show a downloaded image
 
-1. Add `SupabaseService` → `downloadFile` and fill in **Bucket Name** and **File Path**.
-2. Turn on **await**, then use **Store result** → **New Variable** to keep the file's data.
-3. Add **refresh** from **LOCALS**, so the screen redraws when the data arrives.
-4. Select the **Image** widget. In its source field, open the **Bytes** tab and link it to the variable. See [Images, videos and other files](../../design/assets.md).
+1. Select the **Image** widget. In its source field, open the **Bytes** tab, click the **Bytes** label and choose **Create Variable...**. Nowa adds a screen variable for the file's data and links it. See [Images, videos and other files](../../design/assets.md).
+2. In the Circuit of your event, add `SupabaseService` → `downloadFile` and fill in **Bucket Name** and **File Path**.
+3. Turn on **await**. Set **Store result** to **Pick Variable**, click the **Variable** label and choose the variable from step 1.
+4. Add **refresh** from **LOCALS**, so the screen redraws when the data arrives.
 
 To show many images, such as a photo feed, a public bucket is simpler. Files in a public bucket have web addresses, so an **Image** can load them from its **Network** tab. See the [Supabase Storage docs](https://supabase.com/docs/guides/storage).
 

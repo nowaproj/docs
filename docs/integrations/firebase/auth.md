@@ -22,7 +22,7 @@ Firebase Authentication lets people create accounts and sign in to your app. Tur
 
 {/* CAPTURE: id=integrations-firebase-auth-1 | state: connected project, Authentication on, Available Providers open with one provider added | show: the Email/Password, Google and Phone tiles (one with a check mark) and the note above them | crop: Settings window content area */}
 
-If adding **Google** fails with "Must Enable Google Authentication on Firebase", turn on Google sign-in in the Firebase console and try again.
+If adding **Google** shows the red message "Exception: Must Enable Google Authentication on Firebase", turn on Google sign-in in the Firebase console and try again.
 
 ## Functions Nowa adds
 
@@ -44,18 +44,19 @@ Nowa puts the functions in `FirebaseService`, in `lib/firebase/firebase.dart`.
 **Google** and **Phone** also add the iOS settings they need, a URL scheme in `Info.plist`.
 
 :::note
-In Nowa 3.12.5, `signInWithGoogle()` is generated for an older release of the `google_sign_in` package than the 7.x one Nowa installs. If building your app reports errors about `GoogleSignIn` in `lib/firebase/firebase.dart`, ask Nowa AI to update the function for the installed version, or edit it in [code mode](../../code/code-mode.md).
+In Nowa 3.12.5, **Google** writes `signInWithGoogle()` for an older version of the `google_sign_in` package than the 7.x version Nowa installs. If your build reports errors about `GoogleSignIn` in `lib/firebase/firebase.dart`, this is the cause. Turning **Google** off removes the function and the package.
 :::
 
 ## Use the functions in your screens
 
 Call them from an event, such as a button's **On Pressed**.
 
-1. Select the widget and click **+** next to its event to open [Circuit](../../logic/circuit.md). If the event already has logic, click **Edit**.
-2. Hover the dot under a node and click **+**. The **All nodes for this circuit** menu opens.
-3. Open the **FIREBASE** category and pick a function. The category appears once Firebase is connected.
-4. Fill in the parameters with your own values, such as [variables](../../logic/variables.md) that hold what the user typed.
-5. Most of these functions return a Future. On those nodes, open **Future Options**. Use **onValue** for what happens after a successful sign-in, such as [opening the home screen](../../logic/navigation.md), and **onError** for failures.
+1. Select the widget, such as a button.
+2. In **Details**, click **+** next to the event. If the event already has logic, the button reads **Edit**. [Circuit](../../logic/circuit.md) opens.
+3. Hover the dot under a node and click **+**. The **All nodes for this circuit** menu opens.
+4. Open the **FIREBASE** category and pick a function. The category appears once Firebase is connected.
+5. Fill in the parameters with your own values, such as [variables](../../logic/variables.md) that hold what the user typed.
+6. Most of these functions return a Future. Select that node and find **Future Options** in **Details**. Click **+** next to **onValue** for what happens after a successful sign-in, such as [opening the home screen](../../logic/navigation.md). The **onError** function it creates runs when sign-in fails. See [Wait for a result](../../logic/circuit.md#future-options).
 
 :::tip
 Prefer to describe it? Once a provider is on, ask Nowa AI in **Agent** mode, for example: "Build a sign-in screen with email and password fields that signs the user in with Firebase and opens the home screen."
@@ -63,7 +64,7 @@ Prefer to describe it? Once a provider is on, ask Nowa AI in **Agent** mode, for
 
 ## Test sign-in in Nowa
 
-In Instant Play (**Play**), the sign-in functions don't contact Firebase. Calling one opens a preview dialog. Choose **Test with fake user** to simulate success, or the other button to simulate an error. The Google dialog uses **Test with fake Google user** and **Test error signing in**.
+In Instant Play (**Play**), `signInWithGoogle()`, `signUpWithEmailAndPassword()`, `signInWithEmailAndPassword()` and `signInWithPhoneNumber()` don't contact Firebase. Each opens a preview dialog. Choose **Test with fake user** to simulate success, or the other button to simulate an error. The Google dialog uses **Test with fake Google user** and **Test error signing in**.
 
 In the same way, `currentUser` returns a placeholder user whose values read `[email]` and `[displayName]`, and `isUserSignedIn()` returns false. To try real sign-in, run your app on a simulator or a device. See [Run on a device or emulator](../../test/devices.md).
 
@@ -73,20 +74,20 @@ Google sign-in on Android needs your app's SHA fingerprints registered in Fireba
 
 1. On the Firebase page, click **Setup** under **SHA Certificate Fingerprints (For Google Sign in)**.
 2. The table lists the fingerprints Firebase already has for your Android app, with their **Type**. It reads "No keys found" when there are none.
-3. Under **Release key**, click **Add** next to **SHA-1** and **SHA-256**. A check mark replaces **Add** once the key is in Firebase. This section shows up when Nowa can read your project's Android signing key. See [Publish to Google Play](../../publish/android.md).
+3. Under **Release key**, click **Add** next to **SHA-1** and **SHA-256**. A check mark replaces **Add** once the key is in Firebase. This section shows up when Nowa can get the fingerprints of your project's Android signing key. See [Publish to Google Play](../../publish/android.md).
 4. To use Google sign-in in debug builds you run from your own computer, add your debug key too:
    1. Copy the `keytool` command under **Add a key** and run it in a terminal.
    2. Copy the SHA-1 it prints.
    3. Paste it into **Enter SHA-1 or SHA-256** and click **Add Key**. The key appears in the table.
 5. Go back and click **Refresh/Update apps and config files** so your config files match Firebase.
 
-Paste a SHA-1 with its colons, exactly as `keytool` prints it. Nowa treats a value of exactly 59 characters as SHA-1 and anything else as SHA-256.
+Paste the fingerprint with its colons but without the `SHA1:` label that `keytool` prints in front of it. Nowa treats a value of exactly 59 characters as SHA-1 and anything else as SHA-256.
 
 {/* CAPTURE: id=integrations-firebase-auth-2 | state: connected project, SHA Certificate Fingerprints → Setup | show: the fingerprints table, the Release key rows with Add, and the Add a key command with Add Key | crop: Settings window content area */}
 
 ## Turn Authentication off
 
-Turn off **Authentication** to remove the sign-in functions and providers Nowa generated, along with the `firebase_auth` package.
+Turn off **Authentication** to remove every function in the table above except `sendPasswordResetEmail()`, which stays in `FirebaseService`. Delete it in [code mode](../../code/code-mode.md) if you don't need it. Nowa also switches the providers off and removes the `firebase_auth` package.
 
 ## Next steps
 

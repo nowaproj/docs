@@ -15,7 +15,7 @@ A collection holds the requests for one API. Nowa saves it as a Dart file, for e
 
 1. Click **Api** in the left sidebar. The **Collections** panel opens.
 2. Click **+** (**Add Collection**), then **New Collection**.
-3. Type a name. Nowa shows the **Class name** and **Path** it will use.
+3. In the **Create New Collection** dialog, type a name. Nowa shows the **Class name** and **Path** it will use.
 4. Click **Submit**. The collection appears in the panel.
 
 {/* CAPTURE: id=integrations-rest-api-1 | state: playground starter open, Api panel open, collection Cats with a GET and a POST request, Add Collection menu open | show: the Collections panel with method badges and the Add Collection menu | crop: left panel */}
@@ -35,7 +35,7 @@ Hover the collection and click the gear icon. Whatever you set here applies to e
 
 Changes save when you leave a field. Click **Close** when you're done.
 
-With an **Auth Key**, every request sends `Authorization: Bearer` followed by the token your app saved under that name. Save the token after sign-in with the **Shared Preferences** → **set** action, using the same key. See [More actions](../../logic/actions.md).
+With an **Auth Key**, every request sends `Authorization: Bearer` followed by the token your app saved under that name. Save the token after sign-in with the **SHARED PREFERENCES** → **set** action in Circuit, using the same **Key** and the **Type** `string`. See [Save values on the device](../../logic/actions.md#save-values-on-the-device).
 
 :::warning
 Headers, the base URL and tokens you type here are saved in your project's code and ship inside your app. Never put a server secret in them.
@@ -44,10 +44,11 @@ Headers, the base URL and tokens you type here are saved in your project's code 
 ## Add a request
 
 1. Hover the collection, click **+**, then **New Request**.
-2. Type a name and click **Create**. Nowa turns the name into a function name such as `getCats`.
-3. The request opens in a panel at the bottom of the editor. Pick the method (**GET**, **POST**, **PUT**, **DELETE**, **PATCH** or **HEAD**) and type the endpoint. With a base URL set, you only type the path, for example `/v1/items`.
-4. To send headers for this request only, open the **Headers** tab and click **Add header**. Headers from the collection are listed there too, read-only.
-5. To send data, open the **Body** tab and choose a body type.
+2. Type a name and click **Create**. Nowa turns the name into a function name such as `getCats`. The request appears under the collection.
+3. Click the request. It opens in a panel at the bottom of the editor.
+4. Pick the method, such as **GET**, **POST**, **PUT**, **DELETE**, **PATCH** or **HEAD**, and type the endpoint. With a base URL set, you only type the path, for example `/v1/items`.
+5. To send headers for this request only, open the **Headers** tab and click **Add header**. Headers from the collection are listed there too, read-only.
+6. To send data, open the **Body** tab and choose a body type.
 
 | Body type | Use it for |
 |---|---|
@@ -55,7 +56,7 @@ Headers, the base URL and tokens you type here are saved in your project's code 
 | **JSON** | Data as JSON. The status icon in the corner says **Valid JSON** or **Invalid JSON** when you hover it. Nowa only saves the body while it is valid. |
 | **raw** | Plain text, XML or HTTP text. Pick **Text**, **XML** or **HTTP** next to it. |
 | **form-data** | Form fields and files. Click **Add +** for each field. |
-| **x-www-form-urlencoded** | Form fields in the classic web-form format. |
+| **x-www-form-urlencoded** | Sets the content type for classic web forms. You write the body in the same editor as **JSON**, with the same validity check. |
 
 Choosing a body type also sets the request's content type. It replaces the current body with a fresh starting body for that type, and undo brings the old one back.
 
@@ -97,9 +98,9 @@ A model gives the response named fields, so your widgets can use `title` or `pri
 2. In **Select Data**, untick the fields you don't need. Click **Next**.
 3. In **Generated Models**, check the **Name** and the **Path**. Models go in `lib/models` by default. Click **Save**.
 
-The request now returns the model, and the **Model** button in the request editor shows its name. **Generate Model** is hidden when the last test failed.
+The request now returns the model. Click **Back to Request**: the **Model** row in the right panel shows its name. **Generate Model** is hidden when the last test failed.
 
-Click the **Model** button for more choices:
+Click the button next to **Model** for more choices:
 
 - **Generate from Schema**: paste JSON yourself and build a model from it, without a test.
 - **Select Model**: pick an existing model or a basic type.
@@ -108,7 +109,7 @@ Click the **Model** button for more choices:
 ## Use a request in your app
 
 - **Show it on a screen:** wrap a widget in a **Data Builder** and choose the source **API Request**. See [Show data in your UI](../show-data.md).
-- **Call it from logic:** click **+** next to an event such as **On Pressed**, then click **+** under the node in Circuit. Open your app's own category (named after your package, for example **PACKAGE:MY_APP**), click your collection, and pick the request under **Members**. See [Respond to taps and other events](../../logic/events.md) and [Build logic in Circuit](../../logic/circuit.md).
+- **Call it from logic:** in **Details**, click the button next to an event such as **On Pressed**. Circuit opens. Hover the dot under the top node and click the **+** that appears. Open your app's own category (named after your package, for example **PACKAGE:MY_APP**), click your collection, and pick the request under **Members**. See [Respond to taps and other events](../../logic/events.md) and [Build logic in Circuit](../../logic/circuit.md).
 
 :::tip[Or ask Nowa AI]
 In **Agent** mode, Nowa AI can create a collection and request from a cURL command, test it and build the response model. Try: "Add an API request for this cURL command and show the results in a list: curl https://api.example.com/items".

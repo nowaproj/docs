@@ -11,28 +11,31 @@ Sign in with Google, pick your Firebase project and click **Connect Apps**. Nowa
 
 - Create a Firebase project in the [Firebase console](https://console.firebase.google.com/). Nowa can't create projects.
 - Use a Google account that can manage that project.
-- Set your **Bundle Identifier** in **Settings** → **Project Details** before you connect. Nowa uses it as the Android package name and the iOS bundle ID of your Firebase apps. See [Project settings](../../account/project-settings.md).
-- On the Windows desktop app you can connect and build, but you can't test Firestore queries inside Nowa. See [Firebase on Windows](../../troubleshooting/known-issues.md#firebase-on-windows).
+- Set your **Bundle Identifier** in **Settings** → **Project Details** before you connect. Nowa uses it as the package name of your Android app in Firebase and builds the iOS bundle ID from it. See [Project settings](../../account/project-settings.md).
+- On the Windows desktop app you can connect Firebase and build queries, but you can't test them inside Nowa. See [Firebase on Windows](../../troubleshooting/known-issues.md#firebase-on-windows).
 
 ## Connect your project
 
-1. Click **Settings** in the top bar (or press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>,</kbd>), then open **Integrations** → **Firebase**.
-2. Click **Continue with Google**. Google's sign-in opens in a window, or in your browser in the desktop app.
-3. Approve the request. Your Firebase projects appear under **Projects**.
-4. Click your project. The **Apps** list shows what Nowa will connect.
-5. Check the list. Nowa reuses matching apps that already exist in the project (same package name or bundle ID). For each missing app it shows "Android App will be automatically created", "iOS App will be automatically created" or "Web App will be automatically created".
-6. Click **Connect Apps**. A spinner shows while Nowa works. When it finishes, the page switches to the connected view.
+1. Click the gear in the top bar (tooltip **Settings**), or press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>,</kbd>.
+2. In the **Settings** list, click **Firebase** under **Integrations**.
+3. Click **Continue with Google**. Google's sign-in opens in a window, or in your browser in the desktop app.
+4. Approve the request. Your Firebase projects appear under **Projects**.
+5. Click your project. The **Apps** list shows what Nowa will connect.
+6. Check the list. Nowa reuses apps that already match: an Android app with your package name, an iOS app with your bundle ID, or a web app whose name contains your app name and "nowa". For each missing app it shows "Android App will be automatically created", "iOS App will be automatically created" or "Web App will be automatically created".
+7. Click **Connect Apps**. A spinner shows while Nowa works. When it finishes, the page switches to the connected view.
+
+Nowa names the apps it creates after your **App Name**, such as "My App (Android)-nowa".
 
 {/* CAPTURE: id=integrations-firebase-connect-1 | state: Settings → Integrations → Firebase, signed in with Google, a Firebase project clicked | show: the Apps list with the three "will be automatically created" lines and the Connect Apps button | crop: Settings window content area */}
 
 :::note
-Nowa AI can't connect Firebase for you. If you ask it to add `firebase_core`, it tells you to set Firebase up in **Settings** → **Integrations** → **Firebase** so the configuration is right.
+Nowa AI can't connect Firebase for you. It can't add `firebase_core`, and points you to **Settings** → **Integrations** → **Firebase** instead, so the configuration is set up correctly.
 :::
 
 ## If something goes wrong
 
 - **No projects listed.** The page says "You don't have any Firebase project, please create one using firebase console!" Create a project in the Firebase console, then click **Reload Projects**.
-- **An app can't be created.** A red banner says "Error creating apps, you  have finished your limits of apps on Firebase". Remove apps you don't use in the Firebase console, then click **Connect Apps** again.
+- **An app can't be created.** A red banner says "Error creating apps, you  have finished your limits of apps on Firebase". Nowa shows it whenever creating one of the apps fails. If your Firebase project is at its app limit, remove apps you don't use in the Firebase console. Then click the back arrow, pick your project again and click **Connect Apps**.
 - **The page asks you to sign in again.** Nowa remembers your Google sign-in on the device or browser you used. If it expires, or you open the project somewhere else, the **Firebase** page shows **Continue with Google** again. Your project stays connected.
 
 ## What Nowa adds to your project
@@ -42,7 +45,7 @@ Nowa AI can't connect Firebase for you. If you ask it to add `firebase_core`, it
 | `android/app/google-services.json` and `ios/Runner/GoogleService-Info.plist` | Firebase config for your Android and iOS apps. |
 | `lib/firebase_options.dart` | Connection options for Android, iOS and web. macOS apps use the iOS options. Other platforms get none. |
 | `lib/firebase/firebase.dart` | `FirebaseService`, the class that holds your Firebase functions, such as sign-in. |
-| `lib/firebase/collections.dart` and `lib/firebase/queries.dart` | Your Cloud Firestore collections and queries. They start empty. See [Use Cloud Firestore](firestore.md). |
+| `lib/firebase/collections.dart` and `lib/firebase/queries.dart` | Your Cloud Firestore collections and queries. They start with no collections and no queries. See [Use Cloud Firestore](firestore.md). |
 | `lib/main.dart` | A line that starts Firebase when the app launches. |
 | Packages and build files | `firebase_core` and `cloud_firestore` (added even if you only use sign-in), and the Android build files updated for Firebase. |
 
@@ -53,8 +56,9 @@ Once connected, **Settings** → **Integrations** → **Firebase** shows these s
 | Section | What it does |
 |---|---|
 | **Project ID** and **Refresh/Update apps and config files** | Shows the connected project and downloads the config again. |
-| **Authentication** | Switch for Firebase sign-in. The providers appear below when it's on. See [Sign users in with Firebase](auth.md). |
+| **Authentication** | Switch for Firebase sign-in. See [Sign users in with Firebase](auth.md). |
 | **Push Notifications (FCM)** | Switch plus **Test Push Notifications**. See [Send push notifications](notifications.md). |
+| **Providers** and **Add Provider** (or **Manage Providers**) | Appear only while **Authentication** is on. |
 | **SHA Certificate Fingerprints (For Google Sign in)** | **Setup** manages the fingerprints Google sign-in needs on Android. See [Sign users in with Firebase](auth.md#sha-fingerprints). |
 | **Go to your Firebase Dashboard** | Opens your project in the Firebase console. |
 | **Disconnect Project** | Removes Firebase from your Nowa project. |
@@ -67,7 +71,7 @@ Nowa's visual tools cover Authentication, Cloud Firestore and push notifications
 
 Click **Refresh/Update apps and config files**, next to **Project ID**, to download the config files again and rebuild `lib/firebase_options.dart`. Use it after you change something in your Firebase project.
 
-It also clears the problem Nowa adds to the **Problems** panel when you change your **Bundle Identifier** after connecting, for example `Firebase package name 'com.example.old' does not match the app package name 'com.example.new'. Try refreshing the config files`. Select the problem and click **Navigate** to open the Firebase page.
+It also clears the problem Nowa adds to the **Problems** panel when you change your **Bundle Identifier** after connecting, for example `Firebase package name 'com.example.old' does not match the app package name 'com.example.new'. Try refreshing the config files`. Click the problem, then click **Navigate** to open the Firebase page.
 
 Refresh reuses the apps Nowa already connected. It doesn't register new ones. To get Firebase apps for a new identifier, disconnect and connect again.
 

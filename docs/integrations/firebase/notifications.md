@@ -18,7 +18,7 @@ Push notifications reach people even when your app is closed. Turn on **Push Not
 2. For iOS, add the capability in Xcode: open your iOS project, then go to **Signing & Capabilities** → **Add Capability** → **Push Notifications**.
 3. Run or publish your app again, so the build includes the notification code. See [Publish to Google Play](../../publish/android.md) and [Publish to the App Store](../../publish/ios.md).
 
-Nowa shows the Xcode reminder under the switch. In the macOS desktop app it includes an **Open Xcode Workspace** link that opens your project's `ios/Runner.xcworkspace`.
+Nowa shows the Xcode reminder under the switch. In the macOS desktop app it also has an **Open Xcode Workspace** link. It opens `ios/Runner.xcworkspace` from the project's folder, so it works for [local projects](../../code/local-projects.md).
 
 {/* CAPTURE: id=integrations-firebase-notifications-1 | state: connected project, Push Notifications (FCM) on, Test Push Notifications filled in but not sent | show: the Push Notifications (FCM) switch with its description and the Xcode note, and the Test Push Notifications box | crop: Settings window content area */}
 

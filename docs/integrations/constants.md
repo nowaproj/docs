@@ -26,24 +26,24 @@ Behind the scenes, every constant is a text value in the `AppConstants` class in
 1. Click the field and type the new value.
 2. Press <kbd>Enter</kbd> or click the send icon (**Submit**). A check mark shows the value is saved.
 
-Nothing saves when you click away. If a value isn't valid, the field shows an error and a **Reset** icon that brings the old value back.
+Nothing saves when you click away, so press <kbd>Enter</kbd> before you leave the field.
 
 ## Add your own constant
 
 1. Under **Custom Constants**, click **+** (**Add custom constant**).
 2. Type a **Name** and a **Value**. Use letters, numbers and underscores, starting with a letter or an underscore, for example `weatherApiKey`.
-3. Click the check mark (**Confirm**) or press <kbd>Enter</kbd>. Click **Cancel** to back out.
+3. Click the check mark (**Confirm**) or press <kbd>Enter</kbd>. To back out, click the X (**Cancel**).
 
 {/* CAPTURE: id=integrations-constants-1 | state: playground starter open, Settings open on Constants, one custom constant added | show: the Constants page with the General and Integrations lists and one custom constant | crop: settings window */}
 
-If you type a name that already exists, its value is replaced. Nowa shows an error under the row when a name isn't valid. To delete a constant, click the **Remove** icon at the end of its row.
+If you type a name that already exists, its value is replaced. Nowa shows an error under the row when a name isn't valid. To delete one of your own constants, click the X (**Remove**) at the end of its row. Values in an integration's section have no **Remove** icon.
 
 ## Use a constant
 
-Integrations read their values from here by themselves. For your own constants:
+Stripe and RevenueCat read their keys from here by themselves. To use one of your own constants, write it as an expression:
 
-- **In logic:** in Circuit, click **+** under a node and open your app's own category (named after your package, for example **PACKAGE:MY_APP**). Click **AppConstants**, then pick your constant under **Static**.
-- **In a property:** click the property's label, choose **Custom Expression...**, type `AppConstants.weatherApiKey` and click **Eval**.
+1. Click the label of a property, or of a field in a Circuit node, and choose **Custom Expression...**. In Circuit, **Add Custom Expression** does the same for a new step.
+2. Type `AppConstants.weatherApiKey` and click **Eval**.
 
 See [Build logic in Circuit](../logic/circuit.md) and [Expressions and conditions](../logic/expressions.md).
 

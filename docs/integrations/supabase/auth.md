@@ -28,7 +28,7 @@ The section also tells you who you're testing as: **Not logged in**, or **Testin
 1. Click `signUp` under **Authentication**. The test panel opens at the bottom of the editor.
 2. Under **Testing values**, type an **Email** and a **Password**.
 3. Click **Run**. Supabase creates the user. If something goes wrong, the result area shows **Error:** and the message from Supabase.
-4. Click `signIn`, type the same **Email** and **Password**, and click **Run**. The section now reads **Testing as:** and your email.
+4. Click `signIn`, then repeat steps 2 and 3 with the same **Email** and **Password**. The section now reads **Testing as:** and your email.
 5. Test your other functions. They run as this user, the way they will in your app.
 6. When you're done, run `signOut` to go back to **Not logged in**.
 
@@ -45,11 +45,13 @@ Call the functions from an event, such as a button's **On Pressed**. Here is the
 1. Build the screen with two **Text Field** widgets and a button: see [Add widgets](../../design/add-widgets.md). To start from a ready-made design, pick the **Authentication Template** in the screen template picker: see [Start from a template](../../design/templates.md).
 2. Optional: rename each Text Field's controller in the **Variables** panel, for example to `email` and `password`. Nowa gives every Text Field a controller that holds what the user types, and clear names make the next steps easier. See [Store data in variables](../../logic/variables.md).
 3. Select the button. In **Details**, open its **On Pressed** event in [Circuit](../../logic/circuit.md): click **+** to create it, or **Edit** if it already has logic. See [Respond to taps and other events](../../logic/events.md).
-4. Hover the dot under the top node until it becomes **+**, and click it. Search for `SupabaseService`, click it, then click `signIn`.
-5. In **Details**, link **Email** and **Password** to the fields. Click the **Email** label, open **LOCALS**, pick the email controller, then choose `text`. Do the same for **Password**. See [Expressions and conditions](../../logic/expressions.md).
-6. With the `signIn` node selected, find **Future Options** in **Details**. Click **+** next to **onValue**. A new Circuit opens: add a **GoRouter** or **Navigator** node from **GLOBALS** that opens your home screen. See [Navigate between screens](../../logic/navigation.md).
-7. Select the `signIn` node again, open **Future Options**, and click **Edit** next to **onError**. Add **Show snackbar**, so people see why signing in failed. Nowa pre-fills **onError** with a `print` of the error.
-8. Click **Play** on the screen, enter the email and password of a user you created, and click the button. See [Play your app on the board](../../test/instant-play.md).
+4. Hover the dot under the top node until it becomes **+**, then click it. The **All nodes for this circuit** menu opens.
+5. Search for `SupabaseService` and click it. Then click `signIn`.
+6. In **Details**, click the **Email** label, open **LOCALS**, pick the email controller, then choose `text`. See [Expressions and conditions](../../logic/expressions.md).
+7. Link **Password** the same way, with the password controller.
+8. With the `signIn` node selected, find **Future Options** in **Details** and click **+** next to **onValue**. A new Circuit opens: add a **GoRouter** or **Navigator** node from **GLOBALS** that opens your home screen, then close it with **×**. See [Navigate between screens](../../logic/navigation.md).
+9. Select the `signIn` node again, open **Future Options**, and click **Edit** next to **onError**. Add **Show snackbar**, so people see why signing in failed. Nowa pre-fills **onError** with a `print` of the error.
+10. Click **Play** on the screen, enter the email and password of a user you created, and click the button. See [Play your app on the board](../../test/instant-play.md).
 
 Sign-up works the same way with `signUp`. If your Supabase project asks for email confirmation, show a message such as "Check your email" in **onValue** instead of opening the home screen.
 

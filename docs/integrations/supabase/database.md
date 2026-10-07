@@ -5,7 +5,7 @@ sidebar_label: Read and write data
 keywords: [Supabase database, Query Templates, Generate a Query, CRUD, getAll, getById, create, update, delete, select, insert, stream, realtime, RPC, Other Functions, Edit Code, Query Source Code, Testing values, RLS, row level security, model, Data Builder, Supabase queries]
 ---
 
-Query Templates turn a Supabase table into ready-made functions that list, find, add, change and delete rows. Pick a template and a table, and Nowa writes the function and a matching data model, so you can test it right away and use it in your screens.
+Query Templates turn a Supabase table into ready-made functions that list, find, add, change and delete rows. Pick a template, a table and a data model, and Nowa writes the function (and the model, if it's new). Test it right away, then use it in your screens.
 
 ## Before you start
 
@@ -32,7 +32,7 @@ Query Templates turn a Supabase table into ready-made functions that list, find,
 | **Update Record** | Updates an existing record by ID | `updateTodos(id, data)` returns the updated row |
 | **Delete Record** | Deletes a record by ID | `deleteTodos(id)` |
 
-Each function is named after its action and the table. The ID templates look for a column named `id`, and its type decides whether `id` is a number or text. The templates don't filter, sort or page the results: change that with **Edit Code**, or ask Nowa AI. Generating the same template for the same table again replaces the earlier function.
+Each function is named after its action and the table, with the first letter of the table name capitalized. The ID templates look for a column named `id`, and its type decides whether `id` is a number or text. The templates don't filter, sort or page the results: change that with **Edit Code**, or ask Nowa AI. Generating the same template for the same table again replaces the earlier function. For the other templates on that table, pick the model you already made under **Use Existing Model**, so they share it.
 
 A model is a class with one field per column, so your screens can use `title` or `done` directly. A new model is saved in `lib/models/`, for example `lib/models/todos_model.dart`. Nowa maps string, integer and boolean columns to `String`, `int` and `bool`. Any other type becomes `dynamic`, and every field can be empty. **Use Existing Model** lists the models in your project's `models` folders. See [Data models](../../logic/models.md).
 
@@ -54,7 +54,7 @@ What the result area can show:
 |---|---|
 | The result | The data your function returned. |
 | **Error:** and a message | Supabase or the function returned an error. |
-| **RLS Policy Error** | A Row Level Security policy blocked the query. Follow the steps shown, or click **Open Supabase Dashboard**. Sign in first if the policy needs a user. |
+| **RLS Policy Error** | The error message points to a Row Level Security policy that blocked the query. Follow the steps shown, or click **Open Supabase Dashboard**. Sign in first if the policy needs a user. |
 | **Empty Result - Possible RLS Filtering** | The query returned an empty list. If the table has rows, RLS may be hiding them: click **Check RLS Policies**. If the table is empty, you can ignore it. |
 | **Streaming** over a colored border | A live query. See [Live queries](#live-queries). |
 
@@ -101,10 +101,10 @@ Ask Nowa AI to create them with the Supabase connector. You test them and use th
 A **Data Builder** shows a function's result in your UI. The steps below are the Supabase part. See [Show data in your UI](../show-data.md) for the rest.
 
 1. Select the widget that should show the rows, often a **List View**. Click **Add Wrapper** and choose **Data Builder**.
-2. Set **Source** to **Supabase**. Click **Query** and pick your function in **Select Supabase Functions**. Fill in its inputs, if it has any.
+2. Set **Source** to **Supabase**. Next to **Query**, click the button (it reads `none` at first) and pick your function in **Select Supabase Functions**. Fill in its inputs, if it has any.
 3. Inside the builder, link widgets to `data`. For `getAllTodos`, `data` is a list of `TodosModel`.
 
-On the board, you see placeholder values built from your model. Click **Play** on the screen, or run the app, to see real data: see [Play your app on the board](../../test/instant-play.md). Only functions that return a Future or a Stream can be picked.
+On the board, you see placeholder values built from your model. Click **Play** on the screen, or run the app, to see real data: see [Play your app on the board](../../test/instant-play.md). The function must return a Future or a Stream.
 
 To change data, call the function from an event, such as a button's **On Pressed**. [Sign users in with Supabase](auth.md#login-screen) shows the same steps with `signIn`.
 

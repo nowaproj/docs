@@ -22,10 +22,10 @@ A source has to return a value that arrives later (a Future) or a live feed (a S
 1. Select the widget that should show the data. For a list, add a **List View** first.
 2. In **Details**, scroll down and click **Add Wrapper**. Search for **Data Builder** and click it. Your widget now sits inside it.
 3. Below your widget's own settings, the Data Builder fields appear. Set **Source** to **API Request**, **Supabase** or **Firestore**.
-4. Click the button below it and pick your source from the list. The button is called **API** for requests and **Query** for Supabase and Firestore, and it reads `none` until you choose. Pick **None** in the list to clear it.
+4. In the row below **Source**, click the button that reads `none`. The row is labeled **API** for requests and **Query** for Supabase and Firestore. Pick your source from the list, or pick **None** to clear it.
 5. If the request has parameters, their fields appear. Fill them in or link them to variables.
 
-| Source | Button | What the list shows |
+| Source | Row label | What the list shows |
 |---|---|---|
 | **API Request** | **API** | The requests in all your collections. |
 | **Supabase** | **Query** | The functions in your Supabase panel. |
@@ -59,7 +59,7 @@ Every row repeats the item you designed. A new List View starts with three place
 - **Loading Widget** shows while the data is on its way. By default it is a centered progress circle.
 - **Error Builder** shows if the call fails. By default it is the error in red text. Inside it, `error` holds the problem.
 
-Both are fields next to **Source**, so you can design your own. If the source returns nothing (null), the **Loading Widget** stays on screen. If you haven't picked a source yet, the **Error Builder** shows "No data source provided".
+Both are fields under **Source**, so you can design your own. If the source returns nothing (null), the **Loading Widget** stays on screen. If you haven't picked a source yet, the **Error Builder** shows "No data source provided".
 
 A Stream source, such as a Firestore `snapshots` query or a Supabase stream, updates the screen live.
 

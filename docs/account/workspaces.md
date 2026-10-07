@@ -30,7 +30,7 @@ Every member has a role:
 
 If you leave the name empty, Nowa says "Name cannot be empty".
 
-{/* CAPTURE: id=account-workspaces-1 | state: signed-in dashboard, workspace switcher open | show: the open menu with Personal ("Projects not in a workspace"), the WORKSPACES list with a gear icon beside a workspace, and Create workspace | crop: sidebar top-left plus the menu */}
+{/* CAPTURE: id=account-workspaces-1 | state: signed-in dashboard, workspace switcher open | show: the open menu with Personal ("Projects not in a workspace"), a workspace row with its gear icon, and Create workspace | crop: sidebar top-left plus the menu */}
 
 ## Switch workspaces and move projects
 
@@ -63,7 +63,7 @@ To cancel or resend, click the **Pending** badge, then **Cancel invitation** or 
 2. Sign in with the invited account if Nowa asks.
 3. When you see "Invitation accepted!", click **Ok**. The workspace now appears in your switcher.
 
-If the link names a different email than the account you're signed in with, Nowa signs you out first and asks you to sign in with that email. If the invitation can't be accepted, the page shows the error instead.
+If the link names a different email than the account you're signed in with, Nowa signs you out and opens the sign-in page. Sign in with the invited email and Nowa returns you to the invitation. If the invitation can't be accepted, the page shows the error instead.
 
 ## Change roles or remove people
 
@@ -78,10 +78,10 @@ You can't invite someone as an owner. To add another owner, invite them as **Edi
 
 - **Rename or recolor:** change the name or the color swatch, then click **Save changes**. Only owners can.
 - **Leave:** if you aren't an owner, click **Leave workspace**. You lose access to the workspace and its projects.
-- **Delete:** if you're an owner, click **Delete workspace**. Projects move to your **Personal** space and members lose access.
+- **Delete:** if you're an owner, click **Delete workspace** and confirm.
 
 :::warning
-Deleting a workspace cuts off every member's access. Its projects move to your **Personal** space. Nowa asks you to confirm first.
+Deleting a workspace cuts off every member's access. Nowa asks you to confirm, and says its projects move to your **Personal** space.
 :::
 
 ## Open a project as View Only {#view-only}
@@ -89,8 +89,8 @@ Deleting a workspace cuts off every member's access. Its projects move to your *
 A **View Only** member can open and explore a project, but the editor is read-only:
 
 - The board toolbar shows **View only** instead of the tools. You can select widgets, copy them and use **Export as image...**.
-- There is no **Save** button, and the code editor is read-only.
-- In the **Files** panel the **Add** and **Import** buttons are turned off, and right-clicking a file only offers **Copy as path** (plus **View in folder** for local projects).
+- The save icon in the status bar is hidden, and the code editor is read-only.
+- In the **Files** panel the **Add** (or **Import**) button is turned off, and right-clicking a file only offers **Copy as path**.
 - **Project Details** hides the **Sharing** section.
 
 Ask an owner to change your role if you need to edit.

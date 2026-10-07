@@ -19,20 +19,21 @@ Connect Supabase and your app gets user sign-in, a Postgres database and file st
 | You give Nowa | Permission to use your Supabase account, in a browser step | Your project URL and anon key |
 | Pick or create the project in Nowa | Yes | No, create it in Supabase first |
 | [Backend files](backend.md) and [Nowa AI's Supabase connector](../../ai/connectors.md) | Work right away | Nowa asks you to authorize the first time you use them |
-| [Stripe payments](../stripe.md) | Work | Need **Connect** |
+| [Stripe payments](../stripe.md) | Work | The settings open, but deploying needs the browser authorization from **Connect**, and Nowa doesn't prompt for it |
 
 Pick **Connect** unless you only have keys. You can switch later with **Change API Keys**.
 
 ## Connect with your Supabase account
 
-1. Click the **Supabase** icon in the left sidebar, then click **Connect**.
-2. Finish in the browser. A Supabase page opens: choose your organization and approve the request. Nowa shows **Waiting for Authorization...** and carries on by itself, for up to two minutes.
-3. In the project list (titled **Projects in** and your organization's name), click **Select** next to the project you want, or [create a new one](#create-a-new-supabase-project).
-4. Wait for the "Connecting to ..." message. The panel now lists your Supabase functions.
+1. Click the **Supabase** icon in the left sidebar.
+2. Click **Connect**.
+3. Finish in the browser. A Supabase page opens: choose your organization and approve the request. Nowa shows **Waiting for Authorization...** and carries on by itself. Click **Cancel** to stop waiting.
+4. In the project list (titled **Projects in** and your organization's name), click **Select** next to the project you want, or [create a new one](#create-a-new-supabase-project).
+5. Wait for the "Connecting to ..." message. If the project came with backend files, Nowa offers to set them up: see [Manage your Supabase backend](backend.md). The panel then lists your Supabase functions.
 
 {/* CAPTURE: id=integrations-supabase-connect-1 | state: playground starter open, Supabase panel open and not connected | show: the Supabase icon highlighted in the left sidebar, the panel header, and the Connect and Use Keys buttons | crop: left sidebar + Supabase panel */}
 
-If you already authorized Nowa for this project, Nowa skips step 2 and shows your projects right away. Nowa works with one organization at a time: click **Change organization** to authorize a different one. Projects that aren't active show **Unavailable** and can't be selected.
+If Nowa is already authorized, it skips the browser step and shows your projects right away. Nowa works with one organization at a time: click **Change organization** to authorize a different one. Projects that aren't active show **Unavailable** and can't be selected. Their status is shown under the name.
 
 :::tip
 You can also start from the chat. Click the Supabase icon in the chat field of the **AI Assistant** panel. If the project isn't connected yet, the same connection flow opens.
@@ -53,10 +54,11 @@ You can also start from the chat. Click the Supabase icon in the chat field of t
 
 ## Connect with keys
 
-1. Click the **Supabase** icon in the left sidebar, then click **Use Keys**. The page is called **Supabase Setup**.
-2. Paste your project URL into **API Url**.
-3. Paste your anon key into **Key**.
-4. Click **Connect**.
+1. Click the **Supabase** icon in the left sidebar.
+2. Click **Use Keys**. The page is called **Supabase Setup**.
+3. Paste your project URL into **API Url**.
+4. Paste your anon key into **Key**.
+5. Click **Connect**.
 
 Each field has a help icon that tells you where to find the value in your Supabase project settings: **Data API** for the URL and **API Keys** for the anon key. **Open Supabase** on this page takes you to your Supabase dashboard.
 
@@ -100,7 +102,7 @@ The ⋮ menu at the top of the panel has these items:
 | **Tables** | Lists your tables and their columns. |
 | **Change API Keys** | Opens **Connect** and **Use Keys** again, so you can switch to another project or other keys. Your functions stay: Nowa only updates the URL and key. |
 | **Pull Backend Files** | Saves your backend into the project. See [Manage your Supabase backend](backend.md). |
-| **Set up Backend** | Builds the backend that came with a project on your Supabase. It shows when the project has backend files. |
+| **Set up Backend** | Builds the backend that came with a project on your Supabase. It appears when Nowa finds migration files in the project, which it checks when you connect and after you pull. |
 | **Disconnect** | Removes Supabase from the project. See [Disconnect Supabase](backend.md#disconnect-supabase). |
 
 ## See your tables
@@ -113,9 +115,8 @@ Nowa has no table editor. Create and change tables in Supabase, or ask Nowa AI t
 
 | What you see | What to do |
 |---|---|
-| Authorization timed out. Please try again. | Click **Connect** again and finish the browser step within two minutes. |
-| No organizations found. Please create a Supabase organization first. | Create an organization in Supabase, then click **Connect** again. |
-| **Unavailable** next to a project | Only active projects can be selected. The project's status is shown under its name. |
+| Authorization timed out. Please try again. | Nowa waits two minutes for the browser step. Click **Cancel**, then **Connect** again, and finish the browser step in time. |
+| Failed to create project: … | The form shows the reason that came back, in an **Error** box. Fix it and click **Create Project** again, or click **Back** and pick an existing project. |
 | Anon key not found for project … | Nowa couldn't read an anon key for that project. Check the project's API keys in Supabase. |
 | Using the new Supabase keys is not currently supported, please use the anon key. | You pasted a publishable or secret key. Paste the project's anon key into **Key**. |
 

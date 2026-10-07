@@ -17,14 +17,16 @@ Cloud Firestore is Firebase's database. In Nowa you describe your collections, b
 
 A collection is a list of documents, such as `orders`. In Nowa, each collection is a model with `fromJson` and `toJson` (see [Data models](../../logic/models.md)) that your queries use. It describes the structure only. A collection appears in Firestore when you add its first document.
 
-1. Open the [**Files** panel](../../code/files.md) and expand **lib** → **firebase**. The Firebase files have the Firebase icon.
+1. Open the [**Files** panel](../../code/files.md) and open the **firebase** folder inside **lib**. The Firebase files have the Firebase icon.
 2. Click `collections.dart`. A popup opens with **Add Main Collection** and the collection tree. In code mode the file opens as plain code instead, so switch code mode off.
-3. Click **Add Main Collection**, type a name such as `orders` and click **Add**. The collection opens in the editor.
-4. Click **+ Field** and type a name for the field. Click the field's type to pick another one. Double-click a name to rename a field later.
-5. Click a field to edit its details on the right, or to remove it.
-6. For a sub collection, hover a collection in the popup, click **+** (**Add Sub Collection**), name it and click **Add**.
+3. Click **Add Main Collection**, type a name such as `orders` and click **Add**. The collection appears in the tree.
+4. Click the collection. The editor opens it with the field list and, on the right, a details panel.
+5. Click **+ Field** and type a name for the field. A new field starts as text (`String?`).
+6. Click the field's type to pick another one.
+7. Click a field to edit its details on the right, or to remove it.
+8. For a sub collection, hover a collection in the popup, click **+** (**Add Sub Collection**), name it and click **Add**.
 
-The name you type is the collection name in Firestore, so it must match your database. Names must be unique. Right-click a collection and choose **Remove** to delete it and its sub collections. You can undo it.
+Double-click a field name to rename it later. The name you type for a collection is its name in Firestore, so it must match your database. Names must be unique. Right-click a collection and choose **Remove** to delete it and its sub collections. You can undo it.
 
 {/* CAPTURE: id=integrations-firebase-firestore-2 | state: connected project; collections.dart popup open next to an open collection with a few fields | show: Add Main Collection, the collection tree, the "This table only represents the structure, not the data." line, the field list with + Field and the details panel | crop: whole editor window */}
 
@@ -32,12 +34,13 @@ The name you type is the collection name in Firestore, so it must match your dat
 
 Each query is a function of `FirestoreService`, in `lib/firebase/queries.dart`. You build it one step at a time.
 
-1. In the **Files** panel, click `queries.dart`. In the popup, click **Add New Query**.
-2. In the **Function Name** dialog, type a name and click **Create**. The query opens in the editor. Under **Query**, the builder starts with `FirebaseFirestore.instance`.
-3. Open **Select Collection** and pick a collection. It reads "No Collections" until you define one.
-4. Open the dropdown that appears and pick the next step. Fill in its arguments: **Select Field**, **Select Operator** and **Select Value**.
-5. Keep adding steps until the query ends in a step that reads or writes data. Click the backspace icon at the top right of the builder to remove the last step.
-6. Check the icon at the lower right of the builder. A check mark (tooltip: "Query is Future or Stream, you can run it") means you can test the query. A warning icon means it isn't ready yet.
+1. In the **Files** panel, click `queries.dart`. A popup opens with **Add New Query**.
+2. Click **Add New Query**, type a name in the **Function Name** dialog and click **Create**. The query appears in the list.
+3. Click the query. The editor opens it. Under **Query**, the builder starts with `FirebaseFirestore.instance`.
+4. Open **Select Collection** and pick a collection. It reads "No Collections" until you define one.
+5. Open the dropdown that appears and pick the next step. Fill in its arguments: **Select Field**, **Select Operator** and **Select Value**.
+6. Keep adding steps until the query ends in a step that reads or writes data. Click the backspace icon at the top right of the builder to remove the last step.
+7. Check the icon at the lower right of the builder. A check mark (tooltip: "Query is Future or Stream, you can run it") means you can test the query. A warning icon (tooltip: "Query not Future or Stream, so you can't run it") means it isn't ready yet.
 
 | Step | What it does | What can follow |
 |---|---|---|
@@ -82,9 +85,9 @@ On the Windows desktop app, a message covers the **Test** section: "Testing Fire
 3. Next to **Query**, click the button and pick your query in **Select Firestore Query**. Fill in its parameters below, if it has any.
 4. Inside the Data Builder, `data` holds the result. For a list, `data.docs` has one entry per document, and each entry's `data()` holds your fields.
 
-On the board, Nowa doesn't call Firestore. A list shows three placeholder documents built from your collection's fields, and text reads like `[title]`. Click **Play** on the screen, or run the app, to see your real documents.
+On the board, Nowa doesn't call Firestore. A list shows three placeholder documents built from your collection's fields, and text reads like `[title]`. Click **Play** on the screen, or run the app, to see your real documents. In the Windows desktop app, run the app on a simulator instead.
 
-**Run it from an event.** In [Circuit](../../logic/circuit.md), open **All nodes for this circuit**, open the **FIREBASE** category and pick your query. Set its parameters, and use **Future Options** for what happens next. For `add` and `set`, pass a model object.
+**Run it from an event.** In [Circuit](../../logic/circuit.md#add-a-node), add a node from the **FIREBASE** category and pick your query. Set its parameters. A query that ends in `get`, `add`, `set` or `delete` returns a Future, so use **Future Options** for what happens next. For `add` and `set`, pass a model object.
 
 :::tip
 Prefer to describe it? Ask Nowa AI in **Agent** mode, for example: "Show the documents from my orders query in a list on the Orders screen."

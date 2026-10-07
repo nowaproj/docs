@@ -27,6 +27,18 @@ const sidebars = {
     },
     {
       type: 'category',
+      label: 'Build a great app',
+      link: {type: 'doc', id: 'guides/index'},
+      items: [
+        'guides/complete-app',
+        'guides/design-tips',
+        'guides/ai-tips',
+        'guides/data-and-state-tips',
+        'guides/ship-tips',
+      ],
+    },
+    {
+      type: 'category',
       label: 'Build with Nowa AI',
       link: {type: 'doc', id: 'ai/index'},
       items: [
@@ -138,16 +150,16 @@ const sidebars = {
       label: 'Work with code',
       link: {type: 'doc', id: 'code/index'},
       items: [
-        'code/code-mode',
-        'code/files',
-        'code/packages',
-        'code/custom-code',
-        'code/limitations',
-        'code/local-projects',
-        'code/vs-code',
-        'code/import',
-        'code/git',
-        'code/github',
+        {
+          type: 'category',
+          label: 'Code in Nowa',
+          items: ['code/code-mode', 'code/files', 'code/packages', 'code/custom-code', 'code/limitations'],
+        },
+        {
+          type: 'category',
+          label: 'Local projects and Git',
+          items: ['code/local-projects', 'code/vs-code', 'code/import', 'code/git', 'code/github'],
+        },
       ],
     },
     {
@@ -172,6 +184,7 @@ const sidebars = {
     {
       type: 'category',
       label: 'Reference',
+      link: {type: 'doc', id: 'reference/index'},
       items: [
         {
           type: 'category',

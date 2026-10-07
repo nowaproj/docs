@@ -23,6 +23,8 @@ Let people sign in to your app with their Google account. This page stores your 
 | **iOS Client ID** | Required for Google sign-in without Firebase. | Writes it to the iOS `Info.plist` as `GIDClientID` and adds the reversed ID as an iOS URL scheme. |
 | **Web Client ID** | Also used as the server client ID on Android. | Saves it as the constant `AppConstants.webClientId` and lists it under **Constants**. It is not written to any platform file, and Nowa does not pass it to Google for you: your sign-in code reads it. |
 
+If you also set a **URL Scheme** under [Deep links](./deep-links.md), check `Info.plist` as described there: both write a URL type to it.
+
 ## Build the sign-in flow
 
 Nowa sets up the keys and the package. It does not generate a sign-in function or a Google button for this standalone setup, so ask Nowa AI to build the flow. Nowa's guidance for Supabase: connect your project, then ask Nowa AI to set it up.
@@ -39,7 +41,7 @@ Nowa saves that client ID when it sets Firebase up for your project and your Fir
 
 ## Turn Google Sign-In off
 
-Turn **Enabled** off to remove the package and the iOS entries Nowa added. The **Web Client ID** value stays in **Constants**.
+Turn **Enabled** off to remove the package and the iOS entries Nowa added. The **Web Client ID** value stays in **Constants**, under **Custom Constants** as `webClientId`.
 
 ## Next steps
 

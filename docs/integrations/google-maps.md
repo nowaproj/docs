@@ -31,9 +31,9 @@ Nowa puts each key where its platform needs it:
 
 1. Open the widget picker (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd>) or click the **Widget** tool, and search for **Google Maps**. If Nowa shows **Add Missing Dependencies**, click **Add**.
 2. Place the widget on a screen and size it.
-3. In **Details**, set **Initial Camera Position**, where the map starts, and the other map options.
+3. In **Details**, open **Initial Camera Position** and set **Target** (latitude and longitude) and **Zoom**. A new map starts at latitude 39.5, longitude -98 and zoom 4. The other map options are listed below it.
 
-On the board the widget is a placeholder labeled "Google Maps" with the text "Run to preview". If you have not saved any key yet, **Details** shows "Google Maps API keys are not set. Please configure them in the project settings to use the Google Map widget." Click the gear next to the message to open the **Google Maps** page.
+On the board the widget is a placeholder labeled "Google Maps" with the text "Run to preview". While no key is saved, **Details** can show "Google Maps API keys are not set. Please configure them in the project settings to use the Google Map widget." Click the gear next to the message to open the **Google Maps** page.
 
 :::tip[Or ask Nowa AI]
 Try: "Add a Google Map to the Contact screen and put a marker on our office."
@@ -52,7 +52,7 @@ A new map starts with the my-location button on. For it to find the user, turn o
 
 ## Turn Google Maps off
 
-Turn **Enabled** off to remove the package, your keys and their platform entries. Remove any **Google Maps** widgets from your screens first.
+Turn **Enabled** off to remove the package, your keys and their platform entries. Remove any **Google Maps** widgets from your screens first: a widget left behind turns into a box that says `Method "GoogleMap" is not found`.
 
 ## Next steps
 

@@ -28,7 +28,7 @@ The menu at the top left of the tab picks the source.
 
 ### From Nowa
 
-- By default, Nowa reports problems only in code it generated, marked `@NowaGenerated`. It reads code you wrote only to draw it, so it could mistake valid Dart for a problem. One declaration you wrote silences the whole file, except for code Nowa couldn't load.
+- By default, Nowa reports problems only in code it generated, marked `@NowaGenerated`. It reads your own code only to draw it, so it could mistake valid Dart for a problem. One declaration you wrote silences the whole file, except for code Nowa couldn't load.
 - To include your own code, click the filter button (**Which code Nowa checks**) and choose **All files**. The tab then says "Including code Nowa did not generate". **Only @NowaGenerated** switches back.
 
 ### From Code Analysis
@@ -41,8 +41,8 @@ A cloud project is checked on Nowa's servers. A local project is checked with yo
 
 ## Read a problem and jump to it
 
-- **Groups.** Project-wide checks have their own groups, such as **Packages**, **main** and **Router problems**. A problem in a file sits under the file's path. Click a group's title to collapse it.
-- **Menu.** Click a problem to open a small menu. **Navigate** opens the file and selects the spot, and **Copy** copies the message. Problems with no file, such as package problems, have nothing to open. In **From Code Analysis**, the menu offers **Open File** and **Copy**.
+- **Groups.** Project-wide checks have their own groups, such as **Packages**, **main** and **Router problems**. A problem in a file sits under the file's path.
+- **Menu.** Click a problem to open a small menu. **Navigate** opens the file and, when it can, selects the spot. **Copy** copies the message. Problems with no file, such as package problems, have nothing to open. In **From Code Analysis**, the menu offers **Open File** and **Copy**.
 - **Fix.** A **Fix** button on a row means Nowa knows the fix.
 
 ## Fix a problem with one click
@@ -65,7 +65,7 @@ Click **Fix**. Nowa applies it and checks again. If the fix fails, a red message
 ## Fix problems that have no button
 
 - `'<package>' is a dev dependency, so Nowa does not load it. Move it to dependencies to use it in lib/.`: in `pubspec.yaml`, move the package from `dev_dependencies` to `dependencies`.
-- `'<package>' is installed but failed to load, so nothing it defines is available: <reason>`: the board can't draw anything from that package. Read the reason, and try another version under **Settings** → **Packages**. Click **Run** to find out whether the real app still builds. See [Add packages](../code/packages.md).
+- `'<package>' is installed but failed to load, so nothing it defines is available: <reason>`: the board can't draw anything from that package. Read the reason, and try another version under **Settings** → **Packages**. **Run** shows whether the real app still builds. See [Add packages](../code/packages.md).
 - `No Home screen Selected, select one of screens as Home Screen`: select a screen and click **Make home screen**. See [Choose the home screen](../design/screens.md#choose-the-home-screen).
 - **Router problems**, such as `Duplicate route path found: "/home".`: fix the route in the **Router** panel. See [Manage routes in the Router panel](../logic/navigation.md#manage-routes-in-the-router-panel).
 - `Firebase package name '…' does not match the app package name '…'. Try refreshing the config files`: **Navigate** opens the **Firebase** settings. See [Refresh the apps and config files](../integrations/firebase/connect.md#refresh-the-apps-and-config-files).
@@ -78,11 +78,11 @@ Nowa draws your screens by reading your Dart code. What it can't read, it handle
 - **Kept as code.** When Nowa can't turn a widget class into editable blocks, it keeps the class as you wrote it, and the widget shows as a placeholder on the board. Select it, and **Details** shows **Kept as code** and the reason.
 - **Skipped.** When Nowa can't read a declaration at all, it skips it and loads the rest of the file. **Problems** lists `'<name>' could not be loaded: <reason>`, even with **Only @NowaGenerated**. A file that Dart can't parse lists the parser's own message instead.
 
-Click **Run** to see what the real app does, because Run compiles all of your code. [What Nowa can show on the board](../code/limitations.md) lists what the board can't read yet.
+**Run** compiles all of your code, so it shows what the real app does. [What Nowa can show on the board](../code/limitations.md) lists what the board can't read yet.
 
 ## Hand a problem to Nowa AI
 
-- **Fix with AI** appears next to a preview error ([Run your app](run.md#fix-a-preview-that-wont-start)) and a failed web publish ([Publish to the web](../publish/web.md#if-publishing-fails)). It puts a ready-made prompt with the error log into the **AI Assistant** chat and sends it if the AI isn't busy. It runs in the chat's current mode, so use **Agent** mode to let the AI change your project.
+- **Fix with AI** appears next to a preview error ([Run your app](run.md#fix-a-preview-that-wont-start)) and a failed web publish ([Publish to the web](../publish/web.md#if-publishing-fails)). It sends the error log to the **AI Assistant** chat. Use **Agent** mode to let the AI change your project.
 - **Explain with AI** appears on a failed step of a cloud build ([When a build fails](../publish/builds.md#when-a-build-fails)).
 
 :::tip[Or ask Nowa AI]

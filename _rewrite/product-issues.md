@@ -22,3 +22,5 @@ the product team. "Verified" means the orchestrator re-checked it in the code.
 | P15 | master (3.12.5) `packages/core/lib/src/fields/link_menu.dart:90-93` | The link menu on an event hides void-typed suggestions, so your own functions (which return nothing) never appear under LOCALS when you click an event's name. Workaround documented: add a node in the event's circuit. | W5 verifier | yes (code) |
 | P16 | master (3.12.5) iOS deployment | An existing distribution certificate key (`.p12`) is read as UTF-8 text, which can fail for binary files. | W8 writer/verifier | partly (code) |
 | P17 | master (3.12.5) Custom domain | A custom domain still pending verification has no remove action. | W8 writer/verifier | yes (code) |
+| P18 | master (3.12.5) Route Settings | The route parameter **Default value** field has no handler (typing in it does nothing). | W6 verifier | yes (code) |
+| P19 | master (3.12.5) Variables panel → **Globals** | **+** creates a global state variable that the Globals list then hides (it lists only final variables). | W6 verifier | yes (code) |

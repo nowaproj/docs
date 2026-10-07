@@ -1,16 +1,16 @@
 # W6 review: Add logic, part 2 (navigation, variables, parameters, global-state, models)
 
 Verifier run against `/home/user/nowa-master` (v3.12.5, `b84bfdafd`). Pages are appended below as each one is finished.
-Summary and open issues are at the end of the file (filled in when all five pages are done; status: IN PROGRESS).
+Summary and open issues are at the end of the file (status: DONE, all five pages verified and fixed).
 
-Pages done so far: navigation.md, variables.md, parameters.md, global-state.md, models.md
+Pages done: navigation.md, variables.md, parameters.md, global-state.md, models.md
 
 Coordinator note handled in this run: a newly added **Button** (and **Icon Button**) already has an empty `onPressed` function, so the event field reads **Edit**, not **+** (`packages/core/lib/src/widgets_to_add/widgets_to_add.dart:206,216`; `packages/core/lib/src/fields/nowa_fields.dart:793-820`, `FunctionField` shows **+** only when the value is not a function). The same wrong "click **+** next to **On Pressed**" step was in `navigation.md`, `variables.md` and `global-state.md`; all three are fixed (and the matching W5 `events.md` wording already said **Edit**).
 
 ## navigation.md (Navigate between screens)
 
 Front matter ok (title, description, sidebar_label, keywords). No H1, sentence-case headings, no `---` rules, no hype words, no emoji; two admonitions (the AI tip was moved up so the **warning** and the **tip** are no longer stacked). Capture placeholders `logic-navigation-1` and `logic-navigation-2` are well formed and requested in `captures/requests/W6.md`. Anchors `#use-the-navigator`, `#pass-data-to-the-next-screen` (used by `parameters.md`) and `#switch-an-older-project-to-gorouter` (used on the page) resolve. Links ok, all in `pages.md`: `events.md`, `circuit.md`, `parameters.md`, `expressions.md`, `../test/problems.md`, `../ai/index.md`, `../integrations/deep-links.md`, `../design/screens.md`.
-Length: about 1,480 words of prose before and after (a few cuts, offset by the corrections below). Still over the ~1,200 guide because it covers GoRouter, Navigator, the Router panel and the migration; see open issues for a split.
+Length: about 1,480 words of prose before, about 1,455 after (small cuts, partly offset by the corrections below). Still over the ~1,200 guide because it covers GoRouter, Navigator, the Router panel and the migration; see open issues for a split.
 
 | claim | verdict | code ref | note |
 |---|---|---|---|
@@ -42,7 +42,8 @@ Length: about 1,480 words of prose before and after (a few cuts, offset by the c
 | "Navigator and GoRouter nodes need a screen's `context`; not in a global state's functions" | ok (reduced) | `global_state_suggestions.dart:31-54` (the inserted code references `context`) | code does not block these nodes outside screens (they are listed in **GLOBALS** everywhere), so the sentence is advice, now worded without "have no screen context" |
 | Router panel layout: **Routes**, gear (**Router Configuration**), **+** (**Add Route**), tree, details on the right; **Open Router Editor** icon in **Route Settings** | ok | `router_block_view.dart:127-150`, `route_details.dart:107-125` | added the **Open Router Editor** pointer (code-confirmed) |
 | **Add Route** offers only **Route**; new route starts at `/` with the home screen | ok | `router_context_menus.dart:37-92` (shell routes commented out), `router_file_service.dart:265-290` | |
-| **Add Sub-Route** on hover, drag to move, **Delete Route**, **Remove Route** dialog | ok | `router_block_view.dart:268-300,355-370`, `router_editor_actions.dart:139-155` | |
+| **Add Sub-Route** on hover, **Delete Route**, **Remove Route** dialog | ok | `router_block_view.dart:268-300,355-370`, `router_editor_actions.dart:139-155` | |
+| "Drag a route to reorder it or move it into another route" | fixed | `packages/core/lib/src/editors/router_editor/router_block_view.dart:268-300,628-640` (drop zones: top 30% above, middle inside, rest below), `packages/core/lib/src/project/env_services/router_file_service.dart:521-540,547-586` (`move` removes the route and `addChild` appends it to the new parent) | dragging only changes a route's parent and appends it at the end; it cannot place a route between two others. Reworded: drag onto a route to nest it, onto a route's top or bottom edge to move it to that level, and it goes to the end of the list |
 | Route settings: **Path** (`:id`), **Full Path**, **Screen** (**Edit Function** bolt), **Route Parameters**, **Screen Parameters**, **Redirect Logic** (**Add Redirect Logic**) | ok | `go_route_node_view.dart:9-46,141-195`, `router_block_view.dart:475-515`, `shell_route_node_view.dart:257-272` (bolt, tooltip **Edit Function**) | "**Open Screen Source File**" removed for length (label exists: `go_route_node_view.dart:159`) |
 | **Router Configuration**: **Initial Location** (must start with `/`), **Redirect Logic**, **Remove # in URLs** | ok | `router_block_view.dart:530-625` | error text 'Initial location must start with a "/"' |
 | Route problems (duplicate paths, no builder, initial route not found) in the **Problems** console | ok | `router_problems.dart:4-120`, `plugin.dart:106`, `packages/core/lib/src/interpreter/services/problem_service.dart:127` | |
@@ -177,3 +178,28 @@ Front matter ok. No H1, sentence-case headings, one admonition, no hype words, n
 | **Store result** > **New Variable** keeps the model | ok | `store_result_field.dart:98-131` | |
 | `add` on a list, link the input, **refresh**; `notifyListeners` in a global state; `toJson` after a model value | ok | `suggestion.dart:607-633`, `provider_blocks.dart:45-56`, `auto_blocks.dart:136-241` | |
 | Tip: example prompt | ok | n/a | |
+
+## Summary
+
+- Pages checked: 5 (`navigation.md`, `variables.md`, `parameters.md`, `global-state.md`, `models.md`), all verified against `/home/user/nowa-master` (v3.12.5). Code only; nothing was run in the app.
+- Claim rows in this log: 134, each grouping one to several labels or steps. Verdicts: 118 ok, 15 fixed, 1 removed. Two small details were also dropped inside rows (the **Open Screen Source File** button name in `navigation.md`, the "deselect the screen / start **Play** from a board" advice).
+- Per page: navigation 36 rows (4 fixed), variables 25 (2 fixed), parameters 18 (1 fixed), global-state 27 (4 fixed, 1 removed), models 28 (4 fixed).
+- Most serious errors fixed:
+  1. "Click **+** next to **On Pressed**" in `navigation.md`, `variables.md`, `global-state.md`: a new **Button** or **Icon Button** already has a function, so the field reads **Edit**.
+  2. `navigation.md` said board **Play** shows a **Single Screen Preview** warning for a screen without a route, and `global-state.md` said **Play** shows "Unattached global states" with **Attach all**. Both cards exist only in the device-frame Play Mode (shared preview page, AI play tool); the board's **Play** is `InlineCanvasPlay` and shows neither. Rewritten (navigation) and removed (global-state).
+  3. `navigation.md` said dragging a route can reorder it. Dragging only changes a route's parent and appends it at the end of the list.
+  4. `navigation.md` told users to expand **Route Parameters** before clicking **+**: the **+** is on the header row on hover, and it does nothing until the screen has a path. The data section also now says to add a param to the destination screen first (**Screen Parameters** only appears when the screen has params).
+  5. `global-state.md` called Circuit params "chips" (they are list rows); `models.md` called **Collapse All** / **Expand All** buttons (they are icons) and missed that the generated file is named after the main class; `variables.md` said **show more...** lists "every other type" (widgets, `List`, `void`, `dynamic` are filtered out); `parameters.md` said "until a param has a value" for the `[title]` placeholder (an empty `''` default is a value, and it is the empty value that gets the placeholder).
+- Answered research question: the **Globals** list in the Variables panel lists only final variables (and no functions) of each attached global state. The page now says so and points to the global state's file for all variables and functions.
+- Incoming anchors from other pages are all intact: `navigation.md#manage-routes-in-the-router-panel` (`test/problems.md`), `global-state.md#rebuild-only-part-of-a-screen` (`reference/wrappers.md`), `variables.md#rename-retype-or-remove-a-variable` and `#change-a-variable-from-logic` (`reference/widgets/forms.md`), `variables.md#choose-a-type` (`logic/actions.md`), `parameters.md#pass-values-to-a-component` (`reference/widgets/lists.md`).
+
+## Open issues
+
+1. **`navigation.md` length.** About 1,455 words of prose (guide ~1,200, tutorials ~1,400). It covers GoRouter nodes, Navigator nodes, path/query parameters, the Router panel and the migration, and I could not cut more without losing steps. Suggest moving **Manage routes in the Router panel** and **Switch an older project to GoRouter** to a new `logic/router.md` (needs a `pages.md` row and sidebar entry; `test/problems.md` links to `navigation.md#manage-routes-in-the-router-panel`, so keep or re-point that link). I stayed inside my batch's files.
+2. **Route Settings > Route Parameters > Default value** has no change handler in the code (`packages/designer/lib/src/details/route_details.dart:197-200`), so typing there appears to do nothing. The page does not mention the field. Candidate for `product-issues.md`.
+3. **Route Settings link button** (**Link to parameter**, tooltip shows the linked param's name once linked) is not documented. It assigns the route value to the chosen screen param as text without a type conversion (`go_router_routing_service.dart:268-284`), so the page teaches the Router-panel drag, which converts types. Both work for text params.
+4. **Location after switching Type.** Changing a GoRouter node's **Type** from `pop` to another type creates an empty **Location** as a plain value, not a text value (`packages/code/lib/src/customizations/go_router_field.dart:117-137`). The `$` variable picker is wired to text values (`packages/core/lib/src/fields/basic_fields.dart:88-105`), so it may not open there. Not checked in the UI; the page says `$` works in **Location**, which is true for the node as first inserted (`push('/path')`).
+5. **Globals quirk.** **+** on a global state's name in the **Globals** list creates a non-final variable, which that list then hides (`global_state_widgets.dart:60`, `declaration_list_widgets.dart:339-353`). Not documented; candidate for `product-issues.md`.
+6. **Reasoned, not run.** Rows marked "ok (research)", "ok (reasoned)", "ok (inferred)" or "ok (composed)": the Default Value showing on the board, board-item param values being saved only with the board, **Create Param...** on an event letting each component use set its own logic, the `InitState Function` recipe in `parameters.md`, model functions seeing fields under **LOCALS**, and **Enter** committing the **Path** field (it commits on focus loss, which Enter triggers).
+7. **Where the Router icon is missing.** The sidebar **Router** icon is hidden when the experimental "New UX" flag is on (default off) and in the phone layout (`features-editor-shell.md:577`). The page says "in the sidebar", which matches the default desktop and tablet layout.
+8. **Capture requests.** `captures/requests/W6.md` still matches the pages (the `logic-navigation-1`, `logic-variables-2` states say the Button's **On Pressed** is open in Circuit, which is still right with **Edit**).

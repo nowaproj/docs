@@ -46,7 +46,7 @@ Code that still imports the package shows a problem: `'<name>' is imported but i
 
 ## How Nowa loads your packages
 
-- **Plain pub.dev packages only.** Nowa loads the packages under `dependencies` that give just a version. A package from Git, a local path or another host, an `sdk:` package, and anything under `dev_dependencies` isn't loaded. If your code imports a dev dependency, **Problems** says `'<name>' is a dev dependency, so Nowa does not load it. Move it to dependencies to use it in lib/.`
+- **Plain pub.dev packages only.** Nowa loads the packages under `dependencies` that list only a version. A package from Git, a local path or another host, an `sdk:` package, and anything under `dev_dependencies` isn't loaded. If your code imports a dev dependency, **Problems** says `'<name>' is a dev dependency, so Nowa does not load it. Move it to dependencies to use it in lib/.`
 - **Only the packages you list.** Packages that your packages depend on aren't loaded for you. If your code imports one, add it to your list too.
 - **After the project opens.** Packages load in the background. **Problems** shows "Loading packages..." and reports nothing until they finish.
 - **When one won't load.** **Problems** says `'<name>' is installed but failed to load, so nothing it defines is available:` and gives the reason.

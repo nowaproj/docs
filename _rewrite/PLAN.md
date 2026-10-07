@@ -87,6 +87,12 @@ fix what's missing, and update the PR report. Same rules as before: facts only f
    (Constants ship inside the app), Git and backups, publishing checklists), plus short tips on the feature pages
    where they help.
 
+Phase 9 backlog (found during verification):
+- Long pages to consider splitting: `logic/navigation.md` (~1,450 words: split the Router panel / GoRouter details into
+  `logic/router.md`), `logic/circuit.md` (~1,390), `troubleshooting/index.md`.
+- Live checks the code alone couldn't settle (need the running app): editing a component instance in place, image
+  paste in the web app, snackbar in Play, `$` in GoRouter **Location**, the "about 15 minutes" estimate in first-app.
+
 ## Page status values (pages.md)
 
 `planned` → `drafted` → `verified` (checked against code by a non-author agent, fixes applied) →

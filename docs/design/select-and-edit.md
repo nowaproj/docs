@@ -81,7 +81,7 @@ Right-click a widget to act on it. An unselected widget is selected first.
 
 Earlier means higher in a **Column**, further left in a **Row**, and further back in a **Stack**, where later widgets sit on top. The menu shows the same <kbd>&#93;</kbd> hint next to both **Move Up** and **Move Down**. The keys in the table are the real ones.
 
-{/* CAPTURE: id=design-select-and-edit-2 | state: playground starter open, drop a Container with the Shape tool, right-click it | show: the widget right-click menu with Play, Remove, Replace with..., Group, Copy, Cut, Move Up, Move Down, Move To Top, Move To Bottom, Create component, Detach, Copy as new widget and Export as image... | crop: the menu and the selected widget */}
+![The right-click menu of a selected Container (highlighted): Play, Remove, Replace with..., Group, Copy, Cut, Move Up, Move Down, Move To Top, Move To Bottom, Create component, Detach, Copy as new widget and Export as image..., with their shortcuts.](/img/docs/design/design-select-and-edit-2.png)
 
 **Play**, **Create component**, **Detach** and **Copy as new widget** are covered in [Play your app on the board](../test/instant-play.md) and [Build reusable components](components.md). Right-click empty board space for **Undo**, **Redo**, **Save**, **Create a page** and **Paste**.
 

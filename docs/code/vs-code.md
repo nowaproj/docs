@@ -18,13 +18,13 @@ A local project is an ordinary Flutter folder, so you can open it in Nowa and in
 ## Open the project in VS Code
 
 1. In Nowa, click the code icon (`<>`) in the top bar to open [code mode](code-mode.md).
-2. Click **Open in VS Code**, the icon at the right end of the tab bar above the editor.
+2. Click **Open in VS Code**, the icon at the right end of the tab bar above the editor, next to the preview toggle.
 
 VS Code opens your project folder at the file you were viewing. If the open tab isn't a Dart file, it opens `lib/main.dart`.
 
 {/* CAPTURE: id=code-vs-code-1 | state: desktop app, a local project open in code mode with a Dart file open, VS Code installed; click Open in VS Code and arrange both windows side by side | show: the Open in VS Code button in Nowa's code tab bar, and the same file open in VS Code | crop: both windows */}
 
-There are two other ways in:
+Two more shortcuts:
 
 - Right-click a file or folder in the **Files** panel and choose **View in folder** to show its folder in your file manager.
 - On a text file tab opened with **Show file content**, click **Open in VS Code** in the details panel.
@@ -33,7 +33,7 @@ If Nowa can't start VS Code, it opens the file in its own editor tab instead. Ch
 
 ## Set the VS Code path
 
-Nowa starts VS Code by running the `code` command from a folder you choose.
+Nowa starts VS Code by running the `code` command that lives in a folder you choose.
 
 1. Open settings: click **Settings** in the dashboard sidebar, or click your avatar in a project's top bar and choose **General Settings**.
 2. Under **Editor Settings**, click **Local Setup**.

@@ -18,7 +18,7 @@ Cloud projects run Git on Nowa's servers. Local projects run Git on your compute
 
 Click **Git** in the left sidebar, or click the branch name in the status bar. A badge on the icon counts your changed files.
 
-New projects start with a repository and an **Initial commit**. In a project without one, such as an [imported](import.md) project, click **Create Git Repository...**.
+New projects start with a repository and an **Initial commit**. In a project that has no repository yet, for example a cloud [import](import.md) (it doesn't upload `.git/`), click **Create Git Repository...**.
 
 {/* CAPTURE: id=code-git-1 | state: signed in, a plan with Git integration, a project with one staged file and two unstaged changes and one local commit not yet pushed, Git panel open from the left sidebar | show: the branch row, Staged Changes and Changes lists with counts, the Commit message box with the Commit Staged button, and the Commit History bar | crop: the left panel */}
 
@@ -50,9 +50,9 @@ When there's nothing left to commit, the button under the commit box reads **Syn
 1. Click **Sync**. Nowa pulls first, then pushes, and shows "Sync complete".
 2. For a branch that isn't on the remote yet, the button reads **Publish Branch**. Click it to push the branch.
 
-To push or pull on their own, use **Push** and **Pull** in the **...** menu. If the project has no remote yet, Nowa opens **Manage Remotes** so you can [create or connect a repository](github.md#connect-a-repository).
+To push or pull on their own, use **Push** and **Pull** in the **...** menu. If the project has no remote yet, **Sync** and **Publish Branch** open **Manage Remotes** so you can [create or connect a repository](github.md#connect-a-repository), while **Push** and **Pull** report "No remote repository found".
 
-Nowa checks the remote for new commits at most every five minutes. **Refresh** (hover the branch row), **Pull** and **Push** check right away. If you see "You need to provide authentication for this action", [connect GitHub](github.md) first. A pull that clashes with your changes opens **Resolve Conflicts**.
+Nowa checks the remote for new commits at most every five minutes, and also when you pull or push. If you see "You need to provide authentication for this action", [connect GitHub](github.md) first. If a **Pull** clashes with your changes, **Resolve Conflicts** opens. After a clash during **Sync**, the files appear under **Conflicts**; see [Resolve conflicts](#resolve-conflicts).
 
 ## Work with branches
 
@@ -70,13 +70,13 @@ Click the branch name at the top of the panel. A star marks the current branch.
 
 ## Resolve conflicts
 
-A conflict happens when both sides changed the same file, for example after a pull, a merge or a branch switch. **Resolve Conflicts** opens by itself and shows one file at a time, with **Local** (the version in your project) and **Remote** (the incoming one) side by side.
+A conflict happens when both sides changed the same file, for example after a pull, a merge or a branch switch. After a **Pull**, a merge or a branch switch, **Resolve Conflicts** opens by itself and shows one file at a time, with **Local** (the version in your project) and **Remote** (the incoming one) side by side.
 
 1. Click **Accept Local** to keep yours or **Accept Remote** to take the other. You choose per file, not per line.
 2. Repeat for each file. Nowa stages the resolved files.
 3. Commit as usual.
 
-To reopen it, expand **Conflicts** in the panel and hover a file for **Resolve conflict**, or hover the section for **Resolve all Conflicts**.
+To reopen it, or to open it after a **Sync**, expand **Conflicts** in the panel and hover a file for **Resolve conflict**, or hover the section for **Resolve all Conflicts**.
 
 ## Browse and undo history
 
@@ -95,7 +95,7 @@ Commit or discard your changes first. With uncommitted changes, **Undo Commit** 
 Git is a way to share work between a cloud project and a local one without overwriting either, unlike [Project Sync](local-projects.md#link-a-cloud-copy-with-project-sync), which copies every file one way. You get cloud features such as **Deploy** in the cloud project, and your own tools in the local one.
 
 1. In the first project, open **Manage Remotes** and create a GitHub repository, then commit and click **Sync**.
-2. In the other kind of project, [clone that repository](import.md#clone-from-github). For a local project, tick **Local-only**.
+2. Create the other kind of project with [Clone from GitHub](import.md#clone-from-github) and pick that repository. To make it a local project, tick **Local-only**.
 3. From then on, commit in either project and click **Sync** to push your work and pull the other side's.
 
 ## Next steps

@@ -16,7 +16,7 @@ An event is a property that starts logic when something happens in your app: a t
 
 A new **Button** or **Icon Button** already has an empty function for **On Pressed**, so it reads **Edit** from the start. Click **Edit** any time to reopen the logic.
 
-{/* CAPTURE: id=logic-events-1 | state: playground starter open, the Button selected on the board | show: Details scrolled to the Button section with the Enabled switch and the On Pressed row showing the Edit (bolt) button | crop: right-hand Details panel */}
+![The Details panel scrolled to the Button section of a selected Button: the Enabled switch, and the On Pressed row with its Edit button (highlighted), then On Long Press, On Hover, Button Style and Add Wrapper.](/img/docs/logic/logic-events-1.png)
 
 The orange node at the top of the circuit is the function Nowa made for the event. It shows the event's name, such as `onPressed`, and the widget's Flutter name underneath, such as `ElevatedButton`. Click it to see **Params**, the values the event hands you. For example, **On Changed** on a text field gives you the new text as `value`.
 

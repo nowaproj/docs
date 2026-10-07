@@ -72,7 +72,7 @@ Custom Instructions are rules that go along with every request you send in a pro
 2. Type your rules. The empty box suggests "Always use concise language", "Prefer specific widget types" and "Follow certain coding patterns".
 3. Click **Save**. Nowa confirms with "Custom instructions saved successfully". **Reset** puts back the last saved text.
 
-{/* CAPTURE: id=ai-prompting-1 | state: playground starter open, Assistant panel open, ⋮ then Custom Instructions clicked | show: the Custom Instructions popup with its description, empty text box with the example hint, the 0 / 5000 counter and the Reset and Save buttons | crop: left panel + popup */}
+![The Custom Instructions popup opened from the three-dot menu of the AI Assistant panel: a short description, an empty text box with an example hint, the 0 / 5000 counter, and the Reset and Save buttons.](/img/docs/ai/ai-prompting-1.png)
 
 - They apply to this project only.
 - The limit is 5,000 characters. The counter shows how much you've used, and **Save** is disabled above the limit.

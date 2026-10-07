@@ -30,7 +30,7 @@ For a side-by-side comparison, see [Cloud and local projects](../get-started/clo
 4. Check the **Path**. It starts as your **Default Projects Path** from **Local Setup**. Click **Browse** to pick another folder.
 5. Click **Create project**. Nowa creates a Flutter project in a new folder inside that path, adds its starter app (routing, theme, a home page and a board), and opens it.
 
-The folder is named after your project's package name: your project name in lowercase, with underscores for spaces. The dashboard shows the name you typed. If Nowa says a folder with that name already exists, pick another name or path.
+The folder is named after your project's package name: your project name in lowercase, with underscores for spaces. A leading digit is spelled out, so `2048 Game` becomes `two_048_game`. The dashboard shows the name you typed. If Nowa says a folder with that name already exists, pick another name or path.
 
 {/* CAPTURE: id=code-local-projects-1 | state: desktop app, signed in, dashboard open, click New project, expand Advanced, tick Local-only project | show: the Project name field, the Advanced card with Local-only project ticked and the PRIVATE tag, the Path field with Browse, and Create project | crop: the dialog */}
 
@@ -48,8 +48,8 @@ Nowa remembers your local projects on this computer only. On another computer, a
 Use **Import project** for a Flutter folder Nowa doesn't know yet, such as one you made on another computer or cloned yourself.
 
 1. Click the arrow next to **New project** and choose **Import project**.
-2. Click **Browse** and pick the project folder.
-3. Expand **Advanced**, click **Local-only project**, then click **Import project**.
+2. Click **Browse** and pick the project folder. If the folder holds several packages (a monorepo), choose one under **Package to open**.
+3. Expand **Advanced**, click **Local-only project** (a monorepo is already local-only), then click **Import project**.
 
 Nowa opens the folder where it is and doesn't copy it. For monorepos, cloud imports and what to expect on the board, see [Import an existing Flutter project](import.md).
 
@@ -69,7 +69,7 @@ To copy changes later:
 2. On the card you want to update, click **Sync from Cloud** or **Sync from Local**. The button names where the files come from.
 3. Read the **Sync Warning**, then click **Proceed with Sync**.
 
-A sync overwrites the files in the destination with the files from the source. It runs one way at a time and never on its own, so commit or back up the destination first.
+A sync overwrites existing data in the destination with the files from the source. It runs one way at a time and never on its own, so back up the destination first.
 
 {/* CAPTURE: id=code-local-projects-2 | state: desktop app, a local project linked to a cloud copy, top bar Settings (gear) then Project Sync | show: the Cloud Project and Local Project cards with Current, Open Project, Sync from Cloud and Sync from Local, and the link icon between them | crop: the Project Sync page */}
 
@@ -91,13 +91,13 @@ Both take a project off your list, but only one of them touches your files.
 | | **Remove from list** | **Delete** |
 |---|---|---|
 | What happens | The project leaves your list. The folder and its files stay on disk. | The project leaves your list and its folder is erased from disk. |
-| Confirmation | None. It happens right away. | A **Delete Project** dialog: "This action cannot be reversed." |
+| Confirmation | None. It happens right away. | A confirmation dialog ("Are you sure you want to delete…?") that says "This action cannot be reversed." Click **Delete Project** to confirm. |
 | Getting it back | Add the folder again with **Import project**. | Not possible from Nowa. The folder isn't moved to the Trash or Recycle Bin. |
 
 :::warning
 **Delete** on a local project erases its folder and everything in it. Use **Remove from list** if you only want it off your list.
 
-The one exception is a project you imported from inside a larger Git repository, where the repository's root folder is above the project's folder. For that project, **Delete** asks **Remove "name" from Nowa?**, says "The files stay on disk." and only removes it from the list. A project whose own folder is the repository root is erased like any other, including a repository you cloned with **Clone from GitHub** and **Local-only**.
+The one exception is a project you imported from inside a larger Git repository, where the repository's root folder is above the project's folder. For that project, **Delete** asks **Remove "name" from Nowa?**, says "The files stay on disk." and, when you click **Remove**, only takes it off the list. A project whose own folder is the repository root is erased like any other. That includes a repository you cloned with **Clone from GitHub** and **Local-only**, and a monorepo whose workspace root is the repository root.
 :::
 
 Either action also drops the project's Project Sync link. A cloud copy is not touched. For cloud projects, see [Create and manage projects](../account/projects.md).

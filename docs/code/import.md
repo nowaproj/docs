@@ -34,8 +34,8 @@ Both start from the arrow next to **New project** on the dashboard.
 
 What to know before you click **Import project**:
 
-- The folder needs a `pubspec.yaml`. Without one, Nowa stops with "Chosen folder is not a nowa project or a flutter project."
-- A cloud import uploads a copy and leaves your folder alone. It skips `.git/`, `build/`, `.dart_tool/` and `.idea/`, so the copy starts without Git history. To keep history, import as local-only or clone from GitHub.
+- The folder needs a `pubspec.yaml`. Without one, the dialog warns "No pubspec.yaml here — Nowa can browse and edit the files, but not design them." and **Import project** still stops with "Exception: Chosen folder is not a nowa project or a flutter project."
+- A cloud import uploads a copy and leaves your folder alone. It skips `.git/`, `build/`, `.dart_tool/` and `.idea/`, so the copy starts without Git history. To keep history, import as local-only.
 - A local-only import opens your folder in place. Nowa doesn't copy it, so you can keep editing the same folder in [VS Code](vs-code.md). The project is listed under **On this device**.
 - Monorepos, and projects inside a bigger Git repository, are always local-only. The **Local-only project** card is locked and the footer reads "Imported locally — git and the other packages stay reachable."
 
@@ -43,7 +43,7 @@ What to know before you click **Import project**:
 
 Before you start:
 
-- Connect your GitHub account in [Connect GitHub](github.md). The repository list stays empty until you do.
+- Connect your GitHub account in [Connect GitHub](github.md). The repository list doesn't appear until you do.
 - Use a plan with Git integration. Otherwise Nowa shows **Time to level up** with an **Upgrade** button.
 
 Then:

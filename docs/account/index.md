@@ -9,7 +9,7 @@ Everything outside the editor lives here: the dashboard where your projects wait
 
 ## The dashboard at a glance
 
-After you sign in at [app.nowa.dev](https://app.nowa.dev), you land on the dashboard. The sidebar on the left has your navigation. The main area has the prompt box and your projects. In a phone-sized window the sidebar turns into a drawer.
+After you sign in at [app.nowa.dev](https://app.nowa.dev), you land on the dashboard. The sidebar on the left has your navigation. The main area has the prompt box and your projects. In a narrow browser window, such as on a phone, the sidebar becomes a drawer.
 
 {/* CAPTURE: id=account-index-1 | state: signed in, dashboard in the Personal workspace with 3-4 cloud projects | show: the whole dashboard: sidebar (workspace switcher, RECENTS, Invite a Friend, Hire an Expert, Learning Resources, Settings, name and plan badge), the What do you want to build? prompt box, the Projects header and project cards, the ? support button | crop: full window */}
 
@@ -17,13 +17,13 @@ The sidebar, from top to bottom:
 
 | Sidebar item | What it does | Learn more |
 |---|---|---|
-| **Notifications** (bell, next to the version number) | News, tips and release notes from Nowa. | [Get help](./help.md#notifications) |
+| **Notifications** (bell, next to the version number) | Announcements from Nowa. A badge on the bell counts the unread ones. | [Get help](./help.md#notifications) |
 | Workspace switcher (**Personal** to start with) | Switches between your own projects and your workspaces. **Create workspace** is in the same menu. | [Workspaces and team members](./workspaces.md) |
-| **RECENTS** | Jumps to a project you edited recently. | [Create and manage projects](./projects.md#find-a-project) |
-| **Upgrade your plan** | Opens **Billing** when a higher plan is available to you. | [Plans, billing and AI usage](./plans-and-usage.md) |
-| **Invite a Friend** | Gives you a link that earns you and a friend AI credits. | [Plans, billing and AI usage](./plans-and-usage.md#invite-a-friend) |
-| **Download Desktop App** (web app only) | Downloads Nowa for macOS or Windows. | [Install the desktop app](../get-started/desktop-app.md) |
-| **Hire an Expert** | Books time with a certified Nowa expert. | [Get help](./help.md#hire-an-expert) |
+| **RECENTS** | Lists up to five recently edited projects. Click one to open it. | [Create and manage projects](./projects.md#find-a-project) |
+| **Upgrade your plan** | Opens **Adjust Plan** in **Billing**. It shows only while an upgrade is on offer for your account. | [Plans, billing and AI usage](./plans-and-usage.md) |
+| **Invite a Friend** | Shows your invite link. When a friend signs up with it and verifies their email, you both get credits. | [Plans, billing and AI usage](./plans-and-usage.md#invite-a-friend) |
+| **Download Desktop App** (web app only) | Opens **Download Nowa** with download buttons for macOS and Windows. | [Install the desktop app](../get-started/desktop-app.md) |
+| **Hire an Expert** | Opens a dialog where you can book a free consultation with a certified Nowa expert. | [Get help](./help.md#hire-an-expert) |
 | **Learning Resources** | Opens these docs. | [Get help](./help.md) |
 | **Settings** | Opens your account settings: profile, plan, usage and editor setup. | [Account settings](./account-settings.md) |
 | Your name, plan badge and logout icon | Shows who is signed in. The icon (tooltip **Logout**) signs you out. | [Account settings](./account-settings.md) |

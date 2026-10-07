@@ -10,7 +10,7 @@ The board and Instant Play don't compile your app. Nowa reads your Dart and draw
 | | Board and Instant Play | **Run** |
 |---|---|---|
 | How it works | Nowa reads your Dart and draws it | Your real app is compiled and started |
-| Your own code | Most of it. What Nowa can't read is kept as written and shown as a placeholder | All of it |
+| Your own code | Most of it. What Nowa can't read is skipped, or kept as code and shown as a placeholder | All of it |
 | Packages | Popular ones have built-in support. Others show as placeholders | All of them, for real |
 
 The warning icon in the Instant Play controls says it too: "In board preview is not 100% accurate, run the app to see the real output".
@@ -29,7 +29,7 @@ Functions that Nowa doesn't run return a stand-in value, such as `[...]` for tex
 
 ## What Nowa skips
 
-When your code uses Dart that Nowa can't read yet, Nowa skips just that part. It keeps the code exactly as written, and the rest of the file still loads. Nowa can't read:
+When your code uses Dart that Nowa can't read yet, Nowa skips only that part and loads the rest of the file. A method it can't read stays as you wrote it, and the rest of its class works normally. You see why in **Problems** or **Details**, as [described below](#how-nowa-tells-you). Nowa can't read:
 
 | This | Try this instead |
 |---|---|
@@ -40,7 +40,7 @@ When your code uses Dart that Nowa can't read yet, Nowa skips just that part. It
 | A `switch` case with a `when` clause, or with a list, map, relational (`> 5`) or `&&` pattern | An `if` inside the case |
 | A `State` class with a mixin other than `TickerProviderStateMixin`, `SingleTickerProviderStateMixin` or `WidgetsBindingObserver`, such as `AutomaticKeepAliveClientMixin` | Remove the mixin to see the widget on the board, or check it with **Run** |
 
-These do work: record and object destructuring (`final (a, b) = pair;`), `switch` with constants, `||`, object and positional record patterns, enhanced enums, mixins and redirecting constructors.
+These do work: record and object destructuring (`final (a, b) = pair;`), a `switch` that matches constants, `||` and object patterns, enhanced enums, mixins and redirecting constructors.
 
 ### Classes that extend Flutter classes
 
@@ -48,16 +48,19 @@ Widgets, `State` and `ChangeNotifier` classes work as you'd expect. You can also
 
 ### Imports and packages
 
-- Use `package:` imports and import the file that defines a name directly. `export` files (barrels) and `part` / `part of` aren't followed.
+- `package:` imports are the best supported form. `part` and `part of` aren't followed.
 - `show` is ignored, so a `show` import brings in the whole file. A conditional import, such as `if (dart.library.io)`, uses its default file.
 - Only the packages you list under `dependencies` with a version are loaded. Packages from Git or a local path aren't, and neither are the packages your packages depend on. See [Add packages](packages.md).
 
 ### What runs differently
 
 - In a constructor's initializer list, `super(...)` and `assert(...)` don't run. Set fields directly, or use `super.name` parameters.
-- A call to `super.method()` does nothing.
+- A call to `super.method()` doesn't run the parent method and gives back nothing.
 - Putting an object in text, as in `'$item'`, ignores the `toString()` you wrote. Call it yourself, as in `'${item.toString()}'`, or use a getter such as `item.label`.
 - A `try` with more than one `catch` clause fails with "Multiple catch clauses are not supported yet" when something is thrown. Use one `catch` and check the type inside.
+- The object a `catch` gives you isn't the one that was thrown, so reading its fields gives `null`.
+- Your own `operator []` and `[]=` don't work. Use methods such as `get(i)` and `set(i, v)` instead.
+- Two records with the same values aren't equal: `(1, 'a') == (1, 'a')` is `false`. Avoid records as map keys.
 
 ## How Nowa tells you
 

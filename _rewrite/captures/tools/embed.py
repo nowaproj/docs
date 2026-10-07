@@ -5,7 +5,7 @@ Reads the table in _rewrite/captures/log.md (| id | file | alt text | checked |)
 `{/* CAPTURE: id=<id> | ... */}` placeholder in docs/ with the image (or video) markup. Placeholders without a
 logged capture are left in place (they are invisible MDX comments) and listed, so to-capture.md can be updated.
 
-Usage: python3 -I _rewrite/captures/tools/embed.py [--dry-run]   (run from the docs repo root)
+Usage: python3 -I _rewrite/captures/tools/embed.py [--dry-run] [docs sub-folder ...]   (run from the docs repo root)
 """
 import pathlib
 import re
@@ -39,9 +39,13 @@ def markup(path, alt):
 
 def main():
     dry_run = '--dry-run' in sys.argv
+    folders = [a.strip('/') for a in sys.argv[1:] if not a.startswith('--')]
     captures = read_log()
     embedded, missing_file, remaining = [], [], []
     for page in sorted(DOCS.rglob('*.md*')):
+        rel = page.relative_to(DOCS).as_posix()
+        if folders and not any(rel.startswith(f + '/') or rel == f for f in folders):
+            continue
         text = page.read_text()
         def replace(match):
             capture_id = match.group(1)

@@ -9,14 +9,14 @@ Every Nowa app starts on the dashboard. Describe your idea and Nowa AI builds th
 
 ## Start a project
 
-| Start from | Best when | Where to click |
-|---|---|---|
-| A prompt | You want Nowa AI to build the first version | **What do you want to build?** at the top of the dashboard |
-| An empty project | You want to build it yourself, with or without the AI | **New project** |
-| A GitHub repository | Your app already lives on GitHub | The arrow next to **New project**, then **Clone from GitHub** |
-| A Flutter folder | You have a project on your computer (desktop app only) | The arrow next to **New project**, then **Import project** |
+| Start from | Where to click |
+|---|---|
+| A prompt | **What do you want to build?** at the top of the dashboard |
+| An empty project | **New project** |
+| A GitHub repository | The arrow next to **New project**, then **Clone from GitHub** |
+| A Flutter folder (desktop app only) | The arrow next to **New project**, then **Import project** |
 
-The dashboard shows **New project** in the **Projects** header. In a narrow window the button reads **New**.
+The **New project** button sits in the **Projects** header. In a narrower window it reads **New**.
 
 {/* CAPTURE: id=account-projects-1 | state: signed-in dashboard with a few projects, click the arrow next to New project | show: the Projects header (count, Search..., sort button, grid/list toggle) and the open New project menu with New project, Clone from GitHub and Import project | crop: top of the dashboard main area */}
 
@@ -36,7 +36,7 @@ Nowa names your app, creates a cloud project and opens it with your prompt alrea
 
 A new project is a cloud project: it lives in your Nowa account. It has no workspace, so it appears under **Personal**. To share it with a team, use **Move to workspace...** (see [Workspaces and team members](./workspaces.md)).
 
-On the desktop app you can keep a project only on your computer instead. Expand **Advanced** in the dialog and click **Local-only project**. On the web app the same card says "Local projects are only available in the desktop app." See [Work with local projects](../code/local-projects.md).
+On the desktop app you can keep a project only on your computer instead. Expand **Advanced** in the dialog, click **Local-only project** and pick the folder. On the web app that card is greyed out, with the note "Local projects are only available in the desktop app." and a **Download desktop app** button. See [Work with local projects](../code/local-projects.md).
 
 ### Clone or import a project
 
@@ -47,33 +47,33 @@ Both dialogs have a workspace chip, so you can choose where a cloud copy goes. [
 
 ## Name your project {#name-your-project}
 
-Your name can use letters, numbers, spaces, underscores and hyphens. It can't be empty, and it can't be only a Dart reserved word such as `class` or `import`. Nowa shows one of these messages when a name breaks a rule:
+A project name can use letters (A to Z, no accents), numbers, spaces, underscores and hyphens. It can't be empty, and it can't be only a Dart reserved word such as `class` or `import`. The **New project** dialog shows one of these messages when a name breaks a rule:
 
 - "App name cannot be empty"
 - "App name should only contain letters, numbers, underscores, hyphens, and spaces"
 - "App name cannot be a reserved keyword"
 
-The name you type is your **Project Name** on the dashboard. Nowa also sets up two identifiers for the app itself:
+The name you type is the **Project Name** shown on the dashboard. Your app also has two identifiers:
 
 | Identifier | How it starts | Can you change it? |
 |---|---|---|
-| **Package Name** | Derived from your name. For local projects and imports it is lowercase with underscores for spaces, and a leading digit is spelled out, so `1project` becomes `one_project`. | No |
-| **Bundle Identifier** | `com.example.` followed by your name without spaces, underscores or hyphens, plus the first six characters of the project ID. | Yes, in [Project settings](./project-settings.md) |
+| **Package Name** | The Flutter package name in `pubspec.yaml`. For a new local project Nowa builds it from your name: lowercase, spaces become underscores, and a leading digit is spelled out, so `1project` becomes `one_project`. An imported project keeps the name it already has. | No |
+| **Bundle Identifier** | `com.example.` followed by the project's name without spaces, underscores or hyphens, then the first six characters of the project ID. | Yes, in [Project settings](./project-settings.md) |
 
 Change the **Bundle Identifier** before you publish, because app stores use it to identify your app.
 
 ## Find a project {#find-a-project}
 
-The **Projects** header shows how many projects the current workspace has. Click a card or row to open the project.
+The number next to **Projects** counts the cloud projects in the workspace you're viewing. Click a card or row to open the project.
 
 - **Search...** looks through your projects as you type. If nothing matches, Nowa says "No projects found".
-- The sort button (tooltip **Sort: Updated**) opens **Sort by**: **Updated**, **Created** or **Name**.
+- The sort button (its tooltip shows the active sort, such as **Sort: Updated**) opens **Sort by**: **Updated**, **Created** or **Name**.
 - The grid and list buttons switch the layout.
 - **Load More** appears at the bottom when you have more projects than fit.
 
 Cards show a cover image (or the project's first letter), its name and when you last edited it, such as "Edited 5m ago". List rows add a **Cloud** or **Local** badge. The cover is a board screenshot taken whenever you save, unless you set your own under **Project Details** → **Sharing**.
 
-**RECENTS** in the sidebar lists up to five projects you edited most recently. Click one to jump straight in.
+**RECENTS** in the sidebar lists up to five recently edited projects from the workspace you're viewing. Click one to jump straight in.
 
 Nowa remembers the workspace and the sort order you chose, on this device.
 
@@ -90,20 +90,20 @@ Click ⋮ on a project card or row.
 | Menu item | What it does | Shown for |
 |---|---|---|
 | **Open in safe mode** | Opens the project without reopening the tabs you had open. Use it if a project freezes or misbehaves when it opens. | All projects |
-| **Move to workspace...** | Opens **Move to...** with **Personal** and your workspaces. Pick one and click **Move**. | Cloud projects |
-| **Upload to cloud** | Copies a local project to your account and links the two. | Local projects (desktop app) |
+| **Move to workspace...** | Opens a dialog titled with your project's name, such as "Move My App to...", listing **Personal** and your workspaces. Pick one and click **Move**. The dashboard then switches to that workspace. | Cloud projects |
+| **Upload to cloud** | Opens **Clone Project**. Pick a workspace and click **Clone to Cloud**. Nowa makes a linked cloud copy and leaves your local project as it is. An already linked project opens **Project Sync** instead. | Local projects (desktop app) |
 | **Remove from list** | Takes a local project off your list. Its files stay on your disk. | Local projects |
 | **Delete** | Deletes the project after you confirm. | All projects |
 
-**Delete** asks you to confirm with "This action cannot be reversed." and a **Delete Project** button. A cloud project is removed from your account.
+**Delete** opens a confirmation that says "This action cannot be reversed." Click **Delete Project** to go ahead. A cloud project is removed from your account.
 
 :::warning
-**Delete** on a local project also erases its folder from your disk, and Nowa can't bring it back. To get a local project off your list and keep its files, use **Remove from list**. If the project sits inside a larger Git repository, **Delete** only removes it from the list and says "The files stay on disk." The exact rules are in [Work with local projects](../code/local-projects.md#remove-from-list-or-delete).
+**Delete** on a local project also erases its folder from your disk, and Nowa can't bring it back, although the confirmation doesn't mention the folder. To keep the files, use **Remove from list**. If the project sits inside a larger Git repository, **Delete** only removes it from the list and says "The files stay on disk." The exact rules are in [Work with local projects](../code/local-projects.md#remove-from-list-or-delete).
 :::
 
 ## Fix "Project not found" {#project-not-found}
 
-If a local project's folder was moved, renamed or deleted, opening it shows **Project not found** and the old path. Click **Locate folder** and pick the folder (it must contain a `pubspec.yaml`), or click a button named after a folder Nowa found next to the old one, such as **Use my_app**. **Remove from projects** drops the project from your list, and **Back to dashboard** leaves it for now. [Work with local projects](../code/local-projects.md) covers this screen in full. A cloud project shows **Try again** instead.
+If a local project's folder was moved, renamed or deleted, opening it shows **Project not found** and the old path. Click **Locate folder** and pick the folder (it must contain a `pubspec.yaml`), or click a button such as **Use my_app** if Nowa found a matching folder next to the old one. **Remove from projects** drops the project from your list, and **Back to dashboard** leaves it for now. A cloud project shows **Try again** instead. [Work with local projects](../code/local-projects.md) covers this screen in full.
 
 ## Next steps
 

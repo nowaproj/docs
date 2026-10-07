@@ -11,7 +11,7 @@ Select a widget and **Details** lists every property you can change, from color 
 
 **Details** floats at the top right of the board, under **Variables**. Select a widget on the board or in the [Outline](outline.md) to see its properties. Click the title bar to collapse the panel, and drag its left edge to resize it. Code mode doesn't show it. With nothing selected on a board, **Details** shows the [board's settings](boards.md#set-the-board-color-and-grid).
 
-{/* CAPTURE: id=design-properties-1 | state: playground starter open, a Text placed inside the HomePage screen with the Text tool and selected | show: Details with the breadcrumbs, the widget name and Create a component button, the Layout section, the Text section (Text, Text Align, Text Direction, Overflow, Style) and the Add Wrapper button | crop: right Details panel */}
+![Details for a selected Text: the breadcrumbs, the widget name with its Create a component button, the Layout section, the Text section (highlighted) and the Add Wrapper button (highlighted).](/img/docs/design/design-properties-1.png)
 
 From top to bottom, **Details** shows:
 
@@ -76,7 +76,7 @@ A wrapper is a widget that goes around another to add a look or a behavior, such
 3. Type part of a name, such as `pad`, then click a wrapper or press <kbd>Enter</kbd>. The wrapper gets its own section in **Details**, except a **Padding** on a [group](layout.md#groups), which shows in the group's own **Padding** row.
 4. Edit its properties there. A new **Padding** starts with 8 on every side.
 
-{/* CAPTURE: id=design-properties-2 | state: playground starter open, a Button added with the Widget tool and selected, Add Wrapper clicked and pad typed in the search box | show: the wrapper search box with Padding highlighted, next to the Details panel with the Button section above Add Wrapper | crop: Details panel and the search box */}
+![The wrapper search box with pad typed and Padding highlighted as the first result, next to the Details panel for a Button with the Add Wrapper button (highlighted) below the Button section.](/img/docs/design/design-properties-2.png)
 
 Each new wrapper goes below the last one, and a section lower in the list is outside the ones above it. So order changes the result: with **Padding** below **Container**, the space is outside the container's color. Swap them and the space is inside.
 

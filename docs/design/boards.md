@@ -20,7 +20,7 @@ Deleting asks **Are you sure you want to delete "…"?** Click **Yes**. The scre
 
 You can also press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>B</kbd> to create a board. <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>B</kbd> jumps back to the board you were last on, and on a board it switches to the next one.
 
-{/* CAPTURE: id=design-boards-1 | state: playground starter open, create a second board so the menu has two rows, click the board chip in the top bar, hover one row | show: the board menu with both boards, the hover buttons Rename and Delete, and Create new board | crop: top bar left half + open menu */}
+![The board menu open with two boards: first (hovered, showing the Rename and Delete buttons) and onboarding (the current board), with Create new board at the bottom.](/img/docs/design/design-boards-1.png)
 
 ## Set the board color and grid
 
@@ -50,7 +50,7 @@ Everything directly on a board is a board item: a screen, a component, or a loos
 - **Place exactly.** With an item selected, type **X**, **Y**, **W** and **H** under **Layout** in **Details**.
 - **Loose widgets** have no title bar. They are saved only in the board file, so they are not part of your app until you place them inside a screen.
 
-{/* CAPTURE: id=design-boards-2 | state: playground starter open, a second screen and one Shape (Container) placed on the board, hover the home screen's title bar | show: the board with two screens and a loose shape, the title bar of the home screen with the home icon, Play and Open in new tab | crop: the board area */}
+![The board with two screens, SettingsPage and HomePage, and a loose gray shape. The HomePage title bar is highlighted: it shows the home icon, the Play button and the Open in new tab button.](/img/docs/design/design-boards-2.png)
 
 **Play** runs the item on the board so you can tap through it. See [Play your app on the board](../test/instant-play.md). **Open in new tab** opens the screen or component on its own, in place of the board. Click the dimmed **Board** chip in the top bar, or press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>B</kbd>, to come back.
 

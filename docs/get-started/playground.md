@@ -22,7 +22,7 @@ Some things wait for your account: **Run**, **Deploy**, the **Git** panel, the *
 
 The chip next to the Nowa logo shows the app you are on. Click it to switch.
 
-{/* CAPTURE: id=get-started-playground-1 | state: /playground starter app open, the starting-point chip clicked | show: the open chip menu with Playgrounds (Starter app, Simple app, Empty app), Templates and See all projects, and the Save button in the top bar | crop: top-left menu and top-right Save */}
+![The top bar with the starting-point chip menu open (highlighted): Playgrounds with Starter app, Simple app and Empty app, then Templates and See all projects. The Save button at the top right is highlighted too.](/img/docs/get-started/get-started-playground-1.png)
 
 | Playground | What you get |
 |---|---|

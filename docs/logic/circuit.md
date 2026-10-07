@@ -9,7 +9,7 @@ Circuit is where you tell your app what to do. You stack **nodes**, one per step
 
 Every circuit is one function. The orange node at the top is the function itself, and the steps below it run in order. **If** and **Try** nodes split the flow into branches.
 
-{/* CAPTURE: id=logic-circuit-1 | state: playground starter open, Button selected, Circuit open from On Pressed with a Show snackbar node and an If statement added, the If node selected | show: the Circuit panel with the orange top node, the If node with its True and False branches, and the Details panel inside Circuit showing Condition | crop: Circuit panel */}
+![The Circuit panel for On Pressed: the orange top node (the function itself) and the If Statement node with its False and True branches are highlighted, with a showSnackBar node between them and the Details pane showing the Condition switch.](/img/docs/logic/logic-circuit-1.png)
 
 ## Open Circuit
 
@@ -27,7 +27,7 @@ Circuit opens as a floating panel. Drag it by its title bar and close it with **
 3. Type in the search box, or click a category to open it, then click an item. The node appears at that spot and is selected.
 4. Set it up in the **Details** panel that opens inside Circuit.
 
-{/* CAPTURE: id=logic-circuit-2 | state: Circuit open for On Pressed, the + under the top node clicked | show: the All nodes for this circuit menu with the search box, the five top items and the first collapsed categories | crop: the menu popup */}
+![The All nodes for this circuit menu opened from the plus under the onPressed node: the search box, the five top items (Add Return, Add If statement, Add Try statement, Create Local Variable, Add Custom Expression, highlighted) and the collapsed categories below.](/img/docs/logic/logic-circuit-2.png)
 
 The menu starts with five building blocks: **Add Return**, **Add If statement**, **Add Try statement**, **Create Local Variable** and **Add Custom Expression**. Each one has a section below.
 

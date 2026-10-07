@@ -7,6 +7,8 @@ keywords: [share, share preview, preview link, qr code, public project, public l
 
 Send a link, and people can try your app in their browser, with nothing to build, publish or install. You can share a preview of the app, or open the whole project so others can look inside and keep their own copy.
 
+<Badge type="cloud" />
+
 ## Choose how to share
 
 | | Share preview | Public project link |
@@ -14,7 +16,6 @@ Send a link, and people can try your app in their browser, with nothing to build
 | What people get | A preview they can tap through but not edit. | Your project opened in Nowa. They edit their own copy. |
 | Where you set it up | **Share preview** in the controls shown while an item plays. | **Settings** → **Project Details** → **Sharing**. |
 | Who can open it | **Private**: project members. **Public**: anyone with the link. | Anyone with the link, once **Public project** is on. |
-| Projects | Cloud projects only. | Cloud projects only. |
 
 Both options use the same switch. **Public** in **Share preview** and **Public project** in **Sharing** control one setting of your project.
 

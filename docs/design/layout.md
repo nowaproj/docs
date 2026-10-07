@@ -17,7 +17,7 @@ You can also add an empty **Group** from the widget picker (<kbd>Ctrl</kbd>/<kbd
 
 Select a group and open the **Group** section of **Details**. Its header has three buttons: the first sets a **Stack**, the right arrow sets a **Row** and the down arrow sets a **Column**. When you turn a Stack into a Row or Column, Nowa orders the children by their position and takes the **Gap** from the space between them.
 
-{/* CAPTURE: id=design-layout-1 | state: playground starter open, HomePage selected, then the right-arrow button in the Group section clicked so the body becomes a Row | show: the Group section header with its three buttons, then Alignment grid, Main Axis Size, Spacing, Gap and Padding | crop: right Details panel */}
+![The Group section of Details for the home screen after switching to a Row: the three layout buttons (Stack, Row, Column) are highlighted, with the Alignment grid, Main Axis Size, Spacing, Gap and Padding below.](/img/docs/design/design-layout-1.png)
 
 **Padding** in the **Group** section sets space inside the group. Type a value for the horizontal and vertical sides, or click **Individual padding** for left, top, right and bottom. Nowa adds a **Padding** wrapper around the group for you.
 
@@ -57,7 +57,7 @@ Select a widget and open **Layout**. **W** and **H** each have a mode dropdown.
 | **Auto** | Sizes to the content. Offered only when the widget has a natural size. |
 | **Expand** | In a Row or Column: along the row or column it takes the space left over, and across it fills the full width or height. |
 
-{/* CAPTURE: id=design-layout-2 | state: a Button inside a Column on a screen is selected (select the Button, then group it with Ctrl/Cmd+G and click the down arrow) | show: the Layout section with the W mode dropdown open showing Fixed, Expand and Auto | crop: right Details panel */}
+![The Layout section of Details for a Button inside a Column, with the W mode dropdown open (highlighted) listing Fixed, Expand and Auto.](/img/docs/design/design-layout-2.png)
 
 The **Layout** section changes with the parent:
 

@@ -14,7 +14,7 @@ Add a widget in seconds: press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd>, ty
 3. Move through the list with the arrow keys. The preview on the right shows the widget, a short description and, for many built-in widgets, an **Open Documentation.** link.
 4. Press <kbd>Enter</kbd> or click the widget. Press <kbd>Esc</kbd> to close the picker without adding anything.
 
-{/* CAPTURE: id=design-add-widgets-1 | state: playground starter open, click Widget in the toolbar (or press Ctrl+K), keep Container highlighted | show: the widget picker with the Search for a widget box, Request a Widget, the Search for: All / BuiltIn / Components chips, the list and the preview pane with Open Documentation | crop: the picker dialog and preview */}
+![The widget picker opened from the Widget tool: the Search for a widget box and Request a Widget link, the Search for chips All, BuiltIn and Components (highlighted), the widget list with Container selected, and the preview pane with its description and Open Documentation link.](/img/docs/design/design-add-widgets-1.png)
 
 You can click to place a widget, or drag it from the list to choose the exact spot.
 

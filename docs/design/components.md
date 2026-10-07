@@ -16,7 +16,7 @@ A component is a widget you build once and use many times. Change it in one plac
 
 Nowa saves the component as a Dart file in `lib/`, named after it, for example `product_card.dart`.
 
-{/* CAPTURE: id=design-components-1 | state: playground starter open, drop a Container with the Shape tool, right-click it and choose Create component | show: the New Component from Container dialog with the name field, Class name, Path, Cancel and Submit | crop: the dialog */}
+![The New Component from Container dialog: the name field (highlighted) with Container1, the Class name and Path lines, and the Cancel and Submit buttons.](/img/docs/design/design-components-1.png)
 
 ## Use a component
 
@@ -55,7 +55,7 @@ Try "Turn the recipe card on the Home screen into a component and use it on the 
 
 Open **Widgets** in the left sidebar. It lists the screens and components in your project's `lib/` folder, each with a preview.
 
-{/* CAPTURE: id=design-components-2 | state: playground starter open, Widgets panel open with the Component tab selected and at least one component, right-click a tile | show: the Widgets panel with Search, the grid/list button, the Page and Component switch and the right-click menu with Open in Editor, Rename and Delete | crop: left panel + menu */}
+![The Widgets panel on the Component tab with the Search box, the grid/list button, the Page and Component switch and a component tile, with its right-click menu (highlighted): Open in Editor, Rename and Delete.](/img/docs/design/design-components-2.png)
 
 - Switch between **Page** (screens) and **Component**, or type in the search box. Search looks at names and file paths in both lists.
 - Click a tile to select it. <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + click or <kbd>Shift</kbd> + click selects several.

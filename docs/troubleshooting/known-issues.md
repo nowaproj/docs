@@ -10,8 +10,8 @@ around each one.
 
 ## Firestore queries can't be tested on Windows {#firebase-on-windows}
 
-In the Windows desktop app, the **Test** section of a Firestore query shows "Testing Firestore Queries isn't possible
-on Windows version". Firebase doesn't support Windows, so Nowa can't run the query there.
+In the Windows desktop app, the **Test** section of a Firestore query is switched off. It shows "Testing Firestore
+Queries isn't possible on Windows version".
 
 You can still build the query and use it in your app. To see real results:
 
@@ -37,14 +37,14 @@ To test it anyway, use the desktop app, or check the API's settings for allowed 
 
 ## Google Maps shows a placeholder
 
-The **Google Maps** widget shows "Run to preview" on the board, and in a browser preview it asks you to "Run on a
-simulator/emulator or mobile device to preview". The map only renders on a simulator, an emulator or a phone. See
+The **Google Maps** widget shows "Run to preview" on the board. In **Play** and in a shared preview it says "Run on a
+simulator/emulator or mobile device to preview". Neither draws a live map, so run your app to see the real one. See
 [Add Google Maps](../integrations/google-maps.md).
 
 ## Ads show test ads
 
-The **Admob Banner** widget and interstitial ads show Google's test ads until you turn test ads off, and real ads run
-only on Android and iOS. See [Show ads with AdMob](../integrations/admob.md).
+The **Admob Banner** widget and interstitial ads show Google's test ads until you turn **Show Test Ads** off, and real
+ads run only on Android and iOS. See [Show ads with AdMob](../integrations/admob.md).
 
 ## Instant Play is close, not exact
 

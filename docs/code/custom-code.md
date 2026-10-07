@@ -95,7 +95,7 @@ Import replaces any declaration in your project that has the same name. Check th
 
 ## Check the real result
 
-The board draws your code by reading it, so a few things look different or show as placeholders. Click **Run** to compile and run everything, including your own code and packages. See [Run your app](../test/run.md) and [What Nowa can show on the board](limitations.md).
+The board draws your code by reading it, so a few things look different or show as placeholders, and Dart that Nowa can't read yet is skipped and listed in **Problems**. Click **Run** to compile and run everything, including your own code and packages. See [Run your app](../test/run.md) and [What Nowa can show on the board](limitations.md).
 
 :::tip Or ask Nowa AI
 Try "Write a StarRating widget that shows 1 to 5 stars and add it under the product title." Nowa AI writes the code into your project. Read or change it in code mode.

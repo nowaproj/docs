@@ -12,7 +12,7 @@ The Outline lists every widget on the board as a tree, like a table of contents 
 - **On a board:** click **Outline** in the left sidebar. Every screen, component and loose widget on the board is a top-level row.
 - **On a screen or component opened on its own:** a floating **Outline** box sits at the top left of the board and is open by default. Click its title to collapse or expand it. The sidebar icon is hidden there.
 
-{/* CAPTURE: id=design-outline-1 | state: playground starter open, drop a Button from the widget picker onto the screen, then add a Container with the Shape tool on the empty board, select the Button, open the Outline panel | show: the Outline panel with HomePage expanded: home icon, the appBar slot row, the selected Button row with the layers icon, and the loose Container row | crop: left panel */}
+![The Outline panel with HomePage expanded: the home icon, the appBar slot row, the selected Button row (highlighted, with the layers icon) and the loose Container row.](/img/docs/design/design-outline-1.png)
 
 {/* CAPTURE: id=design-outline-2 | state: playground starter open, hover the home screen title on the board and click Open in new tab | show: the screen on its own with the floating Outline box at the top left (expanded) and Variables and Details at the top right; the dimmed Board chip in the top bar | crop: full editor window */}
 

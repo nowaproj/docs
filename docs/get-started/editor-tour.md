@@ -7,7 +7,7 @@ keywords: [interface, editor, layout, explore interface, top bar, sidebar, panel
 
 The editor is a handful of areas that always stay in the same place. This tour names each one, says what it does, and links to the page that covers it in depth.
 
-{/* CAPTURE: id=get-started-editor-tour-1 | state: /playground starter app open, AI Assistant panel open, nothing selected on the board, 1440x900 window | show: the whole editor with numbered callouts matching the list below (1 top bar, 2 sidebar, 3 side panel, 4 board, 5 Variables and Details, 6 board toolbar, 7 status bar, 8 support button) | crop: full window */}
+![The whole Nowa editor with numbered callouts: 1 top bar, 2 sidebar, 3 side panel (AI Assistant), 4 board, 5 Variables and Details, 6 board toolbar, 7 status bar, 8 support button.](/img/docs/get-started/get-started-editor-tour-1.png)
 
 ## The layout at a glance
 

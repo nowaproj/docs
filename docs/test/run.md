@@ -63,7 +63,7 @@ If the app starts but fails, the preview shows one of these screens.
 
 When a restart fails, for example after a save, a card at the top right says "Restart failed — showing the previous version". The previous version keeps running. Fix the error and save again. On cloud projects the card also has **Fix with AI**.
 
-A local project runs the preview with your Flutter SDK. If it isn't set up, the error says "Flutter SDK path is not set. Please configure it in the settings." Set it up as described in [Install the desktop app](../get-started/desktop-app.md#setting-up-flutter-sdk).
+A local project runs the preview with your Flutter SDK. If it isn't set up, the error reads "Exception: Flutter SDK path is not set. Please configure it in the settings." Set it up as described in [Install the desktop app](../get-started/desktop-app.md#setting-up-flutter-sdk).
 
 **Fix with AI** opens the **AI Assistant** and puts a ready-made prompt with the error log into the chat. If the AI isn't busy, the prompt is sent at once. Otherwise it waits in the chat field. It runs in the chat's current mode, so use **Agent** mode to let the AI change your project. In **Plan** mode it only writes a plan. The same button appears on web publishing errors, and **Explain with AI** appears on failed app builds. See [Publish to the web](../publish/web.md) and [Build history and logs](../publish/builds.md).
 

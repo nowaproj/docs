@@ -14,7 +14,7 @@ A theme holds the colors, text styles and widget looks that every screen shares.
 
 New projects start with two themes, `lightTheme` and `darkTheme`. Each theme is a variable in `lib/globals/themes.dart`, and your edits are written to that file. **Refresh** re-renders the app with the current theme. **Open in New Tab** shows the file as code. <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Z</kbd> and <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Y</kbd> undo and redo inside the panel.
 
-{/* CAPTURE: id=design-themes-1 | state: playground starter open, Themes panel open (Ctrl/Cmd+3), lightTheme selected with its row showing Active | show: the Colors tiles, Brightness, Mode and the start of Typography | crop: left panel */}
+![The Themes panel with lightTheme active: the Colors tiles (Primary, Secondary, Tertiary, Surface, highlighted), Add Color, the Brightness and Mode switches and the start of Typography.](/img/docs/design/design-themes-1.png)
 
 :::note
 If a theme doesn't set a color scheme yet, Nowa adds one when you open it: `ColorScheme.fromSeed` with a purple seed. In an imported project, colors can change the first time you open the **Themes** panel.
@@ -49,7 +49,7 @@ The **Colors** section shows your main color roles as tiles: **Primary**, **Seco
 3. Pick a color. Drag in the color area, use the hue and opacity sliders, use the eyedropper to pick a color from the screen, or type a **HEX** value and an opacity (**OP**).
 4. Check the result in **Preview**, then click the back arrow.
 
-{/* CAPTURE: id=design-themes-2 | state: Themes panel open, Primary tile clicked | show: the Edit "Primary" popup with the role and on-color header, color picker, HEX and OP fields and Preview | crop: left panel + popup */}
+![The Themes panel next to the Edit Primary popup: the role and on-color header, the color picker with hue and opacity sliders, the HEX and OP fields (highlighted) and the Preview swatch.](/img/docs/design/design-themes-2.png)
 
 To edit another role, click **Add Color** and choose one in **Override Color Role**, for example **Primary Container**, **Error**, **Outline** or a **Surface Container** shade. The reset icon in a popup's header puts the role back to the scheme's default.
 

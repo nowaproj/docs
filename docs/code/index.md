@@ -1,6 +1,6 @@
 ---
 title: Nowa and your Flutter code
-description: Everything you build in Nowa is real Flutter and Dart code that you own. See how code and design stay in sync, and where to read, edit and add code.
+description: Everything you build in Nowa is real Flutter and Dart code that you own, so see how code and design stay in sync and where to read, edit and add code.
 sidebar_label: Overview
 keywords: [code, Dart, Flutter, source code, own your code, sync, NowaGenerated, hybrid approach, custom code, code and design, pubspec]
 ---
@@ -38,7 +38,7 @@ When you change one of your own declarations visually, Nowa takes it over. It ad
 
 Files that Nowa saves follow the formatter page width in your project's `analysis_options.yaml` (80 when the project sets none), so your diffs show only what changed. If an edit by Nowa AI would leave a Dart file with syntax errors, Nowa refuses it and writes nothing.
 
-Nowa reads your code to draw it on the board. It doesn't run it there the way a real device does. When Nowa can't read a part of a file, it keeps that part as written and tells you why. See [What Nowa can show on the board](limitations.md).
+Nowa reads your code to draw it on the board. It doesn't run it there the way a real device does. When Nowa can't read a part of a file, it skips that part, loads the rest and tells you why. See [What Nowa can show on the board](limitations.md).
 
 ## Where your code lives
 

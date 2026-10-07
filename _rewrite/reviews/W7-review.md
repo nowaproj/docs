@@ -1,11 +1,44 @@
 # W7 review: Preview and test (index, instant-play, run, devices, share, problems) + Troubleshooting (index, known-issues)
 
-Verifier run against `/home/user/nowa-master` (v3.12.5, b84bfdafd). Pages are appended below as each one is finished.
-Summary is filled in when all eight pages are done (status: IN PROGRESS).
+Verifier run against `/home/user/nowa-master` (v3.12.5, b84bfdafd). Status: DONE, all eight pages checked and fixed in place. The per-page sections follow in the order the pages were checked.
 
-Pages done so far: test/index.md, test/instant-play.md, test/run.md, test/devices.md, test/share.md, test/problems.md, troubleshooting/index.md, troubleshooting/known-issues.md
+## Summary
 
-Notes on sources: `W11b-writer-notes.md` does not exist (the troubleshooting index has no notes file, the page was written in the W19 leftovers run), so every quoted message in `troubleshooting/` was checked straight in the code. Style scan over all eight pages (hype words, emoji, `---` rules, H1 in body): clean, apart from one "just as" fixed in `instant-play.md`.
+| | |
+|---|---|
+| Pages checked | 8: `test/index.md`, `instant-play.md`, `run.md`, `devices.md`, `share.md`, `problems.md`, `troubleshooting/index.md`, `known-issues.md` |
+| Claim rows in this log | 165 (each row groups one to six labels, messages, steps or behaviors; about 400 individual facts) |
+| Verdicts | 146 ok, 17 fixed, 2 removed |
+| Quoted messages | a script searched the code for every double-quoted message on the eight pages: all are literal app strings or assembled templates, except the "Exception: " prefix of the Flutter SDK error (comes from Dart's `Exception.toString()`, now quoted in full) and example prompts |
+| Links and anchors | every relative link and anchor on the eight pages resolves (script check); required anchors present: `{#update-prompts}`, `{#firebase-on-windows}`, `{#api-requests-blocked-in-the-browser}`, `{#read-the-logs}` |
+| Length | `problems.md` about 1,300 to 1,215 rendered words; `troubleshooting/index.md` 1,510 to about 1,360 (22 symptoms, all kept); `run.md` about 1,150; `share.md` about 1,075; the rest under 800 |
+| Style scan | no emoji, no `---` rules, no H1 in the body, sentence-case headings (app titles quoted as shown), at most two admonitions per page |
+
+Most serious fixes:
+- `run.md`, `troubleshooting/index.md`: "Click **Run** again after each fix" was wrong (after **Add web support** the preview opens by itself; the error screens use **Retry** / **Restart**). Removed.
+- `devices.md`, `run.md`: "a failed run opens the **Log** panel" is true only when starting the run throws; a compile error inside `flutter run` ends quietly and the output is on the **Logs** tab. Reworded.
+- `devices.md`: the **Local cache** actions are not hover-only (they are always shown once a copy exists); "**Run** now shows the device's name" and "Click **Run** to run on it" described the wrong button states.
+- `share.md`, `index.md`: "anyone can open the link" was true only for **Public**; **Show Play Warnings** is the second state of the button (the cards start visible); **Sync to cloud** opens **Project Sync** rather than copying.
+- `troubleshooting/index.md`: the Flutter SDK error is shown as "Exception: Flutter SDK path is not set. ..." and only in the local preview and local code check (a device run opens **Local Setup** instead); the "We'll Be Right Back" cause is an unreachable server, not an error response.
+- `known-issues.md`: removed the unverifiable "Firebase doesn't support Windows" reason; "the map only renders on a simulator, an emulator or a phone" contradicted the Google Maps page (a web build uses the Web API Key).
+
+## Open issues
+
+1. **No writer notes for `troubleshooting/index.md`** (`W11b-writer-notes.md` does not exist). Every claim on the page was checked in the code, so nothing is left unverified, but there are no notes for later maintenance.
+2. **`troubleshooting/index.md` is still about 1,360 words**, above the ~1,200 guide. It is an index of 22 symptoms; going lower would drop quoted messages or fixes. A split (for example the update, version and desktop-plan screens on their own page) needs a new row in `pages.md`.
+3. **CORS entry in `known-issues.md` is an inference.** The code has no CORS text; the claim follows from the design (REST API tests are direct `Dio` calls, `proxyLink` covers images, fonts and pub.dev only) and from browser rules. Kept because it answers a real symptom; drop it if you want code-only claims.
+4. **"Continue with Apple ... on iOS"** (`known-issues.md`, `get-started/create-account.md`) can only mean the native iOS app, which D15 keeps out of the docs. Both pages follow the code (`NPlatform.isIOS || isWeb`); consider "in the web app, also on an iPhone's browser".
+5. **Capture text still says "name bar"**: `captures/log.md` (alt text of `test-instant-play-1`) and `captures/requests/W7.md`. The pages say "title bar" (as `design/*` and the glossary do). I did not edit those files.
+6. **Not verifiable from the code, left out or worded carefully:** whether <kbd>Ctrl</kbd>/<kbd>Cmd</kbd>+<kbd>P</kbd> reaches the app in every browser (the print dialog may win); whether the **Open on Mobile** QR link opens for other people; how long the first embedded start takes (the UI only says "a few minutes").
+7. **Suggestion:** `test/index.md` could point to the code-mode preview pane (**Play · App**, **Play · File**, **Run**, documented in `code/code-mode.md`). Not a must-cover item, so not added.
+
+### Product observations for `product-issues.md` (code reads, not run)
+
+- `lib/router.dart:93-103`: the "We'll Be Right Back" and "Maintenance in Progress" branches require `dioError.error is SocketException`, while the status code defaults to 500 when there is no response. An HTTP 503 answer therefore probably never reaches the maintenance screen, and on the web app neither screen is reachable. Likely a bug.
+- `lib/project/run/run_button.dart:662-668`: the doc comment says the **Local cache** actions are "only revealed on hover"; the code always shows them. Harmless, the docs follow the code.
+- `packages/nowa_run/lib/src/actions/nowa_run_actions.dart:17-20` and `nowa_run_overlay.dart:25-26`: <kbd>Esc</kbd> is bound and the overlay comment says it closes the preview, but `StopAppAction.invoke` is empty.
+- `packages/designer/lib/src/play_mode/play_mode_warning.dart:34-47`: on a shared `?screen=` link the "Single Screen Preview" warning always shows for owners and editors, even when the screen has a route, because there is no `Designer` to look the route up (`hasRoute` stays false).
+- `packages/core/lib/src/services/analyze_result_store.dart:34-37` and `flutter_tool.dart:35-41`: raw `Exception.toString()` text reaches users ("Exception: Flutter SDK path is not set...").
 
 ## test/index.md (Preview and test)
 

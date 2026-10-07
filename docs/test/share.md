@@ -56,7 +56,7 @@ On a computer, the app opens in a phone frame (an iPhone 13 at first) with a too
 | **Device Settings** | Opens **Play Settings**. |
 | **Restart** | Restarts the preview. Only owners and editors see it. |
 
-In **Play Settings**, viewers can turn **Free Size** and **Show mockup frame** on or off and rotate the device with **Orientation** (for devices that rotate). **Device Size** lists devices by platform and has a **Custom** tab with **Width**, **Height** and **Pixel ratio**. Under **Safe areas** on that tab, **Left**, **Top**, **Right** and **Bottom** set how much room the app keeps clear at each edge. Nowa remembers these choices per project in the viewer's browser.
+In **Play Settings**, viewers can turn **Free Size** and **Show mockup frame** on or off and rotate the device with **Orientation** (for devices that rotate). **Device Size** lists devices by platform and has a **Custom** tab with **Width**, **Height** and **Pixel ratio**. Under **Safe areas** on that tab, **Left**, **Top**, **Right** and **Bottom** set the space at each edge that a **Safe Area** keeps clear, such as for a notch or system bar. Nowa remembers these choices per project in the viewer's browser.
 
 On a phone or in a narrow window, the app fills the screen. A floating button opens **Stop**, **Restart** and **Share preview**.
 

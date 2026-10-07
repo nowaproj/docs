@@ -42,3 +42,4 @@ the product team. "Verified" means the orchestrator re-checked it in the code.
 | P35 | master (3.12.5) REST request editor | **DOWNLOAD** is offered in the method dropdown but has no save path. | W14 verifier | yes (code) |
 | P36 | master (3.12.5) REST request editor | An `x-www-form-urlencoded` body is saved as JSON text only (no form fields). | W14 verifier | yes (code) |
 | P37 | master (3.12.5) API collection settings | Clearing or touching **Base URL** saves an empty string, and **Import from curl** then drops the host. | W14 verifier | yes (code) |
+| P38 | master (3.12.5) custom code | `@CustomWidget` exists, but nothing uses its `preview` and it doesn't switch a widget to custom code (`ast_to_block_visitor.dart:586-596`, `declaration_hybrid.dart:182-230`), unlike `@CustomFunction`. | gap fixer | yes (code) |

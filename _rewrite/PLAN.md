@@ -16,7 +16,8 @@ Resume from these files alone: `BRIEF.md` (context + rules), `decisions.md`, `op
 | 5 | Screenshots/videos | `static/img/docs/...`, `captures/log.md`, `captures/to-capture.md` | not started; brief ready (`CAPTURE.md`) |
 | 6 | Integration | config, sidebar, redirects, build | partly done (see "Resume here") |
 | 7 | Final QA: coverage audit, style pass, link check | `coverage.md`, `reviews/final-*.md` | todo |
-| 8 | Draft PR with report | PR | todo |
+| 8 | Draft PR with report | PR | todo (open once phases 4-7 are done; update it after phase 9) |
+| 9 | Final quality pass: the user's acceptance criteria (see below) | pages, videos, annotated screenshots, best-practice guides | todo (trigger when phases 4-8 are done) |
 
 ## Resume here (stopped by the user on 2026-10-06 ~19:40 UTC)
 
@@ -56,6 +57,35 @@ Commit and push after each phase. Agents never commit; the orchestrator does.
 
 `_rewrite/old-docs/` is a gitignored copy of `main`'s `docs/` (minus `new/`) for writers to mine. Recreate it with
 `mkdir -p _rewrite/old-docs && git archive origin/main docs | tar -x -C _rewrite/old-docs --strip-components=1 && rm -rf _rewrite/old-docs/new`.
+
+## Phase 9: final quality pass (user's acceptance criteria, added 2026-10-07)
+
+Trigger: when the rewrite itself is done (phases 4-7 complete, build green, draft PR open). Then check each item,
+fix what's missing, and update the PR report. Same rules as before: facts only from the code, never invent.
+
+1. **Complete journey coverage.** The docs must cover everything a user needs to build and deploy the best possible,
+   fully functional app with Nowa. Walk the full journey as a new user (idea → AI build → visual design → logic and
+   state → data and backend → sign-in → payments/ads → test on devices → publish to web, Google Play and the App
+   Store → iterate) and check each step has a clear page and the pages link in that order. Fill gaps (for example an
+   end-to-end "Build a complete app" guide: login, data list and detail, publish).
+2. **Videos where motion matters.** Record short MP4s (≤20 s, H.264, ≤1080p, ≤30 fps, faststart; README "Adding
+   videos") for pages where a still image isn't enough: drag and drop / adding widgets, Instant Play, layout
+   (rows, columns, stacks), Circuit wiring, themes, the AI building a screen (needs an AI prompt; budget), connecting
+   data, deploy flow (needs sign-in: list in `captures/to-capture.md` if not possible).
+3. **Language: simple, clear, concise, warm, confident.** A style pass over every page (style guide updated with
+   "warm": friendly, encouraging, speaks to the reader's goal; no fluff). Check headings, intros, steps.
+4. **Structure easy to follow.** Review the sidebar order, section overviews, "Next steps" links and cross-links
+   with a fresh-eyes agent that navigates as a new user; fix confusing names, order or dead ends.
+5. **A good screenshot on every page that needs one, with the important part highlighted.** Re-take or annotate
+   captures so the control or area that matters is highlighted (overlay box/outline in Nowa orange drawn from the
+   semantics bounding box, or a drawn box in post-processing), cropped to what matters, legible at docs width.
+   Pages that need a screenshot but can't get one tonight go to `captures/to-capture.md`.
+6. **Tips, tricks and best-practice guidance for quality apps.** Add practical guidance grounded in Nowa's real
+   features: a "Build a great app" set of pages (design consistency with themes and components, layouts that adapt,
+   naming and structure, state and data choices, using Nowa AI well (modes, context, checkpoints, custom
+   instructions), testing with Instant Play vs Run vs devices, performance on big boards, keys and security
+   (Constants ship inside the app), Git and backups, publishing checklists), plus short tips on the feature pages
+   where they help.
 
 ## Page status values (pages.md)
 

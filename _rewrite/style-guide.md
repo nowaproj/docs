@@ -1,7 +1,7 @@
 # Nowa docs style guide
 
 The goal of every page: the reader gets the value with the least effort, and trusts what they read.
-Tone: **simple, clear, confident, concise, a little exciting.**
+Tone: **simple, clear, concise, warm, confident** (and a little exciting through specifics).
 
 ## Voice
 
@@ -10,15 +10,18 @@ Tone: **simple, clear, confident, concise, a little exciting.**
 2. **Talk to the reader.** Second person, present tense, active voice. "Click **Run**." Not "The user
    should click on the Run button."
 3. **Short sentences, one idea each.** Paragraphs are 1-3 sentences.
-4. **Confident, not hyped.** State facts plainly. No "simply", "just", "easily", "seamlessly",
+4. **Warm.** Friendly and encouraging, like a helpful teammate: speak to what the reader is trying to build, say
+   when something is quick or safe to try, and never make them feel at fault. Warmth comes from empathy and clarity,
+   not from exclamation marks or filler.
+5. **Confident, not hyped.** State facts plainly. No "simply", "just", "easily", "seamlessly",
    "powerful", "revolutionary", "in order to", "please note", "it is important to note".
    A little excitement is welcome in intros ("That's it, your screen is live.") but never at the cost of facts.
-5. **Plain words first, Flutter words second.** Say what it does, then the Flutter name if it helps:
+6. **Plain words first, Flutter words second.** Say what it does, then the Flutter name if it helps:
    "A **Row** lines widgets up side by side." Explain a Flutter concept only as far as the reader needs it.
-6. **No emojis** in docs pages (What's New keeps its own style).
-7. **Never invent.** Every label, step, limit and behavior must come from the code (see BRIEF.md). If you are
+7. **No emojis** in docs pages (What's New keeps its own style).
+8. **Never invent.** Every label, step, limit and behavior must come from the code (see BRIEF.md). If you are
    unsure, leave it out and log it in your notes file as an open question.
-8. **No prices, credit amounts or plan limits** (D3). Link to [pricing](https://nowa.dev/pricing) instead.
+9. **No prices, credit amounts or plan limits** (D3). Link to [pricing](https://nowa.dev/pricing) instead.
 
 ## Words we use
 

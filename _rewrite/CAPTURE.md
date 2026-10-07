@@ -38,10 +38,15 @@ Git remotes, integrations that connect external services); copy those to
    (`get-started`, `ai`, `design`, `logic`, `integrations`, `test`, `publish`, `code`, `account`,
    `troubleshooting`, `reference`). Keep files small: max 1600 px wide (scale with
    `ffmpeg -y -i in.png -vf "scale='min(1600,iw)':-2" out.png`), PNG.
-3. **Look at the image** (Read tool) and check it shows exactly what the row asks for, with readable labels
+3. **Highlight what matters.** Before the shot, draw one highlight (two at most) around the control or area the
+   request is about: a fixed-position DOM overlay over the Flutter canvas at the element's bounding box (from the
+   semantics tree or ui-map JSON), `border: 3px solid #F7A93A; border-radius: 8px; box-shadow: 0 0 0 4px
+   rgba(247,169,58,0.25); pointer-events: none;` with ~6 px padding; remove it after the shot. Fallback: draw the
+   box afterwards with ffmpeg `drawbox`. Never cover the label itself.
+4. **Look at the image** (Read tool) and check it shows exactly what the row asks for, with readable labels
    and no stray menus, tooltips or loading spinners. If not, fix the state and retake it. Never keep an image
    that doesn't match.
-4. Update the row's status to `captured` (or `not-possible: <why>`, or `skipped: low value`), and **append one line
+5. Update the row's status to `captured` (or `not-possible: <why>`, or `skipped: low value`), and **append one line
    to the table in `/home/user/docs/_rewrite/captures/log.md`** (create it with this header if missing):
    `| id | file | alt text | checked |` → e.g.
    `| design-boards-1 | /img/docs/design/design-boards-1.png | The board menu open, with Create new board at the bottom. | yes |`

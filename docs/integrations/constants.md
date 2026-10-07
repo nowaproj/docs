@@ -44,6 +44,7 @@ Stripe and RevenueCat read their keys from here by themselves. To use one of you
 
 1. Click the label of a property, or of a field in a Circuit node, and choose **Custom Expression...**. In Circuit, **Add Custom Expression** does the same for a new step.
 2. Type `AppConstants.weatherApiKey` and click **Eval**.
+3. Click the back arrow to close the dialog.
 
 See [Build logic in Circuit](../logic/circuit.md) and [Expressions and conditions](../logic/expressions.md).
 

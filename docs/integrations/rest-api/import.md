@@ -5,7 +5,7 @@ sidebar_label: Import an API
 keywords: [import API, importing from, Swagger, OpenAPI, Postman, Xano, cURL, curl, import collection, import requests]
 ---
 
-Skip typing requests by hand. Give Nowa your Swagger file, your Postman collection or your Xano workspace and it builds a collection with every endpoint, method, header and body. Have just one request? Paste its cURL command.
+Skip typing requests by hand. Give Nowa your Swagger file, your Postman collection or your Xano workspace and it builds a collection with every endpoint, method, header and body. Need only one request? Paste its cURL command.
 
 Imports build on the [REST API](./index.md) tools, so you can test and edit everything afterwards.
 
@@ -15,9 +15,9 @@ Imports build on the [REST API](./index.md) tools, so you can test and edit ever
 2. Click **+** (**Add Collection**), then **Import from Swagger**, **Import from Postman** or **Import from Xano**. The **Import From** dialog opens with that source selected. You can switch sources with the **Swagger**, **Postman** and **Xano** options at the top.
 3. Follow the steps for your source below.
 
-{/* CAPTURE: id=integrations-import-1 | state: playground starter open, Api panel open, Import from Swagger chosen, a Swagger URL typed in the field | show: the Import From dialog with the Swagger option, text field, OR line and drop zone | crop: dialog */}
+![The Import From dialog with Swagger selected and a Swagger JSON URL typed in the text field (highlighted), the OR line, the Select / Drop your JSON file area, and the Cancel and Import buttons.](/img/docs/integrations/integrations-import-1.png)
 
-Every import creates a new collection. It never adds to one you already have. Nowa names the collection after the API's title, sets the **Base URL** from the description when it can, and adds one request per endpoint. A path part such as `{id}` (Swagger) or `:id` (Postman) becomes a parameter, and the address uses it as `${id}`.
+Every import creates a new collection. It never adds to one you already have. Nowa names the collection after the API (its title in Swagger, its name in Postman), sets the **Base URL** when it can work one out from the file or the address you pasted, and adds one request per endpoint. A path part such as `{id}` (Swagger) or `:id` (Postman) becomes a parameter, and the address uses it as `${id}`.
 
 Imported requests return the plain response. Run a test and use **Generate Model** to get a model. See [Turn the response into a model](./index.md#turn-the-response-into-a-model).
 
@@ -72,6 +72,7 @@ In **Agent** mode, paste a cURL command into the chat and ask Nowa AI to add it 
 | **Invalid Postman collection format** | Export the collection again as a JSON file. It needs both an `info` and an `item` section. |
 | **Invalid token**, **Failed to fetch instances** | Paste a new Xano token. |
 | **Failed to select instance**, **Failed to select workspace**, **Failed to import from Xano** | Click the item again, or start the import over. |
+| **The curl URL … does not match the provided base URL …** | Use a command whose address starts with the collection's **Base URL**. |
 
 ## Next steps
 

@@ -18,7 +18,7 @@ A collection holds the requests for one API. Nowa saves it as a Dart file, for e
 3. In the **Create New Collection** dialog, type a name. Nowa shows the **Class name** and **Path** it will use.
 4. Click **Submit**. The collection appears in the panel.
 
-{/* CAPTURE: id=integrations-rest-api-1 | state: playground starter open, Api panel open, collection Cats with a GET and a POST request, Add Collection menu open | show: the Collections panel with method badges and the Add Collection menu | crop: left panel */}
+![The Collections panel in the Api sidebar: the Cats collection (base URL https://catfact.ninja) with a GET request getFact at /fact and a POST request createNote at /notes, and the Add Collection menu open (highlighted) with New Collection, Import from Swagger, Import from Postman and Import from Xano.](/img/docs/integrations/integrations-rest-api-1.png)
 
 You can also use **API Collection...** in the Files panel's **Add to library** menu.
 
@@ -53,12 +53,12 @@ Headers, the base URL and tokens you type here are saved in your project's code 
 | Body type | Use it for |
 |---|---|
 | **none** | Requests without a body, such as most GET requests. |
-| **JSON** | Data as JSON. The status icon in the corner says **Valid JSON** or **Invalid JSON** when you hover it. Nowa only saves the body while it is valid. |
+| **JSON** | Data as JSON. Hover the status icon in the corner to see **Valid JSON** or **Invalid JSON**. Nowa saves the body only while it is valid. |
 | **raw** | Plain text, XML or HTTP text. Pick **Text**, **XML** or **HTTP** next to it. |
 | **form-data** | Form fields and files. Click **Add +** for each field. |
 | **x-www-form-urlencoded** | Sets the content type for classic web forms. You write the body in the same editor as **JSON**, with the same validity check. |
 
-Choosing a body type also sets the request's content type. It replaces the current body with a fresh starting body for that type, and undo brings the old one back.
+Choosing a body type sets the content type and replaces the current body with a fresh one. Undo brings the old body back.
 
 ### Send values that change
 
@@ -68,7 +68,7 @@ Use a parameter for anything that changes between calls, such as a search word.
 2. In the address, type `$` and pick the parameter. For a query string, write it in the address, for example `/search?q=${query}`.
 3. In a JSON body, drag the parameter's chip from **Pass Parameters in Body** onto a value, or type `${query}` yourself.
 
-**Params** are your request's inputs, not query-string parameters. There is no separate query tab.
+**Params** are your request's inputs. There is no separate query-string tab.
 
 ```json
 {
@@ -84,7 +84,7 @@ Use a parameter for anything that changes between calls, such as a search word.
 3. Click **Run Test**.
 4. Check the result. The header shows the full address and the status, such as `200`. Under **Body**, switch between **Json** (the raw answer) and **Object** (the parsed result). **Headers** lists the response headers.
 
-Click **Back to Request** to return to the editor. To test faster, hover a request in the **Collections** panel and click the play icon (**Run Query**): it opens the test view and sends the request at once.
+Click **Back to Request** to return to the editor. To test faster, hover a request in the **Collections** panel and click the play icon (**Run Query**). It opens the test view and sends the request at once.
 
 {/* CAPTURE: id=integrations-rest-api-2 | state: same project, getFact opened, Test then Run Test done | show: header with API URL and Status 200, Json body, right panel with Testing values, Generate Model and Run Test | crop: bottom panel */}
 

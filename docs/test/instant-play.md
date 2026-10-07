@@ -14,9 +14,13 @@ Instant Play runs a screen right on the board, so you can tap through it without
 3. Tap, scroll and type as you would in the real app. While an item plays, scrolling over it scrolls your app, not the board.
 4. Click **Stop** when you're done. It sits in the item's title bar and in the controls at the bottom of the board.
 
-![The home screen playing on the board with an orange border. The stop button in its name bar and the play controls at the bottom (This screen is capturing scroll, Share preview, Reset zoom, Stop, and a warning icon) are highlighted.](/img/docs/test/test-instant-play-1.png)
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/docs/test/test-instant-play-video.mp4" type="video/mp4" />
+</video>
 
 While something plays, the toolbar at the bottom of the board is replaced by the play controls.
+
+![The home screen playing on the board with an orange border. The stop button in its name bar and the play controls at the bottom (This screen is capturing scroll, Share preview, Reset zoom, Stop, and a warning icon) are highlighted.](/img/docs/test/test-instant-play-1.png)
 
 | Control | What it does |
 |---|---|

@@ -86,7 +86,9 @@ Phase 9 backlog (found during verification):
 - Long pages to consider splitting: `logic/navigation.md` (~1,450 words: split the Router panel / GoRouter details into
   `logic/router.md`), `logic/circuit.md` (~1,390), `troubleshooting/index.md`.
 - Live checks the code alone couldn't settle (need the running app): editing a component instance in place, image
-  paste in the web app, snackbar in Play, `$` in GoRouter **Location**, the "about 15 minutes" estimate in first-app.
+  paste in the web app, `$` in GoRouter **Location** (and typing `.id` after `element`), the Supabase
+  `currentSession` expression in Redirect Logic (`logic/router.md`), the "about 15 minutes" estimate in first-app.
+  Settled: a snackbar shows in Play (seen in `test-instant-play-video.mp4`).
 
 ## Page status values (pages.md)
 

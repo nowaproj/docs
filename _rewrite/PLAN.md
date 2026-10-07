@@ -14,35 +14,36 @@ Resume from these files alone: `BRIEF.md` (context + rules), `decisions.md`, `op
 | 3 | Writing | `docs/**`, `captures/requests/*.md`, `reviews/*-writer-notes.md` | done (all sidebar pages exist) |
 | 4 | Verification against code by a non-author agent per batch | `reviews/<batch>-review.md` | done (all 17 batches); phase 9 additions get their own check |
 | 5 | Screenshots/videos | `static/img/docs/...`, `captures/log.md`, `captures/to-capture.md` | 35 captured (34 embedded), 50 need sign-in, videos pending (phase 9) |
-| 6 | Integration | config, sidebar, redirects, build | done; final build check pending |
+| 6 | Integration | config, sidebar, redirects, build | done; build green with no warnings |
 | 7 | Final QA: coverage audit, style pass, link check | `coverage.md`, `reviews/final-*.md` | coverage done (348/358, gaps closed); style pass = phase 9 item 3 |
-| 8 | Draft PR with report | PR | todo (open once phases 4-7 are done; update it after phase 9) |
-| 9 | Final quality pass: the user's acceptance criteria (see below) | pages, videos, annotated screenshots, best-practice guides | todo (trigger when phases 4-8 are done) |
+| 8 | Draft PR with report | PR | opening (update it after phase 9) |
+| 9 | Final quality pass: the user's acceptance criteria (see below) | pages, videos, annotated screenshots, best-practice guides | in progress (see Resume here) |
 
-## Resume here (stopped by the user on 2026-10-07 ~12:30 UTC)
+## Resume here (updated 2026-10-07 ~14:30 UTC)
 
-**State:** all ~100 pages are written; `yarn build` passed at the last full build (02:30 UTC 2026-10-07; re-run it);
-34 screenshots are embedded; the redirects, sidebar, legacy section and site fixes are done (see decisions D11-D13).
+**State:** phases 0-7 done. `yarn build` passes with no warnings (14:15 UTC; the table anchors use the `<Anchor>`
+component now). Phase 8 (draft PR) is being opened. Phase 9 is in progress:
 
-**Verification (phase 4), per batch** (`reviews/<batch>-review.md`; batches in `pages.md`):
-- Done: W1 (home + get started), W2 (AI), W3 + W4 (design), W5 + W6 (logic), W7 (preview/test + troubleshooting),
-  W8 (publish), W9 + W10 (code), W11 (account), W14 (integrations overview, Data Builder, constants, REST),
-  W15 (Supabase), W16 (Firebase).
-- **Partial, resume from the log:** W17 (`stripe.md`, `revenuecat.md`, `admob.md` done; left: `google-maps.md`,
-  `google-sign-in.md`, `deep-links.md`); W13 (catalog `reference/widgets/index.md` done; left: `wrappers.md`,
-  `widgets/forms.md`, `lists.md`, `navigation.md`, `media.md`; keep every `<a id>` anchor).
-- **Not finished:** W12 + W18: `reference/shortcuts.md` got some fixes but no review log was saved, so re-verify it
-  fully; then `reference/glossary.md`.
+| Item | Status |
+|---|---|
+| 1 Journey coverage | Guides written (`docs/guides/*`, notes `reviews/W19-writer-notes.md`); recipes added (list to detail, store hand-off, sign-in comparison, share with a client, no desktop app; `reviews/phase9-fixes.md`); structure fixes applied. W20 writer: start on login or home (structure item 14). |
+| 2 Videos | Capture agent recording up to 5 videos (playground only); results in `captures/log.md`. Embed them by hand per the log rows (page, heading). |
+| 3 Warm, clear language | Todo: style pass over every page after the verifiers finish (wording only). |
+| 4 Structure | Review `reviews/phase9-structure.md`; fixes in `reviews/phase9-fixes.md`; sidebar reorder done (item 15), home tidy and `_category_.json` removal done (item 19). W20: split `logic/navigation.md` into `logic/router.md` (item 20), preview mapping (16), duplicate theme-switch steps (18). Add `logic/router` to `sidebars.js` after `logic/navigation` when W20 is done. |
+| 5 Highlighted screenshots | Capture agent re-highlighting older shots. Signed-in shots stay in `captures/to-capture.md`. |
+| 6 Tips | Guides done; W20 adds one-line links from feature pages to the guides. |
 
-**Next steps, in order:**
-1. Finish verification: W17 (3 pages), W13 (5 pages), W12 shortcuts + glossary (verifier prompts: see `VERIFIER.md`;
-   tell each to continue from its log).
-2. Coverage audit → `_rewrite/coverage.md` (partial: sections marked `(pending)` are not audited yet; resume from
-   the file). Fix the gaps it finds.
-3. Embed remaining captures: `python3 -I _rewrite/captures/tools/embed.py` (all folders once verification is done).
-4. Full `yarn build` (must pass with no broken links or anchors), then open the **draft PR** with the report
-   (structure, what changed, decisions, open questions, product issues, unfinished items).
-5. Phase 9 quality pass (below), then update the PR.
+**Verification of phase 9 text (non-author agents):** running: `reviews/P9-guides-a-review.md` (guides index,
+complete-app, design-tips), `reviews/P9-guides-b-review.md` (ai-tips, data-and-state-tips, ship-tips),
+`reviews/P9-gaps-review.md` (coverage gap fixes G1-G12, integrations overview additions, share.md). After W20:
+one more verifier for the recipe sections (`phase9-fixes.md` "Recipes and clarifications"), W20's changes and the
+new text from the structure fixes (troubleshooting "My app shows an error", publish "Ship an update", code index
+tip, import "Before you start", reference overview, add-widgets section).
+
+**Then:** style pass (2 agents by section), final build, update `PR-REPORT.md` and the PR body, list what's left.
+
+**Live checks for later** (need the running app): typing `.id` after `element` in a GoRouter **Location**
+(`logic/navigation.md#open-a-detail-screen`), plus the backlog below.
 
 **Usage limits:** runs keep hitting account usage limits after ~1 hour of 5 Sonnet agents (D14). Keep waves at
 ~4-5 agents, every agent saving incrementally.

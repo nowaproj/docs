@@ -1,14 +1,43 @@
 # W17 review: Stripe, RevenueCat, AdMob, Google Maps, Google Sign-In, Deep Links
 
-Verifier run against `/home/user/nowa-master` (v3.12.5). Status: **in progress** (pages done so far are listed in the summary; the summary is rewritten at the end of the run).
+Verifier run against `/home/user/nowa-master` (v3.12.5). Status: **complete**, 6 of 6 pages. A first run did `stripe.md`, `revenuecat.md` and `admob.md`; a second run did `google-maps.md`, `google-sign-in.md` and `deep-links.md` and wrote this summary.
 
-Pages done: stripe.md, revenuecat.md, admob.md, google-maps.md, google-sign-in.md
+## Summary
+
+- **Pages checked:** 6 (`docs/integrations/stripe.md`, `revenuecat.md`, `admob.md`, `google-maps.md`, `google-sign-in.md`, `deep-links.md`). Page lengths after edits: about 1,350 / 480 / 680 / 570 / 520 / 680 words (prose only).
+- **Claim rows in the per-page tables:** 125 (a row can group several labels): 101 ok, 20 fixed, 2 added, 1 removed, 1 not checked (vendor links). Every row was checked against the code; the three pages of the second run were also checked in the running app.
+- **Runtime check (second run):** I ran the released v3.12.5 web build (`/home/user/nowa-build/build/web`, status bar "v3.12.5-78") in the playground with the capture tools, on private ports and an output folder in the scratchpad (nothing written to the repo, nothing saved to an account). Enabling a package needs Nowa's pub.dev proxy, which this sandbox cannot reach, so I added the packages to `pubspec.yaml` and reloaded; the **Enabled** switch then shows on and the settings pages work. Seen and confirmed: the settings pages and labels, what each field writes into `Info.plist`, `AppDelegate.swift`, `AndroidManifest.xml` and `web/index.html`, the **Constants** section, turning each integration off, and both placeholder messages.
+- **Most serious errors fixed:**
+  1. `deep-links.md`: **URL Scheme** was documented as writing the Android manifest. In 3.12.5 saving it rewrites only the iOS `Info.plist`; the Android manifest gets the scheme (and Flutter's default deep linking switch-off) only the next time it is rewritten, for example after saving **Host**. Enabling the package writes no platform file either. The page said both happened at once. Fixed, with a note and the verified workaround.
+  2. `deep-links.md`: the intro said the domain is registered with iOS and Android (**Host** is Android-only); **Host** and **URL Scheme** values need no `://` / `https://` (not stripped by Nowa) and Android matches them case-sensitively; added a warning that **URL Scheme** and Google Sign-In both write `CFBundleURLTypes`, which produces a duplicate key in `Info.plist`.
+  3. `google-maps.md`: where each placeholder message appears is now exact: the board shows "Run to preview" (map icon, title "Google Maps"); **Play** and a shared preview show "Run on a simulator/emulator or mobile device to preview". The old text said a real map needs a simulator, emulator or device with the desktop app, and left out that **Run** → **Embedded preview** is a web build that uses the **Web API Key**. The **Details** warning is now "can show" (see open issue 3), the starting view is named (**Initial Camera Position**: **Target**, **Zoom**), and a widget left behind after turning the integration off is documented (`Method "GoogleMap" is not found`).
+  4. `google-sign-in.md`: the **Enabled** switch is hidden, not only the fields, under **Managed by Firebase**; the condition for that panel is now exact (a saved Google client ID); **Web Client ID** is not used by Nowa (your code reads it) and stays in **Constants** after turning the integration off; two vendor claims reduced.
+  5. First run: `stripe.md` dropped an Android minimum SDK claim that no code applies and now says a failed Supabase step may not show an error; Circuit field labels and the **+** / **Edit** button were corrected in `stripe.md` and `admob.md`; `revenuecat.md` no longer states key prefixes as rules.
+- **Style and structure:** all six pages have no H1 in the body, sentence-case headings, no `---` rules, at most 2 admonitions, no hype words, no emoji, no prices (D3), no gating badges (no gating exists in any of the six configs). Every relative link resolves to a file that exists and is in `pages.md`. Capture placeholders are well formed and have rows in `captures/requests/W17.md`.
+
+## Open issues
+
+Product bugs found (candidates for `product-issues.md`; the code is identical on dev, so v3.13 is unchanged for items 1 to 3):
+
+1. **Deep Links never updates the Android manifest from URL Scheme, and enabling writes no platform file.** `PackageConfigService.onTokenChanged` rewrites only the template of the first token with a given key (`package_config_service.dart:68-70, 86`); Deep Links declares `urlScheme` twice (iOS, then Android: `app_links_package_config.dart:29-42`); `setupPackage` writes nothing for this package (`:111-141`). Reproduced in the app. Documented on the page.
+2. **Duplicate `CFBundleURLTypes` in `Info.plist`** when **Deep Links** (**URL Scheme**) and **Google Sign-In** (**iOS Client ID**, or a Firebase client ID) are both on: `InfoPlistTemplate` joins snippets without merging (`info_plist_template.dart:60`). Reproduced in the file; what iOS does with the duplicate key was not tested.
+3. **The Google Maps `Details` warning and AdMob's `No API Keys` panel are custom fields registered only when the package is added in the current session** (`package_config_service.dart:128-131`), not when a project that already has the package opens. Seen for Google Maps in the app (no warning after a reload).
+4. The in-app **Deep Links** description promises `myapp://path` links and iOS Universal Links; on Android the generated filter needs the host `open.my.app`, and no iOS Universal Links setup is written.
+5. After removing the **Google** provider in Firebase Authentication the **Google Sign-In** page keeps showing **Managed by Firebase** (`firebase.clientId` is never cleared; code only, not run).
+6. From the first run, still open: the `stripe-cancel-subscription` function source has `.order('created_at', ascending: false)` (not valid TypeScript, `stripe_edge_functions.dart:659`) and **Deploy Configuration** can still report success; Stripe secret fields show a check mark even when saving the secret failed; `minAndroidSdkVersion` is declared (Stripe 23, flutter_blue_plus 21) but never applied; Google Pay is generated with `testEnv: true`.
+
+Limits of this verification (re-check before publishing):
+
+7. **Vendor links not fetched** (egress policy denies them): `docs.stripe.com`, `supabase.com/docs` (including the Login with Google guide), `revenuecat.com`, `admob.google.com`, `developers.google.com` (the three Maps "get an API key" pages), `console.cloud.google.com`. `developer.android.com/training/app-links` and the Apple Universal Links page returned 200, and Android's intent filter and `data` element pages were fetched to confirm host matching and case sensitivity.
+8. **Not run:** the **Enabled** switch of any integration turning on (needs Nowa's pub.dev proxy; so "enabling Deep Links writes no platform file" and "the Google Maps warning shows right after enabling" rest on the code); the **Managed by Firebase** panel (needs a Firebase connection); iOS behavior with the duplicate key; a rendered Google map in the **Embedded preview**; whether a runtime location permission prompt appears.
+9. **Captures:** all six W17 rows in `captures/requests/W17.md` are `skipped: low value` or `needs-sign-in`, so no images exist; the `CAPTURE` comments stay in the pages (they render nothing). `stripe.md` embeds the old Supabase dashboard screenshot, which shows a real project ref in the address bar (already public in the old docs); consider a cropped re-capture.
+10. **References corrected in this log:** the first run cited `project_settings.dart:37-45`, `:39` (RevenueCat) and `:38` (AdMob); the right lines are `:34-39`, `:36` and `:35`.
 
 External vendor links (docs.stripe.com, supabase.com/docs, revenuecat.com, admob.google.com, developers.google.com, console.cloud.google.com) could not be fetched from this environment (egress policy answers 403 to CONNECT). `developer.android.com/training/app-links` and the Apple Universal Links page returned 200. The others are well-known canonical paths but were not link-checked: please re-check before publishing.
 
 Shared facts re-checked once for the whole batch (all ok):
 - Gear tooltip **Settings** and Ctrl/Cmd + `,`: `packages/nowa_ui/lib/top_bar/top_bar_view.dart:754`, `lib/project/top_bar.dart:154`, `lib/setup_general_actions.dart:33`.
-- Sidebar groups **General** / **Integrations** / **Deployment** (enum name capitalized) and page names = `displayName`: `packages/core/lib/src/settings/settings.dart:6`, `:106-118`; integration order Google Maps, AdMob, RevenueCat, Deep Links, Google Sign-In, Stripe: `packages/core/lib/src/settings/project_settings.dart:37-45`. **Constants** and **Permissions** are in **General**: `constants_settings.dart:19`, `permission_settings.dart:15`.
+- Sidebar groups **General** / **Integrations** / **Deployment** (enum name capitalized) and page names = `displayName`: `packages/core/lib/src/settings/settings.dart:6`, `:106-118`; integration order Google Maps, AdMob, RevenueCat, Deep Links, Google Sign-In, Stripe: `packages/core/lib/src/settings/project_settings.dart:34-39`. **Constants** and **Permissions** are in **General**: `constants_settings.dart:19`, `permission_settings.dart:15`.
 - Generic integration page = header + description, **Enabled** switch, **Configuration** with one field per visible token: `packages/core/lib/src/interpreter/packages/package_config/package_config_settings.dart:87-105`; label **Enabled**: `packages/core/lib/src/settings/settings_widgets.dart:149-190`.
 - Fields (`AsyncTextField`): Enter submits, send icon with tooltip **Submit** appears when the text changed, a check mark shows for 4 s, validation errors show under the field with a **Reset** icon: `packages/core/lib/src/fields/nowa_fields.dart:1150-1263`.
 - No plan, desktop, cloud or local gating exists in any of the six integration configs (grep for `isLocal`, plan and Enterprise checks in `packages/core/lib/src/integrations`, `.../interpreter/packages/integrations`, `packages/nowa_mobile_ads`: no hits). No badges needed.
@@ -69,7 +98,7 @@ Edits: reworded 3 passages (key prefixes, what the board and **Play** show, what
 
 | Claim | Verdict | Code ref | Note |
 |---|---|---|---|
-| **Settings** → **Integrations** → **RevenueCat**; **Enabled** adds `purchases_flutter` | ok | `packages/core/lib/src/interpreter/packages/integrations/revenuecat_package_config.dart:12-17`, `dart_package.dart:165`, `project_settings.dart:39` | |
+| **Settings** → **Integrations** → **RevenueCat**; **Enabled** adds `purchases_flutter` | ok | `packages/core/lib/src/interpreter/packages/integrations/revenuecat_package_config.dart:12-17`, `dart_package.dart:165`, `project_settings.dart:36` | |
 | Labels **Configuration**, **Apple API Key**, **Android API Key**, **Web API Key** | ok | `revenuecat_package_config.dart:23-45`, `package_config_settings.dart:101-105` | |
 | Keys "start with `appl_`, `goog_`, `strp_`" | fixed | `revenuecat_package_config.dart:27, 35, 43` | Those are only the field hints (placeholders); RevenueCat web keys can have another prefix. Now "The field hints show the usual prefixes". |
 | Enter / send icon (**Submit**) / check mark | ok | `nowa_fields.dart:1150-1263` | |
@@ -94,7 +123,7 @@ Edits: fixed 2 passages (the "No API Keys" button label, the Circuit step to add
 
 | Claim | Verdict | Code ref | Note |
 |---|---|---|---|
-| **Settings** → **Integrations** → **AdMob**; **Enabled** adds `nowa_mobile_ads` and `await MobileAds.instance.initialize();` to `main()` | ok | `packages/core/lib/src/interpreter/packages/integrations/admob_package_config.dart:11-27`, `project_settings.dart:38` | |
+| **Settings** → **Integrations** → **AdMob**; **Enabled** adds `nowa_mobile_ads` and `await MobileAds.instance.initialize();` to `main()` | ok | `packages/core/lib/src/interpreter/packages/integrations/admob_package_config.dart:11-27`, `project_settings.dart:35` | |
 | **Configuration**, **Android App ID**, **iOS App ID**, placeholder `ca-app-pub-xxxxxxxxxxxxxxxx~xxxxxxxxxx` | ok | `admob_package_config.dart:28-47` | Labels are exact. Note the mixed spellings in the product: **iOS App ID** on the settings page, but **Ios Unit ID** and **AdMob IOS setup** in **Details**; the page copies each as shown. |
 | An ID that does not start with `ca-app-pub-` is refused | ok | `admob_package_config.dart:268-275` (error "App ID should start with "ca-app-pub-""; empty is allowed), `nowa_fields.dart:1150-1263` (error shows under the field) | |
 | Add an App ID for both platforms; Nowa warns on the page | ok | `admob_package_config.dart:16-17` (description note) | |

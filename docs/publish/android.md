@@ -56,7 +56,7 @@ Once a key is saved, the icon turns into a check mark (hover to read **Signing k
 ## Build a release
 
 1. Make sure **Debug mode** is off.
-2. In **Start New Build**, pick a **Branch** and click **Build**. The button stays off until the signing key is saved.
+2. In **Start New Build**, pick a **Branch** (the default is fine: see [what a branch is](./builds.md#start-a-build)) and click **Build**. The button stays off until the signing key is saved.
 3. Wait for the build to finish.
 
 Or click **Deploy** in the top bar, then **Deploy** on the **Android Release** row. It shows **Set up** until the key is saved.

@@ -69,7 +69,7 @@ To send a new build, raise **Build number** in **Settings** → **Project Detail
 
 ## After the upload
 
-Nowa's part ends when the build reaches App Store Connect. The rest happens in [App Store Connect](https://appstoreconnect.apple.com/):
+Once the build is uploaded, you carry on in [App Store Connect](https://appstoreconnect.apple.com/):
 
 1. Wait for Apple to process the build. It appears in App Store Connect when processing is done, and Apple emails you. See [Upload builds](https://developer.apple.com/help/app-store-connect/manage-builds/upload-builds).
 2. To try the app with testers first, use TestFlight. See [TestFlight overview](https://developer.apple.com/help/app-store-connect/test-a-beta-version/testflight-overview).

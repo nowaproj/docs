@@ -21,7 +21,7 @@ Assumptions: none beyond the advice framing ("Check that...").
 
 ## complete-app.md (Build a complete app, start to finish)
 
-About 1,310 visible words (1,430 counting front matter and the capture comment; the brief allows about 1,400). One capture request: `guides-complete-app-1` (needs-sign-in: needs a real AI run). The walkthrough app (Recipe Box) is invented for the guide; it only uses features from the verified pages.
+About 1,325 visible words (1,420 counting front matter and the capture comment; the brief allows about 1,400). One capture request: `guides-complete-app-1` (needs-sign-in: needs a real AI run). The walkthrough app (Recipe Box) is invented for the guide; it only uses features from the verified pages.
 
 Step-by-step sources (verified pages, with the code refs from their writer notes):
 - 1 Describe: `get-started/first-app.md`, `ai/modes.md` (Design mode, **Your app design is complete**, **Make it real**: `packages/ai/lib/src/ui/guided_inline_views.dart:36-128`; dashboard prompt box and **Build it**, **Start here**: `lib/dashboard/dashboard_page.dart:218-226`, `packages/nowa_ui/lib/dashboard/describe_app_panel.dart`; Questions card `packages/ai/lib/src/ui/tool_inline_views.dart:293-636`). The prompt text is my own example.
@@ -45,7 +45,7 @@ Capture request: `guides-complete-app-1` (needs-sign-in).
 
 ## design-tips.md (Design tips)
 
-About 920 words. No capture placeholder (the existing `design-responsive-2` request already covers two sizes side by side).
+About 930 visible words. No capture placeholder (the existing `design-responsive-2` request already covers two sizes side by side). Final text uses "Prefer a Column for page content" (Stack: use the **Left and right** constraint) and "Theme extensions" as bullet leads.
 
 Sources and refs, by section:
 - **Set the theme first**: `design/themes.md`, `design/theme-styles.md`, W4 notes (themes, theme-styles). Ctrl/Cmd+3 = **Themes**: `lib/project/side_bar.dart:34-50`, `lib/setup_general_actions.dart:47-61`. **Seed** / **Seed Color** / **Scheme Variant**, **Typography**, **Default Font**: `packages/core/lib/src/panels/details/theme_panel/theme_panel_fields.dart:57-240`, `packages/core/lib/src/fields/text_fields.dart:821-924`. Linked field shows the role name and writes `Theme.of(context).colorScheme.<role>`: `packages/core/lib/src/fields/color_fields.dart:731-743` (`onSelect`). **Widgets** (Fields / Buttons): `packages/core/lib/src/panels/details/theme_panel/theme_panel_details.dart:152-178`. A new Button already follows the theme: `packages/core/lib/src/fields/button_fields.dart:281-488`. **CopyWith**: `packages/core/lib/src/fields/text_fields.dart:181-232`. `lightTheme` / `darkTheme` and `AppState.changeTheme`; the default `MaterialApp` has only `theme:` (never follows device dark mode): `packages/core/lib/src/file_system/templates/common/main_dart_template.dart:41-52`, `packages/core/lib/src/file_system/templates/common/app_state_template.dart:28-35`. "The board shows the **Active** theme": `packages/core/lib/src/panels/details/theme_panel/themes_panel.dart:333-339,382-383`.
@@ -112,3 +112,22 @@ Left out and why:
 Assumptions / open items:
 - "Stripe uses live keys instead of test keys": `integrations/stripe.md` only says to use test keys while building; going live with live keys is implied, not stated.
 - The `Test with` table puts **Share preview** under testing for feedback; it needs a cloud project (the page says so in `test/share.md`; the table row names the page).
+
+## Coverage notes and open questions (whole batch)
+
+Word counts at the end of the run (visible words / whole file with front matter and capture comment): `index.md` 590 / 645, `complete-app.md` 1,325 / 1,420, `design-tips.md` 930 / 980, `ai-tips.md` 940 / 1,035, `data-and-state-tips.md` 915 / 980, `ship-tips.md` 955 / 1,020. Every page compiles as MDX (`@mdx-js/mdx` with GFM, no build run), front matter parses, and every relative link and anchor resolves (checked with a script against the files on disk). No emoji, no prices or credit amounts, no H1, no horizontal rules, at most one admonition per page.
+
+Coverage notes:
+- The six pages are new (no rows in `pages.md`). The orchestrator wires `docs/guides/` into `sidebars.js` and the structure/pages lists; the section index is `guides/index.md` (`sidebar_label: Overview`).
+- Every item in the brief's per-page lists is covered. Items I judged not to belong or could not confirm are under "Left out and why" for each page.
+- Cross-links back into the guides are only in these pages; no feature page links to them yet (phase 9 item 6 mentions short tips on the feature pages, not part of this batch).
+
+Product/docs observations for the orchestrator (not fixed here, other pages are out of scope):
+1. `docs/test/share.md` says owners and editors who open a single-screen link (`?screen=`) see the **Single Screen Preview** warning. By code the warning is added only when the played screen has no route (`packages/designer/lib/src/play_mode/play_mode_warning.dart:38-52`); a screen with a route starts the router at that path with navigation working (`packages/designer/lib/src/play_mode/play_mode.dart:261-275,459-475`). `ship-tips.md` avoids the claim. The share page may need a one-line fix.
+2. No visual building block was found for "is the user signed in?" (startup redirect to the login screen): a gap users will hit in the complete-app flow; the guide makes the login screen the home screen and says nothing about session persistence.
+
+Open questions for a live check (all low risk, each is flagged where it appears):
+- `complete-app.md` steps 4-6 and `data-and-state-tips.md` (empty-list bullet) are composed from verified pieces and were not run end to end in the app.
+- Whether AI-built screens come with routes in GoRouter projects (the guide tells readers to set a path in **Route Settings** when there is none).
+- Whether `data` is typed as a list inside a **Data Builder** once a source is picked, so that **+** → `isEmpty` is offered (code: `data` is created as `dynamic` and the page says the type comes from the source).
+- Captures: `guides-complete-app-1` (needs sign-in and an AI run) and `guides-ai-tips-1` (playground) in `captures/requests/W19.md`.

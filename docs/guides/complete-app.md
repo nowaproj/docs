@@ -5,7 +5,7 @@ sidebar_label: Build a complete app
 keywords: [tutorial, walkthrough, complete app, login, list and detail, Supabase, publish]
 ---
 
-This walkthrough builds Recipe Box. People sign in, see a list of recipes and tap one to read it. Each step is short and links to the page that covers it in depth, so you can follow along, or swap in your own idea.
+Go from one sentence to an app with sign-in, a list and a detail screen, then publish it. This walkthrough builds Recipe Box: people sign in, see a list of recipes and tap one to read it. Each step is short and links to the page that covers it in depth, so you can follow along, or swap in your own idea.
 
 ## Before you start
 
@@ -15,7 +15,7 @@ This walkthrough builds Recipe Box. People sign in, see a list of recipes and ta
 
 ## 1. Describe the app
 
-Start wide. On the dashboard, keep the **Design** chip and describe the whole app in **What do you want to build?**:
+On the dashboard, keep the **Design** chip and describe the whole app in **What do you want to build?**:
 
 > A recipe box app. People sign in with email and password. The home screen lists recipes with a title and a short description. Tapping a recipe opens a detail screen with the ingredients and the steps.
 
@@ -79,7 +79,7 @@ Details: [Read and write Supabase data](../integrations/supabase/database.md), [
 2. Open `RecipeCard` on its own (double-click it in the **Widgets** panel), select its main widget, click **Add Wrapper** and choose **Gesture Detector**. Open **On Tap** and add a **GoRouter** node of type `push`. Type `/recipe/` in **Location**, then `$` and pick the `id` param.
 3. On the detail screen, wrap the content in a **Data Builder** with **Source** set to **Supabase** and **Query** set to `getByIdRecipes`. Link its `id` input to the screen's `id` param, then show the fields of `data`.
 
-Details: [Navigate between screens](../logic/navigation.md#pass-data-to-the-next-screen), [Pass data with parameters](../logic/parameters.md).
+Details: [Open a detail screen when a list item is tapped](../logic/navigation.md#open-a-detail-screen), [Pass data with parameters](../logic/parameters.md).
 
 ## 7. Test it
 

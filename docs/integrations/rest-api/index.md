@@ -55,7 +55,7 @@ Headers, the base URL and tokens you type here are saved in your project's code 
 | **none** | Requests without a body, such as most GET requests. |
 | **JSON** | Data as JSON. Hover the status icon in the corner to see **Valid JSON** or **Invalid JSON**. Nowa saves the body only while it is valid. The ⋮ menu has **Wrap** (line wrapping on or off), **Compress** (one line), **Prettify** (indented) and **Copy**. |
 | **raw** | Plain text, XML or HTTP text. Pick **Text**, **XML** or **HTTP** next to it. |
-| **form-data** | Form fields and files. Click **Add +** for each field, give it a key and pick a type: **String**, **int**, **double**, **bool** or **MultipartFile** for a file. **Connect** links a value to a parameter. A file field has **filename** and **Bytes** instead of a single value. |
+| **form-data** | Form fields and files. Click **Add +** for each field, give it a key and pick a type: **String**, **int**, **double**, **bool** or **MultipartFile** for a file. **Connect** links a value to a parameter. A file field has **Filename** and **Bytes** instead of a single value. |
 | **x-www-form-urlencoded** | Sets the content type for classic web forms. You write the body in the same editor as **JSON**, with the same validity check. |
 
 Choosing a body type sets the content type and replaces the current body with a fresh one. Undo brings the old body back.

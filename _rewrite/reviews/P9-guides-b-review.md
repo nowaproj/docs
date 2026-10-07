@@ -5,11 +5,21 @@ Source of truth: `/home/user/nowa-master` (v3.12.5). Verifier: P9 guides B. Writ
 
 ## Summary
 
-(Filled in at the end of the run, after the third page.)
+- Pages checked: 3 (`ai-tips.md`, `data-and-state-tips.md`, `ship-tips.md`). Source: `/home/user/nowa-master` v3.12.5.
+- Claims checked: about 165 (102 log rows below; a row groups the labels of one step or one sentence). Every UI label, gate, number and behavior was opened in code; advice sentences are marked "advice".
+- Fixed: 19 log rows (about 20 small edits). Removed: 0 claims (the word "tokens" and the "always" in the ship-tips intro were dropped as unproven). Added: 2 gates or conditions the code shows (**Share preview**: cloud projects only; **Pull Backend Files**: needs recorded migrations).
+- Most serious fixes:
+  1. `ship-tips.md` publish checklist: the "Where" cell sent readers to **Settings** → **Integrations** for **Show Test Ads** and Google Pay `testEnv`, which live on each banner's **Details** and in `lib/integrations/stripe_payment_service.dart`. The cell now links the Stripe, AdMob and Google Maps pages.
+  2. `data-and-state-tips.md`: "**RLS Policy Error** and **Empty Result - Possible RLS Filtering** mean a policy is in the way" overstated the empty-result card (the product says "might be"); "tokens you type in a REST collection" is not true (**Auth Key** is only the name of a Shared Preferences entry).
+  3. `ai-tips.md`: **Auto-approve tools** lives only in the Figma icon's menu (now said); "travel with it" for Custom Instructions replaced by "saved with it" (it is a project file).
+  4. `ship-tips.md` big boards: "more than 8 items are in view" ignored the 200 px margin, now "in or near view"; the number 8 itself is right for v3.12.5 and the 200 px stays off the page.
+- Empty-list bullet (brief item 1): confirmed in code and kept. Picking a source types `data` (`DataLinkMenu` sets `typeArgs`), the link menu then lists `isEmpty` for a list. Limits added (source must return a list; the list inside the **Column** needs **Expand**). Details under page 2.
+- Links: all relative links and anchors resolve (script against `docs/`, explicit `{#id}` ones checked by grep). `pages.md` has no rows for `docs/guides/*` (new pages); every linked file is listed there under its section. MDX compile check passed for the three pages (parse only, no site build).
+- Open issues: see the end of this file.
 
 ## Page 1: `docs/guides/ai-tips.md` (Get the best from Nowa AI)
 
-Status: checked, fixed. Words before / after: 1,037 / 1,057 (whole file, front matter and capture comment included; about 900 visible).
+Status: checked, fixed. Words before / after: 1,037 / 1,058 (whole file, front matter and capture comment included; about 900 visible).
 
 | claim | verdict | code ref | note |
 |---|---|---|---|
@@ -50,7 +60,7 @@ Open issues for this page: none.
 
 ## Page 2: `docs/guides/data-and-state-tips.md` (Data and state tips)
 
-Status: checked, fixed. Words before / after: 977 / 1,010 (whole file; about 900 visible). The empty-list bullet is kept and corrected (see "Empty-list bullet" below).
+Status: checked, fixed. Words before / after: 977 / 1,007 (whole file; about 900 visible). The empty-list bullet is kept and corrected (see "Empty-list bullet" below).
 
 | claim | verdict | code ref | note |
 |---|---|---|---|
@@ -154,3 +164,15 @@ Nothing removed. Added: one gate ("Cloud projects only" on **Share preview**) an
 Open issues for this page:
 - None for the **Single Screen Preview** card: this page does not mention it. (Earlier I suspected `docs/test/share.md` was wrong, but the shared preview page has no `Designer`, so the route lookup in `play_mode_warning.dart:38-52` never succeeds there and the card shows for every `?screen=` link; `reviews/P9-gaps-review.md` and `W19-writer-notes.md:136` say the same, and `share.md` already states it.)
 - `docs/design/boards.md` (not edited): "When more than 8 items are in view" also ignores the 200 px margin; "in or near view" would be exact.
+
+## Open issues (all pages)
+
+1. `data-and-state-tips.md`, empty-list bullet: the steps are proven by code and by the repo's own test (`packages/data/test/data_test.dart:17-40`), but I could not click through them in the app. Low risk. A quick live check: wrap a List View in a **Data Builder** with a Supabase or REST source that returns a list, wrap a text in **Visibility**, click **Visible**, open **LOCALS**, click `data` and look for `isEmpty`.
+2. `docs/integrations/rest-api/index.md` (not edited): the warning says "Headers, the base URL and tokens you type here are saved in your project's code". **Auth Key** holds only the name of a Shared Preferences entry and the test token is kept outside the code, so "tokens" is imprecise.
+3. `docs/design/boards.md` (not edited): "When more than 8 items are in view" ignores the 200 px margin around the viewport (`packages/core/lib/src/board/canvas_detail.dart:46,150`); "in or near view" is exact. Same sentence as on `ship-tips.md`.
+4. Cosmetic, left as is: the Problems source menu shows "From Nowa" with a separate "Instant" tag (`packages/core/lib/src/panels/problems_panel.dart:400-401`); the pages write "From Nowa (Instant)" like `test/problems.md`.
+5. For the orchestrator: `guides/index.md` and the sidebar are not part of this batch. Nothing in these three pages needs a new capture except `guides-ai-tips-1`, already requested in `captures/requests/W19.md`.
+
+Inbound links checked at the end: other pages link to `ship-tips.md#publish-checklist`, `#test-in-the-right-place`, `#keep-a-way-back` and to `data-and-state-tips.md#keep-secrets-out-of-your-app`, `#pick-where-each-value-lives` (from `publish/index.md`, `test/index.md`, `integrations/constants.md`, `logic/global-state.md`, `guides/index.md`). I changed no headings, and all five still exist.
+
+Stopped here; left: nothing in the batch. All 3 pages are checked, fixed and logged. Only the empty-list steps were not clicked through in the app (open issue 1).

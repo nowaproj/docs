@@ -19,28 +19,36 @@ Resume from these files alone: `BRIEF.md` (context + rules), `decisions.md`, `op
 | 8 | Draft PR with report | PR | open: https://github.com/nowaproj/docs/pull/18 (update it after phase 9) |
 | 9 | Final quality pass: the user's acceptance criteria (see below) | pages, videos, annotated screenshots, best-practice guides | in progress (see Resume here) |
 
-## Resume here (updated 2026-10-07 ~14:30 UTC)
+## Resume here (paused by the user on 2026-10-07 ~14:45 UTC)
 
-**State:** phases 0-7 done. `yarn build` passes with no warnings (14:15 UTC; the table anchors use the `<Anchor>`
-component now). Phase 8 (draft PR) is being opened. Phase 9 is in progress:
+**State:** phases 0-7 done; draft PR open: https://github.com/nowaproj/docs/pull/18 (CI "Test deployment" runs
+`yarn build` on every push; green so far). The last local `yarn build` passed with no warnings (14:40 UTC).
+Phase 9 is in progress:
 
 | Item | Status |
 |---|---|
-| 1 Journey coverage | Guides written (`docs/guides/*`, notes `reviews/W19-writer-notes.md`); recipes added (list to detail, store hand-off, sign-in comparison, share with a client, no desktop app; `reviews/phase9-fixes.md`); structure fixes applied. W20 writer: start on login or home (structure item 14). |
-| 2 Videos | Capture agent recording up to 5 videos (playground only); results in `captures/log.md`. Embed them by hand per the log rows (page, heading). |
-| 3 Warm, clear language | Todo: style pass over every page after the verifiers finish (wording only). |
-| 4 Structure | Review `reviews/phase9-structure.md`; fixes in `reviews/phase9-fixes.md`; sidebar reorder done (item 15), home tidy and `_category_.json` removal done (item 19). W20: split `logic/navigation.md` into `logic/router.md` (item 20), preview mapping (16), duplicate theme-switch steps (18). Add `logic/router` to `sidebars.js` after `logic/navigation` when W20 is done. |
-| 5 Highlighted screenshots | Capture agent re-highlighting older shots. Signed-in shots stay in `captures/to-capture.md`. |
-| 6 Tips | Guides done; W20 adds one-line links from feature pages to the guides. |
+| 1 Journey coverage | Done: guides (`docs/guides/*`), recipes (list to detail, store hand-off, sign-in comparison, share with a client, no desktop app), structure fixes, new `logic/router.md` with "Start on the login screen or the home screen". |
+| 2 Videos | 1 embedded (`test/instant-play.md`). The capture agent was recording more (add widgets, layout, Circuit, themes); embed finished ones by hand from the `captures/log.md` rows (alt cell says page and heading; markup in README "Adding videos"). Check frames before embedding. |
+| 3 Warm, clear language | Todo: `STYLE-PASS.md` brief + `tools/style-guard.py`. Run it after verification (3 agents by section: get-started+guides+ai+design / logic+integrations / test+publish+code+account+troubleshooting+reference+home), commit first and give the agents that commit as the guard ref. |
+| 4 Structure | Done except the long-page trims (style pass): editor-tour (~1,530 words), circuit (~1,600), navigation (~1,530), rest-api (~1,440). |
+| 5 Highlighted screenshots | Older shots re-highlighted (part). **Capture wave 2 to do:** the ~29 playground-only requests marked `skipped: low value` in `captures/requests/W*.md` (list in `captures/to-capture.md` "Skipped on purpose"), one per page that has no media yet: logic (variables, functions, expressions, popups, global-state, models, navigation, router, parameters), reference widget guides (forms, lists, media, navigation), design (assets, fonts-icons, responsive, theme-styles), integrations (constants, index, admob, revenuecat, google-maps), code (packages, limitations), test/problems, account/project-settings, get-started (create-account sign-in screen without signing in, mobile). Brief: `CAPTURE.md`; 2 agents max, each writing its own log file, merged into `captures/log.md`, then `embed.py`. |
+| 6 Tips | Done: guides + one-line links from 8 feature pages. |
 
-**Verification of phase 9 text (non-author agents):** running: `reviews/P9-guides-a-review.md` (guides index,
-complete-app, design-tips), `reviews/P9-guides-b-review.md` (ai-tips, data-and-state-tips, ship-tips),
-`reviews/P9-gaps-review.md` (coverage gap fixes G1-G12, integrations overview additions, share.md). After W20:
-one more verifier for the recipe sections (`phase9-fixes.md` "Recipes and clarifications"), W20's changes and the
-new text from the structure fixes (troubleshooting "My app shows an error", publish "Ship an update", code index
-tip, import "Before you start", reference overview, add-widgets section).
+**Verification of phase 9 text (non-author agents), state at the pause:**
+- Done: `reviews/P9-gaps-review.md` (coverage gap fixes, integrations overview additions, share.md).
+- Paused, resume from each log's "Stopped here" line: `reviews/P9-guides-a-review.md` (guides index, complete-app,
+  design-tips), `reviews/P9-guides-b-review.md` (ai-tips, data-and-state-tips, ship-tips),
+  `reviews/P9-routes-review.md` (logic/router.md, logic/navigation.md, one-line links),
+  `reviews/P9-recipes-review.md` (publish, devices, themes, test/index, guide links). Prompts: same scope as in the
+  logs' headers; tell each verifier to continue from its log.
+- Not started: the new text from the structure fixes (`reviews/phase9-fixes.md` "Structure fixes": troubleshooting
+  "My app shows an error", publish "Ship an update", code index tip, import "Before you start", reference
+  overview, add-widgets section, welcome steps, first-app step 5).
 
-**Then:** style pass (2 agents by section), final build, update `PR-REPORT.md` and the PR body, list what's left.
+**Small follow-ups:** link `guides/complete-app.md` step 4 to `../logic/router.md#start-on-login-or-home` once the
+guides verifier is done; update `PR-REPORT.md` (Add logic now 13 pages; videos; phase 9 results) and the PR body.
+
+**Then:** style pass, capture wave 2 + embed, final build, update the PR, list what's left.
 
 **Live checks for later** (need the running app): typing `.id` after `element` in a GoRouter **Location**
 (`logic/navigation.md#open-a-detail-screen`), plus the backlog below.

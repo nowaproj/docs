@@ -30,6 +30,7 @@
 }
 
 /* Links to anchors inside tables (widget catalog, wrappers) land below the sticky navbar, like headings do. */
+table a[id],
 table span[id] {
   scroll-margin-top: calc(var(--ifm-navbar-height) + 0.5rem);
 }

@@ -4,7 +4,7 @@ description: Boards, screens, components and widgets, and how you design your ap
 keywords: [design, designer, board, design board, canvas, UI, screen, component, widget, visual editor, drag and drop]
 ---
 
-In Nowa you design on a board: one big, free-form space where every screen of your app sits in front of you. Click anything to change it, drag to rearrange, and let Nowa AI build alongside you. Everything you do is saved as real Flutter code in your project.
+In Nowa you design on a board: one big, free-form space where your screens sit side by side. Click anything to change it, drag to rearrange, and let Nowa AI build alongside you. Your screens and components are saved as real Flutter code in your project.
 
 ## How the pieces fit
 
@@ -30,7 +30,7 @@ Screens and components have a title bar above them with their name. Hover it to 
 | **Outline** panel, left sidebar | Shows the widget tree so you can jump to any widget. |
 | Toolbar, bottom of the board | **Select tool**, **Shape**, **Screen**, **Text** and **Widget**. |
 | **Details**, top right | The properties of whatever is selected. With nothing selected, it shows the board's color and grid. |
-| **Variables**, above **Details** | The data and functions of the selected screen or component. |
+| **Variables**, above **Details** | The data and functions of the selected screen or component. With nothing selected, it shows **Globals**, your app-wide state. |
 
 The board is part of the desktop-width layout. On a phone-sized window Nowa shows a simpler view without a board, described in [Use Nowa on your phone](../get-started/mobile.md).
 

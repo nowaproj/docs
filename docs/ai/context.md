@@ -13,7 +13,7 @@ Click a screen or widget on the board. A chip with its name appears at the top o
 
 - A component instance attaches the component itself, so Nowa AI can change it. A plain widget, such as a text or a button, attaches only that widget.
 - If you select several widgets, Nowa AI gets the first one.
-- With nothing selected, Nowa AI gets the screen or component that is open in the code editor.
+- With nothing selected, Nowa AI gets the screen, component or class that is open in the code editor.
 - Hover a chip to highlight its widget on the board. Click **×** on the chip to remove it. A removed selection stays removed until you select something else.
 
 ## Add context
@@ -22,12 +22,12 @@ Click a screen or widget on the board. A chip with its name appears at the top o
 2. Pick what to add:
    - **Attach image** opens a file picker. You can choose several images.
    - **Attach text file** opens a file picker for a text file.
-   - A screen, component or class under **From your app**.
+   - A screen, component or class under **FROM YOUR APP**.
 3. The attachment appears as a chip at the top of the chat field. Click **×** to remove one, or **Remove all attachments** to clear them all.
 
 {/* CAPTURE: id=ai-context-1 | state: playground starter open, Assistant panel open, + (Add context) clicked | show: the Add context palette with the search field, the UPLOAD section (Attach image, Attach text file) and the FROM YOUR APP list | crop: left panel + palette */}
 
-In the **From your app** list, a check mark means the item is already attached, a lock means it is read-only, and **included** means Nowa already sends it as a related declaration, in short form.
+In the **FROM YOUR APP** list, a check mark means the item is already attached, a lock means it is read-only, and **included** means Nowa already sends it as a related declaration, in short form.
 
 You can also paste an image into the chat field with <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>V</kbd>, or drag an image file onto it.
 
@@ -53,14 +53,14 @@ Along with your words, each request carries:
 - Your selection, attachments and mentions.
 - The code those attachments depend on, in short form.
 - Your Custom Instructions. See [Write prompts that work](prompting.md#custom-instructions).
-- A map of your project: the name of every widget and an outline of every public declaration. That is how Nowa AI finds things you didn't attach.
+- A map of your project: the name of every widget and an outline of your other public declarations, such as classes, functions and variables. That is how Nowa AI finds things you didn't attach.
 
 ## What to attach when
 
 | You want to | Attach |
 |---|---|
 | Change one widget | Nothing. Select it on the board. |
-| Change a whole screen or component | Select it, or add it from **From your app** or with `@`. |
+| Change a whole screen or component | Select it, or add it from **FROM YOUR APP** or with `@`. |
 | Build something like an existing screen | That screen. |
 | Match a design, sketch or screenshot | An image. Nowa AI uses it as a reference. |
 | Put a logo or photo in your app | An image, and say it should appear in the app, so Nowa AI saves it to your assets. |

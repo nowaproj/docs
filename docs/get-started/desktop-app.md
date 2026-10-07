@@ -5,7 +5,7 @@ sidebar_label: Install the desktop app
 keywords: [Nowa Desktop, download, install, macOS, Windows, Flutter SDK, Xcode, Local Setup, Set up automatically, auto update, desktop app, simulator, emulator]
 ---
 
-The Nowa desktop app is the same editor in its own window, for macOS and Windows. It adds local projects, importing existing Flutter projects, and running your app on real devices and emulators. It also updates itself.
+The Nowa desktop app is the same editor in its own window, for macOS and Windows. It adds local projects, importing existing Flutter projects, and running your app on real devices and emulators. It also installs updates from inside the app.
 
 <Badge type="desktop" />
 
@@ -28,7 +28,7 @@ Open Nowa and sign in with your email and password or with Google. **Continue wi
 
 When a new version is out, Nowa shows **A new version of Nowa is available**. Click **Update to v…** (the button names the new version) to download it, then click **Install & Restart**. Click **Skip** or **Later** to wait, or **Or download manually** to get the installer yourself.
 
-If Nowa says **Version out of date**, the update is required. Click **Download** and install the newer version.
+If Nowa says **Version out of date**, the update is required. Click **Download**, choose your system in the **Download Nowa** dialog, and install the newer version.
 
 ## Set up Flutter {#setting-up-flutter-sdk}
 
@@ -43,7 +43,7 @@ Nowa also sends you here from **Setup flutter SDK** in the **New project** dialo
 
 On a Mac, Flutter needs Xcode, which also builds iOS apps. The setup dialog warns you: "Xcode must be installed on macOS before setting up Flutter."
 
-1. Open the App Store, search for Xcode, and install it. It is a large download.
+1. Open the App Store, search for Xcode, and install it.
 2. Open Xcode once and finish its first-launch setup. Agree to the license and let it install its components.
 3. Return to Nowa and run the Flutter setup again.
 
@@ -51,11 +51,11 @@ On a Mac, Flutter needs Xcode, which also builds iOS apps. The setup dialog warn
 
 This is the quickest route.
 
-1. In **Local Setup**, under **Automatic setup**, click **Set up automatically**. The **Set up local environment** dialog opens.
+1. In **Local Setup**, under **Automatic setup**, click **Set up automatically**. The **Set up local environment** dialog opens. If Flutter is already installed and up to date, it starts on the **Verify** step: skip to step 4.
 2. On the **Flutter** step, check the **Install location**. Nowa installs about 10 GB of tools there, and the path must not contain spaces. The Flutter SDK download itself is about 1 GB.
-3. Tick the box that accepts the licenses (Nowa downloads these tools from Google and the Eclipse Foundation), then click **Install** next to **Flutter**. Keep Nowa open while it downloads.
+3. Tick the box that accepts the licenses (Nowa downloads these tools from Google and the Eclipse Foundation), then click **Install** next to **Flutter**. Keep Nowa open while it downloads. When the row says **Ready**, click **Next**.
 4. On the **Verify** step, Nowa runs `flutter doctor` and lists the devices you can run on. Fix anything it reports, then click **Re-run checks**.
-5. On the **Android** step, click **Install** next to **Android toolchain** to build for Android. The **Android emulator** is optional too. Click **Skip for now** if you only target web or desktop. You can add them later from **Local Setup**.
+5. To build for Android, click **Download** next to "Android isn't set up". On the **Android** step, click **Install** next to **Android toolchain**. The **Android emulator** is optional too. Click **Skip for now** if you only target web or desktop. You can add them later from **Local Setup**.
 6. Click **Done**.
 
 {/* CAPTURE: id=get-started-desktop-app-2 | state: desktop app, Local Setup page open, Set up automatically clicked, Flutter step showing | show: the Set up local environment dialog on the Flutter step with Install location, the license checkbox and the Install button | crop: the dialog */}
@@ -65,8 +65,8 @@ This is the quickest route.
 ### Use a Flutter SDK you already have
 
 1. Install Flutter with the official [Flutter install guide](https://docs.flutter.dev/get-started/install).
-2. In **Local Setup**, click **Browse** next to **Flutter SDK Path** and pick the Flutter folder, the one that contains `bin/flutter`. If Nowa says **Invalid Flutter SDK path**, you picked the wrong folder.
-3. Optional: set **Default Projects Path**. New local projects and local clones go there.
+2. In **Local Setup**, click **Browse** next to **Flutter SDK Path** and pick the Flutter folder, the one that contains `bin/flutter` (`bin\flutter.bat` on Windows). If Nowa says **Invalid Flutter SDK path**, you picked the wrong folder.
+3. Optional: set **Default Projects Path**. New local projects start with this folder, and local clones are saved in it.
 4. Optional: set **VS code Path** if **Open in VS Code** can't find VS Code. It starts with the usual install location.
 
 ## Next steps

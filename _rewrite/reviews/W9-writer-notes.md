@@ -34,3 +34,31 @@ Assumptions / open questions / possible product issues
 
 Capture request: `code-packages-1` (needs pub.dev network access).
 
+## docs/code/custom-code.md (Write your own code)
+
+Research sections: Your own code on the board (what Nowa can render), Code and design sync, Import Dart code..., Hybrid approach. Old page `hybrid-approach/custom-code.md` used for ideas only (it is partly wrong: see below).
+
+Key claims and code refs (paths relative to the repo root)
+- Nowa reads every Dart file under `lib/`: `packages/core/lib/src/project/file_loader_service.dart:41-49` (loads `lib` and `boards`).
+- Hand-written code is interpreted by default: `LoadOptions(loadCustomCode: true)` is the default and `DartImporter` uses it, `packages/core/lib/src/interpreter/visitors/ast_to_block_visitor.dart:112-119`, `packages/core/lib/src/file_system/dart_importer.dart:20`; source of unannotated declarations is kept (`_preserveSourceIfCustomLoaded`, `ast_to_block_visitor.dart:140-148`). Only `@CustomFunction`, **Import as Custom code** and a load failure turn a declaration into "custom code" (not run): `ast_to_block_visitor.dart:542-563` (class), `:958-961` (method), `:1030-1049` (top-level function).
+- Widget picker lists every widget under `lib/` (except `MyApp`) under the **Components** filter: `packages/core/lib/src/widgets/widget_picker.dart:21-38,191,208-209`. Same labels as `docs/design/add-widgets.md`.
+- Functions and classes in Circuit: category named after the project's own library, `packages/core/lib/src/interpreter/services/suggestion_service.dart:9-15` (and `docs/logic/circuit.md`).
+- Classes in **Select type**: `packages/core/lib/src/fields/nowa_fields.dart:672,691-695,760` (search covers all types; **show more...** lists them).
+- `@CustomFunction(preview:, imports:)`: annotation class `packages/nowa_runtime/lib/src/annotations.dart:7-19`, exported by `packages/nowa_runtime/lib/nowa_runtime.dart:8`. Top-level function: `ast_to_block_visitor.dart:1030-1049` (reads `preview` and `imports`); invoke returns `preview` or a stand-in: `packages/core/lib/src/interpreter/declaration_hybrid.dart:28-48,113-121`; test `packages/core/test/interpreter_tests/lib_test.dart:908-921` (`preview: '"abc"'` returns `abc`). A method marked `@CustomFunction` is built by `CustomMemberVisitor` without `preview` (`ast_to_block_visitor.dart:2013-2026`), so the page says `preview` works on top-level functions. Log line "calling: <name>": `declaration_hybrid.dart:36-41`. Stand-in values: `packages/core/lib/src/interpreter/mock.dart:252,261,267` (`[...]` for text with no name, `0`, `false`).
+- **Import Dart code...** dialog and labels: `lib/project/panels/files_panel/import_dart_code.dart:14-72` (buttons **From file**, **Import**, **Import as Custom code**, **Cancel**; tooltips), menu entry `lib/project/panels/files_panel/add_lib_menu.dart:140-146`; behavior `packages/ai/lib/src/tools/ai_response_actions.dart:18-60` (**Import**: `loadCustomCode: true`, `markSourceGenerated()`; **Import as Custom code**: `loadCustomCode: false`); placement rules `packages/core/lib/src/file_system/dart_importer.dart:209-265,422-439` (same name replaces the existing declaration `:221-228`; `main` refused `:210-214`; screens `lib/pages`, widgets `lib/components`, `toJson`/`fromJson` `lib/models`, `ChangeNotifier` `lib/globals`, functions `lib/functions`, rest `lib`; directories `packages/core/lib/src/providers/project_provider.dart:372-382`); new screens placed on the open board `ai_response_actions.dart:42,54-100`.
+- Add to library is hidden in code mode (`lib/project/panels/files_panel/files_list.dart:173-177`, top-level rows are headlines only when `showAllFiles` is false) and the `Back` button leaves code mode (`docs/code/code-mode.md`).
+- Anchors added: `{#custom-function}` and `{#import-dart-code}` (the latter is linked from `docs/code/files.md`).
+
+Left out and why
+- `@CustomWidget(preview:, imports:)`: in 3.12.5 the annotation is read only when a widget class has already fallen back to custom code (`ast_to_block_visitor.dart:565-602`); a loadable widget carrying it is still interpreted (`:542-563`), and the class-level `preview` is stored but not used to draw the board (`declaration_hybrid.dart:182-234`; the placeholder comes from `_widgetPreview`, `:50-71`). Open question for the product team: is `@CustomWidget` meant to force custom handling? Not documented.
+- `imports:` of `@CustomFunction` (adds import lines for generated code): not verified end to end; left out.
+- Old page claims not carried over: "custom widgets appear as placeholders" and "custom functions don't execute" are only true for code kept as custom code (annotation, **Import as Custom code**, or a load failure); ordinary hand-written code is interpreted. "Cloud projects can only be tested by a 12-hour web publish" is outdated (Run, embedded preview). "Functions in Nowa-generated classes appear under Locals": not verified.
+- AI instructions in `packages/ai/lib/src/agent/local_agent.dart:96` still say custom code is "not loaded or edited by the platform": outdated wording in the prompt, not user-facing.
+
+Assumptions / open questions
+1. The page says a widget Nowa can read "opens like any other component, so you can change it on the board too": based on `WidgetClassDecl` being visually editable and `docs/code/index.md`; not exercised in the UI.
+2. Failure UX of **Import** when a declaration can't be loaded (`continueOnException: false` throws, `ai_response_actions.dart:19`): the dialog has no error handling (`import_dart_code.dart:53-56`), so the user probably sees nothing. The page repeats the product's own advice ("if you face problems, use Import as Custom code").
+3. The example widget/function are ordinary Dart; the page does not claim how they render.
+
+Capture request: `code-custom-code-1`.
+

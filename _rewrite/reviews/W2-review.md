@@ -48,3 +48,53 @@ Status: IN PROGRESS. The summary at the bottom is written last; per-page section
 | Tip: **Fix with AI** sends its prompt in the active mode | fixed | `packages/core/lib/src/widgets/fix_with_ai_button.dart:27-45` | Scoped to the error buttons (**Fix with AI** / **Explain with AI**). The Supabase backend-setup buttons with the same name switch to Agent mode (`sb_backend_setup_flow.dart:64-69`), so the unscoped sentence was wrong for them. |
 | When-to-use table, links (`chat.md#stop-a-request`, `connectors.md`, `context.md`, `prompting.md`), capture `ai-modes-1`, front matter, no H1, 2 admonitions | ok | | Anchor checked on chat.md. |
 
+## chat.md
+
+| claim | verdict | code ref | note |
+|---|---|---|---|
+| Enter sends; Shift / Ctrl / Cmd + Enter new line; Alt/Option + Backspace deletes the previous word | ok | `packages/ai/lib/src/ui/chat_field/ai_chat_field.dart:58-109` | |
+| Code-editor edits are applied before sending; project saved when the request finishes | ok | `packages/ai/lib/src/chat_session.dart:257-314` (`CodeBufferService.flush()`, `gProject.save()`) | |
+| **Send** disabled when empty, while stopping, and when credits are used up | ok | `ai_chat_field.dart:653-683` (`creditsBreakdown != null && !hasEnoughCredits`) | |
+| Six starter chips (**Summarize**, **Fix**, **Redesign UI**, **Add authentication**, **Use an API**, **Add more pictures**) in Plan/Agent only; a chip fills the field and never sends; Fix prompt text | ok | `packages/ai/lib/src/ui/ai_suggestions.dart:6-83`, `chat_panel/chat_session_view.dart:168-196` | Matches `captures/ui-map/01-editor-default.png`. |
+| Stop button: red, tooltip **Abort**, then **Cancelling...** | ok | `ai_chat_field.dart:668-703` | |
+| "A step that is already running finishes, and the steps that didn't run show a grey canceled icon" | fixed | `packages/ai/lib/src/agent/agent_runner.dart:153-195` (running tool awaited, but its completion event is not emitted once cancelled), `content_views.dart:753-765` (no output + not processing = canceled icon) | The icon is shown for every row without a result, including the one that was running. Reworded. |
+| Changes made before stopping stay in the project | ok | `chat_session.dart:300-306` | No rollback on cancel; `_onDone` still saves. |
+| **Thinking process** collapsed; step icon tooltips (**Tool is running**, **Tool executed successfully**, **Tool execution failed**, **Tool execution was canceled**) | ok | `content_views.dart:753-832` | |
+| Code cards titled **Writing code** or **Modified code**; list "each screen or component" | fixed | `content_views.dart:640-737,1145-1243`, `tools/legacy/write_code_tool.dart:23,101`, `packages/core/lib/src/file_system/dart_importer.dart:509-545` | "Modified code" is only the fallback when no title is passed, which `ToolCallContentView` never does (`:729`). Real titles: **Writing code** and **Writing member in class** + class name. The card lists every named top-level declaration, not only screens/components. Click selects and zooms to the widget on the board, or opens its file (`packages/designer/lib/src/design_experience/selection_manager.dart:192-215`). Reworded. |
+| **Show raw code** button, hover highlight, drag a widget onto the board | ok | `content_views.dart:1181,1215-1243` | |
+| **Open in New Tab** on rows that work on a file | ok | `content_views.dart:775`, `packages/core/lib/src/widgets/nowa_widgets.dart:161-163` | |
+| **Using &lt;tool&gt;...** and **Approval Required** are connector steps | ok | `content_views.dart:684-694,1034` | |
+| **⋮** (**View Raw Data**) on hover, read-only | ok | `packages/ai/lib/src/ui/message_options.dart:8-30,89-95`, `content_views.dart:98,594` | |
+| New screens placed right of existing ones on the open board only; board pans | ok | `packages/ai/lib/src/tools/ai_response_actions.dart:63-110` | |
+| **Created Widgets** card: thumbnails, drag, click opens, × closes | ok | `packages/ai/lib/src/ui/chat_panel/summary_card.dart:95-205` | |
+| **Constants updated** card and **Open Constants** | ok | `summary_card.dart:217-263` | |
+| **Suggested next steps**: up to three rows, title + line + mode badge, click fills the field and switches mode, never sends, **Dismiss** ×, hidden while working | ok | `packages/ai/lib/src/ui/chat_panel/next_steps_bar.dart:56-190`, `tools/next_steps_tool.dart:7-58` | |
+| **Retry** semantics, **Show more** / **Show less**, copy button | ok | `chat_session.dart:222-255`, `content_views.dart:335-412` | 240-character clamp; page gives no number. |
+| **Service under load**: automatic retries with growing waits, **Dismiss** | ok | `agent_runner.dart:68,117-134`, `content_views.dart:456-500`, `models/message_content_models.dart:394-397` | Up to 5 retries; page says "several times". |
+| "Server is not reachable" / "Server took too long to respond" | ok | `packages/ai/lib/src/services/agent_service.dart:260-266` | |
+| **Session Limit Reached**; **You ran out of credits** | ok | `content_views.dart:414-454,228-300` | |
+| Bug report: **Preparing issue report...**, **Bug report ready - want to send it to the Nowa team?**, **Report** opens the prefilled form, nothing sent until submitted | ok | `packages/ai/lib/src/ui/tool_inline_views.dart:638-694`, `tools/report_issue_tool.dart:5-84` | The tool is for platform problems, "Do not report user code bugs": matches the last sentence. |
+| Links (11) and anchors `#stop-a-request`, `#start-from-a-suggestion` (defined here), `connectors.md#approve-what-a-connector-does`, `undo-and-history.md#start-a-new-session` | ok | | The two cross-page anchors are checked on their own pages. Capture `ai-chat-1` matches `captures/requests/W2.md`. |
+
+## context.md
+
+| claim | verdict | code ref | note |
+|---|---|---|---|
+| Selecting a screen or widget on the board attaches a chip at the top of the chat field; the next message carries it | ok | `packages/ai/lib/src/prompt_controller.dart:117-145`, `packages/ai/lib/src/ui/chat_field/attachements_view.dart:43-83` | The Details panel for a selected screen shows widget-style properties, so a screen is a selectable widget instance (`captures/ui-map/10-screen-selected.png`). |
+| Component instance attaches the component (editable); plain widget attaches only that widget; several selected = first one | ok | `prompt_controller.dart:117-135` (`ClassComponentInstance`/`FuncComponentInstance` -> `DeclAttachment` modifiable, else `WidgetExprAttachment`, `.first`) | |
+| Nothing selected: gets what is open in the code editor | fixed | `prompt_controller.dart:137-142` (`DartEditor`, any `ClassDeclImpl`) | "screen or component" widened to "screen, component or class". |
+| Chip hover highlights the widget; × removes it; a removed selection stays removed until the selection changes | ok | `attachements_view.dart:120-166`, `prompt_controller.dart:103-115,147-150` | |
+| **+** (**Add context**) opens a palette with hint "Search screens, components, files…" | ok | `attachements_view.dart:101-113`, `packages/ai/lib/src/ui/attachement_menu.dart:9-18` | |
+| **Attach image** (several allowed), **Attach text file**, class list | ok (open issue) | `attachement_menu.dart:19-65`, `prompt_controller.dart:193-237` | See open issue 1 on **Attach text file** in the web app. |
+| Section header **From your app** | fixed | `attachement_menu.dart:68,86-90` (`label.toUpperCase()`) | The palette shows "UPLOAD" and "FROM YOUR APP" in capitals; prose changed to **FROM YOUR APP** (3 places). |
+| Check mark = already attached; lock = read-only; **included** = sent as a related declaration in short form; list is every class except State classes | ok | `attachement_menu.dart:99-163`, `packages/ai/lib/src/attachments/ai_attachement.dart:136-150`, `attachment_builder.dart:8-60` | |
+| **Remove all attachments** clears chips | ok | `ai_chat_field.dart:341-347` | Shown only when there are attachments; it clears added attachments, not the automatic selection chip. Page wording ("attachments") is correct. |
+| Paste an image with Ctrl/Cmd + V, drag an image file onto the field | ok | `ai_chat_field.dart:58-144,255`, `packages/designer/lib/src/design/nowa_copy_paste.dart:38-146` | Accepts JPEG, PNG, WebP, BMP by file signature. |
+| Up to 5 images per message | ok | `prompt_controller.dart:164-171,209-212` | Product limit, not a plan limit. |
+| A text file must contain readable text; other files are skipped | ok | `prompt_controller.dart:224-235`, `packages/core/lib/src/utils.dart:358-375` | |
+| Chat images are kept only while the session is live; re-attach to save | ok | `packages/ai/lib/src/tools/save_attached_image_tool.dart:46-60` | |
+| `@` mentions: list of attachments + every class, fuzzy match, arrows / Enter / Esc, highlighted, counts as attachment, click opens file in a sent message | ok | `ai_chat_field.dart:173-219,812-837`, `packages/ai/lib/src/attachments/attachment_mention.dart:25-60`, `content_views.dart:931-958` | |
+| "What Nowa AI receives": selection/attachments/mentions, dependencies in short form, Custom Instructions, project map | fixed | `prompt_controller.dart:60-96`, `ai_attachement.dart:166-215` (`GlobalsAttachment`) | The map lists widget names only; outlines are for the other public declarations. Wording tightened. |
+| "What to attach when" table and tip | ok | `tools/save_attached_image_tool.dart:9-17`, `agent.dart:123-158` | Advice only; consistent with the tools. |
+| Links, anchor `prompting.md#custom-instructions`, captures `ai-context-1`, `ai-context-2`, 1 tip | ok | | Anchor checked on prompting.md. |
+

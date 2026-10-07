@@ -5,7 +5,7 @@ sidebar_label: Undo and history
 keywords: [restore checkpoint, reapply checkpoint, replay checkpoint, undo AI, revert AI changes, new session, new chat, chat history, all sessions, session limit reached, long session]
 ---
 
-Every time Nowa AI changes your files, Nowa saves a checkpoint. Restore it to take your project back to how it was before that request, and reapply it if you change your mind.
+When Nowa AI edits your code or files, Nowa saves a checkpoint for that request. Restore it to take your project back to how it was before that request, and reapply it if you change your mind.
 
 ## Restore a checkpoint
 
@@ -35,7 +35,7 @@ Requests after the one you reapply stay undone until you reapply them too. To br
 
 A few rules apply to checkpoints:
 
-- A checkpoint exists only for replies that changed files, and only for changes Nowa AI made.
+- A checkpoint exists only for replies that edited code or files, generated API code or saved an image. Package changes, downloaded fonts and Figma imports aren't recorded, so a restore leaves them in place.
 - The buttons are disabled while Nowa AI is working.
 - Checkpoints are saved with your project, in its `.nowa/temp/` folder, which Git ignores.
 - They aren't available in the [playground](../get-started/playground.md), which has no account.

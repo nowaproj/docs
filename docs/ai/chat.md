@@ -26,7 +26,7 @@ Click a chip to fill the chat field with a complete prompt, for example "Fix all
 
 ## Stop a request
 
-Click the red stop button, which sits where **Send** was. Its tooltip is **Abort**, and it changes to **Cancelling...** while Nowa AI stops. A step that is already running finishes, and the steps that didn't run show a grey canceled icon.
+Click the red stop button, which sits where **Send** was. Its tooltip is **Abort**, and it changes to **Cancelling...** while Nowa AI stops. A step that is already running still finishes, and steps without a result show a grey canceled icon.
 
 Changes made before you stopped stay in your project. To undo them, see [Undo AI changes and reopen chats](undo-and-history.md).
 
@@ -36,7 +36,7 @@ Changes made before you stopped stay in your project. To undo them, see [Undo AI
 
 - **Thinking process**: Nowa AI's reasoning, collapsed. Click it to read.
 - **Steps**: one row for each action, such as reading a file, writing code, adding a package or downloading a font. The icon shows the state. Hover it to read **Tool is running**, **Tool executed successfully**, **Tool execution failed** or **Tool execution was canceled**.
-- **Code cards**: titled **Writing code** or **Modified code**, with a **Show raw code** button. Each screen or component it created is listed. Hover one to highlight it on the board, click it to open it, or drag a widget onto the board.
+- **Code cards**: titled **Writing code** or **Writing member in class** followed by the class name, with a **Show raw code** button. Each declaration it wrote, such as a screen, component or function, is listed. Hover one to highlight it on the board, click it to jump to it on the board or open its file, or drag a widget onto the board.
 - **Open in New Tab**: appears on rows that work on a file, and opens that file.
 - **Tasks**, **Questions** and plans: see [Design, Plan and Agent modes](modes.md).
 - **Using &lt;tool&gt;...** and **Approval Required**: steps from a connector. See [Connect Figma and Supabase to Nowa AI](connectors.md#approve-what-a-connector-does).

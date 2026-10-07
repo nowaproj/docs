@@ -2,7 +2,7 @@
 title: Change widget properties
 description: Edit a widget's color, size, text and spacing in the Details panel, link values to your data, reset them, and wrap widgets with Add Wrapper.
 sidebar_label: Widget properties
-keywords: [details panel, properties, property editor, fields, inspector, edit widget, link property, reset to default, set to null, mixed, advanced options, add wrapper, wrapper, wrappers, padding, visibility, gesture detector, scroll view]
+keywords: [details panel, properties panel, properties, property editor, fields, inspector, edit widget, link property, reset to default, set to null, mixed, advanced options, add wrapper, intro to wrappers, wrapper, wrappers, reorder wrappers, padding, visibility, gesture detector, scroll view]
 ---
 
 Select a widget and **Details** lists every property you can change, from its color and spacing to its text and events. Edit a value and the board follows as you type. Link a property to your data when it should change while your app runs.
@@ -40,7 +40,7 @@ Each property has an editor that fits what it holds. Type a value, then press <k
 | A number | A number box that shows `-` when empty. Drag its left edge sideways to change the value. Some have a minimum, such as 0 for padding. |
 | True or false | A switch. |
 | A color | A swatch with a HEX box and an opacity box. Click the swatch to open the picker. A **Container**'s picker also offers **Solid**, **Linear**, **Radial** and **Sweep**. To follow your theme, see [Use theme colors and text styles](theme-styles.md). |
-| A text style | The **Style** button. See [Use a theme text style](theme-styles.md#use-a-theme-text-style) and [Fonts and icons](fonts-icons.md). |
+| A text style | The **Style** button. See [Use a theme text style](theme-styles.md#use-a-theme-text-style). |
 | An icon | A button with the icon and its name. See [Choose an icon](fonts-icons.md#choose-an-icon). |
 | An image, video or animation | Tabs such as **Network**, **Asset** and **Bytes**, and buttons such as **Pick Image**. See [Images, videos and other files](assets.md). |
 | Padding | Two boxes, for horizontal and vertical space. Click **Individual padding** for left, top, right and bottom. |
@@ -51,7 +51,7 @@ Each property has an editor that fits what it holds. Type a value, then press <k
 | A list | A header with the number of items, and a **+** when you hover it. Drag the handle at the left of a row to reorder. **Load More** shows items past the first ten. |
 | An object, such as **Border**, **Radius** or **Shadows** | A header with the property's name. Hover it to show **+** (create the object) or a button that removes it. Its fields sit underneath, and the arrow folds them away. |
 
-Some editors end with **Show advanced options**. Click it for the rarely used properties, and click **Hide advanced options** to fold them away. Hover a property's name to see its type.
+Some editors end with **Show advanced options**. Click it for the rarely used properties, and click **Hide advanced options** to fold them away.
 
 ## Link a property to your data
 
@@ -85,14 +85,7 @@ The widget's own section stays at the top, and each wrapper you add comes after 
 - **Reorder.** Hover a wrapper's name and drag the grip that appears. A line shows where it will land.
 - **Remove.** Hover the wrapper's name, click **...**, then choose **Remove**. Undo brings it back.
 
-**Add Wrapper** works on one widget at a time, so it is hidden when you select several. There are 32 wrappers. Common ones:
-
-- [**Padding**](../reference/wrappers.md#padding): space around a widget.
-- [**Visibility**](../reference/wrappers.md#visibility): show or hide it. See [Show or hide a widget](../logic/expressions.md#visibility).
-- [**Gesture Detector**](../reference/wrappers.md#gesture-detector): react to a tap. See [Respond to taps and other events](../logic/events.md).
-- [**Scroll View**](../reference/wrappers.md#scrollview): scroll when the content is bigger than the screen.
-
-The full list is in [Wrappers](../reference/wrappers.md).
+**Add Wrapper** works on one widget at a time, so it is hidden when you select several. There are 32 wrappers, from **Padding** and **Visibility** to **Gesture Detector** and **Scroll View**. [Wrappers](../reference/wrappers.md) lists them all and what each one does.
 
 :::tip Or ask Nowa AI
 Select a widget on the board, then ask in **Agent** mode: "Add 16 px of space around this and round its corners." You can check and adjust the result in **Details**. See [Give Nowa AI context](../ai/context.md).

@@ -16,7 +16,7 @@ Click to select, drag to move, pull a handle to resize. Purple guides snap thing
 | Pick the innermost widget | <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + click. |
 | Add or remove a widget | <kbd>Shift</kbd> + click, on the board or in the [Outline](outline.md). |
 | Select with a box | Drag on empty space. Start on the board to select whole screens and components. Start inside a screen to select the widgets placed freely in its main **Stack** group. <kbd>Shift</kbd> toggles. |
-| Select all | <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>A</kbd> selects the selected widget and its siblings. With nothing or a whole screen selected, it selects every board item. |
+| Select all | <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>A</kbd> selects the selected widget and its siblings. With nothing or a board item selected, it selects every board item. |
 | Select a parent | Click its name in the breadcrumbs at the top of **Details**. |
 | Clear the selection | Click empty board space. |
 

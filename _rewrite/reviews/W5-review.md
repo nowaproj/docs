@@ -3,7 +3,7 @@
 Verifier run against `/home/user/nowa-master` (v3.12.5). Pages are appended below as each one is finished.
 Summary table at the end of the file is filled in when all seven pages are done (status: IN PROGRESS).
 
-Pages done so far: index.md, events.md, circuit.md, functions.md
+Pages done so far: index.md, events.md, circuit.md, functions.md, expressions.md
 
 ## index.md (How logic works)
 
@@ -87,12 +87,12 @@ Front matter ok. No H1, sentence-case headings, one admonition, no hype words, n
 |---|---|---|---|
 | **Functions** list in the **Variables** panel; hover **+**; a menu opens only while `initState` or `dispose` is missing, with **Add Function**, **InitState Function**, **Dispose Function** | ok | `packages/core/lib/src/widgets/code/declaration_list_widgets.dart:371-475`, `packages/designer/lib/src/panels/variables_panel.dart:76`, `declaration_list_widgets.dart:9-40` (+ shown on hover) | exact labels; when both overrides exist **+** adds a function directly |
 | New function is named `func` and goes into rename mode; `void` by default | ok | `declaration_list_widgets.dart:409,478-495` (`generateSymbolName('func')`, `setRenaming`) | |
-| Step 4 "In **Details**, choose a **Return Type**" | fixed | `declaration_list_widgets.dart:96-100` (`onAdd` selects the new item only on the direct path; `createDefaultFunction` does not select) | added "Select the function." so the step works on both paths |
+| Step 4 "In **Details**, choose a **Return Type**" | fixed | `declaration_list_widgets.dart:108-115` (`onAdd` selects the new item only on the direct path; `createDefaultFunction` does not select) | added "Select the function." so the step works on both paths |
 | **Details** shows **Name**, **Return Type**, **Edit**, **Remove** | ok | `packages/core/lib/src/panels/details/decl_details.dart:12-79`, `variable_widgets.dart:467-500` | |
 | Type a name and press <kbd>Enter</kbd>; same rules as variables; double-click renames | ok | `variable_widgets.dart:41,163-200` (`DeclTileRename`, `onEditingComplete`), `file_system/naming.dart:34-60` | |
 | Celsius example: **Params** **+** gives `param`; **Name**, **Type**, **Return Type** | ok | `declaration_list_widgets.dart:534-573`, `circuit_details.dart:55-93`, `variable_widgets.dart:416-465` | not run end to end |
-| Step 5: **Return** label > **Custom Expression...**, type, <kbd>Enter</kbd>, back arrow | ok | `statement_fields.dart:27-39`, `field_link_menu.dart:353`, `packages/core/lib/src/fields/expression_builder/expression_builder_popup.dart:101-160,246-292` (`onEditingComplete` evaluates; header back arrow), `expression_builder_provider.dart:12-16,236-251` | the dialog opens in text mode with the current expression |
-| Calling a function: dot > **LOCALS** > function; parameters in **Details**; **Store result**; hover name > open | fixed (wording) | `packages/core/lib/src/interpreter/suggestion.dart:588-633` (functions listed, `build`/`context`/`widget` skipped), `expression_details.dart:107-142` (`DeclHeader`: icon button, tooltip `Open`) | "click **Open**" made it sound like a text label; now "click the open icon". Turned the two bullets into four steps |
+| Step 5: **Return** label > **Custom Expression...**, type, <kbd>Enter</kbd>, back arrow | ok | `statement_fields.dart:27-39`, `field_link_menu.dart:353`, `packages/core/lib/src/fields/expression_builder/expression_builder_popup.dart:168,231-262` (`onEditingComplete` evaluates; header back arrow at `:168`), `expression_builder_provider.dart:44,201-216` | the dialog opens in text mode with the current expression |
+| Calling a function: dot > **LOCALS** > function; parameters in **Details**; **Store result**; hover name > open | fixed (wording) | `packages/core/lib/src/interpreter/suggestion.dart:588-633` (functions listed, `build`/`context`/`widget` skipped), `packages/core/lib/src/fields/expression_builder/expression_details.dart:108-142` (`DeclHeader`: icon button, tooltip `Open`) | "click **Open**" made it sound like a text label; now "click the open icon". Turned the two bullets into four steps |
 | "**As an event**: click the event's name, open **LOCALS** and pick the function" | removed | `packages/core/lib/src/fields/link_menu.dart:90-93,176`, `suggestion.dart:109-118` | the event's link menu hides every suggestion of type void, and a void function's type is `void`, so the new function would not be listed. The event case is now covered by step 1 (run it from the event's circuit) |
 | Functions are available only inside their screen or component | ok | `suggestion.dart:588-633` | LOCALS lists the current class only |
 | **InitState Function** / **Dispose Function**: one node named `initState` / `dispose`; **Return Type** locked | ok | `declaration_list_widgets.dart:459-476`, `packages/code/lib/src/providers/expr_helper.dart:8-26`, `variable_widgets.dart:467-500` (`isOverride` locks the type) | |
@@ -100,3 +100,34 @@ Front matter ok. No H1, sentence-case headings, one admonition, no hype words, n
 | **await** makes the function async; **Return Type** becomes `Future` and back | ok | `declaration_runtime.dart:1484-1492`, `future_options.dart:10-32` | |
 | Rename, change, remove; references dialog before removing | ok | `variable_widgets.dart:34,41`, `packages/core/lib/src/actions/block_actions.dart:57-85`, `packages/core/lib/src/widgets/declaration_references_dialog.dart:7-98` | dialog shows only when something references it |
 | Tip: **Agent** mode prompt | ok | `mode_selector.dart:36-66` | |
+
+## expressions.md (Expressions and conditions)
+
+Front matter ok. No H1, sentence-case headings, one admonition, no hype words, no emoji. About 1,140 words (just under the guide). All anchors present and used elsewhere: `{#link-menu}`, `{#dollar}`, `{#plus}`, `{#conditional}`, `{#operators}`, `{#custom-expression}`, `{#compute}`, `{#visibility}` (linked from `design/properties.md`, `design/responsive.md`, `code/custom-code.md`, `reference/wrappers.md`, `reference/widgets/*`, `circuit.md`, `functions.md`, `actions.md`). Capture `logic-expressions-1` well formed and requested. Links ok: `variables.md`, `global-state.md`, `parameters.md`, `circuit.md`, `actions.md`, `../reference/wrappers.md` (title "Wrappers"), `../design/properties.md` (title "Change widget properties"), `../ai/chat.md`.
+
+| claim | verdict | code ref | note |
+|---|---|---|---|
+| Clicking a label opens the link menu titled **Link** + property name (**Link Text**) | fixed (wording) | `packages/core/lib/src/fields/block_field.dart:1008-1018` (`canLink` needs the field to be enabled and linking allowed), `field_link_menu.dart:310-322` | "Every property ... has a label you can click" was too broad; some fields show "Field is not enabled". Reworded |
+| Outside Circuit the menu has **LOCALS**, **GLOBALS**, **EXPRESSIONS** | ok | `packages/core/lib/src/interpreter/suggestion.dart:463-475` | |
+| "...plus categories from connected integrations" | removed | `suggestion.dart:471-472` (`showOnlyInCircuit` filter), `firebase_plugin.dart:130` (`FirebaseCategory.showOnlyInCircuit => true`) | the only extra category in 3.12.5 is Firebase and it is Circuit-only |
+| In Circuit a node's own fields (If **Condition**, **Return**, **Expression:**) show every add-node category incl. **OPERATORS** | ok | `field_link_menu.dart:341` (`showGlobals: field.parent is BlockStatement`), `block_tree.dart:878,1011,1099,1725,2909` | |
+| **GLOBALS** has global states, **checkPlatform**, **Media Query** | ok | `packages/core/lib/src/state_management/global_state_suggestions.dart:26-67` | |
+| **EXPRESSIONS**: **Conditional**, **Math** (not bool) or **Logical** (bool), **ifNull** | ok | `suggestion.dart:526-566` | |
+| Menu items **Custom Expression...**, **Detach...**, **Create Param...**, **Create Variable...**, **Compute...**, **Edit**, **Open in Circuit** | ok | `field_link_menu.dart:352-398` | exact labels; **Create Param...** / **Create Variable...** / **Compute...** only at the top level of the menu |
+| **Detach...** "puts the current value in its place" | fixed | `block_field.dart:703-714` (`replace()`: the value if it fits the type, else the default for the type) | now "the current value, or a default" |
+| **Create Param...** function param inside a function, else a class param | ok | `field_link_menu.dart:188-238` | not in an override such as `build` (`field_link_menu.dart:21-24`) |
+| **Create Variable...** "starting with the property's current value" | fixed | `field_link_menu.dart:241-266,252-263` (`_findInitializer`: copies the value only when it is a constant expression, else the type's default) | reworded to "if that's a fixed value"; the variable is non-final and lives in the state class |
+| **Compute...** creates `create<Label>` (e.g. `createText`) and opens it | ok | `field_link_menu.dart:268-285` | |
+| "Build your steps and end with **Add Return**" | fixed | `field_link_menu.dart:271-279` (the new function already contains `ReturnStatement(<current value>)`); `circuit_node.dart:190-196` (no dot after a Return) | you cannot add after the existing Return. Now: steps go above it (dot under the top node) and the **Return** value is set to the result |
+| **Edit** opens the variable settings popup | ok | `field_link_menu.dart:287-291,404-416`, `variable_widgets.dart:229-269` (popup "Edit <name>") | |
+| Picking another type shows its members (e.g. `toString`) | ok | `link_menu.dart:10-16,138-157`, `field_link_menu.dart:167-186` | |
+| `$` in text opens a menu and inserts `${name}` | ok | `packages/core/lib/src/fields/basic_fields.dart:100-115`, `interpolated_text_field.dart:41-90` | the typed `$` stays and `{name}` is inserted after it; menu title "Link text" |
+| **+** after a linked value; **Get item**, first item 0 | ok | `reference_field.dart:50-76`, `suggestion.dart:45-82` | |
+| **Conditional Expression** popup: **condition**, **result type**, **then**, **else**, **Switch**; property shows **Edit condition** | ok | `expression_details.dart:192-247`, `expression_field.dart:60-75` | **result type** also resets **then** and **else** to defaults; now stated |
+| Math / Logical popups: **Operator**, **Type**, **Left side**, **Right side**; **Type** change resets both sides; ifNull: **Value**, **If null** | ok | `expression_details.dart:249-326` | popup titles are "Math Expression", "Logic Expression", "If Null Expression" (not quoted on the page) |
+| Operator groups table | ok | `block_tree.dart:2348-2420` (`isMath`, `isLogical`, `isNullable`) | bitwise operators exist in **OPERATORS** but not in the popups (left out) |
+| Reopening a Math / Logical popup | fixed (added) | `expression_field.dart:77-95` (`BFBinaryExpr`: button shows the formula, or **Edit expr.** when empty) | one sentence added |
+| Custom expression dialog: opens in text mode, **Enter expression...**, <kbd>Enter</kbd> / **Eval**, red errors, parts view (click selects, double-click replaces), **Search...**, **Detach**, text-mode button, check mark / help icon, back arrow | ok | `expression_builder_popup.dart:42-60,120,168,178-262,412,469`, `expression_builder_provider.dart:44,201-216` | |
+| "It must be one expression, not a statement such as `if`" | ok | `expression_builder_provider.dart:201-216` (`loadExpression`) | parse error shows in red |
+| **Visibility** wrapper: **Add Wrapper** > **Visibility**, **Visible**, **Replacement** | ok | `packages/core/lib/src/wrappers_to_add.dart:27-31`, `text_fields.dart:806-818` | |
+| **Reset to default** / **Set to null** | ok | `block_field.dart:829-831` | |

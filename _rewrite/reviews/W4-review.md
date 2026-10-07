@@ -6,7 +6,21 @@ Paths are relative to `/home/user/nowa-master` unless marked. Word counts are re
 
 ## Summary
 
-(Filled in at the end. Status per page is below as each page is finished.)
+- Pages checked: 9 of 9 (properties, layout, responsive, themes, theme-styles, assets, fonts-icons, templates, localization).
+- Claim rows in the tables below: 156 (each row groups related claims; roughly 250 individual statements were checked against the code, the reference screenshots `captures/ui-map/03`, `05`, `10`, `18`, `20`, or both).
+- Changed pages: 9. Verdicts: 22 rows fixed, 1 removed, 3 added (new facts the code confirms), the rest ok.
+- Most serious errors fixed:
+  - `theme-styles.md`: the dark-mode recipe told readers to click **+** next to **On Pressed**; a new Button reads **Edit** (its `onPressed` starts as an empty function).
+  - `themes.md`: removed an unverifiable claim that a Figma import creates theme extensions; made "the app doesn't switch light/dark on its own" apply to new projects only.
+  - `layout.md`: Expand in a Wrap is no longer described (a `Flexible` inside a `Wrap` is not valid Flutter; the UI offers it anyway); the **List View** bullet described dropped children, but the picker's List View is a builder with three placeholder items; **+** in a stack's constraint box only clears the pins (the stack's **Alignment** then places the widget); group type rule widened to any shared `children` list.
+  - `properties.md`: breadcrumbs show only the screen/component, the parent and the selection; **Add description** is a text line, not a button; **Reset to default** keeps a fixed value for required properties instead of inserting a "starter" value; **Shadows** is a list, not an object; Enter does not end editing in a multi-line text box; a first **Padding** on a group shows in the **Group** section, not as its own wrapper section.
+  - `assets.md`: other file types are read as strict UTF-8 text (so binary files of unknown types will not import); a text file drags out as a Text widget; **Rename** needs one file; renaming or moving an asset does not rewrite widget paths.
+  - `templates.md`: "most templates add one file" was borderline (7 of 13); multi-file imports add no routes.
+  - `responsive.md`: removed a contradiction ("you can't set one layout for phones and tablets on the same screen" vs the **Visibility** recipe).
+- Priority items: `{#groups}` present on layout.md; `{#add-a-wrapper}` present on properties.md; all themes labels, the assets flow (**Files** → **assets** → **Import asset**) and the fonts flow (Google Fonts download, **Import** `.ttf`/`.otf`) confirmed; responsive.md states plainly that Nowa 3.12.5 has no breakpoints and claims no breakpoint feature (repo-wide grep, see that section).
+- Length: properties.md 1,397 → 1,360 `wc -w` (reader-visible body 1,121 → ~1,090, with the corrections above added); responsive.md 1,428 → 1,375 (body 1,169 → ~1,115). The rest of the `wc -w` count is front matter, two capture comments and table pipes. Cutting further would remove verified facts. Every other page is under 1,200.
+- Checks run: all relative links and anchors in the 9 pages resolve (script over every `](...)` target, `{#id}`, headings and `<a id>`); no H1 in bodies, no `---` rules, no emoji, no banned hype words, at most 2 admonitions, capture placeholders have `id`, `state`, `show`, `crop` and no `*` inside (the embed script's pattern).
+- Open issues: see the end of this file.
 
 ## properties.md
 
@@ -80,7 +94,7 @@ Status: checked and fixed. Breakpoints: the page states plainly that Nowa 3.12.5
 
 | Claim | Verdict | Code ref | Note |
 |---|---|---|---|
-| "Nowa 3.12.5 has no breakpoints ... Details has no per-device settings; each screen has one layout" | ok | greps above | Reworded: the old "You can't set one layout for phones and another for tablets on the same screen" contradicted the last section (you can switch widgets by width with **Visibility**). Now "no setting for a separate phone or tablet layout". |
+| "Nowa 3.12.5 has no breakpoints ... Details has no per-device settings; each screen has one layout" | fixed | greps above | Reworded: the old "You can't set one layout for phones and another for tablets on the same screen" contradicted the last section (you can switch widgets by width with **Visibility**). Now "no setting for a separate phone or tablet layout". |
 | Table: **Expand** in a Column fills the width; in a Row it splits the space equally; **Fixed**/**Auto** keep size | ok | `packages/designer/lib/src/details/flex_size_field.dart:38-137`, `packages/nowa_runtime/lib/src/widgets/widgets.dart:73-87` | Along the axis `flex: 1` (tight `Flexible`), across the axis size = infinity. |
 | **Left and right** constraint in a Stack stretches; **Center**; **Spacing** **Between/Around/Evenly**; **Wrap**; **Scroll View**; **List View** | ok | `positioned_details.dart`, `flex_field.dart`, see `layout.md` rows | Anchors `reference/wrappers.md#scrollview` and `#visibility` exist (`<a id>` tags). |
 | **Grid View** **Max** and **Max Cross Axis Extent** | ok | `packages/core/lib/src/fields/grid_view_field.dart:170-230` | Tabs **Fixed**/**Max**; label derived from `maxCrossAxisExtent` via `camelCaseToSpaces`. |
@@ -94,7 +108,7 @@ Status: checked and fixed. Breakpoints: the page states plainly that Nowa 3.12.5
 | Preview page toolbar, **Device Settings** opens **Play Settings**; **Device Size** (platform tabs with `W x H`, **Custom** with **Width**, **Height**, **Pixel ratio**); **Free Size**; **Orientation** | ok | `lib/project/preview_page.dart:15-28`, `packages/designer/lib/src/play_mode/board_play_controller.dart:137-173`, `play_mode_settings.dart:8-200`, `packages/device_preview/lib/src/views/tool_panel/sections/subsections/custom_device.dart:80-195` | "On a computer" matches the `useMobileShell` branch. **Orientation** only shows for devices that can rotate. Not mentioned: **Show mockup frame** switch. |
 | **Full Screen** opens a bigger view with a **Device** panel | ok | `play_mode.dart:114-125`, `packages/device_preview/lib/src/views/tool_panel/sections/device.dart:62` | |
 | **Run**: phone frame, **Phone** / **Tablet**, **Fullscreen** | ok | `packages/nowa_ui/lib/top_bar/top_bar_view.dart:795-806` | |
-| Placeholders: `[name]` for text, three list items, stand-in image, gray, info icon, 48 px box | ok | `packages/core/lib/src/interpreter/mock.dart:210-217,244-305` | "so a design never looks blank" softened to "doesn't look blank" (nullable widgets mock to nothing). |
+| Placeholders: `[name]` for text, three list items, stand-in image, gray, info icon, 48 px box | fixed | `packages/core/lib/src/interpreter/mock.dart:210-217,244-305` | "so a design never looks blank" softened to "doesn't look blank" (nullable widgets mock to nothing). |
 | **Default Value** on variables and params is what the board shows | ok | `packages/core/lib/src/widgets/code/variable_widgets.dart:335,460` | Same wording on `logic/variables.md` and `logic/parameters.md`. |
 | **Test <Type>** button with **Copies**, sample value, **Edit Test**, **Clear**; board only | ok | `packages/designer/lib/src/details/group_details.dart:160-292` | Needs `children` linked to a list variable or a mapped list; memory only. |
 | Media Query + **Visibility**: **Visible**, **Custom Expression...**, Enter evaluates | ok | `packages/core/lib/src/fields/text_fields.dart:806-819`, `field_link_menu.dart:281-285,352-353`, `packages/core/lib/src/fields/expression_builder/expression_builder_popup.dart:243-260` | The freestyle box evaluates on Enter or **Eval**. The typed formula itself was not run in the app (open issue). |
@@ -229,3 +243,27 @@ Status: checked, 4 claims fixed or added. Length: 658 `wc -w` / ~545 body words 
 | Playground picker has **Playgrounds** and **Templates** | ok | `lib/sandbox/sandbox_picker.dart:20-65` | Also shown for public projects opened as a guest. |
 
 Links: `screens.md#name-the-route`, `components.md`, `themes.md`, `properties.md`, `../get-started/playground.md`, `../ai/index.md` exist.
+
+## localization.md
+
+Status: checked, 1 claim narrowed. The page stays short (284 `wc -w` / ~235 body words). It makes no promise about what Nowa AI produces: the AI package holds no localization prompt (prompts are server-side).
+
+| Claim | Verdict | Code ref | Note |
+|---|---|---|---|
+| Nowa has no translation editor or language switcher in the editor | ok (negative) | grep for `localization\|l10n\|.arb\|translat\|supportedLocales\|Locale(` over `lib/`, designer, ai, code, data, nowa_ui, core panels/fields/widgets/settings | Only hits: AI package refusal, the board's MaterialApp, a dashboard icon, a transform. The device preview's Locale section is disabled (`packages/device_preview/lib/src/device_preview.dart:112-118`). |
+| Ask Nowa AI to set it up | ok | `docs/new/whats-new.md:334-338`, `docs/new/change-log.md:185` | 3.7.3: "Just ask Nowa AI to set it up and it'll handle everything for you, end to end." The code cannot show the AI's steps. |
+| "...the board can render it" | ok | `packages/core/lib/src/interpreter/declaration_info/widget_info.dart:103-161`, `packages/core/lib/src/localization/localization_blocks.dart:4-9` | The board's MaterialApp honors `locale`, `localizationsDelegates`, `supportedLocales`, `darkTheme`, `themeMode`. |
+| "Nowa doesn't support the `flutter_localizations` package" | fixed | `packages/ai/lib/src/tools/packages_tool.dart:164-170` | Only the AI's package tool refuses it ("flutter_localizations is not supported by nowa, use a different approach."). Narrowed to "Nowa AI can't add the `flutter_localizations` package to a project". |
+| One Text: **Text Direction** property, values `rtl` / `ltr` | ok | `packages/designer/lib/src/details/widget_fields.dart:300-310`, `packages/core/lib/src/fields/basic_fields.dart:1509-1535` | Enum dropdown listing the raw member names. |
+| Section: **Add Wrapper** → **Text Direction**, set to `rtl`, default `ltr` | ok | `packages/core/lib/src/wrappers_to_add.dart:115-119`, `widget_info.dart:712-717` | The wrapper is a Flutter `Directionality`. |
+| "Everything inside the wrapper follows it, rows included" | ok (Flutter semantics) | `wrappers_to_add.dart:115-119` | Row and Stack resolve start and end from `Directionality`. Not clicked through on the board. |
+| Anchor `properties.md#add-a-wrapper` | ok | `docs/design/properties.md:70` | Present (`## Add a wrapper {#add-a-wrapper}`). |
+
+## Open issues
+
+1. **Another batch's page repeats the On Pressed error.** `docs/logic/global-state.md:73` (and the matching step in W6 notes) says "click **+** next to **On Pressed**". A new Button reads **Edit** (`packages/core/lib/src/widgets_to_add/widgets_to_add.dart:206`; `docs/logic/events.md:21` already says so). Not edited (outside W4).
+2. **Product text bug.** The **Create Theme Setup** dialog lists `lib/global/theme.dart` and `lib/global/app_state.dart`; the files it creates are `lib/globals/themes.dart` and `lib/globals/app_state.dart` (`packages/core/lib/src/file_system/widgets/previews/main_preview/theme_setup_view.dart:59-61`). Pages use the real paths.
+3. **Possible product bug.** The size dropdown in a Wrap offers **Expand** (`packages/core/lib/src/layout/layout.dart:52-66`, `flex_size_field.dart`), which wraps the child in a `Flexible`; Flutter's `Wrap` does not accept that. layout.md therefore says nothing about Expand in a Wrap. Needs a live check.
+4. **Not run in the app (code-derived).** (a) The typed formula `MediaQuery.of(context).size.width >= 600` in responsive.md (syntax and scope follow `expressions.md` and the suggestion code; the page tells readers to change **Size** and click **Play**, not to expect live re-evaluation). (b) The "+" member picker in the `changeTheme` recipe (theme-styles.md steps 2-3). (c) "Widgets that already use the file keep its old path" after renaming an asset (assets.md): `NFile.move` only refreshes Dart imports. (d) Strict UTF-8 reading of unknown file types (assets.md says only "read as plain text, so stick to the types above"). (e) "Everything inside the wrapper follows it, rows included" for the **Text Direction** wrapper (Flutter `Directionality` semantics).
+5. **Behavior the pages do not state, for the product team.** Importing a file whose name already exists throws (`packages/core/lib/src/file_system/nfile_impl.dart:486-489`) and the **Import asset** handler (`lib/project/panels/files_panel/files_list.dart:440-460`) does not catch it, so the user may see no message; uploading from a widget picker does not call the pubspec refresh itself, so the first asset added only that way may not be registered until another import, paste or font change (`packages/core/lib/src/fields/asset_fields.dart:119-136`). Not claimed on the pages.
+6. **Capture requests.** `captures/requests/W4.md` still matches the pages (ids unchanged). `design-templates-1` and `design-layout-1` are marked captured; the pages still carry placeholders for the embed script.

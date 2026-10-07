@@ -17,3 +17,5 @@ the product team. "Verified" means the orchestrator re-checked it in the code.
 | P10 | master (3.12.5) AI chat **Add context** → **Attach text file** | Reads the file with `dart:io`, which has no file path in a browser, so it likely does nothing in the web app. | W2 verifier | partly (code path read; not run) |
 | P11 | master (3.12.5) AI checkpoints | The restore dialog says "Undo Last Request?" but restoring also undoes every later request in the session. | W2 verifier | yes (code) |
 | P12 | master (3.12.5) AI connectors | The single **Auto-approve tools** switch (which also covers Supabase actions) is only reachable from the Figma menu. | W2 verifier | yes (code) |
+| P13 | master (3.12.5) **Create Theme Setup** dialog | The dialog text names the wrong file paths. | W4 verifier | yes (code) |
+| P14 | master (3.12.5) **Layout** section | The size dropdown offers **Expand** for a child of a Wrap, which Flutter rejects at runtime. | W4 verifier | partly (code; not run) |

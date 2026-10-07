@@ -9,7 +9,7 @@ An expression is a formula that gives back a value: a variable, a calculation, t
 
 ## Link a property to a value {#link-menu}
 
-Every property and input has a label you can click. The label opens the link menu, titled **Link** plus the property's name, such as **Link Text**.
+Click a property's or input's label to open the link menu. Its title is **Link** plus the property's name, such as **Link Text**.
 
 1. Select a widget and, in **Details**, click the label of a property.
 2. Open a category and click a value:
@@ -25,16 +25,16 @@ The menu also has these items:
 | Item | What it does |
 |---|---|
 | **Custom Expression...** | Lets you type a formula. See [below](#custom-expression). |
-| **Detach...** | Breaks the link and puts the current value in its place. Shown when the property is linked. |
+| **Detach...** | Breaks the link and puts the current value, or a default, in its place. Shown when the property is linked. |
 | **Create Param...** | Makes a new parameter of the right type and links it. Inside a function it's a function parameter, otherwise a screen or component param. See [Pass data with parameters](parameters.md). |
-| **Create Variable...** | Makes a new variable of the right type, starting with the property's current value, and links it. |
+| **Create Variable...** | Makes a new variable of the right type and links it. It starts with the property's current value if that's a fixed value. |
 | **Compute...** | Makes a function that works out the value. See [below](#compute). |
 | **Edit** | Opens the linked variable's settings in a popup. Shown when the property is linked to a variable. |
 | **Open in Circuit** | Opens the linked function. |
 
 If you pick a value of another type, the menu shows its members so you can reach one that fits, such as `toString` on a number.
 
-In Circuit, a node's own fields (an If's **Condition**, a **Return** value, **Expression:**) show every category of the add-node menu, including **OPERATORS**. Elsewhere you get **LOCALS**, **GLOBALS** and **EXPRESSIONS**, plus categories from connected integrations.
+In Circuit, a node's own fields (an If's **Condition**, a **Return** value, **Expression:**) show every category of the add-node menu, including **OPERATORS**. Elsewhere you get **LOCALS**, **GLOBALS** and **EXPRESSIONS**.
 
 ## Put a value inside text {#dollar}
 
@@ -50,7 +50,7 @@ A **Conditional** picks one of two values depending on a true or false value. Us
 
 1. Click the property's label, open **EXPRESSIONS** and click **Conditional**. The **Conditional Expression** popup opens.
 2. Click **condition** and link a true or false value, such as a `bool` variable.
-3. Set **then** (the value when true) and **else** (the value when false). **Switch** swaps them, and **result type** sets the type of both.
+3. Set **then** (the value when true) and **else** (the value when false). **Switch** swaps them. **result type** sets the type of both and resets their values.
 
 The property now shows **Edit condition**. Click it to reopen the popup.
 
@@ -60,7 +60,7 @@ The property now shows **Edit condition**. Click it to reopen the popup.
 - **Logical** compares or combines true or false values. It's offered when the property is true or false.
 - **ifNull** gives a fallback when a value is empty: set **Value** and **If null**.
 
-**Math** and **Logical** open a popup. Choose the **Operator**, set the **Type** (for example `int`), then type or link **Left side** and **Right side**. Set **Type** first, because changing it resets both sides.
+**Math** and **Logical** open a popup. Choose the **Operator**, set the **Type** (for example `int`), then type or link **Left side** and **Right side**. Set **Type** first, because changing it resets both sides. To reopen the popup, click the formula the property now shows.
 
 | Group | Operators |
 |---|---|
@@ -85,9 +85,9 @@ It must be one expression, not a statement such as `if`.
 
 ## Compute a value with logic {#compute}
 
-When one formula isn't enough, click the property's label and choose **Compute...**. Nowa creates a function named `create` plus the property's name, such as `createText`, that returns a value of the property's type. It links the property to it and opens it in [Circuit](circuit.md).
+When one formula isn't enough, click the property's label and choose **Compute...**. Nowa creates a function named `create` plus the property's name, such as `createText`, that returns a value of the property's type. It links the property to the function and opens it in [Circuit](circuit.md).
 
-Build your steps and end with **Add Return**. To reopen the function later, click the label and choose **Open in Circuit**.
+The function starts with a **Return** node that holds the property's current value. Add your steps above it by clicking the dot under the top node, then set the **Return** value to the result. To reopen the function later, click the label and choose **Open in Circuit**.
 
 ## Show or hide a widget {#visibility}
 

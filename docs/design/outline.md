@@ -24,7 +24,7 @@ Every row starts collapsed. When you select a widget on the board, the Outline o
 |---|---|
 | Chevron | Expand or collapse the rows inside. |
 | Orange home icon | The home screen. |
-| Purple name | A component. |
+| Purple name | A component used inside a screen or another component. |
 | Layers icon on the right | The widget has wrappers, such as Padding or Scroll View. Hover for their names. Click to unfold them as rows above the widget. |
 | Tag icon | A slot, a named place that holds a widget, such as `appBar`. |
 | Repeat icon | Widgets repeated for each item in a list. |
@@ -35,7 +35,7 @@ Every row starts collapsed. When you select a widget on the board, the Outline o
 
 - Click a row to select the widget. <kbd>Shift</kbd> + click adds to the selection. The Outline and the board stay in sync, and hovering a row highlights the widget on the board.
 - Double-click a row to zoom the board to that widget. If Nowa can't find it on the board, you see **Cannot find widget … on the board.**
-- Right-click a row for the same menu as on the board. It acts on the row you clicked. See [Select, move and resize](select-and-edit.md#use-the-right-click-menu).
+- Right-click a widget row for the same menu as on the board. It acts on the row you clicked. See [Select, move and resize](select-and-edit.md#use-the-right-click-menu).
 
 ## Reorder by dragging
 
@@ -57,4 +57,4 @@ Click a branch row to make the board show it, so you can design every case. Clic
 
 - [Select, move and resize](select-and-edit.md) widgets on the board.
 - [Change widget properties](properties.md) of the widget you selected.
-- [Build reusable components](components.md) and spot them in purple.
+- [Build reusable components](components.md) and spot their instances in purple.

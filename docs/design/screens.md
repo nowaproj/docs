@@ -15,7 +15,7 @@ Screens are the pages of your app: a home page, a settings page, a profile page.
 4. Name it and click **Submit**. The dialog is titled after the template, such as **New Empty Page**, and also shows the **Class name** and the file **Path** (`lib/pages/` for screens).
 5. The screen appears on the board. In projects that use go_router, Nowa also adds a route for it.
 
-{/* CAPTURE: id=design-screens-1 | state: playground starter open, click Screen in the toolbar, highlight a template that has a preview | show: the template picker with the Search for templates box, the Screens and Components tabs, the template list and the preview pane | crop: the picker dialog */}
+{/* CAPTURE: id=design-screens-1 | state: playground starter open, click Screen in the toolbar, highlight a template that has a preview | show: the template picker with the Search for templates box, the Search for: Screens / Components filter, the template list and the preview pane | crop: the picker dialog */}
 
 A new screen is 393 × 808 unless the template sets its own size. A new screen is not your home screen: see [Choose the home screen](#choose-the-home-screen).
 

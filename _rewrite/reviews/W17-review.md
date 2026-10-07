@@ -2,7 +2,7 @@
 
 Verifier run against `/home/user/nowa-master` (v3.12.5). Status: **in progress** (pages done so far are listed in the summary; the summary is rewritten at the end of the run).
 
-Pages done: stripe.md, revenuecat.md
+Pages done: stripe.md, revenuecat.md, admob.md
 
 External vendor links (docs.stripe.com, supabase.com/docs, revenuecat.com, admob.google.com, developers.google.com, console.cloud.google.com) could not be fetched from this environment (egress policy answers 403 to CONNECT). `developer.android.com/training/app-links` and the Apple Universal Links page returned 200. The others are well-known canonical paths but were not link-checked: please re-check before publishing.
 
@@ -87,3 +87,30 @@ Edits: reworded 3 passages (key prefixes, what the board and **Play** show, what
 | Front matter, no H1, headings sentence case, no `---` rules, 1 admonition, no hype words, links (`../code/custom-code.md`, `../test/devices.md`, `./constants.md` exist), capture placeholder well formed | ok | grep | `integrations-revenuecat-1` is in `captures/requests/W17.md`. |
 
 Open issues (RevenueCat): none new. Note for the product team: nothing guards against a missing key; an empty constant is passed to `Purchases.configure`.
+
+## admob.md
+
+Edits: fixed 2 passages (the "No API Keys" button label, the Circuit step to add the node). Everything else matched the code; page is about 680 words.
+
+| Claim | Verdict | Code ref | Note |
+|---|---|---|---|
+| **Settings** → **Integrations** → **AdMob**; **Enabled** adds `nowa_mobile_ads` and `await MobileAds.instance.initialize();` to `main()` | ok | `packages/core/lib/src/interpreter/packages/integrations/admob_package_config.dart:11-27`, `project_settings.dart:38` | |
+| **Configuration**, **Android App ID**, **iOS App ID**, placeholder `ca-app-pub-xxxxxxxxxxxxxxxx~xxxxxxxxxx` | ok | `admob_package_config.dart:28-47` | Labels are exact. Note the mixed spellings in the product: **iOS App ID** on the settings page, but **Ios Unit ID** and **AdMob IOS setup** in **Details**; the page copies each as shown. |
+| An ID that does not start with `ca-app-pub-` is refused | ok | `admob_package_config.dart:268-275` (error "App ID should start with "ca-app-pub-""; empty is allowed), `nowa_fields.dart:1150-1263` (error shows under the field) | |
+| Add an App ID for both platforms; Nowa warns on the page | ok | `admob_package_config.dart:16-17` (description note) | |
+| Android App ID goes to the manifest; iOS App ID goes to `Info.plist` with SKAdNetwork identifiers | ok | `admob_package_config.dart:33, 42, 50-265` | App IDs live in `settings.json` (platform tokens), not **Constants**. |
+| Widget picker (Ctrl/Cmd + K) or **Widget** tool, search **Admob Banner**; **Add Missing Dependencies** → **Add** when the package is missing | ok | `widgets_to_add.dart:835-851`, `declaration_info_factory.dart:52` (`NowaAdBannerWidget` → `AdmobWidgetInfo`), `admob_package_config.dart:341-354`, `widget_picker.dart:131-146`, `missing_dependency_dialog.dart:47, 93, 109` | Same picker checks as revenuecat.md. |
+| Standard banner size | ok | `packages/nowa_mobile_ads/lib/src/widgets/nowa_ad_banner_widget.dart:48` (`AdSize.banner`) | |
+| **Details**: **Android Unit ID**, **Ios Unit ID**, **Show Test Ads** | ok | `admob_package_config.dart:306-336`, `block_field.dart:213-225` + `utils.dart:77-79` (label from `androidUnitID`, `iosUnitID`, `showTestAds`) | |
+| **Show Test Ads** on by default; test units used while on | ok | `widgets_to_add.dart:839` (`showTestAds: true`), `nowa_ad_banner_widget.dart:6, 27-35`, `admob_library.dart:156-189` | |
+| "No API Keys" / **AdMob Android setup** / **AdMob IOS setup**, "click it to open the AdMob page" | fixed | `admob_package_config.dart:291-333` | With no key at all the panel shows "No API Keys" plus a button named **AdMob setup**; the page named no button for that case. Now names it. All three buttons open the **AdMob** page (`ProjectSettings.openSettings(key: 'AdMob')`). |
+| Table: board, Play, browser, desktop show a red box "This is an editor preview for Admob" | ok | `nowa_ad_banner_widget.dart:70-73, 92-108`, `admob_library.dart:156-189` (the interpreter builds the real widget) | Play runs in `RunMode.simulate`, the board in `RunMode.designer`; both use the same widget. Nowa's own mobile build was not checked, so the page lists only board, Play, browser, desktop. |
+| Table: Android/iOS app with test ads on shows a Google test ad; off shows your unit ID's ad; "no adUnitId" when empty; "BannerAd failed to load" | ok | `nowa_ad_banner_widget.dart:27-35, 74-84` | |
+| Real ads only on Android and iOS | ok | `nowa_ad_banner_widget.dart:22-23, 71-73`, `nowa_ad_interstitial_function.dart:8-16` | |
+| `loadAndShowInterstitialAd` loads and shows as soon as ready; parameters **Android Unit ID**, **Ios Unit ID**, **Show Test Ads** (default on) | ok | `nowa_ad_interstitial_function.dart:5-32`, `admob_library.dart:190-202`, `block_utils.dart:238-241, 225-233` (non-required params get no initial block, so the call starts with the defaults) | |
+| Circuit step: "Click **+** to open **All nodes for this circuit**" | fixed | `link_menu.dart:61`, `add_statement_menu.dart:57-66`; `docs/logic/events.md` | Aligned with the other pages: "Hover the dot under the top node and click **+**". |
+| Turn **Enabled** off removes the package, App IDs and the `main()` line | ok | `package_config_service.dart:146-170` | Platform files are regenerated without the AdMob entries. Projects that still hold the legacy `admob.*` keys in `settings.json` keep them (not removed by this path); not worth a page note. |
+| Redirect for the old URL the picker opens ("Open Documentation.") | ok | `widgets_to_add.dart:844`, `redirects.js:117` (to `/reference/widgets#admob-banner`), `docs/reference/widgets/index.md:109` (anchor `admob-banner` links here) | D13 satisfied. |
+| Front matter, no H1, headings sentence case, no `---` rules, 1 admonition, no hype words, links (`../logic/events.md`, `../test/devices.md`, `../publish/index.md` exist), 2 capture placeholders well formed | ok | grep | Both ids are in `captures/requests/W17.md`. |
+
+Open issues (AdMob): none. Product note: `loadAndShowInterstitialAd` calls `Platform.isAndroid` (`dart:io`); what happens when it runs in Play on the web app was not checked, so the page only says it shows ads on Android and iOS.

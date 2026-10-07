@@ -148,7 +148,7 @@ Pickers are search lists with a field at the top, such as **Search for a file**,
 |---|---|---|
 | Move through the results | <kbd>↑</kbd> <kbd>↓</kbd> | <kbd>↑</kbd> <kbd>↓</kbd> |
 | Choose the highlighted result | <kbd>Enter</kbd> | <kbd>Return</kbd> |
-| Go back one step (when the footer shows **to cancel selected action**) | <kbd>Backspace</kbd> | <kbd>Backspace</kbd> (⌫) |
+| Go back one step (when the search field is empty and the footer shows **to cancel selected action**) | <kbd>Backspace</kbd> | <kbd>Backspace</kbd> (⌫) |
 | Close the picker | <kbd>Esc</kbd> | <kbd>Esc</kbd> |
 
 ## Circuit
@@ -169,7 +169,7 @@ In code mode, files open as tabs. See [Edit code in Nowa](../code/code-mode.md).
 
 | Action | Windows / Linux | macOS |
 |---|---|---|
-| Open a new tab (one at a time) | <kbd>Ctrl</kbd> + <kbd>T</kbd> | <kbd>Cmd</kbd> + <kbd>T</kbd> |
+| Open a **New tab** (only one can be open) | <kbd>Ctrl</kbd> + <kbd>T</kbd> | <kbd>Cmd</kbd> + <kbd>T</kbd> |
 | Go to the next tab | <kbd>Ctrl</kbd> + <kbd>Tab</kbd> | <kbd>Control</kbd> + <kbd>Tab</kbd> |
 | Go to the previous tab | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Tab</kbd> | <kbd>Control</kbd> + <kbd>Shift</kbd> + <kbd>Tab</kbd> |
 | Close the current tab | <kbd>Ctrl</kbd> + <kbd>W</kbd> | <kbd>Cmd</kbd> + <kbd>W</kbd> |
@@ -196,7 +196,7 @@ These work in the code editor in code mode.
 | Indent or outdent | <kbd>Tab</kbd> or <kbd>Shift</kbd> + <kbd>Tab</kbd> | <kbd>Tab</kbd> or <kbd>Shift</kbd> + <kbd>Tab</kbd> |
 | Go to the definition of a name (Dart files) | <kbd>Ctrl</kbd> + click | <kbd>Cmd</kbd> + click |
 
-Select all, cut, copy, paste, undo, redo and moving the cursor by word or line work as in any text editor.
+Select all, cut, copy, paste and undo use the usual keys (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>A</kbd>, <kbd>X</kbd>, <kbd>C</kbd>, <kbd>V</kbd>, <kbd>Z</kbd>). Redo is <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>Z</kbd>. <kbd>Home</kbd>, <kbd>End</kbd> and the arrow keys move the cursor.
 
 ## When a shortcut does nothing
 

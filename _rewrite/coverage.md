@@ -23,11 +23,11 @@ Summary bullets of the 9 research files (one row each). `left out` = listed in `
 | features-designer-core | 46 | 46 | 0 | 0 | 0 |
 | features-widgets | 11 | 11 | 0 | 0 | 0 |
 | features-theme-assets | 29 | 29 | 0 | 0 | 0 |
-| features-logic | (pending) | | | | |
+| features-logic | 49 | 49 | 0 | 0 | 0 |
 | features-data | (pending) | | | | |
 | features-ai | (pending) | | | | |
 | features-code-ship | (pending) | | | | |
-| **Total** | **185** | **180** | **2** | **2** | **1** |
+| **Total** | **234** | **229** | **2** | **2** | **1** |
 
 Supplementary checks (not in the totals above): features-widgets: 77 covered.
 
@@ -343,7 +343,57 @@ Each wrapper has a row and a stable `#anchor` in `docs/reference/wrappers.md`, g
 
 ### features-logic
 
-_(pending)_
+| Feature | Status | Page(s) | Note |
+|---|---|---|---|
+| **Circuit** (visual logic editor) | covered | `docs/logic/circuit.md`, `docs/logic/index.md` | Opens as a floating panel; ways to open it listed. |
+| **All nodes for this circuit** (add-node menu) | covered | `docs/logic/circuit.md#add-a-node` | Five top items and the category table. |
+| **Node editing** (select, **Remove** / **Move up** / **Move down**, shortcuts, error icon) | covered | `docs/logic/circuit.md`, `docs/reference/shortcuts.md#circuit` | States that copy/paste of nodes is not possible (consistent with `left-out.md`). |
+| **Function node** (**Name**, **Return Type**, **Params**) | covered | `docs/logic/circuit.md#set-up-the-function-node`, `docs/logic/functions.md` | |
+| **Store result** (**New Variable** / **Pick Variable** / **none**) | covered | `docs/logic/circuit.md#store-result` | |
+| **Future Options** (**await**, **onValue**, **onError**) | covered | `docs/logic/circuit.md#future-options` | |
+| **Add If statement** | covered | `docs/logic/circuit.md#branch-with-if` | |
+| **Add Try statement** (**On Error**, **Error name**) | covered | `docs/logic/circuit.md#handle-errors-with-try` | |
+| **Add Return** | covered | `docs/logic/circuit.md#return-a-value` | |
+| **Create Local Variable** | covered | `docs/logic/circuit.md`, `docs/logic/variables.md` | |
+| **Add Custom Expression** | covered | `docs/logic/circuit.md`, `docs/logic/expressions.md#custom-expression` | |
+| **While** (display only) | covered | `docs/logic/circuit.md#loops` | Says there is no node to add a loop. |
+| **Navigator** (GLOBALS) | covered | `docs/logic/navigation.md` | `push`, `pop`, `pushReplacement`, `pushAndRemoveUntil`, parameters, result. |
+| **GoRouter** (GLOBALS) | covered | `docs/logic/navigation.md` | `go`, `push`, `pop`, replace and the named variants; Router panel, **Router Configuration**, migration. |
+| **Show snackbar** (GLOBALS) | covered | `docs/logic/popups.md`, `docs/logic/events.md` | |
+| **checkPlatform** (GLOBALS) | covered | `docs/logic/actions.md#check-the-platform` | |
+| **Media Query** (GLOBALS) | covered | `docs/logic/actions.md#read-the-screen-size`, `docs/design/responsive.md` | |
+| **Set <variable>** and **refresh** | covered | `docs/logic/variables.md#change-a-variable-from-logic` | "Without refresh the screen keeps the old value" explained. |
+| **Shared Preferences** (**clear**, **remove key**, **set**, **get**) | covered | `docs/logic/actions.md#save-values-on-the-device`, `docs/account/project-settings.md` | |
+| **Create...** (GENERAL) | covered | `docs/logic/actions.md#create-objects` | `Future.delayed`, `Timer.periodic`, `DateTime.now`, models. |
+| **Operators** | covered | `docs/logic/expressions.md#operators`, `docs/logic/actions.md` | Operator table. |
+| **Expressions** (**Conditional**, **Math**, **Logical**, **ifNull**) | covered | `docs/logic/expressions.md` | |
+| **Library categories** (MATERIAL, DART:CORE, NOWA_RUNTIME, SERVICES, DART:ASYNC ...) | covered | `docs/logic/actions.md#find-any-other-function` | Category table with examples. |
+| **showDialog** / **showModalBottomSheet** / **showBottomSheet** | covered | `docs/logic/popups.md` | |
+| **showDatePicker** / **showTimePicker** / **showDateRangePicker** and **.format** | covered | `docs/logic/popups.md` | |
+| **showMediaPicker** (NOWA_RUNTIME) | covered | `docs/logic/popups.md`, `docs/integrations/supabase/storage.md` | |
+| **openUrl** (NOWA_RUNTIME) | covered | `docs/logic/actions.md#open-a-link` | |
+| **print** (DART:CORE) | covered | `docs/logic/actions.md#write-to-the-logs` | |
+| **Dependencies** / **Hot Fix** | covered | `docs/logic/circuit.md#hot-fix` | |
+| **Variables** panel (**Params**, **Variables**, **Functions**, **Globals**) | covered | `docs/logic/variables.md`, `docs/get-started/editor-tour.md` | |
+| **Variables** (screen/component): create, rename, type, default, remove | covered | `docs/logic/variables.md` | Naming rules and "in use" dialog included. |
+| **Select type** (String, int, double, bool, Color, Widget, **As List**, **show more...**) | covered | `docs/logic/variables.md#choose-a-type`, `docs/logic/models.md` | |
+| **Params** (screen/component parameters, passing data between screens) | covered | `docs/logic/parameters.md`, `docs/logic/navigation.md` | |
+| **Functions** (**Add Function**, **InitState Function**, **Dispose Function**) | covered | `docs/logic/functions.md` | |
+| **Events** (On Pressed, On Tap, On Changed ...; **+** / **Edit**) | covered | `docs/logic/events.md` | |
+| **Link <field>** menu (**Custom Expression...**, **Detach...**, **Create Param...**, **Create Variable...**, **Compute...**, **Edit**, **Open in Circuit**) | covered | `docs/logic/expressions.md#link-menu` | One table for all items. |
+| **Custom Expression...** (expression builder, **Eval**) | covered | `docs/logic/expressions.md#custom-expression` | |
+| **$ inside text** and **+ after a linked value** | covered | `docs/logic/expressions.md#dollar`, `#plus` | |
+| **Compute...** | covered | `docs/logic/expressions.md#compute` | |
+| **Visibility** wrapper | covered | `docs/logic/expressions.md#visibility`, `docs/reference/wrappers.md` | |
+| **Reset to default** / **Set to null** | covered | `docs/design/properties.md`, `docs/logic/expressions.md` | |
+| **Global states** (**New Global State...**, **Create global state**, **Pick global state**, **Detach global state**, **Attach**; **AppState**) | covered | `docs/logic/global-state.md` | |
+| **Global state variables and functions** (`notifyListeners`) | covered | `docs/logic/global-state.md#add-variables-and-functions` | |
+| **Using global states** | covered | `docs/logic/global-state.md#use-a-global-state` | |
+| **Notifier Builder** wrapper | covered | `docs/logic/global-state.md#rebuild-only-part-of-a-screen`, `docs/reference/wrappers.md` | |
+| **New Model...** | covered | `docs/logic/models.md#create-a-model` | |
+| **Generate Models From Json...** | covered | `docs/logic/models.md#generate-models-from-json` | Wizard steps and limits. |
+| **Using models** | covered | `docs/logic/models.md#use-a-model-as-a-type`, `#create-a-model-in-logic` | |
+| **Constants** (Custom Constants) | covered | `docs/integrations/constants.md`, `docs/account/project-settings.md` | |
 
 ### features-data
 

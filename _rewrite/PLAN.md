@@ -11,47 +11,41 @@ Resume from these files alone: `BRIEF.md` (context + rules), `decisions.md`, `op
 | 0 | Setup: branch `docs-rewrite`, workspace, brief, decisions | `_rewrite/*` | done |
 | 1 | Research: current docs + old URLs; features from code by area (10 files incl. widgets); positioning + reference IAs; capture setup | `research/*.md`, `captures/tools/*`, `captures/ui-map/*` | done (capture `README.md` not written; see CAPTURE.md) |
 | 2 | Information architecture: sections, pages, slugs, old→new URL map | `structure.md`, `pages.md`, `redirects.md`, `redirects.js`, `style-guide.md`, `glossary.md` | done |
-| 3 | Writing | `docs/**`, `captures/requests/*.md`, `reviews/*-writer-notes.md` | ~85 pages drafted; **16 missing** (see "Resume here") |
-| 4 | Verification against code by a non-author agent per batch | `reviews/<batch>-review.md` | **not started** (two attempts were cut off by usage limits before saving) |
-| 5 | Screenshots/videos | `static/img/docs/...`, `captures/log.md`, `captures/to-capture.md` | not started; brief ready (`CAPTURE.md`) |
-| 6 | Integration | config, sidebar, redirects, build | partly done (see "Resume here") |
+| 3 | Writing | `docs/**`, `captures/requests/*.md`, `reviews/*-writer-notes.md` | done (all sidebar pages exist) |
+| 4 | Verification against code by a non-author agent per batch | `reviews/<batch>-review.md` | 14 of 17 batches done; W13, W17 partial; W12+W18 to redo (see Resume here) |
+| 5 | Screenshots/videos | `static/img/docs/...`, `captures/log.md`, `captures/to-capture.md` | 35 captured (34 embedded), 50 need sign-in, videos pending (phase 9) |
+| 6 | Integration | config, sidebar, redirects, build | done; final build check pending |
 | 7 | Final QA: coverage audit, style pass, link check | `coverage.md`, `reviews/final-*.md` | todo |
 | 8 | Draft PR with report | PR | todo (open once phases 4-7 are done; update it after phase 9) |
 | 9 | Final quality pass: the user's acceptance criteria (see below) | pages, videos, annotated screenshots, best-practice guides | todo (trigger when phases 4-8 are done) |
 
-## Resume here (stopped by the user on 2026-10-06 ~19:40 UTC)
+## Resume here (stopped by the user on 2026-10-07 ~12:30 UTC)
 
-**Done in phase 6 already:** old pages removed from `docs/` (`git rm`; still readable on `main` and in
-`_rewrite/old-docs/`, which is gitignored: recreate it with the command below); legacy tutorials moved to
-`docs/legacy/` with link fixes, overview page and a banner from `src/theme/DocVersionBanner`; `DocSidebarItem`
-overrides removed; explicit `sidebars.js` (already lists the 16 missing pages); `redirects.js` (160 redirects, all
-44 in-app links) wired into `docusaurus.config.js` via `@docusaurus/plugin-client-redirects`;
-`onBrokenMarkdownLinks: 'throw'`; navbar "What's new"; footer "Community forum"; social card
-`static/img/social-card.png`; What's New/changelog link-only fixes (D11).
+**State:** all ~100 pages are written; `yarn build` passed at the last full build (02:30 UTC 2026-10-07; re-run it);
+34 screenshots are embedded; the redirects, sidebar, legacy section and site fixes are done (see decisions D11-D13).
+
+**Verification (phase 4), per batch** (`reviews/<batch>-review.md`; batches in `pages.md`):
+- Done: W1 (home + get started), W2 (AI), W3 + W4 (design), W5 + W6 (logic), W7 (preview/test + troubleshooting),
+  W8 (publish), W9 + W10 (code), W11 (account), W14 (integrations overview, Data Builder, constants, REST),
+  W15 (Supabase), W16 (Firebase).
+- **Partial, resume from the log:** W17 (`stripe.md`, `revenuecat.md`, `admob.md` done; left: `google-maps.md`,
+  `google-sign-in.md`, `deep-links.md`); W13 (catalog `reference/widgets/index.md` done; left: `wrappers.md`,
+  `widgets/forms.md`, `lists.md`, `navigation.md`, `media.md`; keep every `<a id>` anchor).
+- **Not finished:** W12 + W18: `reference/shortcuts.md` got some fixes but no review log was saved, so re-verify it
+  fully; then `reference/glossary.md`.
 
 **Next steps, in order:**
-1. Write the 16 missing pages (batches in `pages.md` → "Batches"; briefs: `WRITER.md`):
-   - W13a: `docs/reference/widgets/index.md`, `docs/reference/wrappers.md` (anchors from `redirects.md` "Anchor targets")
-   - W13b: `docs/reference/widgets/forms.md`, `lists.md`, `navigation.md`, `media.md`
-   - W4b: `docs/design/properties.md`, `docs/design/responsive.md`
-   - W7b: `docs/test/index.md`, `docs/test/problems.md`
-   - W9b: `docs/code/packages.md`, `docs/code/custom-code.md`, `docs/code/limitations.md`
-   - W11b: `docs/troubleshooting/index.md`, `docs/troubleshooting/known-issues.md` (`{#firebase-on-windows}`)
-   - W18 (after all pages exist): `docs/reference/glossary.md` from `glossary.md`
-2. `yarn build` (runs the video check, needs ffprobe); fix MDX errors, broken links and anchors until it passes.
-3. Verify every page against the code (`VERIFIER.md`), one agent per batch, never the writer.
-4. Captures (`CAPTURE.md`), then embed images from `captures/requests/*.md` into the pages (replace the
-   `{/* CAPTURE: ... */}` placeholders); list the rest in `captures/to-capture.md`.
-5. Final QA: coverage audit (every feature in `research/features-*.md` → a page or `left-out.md`), style pass,
-   `yarn build`, then the draft PR with the report.
+1. Finish verification: W17 (3 pages), W13 (5 pages), W12 shortcuts + glossary (verifier prompts: see `VERIFIER.md`;
+   tell each to continue from its log).
+2. Coverage audit → `_rewrite/coverage.md` (partial: sections marked `(pending)` are not audited yet; resume from
+   the file). Fix the gaps it finds.
+3. Embed remaining captures: `python3 -I _rewrite/captures/tools/embed.py` (all folders once verification is done).
+4. Full `yarn build` (must pass with no broken links or anchors), then open the **draft PR** with the report
+   (structure, what changed, decisions, open questions, product issues, unfinished items).
+5. Phase 9 quality pass (below), then update the PR.
 
-**Usage limits:** two runs were cut off by account usage limits (D14). Run at most ~5 agents at a time, writers and
-verifiers on Sonnet, and keep agents writing their files incrementally.
-
-**Container-local state (lost if the container is recycled):** `/home/user/nowa-master` (worktree of nowa
-`origin/master` @ b84bfdafd: `git -C /home/user/nowa worktree add --detach /home/user/nowa-master origin/master`),
-`/home/user/nowa-build` (same commit, with the Flutter web build in `build/web`; rebuild as in
-`.github/workflows/web-build.yml` with Flutter 3.44.8 in `/home/user/flutter`), `node_modules`.
+**Usage limits:** runs keep hitting account usage limits after ~1 hour of 5 Sonnet agents (D14). Keep waves at
+~4-5 agents, every agent saving incrementally.
 
 Commit and push after each phase. Agents never commit; the orchestrator does.
 

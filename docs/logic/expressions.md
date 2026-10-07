@@ -76,7 +76,7 @@ In Circuit, the same operators are in the **OPERATORS** category, so you can use
 When the menus don't have what you need, type the formula.
 
 1. Click a property's label and choose **Custom Expression...**. In Circuit, **Add Custom Expression** does the same for a new step. A dialog opens in text mode, showing the current expression.
-2. Type a formula, such as `"Hello " + name` or `price * quantity`. Text needs quotes.
+2. Type a formula in the text box, which reads **Enter expression...** when it's empty. For example, `"Hello " + name` or `price * quantity`. Text needs quotes.
 3. Press <kbd>Enter</kbd> or click **Eval**. If something is wrong, the reason shows in red under the field.
 4. After a successful **Eval**, the formula applies and shows as clickable parts. Click a part to select it, or double-click to replace it. Type in **Search...** to add something after the selected part. **Detach** removes the selected part.
 5. Click the text-mode button at the right to type again. A check mark means no problems, and a help icon lists them. Click the back arrow to close.

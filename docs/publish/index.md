@@ -16,7 +16,7 @@ Publishing needs a cloud project on a paid plan. If your plan doesn't include a 
 |---|---|---|
 | **Web** | A live web address for your app. Update it, take it down, or serve it from your own domain. | [Publish to the web](./web.md) |
 | **Android Debug** | An unsigned build for quick tests on a device. | [Publish to Google Play](./android.md) |
-| **Android Release** | A signed build that you upload to Google Play. | [Publish to Google Play](./android.md) |
+| **Android Release** | A signed, store-ready build that you upload to Google Play yourself. | [Publish to Google Play](./android.md) |
 | **iOS** | A signed build that Nowa sends to your App Store Connect account. | [Publish to the App Store](./ios.md) |
 
 ## Check your app details {#app-details}
@@ -26,9 +26,9 @@ Stores and devices read these from your project, so set them before the first bu
 | Setting | What to enter |
 |---|---|
 | **App Name** | The name people see under your app icon. |
-| **Bundle Identifier** | Your app's unique ID on iOS and Android, such as `com.yourcompany.yourapp`. Use letters and digits separated by dots, or Nowa shows **Invalid package name**. New projects start with a placeholder that begins with `com.example`, so replace it. Choose it once: stores treat a different identifier as a different app. |
+| **Bundle Identifier** | Your app's unique ID on iOS and Android, such as `com.yourcompany.yourapp`. Use letters and digits separated by dots, starting with a letter, or Nowa shows **Invalid package name**. New projects start with a placeholder that begins with `com.example`, so replace it. Stores use this ID to identify your app, so settle on it before your first store upload. |
 | **Build version** | Three numbers separated by dots, such as `1.0.0`. |
-| **Build number** | A whole number. Raise it before each new store upload, because stores turn down a build number you already used. |
+| **Build number** | A whole number. Raise it before each new store upload. |
 | **App Icon** | Click **Change all** to set every platform at once, or pick **Android**, **iOS**, **Web** or **macOS**. Nowa accepts images up to 1024 x 1024 pixels. |
 
 **Package Name** on the same page is a read-only Flutter name that your users never see. Don't use it as your store identifier.
@@ -50,13 +50,13 @@ Each row keeps you posted:
 | **Web** | **Not published yet**, **Publishing…**, **Last publish failed**, or the host name of your live site | **Deploy**, then **Redeploy** once the site is live. **Cancel** while it publishes. |
 | **Android Debug**, **Android Release**, **iOS** | **Not deployed yet**, the build status such as **Building…**, or **Deployed**, **Failed** or **Canceled** with how long ago | **Deploy**, or **Cancel** while it builds |
 
-- On a mobile row, **Set up** replaces **Deploy** when something is missing: a signing key, App Store Connect credentials or a Git repository. It opens the **Deployment** page, where you pick the tab you need.
+- On a mobile row, **Set up** replaces **Deploy** when something is missing: the Android signing key, the iOS distribution certificate or App Store Connect credentials, or a Git repository. It opens the **Deployment** page, where you pick the tab you need.
 - **Premium** replaces the button when your plan doesn't include that target. Click it to see the **Time to level up** dialog.
-- Click a live **Web** row to open your site. Click any other row to open its tab on the **Deployment** page.
+- Click a live **Web** row to open your site. Click any other row to open its tab on the **Deployment** page, or the **Time to level up** dialog if the row shows **Premium**.
 - **Advanced build settings** opens the **Deployment** page directly. It has an **Android**, an **iOS** and a **Web** tab, and each mobile tab lists its past builds.
 
 :::tip[Or ask Nowa AI]
-Before you deploy, ask Nowa AI to check your project: "Fix the problems in my project." Publishing to the web stops when Nowa finds errors. See [How Nowa AI works](../ai/index.md).
+Before you deploy, ask Nowa AI to scan your project: "Fix problems in my project." Publishing to the web stops when Nowa finds errors. See [How Nowa AI works](../ai/index.md).
 :::
 
 ## Publish a local project

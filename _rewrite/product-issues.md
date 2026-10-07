@@ -19,3 +19,4 @@ the product team. "Verified" means the orchestrator re-checked it in the code.
 | P12 | master (3.12.5) AI connectors | The single **Auto-approve tools** switch (which also covers Supabase actions) is only reachable from the Figma menu. | W2 verifier | yes (code) |
 | P13 | master (3.12.5) **Create Theme Setup** dialog | The dialog text names the wrong file paths. | W4 verifier | yes (code) |
 | P14 | master (3.12.5) **Layout** section | The size dropdown offers **Expand** for a child of a Wrap, which Flutter rejects at runtime. | W4 verifier | partly (code; not run) |
+| P15 | master (3.12.5) `packages/core/lib/src/fields/link_menu.dart:90-93` | The link menu on an event hides void-typed suggestions, so your own functions (which return nothing) never appear under LOCALS when you click an event's name. Workaround documented: add a node in the event's circuit. | W5 verifier | yes (code) |

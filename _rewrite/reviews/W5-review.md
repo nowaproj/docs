@@ -1,13 +1,26 @@
 # W5 review: Add logic, part 1 (index, events, circuit, functions, expressions, popups, actions)
 
-Verifier run against `/home/user/nowa-master` (v3.12.5). Pages are appended below as each one is finished.
-Summary table at the end of the file is filled in when all seven pages are done (status: IN PROGRESS).
+Verifier run against `/home/user/nowa-master` (v3.12.5). All seven pages checked in order, fixed in place, one section per page below. Reference screenshot used: `captures/ui-map/21-logic-editor.png` (Circuit, Details **Button** section, orange node, close icon).
 
-Pages done so far: index.md, events.md, circuit.md, functions.md, expressions.md, popups.md
+## Summary
+
+- **Pages checked:** 7 of 7 (`docs/logic/index.md`, `events.md`, `circuit.md`, `functions.md`, `expressions.md`, `popups.md`, `actions.md`).
+- **Claims checked:** 127 claim rows below (each row groups 1 to 8 labels or statements; every quoted UI label, category name, menu item, step order and default value was grepped in the code).
+- **Fixed:** 23 rows (wrong or too broad, corrected from the code). **Removed:** 3 (not shown by the code, or redundant for length). The other 101 rows are ok as written.
+- **Structure checks (script):** front matter complete on all pages; no H1 in bodies; no `---` rules; one admonition per page; no emoji or banned hype words; all relative links resolve; 102 inbound links from the rest of `docs/` to these pages resolve, including every anchor (`#store-result`, `#future-options`, `#hot-fix`, `#lifecycle`, `#link-menu`, `#dollar`, `#custom-expression`, `#operators`, `#visibility`, `#read-the-screen-size`, `#show-a-dialog`, `#pick-photos-or-videos`); all 7 capture placeholders are well formed and listed in `captures/requests/W5.md`.
+- **Most serious errors fixed:**
+  1. `events.md` and `functions.md` told readers to click an event's name, open **LOCALS** and pick a function. The event's link menu hides every suggestion whose type is void (`packages/core/lib/src/fields/link_menu.dart:90-93`), and a function's type is its return type, so a normal (void) function never appears. Replaced with the path the code supports: add a node in the event's circuit and pick the function under **LOCALS**.
+  2. `events.md`: "a new button already reads **Edit**" and the **Enabled** / **Compute** switch were stated for all buttons. Only **Button** and **Icon Button** have them (`widgets_to_add.dart:206,216`, `block_field.dart:81,83`); **Floating Button** gets a hard-coded `() {}` and no switch.
+  3. `expressions.md`: **Compute...** said "end with **Add Return**", but the new function already holds a **Return** node and nothing can be added after it. Also removed "categories from connected integrations" (the only extra category, Firebase, is Circuit-only).
+  4. `actions.md`: stopping a timer from a **Dispose Function** needs a screen variable (**Pick Variable**); a **New Variable** is local to one function. **Project Details** > **Shared Preferences** > **Clear** only clears the editor's store used by **Play**, not an app on a device. Dropped the unverified "outside your app" for `openUrl`.
+  5. `functions.md`: position advice for `initState` / `dispose` ("keep it as the first step") came from the old docs and is wrong for `dispose`; now "above or below". Step 4 now says to select the function first (the **Add Function** path does not select it).
+  6. `circuit.md`: project category is `PACKAGE:<NAME>` (for example `PACKAGE:MY_APP`), only Firebase adds a **FIREBASE** category, **Edit in circuit** is on the widget button next to **Builder**; page cut by about 90 words.
+  7. `index.md`: the counter example now says the function also refreshes the screen (screen variables only redraw after **refresh**).
+- **Open issues:** 4, listed at the end of this file.
 
 ## index.md (How logic works)
 
-Front matter ok (title, description, sidebar_label, keywords). No H1 in body, headings sentence case, one admonition, no emoji, no `---` rules, no hype words. About 540 words.
+Front matter ok (title, description, sidebar_label, keywords). No H1 in body, headings sentence case, one admonition, no emoji, no `---` rules, no hype words. About 450 words.
 
 | claim | verdict | code ref | note |
 |---|---|---|---|
@@ -127,7 +140,7 @@ Front matter ok. No H1, sentence-case headings, one admonition, no hype words, n
 | Math / Logical popups: **Operator**, **Type**, **Left side**, **Right side**; **Type** change resets both sides; ifNull: **Value**, **If null** | ok | `expression_details.dart:249-326` | popup titles are "Math Expression", "Logic Expression", "If Null Expression" (not quoted on the page) |
 | Operator groups table | ok | `block_tree.dart:2348-2420` (`isMath`, `isLogical`, `isNullable`) | bitwise operators exist in **OPERATORS** but not in the popups (left out) |
 | Reopening a Math / Logical popup | fixed (added) | `expression_field.dart:77-95` (`BFBinaryExpr`: button shows the formula, or **Edit expr.** when empty) | one sentence added |
-| Custom expression dialog: opens in text mode, **Enter expression...**, <kbd>Enter</kbd> / **Eval**, red errors, parts view (click selects, double-click replaces), **Search...**, **Detach**, text-mode button, check mark / help icon, back arrow | ok | `expression_builder_popup.dart:42-60,120,168,178-262,412,469`, `expression_builder_provider.dart:44,201-216` | |
+| Custom expression dialog: opens in text mode, **Enter expression...**, <kbd>Enter</kbd> / **Eval**, red errors, parts view (click selects, double-click replaces), **Search...**, **Detach**, text-mode button, check mark / help icon, back arrow | ok | `expression_builder_popup.dart:42-60,120,168,178-262,412,469`, `expression_builder_provider.dart:44,201-216` | the must-cover hint text **Enter expression...** was missing from the steps; added to step 2 (it shows only while the box is empty, because the box starts with the current expression) |
 | "It must be one expression, not a statement such as `if`" | ok | `expression_builder_provider.dart:201-216` (`loadExpression`) | parse error shows in red |
 | **Visibility** wrapper: **Add Wrapper** > **Visibility**, **Visible**, **Replacement** | ok | `packages/core/lib/src/wrappers_to_add.dart:27-31`, `text_fields.dart:806-818` | |
 | **Reset to default** / **Set to null** | ok | `block_field.dart:829-831` | |
@@ -155,3 +168,41 @@ Front matter ok. No H1, sentence-case headings (H2 and one H3), one admonition, 
 | **Dependencies** / **Hot Fix** for `showMediaPicker` | ok | `function_info.dart:62-75`, `expression_dependencies.dart:8-174` | |
 | Show the first image: `first`, `readAsBytes`, **Bytes** tab | ok | `nowa_runtime_library_custom.dart:60`, `basic_fields.dart:910-925` (tabs **Network**, **Asset**, **Bytes**) | the **Bytes** tab only shows a label to link; the link is made from the label |
 | Tip: **Agent** mode | ok | `mode_selector.dart:36-66` | |
+
+## actions.md (More actions)
+
+Front matter ok. No H1, sentence-case headings, one admonition, no hype words, no emoji. About 940 words. Anchors `#read-the-screen-size` (used by `design/responsive.md`) and the auto slugs of the other headings match; `functions.md#lifecycle`, `expressions.md#operators`, `variables.md#choose-a-type`, `circuit.md#store-result` / `#future-options` all exist. Links ok: `circuit.md`, `popups.md`, `navigation.md`, `models.md`, `expressions.md`, `functions.md`, `variables.md`, `../test/run.md` (title "Run your app"), `../account/project-settings.md`, `../integrations/constants.md` (title "Keys and constants"), `../ai/chat.md`. No capture placeholder on this page.
+
+| claim | verdict | code ref | note |
+|---|---|---|---|
+| `openUrl` under **NOWA_RUNTIME**; **Url** starts as `https://nowa.dev` | ok | `packages/core/lib/src/interpreter/libraries/nowa_runtime_library.dart:368-373`, `block_utils.dart:242-243` | |
+| `openUrl` "in the browser, outside your app" | fixed | `packages/nowa_runtime/lib/src/functions.dart:3-5` (`launchUrl(Uri.parse(url))` with the default mode) | "outside your app" is not shown by the code (the default launch mode is chosen by the platform); now "opens a web address in the browser" |
+| `print` under **DART:CORE**; **Msg**; "Hello World" | ok | `dart_core_library_custom.dart:3-8`, `block_utils.dart:240-241`, `expression_details.dart:328-341` | |
+| `print` output appears in **Logs** (Run) | ok | `packages/nowa_run/lib/src/nowa_run_manager.dart:309-320` (app logs forwarded to `LoggerProvider`), `packages/core/lib/src/panels/logs_and_errors_panel.dart:15`, `dart_core_library_custom.dart:6` (the interpreter's `print` calls `logInfo`) | the writer had not confirmed this; it holds for Run and for Play |
+| **checkPlatform** under **GLOBALS**, starts as `isWeb`; `isAndroid`, `isIOS`, `isMacOs`, `isWindows`, `isLinux`, `isDesktop`, `currentPlatform`; only `isWeb` true on the web | ok | `global_state_suggestions.dart:55-59`, `packages/nowa_runtime/lib/src/nowa_platform.dart:3-40` | |
+| `logicalOr` under **OPERATORS**, **Left side** / **Right side** | ok | `suggestion.dart:524-566`, `block_tree.dart:2348-2370`, `expression_details.dart:249-326` | |
+| **Media Query** under **GLOBALS**, members `size` > `width` | ok | `global_state_suggestions.dart:60-64`, `reference_field.dart:50-76` | |
+| **SHARED PREFERENCES**: **set** (**Type**, **Key**, **Value**), **get** (**Type**, **Key**), **remove key** (**Key**), **clear** | ok | `suggestion.dart:480-507`, `expression_details.dart:343-481` | set/remove/clear are Futures, so **Future Options** applies |
+| "To wipe saved values while you test: **Project Details** > **Shared Preferences** > **Clear**" | fixed | `packages/core/lib/src/settings/project_detail_settings.dart:45-71`, `shared_preferences_library.dart:145-170` (`DesignerNowaSharedPreferences`, key `user_shared_prefs_<project id>`, used by interpreted `getBool` etc.) | the button clears the editor's store used by **Play**, not the values of an app on a device. Reworded and added "An app running on a device keeps its own values" |
+| **Create...**: **Pick a constructor**, second list, **Default**, node reads **Create** + class | ok | `link_menu.dart:95-127`, `suggestion.dart:168-194,725-757`, `expr_helper.dart:8-26` | widgets are excluded from the class list (`typeFilter`) |
+| `Future.delayed` (**Duration**, **await**), `Timer.periodic` (**Duration**, **Callback**), `DateTime.now`, model instances | ok | `dart_core_library.dart:2287-2293`, `dart_async_library.dart:878-900`, `dart_core_library_custom.dart:51-130` | |
+| Timer: "Use **Store result** to keep the timer", then `cancel` in a **Dispose Function** | fixed | `store_result_field.dart:98-131` (**New Variable** is a variable local to the function), `nowa_fields.dart:631-740` (type picker lists every loaded class, search finds `Timer`) | a local variable is not visible from another function. Now: **Pick Variable** with a screen variable of type `Timer` (link to `variables.md#choose-a-type`), then `cancel` on that variable |
+| **parse** under **GENERAL** | ok | `suggestion.dart:509-516` | |
+| **OPERATORS** examples `plus`, `greaterThan`, `logicalAnd` | ok | `block_tree.dart:2348-2370` | |
+| **SERVICES**: `Clipboard` (`setData`, `getData`, `hasStrings`), `HapticFeedback` (8 functions) | ok | `packages/core/lib/src/interpreter/libraries/services_library.dart:1208-1233,1306-1355` | |
+| Category table: **MATERIAL** (`showMenu`, `showSearch`, `showAboutDialog`), **DART:CORE** (`print`, `Future`), **DART:ASYNC** (`Timer`, `unawaited`, `scheduleMicrotask`), **SERVICES**, **NOWA_RUNTIME** (`openUrl`, `showMediaPicker`, `NPlatform`) | ok | `material_library.dart:18-50`, `dart_async_library.dart:8,878-910`, `nowa_runtime_library.dart:8-12`, `suggestion.dart:636-662` | |
+| Project category "named after your package" | fixed | `library.dart:43,218` | now **PACKAGE:** + package name, same wording as `circuit.md`; `AppConstants` has static members (`file_system/templates/common/app_constants_template.dart:17`) |
+| "classes that have static functions" | fixed | `suggestion.dart:636-662` (`hasPublicStatics`: any public non-constructor member) | "static members" |
+| Tip: **Agent** mode | ok | `mode_selector.dart:36-66` | |
+
+## Open issues
+
+1. **`circuit.md` is about 1,390 words** (guide: about 1,200). I cut repetition (about 90 words) but it still carries 13 must-cover items from `pages.md`. A split (for example "Branch, handle errors and loop" for the If, Try, Return, Create Local Variable, Add Custom Expression and While sections) needs a new row in `pages.md` and a sidebar entry, which are outside this batch. Decision for the orchestrator.
+2. **Possible product issue (not a docs error):** an event field's link menu hides void functions (`link_menu.dart:90-93`, `suggestion.dart:109-118`), so a user cannot link **On Pressed** to a screen function from the menu even though `field_link_menu.dart:138-157` (`_transformExpr`) has code to turn a picked function into a reference. Worth an entry in `_rewrite/product-issues.md` (I did not edit it; it is outside this batch). The pages now describe only the working path.
+3. **Not runnable here, kept because the code supports them:**
+   - the snackbar shows in **Play** (`events.md`, step 5); old docs say the same;
+   - "each place that uses the component can set its own logic" after **Create Param...** on an event (`events.md`); inferred from function-typed params rendering as **+** / **Edit**;
+   - `showBottomSheet` described as a persistent sheet (Flutter meaning of the function; the code only declares the parameters);
+   - `.format` applied directly to the nullable `DateTime?` that `showDatePicker` returns (`popups.md`);
+   - the Celsius example in `functions.md` was not run end to end (each control and label was checked).
+4. **Wording the code does not literally contain:** the page words "advanced" (for `showDialog` options such as **Use Root Navigator**) and "five building blocks" are descriptions, not UI labels. They are accurate to the code, flagged so a later screenshot pass can confirm how they read on screen.

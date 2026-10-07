@@ -1,11 +1,11 @@
 ---
 title: Preview and test
-description: Try your app at every step, from an instant tap-through on the board to the real compiled app on your phone, and share a preview with anyone.
+description: Try your app at every step, from an instant tap-through on the board to the real compiled app on your phone, and share a preview link.
 sidebar_label: Overview
 keywords: [preview, test, test your app, try your app, instant play, instant preview, play, run, nowa run, app run, simulator, emulator, run on device, share preview, problems]
 ---
 
-You can try your app at every step without leaving Nowa. **Play** runs any screen right on the board in an instant. **Run** builds the real app. A link lets anyone else tap through it.
+You can try your app at every step without leaving Nowa. **Play** runs any screen right on the board in an instant. **Run** builds the real app. A link lets other people tap through it.
 
 ## Instant Play or Run?
 
@@ -13,7 +13,7 @@ Both show your app working, in different ways. Instant Play interprets your app,
 
 | | Instant Play | Run |
 |---|---|---|
-| Start it | **Play** on a screen's name bar, or right-click a widget and choose **Play** | **Run** in the top bar |
+| Start it | **Play** in a screen's title bar, or right-click a widget and choose **Play** | **Run** in the top bar |
 | What it does | Nowa interprets your app on the board | Nowa compiles your real Flutter app |
 | Speed | Instant, with no build | The first start can take a few minutes. After that, every save updates it |
 | Accuracy | Close, not exact | The real app |

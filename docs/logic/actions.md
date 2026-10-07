@@ -11,7 +11,7 @@ Dialogs, sheets, snackbars and pickers are on their own page: [Show dialogs, she
 
 ## Open a link
 
-`openUrl` opens a web address in the browser, outside your app.
+`openUrl` opens a web address in the browser.
 
 1. Choose **NOWA_RUNTIME** → `openUrl`.
 2. Type the address in **Url**. It starts as `https://nowa.dev`. To use a value, click **Url** and link one, or type `$` inside the text.
@@ -53,7 +53,7 @@ Shared Preferences keep small values on the device, so your app remembers them t
 | **remove key** | Deletes one saved value. | **Key**. |
 | **clear** | Deletes everything saved. | Nothing. |
 
-Read a value with the same **Type** and **Key** you saved it with. **set**, **remove key** and **clear** take a moment, so use [Future Options](circuit.md#future-options) if a later step must wait for them. To wipe saved values while you test, open the [project settings](../account/project-settings.md), then **Project Details** → **Shared Preferences** → **Clear**.
+Read a value with the same **Type** and **Key** you saved it with. **set**, **remove key** and **clear** take a moment, so use [Future Options](circuit.md#future-options) if a later step must wait for them. To wipe what your screens saved while you test with **Play** in the editor, open the [project settings](../account/project-settings.md), then **Project Details** → **Shared Preferences** → **Clear**. An app running on a device keeps its own values.
 
 ## Create objects
 
@@ -66,11 +66,11 @@ Read a value with the same **Type** and **Key** you saved it with. **set**, **re
 | To | Pick | Then |
 |---|---|---|
 | Wait a moment | `Future` → `delayed` | Set **Duration**, and turn on **await**. |
-| Repeat something | `Timer` → `periodic` | Set **Duration** and build the repeated steps in **Callback**. Use **Store result** to keep the timer so you can stop it later. |
+| Repeat something | `Timer` → `periodic` | Set **Duration** and build the repeated steps in **Callback**. To stop it later, set **Store result** to **Pick Variable** and choose a screen variable of type `Timer`. |
 | Get the current date and time | `DateTime` → `now` | Use **Store result**. |
 | Make an instance of a model | Your model → **Default** or `fromJson` | Fill in its fields. |
 
-To stop a timer, add a node on the stored timer, click **+** and choose `cancel`. A good place is a [Dispose Function](functions.md#lifecycle). Widgets aren't in this list: add them on the board.
+To stop a timer, add a node on that variable, click **+** and choose `cancel`. A good place is a [Dispose Function](functions.md#lifecycle). To add a variable with the `Timer` type, see [Choose a type](variables.md#choose-a-type). Widgets aren't in this list: add them on the board.
 
 **GENERAL** also has **parse**, which turns text into a number with decimals.
 
@@ -96,9 +96,9 @@ Each category named after a library holds the functions and classes you can use 
 | **DART:ASYNC** | `Timer`, `unawaited` and `scheduleMicrotask`. |
 | **SERVICES** | `Clipboard`, `HapticFeedback`, `SystemNavigator` and `SystemSound`. |
 | **NOWA_RUNTIME** | `openUrl`, `showMediaPicker` and `NPlatform`. |
-| Your project, named after your package | Your own functions and classes, such as `AppConstants`. See [Keys and constants](../integrations/constants.md). |
+| **PACKAGE:** and your package name, such as `PACKAGE:MY_APP` | Functions you wrote and classes with static members, such as `AppConstants`. See [Keys and constants](../integrations/constants.md). |
 
-A package you add brings its own category. The library categories list functions and classes that have static functions. To make an object from any other class, use **Create...**.
+A package you add brings its own category. The library categories list functions and classes that have static members. To make an object from any other class, use **Create...**.
 
 :::tip Or ask Nowa AI
 In **Agent** mode, try: "When the user taps Visit website, open nowa.dev in the browser." Then open the result in Circuit to see the step. See [Chat with Nowa AI](../ai/chat.md).

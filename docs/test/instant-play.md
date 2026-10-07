@@ -9,12 +9,12 @@ Instant Play runs a screen right on the board, so you can tap through it without
 
 ## Play a screen
 
-1. Hover the name above a screen or component on the board, or select the item. A play button appears next to the name.
+1. Hover the title bar above a screen or component on the board, or select the item. A play button appears next to the name.
 2. Click it (its tooltip is **Play**). The board zooms to the item, an orange border marks it, and it comes alive.
 3. Tap, scroll and type as you would in the real app. While an item plays, scrolling over it scrolls your app, not the board.
-4. Click **Stop** when you're done. It sits in the item's name bar and in the controls at the bottom of the board.
+4. Click **Stop** when you're done. It sits in the item's title bar and in the controls at the bottom of the board.
 
-{/* CAPTURE: id=test-instant-play-1 | state: playground starter open, one screen playing (title-bar play button clicked) | show: the playing screen with its orange border, the stop button in its name bar, and the play controls at the bottom (This screen is capturing scroll, Share preview, Reset zoom, Stop, warning icon) | crop: board area with the bottom controls (no side panels) */}
+{/* CAPTURE: id=test-instant-play-1 | state: playground starter open, one screen playing (title-bar play button clicked) | show: the playing screen with its orange border, the stop button in its title bar, and the play controls at the bottom (This screen is capturing scroll, Share preview, Reset zoom, Stop, warning icon) | crop: board area with the bottom controls (no side panels) */}
 
 While something plays, the toolbar at the bottom of the board is replaced by the play controls.
 
@@ -28,7 +28,7 @@ While something plays, the toolbar at the bottom of the board is replaced by the
 
 ## Play any widget
 
-Right-click a widget on the board and choose **Play**. Nowa plays the whole board item the widget belongs to: the screen, the component, or the loose widget itself. This is how you play a loose widget, which has no name bar of its own.
+Right-click a widget on the board and choose **Play**. Nowa plays the whole board item the widget belongs to: the screen, the component, or the loose widget itself. This is how you play a loose widget, which has no title bar of its own.
 
 **Play** shows in the right-click menu when exactly one widget is selected and nothing is playing yet.
 
@@ -54,7 +54,7 @@ To check the real behavior, [run your app](run.md), or [run it on a device](devi
 
 On the board, Nowa fills in empty values so a design never looks blank. Text from an empty variable shows as `[name]`, a list shows three sample items, and an image shows a stand-in picture. These placeholders are for designing.
 
-When you press **Play**, your app runs its own logic instead. You see what your variables and functions produce, so an empty list stays empty until your logic fills it, just as in the real app.
+When you press **Play**, your app runs its own logic instead. You see what your variables and functions produce, so an empty list stays empty until your logic fills it, as it does in the real app.
 
 ## Next steps
 

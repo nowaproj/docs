@@ -31,3 +31,7 @@ the product team. "Verified" means the orchestrator re-checked it in the code.
 | P24 | master (3.12.5) Supabase connect | The "No organizations found" message is never shown; the waiting dialog just stays open. | W15 verifier | yes (code) |
 | P25 | master (3.12.5) Supabase **Query Templates** | Generated names mix styles for snake_case tables, e.g. `getAllUser_profiles`. | W15 verifier | yes (code) |
 | P26 | master (3.12.5) Supabase backend setup **Fix with AI** | Sends a fixed prompt that doesn't include the actual failure. | W15 verifier | yes (code) |
+| P27 | master (3.12.5) Git, local projects | **Revert Commit** only stages the reverse changes (no commit), while its dialog says it will "create a new commit". | W10 verifier (checked with libgit2) | yes |
+| P28 | master (3.12.5) Git conflicts after **Bring my changes** | The Local/Remote panes are swapped in local projects, so **Accept Local** drops your own edits. Risk of lost work. | W10 verifier (checked with libgit2) | yes |
+| P29 | master (3.12.5) Git conflicts | **Accept** may clear all remaining conflicts after the first file. | W10 verifier | no (code reading) |
+| P30 | master (3.12.5) Git, local projects | Committing without a Git identity shows a raw error; the identity form only exists for cloud projects. | W10 verifier | yes (code) |

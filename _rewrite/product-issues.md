@@ -26,3 +26,4 @@ the product team. "Verified" means the orchestrator re-checked it in the code.
 | P19 | master (3.12.5) Variables panel → **Globals** | **+** creates a global state variable that the Globals list then hides (it lists only final variables). | W6 verifier | yes (code) |
 | P20 | master (3.12.5) board | A Ctrl+mouse-wheel zoom with a large step breaks the board view, and the broken zoom is saved in the browser (localStorage), so it survives reloads. | capture agent (seen in the running app) | yes (observed) |
 | P21 | master (3.12.5) playground starter | Switching the home screen's Group from Column to Row paints the screen gray with a status-bar "Canvas error ... preferredSize". | capture agent (seen in the running app) | yes (observed) |
+| P22 | master (3.12.5) code sync | A top-level function or enum that Nowa fails to load may be dropped when Nowa rewrites the file after a visual edit (possible data loss). Needs a runtime check. | W9 verifier | no (code reading) |

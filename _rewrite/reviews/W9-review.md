@@ -12,6 +12,7 @@ Pages checked: 6 of 6 (`index.md`, `code-mode.md`, `files.md`, `packages.md`, `c
 | Claim rows in this log | 140 (about 320 individual statements: labels, shortcuts, paths, steps, rules, gating) |
 | Rows confirmed as written | 116 (some of them mixed rows that also led to an edit) |
 | Edits to the pages | 25 (22 corrections or additions, 3 removals of statements the code does not support) |
+| Length (reading words, without front matter, table pipes and capture comments) | index 638, code mode 1,047, files 1,126, packages 863, custom code 762, limitations 1,002. A raw `wc -w` reads higher (files.md about 1,390) because it counts the two capture comments and the table markup. No cuts were needed; `files.md` covers two topics (Files panel and Search) and is the longest. |
 | Open issues | 10 (below; none blocks publishing) |
 | Style and structure | all front matter present (descriptions now one sentence), no H1, no `---`, no emoji, no hype words, at most 2 admonitions per page, all 78 relative links resolve to files listed in `pages.md`, capture placeholders well formed, required anchor `{#import-dart-code}` present on `## Import Dart code` in `custom-code.md` (also `{#custom-function}`) |
 

@@ -80,7 +80,7 @@ Use this to bring in a function, a widget or a class you wrote somewhere else.
 3. Paste your code into the editor, or click **From file** and pick a `.dart` file.
 4. Click **Import** or **Import as Custom code**.
 
-{/* CAPTURE: id=code-custom-code-1 | state: playground starter open, board view; Files panel → click the + on the lib row → Import Dart code... | show: the Import Dart code dialog with its code editor (sample formatDate function) and the From file, Import, Import as Custom code and Cancel buttons | crop: the dialog */}
+![The Import Dart code dialog: a code editor with a sample formatDate function, and the buttons From file, Import, Import as Custom code (highlighted) and Cancel.](/img/docs/code/code-custom-code-1.png)
 
 | Button | What it does |
 |---|---|

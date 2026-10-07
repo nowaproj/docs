@@ -20,7 +20,7 @@ The panel looks different on the board and in [code mode](code-mode.md).
 | **Click a file** | Shows a small preview. Double-click to open the file. | Opens the file in a tab. |
 | **Follows you** | No. | Yes. The panel selects the file in the open tab. |
 
-{/* CAPTURE: id=code-files-1 | state: playground starter open, Files panel open; click the + next to lib | show: the Files panel with the lib, boards and assets rows and the open Add to library menu (New Widget..., New Folder..., New Model..., New Global State..., Generate Models From Json..., API Collection..., Import Dart code...) | crop: left panel */}
+![The Files panel with the lib, boards and assets rows and the Add to library menu open from the plus on the lib row (highlighted): New Widget, New Folder, New Model, New Global State, Generate Models From Json, API Collection and Import Dart code.](/img/docs/code/code-files-1.png)
 
 Names in the tree carry markers:
 

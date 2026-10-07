@@ -125,3 +125,4 @@ developer-only, hidden behind a flag, unreachable or unreleased). Collected from
 | widgets | `ButtonConnector` (Enabled -> create variable) mostly commented out | `widget_info.dart:598-651`; `button_fields.dart:150-175` | "Create Variable" may not show, see Open questions |
 | account-projects | Nowa GO (native iOS/Android app: View code, hidden Billing/Usage, Unavailable pill) | `lib/project/nowago/*` | private beta per What's New (D15) |
 | code-ship | **Claim your Nowa Launch Benefits** promo row in the Deploy menu | deploy menu (see W8 review log) | time-limited promotion, not a product feature |
+| code-ship | Files panel grid view (right-click empty space, New Folder, Paste) | Files panel grid view (see W9 review log) | dead UI in 3.12.5 (not reachable) |

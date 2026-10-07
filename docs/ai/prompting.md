@@ -34,6 +34,8 @@ It says what the app is for, what it keeps track of, and which screens it needs.
 - **Start a new session for a new topic.** Old context can carry over, so begin a new session when you move to an unrelated feature. See [Undo AI changes and reopen chats](undo-and-history.md#start-a-new-session).
 - **Check each result.** Look at the board or [play the screen](../test/instant-play.md), then ask for the next change.
 
+For habits that keep Nowa AI's changes accurate and easy to review, such as small steps and checkpoints, see [Get the best from Nowa AI](../guides/ai-tips.md).
+
 When a request has several parts, this order keeps it clear:
 
 ```text

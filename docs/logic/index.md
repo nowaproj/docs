@@ -29,6 +29,7 @@ For example, a button's **On Pressed** event runs a function that adds one to a 
 | Model | A custom type that groups related values, such as a Product. | [Data models](models.md) |
 | Expression | A formula that gives a value: a link, a calculation or a condition. | [Expressions and conditions](expressions.md) |
 | Action | A ready-made step, such as showing a message or opening a link. | [Show dialogs, sheets, snackbars and pickers](popups.md), [Navigate between screens](navigation.md), [Use ready-made actions](actions.md) |
+| Route | The path that opens a screen, such as `/recipe/:id`. The Router panel lists them all. | [Set up routes in the Router panel](router.md) |
 
 Everything you build is real Dart code in your project, which you can read in [code mode](../code/code-mode.md).
 

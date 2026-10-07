@@ -5,13 +5,13 @@ sidebar_label: Design tips
 keywords: [design tips, best practices, consistency, theme, components, responsive, layout, naming, templates, screen sizes, dark mode]
 ---
 
-A good-looking Nowa app is mostly a consistent one: the same colors, text styles and spacing on every screen. These tips show how to get there with the tools Nowa already gives you, so changing your mind later takes one edit instead of fifty.
+A good-looking Nowa app is mostly a consistent one: the same colors, text styles and spacing on every screen. These tips show how to get there with the tools Nowa already gives you, so changing your mind later takes one edit, not one per screen.
 
 ## Set the theme first
 
 Open **Themes** (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>3</kbd>) before you design many screens.
 
-- **Start from one color.** In **Seed** mode, a single **Seed Color** builds a matching palette, and **Scheme Variant** changes its style. Then set **Typography** and a **Default Font**. See [Create and edit themes](../design/themes.md).
+- **Start from one color.** Set **Mode** to **Seed**. A single **Seed Color** builds a matching palette, and **Scheme Variant** changes its style. Then set **Typography** and a **Default Font**. See [Create and edit themes](../design/themes.md).
 - **Link, don't type.** On a widget, pick a theme color or text style instead of typing a HEX value or a size. A linked field shows a name such as `primary` or `bodyMedium`, and it follows every theme change. See [Use theme colors and text styles](../design/theme-styles.md).
 - **Style buttons and fields once.** Under **Widgets** in the theme, set how every button and text field looks. A new **Button** follows the theme by itself.
 - **Bend one thing, not everything.** Use **CopyWith** to change one part of one text, such as its weight, while the rest still follows the theme.
@@ -47,8 +47,8 @@ Nowa has no breakpoints and no separate phone and tablet layouts. You build one 
 
 - **Screens and components:** name them for what they show or are, such as `RecipeListPage` and `RecipeCard`. When you rename, Nowa updates every place that uses them.
 - **Variables:** name them for what they hold, such as `isLoading` or `email`.
-- **Routes:** a new screen's default path comes from its name, so `HomePage` becomes `/home-page`.
-- **Boards:** keep one per flow. Nowa turns the name you type into one word, so **Login flow** becomes `loginFlow`.
+- **Routes:** a screen's default path comes from its name, so `HomePage` becomes `/home-page`.
+- **Boards:** keep one per flow. When you create a board, Nowa turns the name you type into one word, so **Login flow** becomes `loginFlow`.
 - **Descriptions:** click **Add description** under a screen's or component's name. The note shows in the widget picker.
 
 Clear names also help Nowa AI, because every request carries a map of your widget names. See [Give Nowa AI context](../ai/context.md).

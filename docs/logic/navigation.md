@@ -1,11 +1,11 @@
 ---
 title: Navigate between screens
-description: Open, close and replace screens with GoRouter or Navigator, pass data between them, and manage your app's routes in the Router panel.
+description: Open, close and replace screens with GoRouter or Navigator, pass data between them, and open a detail screen when someone taps a list item.
 sidebar_label: Navigate between screens
-keywords: [navigation, navigate, route, path, GoRouter, go_router, Navigator, push, pop, go, replace, pushReplacement, pushAndRemoveUntil, deep link, query parameter, path parameter, home screen, Make home screen, Router panel, Router Settings, redirect, Enable GoRouter]
+keywords: [navigation, navigate, route, path, GoRouter, go_router, Navigator, push, pop, go, replace, pushReplacement, pushAndRemoveUntil, deep link, query parameter, path parameter, home screen, Make home screen, Router panel, list item tap, detail screen]
 ---
 
-Navigation takes people from one screen to another and back. New projects use GoRouter, where every screen has a path such as `/settings`. Older projects use Flutter's Navigator, and you can switch them to GoRouter.
+Navigation takes people from one screen to another and back. New projects use GoRouter, where every screen has a path such as `/settings`. Older projects use Flutter's Navigator, and you can [switch them to GoRouter](./router.md#switch-an-older-project-to-gorouter).
 
 ## GoRouter or Navigator
 
@@ -15,7 +15,7 @@ Navigation takes people from one screen to another and back. New projects use Go
 | You point to a screen by | Its path, such as `/settings` | Picking the screen |
 | Web URLs, browser back button, deep links | Supported | Limited or not out of the box |
 
-Not sure which one your project uses? Click **Router** in the sidebar. A GoRouter project opens **Router Settings**. An older project opens **New Router System**: see [Switch an older project to GoRouter](#switch-an-older-project-to-gorouter).
+Not sure which one your project uses? Click **Router** in the sidebar. A GoRouter project opens **Router Settings**. An older project opens **New Router System**: see [Switch an older project to GoRouter](./router.md#switch-an-older-project-to-gorouter).
 
 ## Give a screen a path
 
@@ -27,7 +27,7 @@ To set or change a path:
 2. In **Details**, find **Route Settings**. It only appears in GoRouter projects.
 3. Type a **Path**, such as `/settings`, and press <kbd>Enter</kbd>. If the screen has no route yet, Nowa creates it.
 
-To make a screen the one your app opens first, click **Make home screen** in the screen's **Details**. Nowa adds a route if the screen has none and sets it as the start location.
+To make a screen the one your app opens first, click **Make home screen** in the screen's **Details**. Nowa adds a route if the screen has none and sets it as the start location. To open the home screen only for people who are signed in, see [Start on the login screen or the home screen](./router.md#start-on-login-or-home).
 
 ## Go to another screen
 
@@ -65,7 +65,7 @@ The destination screen receives data through its **Params**, so add one there fi
 **Path parameter**, like the `42` in `/product/42`:
 
 1. Select the destination screen, which needs a path. In **Details** → **Route Settings**, hover the **Route Parameters** row and click **+** (**Add Route Parameter**). Nowa adds `/:param1` to the **Path**. You can also type `/product/:id` into the **Path**.
-2. Open the **Router** panel and select the route. Drag the parameter's chip onto the screen's parameter under **Screen Parameters**.
+2. Open the [**Router** panel](./router.md#open-the-router-panel) and select the route. Drag the parameter's chip onto the screen's parameter under **Screen Parameters**.
 3. Navigate to `/product/` followed by `$` and a variable.
 
 **Query parameter**, like the `shoes` in `/search?q=shoes`:
@@ -113,41 +113,9 @@ To return a result, add a **Navigator** node with **Type** `pop` on the second s
 
 Navigator and GoRouter nodes need a screen's `context`. Add them to events and functions of screens and components, not to a global state's functions.
 
-## Manage routes in the Router panel
+## Set up routes in the Router panel {#manage-routes-in-the-router-panel}
 
-Click **Router** in the sidebar, below the divider under the other panel icons. **Router Settings** opens in the workspace with your routes on the left and the selected route's settings on the right. The route icon (**Open Router Editor**) in a screen's **Route Settings** opens it too.
-
-{/* CAPTURE: id=logic-navigation-2 | state: playground starter, Router icon clicked, the home route selected | show: the Routes list on the left and the route details on the right (Path, Screen, Route Parameters, Screen Parameters) | crop: Router Settings view */}
-
-In the **Routes** list:
-
-- Click **+** (**Add Route**) and choose **Route** to add a route. Then set its **Path** and **Screen**.
-- Hover a route and click **+** (**Add Sub-Route**) to nest a route inside it. To move a route, drag it onto another route to nest it, or onto a route's top or bottom edge to place it at that route's level. A moved route goes to the end of its new list.
-- Right-click a route and choose **Delete Route**. A **Remove Route** dialog warns that the route's child routes go too.
-
-Select a route to edit it:
-
-| Setting | What it does |
-|---|---|
-| **Path** | The route's own path, which can contain parameters like `:id`. **Full Path** shows it with its parents' paths. |
-| **Screen** | The screen the route shows. Click it to pick another one. The bolt button (**Edit Function**) opens the route's builder in Circuit. |
-| **Route Parameters** | Path and query parameters as chips. Path chips carry a red `*`. Right-click a chip to **Rename** or **Delete** it. |
-| **Screen Parameters** | The screen's own params, shown when it has any. Drag a chip onto one to feed it. |
-| **Redirect Logic** | A function that can send people elsewhere, for example to a login screen. Click **+** (**Add Redirect Logic**), then the bolt button to open it in Circuit. |
-
-Click the gear (**Router Configuration**) for app-wide settings: **Initial Location** (the path the app opens first, which must start with `/`), **Redirect Logic** (a redirect for every route) and **Remove # in URLs** (cleaner web links).
-
-Nowa lists route problems, such as duplicate paths, a route without a builder, or an initial location with no route, in the **Problems** console: see [Find and fix problems](../test/problems.md).
-
-## Switch an older project to GoRouter
-
-1. Click **Router** in the sidebar to open **New Router System**, which compares Navigator (**Legacy**) with GoRouter (**Recommended**).
-2. Click **Enable GoRouter**.
-3. Read the **Confirm Action** dialog and click **Confirm**. **Migrating to New Router** shows the progress, then the Router panel opens.
-
-:::warning
-Switching can't be undone. If your project uses named routes, update your navigation afterwards.
-:::
+Add, nest and edit routes, choose the first screen, and switch an older project to GoRouter in [Set up routes in the Router panel](./router.md).
 
 ## Next steps
 

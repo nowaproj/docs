@@ -35,6 +35,8 @@ Stores and devices read these from your project, so set them before the first bu
 
 If your app uses the camera, microphone, location or similar, switch those on under **Settings** → **Permissions**. For iOS you can also edit the message people see when the app asks. [Project settings](../account/project-settings.md) lists everything on both pages.
 
+Before you publish, work through the [publish checklist](../guides/ship-tips.md#publish-checklist): it covers these settings, test keys, secrets and each target.
+
 ## Start a deployment
 
 1. Open your cloud project. The **Deploy** button sits next to **Run** in the top bar.

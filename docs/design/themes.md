@@ -7,6 +7,8 @@ keywords: [theme, themes panel, colors, color scheme, typography, text styles, d
 
 A theme holds the colors, text styles and widget looks that every screen shares. Change a color once in the **Themes** panel and every widget that uses it follows, live on the board.
 
+Set your theme before you design many screens: see [Set the theme first](../guides/design-tips.md#set-the-theme-first).
+
 ## Open the Themes panel
 
 1. Click **Themes** in the left sidebar, or press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>3</kbd>. The active theme opens for editing, with **Colors**, **Typography** and **Widgets** below it.

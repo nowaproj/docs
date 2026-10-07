@@ -57,6 +57,8 @@ Sign-up works the same way with `signUp`. If your Supabase project asks for emai
 
 To sign people out, put `SupabaseService` → `signOut` on a button, and open the login screen in **onValue**.
 
+To skip the login screen when someone is already signed in, see [Start on the login screen or the home screen](../../logic/router.md#start-on-login-or-home).
+
 :::tip
 Or ask Nowa AI. In **Agent** mode, try: "Add a sign-in screen that uses SupabaseService and opens the home screen when it works." See [How Nowa AI works](../../ai/index.md).
 :::

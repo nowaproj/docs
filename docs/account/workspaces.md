@@ -40,7 +40,7 @@ Open the switcher and click **Personal** or a workspace. The **Projects** list t
 A project you create from **New project** or from the prompt box starts in **Personal**. To put a cloud project in a workspace:
 
 1. Click ⋮ on the project card, then **Move to workspace...**.
-2. In **Move to...**, pick **Personal** or a workspace.
+2. In the move dialog, pick **Personal** or a workspace.
 3. Click **Move**. The dashboard switches to that workspace.
 
 **Clone from GitHub**, **Import project** and **Save your app** have a workspace chip, so you can choose the workspace as you create the project.

@@ -18,6 +18,8 @@ Skip the blank page. A template gives you a finished screen or component, such a
 
 The new screen or component is placed on the board near your pointer. A screen doesn't become your home screen automatically. See [Create and set up screens](screens.md).
 
+Many templates come with fixed colors of their own, so link their colors and text to your theme after you add one: see [Start from a template](../guides/design-tips.md#start-from-a-template).
+
 ## Name a single-file template
 
 A template with a single file, such as **Empty Page**, **Basic Cards 1** or **Event Info**, opens a naming dialog. It is titled **New** followed by the template's name, for example **New Empty Page**.
@@ -62,4 +64,4 @@ Or ask Nowa AI: "Add a login screen with email and password." See [How Nowa AI w
 
 - [Create and set up screens](screens.md).
 - [Change widget properties](properties.md) to restyle what you added.
-- [Create and edit themes](themes.md) so every template follows your colors.
+- [Use theme colors and text styles](theme-styles.md) to link a template's colors and text to your theme.

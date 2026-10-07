@@ -86,6 +86,7 @@ const sidebars = {
         'logic/functions',
         'logic/expressions',
         'logic/navigation',
+        'logic/router',
         'logic/popups',
         'logic/actions',
         'logic/models',

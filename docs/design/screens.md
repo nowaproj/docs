@@ -56,7 +56,7 @@ Other sections of **Details**, such as **Group** and **Safe Area**, control the 
 2. To pass data in the address, expand **Route Parameters** and click **+** (**Add Route Parameter**).
 3. Type a **Param name**, link it to one of the screen's params with the link button, and set a **Default value** if you like.
 
-The route icon next to **Route Settings** (**Open Router Editor**) opens the router. See [Navigate between screens](../logic/navigation.md).
+The route icon next to **Route Settings** (**Open Router Editor**) opens the router. See [Set up routes in the Router panel](../logic/router.md).
 
 ## Choose the home screen
 

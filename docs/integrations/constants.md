@@ -7,6 +7,8 @@ keywords: [constants, custom constants, API key, keys, secrets, AppConstants, ap
 
 Constants are the fixed values your app needs, such as a publishable key, a client ID or an address you reuse. Nowa keeps them in one place, so you can see and change them without opening code.
 
+Constants ship inside your app, so anyone who has the app can read them: see [Keep secrets out of your app](../guides/data-and-state-tips.md#keep-secrets-out-of-your-app).
+
 ## Open the Constants page
 
 1. Click the gear (**Settings**) in the top bar, or press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>,</kbd>.

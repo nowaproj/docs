@@ -131,3 +131,6 @@ Open questions for a live check (all low risk, each is flagged where it appears)
 - Whether AI-built screens come with routes in GoRouter projects (the guide tells readers to set a path in **Route Settings** when there is none).
 - Whether `data` is typed as a list inside a **Data Builder** once a source is picked, so that **+** → `isEmpty` is offered (code: `data` is created as `dynamic` and the page says the type comes from the source).
 - Captures: `guides-complete-app-1` (needs sign-in and an AI run) and `guides-ai-tips-1` (playground) in `captures/requests/W19.md`.
+
+
+Correction (orchestrator, after the P9 gaps check): in a shared preview the **Single Screen Preview** card shows for every `?screen=` link, even when the screen has a route, because the preview page has no `Designer` (product issue P44). On the board it shows only for screens without a route. Lines 103 and 126 above describe the board case. `test/share.md` states the shared-preview behavior.

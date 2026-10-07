@@ -47,7 +47,7 @@ The preview is [Instant Play](instant-play.md) in a browser tab: quick, but not 
 
 The link looks like `https://app.nowa.dev/preview/<project>`. If you shared from a played screen, it ends with `?screen=` and that screen's file, so the preview opens on that screen.
 
-To share the whole app, delete the `?screen=…` part of the link. If the shared screen has no route, owners and editors who open the link see the warning "Single Screen Preview": "Route-based navigation is disabled in Play Mode for single screen previews. To test navigation, you need to preview the full app."
+To share the whole app, delete the `?screen=…` part of the link. Owners and editors who open a link with `?screen=…` see the warning "Single Screen Preview": "Route-based navigation is disabled in Play Mode for single screen previews. To test navigation, you need to preview the full app." They see it even when the screen has a route.
 
 The link stays the same when you edit your app. People always see the project as last saved.
 
@@ -55,7 +55,7 @@ In a local project, **Share preview** says "Share preview is not available on lo
 
 ## What people see in a preview
 
-On a computer, the app opens in a phone frame (an iPhone 13 at first) with a toolbar at the top. Owners and editors also see cards that list what the preview can't show, such as "Custom code can't be shown" or "Dynamic packages can't be shown". The button above them hides the cards (tooltip **Hide Play Warnings**) and brings them back (tooltip **Show Play Warnings**). The "Unattached global states" card lists global states that aren't attached to your app, which can cause errors if they are used. Its **Attach all** button attaches them and refreshes the preview. See [Attach or detach a global state](../logic/global-state.md#attach-or-detach-a-global-state).
+On a computer, the app opens in a phone frame (an iPhone 13 at first) with a toolbar at the top. Owners and editors also see cards that list what the preview can't show, such as "Custom code can't be shown" or "Dynamic packages can't be shown". The button above them hides the cards (tooltip **Hide Play Warnings**) and brings them back (tooltip **Show Play Warnings**). The "Unattached global states" card lists global states that aren't attached to your app, which can cause errors if they are used. Its **Attach all** button attaches them to your app. See [Attach or detach a global state](../logic/global-state.md#attach-or-detach-a-global-state).
 
 | Button | What it does |
 |---|---|

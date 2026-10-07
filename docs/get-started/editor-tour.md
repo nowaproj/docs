@@ -51,7 +51,7 @@ Click an icon to open its panel. Click it again to close the panel. You can also
 | **Outline** | The widget tree of the board. On a screen open on its own, it floats at the top left of the screen instead and this icon is hidden. | 7 | [Use the Outline](../design/outline.md) |
 | **Api** | REST API collections and requests. | 8 | [Connect a REST API](../integrations/rest-api/index.md) |
 | **Supabase** | Connect and manage your Supabase backend. | 9 | [Connect Supabase](../integrations/supabase/connect.md) |
-| **Router** | Below a divider. Opens your app's routes in the workspace. | none | [Navigate between screens](../logic/navigation.md) |
+| **Router** | Below a divider. Opens your app's routes in the workspace. | none | [Set up routes in the Router panel](../logic/router.md) |
 
 At the bottom of the strip, **Shortcuts** (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>.</kbd>) opens a cheat sheet, and **Enter Fullscreen** appears in the web app only. It reads **Exit Fullscreen** while the editor is fullscreen. See [Keyboard shortcuts](../reference/shortcuts.md) for the full list.
 

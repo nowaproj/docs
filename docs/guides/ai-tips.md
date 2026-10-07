@@ -14,7 +14,7 @@ Nowa AI does its best work when you steer it: the right mode, the right context 
 - **Agent** is for everything that has to work: logic, data, packages, files, Figma and Supabase.
 - The thinking level sets how much Nowa AI reasons. **Instant** suits small edits, **Thinking** suits most requests, and **Deep Thinking** suits big features and tricky logic.
 
-**Fix with AI** sends its prompt in the active mode, and Plan never changes your project. Switch to **Agent** first if you want the fix applied. See [Design, Plan and Agent modes](../ai/modes.md).
+**Fix with AI** on an error sends its ready-made prompt in the active mode, and Plan never changes your project. Switch to **Agent** first if you want the fix applied. See [Design, Plan and Agent modes](../ai/modes.md).
 
 ## Give it the right context
 
@@ -32,14 +32,14 @@ See [Give Nowa AI context](../ai/context.md).
 - **Start wide, then go narrow.** Describe the whole app in **Design** mode, then ask for one screen or feature at a time.
 - **Ask for one job per request.** "Add a search bar to the product list" is easier to review, and to undo, than "build everything".
 - **Check each result** on the board or with **Play**, then ask for the next change. **Suggested next steps** can write the next prompt for you, and nothing is sent until you press **Send**.
-- **Start a new session** for an unrelated topic, or when Nowa says the session is getting long.
+- **Start a new session.** Click **+** (**New Session**) in the panel header when you move to an unrelated topic, or when Nowa says the session is getting long.
 - **Edit by hand in between.** Nowa applies your code edits before it sends a request, so Nowa AI works from your latest code.
 
 [Write prompts that work](../ai/prompting.md) has a shape that suits bigger requests.
 
 ## Undo with checkpoints
 
-Every request that changes files gets a checkpoint. Hover the dotted line above its reply and click **Restore Checkpoint**.
+Every request that edits your code or files gets a checkpoint. Hover the dotted line above its reply and click **Restore Checkpoint**.
 
 - A restore also undoes every later request in the session, and your own edits to those files since. **Reapply Checkpoint** brings back the AI's version.
 - Package changes, downloaded fonts, Figma imports and Supabase changes aren't recorded, so a restore leaves them in place.
@@ -49,7 +49,7 @@ Look at a result before you edit on top of it, and if you use Git, commit before
 
 ## Save standing rules with Custom Instructions
 
-Put rules for every request in **Custom Instructions**, from the **⋮** menu in the **AI Assistant** header, up to 5,000 characters. They apply to this project only and travel with it. Good candidates:
+Put rules for every request in **Custom Instructions**, from the **⋮** menu in the **AI Assistant** header, up to 5,000 characters. They apply to this project only and are saved with it. Good candidates:
 
 - "Use theme colors and text styles, never fixed colors."
 - "Put anything used on more than one screen in a component."
@@ -62,16 +62,16 @@ See [Write prompts that work](../ai/prompting.md#custom-instructions).
 - Turn on **Supabase** (the icon in the chat field), switch to **Agent** mode and ask for backend work: tables, Row Level Security policies, functions and migrations. For example: "Create a tasks table where each person sees only their own tasks, then list them on the home screen."
 - Turn on **Figma** to bring in images, icons, colors and text styles from your design.
 - Connectors switch off when you reopen the project.
-- Read each **Approval Required** card before you click **Approve**. **Auto-approve tools** skips the cards for every connector, Supabase backend changes included, so use it only for requests you trust.
+- Read each **Approval Required** card before you click **Approve**. **Auto-approve tools**, in the Figma icon's menu, skips the cards for every connector, Supabase backend changes included, so use it only for requests you trust.
 
 See [Connect Figma and Supabase to Nowa AI](../ai/connectors.md).
 
 ## Review what the agent did
 
-- Read the steps in the conversation. Hover a code card to highlight what it wrote on the board, and click it to jump there.
+- Read the steps in the conversation. Hover a name in a code card to highlight it on the board, and click it to jump there.
 - Check the board, click **Play**, and open the logic in **Circuit** if the request touched behavior.
 - When **Constants updated** appears, click **Open Constants** and check the values. See [Keep secrets out of your app](data-and-state-tips.md#keep-secrets-out-of-your-app).
-- Ask in **Agent** mode: "Check my project for problems and fix them." For a bug in the running app, **Run** it first, because Nowa AI can read the logs of a running app.
+- Ask in **Agent** mode: "Check my project for problems and fix them." For a bug in the running app, **Run** it first, so Nowa AI has logs to read.
 
 ## Switch to visual editing when it's faster
 

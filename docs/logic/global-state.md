@@ -9,6 +9,8 @@ A global state is one place to keep data and logic that your whole app shares: a
 
 Under the hood, a global state is a Flutter `ChangeNotifier` that Nowa provides to your whole app.
 
+Start local: move a value to global state only when a second screen needs it. [Pick where each value lives](../guides/data-and-state-tips.md#pick-where-each-value-lives) compares your options.
+
 ## Create a global state
 
 1. Open **Files** in the sidebar. Next to the `lib` folder, click **+** (**Add to library**), then **New Global State...**. Inside `lib`, the **Add** button opens the same menu.
@@ -17,7 +19,7 @@ Under the hood, a global state is a Flutter `ChangeNotifier` that Nowa provides 
 
 You can also open the **Variables** panel with nothing selected, find **Globals** and click **Create global state**. That file goes in `lib`.
 
-New projects already include a global state named **AppState** (`lib/globals/app_state.dart`). It holds the app's theme and a `changeTheme` function: see [Switch themes while the app runs](#switch-themes-while-the-app-runs).
+New projects already include a global state named **AppState** (`lib/globals/app_state.dart`). It holds the app's theme and a `changeTheme` function: see [Switch themes while the app runs](../design/theme-styles.md#switch-themes-while-the-app-runs).
 
 ## Add variables and functions
 
@@ -69,14 +71,7 @@ The **Notifier Builder** wrapper rebuilds only the widget inside it when a notif
 
 ## Switch themes while the app runs
 
-Use **AppState** to let people change the theme, for example with a dark mode button.
-
-1. Select a button and click **Edit** next to **On Pressed** to open Circuit.
-2. Click the dot under the top node, open **GLOBALS** and click **AppState**.
-3. In **Details**, click **+** and choose `changeTheme`.
-4. For **Theme**, click **Select theme** and choose a theme under **THEMES**, such as `darkTheme`.
-
-Themes come from the **Themes** panel: see [Create and edit themes](../design/themes.md) and [Use theme colors and text styles](../design/theme-styles.md).
+**AppState** holds the app's theme and a `changeTheme` function. Call it from a button's **On Pressed** to switch the running app between themes, for example with a dark mode button: the steps are in [Switch themes while the app runs](../design/theme-styles.md#switch-themes-while-the-app-runs).
 
 :::tip Or ask Nowa AI
 Try: "Add a shopping cart that all screens can use, with a button on each product to add it." See [How Nowa AI works](../ai/index.md).

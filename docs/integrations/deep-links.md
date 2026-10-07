@@ -49,7 +49,7 @@ Things to know:
 
 Nowa registers the links and adds `app_links`, but it does not generate code that reads an incoming link. Your app's logic has to read the link and open the right screen.
 
-New projects use GoRouter, where each screen has a route **Path** (**Route Settings** in **Details**) that a link can point to. See [Navigate between screens](../logic/navigation.md). An older project that uses Navigator shows **Enable GoRouter** in the **Router** panel, which lists deep linking as built in for GoRouter and "Not supported out of the box" for Navigator.
+New projects use GoRouter, where each screen has a route **Path** (**Route Settings** in **Details**) that a link can point to. See [Navigate between screens](../logic/navigation.md). An older project that uses Navigator shows **Enable GoRouter** in the **Router** panel, which lists deep linking as built in for GoRouter and "Not supported out of the box" for Navigator. See [Switch an older project to GoRouter](../logic/router.md#switch-an-older-project-to-gorouter).
 
 :::tip[Or ask Nowa AI]
 Try: "Handle incoming deep links with the app_links package and open the screen whose route path matches the link."

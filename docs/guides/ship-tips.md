@@ -5,7 +5,7 @@ sidebar_label: Test and ship tips
 keywords: [testing, publish checklist, release checklist, launch, backup, Git, performance, big boards, Problems, instant play, run, device, bundle identifier, signing key, Google Play, web]
 ---
 
-Shipping is calmer when you have tested in the right place at the right time, and can always get back to a good version. These tips cover both, plus a checklist for the day you publish.
+Shipping is calmer when you test in the right place at the right time and have a way back to a good version. These tips cover both, plus a checklist for the day you publish.
 
 ## Test in the right place
 
@@ -14,7 +14,7 @@ Shipping is calmer when you have tested in the right place at the right time, an
 | **Play** ([Instant Play](../test/instant-play.md)) | While you design | An instant tap-through on the board. Close to the real app, not exact. |
 | **Run** ([Run your app](../test/run.md)) | Before you share or publish | Your real app in a phone frame, updated on every save. |
 | A phone or emulator ([Run on a device or emulator](../test/devices.md), desktop app) | Before you publish | The real app on the device. In a cloud project, **Open on Mobile** shows a QR code for your phone. |
-| **Share preview** ([Share your app](../test/share.md)) | When you want feedback | A link and QR code to an Instant Play preview. |
+| **Share preview** ([Share your app](../test/share.md)) | When you want feedback | A link and QR code to an Instant Play preview. Cloud projects only. |
 
 If **Play** and **Run** disagree, **Run** is right. **Play** shows placeholders for maps and paywalls and simulates Firebase sign-in. Try ads and payments on a device or an emulator.
 
@@ -38,17 +38,17 @@ See [Find and fix problems](../test/problems.md).
 - **Git** keeps your history. Commit before big changes and before you publish. Git needs a plan that includes Git integration. See [Use Git](../code/git.md).
 - **Download your code** as a zip from code mode in a cloud project. See [Download your code](../publish/download-code.md).
 - **A local project** lives only on your computer, and Nowa doesn't back it up. Use Git and GitHub. See [Work with local projects](../code/local-projects.md).
-- **Supabase:** **Pull Backend Files** saves your migrations, edge functions and bucket list in the `supabase/` folder, so you can commit it. Table data isn't copied. See [Manage your Supabase backend](../integrations/supabase/backend.md).
+- **Supabase:** **Pull Backend Files**, in the **Supabase** panel's ⋮ menu, copies your migrations, edge functions and bucket list into the `supabase/` folder, so you can commit it. It needs recorded migrations, and table data isn't copied. See [Manage your Supabase backend](../integrations/supabase/backend.md).
 - **Signing keys:** download your Android signing key and your iOS certificate key, and keep them safe. Without the Android key you can't release updates.
 
 ## Keep big boards fast
 
 Big boards need no setup. Items in view build first, and only the item you hover, select or play animates. To help:
 
-- **Zoom in on your work.** When more than 8 items are in view, the rest show as still pictures until you hover or select them. Select an item and press <kbd>F</kbd> to zoom to it.
+- **Zoom in on your work.** When more than 8 items are in or near view, the rest show as still pictures until you hover, select or play them. Select an item and press <kbd>F</kbd> to zoom to it.
 - **Use several boards.** One board per flow keeps each one small.
 - **Remove what you don't need.** **Remove** takes a screen off the board and keeps it in your project.
-- If one item fails to draw, only it shows **This screen failed to render**. Fix the cause and click **Reload screen**. If a project freezes when it opens, choose **Open in safe mode** from its ⋮ menu on the dashboard.
+- If one item fails to draw, only it shows **This screen failed to render**. Fix the cause and click **Reload screen**. If a project freezes when it opens, choose **Open in safe mode** from its ⋮ menu on the dashboard. It skips the tabs from your last session.
 
 See [Work with boards](../design/boards.md#big-boards-and-errors).
 
@@ -62,13 +62,13 @@ Publishing needs a cloud project on a paid plan. Work through this list first.
 |---|---|
 | **App Name**, **Bundle Identifier** (replace the `com.example` start), **Build version**, **Build number** and **App Icon** are set. Choose the identifier before your first store upload. | **Settings** → **Project Details** |
 | Permissions are on for what you use, such as camera or location. | **Settings** → **Permissions** |
-| Test settings are off: Stripe uses live keys instead of test keys, Google Pay's `testEnv: true` is changed, AdMob **Show Test Ads** is off with real unit IDs and both App IDs, and Maps has a key for each platform you ship. | **Settings** → **Integrations** |
+| Test settings are off: Stripe uses live keys instead of test keys and Google Pay's `testEnv: true` is changed. AdMob **Show Test Ads** is off on every banner and ad call, with real unit IDs and both App IDs. Maps has a key for each platform you ship. | [Stripe](../integrations/stripe.md), [AdMob](../integrations/admob.md#before-you-publish), [Google Maps](../integrations/google-maps.md) |
 | No server secret sits in **Constants** or request headers, RLS is on for every table, and the project is **Private**. | [Keep secrets out of your app](data-and-state-tips.md#keep-secrets-out-of-your-app) |
 | **Problems** is clear, and you have used the real app on a device. | [Test in the right place](#test-in-the-right-place) |
 | **Android:** **Debug mode** is off and the signing key is saved and downloaded. Then click **Build** and upload the `.aab` in Google Play Console. | [Publish to Google Play](../publish/android.md) |
 | **iOS:** your bundle ID is registered, and your App Store Connect credentials and distribution certificate are saved. | [Publish to the App Store](../publish/ios.md) |
 | **Web:** click **Deploy**, then **Deploy** on the **Web** row. A custom domain needs a higher plan. | [Publish to the web](../publish/web.md) |
-| After launch: raise **Build number** for every store update, and **Redeploy** the website. | [Get ready to publish](../publish/index.md) |
+| After launch: raise **Build number** for every store update, and **Redeploy** the website. | [Ship an update](../publish/index.md#ship-an-update) |
 
 ## Next steps
 

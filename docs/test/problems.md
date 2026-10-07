@@ -67,7 +67,7 @@ Click **Fix**. Nowa applies it and checks again. If the fix fails, a red message
 - `'<package>' is a dev dependency, so Nowa does not load it. Move it to dependencies to use it in lib/.`: in `pubspec.yaml`, move the package from `dev_dependencies` to `dependencies`.
 - `'<package>' is installed but failed to load, so nothing it defines is available: <reason>`: the board can't draw anything from that package. Read the reason, and try another version under **Settings** → **Packages**. **Run** shows whether the real app still builds. See [Add packages](../code/packages.md).
 - `No Home screen Selected, select one of screens as Home Screen`: select a screen and click **Make home screen**. See [Choose the home screen](../design/screens.md#choose-the-home-screen).
-- **Router problems**, such as `Duplicate route path found: "/home".`: fix the route in the **Router** panel. See [Manage routes in the Router panel](../logic/navigation.md#manage-routes-in-the-router-panel).
+- **Router problems**, such as `Duplicate route path found: "/home".`: fix the route in the **Router** panel. See [Set up routes in the Router panel](../logic/router.md#edit-a-route).
 - `Firebase package name '…' does not match the app package name '…'. Try refreshing the config files`: **Navigate** opens the **Firebase** settings. See [Refresh the apps and config files](../integrations/firebase/connect.md#refresh-the-apps-and-config-files).
 - Anything else, such as `Undefined name 'total'.`: **Navigate** takes you to the spot. Fix it by hand, or [hand it to Nowa AI](#hand-a-problem-to-nowa-ai).
 

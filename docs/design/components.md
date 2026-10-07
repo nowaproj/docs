@@ -7,6 +7,8 @@ keywords: [component, reusable widget, instance, detach, params, parameters, cre
 
 A component is a widget you build once and use many times. Change it in one place and every copy updates. That makes it ideal for a product card, a header or a custom button.
 
+Make a component as soon as you use a card, header or button twice: see [Build once, reuse everywhere](../guides/design-tips.md#build-once-reuse-everywhere).
+
 ## Create a component
 
 1. Select the widget you want to reuse. To reuse several widgets together, group them first with <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>G</kbd>. If several widgets are selected, Nowa uses only the first one.

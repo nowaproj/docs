@@ -204,7 +204,7 @@ Select all, cut, copy, paste and undo use the usual keys (<kbd>Ctrl</kbd>/<kbd>C
 - **Typing.** While you type in a field, the tool keys (<kbd>V</kbd>, <kbd>R</kbd>, <kbd>T</kbd>), <kbd>F</kbd>, the arrow keys, <kbd>[</kbd> and <kbd>]</kbd>, select all, copy, cut, paste, remove, undo and redo are ignored, so they don't change your design by accident.
 - **Playing.** Designer shortcuts are off while an item plays on the board. Click **Stop**, then try again.
 - **View only.** If you have the **View Only** role, only copy, the two tab-switching keys and <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>W</kbd> work. Panning and zooming still work.
-- **Pop-ups.** <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>O</kbd> and <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd> don't open while another pop-up, such as the Shortcuts sheet or a picker, is open.
+- **Pop-ups.** <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>O</kbd> and <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd> don't open while the Shortcuts sheet or a picker is already open.
 - **Browser.** A browser keeps some combinations for itself, such as <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>W</kbd>, so a few shortcuts may not reach the web app. Use the buttons instead.
 
 ## Next steps

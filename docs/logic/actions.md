@@ -55,6 +55,8 @@ Shared Preferences keep small values on the device, so your app remembers them t
 
 Read a value with the same **Type** and **Key** you saved it with. **set**, **remove key** and **clear** take a moment, so use [Future Options](circuit.md#future-options) if a later step must wait for them. To wipe what your screens saved while you test with **Play** in the editor, open the [project settings](../account/project-settings.md), then **Project Details** → **Shared Preferences** → **Clear**. An app running on a device keeps its own values.
 
+Nowa has no secure (encrypted) storage option for these values.
+
 ## Create objects
 
 **Create...** in the **GENERAL** category makes any object: a delay, a timer, the current time, an instance of your own [model](models.md).

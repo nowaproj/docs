@@ -53,9 +53,9 @@ Headers, the base URL and tokens you type here are saved in your project's code 
 | Body type | Use it for |
 |---|---|
 | **none** | Requests without a body, such as most GET requests. |
-| **JSON** | Data as JSON. Hover the status icon in the corner to see **Valid JSON** or **Invalid JSON**. Nowa saves the body only while it is valid. |
+| **JSON** | Data as JSON. Hover the status icon in the corner to see **Valid JSON** or **Invalid JSON**. Nowa saves the body only while it is valid. The ⋮ menu has **Wrap** (line wrapping on or off), **Compress** (one line), **Prettify** (indented) and **Copy**. |
 | **raw** | Plain text, XML or HTTP text. Pick **Text**, **XML** or **HTTP** next to it. |
-| **form-data** | Form fields and files. Click **Add +** for each field. |
+| **form-data** | Form fields and files. Click **Add +** for each field, give it a key and pick a type: **String**, **int**, **double**, **bool** or **MultipartFile** for a file. **Connect** links a value to a parameter. A file field has **filename** and **Bytes** instead of a single value. |
 | **x-www-form-urlencoded** | Sets the content type for classic web forms. You write the body in the same editor as **JSON**, with the same validity check. |
 
 Choosing a body type sets the content type and replaces the current body with a fresh one. Undo brings the old body back.
@@ -77,12 +77,21 @@ Use a parameter for anything that changes between calls, such as a search word.
 }
 ```
 
+### Rename, remove and search
+
+- **Rename a request:** right-click it in the **Collections** panel and choose **Rename**. The name turns into a text box. Type the new name and press <kbd>Enter</kbd>.
+- **Remove a request:** right-click it and choose **Remove**. It goes right away, without a question.
+- **Remove a collection:** right-click it and choose **Remove**. If something in your app uses the collection, Nowa lists those places first. Then it asks you to confirm before it deletes the collection's file.
+- **Search:** type in the **Search...** box at the top of the panel. It filters the requests of every collection by name or endpoint.
+
 ## Test a request
 
 1. Click **Test** next to the address. The panel switches to the test view. Nothing is sent yet.
 2. Fill in **Testing values** for each parameter. If the collection has an **Auth Key**, paste your token in **Auth token value**. Nowa keeps that token for testing only, not in your app.
 3. Click **Run Test**.
 4. Check the result. The header shows the full address and the status, such as `200`. Under **Body**, switch between **Json** (the raw answer) and **Object** (the parsed result). **Headers** lists the response headers.
+
+If the body has a file field (**MultipartFile**), the right panel also shows **Upload File**. Pick the file to test with. For the test only, Nowa puts its bytes into the request's `Uint8List` or `List<int>` parameters.
 
 Click **Back to Request** to return to the editor. To test faster, hover a request in the **Collections** panel and click the play icon (**Run Query**). It opens the test view and sends the request at once.
 

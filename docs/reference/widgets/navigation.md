@@ -13,7 +13,7 @@ A screen has four places around its body for standard parts: an **App Bar** on t
 |---|---|---|
 | **App Bar** | The bar at the top, with a title and actions. | **App Bar** |
 | **Drawer** | A menu that slides in from the side. | **Drawer** |
-| **Floating Button** | A round button that floats over the content. | **Floating Action Button** |
+| **Floating Button** | A button that floats over the content. | **Floating Action Button** |
 | **Bottom Navigation Bar** | A row of tabs at the bottom. | **Bottom Navigation Bar** |
 
 1. Press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd> and search for the part.
@@ -35,24 +35,26 @@ Select the App Bar on the board, or in the [Outline](../../design/outline.md) un
 
 ## Add a drawer {#drawer}
 
-A new **Drawer** is empty. In the [Outline](../../design/outline.md), select the drawer's Group under the `drawer` slot, then click **+** next to **Children** in **Details** to add widgets, such as **List Tile** rows with an **On Tap** event.
+A new **Drawer** is empty. In the [Outline](../../design/outline.md), select the Column under the `drawer` slot, then click **+** next to **Children** in the **Group** section of **Details** to add widgets, such as **List Tile** rows with an **On Tap** event.
 
 Press **Play** to try it. While the screen has a drawer, the App Bar shows a menu button that opens it, unless you set **Leading** yourself.
 
 ## Add a floating button {#floating-button}
 
-A **Floating Button** starts as a round button with a plus icon. Set **Tooltip**, **Background Color**, **Foreground Color**, **Elevation** and **Mini** (a smaller button) in **Details**. Use **On Pressed** to start logic: see [Respond to taps and other events](../../logic/events.md).
+A **Floating Button** starts as a button with a plus icon. Set **Tooltip**, **Background Color**, **Foreground Color**, **Elevation** and **Mini** (a smaller button) in **Details**. Use **On Pressed** to start logic: see [Respond to taps and other events](../../logic/events.md).
 
-To change the icon, double-click the button to select the icon inside it, then pick another icon in **Details**.
+To change the icon, select the button and click the icon field in **Details**. See [Choose an icon](../../design/fonts-icons.md#choose-an-icon).
 
 ## Add a bottom navigation bar {#bottom-navigation-bar}
 
 1. Drag a **Bottom Navigation Bar** onto the screen. It starts with two tabs, "home" and "call".
 2. Nowa adds a variable called `pageIndex`, a whole number that starts at 0. It links **Current Index** to it and fills **On Tap**, so tapping a tab sets `pageIndex` to that tab's number and refreshes the screen.
-3. Under **Items**, click a tab to select it, then set its **Icon** and **Label**. Click **+** to copy the last tab. The arrow buttons move the selected tab left or right, and the remove button deletes it. A bar needs at least two tabs: Nowa says "Cannot have less than 2 items".
+3. Under **Items**, click a tab to select it. Change its **Label**, or click the brush next to **Icon** and pick another icon in **Details**. Click **+** to copy the last tab. The arrow buttons move the selected tab left or right, and the remove button deletes it. A bar needs at least two tabs: Nowa says "Cannot have less than 2 items".
 4. Click **Edit** next to **Unselected** or **Selected** to set that state's **Color**, **Show label** and **style**.
 
 {/* CAPTURE: id=reference-navigation-2 | state: playground starter open, a Bottom Navigation Bar dropped onto the home screen and selected | show: Details for the Bottom Navigation Bar with Current Index showing pageIndex, Unselected and Selected with their Edit buttons, On Tap, and the Items strip with its arrows | crop: right-hand Details panel */}
+
+Removing the bar removes `pageIndex` too, so anything linked to it needs a new value.
 
 To open a different screen when a tab is tapped, add a navigation step to **On Tap**. See [Navigate between screens](../../logic/navigation.md).
 
@@ -79,7 +81,7 @@ The first child shows when `pageIndex` is 0, the second when it is 1, and so on.
 ### Swipe between pages {#page-view}
 
 1. Add a **Page View**. It starts with two pages and a row of dots near the bottom.
-2. In the **Outline**, select the Page View. Under **Children**, click **+** to add a page, then replace each page's widget.
+2. In the **Outline**, select the PageView. Under **Children**, click **+** to add a page, then replace each page's widget.
 3. Select the dots on the board. Set **Count** to the number of pages and choose a style with **Effect type**.
 4. To make the dots follow the pages, create a whole-number variable, link the dots' **Active Index** to it, and open the Page View's **On Page Changed**. Set the variable to `value` and add **refresh**. See [Store data in variables](../../logic/variables.md).
 
@@ -90,7 +92,7 @@ The dots are a separate widget. Nowa doesn't connect them to the pages for you.
 1. Add a **TabView**. It starts with two tabs, "Tab1" and "Tab2", and a text page for each.
 2. In the **Outline**, select the TabBar. Under **Tabs**, click **+** to add a tab and edit its text.
 3. Select the TabBarView. Under **Children**, click **+** to add a page.
-4. Select the TabView Controller and set **Length** to the number of tabs.
+4. Select the TabView's top row in the Outline, open the **TabView Controller** section in **Details** and set **Length** to the number of tabs.
 
 Keep the three numbers equal: **Length**, the tabs and the pages. Flutter shows an error when they differ. **Is Scrollable** on the TabBar helps when there are many tabs.
 

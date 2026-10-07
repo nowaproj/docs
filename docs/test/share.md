@@ -47,7 +47,7 @@ In a local project, **Share preview** says "Share preview is not available on lo
 
 ## What people see in a preview
 
-On a computer, the app opens in a phone frame (an iPhone 13 at first) with a toolbar at the top. Owners and editors also see cards that list what the preview can't show, such as "Custom code can't be shown" or "Dynamic packages can't be shown". The button above them hides the cards (tooltip **Hide Play Warnings**) and brings them back (tooltip **Show Play Warnings**).
+On a computer, the app opens in a phone frame (an iPhone 13 at first) with a toolbar at the top. Owners and editors also see cards that list what the preview can't show, such as "Custom code can't be shown" or "Dynamic packages can't be shown". The button above them hides the cards (tooltip **Hide Play Warnings**) and brings them back (tooltip **Show Play Warnings**). The "Unattached global states" card lists global states that aren't attached to your app, which can cause errors if they are used. Its **Attach all** button attaches them and refreshes the preview. See [Attach or detach a global state](../logic/global-state.md#attach-or-detach-a-global-state).
 
 | Button | What it does |
 |---|---|
@@ -56,7 +56,7 @@ On a computer, the app opens in a phone frame (an iPhone 13 at first) with a too
 | **Device Settings** | Opens **Play Settings**. |
 | **Restart** | Restarts the preview. Only owners and editors see it. |
 
-In **Play Settings**, viewers can turn **Free Size** and **Show mockup frame** on or off and rotate the device with **Orientation** (for devices that rotate). **Device Size** lists devices by platform and has a **Custom** tab with **Width**, **Height** and **Pixel ratio**. Nowa remembers these choices per project in the viewer's browser.
+In **Play Settings**, viewers can turn **Free Size** and **Show mockup frame** on or off and rotate the device with **Orientation** (for devices that rotate). **Device Size** lists devices by platform and has a **Custom** tab with **Width**, **Height** and **Pixel ratio**. Under **Safe areas** on that tab, **Left**, **Top**, **Right** and **Bottom** set how much room the app keeps clear at each edge. Nowa remembers these choices per project in the viewer's browser.
 
 On a phone or in a narrow window, the app fills the screen. A floating button opens **Stop**, **Restart** and **Share preview**.
 

@@ -6,7 +6,7 @@ keywords: [keyboard shortcuts, hotkeys, key bindings, cheat sheet, shortcuts she
 
 Keep your hands on the keyboard while you build: add a widget, group a few, run your app or undo a mistake without reaching for the mouse. This page lists the editor's shortcuts, grouped by where you use them.
 
-Most shortcuts use <kbd>Ctrl</kbd> on Windows and Linux and <kbd>Cmd</kbd> on macOS, so every table shows both. In tooltips and menus on a Mac, <kbd>Cmd</kbd> shows as ⌘, <kbd>Option</kbd> as ⌥, <kbd>Control</kbd> as ⌃ and <kbd>Shift</kbd> as ⇧. You can't change the shortcuts.
+Most shortcuts use <kbd>Ctrl</kbd> on Windows and Linux and <kbd>Cmd</kbd> on macOS, so the tables below list both. On a Mac, tooltips and menus show <kbd>Cmd</kbd> as ⌘ and <kbd>Shift</kbd> as ⇧. You can't change the shortcuts.
 
 :::tip
 Hover a board tool, or open a right-click menu, to see its shortcut next to the name.
@@ -129,7 +129,7 @@ The restart key does what the restart button in the top bar does: **Hot Reload**
 
 ## Chat with Nowa AI
 
-These work in the chat field of the **Assistant** panel. See [Chat with Nowa AI](../ai/chat.md) and [Give Nowa AI context](../ai/context.md).
+These work in the chat field of the **AI Assistant** panel. See [Chat with Nowa AI](../ai/chat.md) and [Give Nowa AI context](../ai/context.md).
 
 | Action | Windows / Linux | macOS |
 |---|---|---|
@@ -137,7 +137,7 @@ These work in the chat field of the **Assistant** panel. See [Chat with Nowa AI]
 | Add a new line | <kbd>Shift</kbd> + <kbd>Enter</kbd> or <kbd>Ctrl</kbd> + <kbd>Enter</kbd> | <kbd>Shift</kbd> + <kbd>Return</kbd> or <kbd>Cmd</kbd> + <kbd>Return</kbd> |
 | Delete the previous word | <kbd>Alt</kbd> + <kbd>Backspace</kbd> | <kbd>Option</kbd> + <kbd>Backspace</kbd> (⌫) |
 | Paste text or an image | <kbd>Ctrl</kbd> + <kbd>V</kbd> | <kbd>Cmd</kbd> + <kbd>V</kbd> |
-| Mention a screen or component | Type <kbd>@</kbd>, pick with <kbd>↑</kbd> <kbd>↓</kbd> and <kbd>Enter</kbd> | Type <kbd>@</kbd>, pick with <kbd>↑</kbd> <kbd>↓</kbd> and <kbd>Return</kbd> |
+| Mention a screen, component or class | Type <kbd>@</kbd>, pick with <kbd>↑</kbd> <kbd>↓</kbd> and <kbd>Enter</kbd> | Type <kbd>@</kbd>, pick with <kbd>↑</kbd> <kbd>↓</kbd> and <kbd>Return</kbd> |
 | Close the mention list | <kbd>Esc</kbd> | <kbd>Esc</kbd> |
 
 ## Pickers
@@ -169,7 +169,7 @@ In code mode, files open as tabs. See [Edit code in Nowa](../code/code-mode.md).
 
 | Action | Windows / Linux | macOS |
 |---|---|---|
-| Open a **New tab** (only one can be open) | <kbd>Ctrl</kbd> + <kbd>T</kbd> | <kbd>Cmd</kbd> + <kbd>T</kbd> |
+| Open a **New Tab** (only one can be open) | <kbd>Ctrl</kbd> + <kbd>T</kbd> | <kbd>Cmd</kbd> + <kbd>T</kbd> |
 | Go to the next tab | <kbd>Ctrl</kbd> + <kbd>Tab</kbd> | <kbd>Control</kbd> + <kbd>Tab</kbd> |
 | Go to the previous tab | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Tab</kbd> | <kbd>Control</kbd> + <kbd>Shift</kbd> + <kbd>Tab</kbd> |
 | Close the current tab | <kbd>Ctrl</kbd> + <kbd>W</kbd> | <kbd>Cmd</kbd> + <kbd>W</kbd> |

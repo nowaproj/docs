@@ -47,7 +47,7 @@ Nowa AI can't connect Firebase for you. It can't add `firebase_core`, and points
 | `lib/firebase/firebase.dart` | `FirebaseService`, the class that holds your Firebase functions, such as sign-in. |
 | `lib/firebase/collections.dart` and `lib/firebase/queries.dart` | Your Cloud Firestore collections and queries. They start with no collections and no queries. See [Use Cloud Firestore](firestore.md). |
 | `lib/main.dart` | A line that starts Firebase when the app launches. |
-| Packages and build files | `firebase_core` and `cloud_firestore` (added even if you only use sign-in), and the Android build files updated for Firebase. |
+| Packages and build files | `firebase_core` and `cloud_firestore` (added even if you only use sign-in), the Android build files updated for Firebase, and an iOS minimum version of at least 15.0 (set by `cloud_firestore`). |
 
 ## The connected page
 

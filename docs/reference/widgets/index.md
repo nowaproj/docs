@@ -16,7 +16,7 @@ With nothing typed, the picker lists the widgets in the order of the tables belo
 
 Nine widgets need a Flutter package: SVG, Swipeable Stack, YouTube Player, Lottie, Rive, Pin Code Field, Admob Banner, Google Maps and RevenueCat Paywall. If your project doesn't have the package yet, Nowa opens **Add Missing Dependencies** when you pick one. Clicking **Add** installs the package and places the widget. See [Add a widget that needs a package](../../design/add-widgets.md#add-a-widget-that-needs-a-package).
 
-{/* CAPTURE: id=reference-widgets-1 | state: playground starter open, press Ctrl+K (or click Widget in the toolbar), type svg and keep SVG highlighted | show: the widget picker with Search for a widget, Request a Widget, the Search for: All / BuiltIn / Components chips, the SVG row highlighted and its preview card with the description, the Dependencies list and Open Documentation | crop: the picker dialog and preview */}
+![The widget picker with svg typed in the search box. The SVG row is selected, and its preview card shows the description, the Dependencies list with flutter_svg (highlighted) and the Open Documentation link.](/img/docs/reference/reference-widgets-1.png)
 
 ## Basic
 

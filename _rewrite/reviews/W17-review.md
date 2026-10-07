@@ -2,7 +2,7 @@
 
 Verifier run against `/home/user/nowa-master` (v3.12.5). Status: **in progress** (pages done so far are listed in the summary; the summary is rewritten at the end of the run).
 
-Pages done: stripe.md, revenuecat.md, admob.md, google-maps.md
+Pages done: stripe.md, revenuecat.md, admob.md, google-maps.md, google-sign-in.md
 
 External vendor links (docs.stripe.com, supabase.com/docs, revenuecat.com, admob.google.com, developers.google.com, console.cloud.google.com) could not be fetched from this environment (egress policy answers 403 to CONNECT). `developer.android.com/training/app-links` and the Apple Universal Links page returned 200. The others are well-known canonical paths but were not link-checked: please re-check before publishing.
 
@@ -144,3 +144,32 @@ Edits: fixed 2 passages (where each placeholder message appears and how to see t
 Open issues (Google Maps):
 1. The **Details** warning is a custom field (`BFGoogleMap`) that `PackageConfigService.setupPackage` registers only when the package is added (`package_config_service.dart:128-131`, called from `package_service.dart:232`). I found no registration when a project that already has the package is loaded (grep for `customFields`: only these places). So after reopening a project the warning (and AdMob's **No API Keys** panel, same mechanism) may not show. Not run; the page describes the flow right after enabling. Product issue candidate.
 2. The **Initial Camera Position** label and the Maps JavaScript API behavior in the **Embedded preview** were not seen in the running app.
+
+## google-sign-in.md
+
+Edits: fixed 4 passages (the **Enabled** switch is also hidden under **Managed by Firebase**; the exact condition for that panel; the **Web Client ID** wording; what stays after turning it off), reduced 2 unverifiable vendor claims. Page is about 560 words.
+
+| Claim | Verdict | Code ref | Note |
+|---|---|---|---|
+| Gear (**Settings**) or Ctrl/Cmd + `,`; **Integrations** → **Google Sign-In** | ok | see shared facts; `project_settings.dart:38` | |
+| **Enabled** adds `google_sign_in` | ok | `google_sign_in_package_config.dart:11-14`, `settings_widgets.dart:149-190` | Standalone panel is the generated one: header, **Enabled**, **Configuration** (`package_config_settings.dart:94-105`). Firebase's **Google** provider installs the same package (`fb_auth_manager.dart:66`). |
+| Labels **iOS Client ID**, **Web Client ID**; hint `xxxxx.apps.googleusercontent.com` | ok | `google_sign_in_package_config.dart:26-44` | The computed `_iosUrlScheme` token is hidden (`config_token.dart:118`), so exactly two fields show (`package_config_settings.dart:87`). No validation on either field. |
+| Enter / send icon (**Submit**) / check mark | ok | `nowa_fields.dart:1150-1263` | |
+| **iOS Client ID**: "Required for Google sign-in without Firebase"; written to `Info.plist` as `GIDClientID` | ok | `google_sign_in_package_config.dart:26-35` (help text "Required for standalone Google Sign-In (non-Firebase)."), `info_plist_template.dart:11, 60` | File is `ios/Runner/Info.plist` (`file_template.dart`). |
+| Reversed ID added as an iOS URL scheme | ok | `google_sign_in_package_config.dart:20-25, 49-95` (reversed `clientId.split('.').reversed.join('.')` inside `CFBundleURLTypes`) | The same URL type also takes the Firebase phone-auth scheme; not relevant here. |
+| **Web Client ID**: "Also used as the server client ID on Android" | ok (help text) | `google_sign_in_package_config.dart:40-42` | That is the in-app help text. Nothing in Nowa reads the value (grep for `webClientId`: only this config; `google_sign_in_init.dart` is Nowa's own sign-in and uses `ConfigService`), so the page now says Nowa does not pass it to Google and "your sign-in code reads it". |
+| **Web Client ID** saved as `AppConstants.webClientId`, listed under **Constants**, not written to a platform file | ok | `google_sign_in_package_config.dart:36-44` (no `applyTo`: "not used for now, requires a PlatformSection"), `config_token.dart:122`, `app_constants_service.dart:17-24, 45-52, 65-75`, `constants_settings.dart:75-100` | Section is named after the integration (**Google Sign-In**). |
+| "It does not generate a sign-in function or a Google button" | ok | `google_sign_in_package_config.dart:11-47` (no `generatedFiles`, `mainStatements` or `libraries`) | Grep of `packages/data`, `packages/ai` and `lib`: Google code exists only for Firebase (`fb_auth_blocks.dart`) and Nowa's own account sign-in. |
+| "Nowa's guidance for Supabase: connect your project, then ask Nowa AI to set it up" | ok | `docs/new/whats-new.md:438-439` ("Google Sign-In with Supabase"), consistent with `docs/integrations/supabase/auth.md:66` | Product behavior of the AI was not run; the page only repeats the release note. |
+| Supabase: "turn on Google as a sign-in provider there" | fixed | grep of `packages/data/lib/src/supabase`: no Google provider UI in Nowa | "there" could be read as a Nowa panel. Now "in your Supabase project". |
+| Supabase guide "walks through the clients to create, including the Android one" | fixed | n/a | Vendor page, not fetchable here (egress denied); removed "including the Android one". |
+| **Managed by Firebase** text, **Open Firebase Settings** button | ok | `google_sign_in_package_config.dart:97-164` (title `:139-142`, text `:144-148`, button `:156-160` opens the **Firebase** page by name, `firebase_settings.dart:15`) | Exact strings: "Managed by Firebase", "Google Sign-In is configured through Firebase Authentication. To modify settings, go to Firebase settings.", "Open Firebase Settings". |
+| The **Enabled** switch and the fields are hidden under **Managed by Firebase** | fixed | `google_sign_in_package_config.dart:97-109` (custom panel replaces the generated one: header, card, button only), `package_config_settings.dart:35-37` | The page said only "the fields are hidden". |
+| Condition: "connected to Firebase and Google sign-in is set up there" | fixed | `google_sign_in_package_config.dart:98-105` (`settings.json` `firebase.clientId` non-empty), `firebase_manager.dart:88-99` (`clientId = getLocalClientId()` from `ios/Runner/GoogleService-Info.plist` `CLIENT_ID`, `fb_auth_manager.dart:90-99`), `fb_setup_manager.dart:78-85`, callers `fb_apps.dart:240` (connect), `connected_main_screen.dart:45-52` (refresh), `fb_auth_manager.dart:54-66` (**Google** provider) | Now: shown when Nowa has saved a Google client ID, which it does when it sets Firebase up and the Firebase project has Google sign-in on, for example on connect or when adding the **Google** provider. |
+| Turn **Enabled** off removes the package and the iOS entries | ok | `package_config_service.dart:146-170`, `info_plist_template.dart:60` | Added: the **Web Client ID** value stays in **Constants** (Dart-only tokens are not cleaned up; it then shows under **Custom Constants** as `webClientId`: `app_constants_service.dart:65-75`). |
+| Front matter, no H1, headings sentence case, no `---` rules, 1 admonition, no hype words, links (`./firebase/auth.md`, `./supabase/connect.md`, `./supabase/auth.md`, `./constants.md` exist and are in pages.md) | ok | grep | No capture placeholder on this page (writer notes: none requested). |
+
+Open issues (Google Sign-In):
+1. After you remove the **Google** provider in Firebase Authentication, `FBAuthManager.disconnectGoogleAuth` removes the package and function but never clears `firebase.clientId` (`fb_auth_manager.dart:135-140`; only a full Firebase disconnect does, `firebase_manager.dart:158-189`). By the code, the page then keeps showing **Managed by Firebase** and the standalone fields stay hidden. Read from code, not run; product issue candidate. The page does not say it.
+2. The package is also installed and removed by Firebase's **Google** provider, so turning **Enabled** off here and the Firebase switch interact; not tested.
+3. The Google and Supabase vendor pages (`console.cloud.google.com/apis/credentials`, `supabase.com/docs/guides/auth/social-login/auth-google`) were not fetched (egress denied). Re-check before publishing.

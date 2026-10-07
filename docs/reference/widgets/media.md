@@ -19,7 +19,7 @@ Add pictures, videos, animations and web content from the widget picker. Most ta
 | **Html** | Text written in HTML | What you type | `flutter_html`, added by you |
 | **Markdown** | Text written in Markdown | What you type | No |
 
-When a widget needs a package, Nowa opens **Add Missing Dependencies** as you pick it. Click **Add** and Nowa installs the package and places the widget. See [Add a widget that needs a package](../../design/add-widgets.md#add-a-widget-that-needs-a-package).
+When a widget needs a package your project doesn't have yet, Nowa opens **Add Missing Dependencies** as you pick it. Click **Add** and Nowa installs the package and places the widget. See [Add a widget that needs a package](../../design/add-widgets.md#add-a-widget-that-needs-a-package).
 
 ## Add an image {#image}
 
@@ -48,7 +48,7 @@ An SVG on the **Asset** tab with no file picked shows "No path" on the board.
 
 1. Add a **Video Player**. It starts with a sample video from the web.
 2. On **Network**, paste a direct link to a video file, such as one that ends in `.mp4`. On **Asset**, click **Pick Video** or **Upload Video** to use a file from your project. A video in your assets ships inside your app, so a large file makes the app bigger.
-3. **Auto Play** starts the video when the screen opens. **Show Controls Bar** shows the play, pause and seek controls. If you turn both off, nobody can start the video.
+3. **Auto Play** starts the video when the screen opens. **Show Controls Bar** shows the play, pause and seek controls. With both off, the video neither starts by itself nor shows a play button.
 
 Instant Play doesn't play videos everywhere. In the desktop app, and for any video on the **Asset** tab, it shows "Platform not supported, only available on iOS and Android". To watch a video, run your app on a phone or an emulator. See [Run on a device or emulator](../../test/devices.md).
 
@@ -72,13 +72,13 @@ Instant Play doesn't play videos everywhere. In the desktop app, and for any vid
 2. On **Network**, paste a link to a Lottie `.json` file. On **Asset**, click **Pick Lottie** or **Upload Lottie**. Only `.json` files are accepted.
 3. **Type** is **Loop**, the default, or **Once**. **Boomerang** plays the animation forward and then backward. **Fit** sets how it fills its box.
 
-[LottieFiles](https://lottiefiles.com) has free animations to download.
+[LottieFiles](https://lottiefiles.com) has animations you can download.
 
 ## Add a Rive animation {#rive}
 
 1. Add a **Rive**. If Nowa shows **Add Missing Dependencies**, click **Add**. It starts with a sample animation.
 2. On **Network**, paste a link to a `.riv` file. On **Asset**, click **Pick Rive** or **Upload Rive**. Only `.riv` files are accepted.
-3. After the file loads, choose an **Artboard** and a **State Machine**. The two lists show what the file contains.
+3. After the file loads, choose an **Artboard**. If that artboard has state machines, a **State Machine** list appears too. The lists show what the file contains.
 
 You make Rive animations in [Rive](https://rive.app).
 

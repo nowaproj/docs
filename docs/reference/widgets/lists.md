@@ -41,7 +41,7 @@ A [component](../../design/components.md) makes a good item. Give it params, use
 
 ## Know what the board shows
 
-To keep the design easy to read, a Builder list on the board shows the first item at full strength and fades the rest. If Nowa can't work out how many items there are, for example because the list has no value yet, the board shows 20.
+On the board, a Builder list or grid shows the first item at full strength and fades the rest. If Nowa can't work out how many items there are, for example because the list has no value yet, the board shows 20.
 
 Press **Play** to see every item at full strength with your real data. See [Play your app on the board](../../test/instant-play.md).
 
@@ -53,7 +53,7 @@ Press **Play** to see every item at full strength with your real data. See [Play
 2. Under **Children**, click **+** to add a widget, or drag a widget onto the list on the board.
 3. Drag the entries in **Children** to reorder them.
 
-Switching from **Normal** to **Builder** keeps only the first widget, as the item design. Nowa asks first: **First Widget as Placeholder, Others will be Removed**. Click **Continue** to go on or **Cancel** to rearrange. To keep another widget, drag it to the top of **Children** before you switch. Switching from **Builder** to **Normal** turns the item into the only child.
+Switching from **Normal** to **Builder** keeps only the first widget, as the item design. If there is more than one widget, Nowa asks first: **First Widget as Placeholder, Others will be Removed**. Click **Continue** to go on or **Cancel** to rearrange. To keep another widget, drag it to the top of **Children** before you switch. Switching from **Builder** to **Normal** turns the item into the only child.
 
 ## Add a Grid View {#grid-view}
 
@@ -82,7 +82,7 @@ A **Swipeable Stack** shows cards one on top of another. The user swipes the top
 5. To show a list, click **List** and connect it, as for a List View. `element` is the entry on each card.
 6. Choose which directions work with the four arrow buttons of **Allowed Swipe Direction**. Use **Is Loop** to start over after the last card, and **On Swipe**, **On Undo** and **On End** to react.
 
-For buttons that swipe or undo, add a node on `swiperController` under **LOCALS**, click **+** and choose `swipe`, `undo` or `moveTo`.
+For buttons that swipe or undo, add a node in Circuit and pick `swiperController` under **LOCALS**. In **Details**, click **+** after it and choose `swipe`, `undo` or `moveTo`.
 
 :::tip Or ask Nowa AI
 Try "Show the products list as a grid with two columns. Each card shows the picture, the name and the price." See [How Nowa AI works](../../ai/index.md).

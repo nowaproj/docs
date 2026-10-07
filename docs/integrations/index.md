@@ -32,6 +32,10 @@ Each has a settings page with an **Enabled** switch. If Firebase handles Google 
 
 Maps, ads and paywalls come with widgets: **Google Maps**, **Admob Banner** and **RevenueCat Paywall**. If a widget's package is missing, Nowa shows **Add Missing Dependencies** when you add it. Click **Add**: Nowa adds the package, then places the widget. See [Add a widget that needs a package](../design/add-widgets.md#add-a-widget-that-needs-a-package).
 
+## What Nowa doesn't include
+
+Nowa has no built-in integration for secure (encrypted) storage, for OneSignal or analytics services, for in-app purchases other than [RevenueCat](./revenuecat.md), or for Sign in with Apple in your own app. You can still add other packages from pub.dev yourself: see [Add packages](../code/packages.md).
+
 ## Find your settings and keys
 
 Click the gear (**Settings**) in the top bar, or press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>,</kbd>. Under **Integrations** you find **Firebase**, **Stripe**, **RevenueCat**, **AdMob**, **Google Maps**, **Google Sign-In** and **Deep Links**. Supabase and REST APIs have their own panels in the left sidebar.

@@ -12,6 +12,7 @@ A workspace is a shared home for cloud projects. Put projects in one, invite tea
 - **Personal** holds the projects that aren't in a workspace. Its menu entry says "Projects not in a workspace".
 - A workspace holds cloud projects and its members. Local projects can't be in a workspace: they show only under **Personal**, in the desktop app.
 - The dashboard shows one workspace at a time. Nowa remembers your choice on this device.
+- Workspaces have no comments and no live co-editing, and the project menu has no option to duplicate a project.
 
 Every member has a role:
 

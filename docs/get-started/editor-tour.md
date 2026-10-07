@@ -24,7 +24,7 @@ The editor is a handful of areas that always stay in the same place. This tour n
 
 | Control | What it does |
 |---|---|
-| Nowa logo | Returns to the dashboard. If files are unsaved, Nowa asks first. |
+| Nowa logo | Returns to the dashboard. If files are unsaved, Nowa lists them and asks first: **Cancel** stays, **Close** leaves without saving, and **Save and close** saves, then leaves. |
 | Starting-point chip | Playground, and public projects you open as a guest. Switches to another starter app or a template. See [Try Nowa without an account](./playground.md). |
 | Package chip | Appears only when a project has several packages. Picks the one you edit. |
 | Board chip | Shows the current board. Click it to switch boards, **Rename** or **Delete** one, or **Create new board**. When a screen is open on its own, the chip is dimmed and takes you back to the board. See [Work with boards](../design/boards.md). |
@@ -53,7 +53,7 @@ Click an icon to open its panel. Click it again to close the panel. You can also
 | **Supabase** | Connect and manage your Supabase backend. | 9 | [Connect Supabase](../integrations/supabase/connect.md) |
 | **Router** | Below a divider. Opens your app's routes in the workspace. | none | [Navigate between screens](../logic/navigation.md) |
 
-At the bottom of the strip, **Shortcuts** (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>.</kbd>) opens a cheat sheet, and **Enter Fullscreen** appears in the web app only. See [Keyboard shortcuts](../reference/shortcuts.md) for the full list.
+At the bottom of the strip, **Shortcuts** (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>.</kbd>) opens a cheat sheet, and **Enter Fullscreen** appears in the web app only. It reads **Exit Fullscreen** while the editor is fullscreen. See [Keyboard shortcuts](../reference/shortcuts.md) for the full list.
 
 ## Board and toolbar
 
@@ -88,9 +88,15 @@ From left to right, the status bar shows:
 - Counts of errors, warnings and info messages. Click them to open the **Console** on **Problems**.
 - The latest log line, or **Ready**. Click it to open the **Console** on **Logs**.
 - Loading progress while files load, and the Git branch with its ahead and behind counts.
-- The Save button. Click it for **Save options**: **Auto save**, **Save every** and **Save now**.
+- The Save button. Click it for **Save options**: **Auto save**, **Save every** (**10 seconds**, **20 seconds**, **30 seconds**, **1 minute** or **5 minutes**) and **Save now**.
 
 **Problems** lists issues Nowa finds in your project, with a **Fix** button for some. **Logs** shows messages from Nowa and from your running app. See [Find and fix problems](../test/problems.md).
+
+## Resize and close panels
+
+- **Side panel:** drag the divider between it and the board to resize it. Click its sidebar icon again to close it.
+- **Bottom panel:** an API request, a Supabase function test and a Git commit's details open in a panel docked below the board. Drag its top divider to resize it, and click **×** to close it.
+- **Floating panels:** the **Console** and **Action History** (see [Undo and redo](../design/select-and-edit.md#undo-and-redo)) float over the editor. Drag the title bar to move one, drag an edge or corner to resize it, and click **×** to close it.
 
 ## Help, settings and code mode
 

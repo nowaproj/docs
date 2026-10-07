@@ -35,3 +35,7 @@ the product team. "Verified" means the orchestrator re-checked it in the code.
 | P28 | master (3.12.5) Git conflicts after **Bring my changes** | The Local/Remote panes are swapped in local projects, so **Accept Local** drops your own edits. Risk of lost work. | W10 verifier (checked with libgit2) | yes |
 | P29 | master (3.12.5) Git conflicts | **Accept** may clear all remaining conflicts after the first file. | W10 verifier | no (code reading) |
 | P30 | master (3.12.5) Git, local projects | Committing without a Git identity shows a raw error; the identity form only exists for cloud projects. | W10 verifier | yes (code) |
+| P31 | master (3.12.5) Firebase **Authentication** → Google | The generated `signInWithGoogle()` doesn't compile against `google_sign_in` 7.x (checked against the 7.2.0 source), so Google sign-in through Firebase fails to build. High impact. | W16 verifier | yes (package source) |
+| P32 | master (3.12.5) Firebase **Connect Apps** | After a failed Connect Apps the error state never resets; you must go back and pick the project again. | W16 verifier | yes (code) |
+| P33 | master (3.12.5) Firebase **Disconnect Project** | Disconnecting leaves the `google_sign_in` package and `sendPasswordResetEmail()` behind. | W16 verifier | yes (code) |
+| P34 | master (3.12.5) Firebase **Test Push Notifications** | An expired Google sign-in during the test turns into a full Firebase disconnect. | W16 verifier | yes (code) |

@@ -26,17 +26,17 @@ A new project opens in **Design** mode, unless you picked another mode in the da
 
 ## Design mode
 
-Design mode designs screens, navigation and theming with demo data. It never connects real data or a backend: it has no API or Supabase tools and doesn't use connectors.
+Design mode designs screens, navigation and theming with demo data. It doesn't connect real data or a backend: it has no API or Supabase tools and doesn't use connectors.
 
 An empty Design chat explains the idea: describe the app, and Nowa designs it screen by screen, then makes it work one feature at a time.
 
-When Nowa AI has designed all the screens you talked about, a card titled **Your app design is complete** appears. It reminds you that the screens use demo data, so nothing saves yet. You have three choices:
+When Nowa AI has designed all the screens you talked about, a card titled **Your app design is complete** appears, with a short summary. You have three choices:
 
-- **Keep refining.** Tell Nowa AI what to change in the chat.
-- **Pick a feature.** Click one of the chips under **Pick what to make work first:**. Nowa switches to Agent mode and starts with that feature.
-- **Click Make it real.** Nowa switches to Agent mode and starts with the feature Nowa AI recommends. The card then reads **Switched to Agent mode**.
+- Keep refining. Tell Nowa AI what to change in the chat.
+- Pick a feature. Click one of the chips under **Pick what to make work first:**. Nowa switches to Agent mode and starts with that feature.
+- Click **Make it real**. Nowa switches to Agent mode and starts with the feature Nowa AI recommends. The card then reads **Switched to Agent mode**.
 
-Only the latest card is active.
+Only the latest card is active, and only while Nowa AI isn't working.
 
 ## Plan mode
 
@@ -70,7 +70,7 @@ The chip next to the mode chip sets how much Nowa AI reasons before it acts. It 
 The level applies to **Design** and **Agent** modes, and switching modes keeps it. Plan mode has no level chip. Nowa remembers your choice for the project, and uses it as the starting level for projects where you haven't chosen one. In the dashboard's prompt box you can choose **Thinking** or **Deep Thinking**.
 
 :::note
-Older versions had a "Think Mode" toggle. It's gone. Nowa AI's reasoning now always appears in a collapsed **Thinking process** block in the conversation, and the thinking level sets how much it reasons.
+Older versions had a "Think Mode" toggle. It's gone. Nowa AI's reasoning appears in a collapsed **Thinking process** block in the conversation, and the thinking level sets how much it reasons.
 :::
 
 ## When to use which
@@ -84,7 +84,7 @@ Older versions had a "Think Mode" toggle. It's gone. Nowa AI's reasoning now alw
 | Use Figma or Supabase | **Agent** |
 
 :::tip
-**Fix with AI** sends its ready-made prompt in whichever mode is active. Plan mode never changes your project, so switch to **Agent** first if you want the fix applied.
+**Fix with AI** and **Explain with AI** on an error send their ready-made prompt in whichever mode is active. Plan mode never changes your project, so switch to **Agent** first if you want the fix applied.
 :::
 
 ## Next steps

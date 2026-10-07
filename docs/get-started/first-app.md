@@ -15,15 +15,15 @@ You describe an app in plain words, Nowa AI builds it on your board, and you fin
 
 ## 1. Describe your app
 
-1. Open [app.nowa.dev](https://app.nowa.dev) and sign in. The dashboard opens with the question **What do you want to build?**
+1. Open [app.nowa.dev](https://app.nowa.dev) and sign in. The dashboard opens with the question **What do you want to build?** A new account answers a short survey first.
 2. Type your idea in the box. For example:
 
    > A habit tracker. The home screen lists today's habits with a checkbox for each one. Another screen adds a new habit.
 
    Or click one of the examples under **Or try an example prompt**. It fills the box with a full prompt that you can edit. The refresh button shows more examples.
-3. Click the mode chip under the box. It says **Design**. Keep it: **Design** is marked **Start here**, and it builds the look and flow of your app first, with demo data, so you can see and change it before anything is wired up. [Modes](../ai/modes.md) explains **Plan** and **Agent**.
-4. Keep the thinking level on **Thinking**. Pick **Deep Thinking** for a big, complex app.
-5. Click the send button (its tooltip is **Build it**).
+3. Check the mode chip at the bottom left of the box. It says **Design**. Keep it: the chip's menu marks **Design** as **Start here**, and it builds the look and flow of your app first, with demo data, so you can see and change it before anything is wired up. [Modes](../ai/modes.md) explains **Plan** and **Agent**.
+4. Check the thinking level chip next to it. Keep it on **Thinking**, or pick **Deep Thinking** for a big, complex app.
+5. Click the send button at the bottom right of the box (tooltip **Build it**).
 
 {/* CAPTURE: id=get-started-first-app-1 | state: signed-in dashboard, prompt box with a short prompt typed and the mode menu open | show: the What do you want to build? box, the mode menu (Design with Start here, Plan, Agent), the thinking chip, the send button and the example chips | crop: prompt panel only */}
 
@@ -61,24 +61,24 @@ Select a widget, then type in the chat: "Make this button orange with rounded co
 2. Click **Play**. The board zooms to the screen and runs it in place. Click, scroll and type as a user would. Scrolling over the screen scrolls the app, not the board.
 3. Click **Stop** in the bar at the bottom of the board when you're done. Select another screen to play that one instead.
 
-**You should see:** the screen with an orange border, reacting to your clicks.
+**You should see:** the screen reacting to your clicks, and a bar at the bottom of the board that says "This screen is capturing scroll".
 
 **Play** is instant but approximate. The warning icon in the bar says "In board preview is not 100% accurate, run the app to see the real output". You run the real app in step 6.
 
 ## 5. Make it real
 
-Design mode uses demo data, so nothing saves yet. **Make it real** hands your design to **Agent** mode, which builds working features one at a time.
+Design mode builds every screen with demo data, so the app doesn't save anything yet. **Make it real** hands your design to **Agent** mode, which makes the features work, starting with the one you pick.
 
 1. On the **Your app design is complete** card, pick the feature you want first under **Pick what to make work first:**. Or click **Make it real** and let Nowa AI choose. To change the design first, type what you want in the chat instead.
 2. Watch the steps in the chat.
 
 {/* CAPTURE: id=get-started-first-app-2 | state: project after a finished Design-mode run (needs an AI prompt) | show: the board with two or more screens and the chat with the Your app design is complete card and the Make it real button | crop: whole editor window */}
 
-**You should see:** **Switched to Agent mode** on the card, then new steps as Nowa AI adds real logic and data.
+**You should see:** **Switched to Agent mode** on the card, then new steps as Nowa AI starts making the features work.
 
 If you picked **Agent** on the dashboard, skip this step: Agent mode builds features as it goes.
 
-To undo what Nowa AI did, hover the line above its reply and click **Restore Checkpoint**. That also undoes the later requests in the same session. See [Undo AI changes](../ai/undo-and-history.md).
+To undo what Nowa AI did, hover the dotted line above its reply, click **Restore Checkpoint**, and confirm. That also undoes the later requests in the same session. See [Undo AI changes](../ai/undo-and-history.md).
 
 ## 6. Run the real app
 
@@ -95,7 +95,7 @@ If an error screen offers **Fix with AI**, click it. Nowa AI gets the error and 
 
 - **Save:** Nowa saves as you go. **Auto save** is on by default, and every Nowa AI run ends with a save. Press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>S</kbd> to save right away. You see **Saved!**
 - **Share a screen:** play it (step 4), click **Share preview** in the bar at the bottom of the board, and choose **Private** (people with access to the project) or **Public** (anyone with the link). Then copy the link or show the QR code. Viewers get an interactive preview in any browser.
-- **Come back later:** click the Nowa logo at the top left to return to the dashboard. Your project is listed under **Projects** and **RECENTS**.
+- **Come back later:** click the Nowa logo at the top left to return to the dashboard. Your project is listed under **Projects** and in the **RECENTS** list in the sidebar.
 
 :::warning
 **Public** makes the whole project public. Anyone with the link can read every file and save their own copy, including any API keys inside it. Nowa asks you to confirm first.

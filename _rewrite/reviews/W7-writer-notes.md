@@ -84,3 +84,20 @@ Open questions:
 - Same as `features-code-ship.md`: do Windows/Linux desktop run targets work for projects without those platform folders? Not mentioned.
 
 Capture requests: test-devices-1 (needs-sign-in; also needs the desktop app).
+
+## index.md (`docs/test/index.md`) (batch W7b)
+
+Research: `features-code-ship.md` "Instant Play vs Run", "Embedded preview (Nowa Run / App Run)", "Run button and Run on menu", "Share Preview"; `features-editor-shell.md` "Mobile layout"; the finished pages `instant-play.md`, `run.md`, `devices.md`, `share.md` (their claims are the source for the table cells).
+
+Code spot-checks (all matched):
+- Play controls warning tooltip "In board preview is not 100% accurate, run the app to see the real output": `packages/designer/lib/src/play_mode/play_mode.dart:539` (read in this batch, the `NIconButton` with that tooltip next to **Stop**).
+- Phone **Play** sheet "Play your app" / "Two ways to see it — pick one:", **Instant preview** (badge SIMULATED, "A design preview that opens instantly. Great for checking layout and flows."), **Run real app** (badge REAL APP, or LIVE once the preview is ready; "...first start can take a minute."): `lib/project/nowago/mobile_view.dart:63-128`.
+- Playground shows **Save** instead of **Run**: `lib/project/top_bar.dart:328-335` (W7 note above); the playground has the board and **Play** (reference capture `captures/ui-map/23-instant-play.png`, taken in `/playground`).
+- "Firebase sign-in is simulated, maps are placeholders" (table cell "Features that need a phone"): `packages/data/lib/src/firebase/auth/fb_auth_blocks.dart:130-160,220`, `packages/core/lib/src/interpreter/packages/integrations/integration_preview_view.dart:19-77` (see the instant-play notes).
+
+Left out and why:
+- "Shared previews use Instant Play, not Run" (`lib/project/preview_page.dart:15-28`): true per research but not needed in the table, `share.md` says it.
+- No "Or ask Nowa AI" tip: the in-app agent can't play or run the app (`play_app` is in no toolset); the tip about logs sits on `run.md`.
+- No capture: the comparison table does the job (research says "a side-by-side table rather than a capture").
+
+Coverage notes: none beyond the must-cover list (Instant Play vs Run table, devices, sharing, problems all linked). The phone **Play your app** sheet is an addition (it is the product's own two-option wording of the same comparison).

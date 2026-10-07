@@ -15,7 +15,7 @@ The **AI Assistant** panel is open when you open a project. If you closed it, cl
 
 The panel has three parts:
 
-- **Header**: shows **AI Assistant**, or the session's name once Nowa AI has given it one. **+** starts a new session. **⋮** opens **Custom Instructions** and **Chat History**, plus **Connect External Agent** if your account has access.
+- **Header**: shows **AI Assistant**, or the session's name once Nowa AI has given it one. **+** starts a new session. **⋮** opens **Custom Instructions** and **Chat History**, plus **Connect External Agent** in the desktop app if your account has access.
 - **Conversation**: your messages, the agent's replies, and a line for each step it takes.
 - **Chat field**: where you type. Under it are the mode chip, the thinking-level chip, **+** (**Add context**), the Supabase and Figma connector icons, and **Send**.
 
@@ -30,7 +30,7 @@ Ask in plain language. The agent decides which steps to take, and each one shows
 | Area | What it does |
 |---|---|
 | Understand your project | Reads your files and the screens, components and functions in them. For broad questions it investigates several parts of the project at once. |
-| Build the app | Creates and changes screens, components, models and functions as real Flutter code. New screens appear on your board. |
+| Build the app | Creates and changes screens, components, models and functions as real Flutter code. New screens are placed on your board when a board is open. |
 | Change what you selected | Edits the exact widget you selected on the board. |
 | Edit other files | Changes files such as `pubspec.yaml` and platform files, and creates new ones. |
 | Check its work | Reads the problems Nowa finds, runs a code analysis, and reads the logs of your running app (run the app first). |
@@ -50,14 +50,14 @@ Two chips in the chat field tune how the agent works.
 | **Plan** | Plan complex tasks before building. Nowa AI explores your project, asks questions and writes a plan, and changes nothing. |
 | **Agent** | Do everything, from design to functionality. |
 
-The thinking level trades speed for reasoning. **Instant** is the fastest, **Thinking** is balanced and the default, and **Deep Thinking** adds extra reasoning for complex tasks.
+The thinking level trades speed for reasoning. **Instant** is the fastest, **Thinking** is balanced and the default, and **Deep Thinking** adds extra reasoning for complex tasks. Plan mode runs at a fixed level, so the thinking-level chip is hidden there.
 
 For when to use which, see [Design, Plan and Agent modes](modes.md).
 
 ## Use Nowa AI and the visual editor together
 
 - **Select to point.** Click a widget or screen on the board and it is attached to your next message, so "make this button rounder" lands in the right place. See [Give Nowa AI context](context.md).
-- **Watch it happen.** Changes appear on the board as the agent works, and new screens are placed there for you.
+- **Watch it happen.** Changes appear on the board as the agent works.
 - **Edit by hand any time.** What the agent builds is normal Nowa content. Change it in the **Details** panel, the **Outline** or the code, then ask for more.
 - **Undo a whole request.** If you don't like a result, use **Restore Checkpoint**. See [Undo AI changes and reopen chats](undo-and-history.md).
 
@@ -73,7 +73,7 @@ Nowa saves your project automatically when a request finishes.
 
 ## Usage and credits
 
-Nowa AI runs on your plan's AI credits. When you start to run low, a **% used** indicator appears under the panel header. After a request finishes, token counts and a **Session Details** button appear there as well, and **Global Usage** in that popup opens your account's usage page. If you run out, the chat says so and offers ways to continue.
+Nowa AI runs on your plan's AI credits. When you start to run low, a **% used** indicator appears under the panel header. After a request finishes, token counts and a **Session Details** info icon appear there as well, and **Global Usage** in its popup opens your account's usage page. If you run out, the chat says so and offers ways to continue.
 
 Plans, extra credits and billing are covered in [Plans, billing and AI usage](../account/plans-and-usage.md). For what each plan includes, see [nowa.dev/pricing](https://nowa.dev/pricing).
 

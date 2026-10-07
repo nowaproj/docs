@@ -147,3 +147,40 @@ Left out / assumptions:
 
 Capture requests: design-layout-1, design-layout-2.
 
+
+## properties.md (`docs/design/properties.md`) (batch W4b)
+
+Research: `features-widgets.md` "Add Wrapper", "Details panel (properties)", "Field editors in Details", "Link a property (link menu)", "Reset to default / Set to null", Wrappers table; `features-logic.md` "Link <field> menu", "Events", "Visibility wrapper", "Reset to default / Set to null"; `features-designer-core.md` "Add Wrapper (wrap and unwrap)", "Selecting". Written after reading the W4a pages `layout.md`, `select-and-edit.md`, `themes.md`, `theme-styles.md`, and `logic/expressions.md`, `logic/events.md` (link menu is documented in depth there, so the page only introduces it and links `expressions.md#link-menu`).
+
+Code spot-checks (all matched the research unless noted):
+- Panel position, resizing, collapse: `packages/designer/lib/src/designer_setup.dart:166-232` (Details under Variables, 240 px start, left-edge resize, not built in code mode or under 600 px), `packages/core/lib/src/panels/nowa_expanded_tile.dart:48-98` (title bar toggles), `packages/core/lib/src/panels/details/details_panel.dart:52-77`.
+- Section order: `packages/designer/lib/src/details/widget_details.dart:160-200` (breadcrumbs, name, doc summary, **Kept as code** box, Layout, component field, base widget field, one section per wrapper, **Add Wrapper**). Name row: `name_group.dart:15-35,81-111` (**Widget x N**, **Create a component**, **Rename**, **Open in New Tab**, shown only when the file isn't already open). Breadcrumbs: `widget_details.dart:327-370`. **Kept as code**: `widget_details.dart:116-139,543-564`.
+- Several widgets selected: `BatchBlockField` applies every update to all (`packages/core/lib/src/fields/block_field.dart:478-600`), **Mixed** text (`:1285-1294`), **Add Wrapper** hidden unless exactly one widget (`widget_details.dart:140-143`).
+- Text section labels: `packages/designer/lib/src/details/widget_fields.dart:262-312` (**Text**, **Text Align**, **Text Direction**, **Overflow**, **Style**).
+- Editors: text (hint `null`, `$` opens the link menu, grows to several lines for Text) `packages/core/lib/src/fields/basic_fields.dart:53-180`, `widget_fields.dart:300-306`; number boxes (hint `-`, min 0 for padding) `basic_fields.dart:182-288`; **number drag zone**: a 7 px strip on the left edge of every number box changes the value by the horizontal drag (`packages/core/lib/src/fields/nowa_fields.dart:275-292`; ints round `:325`, doubles round to 0.1 `:383`); switch `basic_fields.dart:378-398`; color swatch + HEX + opacity `packages/core/lib/src/fields/color_fields.dart:440-565`, Container fill popup with Solid/Linear/Radial/Sweep `color_fields.dart:313-440`; padding (fields are shown as icons, **Individual padding** tooltip) `basic_fields.dart:744-870`; alignment sliders **X** and **Y**, -1 to 1 `basic_fields.dart:1543-1580`; enum dropdown `basic_fields.dart:1510-1540`; event **+** / bolt **Edit** `nowa_fields.dart:793-825`; widget slot button + brush "Edit <name>" `nowa_fields.dart:420-520`; list editor (length box, hover **+**, drag handle, **Load More** after 10) `packages/core/lib/src/fields/list_field.dart:8-210`; object fields (hover **+** / remove, arrow) `packages/core/lib/src/fields/class_field.dart:100-330`, `block_field.dart:1161-1205`; **Show advanced options** / **Hide advanced options** `block_field.dart:1318-1352`; tooltip on the name (type + label, 500 ms) `block_field.dart:998-1010`.
+- Link: clicking the name opens the menu (`block_field.dart:990-1030`), menu title and items `packages/core/lib/src/fields/field_link_menu.dart:317-404`.
+- Reset / Set to null: right-click menu on every field row, **Set to null** only for nullable types `block_field.dart:812-842`; `remove()` restores a starter value for required properties (`:257-280`).
+- Add Wrapper: palette hint **Search for a wrapper**, 32 entries (`grep -c "WrapperData("` gives 33 because the class constructor matches) `widget_details.dart:66-113`, `packages/core/lib/src/wrappers_to_add.dart:12-188`; new wrapper is added as the outermost (`designer_model.dart:472-503`, `widgets.last` is the top, `widgets.first` the base); section order `block_field.dart:791-806`; drag grip, **...** menu and **Remove** `class_field.dart:344-446`, reorder drop line `packages/designer/lib/src/details/wrapper_details.dart:8-109`; Padding default 8 / 8 `wrappers_to_add.dart:13-26`; button hidden when `canWrapWidget` is false `widget_blocks.dart:356-372`.
+
+Contradictions with research (code wins):
+- `features-widgets.md` calls the Container's color field **Fill**. No "Fill" string exists in the code; the label is derived from the `color` slot (`block_field.dart:213-225`), so it is **Color**. The page names no Container-specific labels.
+- Research lists the Padding boxes as "Horizontal / Vertical". In the editor the two fields are labelled with icons (`NowaPaddingIcons`), not words, so the page says "two boxes, for horizontal and vertical space".
+- `DraggableText` (a scrub label) exists but nothing uses it (`block_field.dart:1207`). The real scrub zone is the number box's left edge (documented).
+
+Left out and why:
+- The **Layout** wrapper always stays outermost; new wrappers are inserted inside it (`designer_model.dart:472-486`). Not stated (consequence for sizes not tested).
+- A Group's first **Padding** wrapper is drawn inside the Group's own **Padding** row (`block_field.dart:791-806`): covered on `layout.md`.
+- The **...** menu on class fields and wrapper headers also switches constructors (for example `Text.rich`) and offers "Open in new tab" for your own widgets (`class_field.dart:280-340`). Advanced; not covered.
+- `canWrapWidget` hides **Add Wrapper** in some slots beyond multi-selection (research open question 14). The page only states the multi-selection case.
+- A component's root, opened on its own, also shows a "component field" section above the widget's own (`widget_details.dart:183-185`). Not described.
+- Theme popup resets (text style refresh icon) belong to `theme-styles.md` / `themes.md`.
+
+Assumptions and open questions:
+- "Type a value, then press Enter or click away": values update live as you type (`onChanged`) and the undo step closes on blur (`nowa_fields.dart:222-231,267`, `basic_fields.dart:119-135`). Enter unfocusing the field was not tested in the app.
+- The **Kept as code** sentence says Nowa "shows a placeholder", based on the code comment at `widget_details.dart:116-121`; it links to `../code/limitations.md` (W9b).
+- Examples in "Add a wrapper" (Padding, Visibility, Gesture Detector, Scroll View) link to the wrapper anchors promised in `redirects.md` (`padding`, `visibility`, `gesture-detector`, `scrollview`). Their one-liners are plain restatements; W13a owns the wrapper wording.
+- Order explanation ("With Padding below Container, the space is outside the container's color") follows from the section order above; not rendered in the app.
+
+Coverage notes (not in `pages.md`): number-box drag zone; **Kept as code** box; **Mixed** and multi-edit; **Show advanced options**; name tooltip. Anchor `{#add-a-wrapper}` is required by `design/localization.md` (link `properties.md#add-a-wrapper`).
+
+Capture requests: design-properties-1, design-properties-2.

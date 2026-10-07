@@ -2,10 +2,10 @@
 title: Cloud and local projects
 description: Compare cloud projects, stored in your Nowa account, with local projects, stored in a folder on your computer, and learn which one to start with.
 sidebar_label: Cloud and local projects
-keywords: [cloud project, local project, local-only, On this device, desktop app, Project Sync, where are my files, local vs cloud, offline]
+keywords: [cloud project, local project, local-only, On this device, desktop app, Project Sync, where are my files, local vs cloud]
 ---
 
-Every Nowa project is either a **cloud project** or a **local project**. A cloud project lives in your Nowa account and works on any device. A local project is a normal Flutter folder on your computer that you open in the [desktop app](./desktop-app.md). Editing, Nowa AI and **Run** work the same in both. Start with a cloud project unless you want the files on your own disk.
+Every Nowa project is either a **cloud project** or a **local project**. A cloud project lives in your Nowa account and works on any device. A local project is a normal Flutter folder on your computer that you open in the [desktop app](./desktop-app.md). Editing, Nowa AI and **Run** are available in both. Start with a cloud project unless you want the files on your own disk.
 
 ## The difference at a glance
 
@@ -15,7 +15,7 @@ Every Nowa project is either a **cloud project** or a **local project**. A cloud
 | Where you can open it | The web app and the desktop app, on any device you sign in on. | The desktop app, on that computer only. |
 | Where it shows in the dashboard | Under **Projects**. | Under **On this device**, tagged **LOCAL-ONLY**. |
 | How you create it | **New project**, the prompt box, or **Clone from GitHub**. In the desktop app, **Import project** can upload a folder as a cloud project. | In the desktop app: **New project** → **Advanced** → **Local-only project**. **Import project** and **Clone from GitHub** can also keep a project local. |
-| Deploy to web, Android and iOS | Yes, from **Deploy**. | No. Link a cloud copy with **Project Sync** first. |
+| Deploy to web, Android and iOS | Yes, from **Deploy**, on paid plans. | No. Link a cloud copy with **Project Sync** first. |
 | **Share preview** and **Public project** | Yes. | No. |
 | Workspaces and teammates | Yes. | No. Local projects appear only under **Personal**. |
 | Getting your code | Download a zip from code mode (depends on your plan). | It is already on your disk. |
@@ -42,7 +42,7 @@ In the dashboard's list view, each project row also shows a **Cloud** or **Local
 
 ## Link a cloud copy and a local copy
 
-**Project Sync** clones a cloud project to a folder on your computer, or a local project to the cloud, and links the two. Open it from **Settings** → **Project Sync** in the desktop app. After that, **Sync from Cloud** and **Sync from Local** copy everything one way and overwrite the other side, so a local project can use **Deploy** and **Share preview** through its cloud copy. See [Work with local projects](../code/local-projects.md).
+**Project Sync** clones a cloud project to a folder on your computer, or a local project to the cloud, and links the two. Open it from **Settings** → **Project Sync** in the desktop app. After that, **Sync from Cloud** and **Sync from Local** copy everything one way and overwrite the other side, so you can use **Deploy** and **Share preview** on the cloud copy. On the dashboard, **Upload to cloud** in a local project's ⋮ menu opens the same options. See [Work with local projects](../code/local-projects.md).
 
 ## Badges in these docs
 

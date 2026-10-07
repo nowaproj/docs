@@ -14,7 +14,7 @@ Logic is everything your app does besides looking good: reacting to a tap, remem
 3. **Steps use data.** They read and change values stored in variables, params and global states.
 4. **Widgets show the result.** A property linked to a value shows it, and an expression can turn it into a calculation or a choice.
 
-For example, a button's **On Pressed** event runs a function that adds one to a `counter` variable. A text widget linked to `counter` shows the new number.
+For example, a button's **On Pressed** event runs a function that adds one to a `counter` variable and refreshes the screen. A text widget linked to `counter` shows the new number.
 
 ## The pieces
 

@@ -22,15 +22,16 @@ Nowa saves the component as a Dart file in `lib/`, named after it, for example `
 
 Every place you use a component is an instance. To add one:
 
-- Drag it from the **Widgets** panel (**Component** tab) onto the board or into a screen.
+- Drag it from the **Widgets** panel (switch to **Component**) onto the board or into a screen.
 - Open the widget picker with <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd> and choose from **Components**. See [Add widgets](add-widgets.md).
 - Copy an instance and paste it, or hold <kbd>Alt</kbd>/<kbd>Option</kbd> and drag it.
 
-Components show in purple in the [Outline](outline.md).
+Instances have a purple label in the [Outline](outline.md).
 
 ## Edit a component or one instance
 
 - **Change the component for everyone.** Drag it from the **Widgets** panel onto empty board space and click its title, or double-click it in the **Widgets** panel to open it on its own. Edit it like any widget. Every instance updates.
+- **Edit inside an instance.** Select a widget inside an instance: double-click the instance on the board to go one level deeper, or pick the widget in the [Outline](outline.md). Change it in **Details**. The widget belongs to the component, so every instance updates. The first crumb at the top of **Details** is the component's name. Click it to select the whole instance again.
 - **Set values for one instance.** Select the instance inside a screen. **Details** lists the component's params. Change them there and only this instance changes.
 - **Break the link.** Right-click an instance and choose **Detach**. It turns into plain widgets, and later changes to the component no longer reach it.
 - **Make a separate copy.** Right-click a component and choose **Copy as new widget**, name it and click **Submit**. You get a new component in its own file.
@@ -52,7 +53,7 @@ Try "Turn the recipe card on the Home screen into a component and use it on the 
 
 ## Manage screens and components {#manage-screens-and-components}
 
-Open **Widgets** in the left sidebar. It lists the screens and components in your project's `lib/` folder, each with a live preview.
+Open **Widgets** in the left sidebar. It lists the screens and components in your project's `lib/` folder, each with a preview.
 
 {/* CAPTURE: id=design-components-2 | state: playground starter open, Widgets panel open with the Component tab selected and at least one component, right-click a tile | show: the Widgets panel with Search, the grid/list button, the Page and Component switch and the right-click menu with Open in Editor, Rename and Delete | crop: left panel + menu */}
 

@@ -5,33 +5,31 @@ sidebar_label: Responsive design
 keywords: [responsive, responsive design, make screen responsive, breakpoints, screen size, device size, adaptive layout, tablet, desktop, phone, landscape, orientation, media query, expand, constraints, device preview, play settings, free size, placeholder values]
 ---
 
-Your app opens on a small phone, a tablet and a wide browser window. In Nowa you build the layout so it stretches and flows to fit, then check it at other sizes without leaving the board.
+Your app opens on a small phone, a tablet and a wide browser window. Build the layout so it stretches and flows to fit, then check it at other sizes without leaving the board.
 
 ## Nowa has no breakpoints
 
-Nowa 3.12.5 has no breakpoints. You can't set one layout for phones and another for tablets on the same screen, and **Details** has no per-device settings. Each screen has one layout, so you make that layout flexible.
-
-You can still switch widgets by width yourself. See [Show different widgets on wide and narrow screens](#show-different-widgets-on-wide-and-narrow-screens).
+Nowa 3.12.5 has no breakpoints, no setting for a separate phone or tablet layout, and no per-device options in **Details**. Each screen has one layout, so you make that layout flexible. You can still [switch widgets by width](#show-different-widgets-on-wide-and-narrow-screens) yourself.
 
 ## Make a layout that adapts
 
-A layout adapts when each part says how it reacts to more or less space. [Lay out widgets](layout.md) explains each tool in detail.
+A layout adapts when each part says how it reacts to more or less space. [Lay out widgets](layout.md) explains the tools.
 
 | You want | Do this |
 |---|---|
-| A widget to fill the width | In a **Column**, set its **W** to **Expand**. In a **Stack**, give it **Left and right** constraints. |
-| Widgets to share a row | In a **Row**, set **W** to **Expand** on each. They split the space equally. A widget set to **Fixed** or **Auto** keeps its size and the others share what's left. |
+| A widget to fill the width | In a **Column**, set its **W** to **Expand**. In a **Stack**, use **Left and right** constraints. |
+| Widgets to share a row | In a **Row**, set **W** to **Expand** on each to split the space equally. A **Fixed** or **Auto** widget keeps its size and the others share the rest. |
 | A widget to keep its size | Set **W** and **H** to **Fixed**. In a **Stack**, pin it to an edge or choose **Center**. |
-| A widget to fit its content | Set **W** or **H** to **Auto**. It is offered when the widget has a natural size, such as a text or an icon. |
+| A widget to fit its content | Set **W** or **H** to **Auto**, offered when the widget has a natural size, such as a text or an icon. |
 | Space between widgets to grow | In a **Row** or **Column**, set **Spacing** to **Between**, **Around** or **Evenly**. |
 | Widgets to continue on a new line | Use a **Wrap** widget. |
 | More columns on wider screens | In a **Grid View**, choose **Max**. It fits as many columns as it can without a tile passing **Max Cross Axis Extent**. |
-| Content taller than the screen to scroll | Add the [**Scroll View**](../reference/wrappers.md#scrollview) wrapper, or use a **List View**. |
+| Tall content to scroll | Add the [**Scroll View**](../reference/wrappers.md#scrollview) wrapper, or use a **List View**. |
 
 ## Try it: make a screen stretch
 
-1. Click the screen's title. In **Details**, find the **Group** section and click the down arrow. The screen's main group becomes a **Column**. Nowa keeps your widgets in order from top to bottom and takes the **Gap** from the space between them.
-2. Select a text field, a card or a button. Under **Layout**, set **W** to **Expand**. It now fills the width. Do the same for the other widgets that should stretch, and leave small things, such as icons, as they are.
+1. Click the screen's title. In **Details**, find the **Group** section and click the down arrow. The screen's main group becomes a **Column**, with your widgets in the same order and the space between them kept as the **Gap**.
+2. Select a text field, a card or a button. Under **Layout**, set **W** to **Expand** so it fills the width. Repeat for other widgets that should stretch, and leave small things, such as icons, alone.
 3. Click the screen's title and set **Size** to **1920x1080**, then to a phone preset such as **iPhone 12**. The widgets follow the width of the screen.
 
 ## Check your layout at other sizes
@@ -49,7 +47,7 @@ A layout adapts when each part says how it reacts to more or less space. [Lay ou
 
 {/* CAPTURE: id=design-responsive-1 | state: playground starter open, HomePage title clicked, Details scrolled to the Screen section, Size dropdown open | show: the Size dropdown listing Pixel 3a, iPhone 11 Pro, Galaxy S20+, iPhone 12, MacBook Pro and 1920x1080 | crop: right Details panel */}
 
-A new screen starts at 393 × 808 unless its template sets another size. For any other size, drag a corner of the screen or type **W** and **H** under **Layout**. Swap them to try landscape. **Size** changes only how big the screen looks on the board. Your app fills whatever device it runs on.
+A new screen starts at 393 × 808 unless its template sets another size. For any other size, drag a corner of the screen or type **W** and **H** under **Layout**, and swap them to try landscape. **Size** only changes how big the screen looks on the board. Your app fills whatever device it runs on.
 
 To compare two sizes at once, select the screen's title, press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>C</kbd>, point at empty board space and press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>V</kbd>. Give the copy another **Size**. Both items show the same screen, so every edit appears in both.
 
@@ -57,19 +55,19 @@ To compare two sizes at once, select the screen's title, press <kbd>Ctrl</kbd>/<
 
 Hover a screen's title and click **Play** to tap and scroll at its current size. See [Play your app on the board](../test/instant-play.md).
 
-**In a device frame.** In a cloud project, play a screen, click **Share preview**, then the **Open in browser** icon in the popup. On a computer, the preview page has a toolbar. Click **Device Settings** to open **Play Settings**.
+**In a device frame.** In a cloud project, play a screen, click **Share preview**, then the **Open in browser** icon. On a computer, the preview page has a toolbar. Click **Device Settings** to open **Play Settings**.
 
-- **Device Size**: click the device name to pick a device by platform, shown with its size. The **Custom** tab takes a **Width**, **Height** and **Pixel ratio**.
-- **Free Size**: removes the frame, so the app fills the window. Resize the window and watch the layout react.
+- **Device Size**: pick a device by platform, listed with its size. The **Custom** tab takes a **Width**, **Height** and **Pixel ratio**.
+- **Free Size**: drops the frame, so the app fills the window. Resize the window to watch the layout react.
 - **Orientation**: rotates devices that can rotate.
 
 **Full Screen** in the same toolbar opens a bigger view with a **Device** panel. See [Share your app](../test/share.md#what-people-see-in-a-preview).
 
-**In the real app.** **Run** shows your compiled app in a phone frame. Use the **Phone** / **Tablet** button to switch frames, or **Fullscreen** to drop the frame. See [Run your app](../test/run.md) and [Run on a device or emulator](../test/devices.md).
+**In the real app.** **Run** shows your compiled app in a phone frame. **Phone** / **Tablet** switches frames and **Fullscreen** drops the frame. See [Run your app](../test/run.md) and [Run on a device or emulator](../test/devices.md).
 
 ## Design with realistic content
 
-On the board, Nowa fills in values that are still empty, so a design never looks blank. Real content is usually longer, so test with it too.
+On the board, Nowa fills in values that are still empty, so a design doesn't look blank. Real content is usually longer, so test with it too.
 
 | Empty value | What the board shows |
 |---|---|
@@ -82,13 +80,13 @@ On the board, Nowa fills in values that are still empty, so a design never looks
 
 To see your own content, give the variable or param a **Default Value**. The board shows it as a real value. See [Store data in variables](../logic/variables.md) and [Pass data with parameters](../logic/parameters.md).
 
-If a **Column**, **Row** or **Stack** repeats a widget for each item of a list, the end of its **Group** section has a **Test** button named after the item type, such as **Test String**. Set how many **Copies** to show and a sample value to see a long list or long names. **Edit Test** and **Clear** appear afterwards. The test changes only the board.
+If a **Column**, **Row** or **Stack** repeats a widget for each item of a list, the end of its **Group** section has a **Test** button named after the item type, such as **Test String**. Set how many **Copies** to show and a sample value to preview a long list or long names. **Edit Test** and **Clear** appear afterwards. The test changes only the board.
 
 **Play** uses your app's real values instead of placeholders. See [Placeholders on the board, real values in Play](../test/instant-play.md#placeholders-on-the-board-real-values-in-play).
 
 ## Show different widgets on wide and narrow screens
 
-A screen can read its own width, and the [**Visibility**](../reference/wrappers.md#visibility) wrapper shows or hides a widget. Together they switch what shows by width. On the board and in **Play**, a screen sees the size of its board item as its screen size, so changing **Size** is a quick way to test.
+A screen can read its own width, and the [**Visibility**](../reference/wrappers.md#visibility) wrapper shows or hides a widget. Together they switch what shows by width. On the board and in **Play**, a screen's size is the size of its board item, so changing **Size** is a quick way to test.
 
 1. Build both versions, for example a side menu for wide screens and a bar for narrow ones.
 2. Select the wide version, click **Add Wrapper** and choose **Visibility**.
@@ -97,7 +95,7 @@ A screen can read its own width, and the [**Visibility**](../reference/wrappers.
 5. Select the narrow version, add **Visibility** the same way and type `MediaQuery.of(context).size.width < 600`.
 6. Change the screen's **Size**, then click **Play** to see which version shows.
 
-To pick the width from the menus instead, see [Read the screen size](../logic/actions.md#read-the-screen-size). Formulas are explained in [Write your own expression](../logic/expressions.md#custom-expression).
+To pick the width from the menus instead, see [Read the screen size](../logic/actions.md#read-the-screen-size). [Write your own expression](../logic/expressions.md#custom-expression) explains formulas.
 
 :::tip Or ask Nowa AI
 Try "Make this screen work on phones and tablets: stretch the fields to the full width and put the cards in a grid that adds columns on wider screens." Then check the result at other sizes. See [Write prompts that work](../ai/prompting.md).

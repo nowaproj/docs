@@ -70,7 +70,7 @@ The **Screen** tool is hidden when a screen or component is open on its own. Whi
 
 ## Remove an item or delete it
 
-- **Remove from the board.** Right-click the item and choose **Remove**, or press <kbd>Delete</kbd> (<kbd>Backspace</kbd> on macOS). A screen or component stays in your project and in the **Widgets** panel, so you can drag it back. A loose widget is gone, but <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Z</kbd> brings it back.
+- **Remove from the board.** Select the item (for a screen or component, click its title), then right-click it and choose **Remove**, or press <kbd>Delete</kbd> (<kbd>Backspace</kbd> on macOS). A screen or component stays in your project and in the **Widgets** panel, so you can drag it back. A loose widget is gone, but <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Z</kbd> brings it back.
 - **Delete from the project.** In the **Widgets** panel, right-click the screen or component and choose **Delete**. See [Build reusable components](components.md#manage-screens-and-components).
 
 ## Big boards and errors

@@ -25,20 +25,20 @@ The editor is a handful of areas that always stay in the same place. This tour n
 | Control | What it does |
 |---|---|
 | Nowa logo | Returns to the dashboard. If files are unsaved, Nowa asks first. |
-| Starting-point chip | Playground only. Switches the starter app. See [Try Nowa without an account](./playground.md). |
+| Starting-point chip | Playground, and public projects you open as a guest. Switches to another starter app or a template. See [Try Nowa without an account](./playground.md). |
 | Package chip | Appears only when a project has several packages. Picks the one you edit. |
 | Board chip | Shows the current board. Click it to switch boards, **Rename** or **Delete** one, or **Create new board**. See [Work with boards](../design/boards.md). |
-| View chip | When a screen is open on its own, switches between its design and its code. |
+| Screen chip | Names the screen or component open on its own. If its file holds several views, click it to switch between them. |
 | **Upgrade** | Shown when your account is on the free plan. See [Plans, billing and AI usage](../account/plans-and-usage.md). |
 | Avatar | Opens your name and plan, **General Settings** and **Logout**. See [Account settings](../account/account-settings.md). |
 | Bell | Opens **Notifications** from Nowa. |
 | `<>` | Switches code mode on and off. See [Edit code in Nowa](../code/code-mode.md). |
 | Gear | Opens **Settings**. See [Project settings](../account/project-settings.md). |
-| **Run** and **Deploy** | **Run** runs your real app ([Run your app](../test/run.md)). **Deploy** publishes it ([Get ready to publish](../publish/index.md)). In the playground, **Save** replaces both. |
+| **Run** and **Deploy** | **Run** runs your real app ([Run your app](../test/run.md)). **Deploy** publishes a cloud project ([Get ready to publish](../publish/index.md)). In the playground and for guests, **Save** replaces both. |
 
 ## Sidebar and panels
 
-Click an icon to open its panel. Click it again to close the panel. You can also press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> plus the number in the table.
+Click an icon to open its panel. Click it again to close the panel. You can also press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> plus the number in the table. The playground has no **Git** icon, so there the numbers after **Search** are one lower.
 
 | Icon | What it opens | Number | Learn more |
 |---|---|---|---|
@@ -48,7 +48,7 @@ Click an icon to open its panel. Click it again to close the panel. You can also
 | **Search** | Find text or symbols across the project, and replace text in bulk. | 4 | [Manage project files](../code/files.md) |
 | **Git** | Changes, commits and branches. Not in the playground. | 5 | [Use Git](../code/git.md) |
 | **Files** | Your project files: `lib`, `boards` and `assets`. | 6 | [Manage project files](../code/files.md) |
-| **Outline** | The widget tree of the board or the open screen. | 7 | [Use the Outline](../design/outline.md) |
+| **Outline** | The widget tree of the board. On a screen open on its own, it floats at the top left of the screen instead and this icon is hidden. | 7 | [Use the Outline](../design/outline.md) |
 | **Api** | REST API collections and requests. | 8 | [Connect a REST API](../integrations/rest-api/index.md) |
 | **Supabase** | Connect and manage your Supabase backend. | 9 | [Connect Supabase](../integrations/supabase/connect.md) |
 | **Router** | Below a divider. Opens your app's routes in the workspace. | none | [Navigate between screens](../logic/navigation.md) |
@@ -65,7 +65,7 @@ Each screen and component has a title bar. Point at it to get **Play** and **Ope
 |---|---|---|
 | **Select tool** | <kbd>V</kbd> | Select and move things. |
 | **Shape** | <kbd>R</kbd> | Draws a box (a Container). |
-| **Screen** | | Creates a screen from a template. |
+| **Screen** | | Creates a screen from a template. Not shown while a screen is open on its own. |
 | **Text** | <kbd>T</kbd> | Places a text. |
 | **Widget** | <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd> | Opens the widget picker. |
 
@@ -96,11 +96,11 @@ From left to right, the status bar shows:
 
 - **Help:** the **?** button opens the support panel with **Your tickets**, **Report an issue**, **Chat with support**, **Documentation**, **YouTube Channel** and **Hire an Expert**. See [Get help](../account/help.md).
 - **Settings:** the gear (or <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>,</kbd>) opens **Settings** over the editor, with **General** pages such as **Project Details**, **Packages** and **Constants**, and **Integrations** pages. Click **Back** to return.
-- **Code mode:** `<>` opens the **Files** panel and shows every project file as a tab in a code editor. Click **Back** to return to the board.
+- **Code mode:** `<>` switches to a code editor. The **Files** panel opens with the whole project tree, and each file you open gets a tab. Click **Back** to return to the board.
 
 ## The welcome tour {#welcome-tour}
 
-The first time you open a new project, **Welcome to Nowa!** appears. Click **Take the quick tour** for seven short tooltips, or **Close** to skip the tour. The tour appears once for your account.
+**Welcome to Nowa!** appears over a new project until you have finished or skipped the tour once. Click **Take the quick tour** for seven short tooltips, or **Close** to skip it. After that it doesn't come back for your account.
 
 | Tour step | What it points to |
 |---|---|
@@ -112,7 +112,7 @@ The first time you open a new project, **Welcome to Nowa!** appears. Click **Tak
 | **Data Sources** | The **Api** and **Supabase** icons. |
 | **Screens & Components** | The **Widgets** icon. |
 
-Use **Next**, **Back** or **Skip** while you tour. At the end, **You're all set!** offers **Explore more features** (three more steps: **Git**, **Project Settings** and **Themes**) or **Start building**.
+Use **Next**, **Back** or **Skip** while you tour. On the last tooltip, **Next** reads **Got it!** At the end, **You're all set!** offers **Explore more features** (three more steps: **Git**, **Project Settings** and **Themes**) or **Start building**.
 
 ## When nothing is open
 

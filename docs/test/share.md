@@ -47,7 +47,7 @@ The preview is [Instant Play](instant-play.md) in a browser tab: quick, but not 
 
 The link looks like `https://app.nowa.dev/preview/<project>`. If you shared from a played screen, it ends with `?screen=` and that screen's file, so the preview opens on that screen.
 
-To share the whole app, delete the `?screen=…` part of the link. Owners and editors who open a single-screen link see the warning "Single Screen Preview": "Route-based navigation is disabled in Play Mode for single screen previews. To test navigation, you need to preview the full app."
+To share the whole app, delete the `?screen=…` part of the link. If the shared screen has no route, owners and editors who open the link see the warning "Single Screen Preview": "Route-based navigation is disabled in Play Mode for single screen previews. To test navigation, you need to preview the full app."
 
 The link stays the same when you edit your app. People always see the project as last saved.
 

@@ -45,6 +45,11 @@ import styles from './cards.module.css';
     <p>Create an account, tour the editor, and set up the desktop app.</p>
   </Link>
 
+  <Link to="/guides" className={styles.sectionCard}>
+    <h3>Build a great app</h3>
+    <p>Tips and checklists for design, Nowa AI, data and launch.</p>
+  </Link>
+
   <Link to="/ai" className={styles.sectionCard}>
     <h3>Build with Nowa AI</h3>
     <p>Modes, prompts, context, checkpoints and connectors.</p>

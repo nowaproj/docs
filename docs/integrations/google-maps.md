@@ -31,7 +31,7 @@ Nowa puts each key where its platform needs it:
 
 1. Open the widget picker (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd>) or click the **Widget** tool, and search for **Google Maps**. If Nowa shows **Add Missing Dependencies**, click **Add**.
 2. Place the widget on a screen and size it.
-3. In **Details**, set the starting position and the other map options.
+3. In **Details**, set **Initial Camera Position**, where the map starts, and the other map options.
 
 On the board the widget is a placeholder labeled "Google Maps" with the text "Run to preview". If you have not saved any key yet, **Details** shows "Google Maps API keys are not set. Please configure them in the project settings to use the Google Map widget." Click the gear next to the message to open the **Google Maps** page.
 
@@ -41,7 +41,10 @@ Try: "Add a Google Map to the Contact screen and put a marker on our office."
 
 ## See the map
 
-The board and **Play** do not draw a live map: **Play** shows "Run on a simulator/emulator or mobile device to preview". Run your app on a simulator, emulator or device to see the real map. That needs the desktop app: see [Run on a device or emulator](../test/devices.md). A web build uses your **Web API Key**.
+The board and **Play** do not draw a live map. **Play** and a shared preview show "Run on a simulator/emulator or mobile device to preview" where the map would be. To see the real map, run your app:
+
+- **Run** with the **Embedded preview** runs your app as a web app, so it uses your **Web API Key**. See [Run your app](../test/run.md).
+- A simulator, emulator or device uses your **Android API Key** or **iOS API Key**. That needs the desktop app: see [Run on a device or emulator](../test/devices.md).
 
 :::note[Show the user's location]
 A new map starts with the my-location button on. For it to find the user, turn on a location permission under **Permissions** in Settings: **Fine Location** or **Coarse Location** for Android, **Location When In Use** for iOS. Nowa does not turn them on for you. See [Project settings](../account/project-settings.md).

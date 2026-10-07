@@ -5,7 +5,7 @@ All code refs are relative to the repo root. This log is written page by page; t
 
 ## Summary
 
-(in progress: page 1 of 6 done)
+(in progress: pages 1 and 2 of 6 done; next: forms, lists, navigation, media)
 
 ## Page 1: `docs/reference/widgets/index.md` (Widget catalog)
 
@@ -75,3 +75,65 @@ Checked: all 45 rows (name, category, one-line behavior, setup details), the thr
 ### Open issues for page 1
 
 - None blocking. Deep links to a table row land under the sticky navbar (writer note 1): needs one CSS rule from the orchestrator, see `W13a-writer-notes.md`. Not checked in a browser.
+
+## Page 2: `docs/reference/wrappers.md` (Wrappers)
+
+Checked: intro, the three task sections (add, reorder, remove), all 32 rows (name, one-liner, starting values, labels), 32 anchors, 15 relative links, front matter, style. Two edits (see "fixed").
+
+### Page-level claims
+
+| claim | verdict | code ref | note |
+|---|---|---|---|
+| 32 wrappers; every name in the **Add Wrapper** list appears once, spelled as the picker shows it (lowercase **Clip radius**, **AnimatedContainer**) | ok | `packages/core/lib/src/wrappers_to_add.dart:12-188` | script: 32 `name:` entries in code, 32 rows on the page, no missing, no extra, no duplicate. The picker lists them in code order (`widget_details.dart:66-113` maps `wrappersToAdd` unchanged); the page's seven groups are the writer's own and the page says so |
+| **Add Wrapper** button at the bottom of **Details**, below the widget's own sections and the wrapper sections | ok | `packages/designer/lib/src/details/widget_details.dart:189-199` (`Text("Add Wrapper")` after `wrapperFields()`) | |
+| click opens a list with hint **Search for a wrapper**; type to filter; click or Enter adds | ok | `widget_details.dart:66-72` (`hintText: 'Search for a wrapper'`); `packages/command_palette` (same palette as the widget picker, Enter selects the highlighted row) | |
+| button shows only when exactly one widget is selected | ok | `widget_details.dart:145-148` (`instances.length != 1` returns false), then `canWrapWidget` (`packages/core/lib/src/interpreter/widget/widget_blocks.dart:356-372`) | the page states only the necessary condition; the `canWrapWidget` cases (no parent, non-widget type) are edge cases |
+| each wrapper has its own section in **Details** | ok | `widget_details.dart:188` (`wrapperFields().map(WrapperSection...)`); `packages/core/lib/src/fields/block_field.dart:791-809` | exception on the page (first Padding on a Group) is also correct, next table |
+| position and size are not in the list | fixed | `widget_blocks.dart:465` (`layoutWrappers`: `Expanded`, `Positioned`, `SizedBox`, `FlexSizedBox`, `BoardPosition`), `widget_instance_impl.dart:274-275` (excluded from `wrappers`); `packages/designer/lib/src/details/layout_details.dart:47` (section **Layout**, **W** / **H** at `:88-89`) | wording "Position and size" clashed with the group **Space, size and position** (Constrained Box, Align and others do size and place). Now "Width, height and position inside a Stack aren't in this list: set them under **Layout**", same terms as `design/layout.md` |
+| order: own section first, then wrappers starting with the one closest to the widget; a new wrapper goes around the others and appears at the bottom | ok | `widget_instance_impl.dart:98,274-275` (`widgets.first` is the base widget; `wrappers` keeps that order); `packages/core/lib/src/interpreter/widget/designer_model.dart:472-485` (`addWrapper` inserts at `widgets.length`, the outermost slot) | with an Expanded/Positioned above, a new wrapper is still inserted below it (`effectiveIndex = min(..., widgets.length - 1)`), so it still shows last |
+| Padding below a Container adds space around the colored box; above it, inside | ok | derived from the order rule above | a later-listed wrapper is the outer one |
+| reorder: hover the section header, drag the grip icon (six dots); a colored line shows the drop place | ok | `packages/core/lib/src/fields/class_field.dart:344-362,425-460` (`_DragHandle`, `Icons.drag_indicator`, visible on hover of the section); `packages/designer/lib/src/details/wrapper_details.dart:32-111` (two drop targets per section, 4 px `primaryColor` line, undo entry `Reorder`) | |
+| remove: hover the header, click **...**, choose **Remove**; the widget stays, only the wrapper goes | ok | `class_field.dart:377-423` (`WidgetMoreButton`, `Icons.more_horiz_outlined` at `packages/core/lib/src/widgets/nowa_widgets.dart:157-159`, `Remove` when the instance holds more than one widget); `designer_model.dart:384-392` (`removeWidget` dissolves the wrapper and puts its child back) | same "**...** button" wording as `code/git.md` and `code/github.md` |
+| Ctrl/Cmd + Z undoes adding, moving and removing a wrapper | ok | `lib/setup_general_actions.dart:26` (`AdaptiveActivator(keyZ)`); records `Add wrapper` (`widget_details.dart:82-89`), `Reorder` (`wrapper_details.dart:59-66`), removal `BatchRecord` (`class_field.dart:393-399`) | |
+| tip: select a widget and ask in **Agent** mode | ok | `_rewrite/research/features-ai.md:15,133` (the selected widget is attached to the prompt automatically); mode chip **Agent** in `glossary.md` | |
+| front matter, no H1, no `---`, one admonition, no emoji, no hype words, sentence-case headings, no badge needed | ok | style guide; `wrappers_to_add.dart` has no gating | body about 1,150 words for 32 rows; kept |
+| 15 relative links and anchors resolve (script) | ok | `../design/layout.md`, `../design/properties.md`, `./widgets/index.md#container|animated-container|drawer`, `../logic/events.md`, `../logic/expressions.md#visibility`, `../design/layout.md#scroll-or-wrap-content`, `../design/localization.md#show-text-right-to-left`, `../integrations/show-data.md`, `../logic/global-state.md#rebuild-only-part-of-a-screen`, `./widgets/forms.md` | link texts match the target page titles |
+| 32 anchors (`<a id>`), incl. the 7 of `redirects.md`: `gesture-detector`, `material`, `opacity`, `padding`, `scrollview`, `text-direction`, `visibility` | ok | `redirects.md` "Anchor targets" | all kept; `scrollview` is the old slug (the others are kebab-case of the name) |
+
+### Rows
+
+| wrapper | verdict | code ref | note |
+|---|---|---|---|
+| Padding (8 on every side; on a Group the first Padding shows in the Group's own **Padding** row) | ok | `wrappers_to_add.dart:13-26`; `block_field.dart:795-806` (first Padding skipped for a group); `group_details.dart:143-153` (row label `Padding`, `PaddingWrapperField` in `inline_wrapper_fields.dart`); `widget_instance_impl.dart` (`isGroup` = Stack, Column, Row, NFlex) | |
+| Align (starts centered; **Alignment** sliders) | ok | `wrappers_to_add.dart:61-70` (0, 0); `block_field.dart:50` (`AlignmentGeometry` -> `BFAlignment`); `basic_fields.dart:1543-1565` (X and Y sliders from -1) | |
+| Constrained Box (**Constraints**); Fractionally Sized Box (**Width Factor**, **Height Factor**); Fitted Box (**Fit**, **Alignment**) | ok | `wrappers_to_add.dart:55,71-75,87-91`; default class editor lists every parameter with its name split at capitals (`class_field.dart:92-138`, `packages/core/lib/src/utils.dart:77-79`, `block_field.dart:216`) | derived labels; Fractionally Sized Box and Fitted Box also show **Alignment** |
+| Aspect Ratio (starts at 1) | ok | `wrappers_to_add.dart:151-157` | |
+| Intrinsic Height, Intrinsic Width | ok | `wrappers_to_add.dart:76-85` | Flutter semantics (child's natural height or width) |
+| Safe Area (sides under **Show advanced options**) | ok | `packages/designer/lib/src/details/widget_fields.dart:516-528` (`BFSafeArea` shows only `AdvancedOptions`); `block_field.dart:1318-1352` (`Show advanced options` / `Hide advanced options`) | the options are `left`, `top`, `right`, `bottom` and the rest of the class parameters |
+| Container (same settings as the Container widget; gray fill) | ok | `wrappers_to_add.dart:43`; `packages/core/lib/src/widgets_to_add/default_blocks.dart:7-12` (`0xFFC4C4C4`); `widget_fields.dart:317-350`; `basic_fields.dart:268-320` (fill, border, **Radius**, image, **Shadows**) | |
+| Opacity (0 to 1, starts at 0.5) | ok | `wrappers_to_add.dart:37-41` | |
+| Clip radius (**Border Radius**) | ok | `wrappers_to_add.dart:42`; `widget_info.dart:691-696` (display name `Clip radius`); `basic_fields.dart:605-640` (field **Border Radius**, value added with +, then **Radius**) | |
+| Transform (rotates, scales or moves; starts rotated) | ok | `wrappers_to_add.dart:44-54` (`Matrix4.rotationZ(1.0)`); `basic_fields.dart:874-884` (`BFMatrix4`); `class_field.dart:297-325` (the field's menu switches constructor); `material_library_custom.dart:1620-1700` (`rotationX/Y/Z`, `translationValues`, `diagonal3Values`, `skew`) | scale and move exist as alternate `Matrix4` constructors in the field's menu; the page does not describe that menu |
+| Color Filter (color and blend mode; gray) | ok | `wrappers_to_add.dart:101-114` (`0xFFC4C4C4`, `srcATop`); `basic_fields.dart:1947-1960` | |
+| Material (**Color**, **Elevation**, **Border**) | ok | `basic_fields.dart:1865-1895` (also **Shadow Color**, **Tint Color**, **Border On Foreground**) | |
+| Badge ("99") | ok | `wrappers_to_add.dart:158-162` | |
+| AnimatedContainer (300 ms **Duration**, gray fill) | ok | `wrappers_to_add.dart:178-187`; `basic_fields.dart:1898-1945` (the **Duration** field shows the value and opens a **Duration** popup) | |
+| Gesture Detector (**On Tap**, **On Secondary Tap**, **On Double Tap**, **On Long Press**; more under **Show advanced options**) | ok | `widget_fields.dart:488-514` | |
+| Ink Well (**On Tap** and the ripple colors) | ok | `widget_fields.dart:460-486` (`onTap`, `borderRadius`, `focusColor`, `hoverColor`, `highlightColor`, `splashColor`) | |
+| Dismissible (**On Dismissed**) | ok | `wrappers_to_add.dart:168-172`; `material_library.dart:86980-87030` (`onDismissed`, horizontal swipe by default) | |
+| Refresh Indicator (**On Refresh**) | ok | `wrappers_to_add.dart:173-177` | |
+| Interactive Viewer (pan and zoom) | ok | `wrappers_to_add.dart:95-99` | Flutter semantics |
+| Tooltip ("Tooltip message") | ok | `wrappers_to_add.dart:163-167` | |
+| Visibility (**Visible**, **Replacement**; link **Visible** to true/false) | ok | `wrappers_to_add.dart:27-31`; `packages/core/lib/src/fields/text_fields.dart:806-819` (`BFVisibility`) | |
+| Scroll View (**Scroll Direction**) | ok | `wrappers_to_add.dart:56-60`; `widget_info.dart:698-703` (display name `Scroll View`) | default editor, derived label |
+| Text Direction (`ltr` default, `rtl`) | ok | `wrappers_to_add.dart:115-119`; `widget_info.dart:712-717`; enum drop-downs list the raw names (`basic_fields.dart:1525-1540`) | consistent with `design/localization.md` |
+| Default Text Style | ok | `wrappers_to_add.dart:120-124` | |
+| Data Builder (source, loading and error state) | ok | `wrappers_to_add.dart:86` (`createDataBuilderBlock`); `packages/core/lib/src/fields/data_field.dart:38-48` | see catalog page 1 |
+| Notifier Builder (**Notifier** list; rebuilds on change) | ok | `data_field.dart:53-117` (`BFNotifierBuilder`: notifiers from the screen's variables and global states); `packages/nowa_runtime/lib/src/widgets/notifier_builder.dart:5-30` | |
+| Form (`formKey` variable) | ok | `widget_info.dart:495-526` (`FormConnector`, `formKey`, slot `key`) | |
+| Screen (slots) | fixed | `widget_fields.dart:202-259` (`BFScaffold`: **Color**, then `appBar`, `drawer`, `floatingActionButton`, `bottomNavigationBar` with derived labels); `widget_info.dart:651-655` (display name `Screen`) | page said "an app bar, a drawer, a floating button and a bottom navigation bar" in lowercase; Details shows **App Bar**, **Drawer**, **Floating Action Button**, **Bottom Navigation Bar**. Now the labels as shown |
+| Drawer (side menu that slides in) | ok | `wrappers_to_add.dart:93` | Flutter semantics |
+
+### Open issues for page 2
+
+- None. The deep-link scroll offset under the navbar (writer note 1) applies to these anchors too; not checked in a browser.

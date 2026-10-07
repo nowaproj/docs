@@ -12,7 +12,7 @@ A **Text Field** is a box where people type. Nowa creates the variable that hold
 1. Press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd>, search for `text field` and press <kbd>Enter</kbd>. See [Add widgets](../../design/add-widgets.md).
 2. Nowa adds a variable called `text` to the screen or component and links the field's **Controller** to it. Open **Variables** to see it. The next Text Field gets the same name with a number added.
 
-The variable is a controller: it holds whatever the user has typed. To use the typed text, click the label of a property, open **LOCALS**, pick the controller and choose `text`. Give the controller a clear name, such as `email`, so your logic and validators are easy to read. See [Rename, retype or remove a variable](../../logic/variables.md#rename-retype-or-remove-a-variable).
+The variable is a controller that holds what the user typed. To use that text, click a property's label, open **LOCALS**, pick the controller and choose `text`. Rename the controller to something clear, such as `email`: the validator row uses its name too. See [Rename, retype or remove a variable](../../logic/variables.md#rename-retype-or-remove-a-variable).
 
 :::note
 Removing a Text Field removes its controller variable too. If your logic used that variable, fix those steps afterwards.
@@ -24,7 +24,7 @@ Select the field. These settings in **Details** matter most:
 
 | Setting | What it does |
 |---|---|
-| **Decoration** | The look of the box: **Hint Text**, **Label Text**, **Prefix Icon**, **Border** (**None**, **Outlined** or **Underlined**), **Filled** with **Fill Color**, **Error Text** and more. |
+| **Decoration** | The look of the box. Hover the row and click **+** to add it, then set **Hint Text**, **Label Text**, **Prefix Icon**, **Border** (**None**, **Outlined** or **Underlined**), **Filled** with **Fill Color**, **Error Text** and more. |
 | **Obscure Text** | Hides what is typed. Turn it on for passwords. |
 | **Keyboard Type** | The keyboard a phone shows, such as **Email**, **Number** or **Phone**. |
 | **Min Lines**, **Max Lines** | How many lines of text the box shows. Raise **Max Lines** for a multi-line box. |
@@ -38,7 +38,7 @@ Validators check the text and show a message under the field when it isn't right
 
 1. Select the Text Field. In **Details**, hover the validator row. It is named after the controller, such as **text validator**.
 2. Click **+**. A **Required** rule appears with a **Message**, which starts as "Field is required".
-3. Click **+ Add validator** and choose another rule. Each rule can be added once.
+3. Click **+ Add validator** and choose a rule, for example **Min length validator**. Each rule can be added once.
 4. Change each rule's **Message**, and its **Min**, **max** or **Regex** setting.
 
 | Rule | The message shows when | Starts as |
@@ -50,7 +50,7 @@ Validators check the text and show a message under the field when it isn't right
 | **Phone** | The text isn't a valid phone number. | "Invalid phone" |
 | **Regex** | The text doesn't match your **Regex** pattern. | "Invalid input" |
 
-Nowa checks the rules from top to bottom and shows the message of the first one that fails. To remove a rule, hover its title and click the remove button. To remove them all, click the remove button on the validator row.
+Nowa checks the rules from top to bottom and shows the message of the first one that fails. To remove a rule, hover its title and click the remove button. **Required** has none: click the remove button on the validator row to remove all the rules.
 
 {/* CAPTURE: id=reference-forms-1 | state: playground starter open, a Text Field added to the home screen and selected, the validator row's + clicked, then + Add validator → Min length validator chosen | show: Details for the Text Field with Controller showing text, Decoration, the text validator row with the Required Message and the Min length rule, and the + Add validator button | crop: right-hand Details panel */}
 
@@ -63,9 +63,11 @@ A **Form** groups fields so one step can check all of them.
 1. Select the group that holds your fields. Click a field, then its parent in the breadcrumbs at the top of **Details**.
 2. In **Details**, click **Add Wrapper**, search for `Form` and press <kbd>Enter</kbd>. See [Wrappers](../wrappers.md#form).
 3. Nowa adds a variable called `formKey`. The **Form** section of **Details** now lists a validator row for every Text Field, Dropdown menu and Pin Code Field inside it, so you can set all the rules in one place.
-4. Select your submit button and open its **On Pressed** event in [Circuit](../../logic/circuit.md).
-5. Add an **If** node. Click its **Condition** label, open **LOCALS**, pick `formKey`, then choose `currentState` and `validate`.
-6. Put what should happen when everything is valid in the **True** branch.
+4. Select your submit button.
+5. In **Details**, click the button next to **On Pressed**. [Circuit](../../logic/circuit.md) opens.
+6. Hover the dot under the orange node, click the **+** that appears and choose **Add If statement**.
+7. In **Details**, click the **Condition** label, open **LOCALS**, pick `formKey`, then choose `currentState` and `validate`.
+8. Click the dot in the **True** branch and add what should happen when every field passes.
 
 `validate` returns true when every field passes. Fields that fail show their messages. Press **Play**, leave a field empty and tap the button to see them.
 

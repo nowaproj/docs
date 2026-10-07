@@ -9,8 +9,8 @@ Let people sign in to your app with their Google account. This page stores your 
 
 ## Before you start
 
-- OAuth 2.0 client IDs from the Google Cloud console ([Credentials](https://console.cloud.google.com/apis/credentials)): one for **iOS** and one for **Web**. Supabase's [Login with Google guide](https://supabase.com/docs/guides/auth/social-login/auth-google) walks through the clients to create, including the Android one.
-- A backend that accepts Google sign-in. With Supabase, connect it first ([Connect Supabase](./supabase/connect.md)) and turn on Google as a sign-in provider there.
+- OAuth 2.0 client IDs from the Google Cloud console ([Credentials](https://console.cloud.google.com/apis/credentials)): one for **iOS** and one for **Web**. Supabase's [Login with Google guide](https://supabase.com/docs/guides/auth/social-login/auth-google) walks through creating them.
+- A backend that accepts Google sign-in. With Supabase, connect it first ([Connect Supabase](./supabase/connect.md)) and turn on Google as a sign-in provider in your Supabase project.
 
 ## Add your client IDs
 
@@ -21,7 +21,7 @@ Let people sign in to your app with their Google account. This page stores your 
 | Field | Used for | What Nowa does with it |
 |---|---|---|
 | **iOS Client ID** | Required for Google sign-in without Firebase. | Writes it to the iOS `Info.plist` as `GIDClientID` and adds the reversed ID as an iOS URL scheme. |
-| **Web Client ID** | Also used as the server client ID on Android. | Saves it as the constant `AppConstants.webClientId` for your sign-in code, and lists it under **Constants**. It is not written to any platform file. |
+| **Web Client ID** | Also used as the server client ID on Android. | Saves it as the constant `AppConstants.webClientId` and lists it under **Constants**. It is not written to any platform file, and Nowa does not pass it to Google for you: your sign-in code reads it. |
 
 ## Build the sign-in flow
 
@@ -33,11 +33,13 @@ Try: "Add a Continue with Google button to the Login screen that signs the user 
 
 ## When Firebase manages Google sign-in
 
-If your project is connected to Firebase and Google sign-in is set up there, this page shows **Managed by Firebase** ("Google Sign-In is configured through Firebase Authentication. To modify settings, go to Firebase settings.") and an **Open Firebase Settings** button. The fields are hidden. Change the setup in the Firebase settings instead.
+If your project is connected to Firebase and Nowa has saved a Google client ID from it, this page shows **Managed by Firebase** ("Google Sign-In is configured through Firebase Authentication. To modify settings, go to Firebase settings.") and an **Open Firebase Settings** button. The **Enabled** switch and the fields are hidden. Change the setup in the Firebase settings instead.
+
+Nowa saves that client ID when it sets Firebase up for your project and your Firebase project has Google sign-in turned on, for example when you connect Firebase or add the **Google** provider in Firebase Authentication.
 
 ## Turn Google Sign-In off
 
-Turn **Enabled** off to remove the package and the iOS entries Nowa added.
+Turn **Enabled** off to remove the package and the iOS entries Nowa added. The **Web Client ID** value stays in **Constants**.
 
 ## Next steps
 

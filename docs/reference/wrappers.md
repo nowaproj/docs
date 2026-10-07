@@ -13,7 +13,7 @@ A wrapper is a widget that goes around another widget to add one thing: space, a
 3. Type to filter the list, then click a wrapper or press <kbd>Enter</kbd>.
 4. Set up the wrapper in its own section, below the widget's own settings.
 
-**Add Wrapper** shows only when exactly one widget is selected. Position and size aren't in this list: use **Layout** in **Details**, as described in [Lay out widgets](../design/layout.md). The rest of **Details** is covered in [Change widget properties](../design/properties.md).
+**Add Wrapper** shows only when exactly one widget is selected. Width, height and position inside a Stack aren't in this list: set them under **Layout** in **Details**, as described in [Lay out widgets](../design/layout.md). The rest of **Details** is covered in [Change widget properties](../design/properties.md).
 
 ## Reorder wrappers
 
@@ -95,7 +95,7 @@ The names are the ones the **Add Wrapper** list shows. They are grouped here by 
 | Wrapper | What it does |
 |---|---|
 | <a id="form"></a>**Form** | Groups form fields so you can check them together. Nowa creates a `formKey` variable for it. See [Text fields and forms](./widgets/forms.md). |
-| <a id="screen"></a>**Screen** | Wraps the widget in a screen frame, with slots for an app bar, a drawer, a floating button and a bottom navigation bar. |
+| <a id="screen"></a>**Screen** | Wraps the widget in a screen frame, with slots for **App Bar**, **Drawer**, **Floating Action Button** and **Bottom Navigation Bar**. |
 | <a id="drawer"></a>**Drawer** | Wraps the widget in a Drawer, the side menu that slides in over a screen. Like the [Drawer widget](./widgets/index.md#drawer). |
 
 :::tip Or ask Nowa AI

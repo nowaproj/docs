@@ -1,16 +1,32 @@
 # Documentation coverage audit
 
-Status: IN PROGRESS (written incrementally; sections are filled one research file at a time, `(pending)` = not audited yet).
+Status: COMPLETE. All 9 research files audited, one row per `## Summary` bullet (358 rows, plus 77 supplementary
+widget and wrapper rows).
+
+Result: 348 covered, 5 partial, 3 missing, 2 left out. No P1 gap: every shipped feature named in the nine Summaries is
+explained in the docs or listed in `left-out.md`. One P2 gap (managing requests and collections in the **Api** panel);
+the rest are P3 one-liners. See "Gaps to fix".
 
 Method: every bullet of the `## Summary` of each `_rewrite/research/features-*.md` was checked against the pages under
 `/home/user/docs/docs/` (excluding `new/` and `legacy/`): grep for its UI label(s), then read the hit to confirm the
-feature is explained, not just mentioned. No docs page was edited.
+feature is explained, not just mentioned. For the last three files (data, ai, code-ship) every docs page of the area
+was read in full, and every bold UI label and every quoted label of the research "Features" sections was also searched
+in the docs (a script, results read by hand): what was not found is transient or trivial text (dialog titles,
+empty-state lines, validation messages) except the items in "Gaps to fix". No docs page was edited.
+
+Snapshot: the working tree of 2026-10-07. The verification pass was still editing a few pages while this ran
+(`google-maps.md`, `google-sign-in.md`, `reference/widgets/forms.md`, `reference/wrappers.md` showed uncommitted edits);
+none of those edits changes a status here, and every gap below was re-checked as still open at the end of the run.
 
 Statuses: `covered` (explained, the reader can use it), `partial` (mentioned, but something the reader needs is
 missing, named in the Note), `missing` (not in the docs and not in `left-out.md`), `left out` (listed in `left-out.md`).
+A `covered` row may still carry a "Minor" note for a detail that is not worth a ticket on its own.
 
-The task said "10 files" but only 9 `features-*.md` files exist (account-projects, editor-shell, designer-core, widgets,
-theme-assets, logic, data, ai, code-ship). All 9 were audited.
+Priorities in "Gaps to fix": **P1** a shipped feature the reader needs is not explained anywhere; **P2** the reader can
+do the task but has to guess or hunt for the way; **P3** a small detail, a one-line absence statement or a consistency fix.
+
+Nine `features-*.md` files exist (account-projects, editor-shell, designer-core, widgets, theme-assets, logic, data, ai,
+code-ship); an earlier instruction mentioned ten, there is no tenth. All nine were audited.
 
 ## Totals
 
@@ -24,17 +40,45 @@ Summary bullets of the 9 research files (one row each). `left out` = listed in `
 | features-widgets | 11 | 11 | 0 | 0 | 0 |
 | features-theme-assets | 29 | 29 | 0 | 0 | 0 |
 | features-logic | 49 | 49 | 0 | 0 | 0 |
-| features-data | (pending) | | | | |
-| features-ai | (pending) | | | | |
-| features-code-ship | (pending) | | | | |
-| **Total** | **234** | **229** | **2** | **2** | **1** |
+| features-data | 43 | 41 | 1 | 1 | 0 |
+| features-ai | 34 | 32 | 1 | 0 | 1 |
+| features-code-ship | 47 | 46 | 1 | 0 | 0 |
+| **Total** | **358** | **348** | **5** | **3** | **2** |
+
+Per status: covered 348 (97.2%), partial 5, missing 3, left out 2. The 3 `missing` rows are one-line absence statements
+("Nowa has no X"), not features. The 5 `partial` rows are the **Api** panel (data), **Bottom panel** and **Resizing and
+collapsing panels** (editor-shell), **AI usage and credits** (ai) and **Code editor** (code-ship).
 
 Supplementary checks (not in the totals above): features-widgets: 77 covered.
 
 
 ## Gaps to fix
 
-_(filled at the end)_
+Ordered by priority, then by how many readers hit it. "Rows" names the table rows that raised it. No P1 gap.
+
+| # | Pri | Page that should cover it | What to add | Rows |
+|---|---|---|---|---|
+| G1 | P2 | `docs/integrations/rest-api/index.md` (under "Add a request") | Two lines on managing items in the **Api** panel: right-click a request for **Rename** or **Remove**; right-click a collection for **Remove** (Nowa shows the references dialog first); and the panel's search box, which filters requests by name or endpoint. | data: **Api** panel (partial) |
+| G2 | P3 | `docs/get-started/editor-tour.md` | A short "Resize and close panels" paragraph: the API and Supabase test views and the Git commit details open in a docked bottom panel; drag a divider to resize the bottom panel and the side panel; close the bottom panel with X; **Action History** is a floating panel you can move; **Enter Fullscreen** becomes **Exit Fullscreen**. | editor-shell: **Bottom panel** (partial), **Resizing and collapsing panels** (partial) |
+| G3 | P3 | `docs/code/code-mode.md` (section "Edit code") | Three lines on the details panel of a text tab opened outside code mode (**Show file content**): **Font size**, **Word wrap** and the **Compile** / **Compiled** button. | code-ship: **Code editor** (partial) |
+| G4 | P3 | `docs/integrations/index.md`, and one line in `docs/logic/actions.md#save-values-on-the-device` | A short "What Nowa doesn't include" note: no secure (encrypted) storage integration, no OneSignal or analytics integration, no in-app purchase other than RevenueCat, no Sign in with Apple for the user's app (all "not found in code" in the research). On the Shared Preferences section, one line that Nowa has no secure-storage option. | data: absence statement (missing), **Shared Preferences** (minor) |
+| G5 | P3 | `docs/account/workspaces.md` | One sentence on what 3.12.5 does not have: comments, real-time co-editing, duplicating a project. The research line also says "transfer", but **Move to workspace...** exists, so settle what was meant before writing it. | account-projects: absence statement (missing) |
+| G6 | P3 | `docs/account/account-settings.md` (or `docs/get-started/editor-tour.md`) | One line: the editor has a single dark look; there is no light/dark switch and no interface-language setting. | account-projects: **Theme (dark only)** (missing) |
+| G7 | P3 | `_rewrite/left-out.md` (or `docs/account/plans-and-usage.md#usage`) | Record the Free Weekend **FREE** pill and the **FREE** badges on the thinking levels as a time-limited promotion, like "Claim your Nowa Launch Benefits". Only What's New mentions the event. | ai: AI usage and credits (partial) |
+| G8 | P3 | `docs/get-started/editor-tour.md` (the Save button item) | List the **Save every** choices and the leave-project dialog (**Cancel** / **Close** / **Save and close**). | editor-shell: **Save options** (covered, minor) |
+| G9 | P3 | `docs/integrations/rest-api/index.md` | Name the JSON editor's ⋮ menu (**Wrap**, **Compress**, **Prettify**), the form-data value types and the **Upload File** picker for a file body. Keep **DOWNLOAD** out: it has no save path (`product-issues.md` P35). | data: **New Request**, **Test** (covered, minor) |
+| G10 | P3 | `docs/integrations/firebase/connect.md` ("What Nowa adds to your project") | Say that adding `cloud_firestore` raises the iOS minimum version to 15.0, as the Google Maps and RevenueCat pages already say for 14.0 (`firebase_package_config.dart:44`, applied by `package_config_service.dart:133`). The W16 writer dropped it as an internal detail. | data: **Firebase** connect (covered, consistency) |
+| G11 | P3 | `docs/code/custom-code.md` ("Control what the board shows for a function") | Name `@CustomWidget`, the widget counterpart of `@CustomFunction` (same `preview` and `imports` arguments, `packages/nowa_runtime/lib/src/annotations.dart`). | code-ship: **Your own code on the board** (covered, minor) |
+| G12 | P3 | `docs/test/share.md#what-people-see-in-a-preview` | Name the **Custom** tab's **Safe areas** fields and the "Unattached global states" / **Attach all** warning card of the device preview. | designer-core: **Device preview** (covered, minor) |
+| G13 | P3 | `docs/account/projects.md` | Decide about the direct prompt link `/prompt-to-app?prompt=...&mode=...&tier=...`: one sentence, or an entry in `left-out.md`. Niche. | account-projects: **What do you want to build?** (covered, minor) |
+| G14 | P3 | `_rewrite/left-out.md` or `docs/account/project-settings.md` (**New UX** row) | Reconcile: `left-out.md` lists the New UX **Debug** side panel as left out, but the **New UX** row of the Experimental flags table names "a **Debug** panel". Either note "named once in project-settings.md" in the `left-out.md` row or drop the clause from the docs row. | editor-shell: **New UX** layout (left out) |
+
+Trivial omissions kept in the row notes only (no ticket): the **Log out** link on **Confirm your email**, the logout
+entries on the verify and upgrade pages, the one-line upgrade-offer dialog, **Open Code Editor** in the code-mode tab menu.
+
+Left-out decisions this audit confirms (nothing to fix): none of the Max Mode agent, the New UX bottom AI toolbar
+(**Press / to chat...**), the Files grid view, the Marketplace view, **Libraries** / **Trace** / **ManualTool**, the
+`bash` tool or the debug-only Files menu items appears anywhere in the docs. **Press / to chat...** is counted as `left out`.
 
 ## Tables
 
@@ -397,12 +441,139 @@ Each wrapper has a row and a stable `#anchor` in `docs/reference/wrappers.md`, g
 
 ### features-data
 
-_(pending)_
+| Feature | Status | Page(s) | Note |
+|---|---|---|---|
+| **Api** panel → **Collections** (search, **Add Collection** menu, ▶ **Run Query**) | partial | `docs/integrations/rest-api/index.md`, `docs/get-started/editor-tour.md` | **Add Collection** menu, hover gear and **+**, ▶ **Run Query** are explained. Not said: the panel's search box (filters requests by name or endpoint) and how to **Rename** or **Remove** a request or a collection (right-click; **Remove** shows the references dialog first). P2: two lines under "Add a request". |
+| **New Collection** (**Create New Collection**) | covered | `docs/integrations/rest-api/index.md#create-a-collection`, `docs/code/files.md` | **Class name** / **Path**, **Submit**, `lib/api/<name>.api.dart`, **API Collection...** in the Files menu. |
+| **Collection settings** (**Name**, **Base URL**, **Auth Key**, **Headers**) | covered | `docs/integrations/rest-api/index.md#set-the-base-url-headers-and-sign-in` | Bearer token from Shared Preferences with the matching **set** step, "ships inside your app" warning. |
+| **New Request** (**Create New Request**; method, URL, **Headers** / **Body**, **Params**, **Model**) | covered | `docs/integrations/rest-api/index.md#add-a-request` | All five body types, `$` / `${param}` in the address, **Pass Parameters in Body**. Minor (P3): the **DOWNLOAD** method (untested, open question in the research), the JSON editor's ⋮ menu (**Wrap**, **Compress**, **Prettify**) and the form-data value types are not named. |
+| **Test** / **Run Test** (**Testing values**, **Auth token value**, **Json** / **Object**) | covered | `docs/integrations/rest-api/index.md#test-a-request`, `docs/troubleshooting/known-issues.md#api-requests-blocked-in-the-browser` | **Back to Request**, ▶ **Run Query**, status header, response **Headers**. Minor (P3): the **Upload File** picker for a file body is not mentioned. |
+| **Generate Model** / **Generate from Schema** / **Select Model** / **Return as Response Object** | covered | `docs/integrations/rest-api/index.md#turn-the-response-into-a-model` | Wizard steps (**Content**, **Select Data**, **Generated Models**), default path `lib/models`, hidden after a failed test. |
+| **Import from curl** | covered | `docs/integrations/rest-api/import.md#add-one-request-from-a-curl-command` | **Function Name**, **cURL Command**, base-URL rule, **Invalid curl**. |
+| **Import From** (**Import from Swagger** / **Postman** / **Xano**) | covered | `docs/integrations/rest-api/import.md` | URL, paste or file; Xano instance, workspace and API group steps; error table; "always creates a new collection". |
+| **Supabase** panel → **Connect** (authorize, pick or **Create New Project**) | covered | `docs/integrations/supabase/connect.md#connect-with-your-supabase-account` | **Waiting for Authorization...**, **Change organization**, **Unavailable**, form fields with the default region and the 4-character password rule, error table. |
+| **Use Keys** | covered | `docs/integrations/supabase/connect.md#connect-with-keys` | **API Url**, **Key**, "publishable or secret key not supported", comparison table with **Connect**. |
+| **Supabase** panel (connected): sections, badges, ⋮ menu | covered | `docs/integrations/supabase/connect.md#find-your-way-around-the-panel` | Section table, every badge, **Rename** / **Remove**, one row per ⋮ item. |
+| **Tables** | covered | `docs/integrations/supabase/connect.md#see-your-tables` | Read-only, refresh behaviour, "no table editor". |
+| **Query Templates** ("CRUD operations") | covered | `docs/integrations/supabase/database.md#add-a-query-from-a-template` | Five templates, **Fetch Tables**, model step, generated function names, "no filter, sort or page". |
+| **Storage Templates** ("File operations") | covered | `docs/integrations/supabase/storage.md` | Three fixed functions, test steps, `showMediaPicker` upload flow and image download flow. |
+| **Testing <function>** (**Testing values**, **Run**, RLS help, file preview, **Streaming**) | covered | `docs/integrations/supabase/database.md#test-a-function`, `docs/integrations/supabase/storage.md` | Result table with **RLS Policy Error**, **Empty Result - Possible RLS Filtering**, **Download image**, **Save File to Disk**; "tests change real data" warning. |
+| **Edit Code** (**Query Source Code**) | covered | `docs/integrations/supabase/database.md#edit-code` | **Save** / **Discard**, **Test Function**, "Could not parse function name". |
+| **Authentication** (Supabase panel; **Testing as:**) | covered | `docs/integrations/supabase/auth.md` | `signUp` / `signIn` / `signOut`, **Testing as:**, full login-screen walkthrough in Circuit. |
+| Stream (realtime) queries (**Stream** badge) | covered | `docs/integrations/supabase/database.md#live-queries` | Realtime must be on in Supabase, example function, "no template creates one". |
+| **Pull Backend Files** | covered | `docs/integrations/supabase/backend.md#save-your-backend-into-the-project` | Dialog steps, written paths, "Pull failed" message, what is not copied. |
+| **Set up Backend** / **Set up Supabase backend** (**Connect app with AI**, **Fix with AI**) | covered | `docs/integrations/supabase/backend.md#set-up-a-backend-that-came-with-a-project` | Skip / Set up, **Backend ready**, **Setup stopped**, "already set up" message, **Use Keys** caveat. |
+| **Disconnect** (Supabase) | covered | `docs/integrations/supabase/backend.md#disconnect-supabase` | Confirmation text, what is deleted and what stays. |
+| Supabase MCP (**Enable MCP** / **Manage MCP**) | covered | `docs/ai/connectors.md`, `docs/integrations/supabase/backend.md#nowa-ai`, `docs/integrations/supabase/connect.md` | **OAuth Authentication Required**, **Switch project…**, **Turn off MCP**. |
+| **Firebase** (Settings → Integrations): **Continue with Google**, project, **Connect Apps** | covered | `docs/integrations/firebase/connect.md` | App-matching rules, "will be automatically created" lines, error banners, files added. |
+| **Refresh/Update apps and config files** | covered | `docs/integrations/firebase/connect.md#refresh-the-apps-and-config-files` | Includes the package-name mismatch problem and **Navigate**. |
+| **Authentication** (Firebase; **Email/Password**, **Google**, **Phone**) | covered | `docs/integrations/firebase/auth.md` | Functions table, preview dialogs in Instant Play, **Enable on Firebase.**, the known `google_sign_in` version note. |
+| **SHA Certificate Fingerprints (For Google Sign in)** | covered | `docs/integrations/firebase/auth.md#sha-fingerprints` | **Release key** **Add**, `keytool` debug key, 59-character rule. |
+| **Push Notifications (FCM)** / **Test Push Notifications** | covered | `docs/integrations/firebase/notifications.md` | Xcode step, **All Users** / **Topic**, **Deliver with sound**, four error messages, "Nowa disconnects Firebase on expired sign-in" warning. |
+| **Disconnect Project** (Firebase; **Keep Files** / **Clear All Files**) | covered | `docs/integrations/firebase/connect.md#disconnect-firebase` | |
+| Firestore **Collections** | covered | `docs/integrations/firebase/firestore.md#define-your-collections` | **Add Main Collection**, **+ Field**, sub collections, **Remove**. |
+| Firestore **Queries** (builder, **Test**) | covered | `docs/integrations/firebase/firestore.md#build-a-query`, `#test-a-query`, `docs/troubleshooting/known-issues.md#firebase-on-windows` | Step table, status icon, **Create New Param**, **Run Test** / **Restart**, Windows limit. |
+| Firebase Storage / Realtime Database (no UI) | covered | `docs/integrations/firebase/connect.md#the-connected-page` | One sentence: "have no visual tools in Nowa". |
+| **Data Builder** (wrapper and widget) | covered | `docs/integrations/show-data.md`, `docs/reference/widgets/index.md`, `docs/reference/wrappers.md` | **Source**, **API** / **Query** pickers, `data`, **Loading Widget**, **Error Builder**, placeholders on the board. |
+| **Constants** (integration keys + **Custom Constants**) | covered | `docs/integrations/constants.md`, `docs/account/project-settings.md` | Save with Enter, naming rule, **Remove**, "not secret" warning. |
+| **Shared Preferences** actions (**clear**, **remove key**, **set**, **get**; Project Details → **Clear**) | covered | `docs/logic/actions.md#save-values-on-the-device`, `docs/account/project-settings.md` | Not said (P3, see the last row): the values are plain, not encrypted storage. |
+| **Stripe** | covered | `docs/integrations/stripe.md` | Keys, purchase types, secret key and webhook, wallets, table mapping, **Deploy Configuration**, service methods, fixes, removal. Includes the **Use Keys** caveat. |
+| **RevenueCat** + **RevenueCat Paywall** | covered | `docs/integrations/revenuecat.md` | Three keys, generated service, paywall placeholder, run on a device. |
+| **AdMob** + **Admob Banner** + `loadAndShowInterstitialAd` | covered | `docs/integrations/admob.md` | App IDs, unit IDs, **Show Test Ads**, what shows where, before-publish list. |
+| **Google Maps** | covered | `docs/integrations/google-maps.md` | Three keys and where each is written, placeholder on the board, location permissions note. |
+| **Google Sign-In** (**Managed by Firebase**) | covered | `docs/integrations/google-sign-in.md` | Both IDs, **Managed by Firebase** with **Open Firebase Settings**. |
+| **Deep Links** (**URL Scheme**, **Host**) | covered | `docs/integrations/deep-links.md` | Includes "no iOS Universal Links" and the `open.my.app` host. |
+| **Add Missing Dependencies** | covered | `docs/design/add-widgets.md#add-a-widget-that-needs-a-package`, `docs/integrations/index.md`, `docs/code/packages.md` | |
+| Geolocator (no settings page, location permissions) | covered | `docs/code/packages.md` | One sentence about packages that need phone permissions, naming `geolocator`. |
+| Not found in code: secure storage, OneSignal, analytics SDKs, other in-app purchase, Sign in with Apple for user apps | missing | none | Absence statement. Nothing says Nowa has no encrypted storage (Shared Preferences is plain), no OneSignal or analytics integration and no Sign in with Apple for the user's app. One short "What Nowa doesn't include" note in `docs/integrations/index.md` would answer these (P3). |
 
 ### features-ai
 
-_(pending)_
+| Feature | Status | Page(s) | Note |
+|---|---|---|---|
+| **AI Assistant** panel | covered | `docs/ai/index.md#open-the-ai-assistant`, `docs/get-started/editor-tour.md` | **Assistant** icon, Ctrl/Cmd + 1, open by default, header (**+**, **⋮**), playground sign-in note, auto-save after a request. |
+| **Switch mode** (Design / Plan / Agent) | covered | `docs/ai/modes.md` | Menu texts, chat-field hints, remembered per project, new projects start in Design, **Start here** badge. |
+| **Instant / Thinking / Deep Thinking** | covered | `docs/ai/modes.md#set-the-thinking-level`, `docs/ai/index.md` | Default **Thinking**, hidden in Plan, the old "Think Mode" toggle is gone. The **FREE** badge on the levels is not mentioned (see the usage row). |
+| **Send** / **Abort** | covered | `docs/ai/chat.md#send-a-message`, `#stop-a-request` | Enter vs Shift/Ctrl/Cmd + Enter, **Cancelling...**, when **Send** is disabled, changes stay after a stop. |
+| **Add context** (**Attach image**, **Attach text file**, **FROM YOUR APP**; selection attached automatically) | covered | `docs/ai/context.md` | Check / lock / **included** markers, paste and drag, 5-image limit, what every request carries, "what to attach when" table. |
+| **@ mentions** | covered | `docs/ai/context.md` (Mention a screen with @) | Keys, clickable mention in a sent message. |
+| **Suggestions** (empty chat) | covered | `docs/ai/chat.md#start-from-a-suggestion` | Six chips, a chip never sends, Design shows none. |
+| **Thinking process** and tool activity | covered | `docs/ai/chat.md#read-the-conversation` | Step icons and their four tooltips, code cards, **Open in New Tab**. |
+| **Questions** (**Send Answers**) | covered | `docs/ai/modes.md#plan-mode`, `docs/ai/prompting.md` | **Other...**, **(Recommended)**. Shown in Plan steps only; `docs/ai/index.md` says the agent "asks you questions" in general. |
+| **Implementation Plan** (**Implement this plan**, **Keep planning**) | covered | `docs/ai/modes.md#plan-mode` | **Key Decisions**, **Technical details**, latest plan only. |
+| **Tasks** | covered | `docs/ai/modes.md#agent-mode`, `docs/ai/index.md` | Progress bar; nothing to operate. |
+| **Your app design is complete** / **Make it real** | covered | `docs/ai/modes.md#design-mode` | Feature chips, **Switched to Agent mode**. |
+| **Suggested next steps** | covered | `docs/ai/chat.md#pick-a-suggested-next-step` | Mode badge, **Dismiss**, never sent by itself. |
+| **Created Widgets** / **Constants updated** | covered | `docs/ai/chat.md#use-what-the-agent-created`, `docs/integrations/constants.md` | Auto-placement of new screens, **Open Constants**. |
+| **What the agent can do** | covered | `docs/ai/index.md#what-nowa-ai-can-do` | Table by area; the **load packages** flag; Design and Plan use only part of it. |
+| **Restore Checkpoint** / **Reapply Checkpoint** | covered | `docs/ai/undo-and-history.md` | **Undo Last Request?** dialog, chain warning, what is not recorded, `.nowa/temp/`, not in the playground. |
+| **Approval Required** | covered | `docs/ai/connectors.md#approve-what-a-connector-does` | **Approve** / **Deny**, **Auto-approve tools** and its project-wide scope with a warning. |
+| **New Session**, long-session note, **Session Limit Reached** | covered | `docs/ai/undo-and-history.md#start-a-new-session` | |
+| **Chat History** (**All Sessions**) | covered | `docs/ai/undo-and-history.md#reopen-a-past-chat` | **Load More** 25 at a time, **New Chat** label. |
+| **Custom Instructions** | covered | `docs/ai/prompting.md#custom-instructions` | 5,000 characters, per project, `.nowa/assistant_instructions.md`, shared with an external agent. |
+| **Retry**, **Service under load** and other chat errors | covered | `docs/ai/chat.md#recover-from-errors` | |
+| **Bug report ready** / **Report** | covered | `docs/ai/chat.md#send-a-bug-report` | Nothing is sent until the form is submitted. |
+| AI usage and credits in the chat (**% used**, **Session Details**, out-of-credits banner, **FREE** pill) | partial | `docs/ai/index.md#usage-and-credits`, `docs/account/plans-and-usage.md#usage`, `#out-of-credits` | The ring, "100% used" states, token counters, **Session Details** (**Credits Used**, **Global Usage**), the "You ran out of credits." banner and its buttons are all explained. Missing: the **FREE** pill during a Free Weekend (only What's New mentions the event) and it is not in `left-out.md`. P3: add it to `left-out.md` as a time-limited promotion, like "Claim your Nowa Launch Benefits". |
+| **Supabase MCP** (**Enable MCP** / **Manage MCP**) | covered | `docs/ai/connectors.md#connect-supabase`, `docs/integrations/supabase/backend.md#nowa-ai` | **OAuth Authentication Required**, menu table, "switches off when you reopen the project", Agent mode only. |
+| **Figma MCP** | covered | `docs/ai/connectors.md#connect-figma`, `docs/account/account-settings.md#connect-figma` | **Waiting for Authorization...**, 2-minute timeout, **Connected Accounts**, theme file names. |
+| **Connect External Agent** | covered | `docs/ai/external-agent.md` | Badges **Enterprise** and **Desktop app**, command and URL, port 4680 message. |
+| External agent tools | covered | `docs/ai/external-agent.md#what-your-agent-can-do` | Tool table by group, safeguards, what is not exposed. |
+| **What do you want to build?** (dashboard prompt box, **Build it**) | covered | `docs/account/projects.md`, `docs/get-started/first-app.md`, `docs/ai/index.md`, `docs/ai/prompting.md` | Mode and level chips, example prompts and refresh, "Setting things up…" loading screens. |
+| **Fix with AI** / **Explain with AI** | covered | `docs/test/run.md`, `docs/publish/web.md`, `docs/publish/builds.md`, `docs/publish/ios.md`, `docs/test/problems.md`, `docs/ai/index.md` | All four surfaces; "runs in the current mode, Plan never changes the project". |
+| **Connect app with AI** / **Fix with AI** (Supabase backend setup) | covered | `docs/integrations/supabase/backend.md`, `docs/ai/index.md` | |
+| **Press / to chat...** (New UX bottom AI toolbar) | left out | `docs/account/project-settings.md` (flag only) | `left-out.md`, designer-core: "New UX designer parts (bottom AI bar ...)". The **New UX** flag has a row in the Experimental flags table that does not mention the toolbar; consistent with the decision. |
+| AI chat in the phone browser | covered | `docs/get-started/mobile.md#chat-with-nowa-ai` | Chat pill, microphone, chips (mode, level → **Model**, **Attach**, **Supabase**, **History**, **⋯**). Nowa GO is private beta (`left-out.md`). |
+| **View Raw Data** | covered | `docs/ai/chat.md#read-the-conversation` | Hover → **⋮**, read-only. |
+| Prompting guidance in the product | covered | `docs/ai/prompting.md` | Placeholders, dashboard ideas and examples, tour step **AI Agent**, tips, prompt shape, example table. |
 
 ### features-code-ship
 
-_(pending)_
+| Feature | Status | Page(s) | Note |
+|---|---|---|---|
+| **Code mode** (`<>` button) | covered | `docs/code/code-mode.md#open-code-mode` | `<>` next to **Settings**, **Back**, **Open code mode** / **View Code**, tabs, preview modes (**Play · App**, **Play · File**, **Run**), leave dialog (**Save** / **Discard** / **Cancel**). |
+| **Code editor** | partial | `docs/code/code-mode.md#edit-code`, `#fix-errors-and-conflicts`, `docs/code/vs-code.md` | Find / replace, autocomplete, go to definition, error banner and **Keep mine** / **Reload** are explained. Not said: the details panel of a text tab opened outside code mode (**Show file content**): **Font size**, **Word wrap** and the **Compile** / **Compiled** button. Only its **Open in VS Code** button is named. P3. |
+| **Code and design sync** | covered | `docs/code/index.md#how-code-and-design-stay-in-sync`, `docs/code/code-mode.md#save-your-edits` | `@NowaGenerated`, what Nowa rewrites, formatter width, refused edits that would leave a syntax error. |
+| **Your own code on the board** | covered | `docs/code/limitations.md`, `docs/code/custom-code.md` | Placeholders, what Nowa skips with "try instead" table, **Kept as code**, Problems messages, **Run**. Minor (P3): the `@CustomWidget` annotation is not named, only `@CustomFunction`. |
+| **Hybrid approach** (VS Code / IDE + Nowa) | covered | `docs/code/vs-code.md` | **Open in VS Code**, **VS code Path**, what syncs and when, more than 10 changed files re-read the project. Badges Desktop app and Local projects. |
+| **Import Dart code...** | covered | `docs/code/custom-code.md#import-dart-code` | **From file**, **Import** vs **Import as Custom code**, where each kind of declaration is filed, same-name replacement warning. |
+| **Files panel** | covered | `docs/code/files.md` | Board vs code mode table, markers (`*`, problem count, Git letters), hidden items. |
+| **Add to library** / **Add board** / **Import asset** / **New Folder** | covered | `docs/code/files.md#add-files` | All seven menu items. The right-click **New Folder** / **Paste** belongs to the unreachable grid view (`left-out.md`). |
+| **Rename, move, delete files** | covered | `docs/code/files.md#rename-move-and-delete-files` | Menu table, drag rules, `lib/main.dart` protected, undo while the panel has focus. |
+| **Packages** (App Settings) | covered | `docs/code/packages.md` | Add, change version, remove, dialog errors, **Add Missing Dependencies**, `flutter pub get` in local projects. |
+| **pubspec and dependency rules** | covered | `docs/code/packages.md#how-nowa-loads-your-packages`, `#edit-pubspecyaml-yourself` | Plain pub.dev `dependencies` only, dev-dependency message, **Pub get**. |
+| **Code problems and Fix** | covered | `docs/test/problems.md` | Source menu, **Which code Nowa checks**, **Fix** table, problems without a button, **Run Code Check**. |
+| **Git panel** | covered | `docs/code/git.md#open-the-git-panel` | Badge, branch name in the status bar, **Create Git Repository...**, plan gate, not in the playground. |
+| **Commit** | covered | `docs/code/git.md#commit-your-changes` | **Commit All** / **Commit Staged**, staging, **Create Commit** dialog, **Add Files...**, identity. |
+| **Discard changes** | covered | `docs/code/git.md#review-or-discard-changes` | "You can't undo it" warning. |
+| **Diff view** | covered | `docs/code/git.md#review-or-discard-changes` | **Previous change** / **Next change**, **Staged** / **Unstaged** badge. |
+| **Sync**, **Push**, **Pull**, **Publish Branch** | covered | `docs/code/git.md#sync-with-github` | ↑ / ↓ counts, no-remote behaviour, five-minute check, credential errors. |
+| **Branches** | covered | `docs/code/git.md#work-with-branches` | Switch with **Bring my changes**, **New Branch**, remote branch, merge, delete. |
+| **Resolve Conflicts** | covered | `docs/code/git.md#resolve-conflicts` | **Accept Local** / **Accept Remote** per file, **Conflicts** section, swapped panes in local projects. |
+| **Commit History** | covered | `docs/code/git.md#browse-and-undo-history` | **Copy SHA**, **Undo Commit**, **Revert Commit** and their limits. |
+| **Manage Remotes** | covered | `docs/code/github.md#connect-a-repository` | **Create GitHub Repository**, **Private**, **Add Existing Repository**, **Disconnect**, **Grant Permission**. |
+| **GitHub Integration** (**Connect GitHub**) | covered | `docs/code/github.md#connect-github` | **Waiting for Authorization...**, two-minute timeout, **Manage**, plan gate. |
+| **Identity** (**Set Identity**) | covered | `docs/code/github.md#set-your-git-identity` | |
+| **Legacy Remote Credentials** / **External Local Credentials** / SSH | covered | `docs/code/github.md#legacy-remote-credentials`, `#local-credentials-and-ssh` | Desktop app badge, ssh-agent and default keys, fix table. |
+| **Clone from GitHub** | covered | `docs/code/import.md#clone-from-github` | **Search repositories**, **Local-only**, **Fix** buttons, plan gate. |
+| **Run** button and **Run on** menu | covered | `docs/test/run.md#choose-where-to-run`, `docs/test/devices.md` | Status dot, **Hide**, Ctrl/Cmd + P, web app shows **iOS & Android devices**. |
+| Embedded preview (Nowa Run / App Run) | covered | `docs/test/run.md` | Toolbar table, QR code, localhost, error-screen table, "Restart failed" card, Flutter SDK message. |
+| **Add web support** | covered | `docs/test/run.md#fix-a-preview-that-wont-start` | Also the **Nothing to run** case and the failure message. |
+| Instant Play vs Run | covered | `docs/test/index.md`, `docs/test/instant-play.md`, `docs/code/limitations.md` | Comparison table. |
+| Run on devices and emulators | covered | `docs/test/devices.md` | Desktop app badge, **DEVICES**, **START AN EMULATOR**, hot restart, Xcode link. |
+| Local cache | covered | `docs/test/devices.md#run-a-cloud-project-on-a-device` | Three actions, 14-day cleanup. |
+| **Local Setup** / **Set up local environment** | covered | `docs/get-started/desktop-app.md#setting-up-flutter-sdk` | **Set up automatically** steps, **Flutter SDK Path**, **Default Projects Path**, **VS code Path**, Xcode on macOS. |
+| **Console** (**Problems** / **Logs**) | covered | `docs/test/run.md#read-the-logs`, `docs/test/problems.md` | **Pub get**, **Clear**, move and resize. |
+| **Deploy** button and menu | covered | `docs/publish/index.md#start-a-deployment` | Rows and statuses, **Set up**, **Premium**, **Advanced build settings**. The "Claim your Nowa Launch Benefits" row is in `left-out.md`. |
+| **Deployment** settings page | covered | `docs/publish/index.md`, `docs/account/project-settings.md`, `docs/publish/builds.md` | **Android** / **iOS** / **Web** tabs, local-project message with **Sync to cloud**, plan lock with **Upgrade**. |
+| Web deployment | covered | `docs/publish/web.md` | Publish, update, **Deactivate**, **Download Files**, failure bar with **Fix with AI**, "Your Project has Problems" dialog. |
+| **Custom Domain** | covered | `docs/publish/web.md#use-your-own-domain` | **Set**, **DNS**, **Verify**, **Also www.**, plan gate. |
+| Android builds | covered | `docs/publish/android.md` | **Debug mode**, **Signing Key** (generate or upload), **SHA-1** / **SHA-256**, release build, artifacts. |
+| iOS builds | covered | `docs/publish/ios.md` | **Distribution Certificate**, **App Store Connect** credentials, **Generate anyways** warning, code-signing failure steps. |
+| Build history and build details | covered | `docs/publish/builds.md` | **Start New Build**, **Init Repository**, statuses, **Latest Build**, **Artifacts**, **Steps**, **Explain with AI**, **History**. |
+| **Project Sync** | covered | `docs/code/local-projects.md#link-a-cloud-copy-with-project-sync` | **Clone to Cloud** / **Clone to Local**, **Sync from Cloud** / **Sync from Local**, **Sync Warning**, **Unlink Project**. |
+| Code download | covered | `docs/publish/download-code.md` | **Compress Project**, plan allowance, local projects get **Open in VS Code**. |
+| **Share Preview** | covered | `docs/test/share.md#share-a-preview` | **Public** / **Private**, **Make public** confirmation, QR code, `?screen=` link, local-project message. |
+| **Public project** link | covered | `docs/test/share.md#open-your-project-to-others`, `docs/account/project-settings.md#share-your-project` | The four **Link options**, **Cover**, visitors work in a private copy. |
+| App details for store builds | covered | `docs/publish/index.md#app-details`, `docs/account/project-settings.md` | Names, **Bundle Identifier** rule, **Build version** / **Build number**, **App Icon**. |
+| **Permissions** | covered | `docs/account/project-settings.md#set-permissions` | Both lists, iOS usage text, "manifest is rewritten" warning. |
+| Mobile browser **Build** and **Run** pages | covered | `docs/get-started/mobile.md` | **Build** tabs, **Play your app** sheet, **Run real app**, **Launch App**. |

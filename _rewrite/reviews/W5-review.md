@@ -3,7 +3,7 @@
 Verifier run against `/home/user/nowa-master` (v3.12.5). Pages are appended below as each one is finished.
 Summary table at the end of the file is filled in when all seven pages are done (status: IN PROGRESS).
 
-Pages done so far: index.md, events.md, circuit.md, functions.md, expressions.md
+Pages done so far: index.md, events.md, circuit.md, functions.md, expressions.md, popups.md
 
 ## index.md (How logic works)
 
@@ -131,3 +131,27 @@ Front matter ok. No H1, sentence-case headings, one admonition, no hype words, n
 | "It must be one expression, not a statement such as `if`" | ok | `expression_builder_provider.dart:201-216` (`loadExpression`) | parse error shows in red |
 | **Visibility** wrapper: **Add Wrapper** > **Visibility**, **Visible**, **Replacement** | ok | `packages/core/lib/src/wrappers_to_add.dart:27-31`, `text_fields.dart:806-818` | |
 | **Reset to default** / **Set to null** | ok | `block_field.dart:829-831` | |
+
+## popups.md (Show dialogs, sheets, snackbars and pickers)
+
+Front matter ok. No H1, sentence-case headings (H2 and one H3), one admonition, no hype words, no emoji. About 1,030 words. Capture `logic-popups-1` well formed and requested. The slugs `#show-a-dialog` and `#pick-photos-or-videos` (linked from `reference/widgets/*`) match the headings. Links ok: `circuit.md` (+ `#future-options`, `#hot-fix`), `navigation.md`, `actions.md`, `../integrations/supabase/storage.md` (title "Store files in Supabase"), `../ai/chat.md`. No text changes were needed.
+
+| claim | verdict | code ref | note |
+|---|---|---|---|
+| Popups are steps in Circuit; **Context** is filled in | ok | `packages/core/lib/src/interpreter/block_utils.dart:214-232` (`generateRequiredBlocks`: `BuildContext` becomes `context`) | |
+| **Show snackbar** under **GLOBALS**; **Content** brush; "Hello World"; **Background Color**, **Width**, **Elevation**, **Shape**; **Show advanced options** > **Action**, **Duration**, **Padding**, **Margin**, **On Visible** | ok | `global_state_suggestions.dart:6-21,65`, `expression_details.dart:134-190`, `block_field.dart:1317-1357`, `nowa_fields.dart:484-501` | |
+| `$` inside the snackbar text | ok | `basic_fields.dart:100-115` | |
+| **MATERIAL** > `showDialog`; starts as an **AlertDialog** with title "Hello World"; brush tooltip **Edit AlertDialog** | ok | `block_utils.dart:238-250`, `packages/core/lib/src/interpreter/declaration_info/widget_info.dart:58` (`displayName` = class name), `nowa_fields.dart:466,492` | |
+| **Builder** row: **Pick Widget**, **Edit in circuit** | ok | `basic_fields.dart:448-470` | |
+| **Barrier Dismissible** (on), **Barrier Color**, **Use Safe Area** (on), **Use Root Navigator**, **Route Settings**, **Anchor Point**, **Traversal Edge Behavior** | ok | `packages/core/lib/src/interpreter/libraries/material_library_custom.dart:3149-3175` | Nowa inserts `useRootNavigator: false` (`block_utils.dart:250`). "Advanced" is the page's wording, not a UI label |
+| Dialog answer: **Actions**, **Navigator** > **Type** `pop`, **result type**, **result**; **await** + **Store result** (null when dismissed) or **onValue** | ok | `packages/code/lib/src/customizations/navigator_field.dart:57-95,150-176`, `material_library.dart` (`showDialog` returns `Future<T?>`), `future_options.dart:6-111` | not run end to end |
+| `showModalBottomSheet`: starts with centered text "Bottom Sheet Opened" and `minHeight` 400; options **Background Color**, **Is Scroll Controlled**, **Is Dismissible**, **Enable Drag**, **Show Drag Handle**, **Constraints**; returns an answer | ok | `block_utils.dart:263-275`, `material_library.dart:7166-7210` | labels are the parameter names split into words (`utils.dart:77-79`) |
+| `showBottomSheet`: persistent sheet, content in **Builder** | ok (Flutter semantics) | `material_library.dart:7211-7240` | returns `PersistentBottomSheetController`, so no **await** result; the page does not promise one |
+| `showDatePicker`: **First Date**, **Last Date**, **Initial Date** start as today; **Custom Expression...** with `DateTime(2030, 12, 31)` | ok | `block_utils.dart:252-262`, `material_library.dart:12453-12460`, `dart_core_library_custom.dart:51-130` | |
+| **.format** dropdown with `DAY`, `WEEKDAY`, `YEAR_MONTH_DAY`, `HOUR_MINUTE`; **+** after the variable; **Pick Variable** | ok | `packages/code/lib/src/customizations/date_format_field.dart:6-90`, `dart_core_library_custom.dart:178-183` | |
+| `showTimePicker`: **Initial Time** (hour, minute), `hour` / `minute`, `format`; `showDateRangePicker`: `start`, `end` | ok | `material_library.dart:70448-70458,70218-70265,12417-12460,12658-12662`, `block_utils.dart:196` (`TimeOfDay(hour: 0, minute: 0)` default) | |
+| `showMediaPicker` under **NOWA_RUNTIME**; options **Multi Selection**, **Limit**, **Media Type**, **Source Type**, **Max Duration**, **Image Quality**, **Max Width**, **Max Height**, **Preferred Camera** and their visibility rules | ok | `expression_details.dart:483-524`, `nowa_runtime_library.dart:1595-1650`, `packages/nowa_runtime/lib/src/media_picker/media_picker.dart:4-177` | defaults `image`, `camera`, `rear`, multi off confirmed; **Choose Source** sheet with **Camera**, **Gallery**, **Cancel** confirmed |
+| Result is a list, empty when nothing is picked | ok | `media_picker.dart:21-38` (`[?singleFile]`, `?? []`) | |
+| **Dependencies** / **Hot Fix** for `showMediaPicker` | ok | `function_info.dart:62-75`, `expression_dependencies.dart:8-174` | |
+| Show the first image: `first`, `readAsBytes`, **Bytes** tab | ok | `nowa_runtime_library_custom.dart:60`, `basic_fields.dart:910-925` (tabs **Network**, **Asset**, **Bytes**) | the **Bytes** tab only shows a label to link; the link is made from the label |
+| Tip: **Agent** mode | ok | `mode_selector.dart:36-66` | |

@@ -33,7 +33,7 @@ To make a screen the one your app opens first, click **Make home screen** in the
 
 These steps are for GoRouter projects. For an older project, see [Use the Navigator](#use-the-navigator).
 
-1. Open the logic that should navigate. For a button, click **+** next to **On Pressed** in **Details**: see [Respond to taps and other events](./events.md).
+1. Open the logic that should navigate. For a button, click **Edit** next to **On Pressed** in **Details**: see [Respond to taps and other events](./events.md).
 2. Hover the dot under the top node until it becomes **+**, and click it. In **All nodes for this circuit**, open **GLOBALS** and click **GoRouter**. Nowa adds a node that pushes the location `/path`.
 3. In **Details**, choose the **Type**.
 4. Replace the **Location** with your screen's path, such as `/settings`. It is plain text, so copy the path from **Route Settings** or the Router panel. To put a value in the path, type `$` and pick a variable.

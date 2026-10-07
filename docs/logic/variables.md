@@ -65,7 +65,7 @@ You can also start from the widget. Click the property's label and choose **Crea
 
 A variable only changes when your logic changes it. Here is how to set one when a button is pressed.
 
-1. Open the logic. For a button, click **+** next to **On Pressed** in **Details**. Circuit opens: see [Respond to taps and other events](./events.md).
+1. Open the logic. For a button, click **Edit** next to **On Pressed** in **Details**. Circuit opens: see [Respond to taps and other events](./events.md).
 2. Hover the dot under the top node until it becomes **+**, then click it. The **All nodes for this circuit** menu opens.
 3. Open **LOCALS** and click your variable. A node is added and selected.
 4. In **Details**, click the button named **Set** plus your variable's name (for example **Set counter**). Then set **Value**: type one, or click the label to link a variable or an expression.

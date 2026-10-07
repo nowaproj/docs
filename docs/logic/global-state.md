@@ -71,7 +71,7 @@ The **Notifier Builder** wrapper rebuilds just the widget inside it when a notif
 
 Use **AppState** to let people change the theme, for example with a dark mode button.
 
-1. Select a button and click **+** next to **On Pressed** to open Circuit.
+1. Select a button and click **Edit** next to **On Pressed** to open Circuit.
 2. Click the dot under the top node, open **GLOBALS** and click **AppState**.
 3. In **Details**, click **+** and choose `changeTheme`.
 4. For **Theme**, click **Select theme** and choose a theme under **THEMES**, such as `darkTheme`.

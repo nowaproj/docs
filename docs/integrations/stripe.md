@@ -61,7 +61,7 @@ Cards work without extra setup. To add wallets, use **2. Payment Methods**. Both
 Skip this section if you only chose **Subscription**.
 
 1. Under **3. Business Table** ("Select the table containing your orders or transactions"), open **Table** and pick the table that holds your items. If you see "No tables found", click **Refresh**. After you add a table in Supabase, click the refresh icon (**Refresh tables**) next to **Table**.
-2. Under **4. Map Fields**, set **ID Field** to the column that identifies each row and **Amount Field** to the column with the price.
+2. Under **4. Map Fields**, which appears once you pick a table, set **ID Field** to the column that identifies each row and **Amount Field** to the column with the price.
 3. Set **Currency** to **From Column** and pick a **Currency Column**, or to **Fixed Value** and type a **Fixed Currency** such as `USD`.
 
 Your app sends only the row's ID. The function reads the price and currency from your table as the signed-in user, so the app can't change the amount, and your [row-level security](https://supabase.com/docs/guides/database/postgres/row-level-security) rules must let signed-in users read these rows.
@@ -72,7 +72,7 @@ Nowa multiplies the **Amount Field** by 100 before it sends the amount to Stripe
 
 ## Deploy the configuration
 
-Click **Deploy Configuration**. It stays disabled until the required fields are set: the **Apple Merchant ID** when Apple Pay is on, and, for One-Time and Consumable, a table, **ID Field**, **Amount Field** and a currency. Messages show progress, "Deployed successfully!" appears at the end, and errors show in red under the button.
+Click **Deploy Configuration**. It stays disabled until the required fields are set: the **Apple Merchant ID** when Apple Pay is on, and, for One-Time and Consumable, a table, **ID Field**, **Amount Field** and a currency. Messages show progress and "Deployed successfully!" appears at the end. Errors Nowa catches show in red under the button.
 
 Nowa creates these in your Supabase project:
 
@@ -85,7 +85,7 @@ Nowa creates these in your Supabase project:
 
 In your project, Nowa also generates `lib/integrations/stripe_payment_service.dart` and updates the platform files Stripe needs: on Android the minimum SDK (at least 23), `MainActivity`, ProGuard rules and the app theme; on iOS the **Camera** permission and, when Apple Pay is on, the Apple Pay entitlement.
 
-Check your Supabase dashboard to confirm the tables and functions are there.
+A failed Supabase step does not always show an error, so open your Supabase dashboard and confirm that the tables, functions and secrets are there.
 
 ![Supabase dashboard listing the nowa_stripe_one_time_payments and nowa_stripe_consumable_payments tables created by Deploy Configuration](/img/docs/integrations/stripe-supabase-tables.png)
 
@@ -95,9 +95,9 @@ After any change, such as a new purchase type or a different table, click **Depl
 
 ## Take a payment from a button
 
-1. Select your button. In **Details**, click **+** next to **On Pressed**. Circuit opens ([Respond to taps and other events](../logic/events.md)).
+1. Select your button. In **Details**, click the button next to **On Pressed**. Circuit opens ([Respond to taps and other events](../logic/events.md)).
 2. Hover the dot under the top node and click **+**. In **All nodes for this circuit**, search for `StripePaymentService`, pick it, then pick `processPayment` (or `subscribe`). See [Build logic in Circuit](../logic/circuit.md).
-3. In **Details**, set `recordId` to the item's ID, a value from your **ID Field** column: click its label to open the link menu and pick the value ([Expressions and conditions](../logic/expressions.md)). For `subscribe`, set `priceId` to your Stripe Price ID.
+3. In **Details**, link **Record Id** (the `recordId` input) to the item's ID, a value from your **ID Field** column: click its label to open the link menu and pick the value ([Expressions and conditions](../logic/expressions.md)). For `subscribe`, set **Price Id** to your Stripe Price ID.
 4. Under **Future Options**, add logic to **onValue** for a successful payment and to **onError** for a failed one.
 
 Stripe's payment sheet opens in your app. Test it on a device or emulator with Stripe's [test cards](https://docs.stripe.com/testing) while your keys are in test mode. Running on a device needs the desktop app: see [Run on a device or emulator](../test/devices.md).

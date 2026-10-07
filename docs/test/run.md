@@ -25,7 +25,7 @@ A dot next to **Run** shows the state. Hover it to read it, for example "Running
 
 ## Choose where to run
 
-**Run** is a split button. The arrow next to it opens the **Run on** menu (shown as RUN ON). **Embedded preview** runs the app inside Nowa, as on this page. In the desktop app the menu also lists your devices and emulators. See [Run on a device or emulator](devices.md). In the web app it shows **iOS & Android devices** with "Download the desktop app" instead. Only one target runs at a time.
+**Run** is a split button. The arrow next to it opens the **Run on** menu (shown as RUN ON). **Embedded preview** runs the app inside Nowa, as on this page. In the desktop app the menu also lists your devices and emulators. See [Run on a device or emulator](devices.md). In the web app it shows **iOS & Android devices** with "Download the desktop app" instead. **Run** acts on one target at a time.
 
 While the preview is open, **Run** reads **Hide**. Click it to hide the preview. The app keeps running.
 
@@ -35,7 +35,7 @@ While the preview is open, these buttons replace the breadcrumbs in the top bar.
 
 | Button | What it does |
 |---|---|
-| **Back to board** | Returns to the board. The app keeps running. |
+| **Back to board** | Returns to the board. |
 | **Phone** / **Tablet** | Switches the frame between a phone and a tablet. |
 | **Fullscreen** | Shows the app without a frame. Shortcut: <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>F</kbd>. |
 | **Hot Reload** (local projects) or **Hot Restart** (cloud projects) | Applies your latest saved changes. A local run reloads in place. A cloud run has to come back up. Shortcut: <kbd>Shift</kbd> + <kbd>R</kbd>. |
@@ -47,11 +47,9 @@ While the preview is open, these buttons replace the breadcrumbs in the top bar.
 
 ## Fix a preview that won't start
 
-Click **Run** again after each fix.
-
 The preview runs your app as a web app, so the app needs a `lib/main.dart` and a `web/` folder. If something is missing, Nowa says so when you click **Run**.
 
-- **Web support is missing**: the app has no `web/` folder. Click **Add web support**, and Nowa creates the missing files. If that fails, you see "Could not generate the missing files. Check the logs for details."
+- **Web support is missing**: the app has no `web/` folder. Click **Add web support**, and Nowa creates the missing files and opens the preview. If that fails, you see "Could not generate the missing files. Check the logs for details."
 - **Nothing to run**: Nowa can't find `lib/main.dart`, or the folder holds no Dart package. Click **Close**. You can still browse and edit the files, but there is no app to preview.
 
 If the app starts but fails, the preview shows one of these screens.
@@ -77,7 +75,7 @@ Everything your running app prints, plus Nowa's own messages, goes to the **Cons
 2. Drag the title bar to move the **Console**, drag an edge to resize it, and select text to copy it.
 3. Use the buttons at the top right of **Logs**. **Pub get** (the terminal icon) downloads your project's packages again, and **Clear** empties the list.
 
-When a run on a device fails, a separate **Log** panel opens by itself. The **Problems** tab is covered in [Find and fix problems](problems.md).
+When a run on a device can't start, a separate **Log** panel opens by itself. The **Problems** tab is covered in [Find and fix problems](problems.md).
 
 :::tip
 Run the app first, then ask Nowa AI: "Why does the app show an error when I tap Sign in? Check the logs and fix it." The agent can read your app's logs once you have run the app.

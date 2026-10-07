@@ -13,7 +13,7 @@ Code mode shows the Dart behind your app in a full code editor. Select a widget,
 2. Click the `<>` button in the top bar, next to **Settings** (the gear). The button has no label, and it stays highlighted while code mode is on. Nowa saves your project first.
 3. The editor opens the file that defines your selection and scrolls to the widget's code. With nothing selected, it opens your home screen's file, or `lib/main.dart` if there is none.
 
-The left panel switches to **Files** and shows every file in the project. When you leave code mode, the panel you were using comes back.
+The left panel switches to **Files** and shows the whole project, not only `lib/`, `boards/` and `assets/`. When you leave code mode, the panel you were using comes back.
 
 {/* CAPTURE: id=code-code-mode-1 | state: playground starter open; select the Text widget on HomePage, click the <> button, click Show preview | show: code mode with the Files tree on the left, a Dart file in a tab, the download and Show preview buttons at the right end of the tab bar, and the preview pane (Play · App) beside the code | crop: whole editor */}
 
@@ -39,7 +39,7 @@ Each file opens in its own tab above the editor. A tab shows `*` after its name 
 
 ## Edit code
 
-The editor colors Dart, JSON, YAML, XML, HTML and Markdown. You can edit any file in the **Files** tree, including `pubspec.yaml`. With the **View Only** role, the editor is read-only.
+The editor colors Dart, JSON, YAML, XML, HTML and Markdown. You can edit any text file in the **Files** tree, including `pubspec.yaml`. With the **View Only** role, the editor is read-only.
 
 | To | Do this |
 |---|---|
@@ -50,6 +50,8 @@ The editor colors Dart, JSON, YAML, XML, HTML and Markdown. You can edit any fil
 | Copy, cut and paste | Right-click, or use the usual shortcuts. |
 
 [Keyboard shortcuts](../reference/shortcuts.md#code-editor) lists the rest, such as commenting and moving lines.
+
+To bring in a snippet or a `.dart` file instead of typing it, leave code mode and choose **Import Dart code...** from the **Add to library** menu in **Files**. See [Import Dart code](custom-code.md#import-dart-code).
 
 ## Save your edits
 
@@ -72,18 +74,18 @@ Click **Show preview** (the eye icon at the right end of the tab bar) to open yo
 | **Play · File** | The screen or widget declared in the open file. A file with no widget says "This file has no widget to preview. Switch to App to run the whole app." |
 | **Run** | The real, compiled app, as in [Run your app](../test/run.md). |
 
-The play modes are interpreted, so a warning icon reminds you that they aren't 100% accurate. The preview reloads when your edits are saved. **Reload preview** rebuilds it at any time. Click **Hide preview** to close the pane.
+The play modes are interpreted, so a warning icon reminds you that they aren't 100% accurate. The preview reloads when your edits are saved. In the play modes, **Reload preview** rebuilds it at any time. Click **Hide preview** to close the pane.
 
 ## Open in VS Code or download your code
 
 The button next to **Show preview** depends on the project.
 
-- <Badge type="local" /> **Open in VS Code** opens the folder in VS Code at the file you're viewing. See [Use Nowa with VS Code](vs-code.md).
-- <Badge type="cloud" /> **Code download** compresses your project into a zip. See [Download your code](../publish/download-code.md).
+- <Badge type="local" /> **Open in VS Code** opens the folder in VS Code at the file you're viewing, or at `lib/main.dart` if it isn't a Dart file. See [Use Nowa with VS Code](vs-code.md).
+- <Badge type="cloud" /> **Code download** opens a popup where you compress your project and download it as a zip. See [Download your code](../publish/download-code.md).
 
 ## Leave code mode
 
-Click **Back** at the top left, or click `<>` again. Nowa saves first. If some edits haven't been saved, **Unsaved code changes** lists the files:
+Click **Back** at the top left, or click `<>` again. Nowa saves your project and returns to the board. If some of your edits aren't saved yet, **Unsaved code changes** lists the files first and asks what to do:
 
 - **Save** saves the edits and updates the board.
 - **Discard** drops them.

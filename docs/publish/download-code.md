@@ -28,7 +28,7 @@ Your plan includes an allowance for code downloads. When it's used up, **Compres
 
 ## Use the downloaded code
 
-The zip is a standard Flutter project. Unzip it and open the folder in an editor such as VS Code or Android Studio. To run it on your computer, install Flutter first: see [Flutter's install guide](https://docs.flutter.dev/get-started/install).
+The zip holds your Flutter project. Unzip it and open the folder in an editor such as VS Code or Android Studio. To run it on your computer, install Flutter first: see [Flutter's install guide](https://docs.flutter.dev/get-started/install).
 
 ## Local projects
 

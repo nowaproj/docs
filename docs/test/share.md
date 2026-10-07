@@ -1,11 +1,11 @@
 ---
 title: Share your app
-description: Send a link or QR code so anyone can try your app in a browser, or open your whole project to others.
+description: Send a link or QR code so people can try your app in a browser, or open your whole project to others.
 sidebar_label: Share
 keywords: [share, share preview, preview link, qr code, public project, public link, private, instant preview share, share app, link options, send app to client, feedback]
 ---
 
-Send a link, and anyone can try your app in their browser, with nothing to build, publish or install. You can share a preview of the app, or open the whole project so others can look inside and keep their own copy.
+Send a link, and people can try your app in their browser, with nothing to build, publish or install. You can share a preview of the app, or open the whole project so others can look inside and keep their own copy.
 
 ## Choose how to share
 
@@ -21,14 +21,14 @@ Both options use the same switch. **Public** in **Share preview** and **Public p
 :::warning
 **Public** makes your whole project public, not only the preview. Anyone with the link can read every file and save their own copy. Keys, tokens and other secrets stored in your project, such as values in **Constants**, become readable too. Nowa asks you to confirm before it switches on.
 
-Choosing **Private** again turns the project back to private. People outside your project can then no longer open the preview link or the project link.
+Choose **Private** again to turn the project back to private. People outside your project can then no longer open either link.
 :::
 
 ## Share a preview
 
 The preview is [Instant Play](instant-play.md) in a browser tab: quick, but not the compiled app.
 
-1. Play a screen on the board. Hover its name above the screen and click the play button.
+1. Play a screen on the board. Hover its title bar above the screen and click the play button.
 2. In the controls at the bottom of the board, click **Share preview**. The **Share Preview** popup opens.
 3. Pick who can open the link. **Public** means "Anyone with the link can view the preview." **Private** means "Only members that have access to the project". Only project owners and editors see this choice, and it shows the project's current setting.
 4. If you pick **Public**, Nowa asks "Make this project public?". Read the warning, tick "I checked, there are no secrets in this project", and click **Make public**.
@@ -38,15 +38,15 @@ The preview is [Instant Play](instant-play.md) in a browser tab: quick, but not 
 
 The link looks like `https://app.nowa.dev/preview/<project>`. If you shared from a played screen, it ends with `?screen=` and that screen's file, so the preview opens on that screen.
 
-To share the whole app, delete the `?screen=…` part of the link. A single-screen link is meant for reviewing one screen. Owners and editors who open it see the warning "Single Screen Preview": "Route-based navigation is disabled in Play Mode for single screen previews. To test navigation, you need to preview the full app."
+To share the whole app, delete the `?screen=…` part of the link. Owners and editors who open a single-screen link see the warning "Single Screen Preview": "Route-based navigation is disabled in Play Mode for single screen previews. To test navigation, you need to preview the full app."
 
-The link doesn't change when you edit your app. People see your project as last saved each time they open it.
+The link stays the same when you edit your app. People always see the project as last saved.
 
-In a local project, **Share preview** says "Share preview is not available on local projects". Click **Sync to cloud** to copy the project to the cloud first. See [Work with local projects](../code/local-projects.md).
+In a local project, **Share preview** says "Share preview is not available on local projects". Click **Sync to cloud** to open **Project Sync** and make a cloud copy first. See [Work with local projects](../code/local-projects.md).
 
 ## What people see in a preview
 
-On a computer, the app opens in a phone frame (an iPhone 13 at first) with a toolbar at the top. Owners and editors also get a warning button (**Show Play Warnings**) that lists what the preview can't show, such as "Custom code can't be shown" or "Dynamic packages can't be shown".
+On a computer, the app opens in a phone frame (an iPhone 13 at first) with a toolbar at the top. Owners and editors also see cards that list what the preview can't show, such as "Custom code can't be shown" or "Dynamic packages can't be shown". The button above them hides the cards (tooltip **Hide Play Warnings**) and brings them back (tooltip **Show Play Warnings**).
 
 | Button | What it does |
 |---|---|
@@ -63,7 +63,7 @@ People without access to a private preview may see **Preview Not Available**, wi
 
 ## Open your project to others
 
-This works for cloud projects. In a local project, **Sharing** has only the **Cover**.
+This works for cloud projects. In a local project, **Sharing** has only the **Cover**. Members with **View Only** access don't see **Sharing**.
 
 1. Click the gear in the top bar, or press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>,</kbd>, then click **Project Details**.
 2. Scroll to **Sharing** and turn on **Public project**. Nowa asks "Make this project public?".

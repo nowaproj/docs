@@ -124,3 +124,4 @@ developer-only, hidden behind a flag, unreachable or unreleased). Collected from
 | widgets | Hard-coded service credential in the client for feedback forms (value deliberately not copied here) | `packages/core/lib/src/dialogs/dialog_data_sender.dart:9-16` | security finding for the product team, never for docs |
 | widgets | `ButtonConnector` (Enabled -> create variable) mostly commented out | `widget_info.dart:598-651`; `button_fields.dart:150-175` | "Create Variable" may not show, see Open questions |
 | account-projects | Nowa GO (native iOS/Android app: View code, hidden Billing/Usage, Unavailable pill) | `lib/project/nowago/*` | private beta per What's New (D15) |
+| code-ship | **Claim your Nowa Launch Benefits** promo row in the Deploy menu | deploy menu (see W8 review log) | time-limited promotion, not a product feature |

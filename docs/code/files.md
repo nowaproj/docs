@@ -1,11 +1,11 @@
 ---
 title: Manage project files
-description: Browse, create, rename, move and delete project files in the Files panel, and search every file with the Search panel or the file picker.
+description: Browse, create, rename, move and delete project files in the Files panel, and find code with the Search panel or the file picker.
 sidebar_label: Files
 keywords: [files, Files panel, file tree, Add to library, Add board, Import asset, New Folder, rename file, move file, delete file, lib/main.dart, search, replace all, symbols, search for a file, find in files, project search]
 ---
 
-The **Files** panel shows every file in your project. Create Dart files, import assets, rename and move things, and find any line of code with the **Search** panel.
+The **Files** panel is where you browse your project, create Dart files, import assets, and rename or move things. The **Search** panel finds any line of code.
 
 ## Open the Files panel
 
@@ -25,10 +25,10 @@ The panel looks different on the board and in [code mode](code-mode.md).
 Names in the tree carry markers:
 
 - `*` after the name means the file has unsaved changes.
-- A red number means the file has problems. See [Find and fix problems](../test/problems.md).
+- A number after the name means the file has problems, and the name turns red. See [Find and fix problems](../test/problems.md).
 - In a project that uses Git, a letter shows a changed file: **A** added, **M** modified, **D** deleted, **R** renamed or **C** conflict. See [Use Git](git.md).
 
-Nowa doesn't load `.git/`, `build/` or `.DS_Store`, and the tree doesn't list top-level items whose names start with a dot, such as `.nowa`. A `.board` file can't be opened as code. Open boards from the board menu instead ([Work with boards](../design/boards.md)).
+Nowa doesn't load `.git/`, `build/` or `.DS_Store`, and the tree doesn't list top-level items whose names start with a dot, such as `.nowa`. A `.board` file stores one board. Double-click it to open that board ([Work with boards](../design/boards.md)).
 
 ## Add files
 
@@ -62,7 +62,7 @@ Or ask Nowa AI: "Add a Product model with a name and a price." It creates the fi
 
 ## Rename, move and delete files
 
-Right-click a file or folder. Ctrl/Cmd-click adds items to the selection and Shift-click selects a range, so one action can cover several files.
+Right-click a file or folder. Ctrl/Cmd-click adds items to the selection and Shift-click selects a range, so one action can cover several files. With the **View Only** role, the menu has only **Copy as path** and **View in folder**.
 
 | Menu item | What it does |
 |---|---|
@@ -88,7 +88,7 @@ Click **Search** (the magnifier) in the left sidebar, or press <kbd>Ctrl</kbd>/<
 
 1. Type in **Search**. Results appear after a short pause, grouped by file, with a match count for each file.
 2. Turn on any of **Aa** (**Match case**), **ab** (**Whole word**) or `.*` (**Regular expression**).
-3. Click a match. If it sits inside a widget on the open board, Nowa selects that widget and zooms to it. Otherwise the file opens at that line. In code mode, the file always opens.
+3. Click a match. If the match sits inside a widget on the open board, Nowa selects that widget and zooms to it. In every other case, and always in code mode, Nowa opens the file.
 4. Click a file's row to collapse its matches.
 
 The search covers the whole project, including edits you haven't saved. It reads lines one at a time, so a pattern can't span two lines. It skips images, fonts and other binary files, `.g.dart` files and folders such as `build`. It stops at 2,000 matches, and a count with a `+` means there are more.
@@ -100,10 +100,10 @@ The search covers the whole project, including edits you haven't saved. It reads
 3. Click **Replace all** (the double check mark). A dialog asks "Replace N matches in M files?".
 4. Click **Replace**.
 
-If a file changed after the search, Nowa skips it and says "Skipped N files that changed since the search". Search again to include it.
+If a file changed after the search, Nowa skips it and says "Skipped N files that changed since the search". Click **Replace all** again to include it.
 
 :::warning
-**Replace all** writes straight to your files. **Undo** doesn't cover files that aren't open in a code mode tab. Check the matches first, or commit with [Git](git.md) so you can review the result.
+**Replace all** writes straight to your files, and **Undo** doesn't cover those writes. A file open in a code mode tab is the exception: the change lands in the editor, where you can undo it, and is saved with your next save. Check the matches first, or commit with [Git](git.md) so you can review the result.
 :::
 
 ### Search symbols

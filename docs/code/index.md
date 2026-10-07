@@ -9,7 +9,7 @@ Every screen you design and every change Nowa AI makes ends up as ordinary Dart 
 
 ## What's in your project
 
-Open [code mode](code-mode.md) to see every file. Nowa creates new files in these places:
+Open [code mode](code-mode.md) to browse the whole project. Nowa creates new files in these places:
 
 | File or folder | What's in it |
 |---|---|

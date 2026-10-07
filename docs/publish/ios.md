@@ -5,7 +5,7 @@ sidebar_label: App Store
 keywords: [ios, iphone, app store, apple, testflight, app store connect, api key, distribution certificate, certificate, signing, code signing, p12, p8, ipa, bundle id, build for ios, provisioning]
 ---
 
-Nowa builds and signs your iOS app in the cloud, so you don't build on your own computer. You give Nowa two things from Apple, an App Store Connect API key and a distribution certificate key, and every build is sent to your App Store Connect account.
+Nowa builds and signs your iOS app in the cloud, so you don't build on your own computer. You give Nowa two things, an App Store Connect API key from Apple and a distribution certificate key (Nowa can generate one for you), and Nowa sends the build to your App Store Connect account.
 
 <Badge type="cloud" /> <Badge type="paid" />
 
@@ -59,11 +59,11 @@ Once a key is saved, the card shows a check mark (hover to read **Distribution c
 
 1. In **Start New Build**, pick a **Branch** and click **Build**. The button stays off until both the certificate and the App Store Connect credentials are saved.
 2. Follow the build. It signs your app in the **iOS code signing** step, builds the `.ipa` and ends with a **Publishing** stage that uploads it to App Store Connect. [Build history and logs](./builds.md) explains the build card.
-3. When the build finishes, open your app in App Store Connect. The build shows up there once Apple has processed it. The `.ipa` is also listed under **Artifacts**.
+3. When the build finishes, check your app in App Store Connect. By default, the `.ipa` is also listed under **Artifacts**.
 
 You can also click **Deploy** in the top bar, then **Deploy** on the **iOS** row. It shows **Set up** until everything above is saved.
 
-Nowa stops at the upload. You test the build with TestFlight or submit it for review in App Store Connect. Apple's [App Store Connect Help](https://developer.apple.com/help/app-store-connect/) covers both.
+By default, Nowa's part ends at the upload. TestFlight testing and App Store review happen in App Store Connect, and Apple's [App Store Connect Help](https://developer.apple.com/help/app-store-connect/) covers both.
 
 To send a new build, raise **Build number** in **Settings** → **Project Details** (and **Build version** for a new release), then build again.
 

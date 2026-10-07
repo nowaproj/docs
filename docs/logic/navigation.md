@@ -19,7 +19,7 @@ Not sure which one your project uses? Click **Router** in the sidebar. A GoRoute
 
 ## Give a screen a path
 
-Each screen needs a route, which is the path that opens it. A new screen from the **Empty Page** template gets one automatically: its name in lowercase with hyphens, so `HomePage` becomes `/home-page`.
+Each screen needs a route, the path that opens it. A new screen from the **Empty Page** template gets one automatically: its name in lowercase with hyphens, so `HomePage` becomes `/home-page`.
 
 To set or change a path:
 
@@ -52,7 +52,7 @@ The **Extra** field hands any object to the next route without putting it in the
 
 To go back with a value, add a **GoRouter** node with **Type** `pop` and set **result**. On the screen that opened it, select the `push` node, turn on **await** under **Future Options**, and use **Store result** to keep the value. See [Build logic in Circuit](./circuit.md).
 
-In **Play**, a screen with a route starts your app's router at that path, so navigation works. A screen without a route plays on its own and route-based navigation is off, so give it a path first.
+In **Play**, a screen with a route starts your app's router at that path, so navigation works. A screen without a route plays on its own, with route-based navigation off.
 
 :::tip Or ask Nowa AI
 Try: "When I tap the Get Started button, open the Settings screen." See [How Nowa AI works](../ai/index.md).
@@ -86,7 +86,7 @@ In a project that uses the Navigator, you pick the screen instead of typing a pa
 
 | Type | What it does |
 |---|---|
-| `push` | Opens the screen on top of the current one, so people can go back. |
+| `push` | Opens the screen on top of the current one. |
 | `pop` | Closes the current screen and goes back. |
 | `pushReplacement` | Replaces the current screen with the new one. |
 | `pushAndRemoveUntil` | Opens the screen and removes every screen below it. |
@@ -113,7 +113,7 @@ Select a route to edit it:
 
 | Setting | What it does |
 |---|---|
-| **Path** | The route's own path, which can contain parameters like `:id`. **Full Path** shows it joined with its parents' paths. |
+| **Path** | The route's own path, which can contain parameters like `:id`. **Full Path** adds its parents' paths. |
 | **Screen** | The screen the route shows. Click it to pick another one. The bolt button (**Edit Function**) opens the route's builder in Circuit. |
 | **Route Parameters** | Path and query parameters as chips. Path chips carry a red `*`. Right-click a chip to **Rename** or **Delete** it. |
 | **Screen Parameters** | The screen's own params, shown when it has any. Drag a chip onto one to feed it. |
@@ -125,7 +125,7 @@ Nowa lists route problems, such as duplicate paths, a route without a builder, o
 
 ## Switch an older project to GoRouter
 
-1. Click **Router** in the sidebar. Older projects open **New Router System**, which compares Navigator (**Legacy**) with GoRouter (**Recommended**).
+1. Click **Router** in the sidebar to open **New Router System**, which compares Navigator (**Legacy**) with GoRouter (**Recommended**).
 2. Click **Enable GoRouter**.
 3. Read the **Confirm Action** dialog and click **Confirm**. **Migrating to New Router** shows the progress, then the Router panel opens.
 

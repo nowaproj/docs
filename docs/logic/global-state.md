@@ -25,7 +25,7 @@ New projects already include a global state named **AppState** (`lib/globals/app
 2. Click the class name, such as `CartState`, in the list on the left. Its **Variables** and **Functions** appear in the middle.
 3. Hover **Variables** and click **+**. Rename the new variable, then set its **Type** and **Default Value** on the right. See [Store data in variables](./variables.md). Keep **Is Final** off for a variable your functions will change.
 4. Hover **Functions** and click **+**. Rename the new function, for example `addToCart`. Circuit opens on the right: see [Build logic in Circuit](./circuit.md).
-5. Click the top node, hover **Params** and click **+** to add an input such as `product`. Click its chip to set its **Name** and **Type**.
+5. Click the top node, hover **Params** and click **+** to add an input such as `product`. Click the new param to set its **Name** and **Type**.
 6. Add the logic. Click the dot under a node and open **LOCALS**. Pick the variable, click **+** after it in **Details** and choose `add`. Set the input to your param.
 7. Add one more node: **LOCALS** → `notifyListeners`.
 
@@ -42,7 +42,7 @@ Attached means Nowa has added the global state to your app, so screens can use i
 - In the **Variables** panel with nothing selected, click **Pick global state** to attach one that exists in `lib`. The list says "No global states found" when there is nothing left to attach.
 - In the same panel, hover a global state's name and click the three-dots button. **Detach global state** removes it from the app, and the file stays in your project. **Open in new tab** opens the file.
 
-In **Play**, Nowa warns about "Unattached global states" and offers **Attach all**.
+The **Globals** list shows each attached global state by name. Under a name it lists only final variables, so open the file in **Files** to see all of its variables and functions.
 
 ## Use a global state
 
@@ -62,7 +62,7 @@ Widgets that show a global state's value update when the state calls `notifyList
 
 ## Rebuild only part of a screen
 
-The **Notifier Builder** wrapper rebuilds just the widget inside it when a notifier changes.
+The **Notifier Builder** wrapper rebuilds only the widget inside it when a notifier changes.
 
 1. Select the widget and click **Add Wrapper** in **Details**. Choose **Notifier Builder**.
 2. Pick the **Notifier**. The list holds the global states you attached and other notifiers on the screen.

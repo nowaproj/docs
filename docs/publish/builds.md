@@ -15,7 +15,7 @@ Every Android and iOS build runs in the cloud and leaves a record. Start a build
 2. In **Start New Build**, pick a **Branch**. It starts on the branch you have checked out.
 3. Click **Build**. Above the button, Nowa reminds you: "Starting a build will commit all changes to the selected branch."
 
-If **Branch** shows **Init Repository** instead of a menu, your project has no Git repository yet. Click **Init Repository** once, then pick the branch. The **Deploy** menu points at the same gap with "Connect a repository in settings to deploy to the app stores."
+If **Branch** shows **Init Repository** instead of a menu, your project has no Git repository yet. Click **Init Repository** once, and Nowa selects the checked-out branch for you. The **Deploy** menu points at the same gap with "Connect a repository in settings to deploy to the app stores."
 
 You can also click **Deploy** in the top bar, then **Deploy** on an Android or iOS row. That builds the branch you have checked out.
 
@@ -43,7 +43,7 @@ The **Deploy** button in the top bar reads **Deploying** while a build runs, and
 When a build ends, the card is called **Latest Build**. Click its header to open or close it.
 
 - **Build Info** shows the build's ID, **Status**, **Branch**, **Started** and, once it has finished, **Duration**.
-- **Artifacts** lists the files the build produced. Click a file to download it in your browser. Download links are short-lived, so if one stops working, open the build again from **History** for a fresh link.
+- **Artifacts** lists the files the build produced. Click a file to download it in your browser. Download links are short-lived. If one stops working, open the build again from **History** to reload its files.
 - **Steps** lists each stage with a status icon and how long it took. Click a step to read its log.
 
 {/* CAPTURE: id=publish-builds-1 | state: signed in, paid plan, cloud project with a finished Android build; Settings → Deployment → Android, Latest Build open with one step expanded | show: Build Info, Artifacts, Steps with one step's log open, and the History list below | crop: Deployment page, Android tab */}
@@ -61,7 +61,7 @@ When a build ends, the card is called **Latest Build**. Click its header to open
 
 ## What runs behind the scenes
 
-Builds run in Nowa's cloud from your project's Git repository: Nowa commits your changes to the branch you pick, and the build starts from it. If your project has a `codemagic.yaml` file, it defines the build steps. Leave it alone unless you know the build system. If it breaks, open it in code mode and click **Reset to default**.
+Builds run in Nowa's cloud. Nowa commits your changes to the branch you pick, and the build starts from that branch. Your project may contain a `codemagic.yaml` file with the build steps. Leave it alone unless you know the build system. If the editor reports an error in it, open it in code mode and click **Reset to default** to restore the default steps.
 
 ## Next steps
 

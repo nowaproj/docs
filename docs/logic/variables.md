@@ -44,7 +44,7 @@ Click the variable's type icon in the list, or **Type** in **Details**. The **Se
 | `Color` | A color |
 | `Widget` | A piece of UI |
 
-- Click **show more...** to see every other type in your project and in Flutter, such as `DateTime` and your own [models](./models.md). Type in the search box to find one by name.
+- Click **show more...** to see more types, such as `DateTime` and your own [models](./models.md). Type in the search box to find one by name.
 - To store a list, tick **As List** first, then pick the type of the items. A list of text is `String` with **As List** ticked.
 
 Variables you create here can be empty. Give them a **Default Value** so your widgets always have something to show. For a list, the **Default Value** field shows the number of items: change the number or click **+** to add one, drag an item to reorder it, and click **Load More** to see items past the first ten.

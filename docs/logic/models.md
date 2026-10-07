@@ -39,11 +39,11 @@ To add logic to the model, hover **Functions** and click **+**. The function ope
 If you have a sample of the data, such as an API response, Nowa can build the models for you, including nested ones.
 
 1. In **Files**, click **+** (**Add to library**) next to `lib`, then **Generate Models From Json...**. The **Generate Models** dialog opens.
-2. In **Content**, paste your JSON. The editor's menu has **Wrap**, **Compress** and **Prettify**. Click **Next**. The button stays disabled while the JSON isn't valid.
-3. In **Select Data**, tick the fields to keep. **Select All**, **Collapse All** and **Expand All** help with long data. Click **Next**.
+2. In **Content**, paste your JSON. The editor's three-dots menu has **Wrap**, **Compress** and **Prettify**. Click **Next**. The button stays disabled while the JSON isn't valid.
+3. In **Select Data**, tick the fields to keep. For long data, use the **Select All** checkbox or the **Collapse All** and **Expand All** icons. Click **Next**.
 4. In **Generated Models**, set the **Name** of the main class (it starts as `Root`) and the **Path**. The path starts as `lib/models` and must be inside `lib`. Click **Save and Open**.
 
-All the generated classes go into one file. Nested objects become their own classes, and text, number and true/false fields can be empty. If the JSON has no fields to turn into a model, such as a list of plain values, Nowa shows a message and stops.
+All the generated classes go into one file named after the main class, such as `root.dart`. Nested objects become their own classes, and text, number and true/false fields can be empty. If the JSON has no fields to turn into a model, such as a list of plain values, Nowa shows a message and stops.
 
 The [REST API](../integrations/rest-api/index.md) tools can create response models for you as well.
 
@@ -62,7 +62,7 @@ To show a field in a widget, link the property to the variable, click the **+** 
 
 1. In Circuit, click the dot under a node. Open **GENERAL** and click **Create...**. **Pick a constructor** opens.
 2. Search for your model and click it. If it offers a choice, pick **Default** to build it from field values, or `fromJson` to build it from a map of values.
-3. Nowa adds a **Create** node named after the model, with one input per field. Type a value in each input, or click its label to link a variable, a param or an expression.
+3. Nowa adds a node titled **Create** plus the model's name, such as **Create Task**. With **Default**, it has one input per field. Type a value in each input, or click its label to link a variable, a param or an expression.
 4. Set **Store result** to **New Variable** to keep the new model.
 
 To add it to a list, pick the list variable under **LOCALS**, click **+** in **Details**, and choose `add`. Link its input to the variable you stored, then add a **refresh** node. For a list in a [global state](./global-state.md), call `notifyListeners` instead. To turn a model into JSON, click **+** after a model value and choose `toJson`.

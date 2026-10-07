@@ -17,7 +17,7 @@ Publish your Flutter app as a website straight from Nowa. One click builds it, h
 ## Publish your app
 
 1. Click **Deploy** in the top bar, then **Deploy** on the **Web** row. Or click **Settings** → **Deployment**, open the **Web** tab and click **Publish**.
-2. Wait while Nowa works. The status moves through **Saving** and **Creating** to **Deploying**: Nowa saves your project, checks it, then builds and hosts it. **Creating** appears when Nowa first sets up your site. Click **Cancel** to stop.
+2. Wait while Nowa works. The status reads **Saving**, then **Creating**, then **Deploying**. Nowa saves your project, checks it, then builds and hosts it. **Creating** appears only when Nowa has to set up your site first. Click **Cancel** to stop.
 3. When it finishes, the **Your Website** card shows **Published** with the date, and your site's address below it.
 4. Click the open icon (**Open in browser**) to visit the site, or the copy icon (**Copy**) to copy the address and share it.
 
@@ -32,12 +32,12 @@ When the card shows **Expires In:**, the countdown is the time left until the si
 A red bar on the card names what went wrong, and the button changes to **Republish**.
 
 - **Analysis Failed** means the code check found errors. The Console opens on its **Logs** tab with the messages. Fix them, then publish again.
-- **Publish Failed** means the build or hosting step failed. Click **Show Details** to read the log on the **Error in Deployment** page.
+- **Publish Failed** means the publish job failed. Click **Show Details** to read its log on the **Error in Deployment** page.
 
-Click **Fix with AI** next to the bar to hand the failure to Nowa AI. It closes Settings and sends the error log to the chat, asking Nowa AI to fix the project and tell you when it's safe to republish. See [How Nowa AI works](../ai/index.md).
+Click **Fix with AI** below the bar to hand the failure to Nowa AI. It closes Settings and sends the error log to the chat, asking Nowa AI to fix the project and tell you when it's safe to republish. If the chat is busy, the message waits in the box for you to send. See [How Nowa AI works](../ai/index.md).
 
 :::tip[Or ask Nowa AI]
-Type "Fix the problems in my project" in the chat, then publish again.
+Type "Fix problems in my project" in the chat, then publish again.
 :::
 
 ## Update your site
@@ -46,7 +46,7 @@ Make your changes, then click **Update** on the **Web** tab. In the **Deploy** m
 
 ## Take your site down
 
-Click **Deactivate** on the **Web** tab. Nowa takes the site down right away and doesn't ask you to confirm. Click **Publish** to put your app online again.
+Click **Deactivate** on the **Web** tab. Nowa takes the site down without asking you to confirm. Click **Publish** to put your app online again.
 
 ## Download the build files
 
@@ -60,9 +60,9 @@ Serve your site from an address you own, such as `example.com`. Custom domains n
 2. Type your domain without `www.`. Nowa shows **Please remove "www."** if you include it.
 3. Turn on the switch below the field if you want the `www` address too. It reads **Also www.** followed by your domain.
 4. Click **Set**. The button changes to **DNS**.
-5. Click **DNS**. The **DNS Records** page lists each record's **Name**, **Type** and **Value**, with a copy icon for each.
+5. Click **DNS**. The **DNS Records** page lists each record's **Name**, **Type** and **Value**, with a copy icon next to the name and the value.
 6. Add every record in your domain provider's DNS settings. Your provider's help explains where.
-7. Click **Verify** to check. DNS changes can take up to 48 hours, and the status stays **Pending** until they land. When the records check out, the page closes and **Custom Domain** shows your domain.
+7. Click **Verify** to refresh the status. DNS changes can take up to 48 hours, and the page shows **Pending** until then. It closes once Nowa no longer lists DNS records for you to add.
 
 {/* CAPTURE: id=publish-web-2 | state: signed in, paid plan, custom domain set on the live site (throwaway domain), clicked DNS | show: DNS Records page with Pending status, Verify button and the Name/Type/Value table with copy icons | crop: the DNS Records page */}
 

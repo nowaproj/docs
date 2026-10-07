@@ -1,6 +1,6 @@
 # W10 review (Work with code, part 2: local-projects, vs-code, import, git, github)
 
-Verifier: Opus-class pass against `/home/user/nowa-master` (v3.12.5, b84bfdafd). Refs are relative to the repo root.
+Verifier: two runs against `/home/user/nowa-master` (v3.12.5, b84bfdafd); the first stopped at a usage limit after three pages. Refs are relative to the repo root unless a package path is given.
 Status: DONE. All five pages checked. First run: `local-projects.md`, `vs-code.md`, `import.md`. Second run (after a usage-limit stop): `git.md`, `github.md`, plus this summary.
 
 ## Summary

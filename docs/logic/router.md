@@ -20,7 +20,7 @@ Click **Router** in the sidebar, below the divider under the other panel icons. 
 In the **Routes** list:
 
 - Click **+** (**Add Route**) and choose **Route** to add a route. Then set its **Path** and **Screen**.
-- Hover a route and click **+** (**Add Sub-Route**) to nest a route inside it. To move a route, drag it onto another route to nest it, or onto a route's top or bottom edge to place it at that route's level. A moved route goes to the end of its new list.
+- Hover a route and click **+** (**Add Sub-Route**) to nest a route inside it. To move a route, drag it onto another route to nest it, or onto a route's top edge to place it at that route's level. A moved route goes to the end of its new list.
 - Right-click a route and choose **Delete Route**. A **Remove Route** dialog warns that the route's child routes go too.
 
 ## Edit a route
@@ -47,7 +47,7 @@ Click the gear (**Router Configuration**) for app-wide settings:
 
 ## Start on the login screen or the home screen {#start-on-login-or-home}
 
-People who are signed in shouldn't have to log in every time they open your app. Give your home screen's route **Redirect Logic** that checks for a signed-in person before the screen opens, and sends everyone else to the login screen.
+Signed-in people shouldn't have to log in every time they open your app. Give your home screen's route **Redirect Logic** that checks for a signed-in person and sends everyone else to the login screen.
 
 **Redirect Logic** is a function. It receives `context` and `state` (where the person is heading) and returns a path, such as `/login-page`, to send them there, or nothing (`null`) to let the screen open. A new one returns nothing, so it lets everyone through until you add a condition.
 
@@ -63,7 +63,7 @@ Before you start:
 4. Hover the dot under the top node, click **+** and choose **Add If statement**.
 5. In **Details**, click the **Condition** label and link a check that tells you whether someone is signed in:
    - **Firebase:** open **FIREBASE** and click `isUserSignedIn`.
-   - **Supabase:** click **Custom Expression...**, type `Supabase.instance.client.auth.currentSession != null` and press <kbd>Enter</kbd>. Nowa adds no ready-made check for Supabase. This one asks the Supabase library for the current session, which is empty when nobody is signed in.
+   - **Supabase:** click **Custom Expression...**. In the box that opens, replace the text with `Supabase.instance.client.auth.currentSession != null`, press <kbd>Enter</kbd>, then click the back arrow to close the box. Nowa has no ready-made Supabase check. This one asks the Supabase library for the current session, which is empty when nobody is signed in.
 6. Click the dot in the **False** branch, choose **Add Return**, and set **Return** to your login screen's path, such as `/login-page`. Leave the **True** branch empty.
 7. Close Circuit with **×**.
 
@@ -75,11 +75,11 @@ Add the same **Redirect Logic** to every other screen that needs sign-in. The ap
 
 ### Stay signed in between launches
 
-Supabase and Firebase both save the session on the device and restore it when the app starts. Nowa starts them with their default settings, in `lib/main.dart`, before your first screen opens, so the check finds the person who signed in last time.
+Nowa starts Supabase and Firebase with their default settings, in `lib/main.dart`, before your first screen opens. With those settings, Supabase saves the session on the device and restores it when the app starts, and Firebase does the same in the browser for a web app. The check then finds the person who signed in last time. For Firebase on a phone, confirm this with the test below.
 
 ### Test it
 
-Run the app, sign in, close it and open it again. The home screen should open without the login screen. See [Run your app](../test/run.md#run-your-app) or [Run on a device or emulator](../test/devices.md). **Play** doesn't sign in to Firebase and `isUserSignedIn()` returns false there, so check this in the real app: see [Test sign-in in Nowa](../integrations/firebase/auth.md#test-sign-in-in-nowa).
+Run the app, sign in, close it and open it again. The home screen should open without the login screen. See [Run your app](../test/run.md#run-your-app) or [Run on a device or emulator](../test/devices.md). **Play** doesn't sign in to Firebase, and `isUserSignedIn()` returns false there, so test in the real app: see [Test sign-in in Nowa](../integrations/firebase/auth.md#test-sign-in-in-nowa).
 
 :::tip Or ask Nowa AI
 In **Agent** mode, try: "When the app opens, show the home screen if someone is signed in, and the login screen if not." For Supabase, you can also ask for a function in `SupabaseService` that tells you whether someone is signed in. Open the result in the Router panel to check it. See [Design, Plan and Agent modes](../ai/modes.md).
@@ -102,5 +102,4 @@ Switching can't be undone. If your project uses named routes, update your naviga
 ## Next steps
 
 - [Navigate between screens](./navigation.md): open screens from a tap and pass data to them.
-- [Sign users in with Supabase](../integrations/supabase/auth.md) or [Sign users in with Firebase](../integrations/firebase/auth.md): the login screen that goes with it.
 - [Deep links](../integrations/deep-links.md): open your app from a link.

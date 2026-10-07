@@ -168,7 +168,29 @@ overlays that close when the pointer leaves (pickers) or the hover you want to s
 
 Videos (`mp4` rows only): `node capture.mjs video scenario.mjs out.mp4`, or `toMp4` / `checkVideo` from the library
 (H.264 High, yuv420p, at most 1920x1080 and 30 fps, no audio, faststart). Check frames with ffmpeg before keeping one.
-No video has been recorded yet (3 rows: design-add-widgets-2, design-select-and-edit-1, logic-events-2).
+Recorded so far: `test-instant-play-video` (15.6 s) and `design-layout-video` (14.2 s), in `static/videos/docs/<section>/`.
+Left: `design-add-widgets-video`, `logic-circuit-video`, `design-themes-video` (see `to-capture.md`). `ai-index-video` is not
+possible without an account: the playground's first AI send opens the sign-in dialog (`chat_session.dart:264`).
+
+### Videos: what worked (scripts in the scratchpad of the phase-9 run: `.../scratchpad/cap9/vid/`)
+
+`node rec.mjs <scenario.mjs> <out.mp4> --crop x,y,w,h [--tail 800] [--dry]` (run from `cap9/vid`, with
+`PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers` and the server on :8080). Files: `rec.mjs` (fresh Chromium with `recordVideo`, pixel-based
+editor loader, ffmpeg crop and H.264 conversion, `checkVideo`), `lib.mjs` (visible cursor, click ripple, key badge, time-based `glide`,
+`click`, `drag`, `typeSlow`, `pan`, fast setup helpers), `common.mjs` (`addWidget`, `addSnackbar`), scenarios `instant-play.mjs`,
+`layout.mjs`, `add-widgets.mjs`. A scenario exports `setup` (not shown: trimmed away) and `main` (recorded).
+
+- Record at device scale **1** (viewport 1440x900, the default of `rec.mjs`) and crop in CSS px. At scale 2 the editor takes 200-450 ms
+  per input while the picker is open (a 10 s scene took over a minute), and a `recordVideo` size larger than the viewport only
+  letterboxes the page in a corner.
+- The Playwright video does not start at `newPage()`: `rec.mjs` trims from the end (webm length minus the time `main` took).
+- Pointer moves must be time-based (`glide`), not step-counted: frames are 40-150 ms apart while a panel or the picker is on screen.
+- Pan the board with **Space + drag** (`lib.pan`) before anything has text focus; a wheel pans half as far at scale 1, and a big wheel
+  delta can throw the board away. Shift+click did not multi-select; a marquee drag inside the screen does. Ctrl+A selected every board item.
+- Hovering a label parks a tooltip in the first frame: park the pointer on empty board. After changing a Group to a Column the
+  breadcrumb says Stack until the alignment is non-default (cosmetic).
+- Details positions differ by how the widget was selected (Edit next to On Pressed is at y=801 after a drop, 841 after an Outline click).
+- Playing a screen zooms the board (about 0.77); a new Switch does not toggle in Play (no state), a Text Field does.
 
 ## Hard limits
 

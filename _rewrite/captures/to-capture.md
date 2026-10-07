@@ -65,6 +65,7 @@ and type are. Videos (`mp4` rows) are marked `(mp4)` in the last section.
 | integrations-rest-api-2 | docs/integrations/rest-api/index.md | the test view after a successful GET: header with request name, "API URL: ..." and "Status: 200"; **Body** tab with the **Json** view; right panel with **Testing values**, **Generate Model** and **Run Test** (set-up: same project; click the request `getFact`, then **Test**, then **Run Test** (needs outbound network from the capture browser; if blocked, use any reachable public GET API and note it)) | Run Test needs outbound network and the capture sandbox has none (the request fails with an XMLHttpRequest network error); a mocked response was not used |
 | integrations-show-data-1 | docs/integrations/show-data.md | the **Details** panel showing the **Data Builder** fields (**Source**, **API**, **Loading Widget**, **Error Builder**) and, on the board, the screen with the list showing placeholder values (set-up: playground starter open; a collection with a request that has a **Model** (run **Generate Model** on a test of `GET https://catfact.ninja/facts`, or any list API); on the home screen add a **List View**, wrap it with **Add Wrapper** → **Data Builder**, set **Source** to **API Request** and pick the request; select the Data Builder so **Details** shows it) | needs a request Model, which needs a successful Run Test (the capture sandbox has no outbound network) |
 | troubleshooting-known-issues-1 | docs/troubleshooting/known-issues.md | the dimmed **Test** section with the message "Testing Firestore Queries isn't possible on Windows version" and the "Read more about this issue and how to walk around it" link (set-up: Windows desktop app only: open a Firebase-connected cloud project, Files → `lib/firebase/queries.dart` → select a query) | needs the Windows desktop app and a Firebase-connected project; the old docs screenshot (v2.0.6) shows the same text on an outdated UI and is not reused |
+| ai-index-video | docs/ai/index.md | (mp4) the agent building a small screen from one short prompt in the Assistant panel (set-up: signed-in project, Agent mode, one short prompt; record from the dashboard or editor) | in the playground the first send opens the sign-in dialog (code: packages/ai/lib/src/chat_session.dart:264 via SandboxSession.requestAuth), so no prompt was sent; needs a signed-in account and one AI prompt |
 
 ## Skipped on purpose (playground only, can be taken in any later run without an account)
 
@@ -78,3 +79,13 @@ Status `skipped: low value` in `requests/`. They need no sign-in; see `README.md
 - **logic**: logic-events-2 (mp4), logic-functions-1, logic-expressions-1, logic-popups-1, logic-variables-1, logic-variables-2, logic-navigation-1, logic-navigation-2, logic-parameters-1, logic-global-state-1, logic-models-1
 - **reference**: reference-forms-1, reference-forms-2, reference-lists-1, reference-lists-2, reference-media-1, reference-media-2, reference-navigation-1, reference-navigation-2
 - **test**: test-problems-1, test-problems-2
+
+## Videos left for a later run (playground only, no account needed)
+
+Recording method, gotchas and the working scripts: see `README.md` > Videos. Done so far: test-instant-play-video, design-layout-video.
+
+| id | page | after heading | what to record |
+|---|---|---|---|
+| design-add-widgets-video | docs/design/add-widgets.md | Add a widget with the widget picker | Ctrl/Cmd+K, type button, drag the Button row onto the screen (draft `add-widgets.mjs` works; the picker makes frames slow) |
+| logic-circuit-video | docs/logic/circuit.md | Add a node | select a Button, click Edit next to On Pressed, hover the dot, click +, type snack, click Show snackbar |
+| design-themes-video | docs/design/themes.md | Edit colors | Themes panel, click Primary, drag the hue slider while the board (progress bar, switch, slider) changes color |

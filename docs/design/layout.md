@@ -37,6 +37,10 @@ Select a Row or Column and open the **Group** section.
 
 You can also reorder children by dragging them on the board or in the **Outline**.
 
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/docs/design/design-layout-video.mp4" type="video/mp4" />
+</video>
+
 ## Place widgets in a stack
 
 A widget inside a Stack, such as a widget on a screen's main group, is positioned by its distance to the stack's edges. Select it and open **Layout**.

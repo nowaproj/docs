@@ -5,7 +5,7 @@ sidebar_label: Ready-made actions
 keywords: [openUrl, open link, print, logs, checkPlatform, platform, Media Query, screen size, Shared Preferences, save data, local storage, Create, Future.delayed, delay, Timer, periodic, clipboard, copy, haptic, vibrate, operators, library, functions]
 ---
 
-Circuit has ready-made steps for the things apps do all the time. Add any of them from the **All nodes for this circuit** menu in [Circuit](circuit.md). This page lists the ones you'll reach for most, and where each one lives.
+Circuit has ready-made steps for the things apps do all the time. Add any of them from the **All nodes for this circuit** menu in [Circuit](circuit.md). This page lists the ones you'll use most and where to find each.
 
 Dialogs, sheets, snackbars and pickers are on their own page: [Show dialogs, sheets, snackbars and pickers](popups.md). Moving between screens is in [Navigate between screens](navigation.md).
 

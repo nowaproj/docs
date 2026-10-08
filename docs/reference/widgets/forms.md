@@ -52,7 +52,7 @@ Validators check the text and show a message under the field when it isn't right
 
 Nowa checks the rules from top to bottom and shows the message of the first one that fails. To remove a rule, hover its title and click the remove button. **Required** has none: click the remove button on the validator row to remove all the rules.
 
-{/* CAPTURE: id=reference-forms-1 | state: playground starter open, a Text Field added to the home screen and selected, the validator row's + clicked, then + Add validator → Min length validator chosen | show: Details for the Text Field with Controller showing text, Decoration, the text validator row with the Required Message and the Min length rule, and the + Add validator button | crop: right-hand Details panel */}
+![The bottom of Details for a selected Text Field, scrolled down. The text validator block is highlighted: the Required rule's Message (Field is required), a Regex rule with its Message (Invalid input) and Regex field, and the + Add validator button. The Add Wrapper button is below.](/img/docs/reference/reference-forms-1.png)
 
 Validators run only when your logic asks the form to check. The next section shows how.
 

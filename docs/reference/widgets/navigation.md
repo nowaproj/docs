@@ -21,7 +21,7 @@ A screen has four places around its body for standard parts: an **App Bar** on t
 
 You can also select the screen, open its **Screen** section in **Details**, click a slot such as **App Bar** and pick a widget. The same list offers your own components, so a custom header you built can be the app bar. See [Create and set up screens](../../design/screens.md).
 
-{/* CAPTURE: id=reference-navigation-1 | state: playground starter open, an App Bar, a Floating Button and a Bottom Navigation Bar dropped onto the home screen from the widget picker | show: the home screen on the board with the app bar on top, the floating button over the content and the navigation bar at the bottom | crop: the screen on the board */}
+![The home screen on the board with its standard parts in place: the app bar with the title Home Page on top (highlighted), the purple floating button over the content at the bottom right, and the bottom navigation bar with its home and call tabs at the bottom. The floating button and the bottom navigation bar are inside the second highlight.](/img/docs/reference/reference-navigation-1.png)
 
 ## Set up the App Bar {#app-bar}
 

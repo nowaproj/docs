@@ -16,7 +16,7 @@ The **Variables** panel lists what the selected screen or component keeps: **Par
 
 The panel shows the screen's name, then the three sections. Hover a section title to reveal its **+** button. With nothing selected, the panel shows **Globals** instead: see [Share data across your app](./global-state.md). The panel is part of the visual editor, so it isn't shown in code mode.
 
-{/* CAPTURE: id=logic-variables-1 | state: playground starter open, HomePage selected, Variables tile expanded, one variable added and selected | show: the Variables tile (Params, Variables, Functions) above Details, and Details showing Name, Type and Default Value | crop: right-hand panels */}
+![The Variables tile expanded for HomePage, highlighted: the Params, Variables and Functions sections, with one variable named counter selected. Below it, Details shows its Name, Type (int) and Default Value (0), and a Remove button.](/img/docs/logic/logic-variables-1.png)
 
 ## Add a variable
 

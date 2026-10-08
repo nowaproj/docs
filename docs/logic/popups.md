@@ -25,7 +25,7 @@ A dialog is a box in the middle of the screen, often used to confirm something.
 2. Click the brush next to it (tooltip **Edit AlertDialog**) to change the title, content and buttons.
 3. To use your own design, click the **AlertDialog** button in the **Builder** row and choose **Pick Widget**, then pick a component you built. **Edit in circuit** opens the builder as a function instead.
 
-{/* CAPTURE: id=logic-popups-1 | state: Circuit open for On Pressed, MATERIAL → showDialog added and selected | show: the showDialog node in Circuit and Details with the Builder row (AlertDialog and the brush button) and Barrier Dismissible | crop: Circuit panel */}
+![The Circuit panel for onPressed with a showDialog node added and selected. In its Details, the Builder row (the AlertDialog button and the brush button) and the Barrier Dismissible switch are highlighted, above Barrier Color, Use Safe Area and the other options.](/img/docs/logic/logic-popups-1.png)
 
 A few options matter most:
 

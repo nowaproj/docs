@@ -33,7 +33,7 @@ New projects already include a global state named **AppState** (`lib/globals/app
 
 `notifyListeners` tells every widget that reads the global state to update. Call it at the end of each function that changes a variable.
 
-{/* CAPTURE: id=logic-global-state-1 | state: playground starter, a global state file created with New Global State... and double-clicked in Files, the class selected, one variable and one function added with the function open in Circuit | show: the three columns (class list, Variables and Functions, Circuit with a notifyListeners node) | crop: the editor area */}
+![The global state editor in three columns: the class list with View Code and CartState, the Variables (items) and Functions (addToCart) column, and Circuit showing the addToCart function with its product param, an add node and a notifyListeners node (highlighted) at the end.](/img/docs/logic/logic-global-state-1.png)
 
 ## Attach or detach a global state
 

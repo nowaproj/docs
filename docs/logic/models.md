@@ -28,7 +28,7 @@ A model describes one kind of thing in your app, such as a task, a product or a 
 | **Is Final** | If on, the field can't be changed after the model is created. New fields start with this on, so turn it off for fields you will change, such as `isDone`. |
 | **Is Static** | If on, one value is shared by every model of this kind. Leave it off for normal fields. |
 
-{/* CAPTURE: id=logic-models-1 | state: playground starter, a model file created with New Model... (name Task) and double-clicked in Files, the class selected, three fields added (title, description, isDone) | show: the class list with View Code, the Variables and Functions column, and the selected field's Name, Type, Default Value and Is Final | crop: the editor area */}
+![The model editor for Task: the class list with View Code and Task, the Variables column with title, description and isDone (selected) above Functions with toJson, and the settings of isDone (highlighted): Name, Type (bool), Default Value, Is Final and Is Static.](/img/docs/logic/logic-models-1.png)
 
 Each time you change the fields, Nowa rewrites the constructor, `fromJson` and `toJson`. Click **View Code** to see the Dart code it produced.
 

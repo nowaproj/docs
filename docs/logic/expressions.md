@@ -18,7 +18,7 @@ Click a property's or input's label to open the link menu. Its title is **Link**
    - **EXPRESSIONS** has **Conditional**, **Math** or **Logical**, and **ifNull**. They're explained below.
 3. The property now shows the value's name, such as `product.name`.
 
-{/* CAPTURE: id=logic-expressions-1 | state: playground starter open, a Text widget selected, the label of its Text property clicked | show: the Link Text menu with the search box, Custom Expression..., Create Param..., Create Variable..., Compute... and the LOCALS, GLOBALS and EXPRESSIONS categories | crop: right-hand panel and the popup */}
+![The Link Text menu (highlighted) opened from the label of the Text property of a selected Text: a search box, Custom Expression..., Create Param..., Create Variable..., Compute..., and the collapsed LOCALS, GLOBALS and EXPRESSIONS categories, next to the Details panel.](/img/docs/logic/logic-expressions-1.png)
 
 The menu also has these items:
 

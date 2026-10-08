@@ -17,7 +17,7 @@ A function is a named list of steps that you build once and run from many places
 
 With a function selected, **Details** shows **Name**, **Return Type**, **Edit** and **Remove**.
 
-{/* CAPTURE: id=logic-functions-1 | state: playground starter open, HomePage selected, Variables tile expanded, Functions + clicked | show: the Variables tile with the menu Add Function, InitState Function and Dispose Function open next to Functions | crop: right-hand panels */}
+![The Variables tile for HomePage with the menu opened from the plus next to Functions (highlighted): Add Function, InitState Function and Dispose Function.](/img/docs/logic/logic-functions-1.png)
 
 ## Add parameters and a return value
 

@@ -16,7 +16,7 @@ Open **Themes** (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>3</kbd>) before you desig
 - **Style buttons and fields once.** Under **Widgets** in the theme, set how every button and text field looks. A new **Button** follows the theme by itself.
 - **Bend one thing, not everything.** Use **CopyWith** to change one part of one text, such as its weight, while the rest still follows the theme.
 - **Plan for dark.** New projects start with `lightTheme` and `darkTheme`, and the board shows the **Active** one. The app doesn't switch on its own, so add a switch with `changeTheme`. See [Switch themes while the app runs](../design/theme-styles.md#switch-themes-while-the-app-runs).
-- **Theme extensions** hold extra values, such as brand colors, and show up as tabs in **Themes**. There is no button to create one: they come from code that you or Nowa AI write. Widget color pickers list the standard color roles only, so use those for everyday colors.
+- **Theme extensions** hold extra values, such as brand colors, and show up as tabs in **Themes**. There's no button to create one: they come from code that you or Nowa AI write. Widget color pickers list the standard color roles only, so use those for everyday colors.
 
 ## Build once, reuse everywhere
 

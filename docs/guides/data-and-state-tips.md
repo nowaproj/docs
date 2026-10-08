@@ -24,7 +24,7 @@ Start local. Move a value to global state only when a second screen needs it.
 
 - Create one [model](../logic/models.md) per kind of thing, such as `Recipe` or `Task`. Nowa keeps its constructor, `fromJson` and `toJson` up to date.
 - Let Nowa write them. Query Templates can create one for a table, **Generate Model** builds one from a tested REST response, and **Generate Models From Json...** builds them from sample JSON.
-- Use a model as a param's type to hand a whole item to a screen or component, and as a list variable's type (**As List**). While they are empty, the board shows placeholder values shaped like your data.
+- Use a model as a param's type to hand a whole item to a screen or component, and as a list variable's type (**As List**). While they're empty, the board shows placeholder values shaped like your data.
 
 ## Choose a backend
 
@@ -58,8 +58,8 @@ Tests run against your real backend, so create, update and delete calls change r
 ## Show loading and error states
 
 - A **Data Builder** shows a progress circle while it loads and the error in red if the call fails. Design your own under **Loading Widget** and **Error Builder**. See [Show data in your UI](../integrations/show-data.md).
-- A source that returns nothing keeps the **Loading Widget** on screen. That is what **Get Record by ID** does when no row matches, so test an ID that doesn't exist.
-- An empty list shows nothing. When your source returns a list, you can show a message instead. Put the list and the message in a **Column** inside the Data Builder, set the list's height to **Expand**, wrap the message in **Visibility** and link **Visible** to `data`, then pick `isEmpty`.
+- A source that returns nothing keeps the **Loading Widget** on screen. That's what **Get Record by ID** does when no row matches, so test an ID that doesn't exist.
+- An empty list shows nothing. When your source returns a list, you can show a message instead. Put the list and the message in a **Column** inside the Data Builder and set the list's height to **Expand**. Wrap the message in **Visibility**, link **Visible** to `data`, then pick `isEmpty`.
 - The board shows placeholder values, not a real call, so click **Play** to see real loading, results and empty lists. See [Placeholders on the board, real values in Play](../test/instant-play.md#placeholders-on-the-board-real-values-in-play).
 - For a tap that calls a backend, such as save or sign-in, use **onValue** and **onError** under **Future Options**, and show a **Show snackbar** in **onError**. See [Wait for a result](../logic/circuit.md#future-options).
 

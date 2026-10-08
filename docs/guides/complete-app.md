@@ -66,7 +66,7 @@ Details: [Sign users in with Supabase](../integrations/supabase/auth.md#login-sc
 ## 5. Show the recipes
 
 1. In the **Supabase** panel, click **+** next to **Generate a Query**, then **Query Templates**. If it says **No Tables Found**, click **Fetch Tables**. Choose **Get All Records**, pick your recipes table, click **Create new model class** and **Generate Function**. Repeat for **Get Record by ID** and pick your model under **Use Existing Model**. Nowa names each function after its action and your table, so a `recipes` table gives `getAllRecipes` and `getByIdRecipes`.
-2. Make sure **Testing as:** shows your email, then click `getAllRecipes` and **Run**. You should see your sample recipes.
+2. Make sure **Testing as:** shows your email, then click `getAllRecipes` and **Run**. The result lists your sample recipes.
 3. Select the recipe **List View** (or add one), click **Add Wrapper** and choose **Data Builder**. Set **Source** to **Supabase** and **Query** to `getAllRecipes`.
 4. Select the List View. If **Type** shows **Normal**, choose **Builder**. Click **List**, open **LOCALS** and pick `data`.
 5. Set **Item Builder** to `RecipeCard` with **Pick Widget**, then link each of its params to the matching field of `element`.

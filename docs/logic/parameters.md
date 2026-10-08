@@ -46,7 +46,7 @@ Values set this way belong to that one copy. Edit the component itself to change
 
 To go back to the param's default on a copy, right-click its field in **Details** and choose **Reset to default**. To pass nothing at all, choose **Set to null**. Params you create allow this, because their type can be empty.
 
-{/* CAPTURE: id=logic-parameters-1 | state: playground starter with a component that has a title param, placed on HomePage and selected | show: Details with the component's param field, and the Variables tile with Params open for the component | crop: right-hand panels */}
+![A copy of a PageTitle component selected in the home screen's app bar, showing the text Welcome on the board. In Details, the Page Title section with its Title param field (set to Welcome) is highlighted, above the Add Wrapper button. The Variables tile above Details is collapsed.](/img/docs/logic/logic-parameters-1.png)
 
 To preview a screen or component on the board with sample data, select its title and fill in its param fields in **Details**. These values are saved with the board for previewing. Your app doesn't use them.
 

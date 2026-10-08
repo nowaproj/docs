@@ -24,7 +24,7 @@ Both widgets have a **Type** switch in **Details**.
 4. Type a number in **Item Count** to see the list with more or fewer items.
 5. Choose a **Separator**: **None**, **Fixed Spacing** (then set **Spacing**) or **Widget**, which adds a **Divider** you can restyle.
 
-{/* CAPTURE: id=reference-lists-1 | state: playground starter open, a List View added to the home screen from the widget picker and selected | show: Details for the List View with the Type switch (Normal, Builder), the List button reading Connect, Item Count, Item Builder, Separator and the scroll settings below | crop: right-hand Details panel */}
+![Details for a List View placed on the home screen: the Layout section (L, T, R, B, W, H and the alignment grid), then the List View settings. The Type switch (Normal, Builder), the List button reading Connect, Item Count, Item Builder and Separator are highlighted, with the scroll settings (Scroll Direction, Reverse, Shrink Wrap, Padding, Physics) below.](/img/docs/reference/reference-lists-1.png)
 
 If the list sits in a Column, set its height to **Expand** in **Layout** so it fills the space that is left. See [Lay out widgets](../../design/layout.md).
 

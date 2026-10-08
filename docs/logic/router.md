@@ -13,7 +13,7 @@ It works in GoRouter projects, which new projects are. For an older project, see
 
 Click **Router** in the sidebar, below the divider under the other panel icons. **Router Settings** opens in the workspace with your routes on the left and the selected route's settings on the right. The route icon (**Open Router Editor**) in a screen's **Route Settings** opens it too.
 
-{/* CAPTURE: id=logic-navigation-2 | state: playground starter, Router icon clicked, the home route selected | show: the Routes list on the left and the route details on the right (Path, Screen, Route Parameters, Screen Parameters) | crop: Router Settings view */}
+![Router Settings after clicking Router in the sidebar (the Router icon below the divider is highlighted). The Routes list on the left, with its gear and plus buttons, shows the selected /home-page route for HomePage. On the right are the route's Type, Redirect Logic, Full Path, Path, Screen and Route Parameters.](/img/docs/logic/logic-navigation-2.png)
 
 ## Add, nest and delete routes
 

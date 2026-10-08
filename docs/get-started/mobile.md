@@ -14,7 +14,7 @@ Nowa shows the phone layout in any browser window narrower than 840 px. The phon
 1. Open [app.nowa.dev](https://app.nowa.dev) in your phone's browser and sign in.
 2. Tap a project on the dashboard.
 
-{/* CAPTURE: id=get-started-mobile-1 | state: /playground in a 390x844 phone-size viewport | show: the phone layout with the top row (back arrow, status pill, Build, Play, More), the screens list with Search project... and the All / Pages / Components tabs, and the chat pill at the bottom | crop: full viewport */}
+![The phone layout of Nowa at 390 by 844 px. The top row (highlighted) has the back arrow, the green status pill, Build, Play and More. Below are the Search project box with the carousel and list toggle, the All, Pages and Components tabs, the HomePage card in the carousel, the suggestion chips, and the Ask Nowa AI chat pill with its microphone at the bottom (highlighted).](/img/docs/get-started/get-started-mobile-1.png)
 
 ## What you see
 

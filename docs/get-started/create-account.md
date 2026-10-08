@@ -15,7 +15,7 @@ An account gives you the dashboard, your projects and Nowa AI. Sign up with an e
 4. Click **Create account**. The **Confirm your email** step opens.
 5. Type the 6-digit code Nowa sent to your email into the six boxes. Nowa checks it when you enter the last digit, or you can click **Verify**.
 
-{/* CAPTURE: id=get-started-create-account-1 | state: signed out, app.nowa.dev/signup in a 1440 px wide window | show: the Create your account form with all fields, the terms checkbox, Create account, and the Continue with Google and Continue with Apple buttons | crop: the form column */}
+![The Create your account sign-up form, empty. The highlighted block holds First name, Last name, Email, Password and Repeat password with their hint texts, the I accept the terms and conditions box, the ticked I want to receive emails box, and the Create account button. Below are Or, the Continue with Google and Continue with Apple buttons, and the Sign in and Build an app, no account needed links.](/img/docs/get-started/get-started-create-account-1.png)
 
 **You should see:** the dashboard with **What do you want to build?** New accounts first answer four short questions (see [Answer the four questions](#answer-the-four-questions)).
 

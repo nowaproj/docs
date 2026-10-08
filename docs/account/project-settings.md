@@ -27,7 +27,7 @@ The **General** group has these pages:
 
 The **Integrations** group lists **Google Maps**, **AdMob**, **RevenueCat**, **Deep Links**, **Google Sign-In**, **Stripe** and **Firebase**. Each page holds that service's keys and setup. Start at [Connect data and services](../integrations/index.md).
 
-{/* CAPTURE: id=account-project-settings-1 | state: a project open, click the gear in the top bar so App Settings shows Project Details | show: the Settings list (General and Integrations groups) and the top of Project Details (Project Name, Package Name, App Name, Bundle Identifier, Build info, App Icon) | crop: whole editor window */}
+![App Settings opened with the gear in the top bar, on Project Details. The Settings list on the left is highlighted: the General group (Project Details, Packages, Constants) and the Integrations group (Google Maps, AdMob, RevenueCat, Deep Links, Google Sign-In, Stripe, Firebase). On the right are Project Name, Package Name, App Name, Bundle Identifier, Build info (Build version, Build number), App Icon with Change all and the Android, iOS, Web and macOS tiles, then Shared Preferences and Experimental flags.](/img/docs/account/account-project-settings-1.png)
 
 The playground and guest sessions don't show **Deployment**, **Permissions**, **Git** or **Project Sync**: they need a saved project. **Project Sync** is also hidden on the web app.
 

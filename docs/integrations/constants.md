@@ -36,7 +36,7 @@ Nothing saves when you click away, so press <kbd>Enter</kbd> before you leave th
 2. Type a **Name** and a **Value**. Use letters, numbers and underscores, starting with a letter or an underscore, for example `weatherApiKey`.
 3. Click the check mark (**Confirm**) or press <kbd>Enter</kbd>. To back out, click the X (**Cancel**).
 
-{/* CAPTURE: id=integrations-constants-1 | state: playground starter open, Settings open on Constants, one custom constant added | show: the Constants page with the General and Integrations lists and one custom constant | crop: settings window */}
+![The Constants page in Settings, with the General (Project Details, Packages, Constants) and Integrations lists on the left, and the page description on the right. The Custom Constants section (highlighted) shows its plus button and one custom constant: the name weatherApiKey, the value demo-key and a remove (X) button.](/img/docs/integrations/integrations-constants-1.png)
 
 If you type a name that already exists, its value is replaced. Nowa shows an error under the row when a name isn't valid. To delete one of your own constants, click the X (**Remove**) at the end of its row. Values in an integration's section have no **Remove** icon.
 

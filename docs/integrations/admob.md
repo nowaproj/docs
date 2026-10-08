@@ -20,7 +20,7 @@ AdMob is Google's ad network for mobile apps. Add your App IDs in Nowa, place an
 
 Add an App ID for both platforms. With only one, your app doesn't work on the other platform (Nowa warns about this on the page).
 
-{/* CAPTURE: id=integrations-admob-1 | state: playground starter open, Settings open on Integrations → AdMob, Enabled on | show: the Enabled switch and the Android App ID and iOS App ID fields | crop: Settings window content area */}
+![The AdMob page in Settings with its description and the note about adding keys for both platforms. The Enabled switch (on) and, under Configuration, the Android App ID and iOS App ID fields showing the ca-app-pub placeholder are highlighted.](/img/docs/integrations/integrations-admob-1.png)
 
 Nowa writes the Android App ID into the Android manifest and the iOS App ID into `Info.plist`, together with Google's SKAdNetwork identifiers.
 

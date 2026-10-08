@@ -23,7 +23,7 @@ The warning icon in the Instant Play controls says it too: "In board preview is 
 | A light blue panel with a blue crossed box and a widget's name in large letters | A widget of yours that Nowa keeps as code. Nowa couldn't read it, or you imported it as custom code. | Select it. If Nowa couldn't read it, **Details** shows **Kept as code** and the reason. |
 | A small crossed box | A widget that Nowa has no value for, shown as a small slot so it doesn't take over your layout. | Give it a value, or click **Run**. |
 
-{/* CAPTURE: id=code-limitations-1 | state: playground starter open; in code mode add to a screen's file a StatefulWidget whose State class uses `with AutomaticKeepAliveClientMixin`, save, go back to the board and drop that widget on a screen, then select it | show: the light blue placeholder with the widget's name on the board and the Details panel with the Kept as code box and its reason | crop: board item plus the Details panel */}
+![A custom KeepAliveBox widget placed on the home screen is drawn as a light blue placeholder with a blue crossed box and the widget's name in large letters, selected on the board. In Details, the Kept as code box (highlighted) gives the reason: Unsupported mixin AutomaticKeepAliveClientMixin, and lists the supported mixins for State classes.](/img/docs/code/code-limitations-1.png)
 
 Functions that Nowa doesn't run return a stand-in value, such as `[...]` for text, `0` for a number or `false` for a true/false value. That covers a function marked [`@CustomFunction`](custom-code.md#custom-function), a method Nowa couldn't read, and any function from a package without built-in support. Each call is written to **Logs**: "calling: `<name>`" for your own code and "Calling `<name>`" for package functions.
 

@@ -25,7 +25,7 @@ Nowa puts each key where its platform needs it:
 | **iOS API Key** | The iOS `AppDelegate`, as `GMSServices.provideAPIKey`, with `import GoogleMaps`. |
 | **Web API Key** | A Google Maps script tag in the web `index.html`. |
 
-{/* CAPTURE: id=integrations-google-maps-1 | state: playground starter open, Settings open on Integrations → Google Maps, Enabled on | show: the Enabled switch and the Android API Key, iOS API Key and Web API Key fields | crop: Settings window content area */}
+![The Google Maps page in Settings with its description. The Enabled switch (on) and, under Configuration, the Android API Key, iOS API Key and Web API Key fields showing the AIza placeholder are highlighted.](/img/docs/integrations/integrations-google-maps-1.png)
 
 ## Add the map
 

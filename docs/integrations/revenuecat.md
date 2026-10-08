@@ -34,7 +34,7 @@ When you turn it on, Nowa also:
 2. Choose it. If Nowa shows **Add Missing Dependencies**, click **Add**. The paywall also needs the `purchases_ui_flutter` package.
 3. The widget sits on the board as a placeholder labeled "RevenueCat Paywall" with the text "Run to preview".
 
-{/* CAPTURE: id=integrations-revenuecat-1 | state: playground starter open, a screen on the board, RevenueCat Paywall added from the widget picker | show: the placeholder card labeled RevenueCat Paywall / Run to preview inside a screen | crop: the screen on the board */}
+![The home screen on the board with the RevenueCat Paywall added below the Home Page title: a light purple placeholder card (highlighted) with a card icon, the label RevenueCat Paywall and the text Run to preview.](/img/docs/integrations/integrations-revenuecat-1.png)
 
 The board and **Play** show only placeholders. In **Play**, the widget reads "Run on a simulator/emulator or mobile device to preview". To see the real paywall, run your app on a simulator, emulator or device. That needs the desktop app. See [Run on a device or emulator](../test/devices.md).
 

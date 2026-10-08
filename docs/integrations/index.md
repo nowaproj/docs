@@ -62,7 +62,7 @@ Nowa has no built-in integration for secure (encrypted) storage, for OneSignal o
 
 Click the gear (**Settings**) in the top bar, or press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>,</kbd>. Under **Integrations** you find **Firebase**, **Stripe**, **RevenueCat**, **AdMob**, **Google Maps**, **Google Sign-In** and **Deep Links**. Supabase and REST APIs have their own panels in the left sidebar.
 
-{/* CAPTURE: id=integrations-index-1 | state: playground starter open; click the gear in the top bar; the Integrations group visible in the left list | show: the Settings window showing the General group (Project Details, Packages, Constants) and the Integrations group (Google Maps, AdMob, RevenueCat, Deep Links, Google Sign-In, Stripe, Firebase) | crop: left list of the settings window */}
+![The Settings list on the left of App Settings. The General group shows Project Details (selected), Packages and Constants. The Integrations group is highlighted: Google Maps, AdMob, RevenueCat, Deep Links, Google Sign-In, Stripe and Firebase.](/img/docs/integrations/integrations-index-1.png)
 
 **Constants**, under **General**, holds your own values and the keys some integrations use, such as Stripe and RevenueCat. Everything there ships inside your app, so keep server secrets out of it. See [Keys and constants](./constants.md).
 

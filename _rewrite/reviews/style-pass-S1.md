@@ -25,3 +25,4 @@
 | design/localization.md | No edits. | "Nowa AI can't add the `flutter_localizations` package to a project, so it uses a different approach." The "different approach" is never named. Unclear because the fact behind it is thin; left as written. A fact-checker could say what the approach is, or the clause could be dropped. |
 | design/outline.md | No edits. Intro, icon table and steps already plain and short. | none |
 | design/properties.md | No edits. Reference page: section and editor tables carry the facts, prose is short and active. | none |
+| design/responsive.md | No edits. Opens with the payoff, tables hold the facts, the "Try it" steps and the visibility steps are one action each. | none |

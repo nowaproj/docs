@@ -37,22 +37,22 @@ To style every text field in your app at once, use the **Fields** settings of yo
 Validators check the text and show a message under the field when it isn't right.
 
 1. Select the Text Field. In **Details**, hover the validator row. It's named after the controller, such as **text validator**.
-2. Click **+**. A **Required** rule appears with a **Message**, which starts as "Field is required".
-3. Click **+ Add validator** and choose a rule, for example **Min length validator**. Each rule can be added once.
-4. Change each rule's **Message**, and its **Min**, **max** or **Regex** setting.
+2. Click **+**, then click the arrow next to **text validator** to open it. A **Required** rule appears with a **Message**, which starts as "Field is required".
+3. Click **+ Add validator** and choose a rule, for example **Min length validator**. **Email**, **Phone** and **Regex** can each be added once.
+4. Change each rule's **Message**, and the **Regex** field of a **Regex** rule.
 
-A **Min length** or **Max length** rule you add has no **Min** or **max** field in **Details**: right after you add it, it appears as a plain **Message** row, like **Required**. The length check stays in your code, and you change its number in code mode (see [Edit code in Nowa](../../code/code-mode.md)). Editing the **Message** is safe, but adding or removing another rule afterwards rewrites that row as a **Required** check and drops the length check, so add a length rule last.
+A **Min length** or **Max length** rule you add has no **Min** or **max** field in **Details**: right after you add it, it appears as a plain **Message** row, like **Required**. The length check stays in your code with the starting number from the table below, and you change that number in code mode (see [Edit code in Nowa](../../code/code-mode.md)). Editing the **Message** is safe, but adding or removing another rule afterwards rewrites that row as a **Required** check and drops the length check, so add a length rule last.
 
 | Rule | The message shows when | Starts as |
 |---|---|---|
 | **Required** | The box is empty. | "Field is required" |
-| **Min length** | The text has fewer characters than **Min**. | "Too small", **Min** 6 |
-| **Max length** | The text has more characters than **max**. | "Too long", **max** 40 |
+| **Min length** | The text has fewer characters than the minimum. | "Too small", minimum 6 |
+| **Max length** | The text has more characters than the maximum. | "Too long", maximum 40 |
 | **Email** | The text isn't a valid email address. | "Invalid email" |
 | **Phone** | The text isn't a valid phone number. | "Invalid phone" |
 | **Regex** | The text doesn't match your **Regex** pattern. | "Invalid input" |
 
-Nowa checks the rules from top to bottom and shows the message of the first one that fails. To remove a rule, hover its title and click the remove button. **Required** has none: click the remove button on the validator row to remove all the rules.
+Nowa checks the rules from top to bottom and shows the message of the first one that fails. To remove a rule, hover its title and click the remove button. **Required**, **Min length** and **Max length** show no title or remove button: click the remove button on the validator row to remove all the rules.
 
 ![The bottom of Details for a selected Text Field, scrolled down. The text validator block is highlighted: the Required rule's Message (Field is required), a Regex rule with its Message (Invalid input) and Regex field, and the + Add validator button. The Add Wrapper button is below.](/img/docs/reference/reference-forms-1.png)
 

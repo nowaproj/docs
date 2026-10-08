@@ -16,9 +16,9 @@ AdMob is Google's ad network for mobile apps. Add your App IDs in Nowa, place an
 
 1. Click the gear in the top bar (**Settings**) or press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>,</kbd>. Under **Integrations**, click **AdMob**.
 2. Turn on **Enabled**. Nowa adds the `nowa_mobile_ads` package and `await MobileAds.instance.initialize();` to `main()`.
-3. Under **Configuration**, paste your **Android App ID** and **iOS App ID**. Both look like `ca-app-pub-xxxxxxxxxxxxxxxx~xxxxxxxxxx`. Press <kbd>Enter</kbd> or click the send icon (**Submit**) after each one. An ID that does not start with `ca-app-pub-` is refused.
+3. Under **Configuration**, paste your **Android App ID** and **iOS App ID**. Both look like `ca-app-pub-xxxxxxxxxxxxxxxx~xxxxxxxxxx`. Press <kbd>Enter</kbd> or click the send icon (**Submit**) after each one. An ID that doesn't start with `ca-app-pub-` is refused.
 
-Add an App ID for both platforms. With only one, your app does not work on the other platform (Nowa warns about this on the page).
+Add an App ID for both platforms. With only one, your app doesn't work on the other platform (Nowa warns about this on the page).
 
 {/* CAPTURE: id=integrations-admob-1 | state: playground starter open, Settings open on Integrations → AdMob, Enabled on | show: the Enabled switch and the Android App ID and iOS App ID fields | crop: Settings window content area */}
 
@@ -26,13 +26,13 @@ Nowa writes the Android App ID into the Android manifest and the iOS App ID into
 
 ## Add a banner
 
-1. Open the widget picker (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd>) or click the **Widget** tool, and search for **Admob Banner**. If AdMob is not turned on yet, Nowa shows **Add Missing Dependencies**: click **Add**.
+1. Open the widget picker (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd>) or click the **Widget** tool, and search for **Admob Banner**. If AdMob isn't turned on yet, Nowa shows **Add Missing Dependencies**. Click **Add**.
 2. Place the banner on a screen, usually at the top or bottom. It uses the standard banner size.
 3. In **Details**, fill in **Android Unit ID** and **Ios Unit ID** with your banner ad unit IDs.
 
-**Show Test Ads** is on by default. While it is on, the banner uses Google's test ad units instead of your unit IDs. Turn it off before you publish.
+**Show Test Ads** is on by default. While it's on, the banner uses Google's test ad units instead of your unit IDs. Turn it off before you publish.
 
-If **Details** shows "No API Keys" with an **AdMob setup** button, or a button named **AdMob Android setup** or **AdMob IOS setup** in place of a unit ID field, click the button to open the **AdMob** page and add the missing App ID.
+If **Details** shows "No API Keys" with an **AdMob setup** button, click the button to open the **AdMob** page and add the missing App ID. The same goes for a button named **AdMob Android setup** or **AdMob IOS setup** that replaces a unit ID field.
 
 {/* CAPTURE: id=integrations-admob-2 | state: playground starter open, AdMob enabled with both App IDs set, an Admob Banner selected on a screen | show: the Details panel with Android Unit ID, Ios Unit ID and Show Test Ads, and the red editor-preview banner on the board | crop: board item + Details panel */}
 
@@ -44,15 +44,15 @@ What the banner shows depends on where it runs:
 | An Android or iOS app, **Show Test Ads** on | A Google test ad. |
 | An Android or iOS app, **Show Test Ads** off | Your ad for that platform's unit ID. If the ID is empty you see "no adUnitId", and if the ad can't load, "BannerAd failed to load". |
 
-To see a real ad, run the app on an Android or iOS device or emulator. That needs the desktop app: see [Run on a device or emulator](../test/devices.md).
+To see a real ad, run the app on an Android or iOS device or emulator. That needs the desktop app. See [Run on a device or emulator](../test/devices.md).
 
 ## Show a full-screen ad
 
-`loadAndShowInterstitialAd` loads a full-screen ad and shows it as soon as it is ready. Call it from an event, for example when a level ends or the user taps **Next**.
+`loadAndShowInterstitialAd` loads a full-screen ad and shows it as soon as it's ready. Call it from an event, for example when a level ends or the user taps **Next**.
 
 1. Open the event's function in Circuit ([Respond to taps and other events](../logic/events.md)).
 2. Hover the dot under the top node and click **+**. In **All nodes for this circuit**, search for `loadAndShowInterstitialAd` and click it.
-3. In **Details**, set **Android Unit ID** and **Ios Unit ID** to your full-screen ad unit IDs. **Show Test Ads** is on by default; turn it off for your published app.
+3. In **Details**, set **Android Unit ID** and **Ios Unit ID** to your full-screen ad unit IDs. **Show Test Ads** is on by default. Turn it off for your published app.
 
 Like the banner, it only shows ads on Android and iOS.
 

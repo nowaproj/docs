@@ -40,9 +40,9 @@ Sign in before you test queries on tables that use Row Level Security (RLS). Sig
 
 ## Add sign-in to a login screen {#login-screen}
 
-Call the functions from an event, such as a button's **On Pressed**. Here is the usual flow for a login screen.
+Call the functions from an event, such as a button's **On Pressed**. Here's the usual flow for a login screen.
 
-1. Build the screen with two **Text Field** widgets and a button: see [Add widgets](../../design/add-widgets.md). To start from a ready-made design, pick the **Authentication Template** in the screen template picker: see [Start from a template](../../design/templates.md).
+1. Build the screen with two **Text Field** widgets and a button (see [Add widgets](../../design/add-widgets.md)). To start from a ready-made design, pick the **Authentication Template** in the screen template picker (see [Start from a template](../../design/templates.md)).
 2. Optional: rename each Text Field's controller in the **Variables** panel, for example to `email` and `password`. Nowa gives every Text Field a controller that holds what the user types, and clear names make the next steps easier. See [Store data in variables](../../logic/variables.md).
 3. Select the button. In **Details**, open its **On Pressed** event in [Circuit](../../logic/circuit.md): click **+** to create it, or **Edit** if it already has logic. See [Respond to taps and other events](../../logic/events.md).
 4. Hover the dot under the top node until it becomes **+**, then click it. The **All nodes for this circuit** menu opens.

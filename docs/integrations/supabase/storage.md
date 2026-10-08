@@ -27,7 +27,7 @@ Supabase Storage keeps your app's files, such as profile photos and documents, i
 | **Download File** | `downloadFile` | **Bucket Name**, **File Path** | The file's data |
 | **Delete File** | `deleteFile` | **Bucket Name**, **File Name** | Nothing |
 
-The names are fixed, so you get one of each, and generating a template again replaces the earlier function. There are no templates for public links, listing, moving or copying files. Change a function with **Edit Code**, or ask Nowa AI: see [Change a function's code](database.md#edit-code).
+The names are fixed, so you get one of each, and generating a template again replaces the earlier function. No template covers public links, listing, moving or copying files. Change a function with **Edit Code**, or ask Nowa AI. See [Change a function's code](database.md#edit-code).
 
 ## Test the functions
 
@@ -36,7 +36,7 @@ The names are fixed, so you get one of each, and generating a template again rep
 3. Click **File Data** and pick an image from your device. The field then shows the file's name.
 4. Click **Run**.
 5. Click `downloadFile`.
-6. Type the same **Bucket Name**, and the name you uploaded under as **File Path**.
+6. Type the same **Bucket Name**. For **File Path**, type the name you uploaded under.
 7. Click **Run**.
 
 {/* CAPTURE: id=integrations-supabase-storage-2 | state: same project, uploadFile run with a small PNG, then downloadFile run for it | show: the bottom test panel titled Testing downloadFile with the image preview, the download icon beside it, and Testing values, Run and Edit Code on the right | crop: bottom test panel */}

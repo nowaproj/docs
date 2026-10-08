@@ -48,7 +48,7 @@ Everything directly on a board is a board item: a screen, a component, or a loos
 - **Title bar.** Screens and components have one above them. It shows the name, and a home icon on your home screen. Hover it to see **Play** and **Open in new tab**. Double-click it to rename the item.
 - **Select and move.** Click the title to select the whole item, then drag it. <kbd>Shift</kbd> + click adds more items to the selection.
 - **Place exactly.** With an item selected, type **X**, **Y**, **W** and **H** under **Layout** in **Details**.
-- **Loose widgets** have no title bar. They are saved only in the board file, so they are not part of your app until you place them inside a screen.
+- **Loose widgets** have no title bar. They're saved only in the board file, so they're not part of your app until you place them inside a screen.
 
 ![The board with two screens, SettingsPage and HomePage, and a loose gray shape. The HomePage title bar is highlighted: it shows the home icon, the Play button and the Open in new tab button.](/img/docs/design/design-boards-2.png)
 

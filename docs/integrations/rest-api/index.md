@@ -38,7 +38,7 @@ Changes save when you leave a field. Click **Close** when you're done.
 With an **Auth Key**, every request sends `Authorization: Bearer` followed by the token your app saved under that name. Save the token after sign-in with the **SHARED PREFERENCES** → **set** action in Circuit, using the same **Key** and the **Type** `string`. See [Save values on the device](../../logic/actions.md#save-values-on-the-device).
 
 :::warning
-The **Base URL** and the headers you add, on the collection or on a single request, are written into the collection's Dart file and ship inside your app, even a token you paste into a header value. Never put a server secret there. The **Auth Key** is only a name: saving it writes no token into your code, and your app reads the token from Shared Preferences on the device.
+The **Base URL** and the headers you add, on the collection or on a single request, are written into the collection's Dart file. They ship inside your app, even a token you paste into a header value. Never put a server secret there. The **Auth Key** is only a name: saving it writes no token into your code, and your app reads the token from Shared Preferences on the device.
 :::
 
 ## Add a request
@@ -68,7 +68,7 @@ Use a parameter for anything that changes between calls, such as a search word.
 2. In the address, type `$` and pick the parameter. For a query string, write it in the address, for example `/search?q=${query}`.
 3. In a JSON body, drag the parameter's chip from **Pass Parameters in Body** onto a value, or type `${query}` yourself.
 
-**Params** are your request's inputs. There is no separate query-string tab.
+**Params** are your request's inputs. There's no separate query-string tab.
 
 ```json
 {

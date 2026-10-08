@@ -7,7 +7,7 @@ keywords: [constants, custom constants, API key, keys, secrets, AppConstants, ap
 
 Constants are the fixed values your app needs, such as a publishable key, a client ID or an address you reuse. Nowa keeps them in one place, so you can see and change them without opening code.
 
-Constants ship inside your app, so anyone who has the app can read them: see [Keep secrets out of your app](../guides/data-and-state-tips.md#keep-secrets-out-of-your-app).
+Constants ship inside your app, so anyone who has the app can read them. See [Keep secrets out of your app](../guides/data-and-state-tips.md#keep-secrets-out-of-your-app).
 
 ## Open the Constants page
 
@@ -19,7 +19,7 @@ Constants ship inside your app, so anyone who has the app can read them: see [Ke
 - **Integration sections.** Some integrations keep their values here, in a section named after the integration: **Stripe** (**Publishable Key**, **Merchant Name**, **Country Code**), **RevenueCat** (**Apple API Key**, **Android API Key**, **Web API Key**) and **Google Sign-In** (**Web Client ID**). A section appears once you turn the integration on. Changing a value here also changes it on the integration's own page, and the other way round.
 - **Custom Constants.** Your own constants, plus values Nowa adds for you. Connecting Supabase, for example, adds `supabaseUrl` and `supabaseAnonKey`.
 
-Keys that Nowa writes into your Android, iOS or web project files are not listed here. Google Maps, AdMob, Deep Links and the Google Sign-In **iOS Client ID** live on their own pages under **Settings** → **Integrations**. See [Connect data and services](./index.md).
+Keys that Nowa writes into your Android, iOS or web project files aren't listed here. Google Maps, AdMob, Deep Links and the Google Sign-In **iOS Client ID** live on their own pages under **Settings** → **Integrations**. See [Connect data and services](./index.md).
 
 Behind the scenes, every constant is a text value in the `AppConstants` class in `lib/globals/app_constants.dart`.
 

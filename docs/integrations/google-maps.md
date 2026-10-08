@@ -41,13 +41,13 @@ Try: "Add a Google Map to the Contact screen and put a marker on our office."
 
 ## See the map
 
-The board and **Play** do not draw a live map. **Play** and a shared preview show "Run on a simulator/emulator or mobile device to preview" where the map would be. To see the real map, run your app:
+The board and **Play** don't draw a live map. **Play** and a shared preview show "Run on a simulator/emulator or mobile device to preview" where the map would be. To see the real map, run your app:
 
 - **Run** with the **Embedded preview** runs your app as a web app, so it uses your **Web API Key**. See [Run your app](../test/run.md).
-- A simulator, emulator or device uses your **Android API Key** or **iOS API Key**. That needs the desktop app: see [Run on a device or emulator](../test/devices.md).
+- A simulator, emulator or device uses your **Android API Key** or **iOS API Key**. That needs the desktop app. See [Run on a device or emulator](../test/devices.md).
 
 :::note[Show the user's location]
-A new map starts with the my-location button on. For it to find the user, turn on a location permission under **Permissions** in Settings: **Fine Location** or **Coarse Location** for Android, **Location When In Use** for iOS. Nowa does not turn them on for you. See [Project settings](../account/project-settings.md).
+A new map starts with the my-location button on. For it to find the user, turn on a location permission under **Permissions** in Settings: **Fine Location** or **Coarse Location** for Android, **Location When In Use** for iOS. Nowa doesn't turn them on for you. See [Project settings](../account/project-settings.md).
 :::
 
 ## Turn Google Maps off

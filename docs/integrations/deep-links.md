@@ -26,7 +26,7 @@ Type the values without the `://`, in lowercase letters (Android matches them ca
 - **URL Scheme**: only the scheme, such as `myapp`.
 - **Host**: only the domain, such as `example.com`, not `https://example.com`. Add a path after it to match only links that start with it, such as `example.com/app`.
 
-Nowa writes your settings into the iOS and Android project files, and switches off Flutter's built-in deep link handling in them. They take effect in a built app. To try a link, run the app on a device or emulator with the desktop app: see [Run on a device or emulator](../test/devices.md).
+Nowa writes your settings into the iOS and Android project files, and switches off Flutter's built-in deep link handling in them. They take effect in a built app. To try a link, run the app on a device or emulator with the desktop app. See [Run on a device or emulator](../test/devices.md).
 
 ## What each field sets up
 
@@ -42,12 +42,12 @@ In Nowa 3.12.5, saving **URL Scheme** rewrites only the iOS `Info.plist`. The An
 Things to know:
 
 - On Android, Nowa registers the scheme together with the host `open.my.app`, so an Android link looks like `myapp://open.my.app/products/12`. The same link works on iOS, which matches on the scheme alone.
-- **Host** does not set up iOS Universal Links. Nowa does not add the iOS associated-domains entitlement, so web links open your app on Android only until you set up Universal Links yourself ([Apple's guide](https://developer.apple.com/documentation/xcode/supporting-universal-links-in-your-app)). On Android, `autoVerify` makes the system check that you own the domain, so your site must serve the verification file ([Android's guide](https://developer.android.com/training/app-links)).
+- **Host** doesn't set up iOS Universal Links. Nowa doesn't add the iOS associated-domains entitlement, so web links open your app on Android only until you set up Universal Links yourself ([Apple's guide](https://developer.apple.com/documentation/xcode/supporting-universal-links-in-your-app)). On Android, `autoVerify` makes the system check that you own the domain, so your site must serve the verification file ([Android's guide](https://developer.android.com/training/app-links)).
 - [Google Sign-In](./google-sign-in.md) also writes a URL type to `Info.plist`, once you save its **iOS Client ID**. With both saved, Nowa 3.12.5 writes two separate `CFBundleURLTypes` entries. A property list should hold that key once, so one of the two may not take effect on iOS. Open `ios/Runner/Info.plist` in code mode to check.
 
 ## Handle the link in your app
 
-Nowa registers the links and adds `app_links`, but it does not generate code that reads an incoming link. Your app's logic has to read the link and open the right screen.
+Nowa registers the links and adds `app_links`, but it doesn't generate code that reads an incoming link. Your app's logic has to read the link and open the right screen.
 
 New projects use GoRouter, where each screen has a route **Path** (**Route Settings** in **Details**) that a link can point to. See [Navigate between screens](../logic/navigation.md). An older project that uses Navigator shows **Enable GoRouter** in the **Router** panel, which lists deep linking as built in for GoRouter and "Not supported out of the box" for Navigator. See [Switch an older project to GoRouter](../logic/router.md#switch-an-older-project-to-gorouter).
 

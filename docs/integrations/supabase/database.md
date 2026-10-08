@@ -32,9 +32,13 @@ Query Templates turn a Supabase table into ready-made functions that list, find,
 | **Update Record** | Updates an existing record by ID | `updateTodos(id, data)` returns the updated row |
 | **Delete Record** | Deletes a record by ID | `deleteTodos(id)` |
 
-Each function is named after its action and the table, with the first letter of the table name capitalized. The ID templates look for a column named `id`, and its type decides whether `id` is a number or text. The templates don't filter, sort or page the results: change that with **Edit Code**, or ask Nowa AI. Generating the same template for the same table again replaces the earlier function. For the other templates on that table, pick the model you already made under **Use Existing Model**, so they share it.
+Each function is named after its action and the table, with the first letter of the table name capitalized. The ID templates look for a column named `id`, and its type decides whether `id` is a number or text.
 
-A model is a class with one field per column, so your screens can use `title` or `done` directly. A new model is saved in `lib/models/`, for example `lib/models/todos_model.dart`. Nowa maps string, integer and boolean columns to `String`, `int` and `bool`. Any other type becomes `dynamic`, and every field can be empty. **Use Existing Model** lists the models in your project's `models` folders. See [Data models](../../logic/models.md).
+The templates don't filter, sort or page the results: change that with **Edit Code**, or ask Nowa AI. Generating the same template for the same table again replaces the earlier function. For the other templates on that table, pick the model you already made under **Use Existing Model**, so they share it.
+
+A model is a class with one field per column, so your screens can use `title` or `done` directly. A new model is saved in `lib/models/`, for example `lib/models/todos_model.dart`.
+
+Nowa maps string, integer and boolean columns to `String`, `int` and `bool`. Any other type becomes `dynamic`, and every field can be empty. **Use Existing Model** lists the models in your project's `models` folders. See [Data models](../../logic/models.md).
 
 :::tip
 Or ask Nowa AI. In **Agent** mode with the Supabase connector on, try: "Create a todos table where each user only sees their own rows, then add a function that lists them." See [Connect Figma and Supabase to Nowa AI](../../ai/connectors.md).
@@ -77,7 +81,7 @@ If you rename the function in the code, the new name replaces the old function. 
 A live query returns a `Stream`, so it updates whenever the data changes in Supabase. It shows a STREAM badge under **Queries**. No template creates one.
 
 1. Turn on Realtime for the table in Supabase. See the [Supabase Realtime docs](https://supabase.com/docs/guides/realtime).
-2. Ask Nowa AI for a live query, or rewrite a generated function in **Edit Code**. Here is a minimal one:
+2. Ask Nowa AI for a live query, or rewrite a generated function in **Edit Code**. Here's a minimal one:
 
    ```dart
    Stream<List<Map<String, dynamic>>> streamTodos() {
@@ -104,11 +108,11 @@ A **Data Builder** shows a function's result in your UI. The steps below are the
 2. Set **Source** to **Supabase**. Next to **Query**, click the button (it reads `none` at first) and pick your function in **Select Supabase Functions**. Fill in its inputs, if it has any.
 3. Inside the builder, link widgets to `data`. For `getAllTodos`, `data` is a list of `TodosModel`.
 
-On the board, you see placeholder values built from your model. Click **Play** on the screen, or run the app, to see real data: see [Play your app on the board](../../test/instant-play.md). The function must return a Future or a Stream.
+On the board, you see placeholder values built from your model. To see real data, click **Play** on the screen, or run the app. See [Play your app on the board](../../test/instant-play.md). The function must return a Future or a Stream.
 
 To change data, call the function from an event, such as a button's **On Pressed**. [Sign users in with Supabase](auth.md#login-screen) shows the same steps with `signIn`.
 
-To open a detail screen when someone taps a row, load that row with **Get Record by ID**: see [Open a detail screen when a list item is tapped](../../logic/navigation.md#open-a-detail-screen).
+To open a detail screen when someone taps a row, load that row with **Get Record by ID**. See [Open a detail screen when a list item is tapped](../../logic/navigation.md#open-a-detail-screen).
 
 ## Next steps
 

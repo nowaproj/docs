@@ -17,7 +17,7 @@ Imports build on the [REST API](./index.md) tools, so you can test and edit ever
 
 ![The Import From dialog with Swagger selected and a Swagger JSON URL typed in the text field (highlighted), the OR line, the Select / Drop your JSON file area, and the Cancel and Import buttons.](/img/docs/integrations/integrations-import-1.png)
 
-Every import creates a new collection. It never adds to one you already have. Nowa names the collection after the API (its title in Swagger, its name in Postman), sets the **Base URL** when it can work one out from the file or the address you pasted, and adds one request per endpoint. A path part such as `{id}` (Swagger) or `:id` (Postman) becomes a parameter, and the address uses it as `${id}`.
+Every import creates a new collection. It never adds to one you already have. Nowa names the collection after the API (its title in Swagger, its name in Postman) and adds one request per endpoint. It sets the **Base URL** when it can work one out from the file or the address you pasted. A path part such as `{id}` (Swagger) or `:id` (Postman) becomes a parameter, and the address uses it as `${id}`.
 
 Imported requests return the plain response. Run a test and use **Generate Model** to get a model. See [Turn the response into a model](./index.md#turn-the-response-into-a-model).
 
@@ -27,7 +27,7 @@ Nowa reads JSON descriptions in Swagger 2.0 and OpenAPI 3 format.
 
 1. Choose **Import from Swagger**.
 2. Paste the web address of the JSON file, or the JSON text itself, then click **Import**.
-3. Or click the box **Select / Drop your JSON file**, or drop a `.json` file on it. The import starts as soon as the file is chosen, so there is no need to click **Import**.
+3. Or click the box **Select / Drop your JSON file**, or drop a `.json` file on it. The import starts as soon as the file is chosen, so you don't need to click **Import**.
 
 If the address doesn't load, for example because it needs a login, paste the JSON text or choose the file instead. YAML files aren't read: convert them to JSON first.
 

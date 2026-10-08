@@ -29,11 +29,11 @@ Pick **Connect** unless you only have keys. You can switch later with **Change A
 2. Click **Connect**.
 3. Finish in the browser. A Supabase page opens: choose your organization and approve the request. Nowa shows **Waiting for Authorization...** and carries on by itself. Click **Cancel** to stop waiting.
 4. In the project list (titled **Projects in** and your organization's name), click **Select** next to the project you want, or [create a new one](#create-a-new-supabase-project).
-5. Wait for the "Connecting to ..." message. If the project came with backend files, Nowa offers to set them up: see [Manage your Supabase backend](backend.md). The panel then lists your Supabase functions.
+5. Wait for the "Connecting to ..." message. If the project came with backend files, Nowa offers to set them up (see [Manage your Supabase backend](backend.md)). The panel then lists your Supabase functions.
 
 ![The unconnected Supabase panel: the highlighted Supabase icon in the left sidebar, the panel header, and the Connect and Use Keys buttons (highlighted).](/img/docs/integrations/integrations-supabase-connect-1.png)
 
-If Nowa is already authorized, it skips the browser step and shows your projects right away. Nowa works with one organization at a time: click **Change organization** to authorize a different one. Projects that aren't active show **Unavailable** and can't be selected. Their status is shown under the name.
+If Nowa is already authorized, it skips the browser step and shows your projects right away. Nowa works with one organization at a time: click **Change organization** to authorize a different one. Projects that aren't active show **Unavailable** and can't be selected. Their status appears under the name.
 
 :::tip
 You can also start from the chat. Click the Supabase icon in the chat field of the **AI Assistant** panel. If the project isn't connected yet, the same connection flow opens.

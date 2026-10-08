@@ -10,7 +10,7 @@ Push notifications reach people even when your app is closed. Turn on **Push Not
 ## Before you start
 
 - A project connected to Firebase. See [Connect Firebase](connect.md).
-- Have a device or emulator to run your app on. See [Run on a device or emulator](../../test/devices.md).
+- A device or emulator to run your app on. See [Run on a device or emulator](../../test/devices.md).
 
 ## Turn on push notifications
 

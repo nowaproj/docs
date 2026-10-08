@@ -28,11 +28,11 @@ Your plan includes an allowance for code downloads. When it's used up, **Compres
 
 ## Use the downloaded code
 
-The zip holds your Flutter project. Unzip it and open the folder in an editor such as VS Code or Android Studio. To run it on your computer, install Flutter first: see [Flutter's install guide](https://docs.flutter.dev/get-started/install).
+The zip holds your Flutter project. Unzip it and open the folder in an editor such as VS Code or Android Studio. To run it on your computer, install Flutter first. See [Flutter's install guide](https://docs.flutter.dev/get-started/install).
 
 ## Local projects
 
-A local project already lives in a folder on your computer, so there is nothing to download. In code mode, the button in the same spot is **Open in VS Code**. See [Work with local projects](../code/local-projects.md).
+A local project already lives in a folder on your computer, so there's nothing to download. In code mode, the button in the same spot is **Open in VS Code**. See [Work with local projects](../code/local-projects.md).
 
 :::tip
 Prefer to keep your code in sync instead of downloading it? Push it to GitHub with [Use Git](../code/git.md), which needs a plan with Git integration, or work in a local project.

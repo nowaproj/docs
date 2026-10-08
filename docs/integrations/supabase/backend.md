@@ -5,7 +5,7 @@ sidebar_label: Manage your backend
 keywords: [Supabase backend, Pull Backend Files, Set up Backend, Set up Supabase backend, migrations, edge functions, storage buckets, supabase folder, Connect app with AI, Fix with AI, Disconnect, Supabase MCP, SupabaseService, template backend]
 ---
 
-Your backend is more than your screens. It is the tables and rules in your Supabase project, its edge functions and its storage buckets. Nowa can save that backend into your project so it travels with your app, rebuild it on another Supabase project, and let Nowa AI keep working on it.
+Your backend is more than your screens. It's the tables and rules in your Supabase project, its edge functions and its storage buckets. Nowa can save that backend into your project so it travels with your app, rebuild it on another Supabase project, and let Nowa AI keep working on it.
 
 | Part of a backend | What it is |
 |---|---|
@@ -31,9 +31,11 @@ Your backend is more than your screens. It is the tables and rules in your Supab
 | `supabase/functions/<function name>/index.ts` | The code of each deployed edge function. |
 | `supabase/nowa_setup.json` | The list of your storage buckets, plus a note. |
 
-Pulling only reads your Supabase project, and nothing there changes. It replaces what is already in `supabase/migrations`, `supabase/functions` and `supabase/nowa_setup.json`. Other files in `supabase/` stay. Your table data, the files in your buckets, your auth provider settings and your secrets are not copied. The folder follows the layout of the Supabase CLI, so the files also work with it.
+Pulling only reads your Supabase project, and nothing there changes. It replaces what's already in `supabase/migrations`, `supabase/functions` and `supabase/nowa_setup.json`. Other files in `supabase/` stay.
 
-If Nowa shows **Pull failed** with "This Supabase project has no migration history, so its schema cannot be captured. Recreate it through migrations and pull again.", Supabase has no recorded migrations to copy. The Supabase connector can apply migrations: see [Let Nowa AI manage your backend](#nowa-ai).
+Your table data, the files in your buckets, your auth provider settings and your secrets aren't copied. The folder follows the layout of the Supabase CLI, so the files also work with it.
+
+If Nowa shows **Pull failed** with "This Supabase project has no migration history, so its schema cannot be captured. Recreate it through migrations and pull again.", Supabase has no recorded migrations to copy. The Supabase connector can apply migrations. See [Let Nowa AI manage your backend](#nowa-ai).
 
 ## Set up a backend that came with a project
 
@@ -46,7 +48,9 @@ Some projects ship with a backend: a template, a copy of someone's project, or o
 
 {/* CAPTURE: id=integrations-supabase-backend-1 | state: signed-in cloud project that contains a supabase/ folder with migration files, freshly connected to an empty Supabase project with Connect (needs a Supabase account) | show: the Set up Supabase backend dialog with its message and the Skip and Set up buttons | crop: the dialog */}
 
-To run it later, click ⋮, then **Set up Backend**. The item appears when Nowa finds migration files in the project, which it checks when you connect and after you pull. If nothing is left to apply, Nowa says "This project's backend is already set up." If you connected with **Use Keys**, Nowa asks you to authorize first. Afterward, click ⋮, then **Set up Backend** again.
+To run it later, click ⋮, then **Set up Backend**. The item appears when Nowa finds migration files in the project, which it checks when you connect and after you pull. If nothing is left to apply, Nowa says "This project's backend is already set up."
+
+If you connected with **Use Keys**, Nowa asks you to authorize first. Afterward, click ⋮, then **Set up Backend** again.
 
 {/* CAPTURE: id=integrations-supabase-backend-2 | state: same project after clicking Set up and the run finished (needs a Supabase account) | show: the Backend ready dialog with its summary line, the setup note, and the Done and Connect app with AI buttons | crop: the dialog */}
 

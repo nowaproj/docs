@@ -15,7 +15,7 @@ Navigation takes people from one screen to another and back. New projects use Go
 | You point to a screen by | Its path, such as `/settings` | Picking the screen |
 | Web URLs, browser back button, deep links | Supported | Limited or not out of the box |
 
-Not sure which one your project uses? Click **Router** in the sidebar. A GoRouter project opens **Router Settings**. An older project opens **New Router System**: see [Switch an older project to GoRouter](./router.md#switch-an-older-project-to-gorouter).
+Not sure which one your project uses? Click **Router** in the sidebar. A GoRouter project opens **Router Settings**. An older project opens **New Router System**. See [Switch an older project to GoRouter](./router.md#switch-an-older-project-to-gorouter).
 
 ## Give a screen a path
 
@@ -27,16 +27,16 @@ To set or change a path:
 2. In **Details**, find **Route Settings**. It only appears in GoRouter projects.
 3. Type a **Path**, such as `/settings`, and press <kbd>Enter</kbd>. If the screen has no route yet, Nowa creates it.
 
-To make a screen the one your app opens first, click **Make home screen** in the screen's **Details**. Nowa adds a route if the screen has none and sets it as the start location. To open the home screen only for people who are signed in, see [Start on the login screen or the home screen](./router.md#start-on-login-or-home).
+To make a screen the one your app opens first, click **Make home screen** in the screen's **Details**. Nowa adds a route if the screen has none and sets it as the start location. To open the home screen only for signed-in people, see [Start on the login screen or the home screen](./router.md#start-on-login-or-home).
 
 ## Go to another screen
 
 These steps are for GoRouter projects. For an older project, see [Use the Navigator](#use-the-navigator).
 
-1. Open the logic that should navigate. For a button, click **Edit** next to **On Pressed** in **Details**: see [Respond to taps and other events](./events.md).
+1. Open the logic that should navigate. For a button, click **Edit** next to **On Pressed** in **Details**. See [Respond to taps and other events](./events.md).
 2. Hover the dot under the top node until it becomes **+**, and click it. In **All nodes for this circuit**, open **GLOBALS** and click **GoRouter**. Nowa adds a node that pushes the location `/path`.
 3. In **Details**, choose the **Type**.
-4. Replace the **Location** with your screen's path, such as `/settings`. It is plain text, so copy the path from **Route Settings**. To put a value in the path, type `$` and pick a variable.
+4. Replace the **Location** with your screen's path, such as `/settings`. It's plain text, so copy the path from **Route Settings**. To put a value in the path, type `$` and pick a variable.
 
 | Type | What it does |
 |---|---|
@@ -60,7 +60,7 @@ Try: "When I tap the Get Started button, open the Settings screen." See [How Now
 
 ## Pass data to the next screen
 
-The destination screen receives data through its **Params**, so add one there first: see [Pass data with parameters](./parameters.md). With GoRouter, the data travels in the path or after a question mark.
+The destination screen receives data through its **Params**, so add one there first. See [Pass data with parameters](./parameters.md). With GoRouter, the data travels in the path or after a question mark.
 
 **Path parameter**, like the `42` in `/product/42`:
 
@@ -80,9 +80,9 @@ Values arrive as text. If you drag a chip onto a parameter of another type, such
 
 Tap a row in a list and open a screen about that row. Inside a list item, `element` is the row it shows, so every row can send its own id to the next screen.
 
-Before you start, connect a list to a **List View** or **Grid View** in **Builder** mode: see [Fill a list from your data](../reference/widgets/lists.md#connect-a-list). The list can be a variable or the `data` of a **Data Builder**. Also set up the detail screen with a path such as `/product/:id`, using steps 1 and 2 of the **Path parameter** in [Pass data to the next screen](#pass-data-to-the-next-screen).
+Before you start, connect a list to a **List View** or **Grid View** in **Builder** mode. The list can be a variable or the `data` of a **Data Builder**. See [Fill a list from your data](../reference/widgets/lists.md#connect-a-list). Also set up the detail screen with a path such as `/product/:id`, using steps 1 and 2 of the **Path parameter** in [Pass data to the next screen](#pass-data-to-the-next-screen).
 
-Before you drag the parameter's chip onto the screen's param, set that param's **Type** in **Details**. It must match the `id` your **Get Record by ID** function takes: `int` if your table's `id` is a whole number, `String` if it is text or a uuid. If the types differ, **Problems** shows an error.
+Before you drag the parameter's chip onto the screen's param, set that param's **Type** in **Details**. It must match the `id` your **Get Record by ID** function takes: `int` if your table's `id` is a whole number, `String` if it's text or a uuid. If the types differ, **Problems** shows an error.
 
 1. Select the item in the list. A **List Tile** has **On Tap** in **Details**. For any other widget, click **Add Wrapper** and choose **Gesture Detector** or **Ink Well**. See [Respond to taps and other events](./events.md).
 2. Click the button next to **On Tap**, then add a **GoRouter** node as in [Go to another screen](#go-to-another-screen). Keep **Type** on `push`.
@@ -90,7 +90,7 @@ Before you drag the parameter's chip onto the screen's param, set that param's *
 4. On the detail screen, wrap the widget that shows the row in a **Data Builder**. Set **Source** to **Supabase** and pick the function you made from the **Get Record by ID** template as the **Query**. Link its id input to the screen's param under **LOCALS**, then link the widgets inside to `data`. See [Show data in your UI](../integrations/show-data.md).
 5. Click **Play** on the list screen and tap a row. The list screen needs a route for navigation to work in **Play**.
 
-The path carries text, so this recipe sends the id and the detail screen loads the row. **Extra** can carry a whole row, but the Router panel can't connect it to a screen's param. In a Navigator project, you can send the whole row: give the destination's param your model as its type, then click the brush icon in the **Navigator** node, click the param's name and pick `element` under **LOCALS**. See [Use the Navigator](#use-the-navigator).
+The path carries text, so this recipe sends the id and the detail screen loads the row. **Extra** can carry a whole row, but the Router panel can't connect it to a screen's param. In a Navigator project, you can send the whole row. Give the destination's param your model as its type, click the brush icon in the **Navigator** node, click the param's name and pick `element` under **LOCALS**. See [Use the Navigator](#use-the-navigator).
 
 To have Nowa AI build it, ask in **Agent** mode: "When I tap a product in the list, open a detail screen that shows it."
 
@@ -109,7 +109,7 @@ In a project that uses the Navigator, you pick the screen instead of typing a pa
 | `pushReplacement` | Replaces the current screen with the new one. |
 | `pushAndRemoveUntil` | Opens the screen and removes every screen below it. |
 
-To pass data, click the brush icon next to the screen. A popup lists the screen's parameters. Type a value, or click a parameter's name to link a variable, a parameter or an expression: see [Expressions and conditions](./expressions.md).
+To pass data, click the brush icon next to the screen. A popup lists the screen's parameters. Type a value, or click a parameter's name to link a variable, a parameter or an expression. See [Expressions and conditions](./expressions.md).
 
 To return a result, add a **Navigator** node with **Type** `pop` on the second screen. Choose **result type** and set **result**. On the first screen, turn on **await** under **Future Options** for the push node and use **Store result**, or add your logic to **onValue**.
 

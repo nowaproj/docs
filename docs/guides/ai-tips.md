@@ -18,7 +18,7 @@ Nowa AI does its best work when you steer it: the right mode, the right context 
 
 ## Give it the right context
 
-- **Select what you mean.** The selected widget is attached to your next message as a chip above the chat field. Check it before you send, and click **×** to remove one you don't mean.
+- **Select what you mean.** Nowa attaches the selected widget to your next message as a chip above the chat field. Check it before you send, and click **×** to remove one you don't mean.
 - **Attach a screen or component** with **+** (**Add context**) or `@`. "Build Settings like the Profile screen" works best with Profile attached.
 - **Attach an image** as a design reference or a logo. To put a logo in your app, say so, and Nowa AI saves it to your assets. The limit is 5 images.
 - **Attach less, not more.** Nowa AI can look around the project itself, so one focused attachment keeps its changes accurate.
@@ -49,7 +49,7 @@ Look at a result before you edit on top of it, and if you use Git, commit before
 
 ## Save standing rules with Custom Instructions
 
-Put rules for every request in **Custom Instructions**, from the **⋮** menu in the **AI Assistant** header, up to 5,000 characters. They apply to this project only and are saved with it. Good candidates:
+Put rules for every request in **Custom Instructions** (up to 5,000 characters), from the **⋮** menu in the **AI Assistant** header. They apply to this project only and are saved with it. Good candidates:
 
 - "Use theme colors and text styles, never fixed colors."
 - "Put anything used on more than one screen in a component."

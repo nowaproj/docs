@@ -5,7 +5,7 @@ sidebar_label: iOS and App Store
 keywords: [ios, iphone, app store, apple, testflight, app store connect, api key, distribution certificate, certificate, signing, code signing, p12, p8, ipa, bundle id, build for ios, provisioning, app review, review guidelines, rejected, store rules, privacy policy, account deletion, in-app purchase]
 ---
 
-Nowa builds and signs your iOS app in the cloud, so you don't build on your own computer. You give Nowa two things, an App Store Connect API key from Apple and a distribution certificate key (Nowa can generate one for you), and Nowa sends the build to your App Store Connect account.
+Nowa builds and signs your iOS app in the cloud, so you don't build on your own computer. You give Nowa two things: an App Store Connect API key from Apple and a distribution certificate key (Nowa can generate one for you). Nowa then sends the build to your App Store Connect account.
 
 <Badge type="cloud" /> <Badge type="paid" />
 
@@ -36,7 +36,7 @@ Nowa saves your **Bundle Identifier** together with these credentials. If you ch
 
 ## Add a distribution certificate {#apple-distribution-certificate}
 
-A distribution certificate is Apple's proof that an app comes from you. Nowa signs every iOS build with it, using the certificate's private key. You hand Nowa that key in one of two ways. If a build failed at **iOS code signing**, start with [the troubleshooting steps](#if-the-ios-code-signing-step-fails) at the end of this page.
+A distribution certificate is Apple's proof that an app comes from you. Nowa signs every iOS build with it, using the certificate's private key. You give Nowa that key in one of two ways. If a build failed at **iOS code signing**, start with [the troubleshooting steps](#if-the-ios-code-signing-step-fails) at the end of this page.
 
 ### Let Nowa generate a key
 

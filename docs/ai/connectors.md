@@ -58,7 +58,7 @@ With the connector on, Nowa AI can:
 - Bring in images and icons from your Figma design as project assets, including SVGs.
 - Turn your Figma colors and text styles into your app's theme.
 
-For example: "Bring the icons from my Figma design into the project and use its colors and text styles as the theme." The theme results are written to your theme files, such as `lib/globals/app_colors.dart` and `lib/globals/app_text.dart`. Figma works in cloud and local projects.
+For example: "Bring the icons from my Figma design into the project and use its colors and text styles as the theme." Nowa AI writes the theme results to your theme files, such as `lib/globals/app_colors.dart` and `lib/globals/app_text.dart`. Figma works in cloud and local projects.
 
 Click the Figma icon again to open its menu: **Connected**, **Auto-approve tools** and **Turn off MCP**.
 

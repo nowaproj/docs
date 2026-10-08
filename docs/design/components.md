@@ -14,7 +14,7 @@ Make a component as soon as you use a card, header or button twice: see [Build o
 1. Select the widget you want to reuse. To reuse several widgets together, group them first with <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>G</kbd>. If several widgets are selected, Nowa uses only the first one.
 2. Right-click it and choose **Create component**. You can also click the widgets icon (**Create a component**) next to the name at the top of **Details**.
 3. Type a name, such as `ProductCard`, and click **Submit**. The dialog is titled **New Component from** plus the widget's name.
-4. The widget is replaced by an instance of your new component, with the same size and position.
+4. Nowa replaces the widget with an instance of your new component, which keeps the same size and position.
 
 Nowa saves the component as a Dart file in `lib/`, named after it, for example `product_card.dart`.
 
@@ -64,7 +64,7 @@ Open **Widgets** in the left sidebar. It lists the screens and components in you
 - Double-click a tile, or right-click it and choose **Open in Editor**, to open it on its own.
 - Drag a tile onto the board to place it.
 - Right-click and choose **Rename**, type the new name and press <kbd>Enter</kbd>. Nowa updates every place that uses it.
-- Right-click and choose **Delete**, or press <kbd>Delete</kbd> (<kbd>Backspace</kbd> on macOS). If something uses it, Nowa lists the places and asks you to confirm with **Remove**. If it is the only widget in its file, the file is deleted too. While the panel is focused, <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Z</kbd> undoes a delete.
+- Right-click and choose **Delete**, or press <kbd>Delete</kbd> (<kbd>Backspace</kbd> on macOS). If something uses it, Nowa lists the places and asks you to confirm with **Remove**. If it is the only widget in its file, Nowa deletes the file too. While the panel is focused, <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Z</kbd> undoes a delete.
 - The button next to the search box switches between list and grid (**Switch to grid view** and **Switch to list view**).
 
 ## Next steps

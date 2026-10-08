@@ -24,6 +24,8 @@ Firebase Authentication lets people create accounts and sign in to your app. Tur
 
 If adding **Google** shows the red message "Exception: Must Enable Google Authentication on Firebase", turn on Google sign-in in the Firebase console and try again.
 
+If your iOS app offers **Google** sign-in, read [App Store Review Guideline 4.8 Login Services](https://developer.apple.com/app-store/review/guidelines/#login-services) before you submit it. It names Google Sign-In.
+
 ## Functions Nowa adds
 
 Nowa puts the functions in `FirebaseService`, in `lib/firebase/firebase.dart`.

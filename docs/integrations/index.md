@@ -52,6 +52,8 @@ Both sell things in your app, and they work differently in Nowa.
 - **Stripe** takes card, Apple Pay and Google Pay payments through your Supabase backend. Nowa creates the payment tables, server functions and webhook in your Supabase project, and people must be signed in with Supabase to pay. It covers one-time items from a Supabase table, consumables such as credits, and subscriptions. See [Stripe](./stripe.md).
 - **RevenueCat** sells in-app purchases and subscriptions on iOS, Android and the web, with a ready-made **RevenueCat Paywall** widget. You set up your products in RevenueCat, and Nowa needs only your RevenueCat keys. See [RevenueCat](./revenuecat.md).
 
+Apple and Google have rules about how apps sell digital content and subscriptions. Before you choose, read [App Store Review Guideline 3.1 Payments](https://developer.apple.com/app-store/review/guidelines/#payments) and [Google Play's billing system](https://developer.android.com/google/play/billing), then see [Follow Apple's rules](../publish/ios.md#store-rules) and [Follow Google Play's rules](../publish/android.md#store-rules).
+
 ## What Nowa doesn't include
 
 Nowa has no built-in integration for secure (encrypted) storage, for OneSignal or analytics services, for App Store or Google Play in-app purchases other than through [RevenueCat](./revenuecat.md), or for Sign in with Apple in your own app. You can still add other packages from pub.dev yourself: see [Add packages](../code/packages.md).

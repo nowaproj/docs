@@ -11,6 +11,7 @@ RevenueCat handles in-app purchases and subscriptions across iOS, Android and th
 
 - A RevenueCat account with your app, products and offerings set up in the [RevenueCat dashboard](https://app.revenuecat.com). Nowa does not create them; [RevenueCat's documentation](https://www.revenuecat.com/docs) explains how.
 - The public SDK key for each platform you ship, from the same dashboard.
+- The store rules for in-app purchases: [Follow Apple's rules](../publish/ios.md#store-rules) and [Follow Google Play's rules](../publish/android.md#store-rules).
 
 ## Turn on RevenueCat
 

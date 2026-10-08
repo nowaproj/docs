@@ -2,7 +2,7 @@
 title: Publish to the App Store
 description: Save your Apple credentials once, then build and sign your iOS app in the cloud and send it to App Store Connect.
 sidebar_label: iOS and App Store
-keywords: [ios, iphone, app store, apple, testflight, app store connect, api key, distribution certificate, certificate, signing, code signing, p12, p8, ipa, bundle id, build for ios, provisioning]
+keywords: [ios, iphone, app store, apple, testflight, app store connect, api key, distribution certificate, certificate, signing, code signing, p12, p8, ipa, bundle id, build for ios, provisioning, app review, review guidelines, rejected, store rules, privacy policy, account deletion, in-app purchase]
 ---
 
 Nowa builds and signs your iOS app in the cloud, so you don't build on your own computer. You give Nowa two things, an App Store Connect API key from Apple and a distribution certificate key (Nowa can generate one for you), and Nowa sends the build to your App Store Connect account.
@@ -75,7 +75,18 @@ Once the build is uploaded, you carry on in [App Store Connect](https://appstore
 2. To try the app with testers first, use TestFlight. See [TestFlight overview](https://developer.apple.com/help/app-store-connect/test-a-beta-version/testflight-overview).
 3. To release the app, fill in the information Apple requires for it, choose the build for your app version and submit it for review. See [Required, localizable, and editable properties](https://developer.apple.com/help/app-store-connect/reference/app-information/required-localizable-and-editable-properties) and [Submit an app](https://developer.apple.com/help/app-store-connect/manage-submissions-to-app-review/submit-an-app).
 
-Apple's [App Store Connect Help](https://developer.apple.com/help/app-store-connect/) covers the rest.
+Before you submit for review, read [Follow Apple's rules](#store-rules). Apple's [App Store Connect Help](https://developer.apple.com/help/app-store-connect/) covers the rest.
+
+## Follow Apple's rules {#store-rules}
+
+Read Apple's [App Store Review Guidelines](https://developer.apple.com/app-store/review/guidelines/) before you submit. These parts match what you can build with Nowa:
+
+- **Payments.** [3.1.1 In-App Purchase](https://developer.apple.com/app-store/review/guidelines/#in-app-purchase) says "you must use in-app purchase" to unlock features or functionality, for example with subscriptions, in-game currencies or access to premium content. [3.1.3 Other Purchase Methods](https://developer.apple.com/app-store/review/guidelines/#other-purchase-methods) lists apps that "may use purchase methods other than in-app purchase". See [Stripe or RevenueCat?](../integrations/index.md#stripe-or-revenuecat) for what each does in Nowa.
+- **Google sign-in.** [4.8 Login Services](https://developer.apple.com/app-store/review/guidelines/#login-services) names Google Sign-In. An app that uses a login like it to set up or authenticate the user's primary account "must also offer as an equivalent option another login service" with the features Apple lists, unless an exception applies.
+- **Accounts.** [5.1.1(v)](https://developer.apple.com/app-store/review/guidelines/#data-collection-and-storage): "If your app supports account creation, you must also offer account deletion within the app." The sign-up functions Nowa adds don't delete accounts. Apple's [Offering account deletion in your app](https://developer.apple.com/help/app-review/guideline-reference/5-1-1-account-deletion) has the details.
+- **Privacy.** [5.1.1(i)](https://developer.apple.com/app-store/review/guidelines/#data-collection-and-storage): "All apps must include a link to their privacy policy in the App Store Connect metadata field and within the app in an easily accessible manner." For the link inside your app, use the [`openUrl` action](../logic/actions.md#open-a-link). [App privacy details on the App Store](https://developer.apple.com/app-store/app-privacy-details/) covers what you provide in App Store Connect, including for third-party code.
+- **Permissions.** Apple says "App Review checks for the use of protected resources, and rejects apps that contain code accessing those resources without a purpose string" ([Requesting access to protected resources](https://developer.apple.com/documentation/uikit/requesting-access-to-protected-resources)). In Nowa, the purpose string is the iOS message beside each permission under **Settings** → **Permissions**: see [Set permissions](../account/project-settings.md#set-permissions).
+- **Demo account.** Apple's [Before You Submit](https://developer.apple.com/app-store/review/guidelines/#before-you-submit) list asks for "an active demo account or fully-featured demo mode" if your app includes account-based features.
 
 ## If the iOS code signing step fails
 

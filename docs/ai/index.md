@@ -67,7 +67,7 @@ Nowa saves your project automatically when a request finishes.
 
 - **Dashboard**: describe an app in **What do you want to build?** and click **Build it**. Nowa creates the project and starts the AI. See [Build your first app](../get-started/first-app.md).
 - **Errors**: **Fix with AI** appears when the embedded preview can't start or a web deployment fails, and **Explain with AI** appears on a failed build step. Each sends the error log to the chat. See [Run your app](../test/run.md) and [Build history and logs](../publish/builds.md).
-- **Supabase backend setup**: when a template's backend is ready, **Connect app with AI** opens the assistant, turns on the Supabase connector and sends a ready-made prompt. If setup stopped, the button is **Fix with AI**. See [Manage your Supabase backend](../integrations/supabase/backend.md).
+- **Supabase backend setup**: when a template's backend is ready, **Connect app with AI** opens the **AI Assistant** panel, turns on the Supabase connector and sends a ready-made prompt. If setup stopped, the button is **Fix with AI**. See [Manage your Supabase backend](../integrations/supabase/backend.md).
 - **Your phone**: the mobile layout has its own AI chat. See [Use Nowa on your phone](../get-started/mobile.md).
 - **Your own agent**: Claude Code, Claude Desktop and Cursor can build in Nowa too. See [Connect your own AI agent](external-agent.md).
 
@@ -75,7 +75,7 @@ Nowa saves your project automatically when a request finishes.
 
 Nowa AI runs on your plan's AI credits. When you start to run low, a **% used** indicator appears under the panel header. After a request finishes, token counts and a **Session Details** info icon appear there as well, and **Global Usage** in its popup opens your account's usage page. If you run out, the chat says so and offers ways to continue.
 
-Plans, extra credits and billing are covered in [Plans, billing and AI usage](../account/plans-and-usage.md). For what each plan includes, see [nowa.dev/pricing](https://nowa.dev/pricing).
+For plans, extra credits and billing, see [Plans, billing and AI usage](../account/plans-and-usage.md). For what each plan includes, see [nowa.dev/pricing](https://nowa.dev/pricing).
 
 ## Next steps
 

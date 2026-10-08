@@ -1,6 +1,6 @@
 ---
 title: Build logic in Circuit
-description: Circuit is Nowa's visual logic editor. Stack nodes from top to bottom to tell your app what to do, and Nowa writes the Flutter code for you.
+description: Circuit is Nowa's visual logic editor, where you stack nodes from top to bottom to tell your app what to do and Nowa writes the Flutter code for you.
 sidebar_label: Circuit
 keywords: [Circuit, logic, nodes, visual logic, flow, if statement, try, return, store result, await, future, condition, local variable, Hot Fix, intro to circuit]
 ---

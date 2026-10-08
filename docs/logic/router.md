@@ -71,7 +71,7 @@ Before you start:
 
 A signed-in person now opens the home screen, because the **Return** node below the **If** still returns nothing. Anyone else goes to `/login-page`. Your login screen should open the home screen when sign-in works, and a sign-out button should open the login screen: the two sign-in pages above show how.
 
-Add the same **Redirect Logic** to every other screen that needs sign-in. The app-wide **Redirect Logic** under **Router Configuration** runs for every route, including the login screen, so a route's own is the simpler choice here.
+Add the same **Redirect Logic** to every other screen that needs sign-in. The app-wide **Redirect Logic** under **Router Configuration** runs for every route, including the login screen, so it's simpler to give each route its own.
 
 ### Stay signed in between launches
 

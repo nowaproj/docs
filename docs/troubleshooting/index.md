@@ -5,7 +5,7 @@ sidebar_label: Overview
 keywords: [troubleshooting, error, my app shows an error, app error, error when I run, logs, Problems, Fix with AI, not working, stuck, help, fix, No Internet Connection, We'll Be Right Back, Maintenance in Progress, Version out of date, update, Preview Not Available, Project not found, Unable to load project, safe mode, This screen failed to render, Reload screen, could not be loaded, Web support is missing, Add web support, Flutter SDK path is not set, Clone from GitHub, Time to level up]
 ---
 
-Find the message or symptom you see, and follow the fix. Messages are quoted as Nowa shows them. If your app shows an error, start with [My app shows an error](#my-app-shows-an-error). Limits that depend on where you run Nowa are on [Known issues](known-issues.md).
+Something not working? Find the message or symptom you see, and follow the fix. Messages are quoted as Nowa shows them. If your app shows an error, start with [My app shows an error](#my-app-shows-an-error). Limits that depend on where you run Nowa are on [Known issues](known-issues.md).
 
 ## My app shows an error
 

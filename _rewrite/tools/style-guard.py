@@ -15,6 +15,11 @@ import re
 import subprocess
 import sys
 
+try:
+    import yaml
+except ImportError:  # the YAML check is skipped without PyYAML
+    yaml = None
+
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 DOCS = ROOT / 'docs'
 
@@ -75,6 +80,11 @@ def main():
             continue
         before, after = extract(before_text), extract(after_text)
         lines = []
+        if yaml and after_text.startswith('---'):
+            try:
+                yaml.safe_load(after_text.split('---', 2)[1])
+            except yaml.YAMLError as error:
+                lines.append(f'  ! front matter does not parse: {str(error).splitlines()[0]}')
         for kind in PATTERNS:
             removed = sorted(before[kind] - after[kind])
             added = sorted(after[kind] - before[kind])

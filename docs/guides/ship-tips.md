@@ -65,6 +65,7 @@ Publishing needs a cloud project on a paid plan. Work through this list first.
 | Test settings are off: Stripe uses live keys instead of test keys and Google Pay's `testEnv: true` is changed. AdMob **Show Test Ads** is off on every banner and ad call, with real unit IDs and both App IDs. Maps has a key for each platform you ship. | [Stripe](../integrations/stripe.md), [AdMob](../integrations/admob.md#before-you-publish), [Google Maps](../integrations/google-maps.md) |
 | No server secret sits in **Constants** or request headers, RLS is on for every table, and the project is **Private**. | [Keep secrets out of your app](data-and-state-tips.md#keep-secrets-out-of-your-app) |
 | **Problems** is clear, and you have used the real app on a device. | [Test in the right place](#test-in-the-right-place) |
+| **Read the store rules** for each store you publish to: payments, sign-in, accounts and privacy. | [Follow Apple's rules](../publish/ios.md#store-rules), [Follow Google Play's rules](../publish/android.md#store-rules) |
 | **Android:** **Debug mode** is off and the signing key is saved and downloaded. Then click **Build** and upload the `.aab` in Google Play Console. | [Publish to Google Play](../publish/android.md) |
 | **iOS:** your bundle ID is registered, and your App Store Connect credentials and distribution certificate are saved. | [Publish to the App Store](../publish/ios.md) |
 | **Web:** click **Deploy**, then **Deploy** on the **Web** row. A custom domain needs a higher plan. | [Publish to the web](../publish/web.md) |

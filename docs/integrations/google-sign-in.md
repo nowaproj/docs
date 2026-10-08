@@ -11,6 +11,7 @@ Let people sign in to your app with their Google account. This page stores your 
 
 - OAuth 2.0 client IDs from the Google Cloud console ([Credentials](https://console.cloud.google.com/apis/credentials)): one for **iOS** and one for **Web**. Supabase's [Login with Google guide](https://supabase.com/docs/guides/auth/social-login/auth-google) walks through creating them.
 - A backend that accepts Google sign-in. With Supabase, connect it first ([Connect Supabase](./supabase/connect.md)) and turn on Google as a sign-in provider in your Supabase project.
+- To publish your iOS app on the App Store, read [App Store Review Guideline 4.8 Login Services](https://developer.apple.com/app-store/review/guidelines/#login-services). It names Google Sign-In.
 
 ## Add your client IDs
 

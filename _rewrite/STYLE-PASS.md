@@ -38,6 +38,8 @@ facts.
   lower case, spaces as hyphens, punctuation dropped). Never change a heading that already has `{#id}` except its
   wording before the id.
 - Front matter: don't change `title`, `sidebar_label` or `keywords`. You may tighten `description` (one sentence).
+  A description that contains ": " must be wrapped in double quotes, or YAML breaks and the page loses its front
+  matter (the guard script reports it).
 - Admonitions: at most two per page; don't add new ones.
 - Don't touch `docs/new/*`, `docs/legacy/*`, `sidebars.js`, config, `src/`, or pages outside your folders.
 

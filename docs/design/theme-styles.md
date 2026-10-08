@@ -46,7 +46,7 @@ If no theme is applied to your app yet, clicking **Button Style** opens **Create
 
 New projects include a global state called `AppState` with a `changeTheme` function. Call it from an event and the running app switches theme, for example between `lightTheme` and `darkTheme`. The app doesn't follow the device's dark mode by itself, so this is how you add a dark mode switch.
 
-1. Select a Button on a screen and click the button next to **On Pressed**. It reads **Edit** on a new button and **+** if the button has no action yet. [Circuit](../logic/circuit.md) opens.
+1. Select a Button on a screen and click the button next to **On Pressed**. It reads **Edit** on a new button, or **+** if the button has no action yet. [Circuit](../logic/circuit.md) opens.
 2. Hover the dot under the top node, click **+**, open **GLOBALS** and click `AppState`.
 3. In the node's **Details**, click **+** and choose `changeTheme`.
 4. For **Theme**, click **Select theme** and choose a theme under **THEMES**, such as `darkTheme`.

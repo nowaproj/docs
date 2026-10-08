@@ -14,7 +14,7 @@ The playground is the full Nowa editor on a throwaway app, with no account and n
 
 **You should see:** the editor from the [editor tour](./editor-tour.md), with **Save** at the top right where **Run** and **Deploy** would be.
 
-You can design on the board, change widgets in **Details**, edit themes, **Play** a screen and write code. Nowa AI needs an account, not a project, so your first message to it asks you to sign in or create one.
+You can design on the board, change widgets in **Details**, edit themes, **Play** a screen and write code. When you send your first message to Nowa AI, Nowa asks you to sign in or create an account. The AI needs an account, not a project.
 
 Some things wait for your account: **Run**, **Deploy**, the **Git** panel, the **Deployment**, **Permissions** and **Git** pages in **Settings**, the **Sharing** section of **Project Details**, and **Restore Checkpoint** for Nowa AI. They come back when you save the app.
 

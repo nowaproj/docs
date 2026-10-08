@@ -14,7 +14,7 @@ Set your theme before you design many screens: see [Set the theme first](../guid
 1. Click **Themes** in the left sidebar, or press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>3</kbd>. The active theme opens for editing, with **Colors**, **Typography** and **Widgets** below it.
 2. Click the arrow next to the theme name to show all your themes.
 
-New projects start with two themes, `lightTheme` and `darkTheme`. Each theme is a variable in `lib/globals/themes.dart`, and your edits are written to that file. **Refresh** re-renders the app with the current theme. **Open in New Tab** shows the file as code. <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Z</kbd> and <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Y</kbd> undo and redo inside the panel.
+New projects start with two themes, `lightTheme` and `darkTheme`. Each theme is a variable in `lib/globals/themes.dart`, and Nowa writes your edits to that file. **Refresh** re-renders the app with the current theme, and **Open in New Tab** shows the file as code. <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Z</kbd> and <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Y</kbd> undo and redo inside the panel.
 
 ![The Themes panel with lightTheme active: the Colors tiles (Primary, Secondary, Tertiary, Surface, highlighted), Add Color, the Brightness and Mode switches and the start of Typography.](/img/docs/design/design-themes-1.png)
 
@@ -31,7 +31,7 @@ The new theme opens for editing in **Seed** mode with a purple seed color. It is
 
 ## Apply a theme
 
-Click a theme in the list. The label **Active** moves to it. The active theme is the one your app starts with and the one the board shows. Nowa saves the choice in your code: in new projects it is the starting theme in `lib/globals/app_state.dart`.
+Click a theme in the list and the label **Active** moves to it. The active theme is the one your app starts with and the one the board shows. Nowa saves the choice in your code: in new projects it is the starting theme in `lib/globals/app_state.dart`.
 
 In a new project, your app doesn't switch between light and dark on its own. To let people switch while the app runs, see [Switch themes while the app runs](theme-styles.md#switch-themes-while-the-app-runs).
 

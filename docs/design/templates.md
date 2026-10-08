@@ -16,7 +16,7 @@ Skip the blank page. A template gives you a finished screen or component, such a
 
 ![The screen template picker opened from the Screen tool: a Search for templates box, the Screens and Components chips, the template list (Onboarding Screen highlighted, Premium badges on Article and Dashboard) and a preview pane showing the Onboarding Screen template.](/img/docs/design/design-templates-1.png)
 
-The new screen or component is placed on the board near your pointer. A screen doesn't become your home screen automatically. See [Create and set up screens](screens.md).
+Nowa places the new screen or component on the board near your pointer. A screen doesn't become your home screen automatically. See [Create and set up screens](screens.md).
 
 Many templates come with fixed colors of their own, so link their colors and text to your theme after you add one: see [Start from a template](../guides/design-tips.md#start-from-a-template).
 
@@ -36,7 +36,7 @@ A template made of several files, such as the **Authentication Template** (a log
 1. Review the files the template will add. Untick the ones you don't need, or rename and move them.
 2. Click **Import**. If a file with the same name already exists, Nowa asks before it overwrites it.
 
-**Import** stays off while a file has a problem, and a tooltip asks you to fix it first. Only the template's screens are placed on the board, side by side. Unlike a single-file template, a multi-file import doesn't add routes. In a go_router project, set each screen's route in its **Route Settings**. See [Name the route](screens.md#name-the-route).
+**Import** stays off while a file has a problem, and a tooltip asks you to fix it first. Nowa places only the template's screens on the board, side by side. Unlike a single-file template, a multi-file import doesn't add routes. In a GoRouter project, set each screen's route in its **Route Settings**. See [Name the route](screens.md#name-the-route).
 
 ## Built-in templates
 

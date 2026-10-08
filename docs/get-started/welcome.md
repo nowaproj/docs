@@ -1,6 +1,6 @@
 ---
 title: Welcome to Nowa
-description: Nowa is a visual Flutter app builder with a full AI agent: describe your app, refine every detail visually, and keep the real Flutter code.
+description: "Nowa is a visual Flutter app builder with a full AI agent: describe your app, refine every detail visually, and keep the real Flutter code."
 sidebar_label: Welcome
 keywords: [introduction, overview, what is Nowa, getting started, AI app builder, Flutter app builder, visual editor, no-code]
 ---

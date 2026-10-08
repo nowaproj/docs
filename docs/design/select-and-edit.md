@@ -63,7 +63,7 @@ Double-click a **Text**, **Markdown** or **Html** widget, or place one with the 
 
 ## Copy, cut and paste
 
-Press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>C</kbd>, <kbd>X</kbd> or <kbd>V</kbd>. A widget's right-click menu has **Copy** and **Cut**, and the menu on empty board space has **Paste**. A paste lands at your pointer. With a widget selected, it goes into that widget's parent. Pasting images and text is covered in [Add widgets](add-widgets.md).
+Press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>C</kbd>, <kbd>X</kbd> or <kbd>V</kbd>. A widget's right-click menu has **Copy** and **Cut**, and the menu on empty board space has **Paste**. A paste lands at your pointer. With a widget selected, it goes into that widget's parent. For pasting images and text, see [Add widgets](add-widgets.md).
 
 ## Use the right-click menu {#use-the-right-click-menu}
 
@@ -87,7 +87,9 @@ Earlier means higher in a **Column**, further left in a **Row**, and further bac
 
 ## Export as image
 
-Right-click a widget or screen and choose **Export as image...**. Choose a **Format** (**PNG** or **JPG**) and a **Size** (**1x** to **4x**, or type a number). **Transparent background** is available for PNG. **Resolution** shows the picture size in pixels, and **Export** turns off if a side would pass 8192 pixels. Click **Export** and choose where to save. This also works with the **View Only** role.
+Right-click a widget or screen and choose **Export as image...**. Choose a **Format** (**PNG** or **JPG**) and a **Size** (**1x** to **4x**, or type a number), then click **Export** and choose where to save.
+
+**Transparent background** is available for PNG. **Resolution** shows the picture size in pixels, and **Export** turns off if a side would pass 8192 pixels. Exporting also works with the **View Only** role.
 
 ## Undo and redo
 

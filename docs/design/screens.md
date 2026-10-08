@@ -9,15 +9,15 @@ Screens are the pages of your app: a home page, a settings page, a profile page.
 
 ## Add a screen
 
-1. Click **Screen** in the toolbar at the bottom of the board. Or right-click empty board space and choose **Create a page**. The template picker opens.
+1. Click **Screen** in the toolbar at the bottom of the board, or right-click empty board space and choose **Create a page**. The template picker opens.
 2. Next to **Search for:**, keep **Screens** selected. The other choice is **Components**. Type in **Search for templates** or scroll, and highlight a template to preview it on the right.
 3. Click a template, for example **Empty Page**.
 4. Name it and click **Submit**. The dialog is titled after the template, such as **New Empty Page**, and also shows the **Class name** and the file **Path** (`lib/pages/` for screens).
-5. The screen appears on the board. In projects that use go_router, Nowa also adds a route for it.
+5. The screen appears on the board. In projects that use GoRouter, Nowa also adds a route for it.
 
 ![The template picker for new screens with Chat Template highlighted: the Search for templates box, the Screens and Components chips, the template list with Premium badges, and the preview pane.](/img/docs/design/design-screens-1.png)
 
-A new screen is 393 × 808 unless the template sets its own size. A new screen is not your home screen: see [Choose the home screen](#choose-the-home-screen).
+A new screen is 393 × 808 unless the template sets its own size, and it is not your home screen: see [Choose the home screen](#choose-the-home-screen).
 
 Some templates add several files. The dialog is then titled **Add** plus the template name and lists the files. Review them and click **Import**. Nowa asks before it overwrites a file with the same name.
 
@@ -50,7 +50,7 @@ Other sections of **Details**, such as **Group** and **Safe Area**, control the 
 
 ## Name the route
 
-**Route Settings**, in the **Screen** section, sets how this screen is addressed in your app. It appears in projects that use go_router, the default for new projects.
+**Route Settings**, in the **Screen** section, sets how this screen is addressed in your app. It appears in projects that use GoRouter, the default for new projects.
 
 1. Click the **Path** field and type a path, such as `/settings`. Press <kbd>Enter</kbd>. The field's hint shows the default: the screen name in lowercase words joined by hyphens, for example `/home-page`.
 2. To pass data in the address, expand **Route Parameters** and click **+** (**Add Route Parameter**).

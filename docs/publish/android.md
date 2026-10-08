@@ -2,7 +2,7 @@
 title: Publish to Google Play
 description: Build a quick test version or a signed release of your app for Android in the cloud, then upload the release to Google Play.
 sidebar_label: Android and Google Play
-keywords: [android, google play, play store, apk, aab, app bundle, signing key, keystore, release, debug mode, sha-1, sha-256, fingerprint, build for android]
+keywords: [android, google play, play store, apk, aab, app bundle, signing key, keystore, release, debug mode, sha-1, sha-256, fingerprint, build for android, play policies, data safety, rejected, store rules, privacy policy, account deletion, billing]
 ---
 
 Nowa builds your Android app in the cloud. Test with a quick unsigned build, then make a signed release for Google Play. Nowa hands you the files, and you upload them in Google Play Console.
@@ -76,7 +76,15 @@ Nowa doesn't upload to Google Play for you. When your release build is done, you
 2. Add its listing details and promotional materials. Google's [Publish your app](https://developer.android.com/studio/publish) names screenshots, videos, graphics and text, and details such as the category and content rating. [Export as image](../design/select-and-edit.md#export-as-image) saves a screen from your board as a PNG or JPG.
 3. Add the `.aab` to a release and publish it. Once it passes Google's review, your app is live.
 
-[Play Console Help](https://support.google.com/googleplay/android-developer) covers the store side in full.
+Before you publish, read [Follow Google Play's rules](#store-rules). [Play Console Help](https://support.google.com/googleplay/android-developer) covers the store side in full.
+
+## Follow Google Play's rules {#store-rules}
+
+Read the [Google Play Developer Policy Center](https://play.google.com/about/developer-content-policy/) before you publish, and check [Google Play Policies](https://developer.android.com/distribute/play-policies) for upcoming deadlines. These parts match what you can build with Nowa:
+
+- **Payments.** [Google Play's billing system](https://developer.android.com/google/play/billing) is "a service that enables you to sell digital products and content in your Android app", with one-time purchases or subscriptions. Read [Understanding Google Play's Payments policy](https://support.google.com/googleplay/android-developer/answer/10281818) too. See [Stripe or RevenueCat?](../integrations/index.md#stripe-or-revenuecat) for what each does in Nowa.
+- **Data safety.** "The Play Console includes a Data safety form on the App content page. In this form, you explain to users which types of user data your app collects and shares." If a third-party SDK or library in your app collects or shares user data, "you must reflect this collection and sharing in the Data safety form". See [Declare your app's data use](https://developer.android.com/privacy-and-security/declare-data-use) and the [User Data policy](https://play.google.com/about/privacy-security-deception/user-data/).
+- **Accounts.** If people can create an account in your app, read [Understanding Google Play's app account deletion requirements](https://support.google.com/googleplay/android-developer/answer/13327111). The sign-up functions Nowa adds don't delete accounts.
 
 ## Release an update
 

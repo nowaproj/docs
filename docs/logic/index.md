@@ -1,6 +1,6 @@
 ---
 title: How logic works
-description: Logic is what your app does when something happens. Events start it, Circuit builds it, and variables, expressions and global state give it data.
+description: Logic is what your app does when something happens, started by events, built in Circuit and fed with data by variables, expressions and global state.
 sidebar_label: How logic works
 keywords: [logic, how logic works, events, functions, variables, circuit, state, expressions, actions, no code, interactivity, behavior]
 ---

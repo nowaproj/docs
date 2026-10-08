@@ -1,6 +1,6 @@
 ---
 title: Build your first app
-description: Go from one sentence to a running app in about 15 minutes: describe your idea, watch Nowa AI build it, change it by hand, and run it.
+description: "Go from one sentence to a running app in about 15 minutes: describe your idea, watch Nowa AI build it, change it by hand, and run it."
 sidebar_label: Build your first app
 keywords: [quickstart, first app, tutorial, get started, prompt to app, build with AI, Design mode, Make it real, Instant Play, Run, New Cloud Project]
 ---

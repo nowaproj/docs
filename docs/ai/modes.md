@@ -33,7 +33,7 @@ An empty Design chat explains the idea: describe the app, and Nowa designs it sc
 When Nowa AI has designed all the screens you talked about, a card titled **Your app design is complete** appears, with a short summary. You have three choices:
 
 - Keep refining. Tell Nowa AI what to change in the chat.
-- Pick a feature. Click one of the chips under **Pick what to make work first:**. Nowa switches to Agent mode and starts with that feature.
+- Pick a feature. Click one of the chips under **Pick what to make work first:**, and Nowa switches to Agent mode and starts with that feature.
 - Click **Make it real**. Nowa switches to Agent mode and starts with the feature Nowa AI recommends. The card then reads **Switched to Agent mode**.
 
 Only the latest card is active, and only while Nowa AI isn't working.

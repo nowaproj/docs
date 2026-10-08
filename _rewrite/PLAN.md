@@ -49,6 +49,7 @@ capture wave 2, style pass S1 and S2. Next: one verifier for W21 + W22, then sty
 - Done: `reviews/P9-routes-review.md` (router.md, navigation.md, 7 one-line links; 4 fixed, 2 reduced).
 - Done: `reviews/P9-recipes-review.md` (17 pages, 65 claims; 4 fixed: test/index.md gates and badge, devices.md QR icon).
 - Done: `reviews/P9-structure-review.md` (21 pages, ~100 claims, 3 wording fixes; 0 broken links across 115 pages).
+- Done: `reviews/P9-fixups-review.md` (W22's four fix-ups; 2 wording fixes).
 
 **Open points from the routes check:** Firebase sign-in persistence on phones is unconfirmed (the page names the web
 only); a restored Supabase session can be briefly expired because `recoverSession()` isn't awaited (not on the page);

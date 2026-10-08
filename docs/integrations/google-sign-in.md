@@ -5,7 +5,7 @@ sidebar_label: Google Sign-In
 keywords: [google sign-in, google login, sign in with google, oauth, client id, supabase auth, google_sign_in, social login]
 ---
 
-Let people sign in to your app with their Google account. This page stores your Google OAuth client IDs and prepares your iOS app for Google's sign-in screen. It is meant for sign-in without Firebase, for example with Supabase. If you use Firebase Authentication instead, Firebase handles Google sign-in: see [Sign users in with Firebase](./firebase/auth.md).
+Let people sign in to your app with their Google account. Nowa stores your Google OAuth client IDs and prepares your iOS app for Google's sign-in screen. This integration is meant for sign-in without Firebase, for example with Supabase. If you use Firebase Authentication instead, Firebase handles Google sign-in (see [Sign users in with Firebase](./firebase/auth.md)).
 
 ## Before you start
 
@@ -28,7 +28,7 @@ If you also set a **URL Scheme** under [Deep links](./deep-links.md), check `Inf
 
 ## Build the sign-in flow
 
-Nowa sets up the keys and the package. It does not generate a sign-in function or a Google button for this standalone setup, so ask Nowa AI to build the flow. Nowa's guidance for Supabase: connect your project, then ask Nowa AI to set it up.
+Nowa sets up the keys and the package. It doesn't generate a sign-in function or a Google button for this standalone setup, so ask Nowa AI to build the flow. For Supabase, Nowa's guidance is to connect your project, then ask Nowa AI to set it up.
 
 :::tip[Or ask Nowa AI]
 Try: "Add a Continue with Google button to the Login screen that signs the user in with Supabase."

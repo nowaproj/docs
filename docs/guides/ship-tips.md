@@ -34,7 +34,7 @@ See [Find and fix problems](../test/problems.md).
 ## Keep a way back
 
 - **Auto save** is on by default, and every Nowa AI request ends with a save.
-- **Checkpoints** undo Nowa AI requests. They are not a backup: they live in `.nowa/temp/`, which Git ignores.
+- **Checkpoints** undo Nowa AI requests. They aren't a backup: they live in `.nowa/temp/`, which Git ignores.
 - **Git** keeps your history. Commit before big changes and before you publish. Git needs a plan that includes Git integration. See [Use Git](../code/git.md).
 - **Download your code** as a zip from code mode in a cloud project. See [Download your code](../publish/download-code.md).
 - **A local project** lives only on your computer, and Nowa doesn't back it up. Use Git and GitHub. See [Work with local projects](../code/local-projects.md).

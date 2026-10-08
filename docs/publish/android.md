@@ -17,7 +17,7 @@ Nowa builds your Android app in the cloud. Test with a quick unsigned build, the
 
 ## Test on a device
 
-Debug builds are for quick tests. They are unsigned, so you can build one without a key.
+Debug builds are for quick tests. They're unsigned, so you can build one without a key.
 
 1. Click **Settings** → **Deployment** and open the **Android** tab.
 2. Turn on **Debug mode**. Its note reads "Unsigned builds for quick testing on devices. Turn off for store-ready release builds."
@@ -28,7 +28,7 @@ You can also click **Deploy** in the top bar, then **Deploy** on the **Android D
 
 ## Create a signing key
 
-Google Play needs a release that is signed with your key. Turn **Debug mode** off to see the **Signing Key** card. A warning icon on it means no key is saved yet. Hover over the icon to read **Missing signing key**.
+Google Play needs a release signed with your key. Turn **Debug mode** off to see the **Signing Key** card. A warning icon on it means no key is saved yet. Hover over the icon to read **Missing signing key**.
 
 ### Let Nowa generate a key
 
@@ -47,7 +47,7 @@ If you lose this key, you can't release new updates for your app. Download it, s
 
 Once a key is saved, the icon turns into a check mark (hover to read **Signing key saved**), and the card shows these controls:
 
-- **SHA-1** and **SHA-256**: the key's fingerprints, each with a copy button. Services such as Google Sign-In ask for them. With Firebase, Nowa can add them for you: see [Add SHA fingerprints for Google sign-in on Android](../integrations/firebase/auth.md#sha-fingerprints). If you use Play App Signing, also add the fingerprints that Play Console lists on its app signing page. Android's [Sign your app](https://developer.android.com/studio/publish/app-signing) explains both keys.
+- **SHA-1** and **SHA-256**: the key's fingerprints, each with a copy button. Services such as Google Sign-In ask for them. With Firebase, Nowa can add them for you. See [Add SHA fingerprints for Google sign-in on Android](../integrations/firebase/auth.md#sha-fingerprints). If you use Play App Signing, also add the fingerprints that Play Console lists on its app signing page. Android's [Sign your app](https://developer.android.com/studio/publish/app-signing) explains both keys.
 - The download icon (**Download Signing Key**) saves the zip again.
 - **Remove** asks "Are you sure?" before it deletes the key.
 
@@ -56,7 +56,7 @@ Once a key is saved, the icon turns into a check mark (hover to read **Signing k
 ## Build a release
 
 1. Make sure **Debug mode** is off.
-2. In **Start New Build**, pick a **Branch** (the default is fine: see [what a branch is](./builds.md#start-a-build)) and click **Build**. The button stays off until the signing key is saved.
+2. In **Start New Build**, pick a **Branch** (the default is fine; see [what a branch is](./builds.md#start-a-build)) and click **Build**. The button stays off until the signing key is saved.
 3. Wait for the build to finish.
 
 Or click **Deploy** in the top bar, then **Deploy** on the **Android Release** row. It shows **Set up** until the key is saved.
@@ -85,7 +85,7 @@ Read the [Google Play Developer Policy Center](https://play.google.com/about/dev
 - **Payments.** [Google Play's billing system](https://developer.android.com/google/play/billing) is "a service that enables you to sell digital products and content in your Android app", with one-time purchases or subscriptions. Read [Understanding Google Play's Payments policy](https://support.google.com/googleplay/android-developer/answer/10281818) too. See [Stripe or RevenueCat?](../integrations/index.md#stripe-or-revenuecat) for what each does in Nowa.
 - **Data safety.** "The Play Console includes a Data safety form on the App content page. In this form, you explain to users which types of user data your app collects and shares." If a third-party SDK or library in your app collects or shares user data, "you must reflect this collection and sharing in the Data safety form". See [Declare your app's data use](https://developer.android.com/privacy-and-security/declare-data-use) and the [User Data policy](https://play.google.com/about/privacy-security-deception/user-data/).
 - **Accounts.** Read [Understanding Google Play's app account deletion requirements](https://support.google.com/googleplay/android-developer/answer/13327111). The sign-up functions Nowa adds don't delete accounts.
-- **Pre-review checks.** Play Console has "pre-review checks" that help you "identify issues early, like incomplete policy declarations or crashes, and avoid rejections". In December 2025, Google said it had expanded them "for privacy policy links, login credential requirements, data deletion request links, inaccuracies in your Data safety form, and more": see [Building a safer Android and Google Play, together](https://developer.android.com/blog/posts/building-a-safer-android-and-google-play-together).
+- **Pre-review checks.** Play Console has "pre-review checks" that help you "identify issues early, like incomplete policy declarations or crashes, and avoid rejections". In December 2025, Google said it had expanded them "for privacy policy links, login credential requirements, data deletion request links, inaccuracies in your Data safety form, and more". See [Building a safer Android and Google Play, together](https://developer.android.com/blog/posts/building-a-safer-android-and-google-play-together).
 
 ## Release an update
 

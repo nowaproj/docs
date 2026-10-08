@@ -30,7 +30,7 @@ Nowa supports three ways to sign people in. Choose the one that matches your bac
 | Good to know | For other Supabase sign-in methods, ask Nowa AI or write the code | Turn each provider on in the Firebase console too | Meant for use without Firebase, with a backend that accepts Google sign-in, such as Supabase |
 | Guide | [Sign users in with Supabase](./supabase/auth.md) | [Sign users in with Firebase](./firebase/auth.md) | [Google Sign-In](./google-sign-in.md) |
 
-If you keep your data in Supabase, sign users in with Supabase too: your queries then run as the signed-in user, which Row Level Security and [Stripe](./stripe.md) rely on. For a login screen to start from, use the **Authentication Template**: see [Start from a template](../design/templates.md). Nowa has no built-in Sign in with Apple for your app: see [What Nowa doesn't include](#what-nowa-doesnt-include).
+If you keep your data in Supabase, sign users in with Supabase too: your queries then run as the signed-in user, which Row Level Security and [Stripe](./stripe.md) rely on. For a login screen to start from, use the **Authentication Template** (see [Start from a template](../design/templates.md)). Nowa has no built-in Sign in with Apple for your app (see [What Nowa doesn't include](#what-nowa-doesnt-include)).
 
 ## Add payments, ads, maps and more
 
@@ -43,7 +43,7 @@ Each has a settings page with an **Enabled** switch. If Firebase handles Google 
 - [Google Sign-In](./google-sign-in.md): sign-in with Google without Firebase, for example with Supabase.
 - [Deep links](./deep-links.md): open your app from a custom URL scheme, or from links on your own domain on Android.
 
-Maps, ads and paywalls come with widgets: **Google Maps**, **Admob Banner** and **RevenueCat Paywall**. If a widget's package is missing, Nowa shows **Add Missing Dependencies** when you add it. Click **Add**: Nowa adds the package, then places the widget. See [Add a widget that needs a package](../design/add-widgets.md#add-a-widget-that-needs-a-package).
+Maps, ads and paywalls come with widgets: **Google Maps**, **Admob Banner** and **RevenueCat Paywall**. If a widget's package is missing, Nowa shows **Add Missing Dependencies** when you add it. Click **Add**. Nowa adds the package, then places the widget. See [Add a widget that needs a package](../design/add-widgets.md#add-a-widget-that-needs-a-package).
 
 ### Stripe or RevenueCat?
 
@@ -56,7 +56,7 @@ Apple has rules for selling subscriptions and digital content in an app, and Goo
 
 ## What Nowa doesn't include
 
-Nowa has no built-in integration for secure (encrypted) storage, for OneSignal or analytics services, for App Store or Google Play in-app purchases other than through [RevenueCat](./revenuecat.md), or for Sign in with Apple in your own app. You can still add other packages from pub.dev yourself: see [Add packages](../code/packages.md).
+Nowa has no built-in integration for secure (encrypted) storage, for OneSignal or analytics services, for App Store or Google Play in-app purchases other than through [RevenueCat](./revenuecat.md), or for Sign in with Apple in your own app. You can still add other packages from pub.dev yourself. See [Add packages](../code/packages.md).
 
 ## Find your settings and keys
 

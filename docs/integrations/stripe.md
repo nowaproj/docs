@@ -10,8 +10,8 @@ Stripe lets your app take card, Apple Pay and Google Pay payments. Nowa sets up 
 ## Before you start
 
 - A Stripe account with your [API keys](https://docs.stripe.com/keys). Use test keys while you build.
-- Supabase connected with **Connect**. **Use Keys** is not enough: Nowa creates tables, deploys functions and saves secrets in your Supabase project through that authorization. See [Connect Supabase](./supabase/connect.md).
-- Users who sign in with Supabase Auth. The payment functions refuse anyone who is not signed in. See [Sign users in with Supabase](./supabase/auth.md).
+- Supabase connected with **Connect**. **Use Keys** isn't enough: Nowa creates tables, deploys functions and saves secrets in your Supabase project through that authorization. See [Connect Supabase](./supabase/connect.md).
+- Users who sign in with Supabase Auth. The payment functions refuse anyone who isn't signed in. See [Sign users in with Supabase](./supabase/auth.md).
 - For **One-Time** and **Consumable**: a Supabase table with one row per item you sell, a unique ID column and a price column. For **Subscription**: a price created in Stripe (you need its Price ID).
 - If your app goes on the App Store or Google Play and sells digital goods, credits or subscriptions, read the store rules first: [Follow Apple's rules](../publish/ios.md#store-rules) and [Follow Google Play's rules](../publish/android.md#store-rules).
 
@@ -86,11 +86,11 @@ Nowa creates these in your Supabase project:
 
 In your project, Nowa also generates `lib/integrations/stripe_payment_service.dart` and updates the platform files Stripe needs: on Android `MainActivity`, ProGuard rules and the app theme; on iOS the **Camera** permission and, when Apple Pay is on, the Apple Pay entitlement.
 
-A failed Supabase step does not always show an error, so open your Supabase dashboard and confirm that the tables, functions and secrets are there.
+A failed Supabase step doesn't always show an error, so open your Supabase dashboard and confirm that the tables, functions and secrets are there.
 
 ![Supabase dashboard listing the nowa_stripe_one_time_payments and nowa_stripe_consumable_payments tables created by Deploy Configuration](/img/docs/integrations/stripe-supabase-tables.png)
 
-After any change, such as a new purchase type or a different table, click **Deploy Configuration** again. Existing payment tables are kept.
+After any change, such as a new purchase type or a different table, click **Deploy Configuration** again. Nowa keeps existing payment tables.
 
 {/* CAPTURE: id=integrations-stripe-2 | state: signed-in cloud project, Supabase connected, Stripe enabled, One-Time selected, a table picked | show: 3. Business Table, 4. Map Fields and the Deploy Configuration button | crop: Settings window content area, lower half */}
 
@@ -101,7 +101,7 @@ After any change, such as a new purchase type or a different table, click **Depl
 3. In **Details**, click the **Record Id** label and link it to the item's ID, the value of your **ID Field** column ([Expressions and conditions](../logic/expressions.md)). For `subscribe`, set **Price Id** to your Stripe Price ID.
 4. Under **Future Options**, add logic to **onValue** for a successful payment and to **onError** for a failed one.
 
-Stripe's payment sheet opens in your app. Test it on a device or emulator with Stripe's [test cards](https://docs.stripe.com/testing) while your keys are in test mode. Running on a device needs the desktop app: see [Run on a device or emulator](../test/devices.md).
+Stripe's payment sheet opens in your app. Test it on a device or emulator with Stripe's [test cards](https://docs.stripe.com/testing) while your keys are in test mode. Running on a device needs the desktop app. See [Run on a device or emulator](../test/devices.md).
 
 :::tip[Or ask Nowa AI]
 After you deploy, ask the agent to wire the button, for example: "When the user taps Buy, charge the selected product with StripePaymentService.processPayment and show a snackbar when it succeeds."
@@ -127,7 +127,9 @@ After you deploy, ask the agent to wire the button, for example: "When the user 
 
 ## Remove Stripe
 
-Turn **Enabled** off. Nowa deletes the Stripe settings, `lib/integrations/stripe_payment_service.dart`, the Android changes and the Apple Pay entitlement, so remove any logic that calls `StripePaymentService` first. The iOS **Camera** permission (**Settings** → **General** → **Permissions**) and your values in **Constants** stay. Your Supabase project is not touched: delete its tables, functions and secrets yourself if you no longer need them.
+Turn **Enabled** off. Nowa deletes the Stripe settings, `lib/integrations/stripe_payment_service.dart`, the Android changes and the Apple Pay entitlement, so remove any logic that calls `StripePaymentService` first.
+
+The iOS **Camera** permission (**Settings** → **General** → **Permissions**) and your values in **Constants** stay. Your Supabase project isn't touched. Delete its tables, functions and secrets yourself if you no longer need them.
 
 ## Next steps
 

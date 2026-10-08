@@ -60,7 +60,7 @@ Call them from an event, such as a button's **On Pressed**.
 5. Fill in the parameters with your own values, such as [variables](../../logic/variables.md) that hold what the user typed.
 6. Most of these functions return a Future. Select that node and find **Future Options** in **Details**. Click **+** next to **onValue** for what happens after a successful sign-in, such as [opening the home screen](../../logic/navigation.md). The **onError** function it creates runs when sign-in fails. See [Wait for a result](../../logic/circuit.md#future-options).
 
-To skip the login screen when someone is already signed in, use `isUserSignedIn()` in the **Redirect Logic** of your home screen's route: see [Start on the login screen or the home screen](../../logic/router.md#start-on-login-or-home).
+To skip the login screen when someone is already signed in, use `isUserSignedIn()` in the **Redirect Logic** of your home screen's route. See [Start on the login screen or the home screen](../../logic/router.md#start-on-login-or-home).
 
 :::tip
 Prefer to describe it? Once a provider is on, ask Nowa AI in **Agent** mode, for example: "Build a sign-in screen with email and password fields that signs the user in with Firebase and opens the home screen."

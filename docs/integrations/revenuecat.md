@@ -9,7 +9,7 @@ RevenueCat handles in-app purchases and subscriptions across iOS, Android and th
 
 ## Before you start
 
-- A RevenueCat account with your app, products and offerings set up in the [RevenueCat dashboard](https://app.revenuecat.com). Nowa does not create them; [RevenueCat's documentation](https://www.revenuecat.com/docs) explains how.
+- A RevenueCat account with your app, products and offerings set up in the [RevenueCat dashboard](https://app.revenuecat.com). Nowa doesn't create them. [RevenueCat's documentation](https://www.revenuecat.com/docs) explains how.
 - The public SDK key for each platform you ship, from the same dashboard.
 - The store rules for in-app purchases: [Follow Apple's rules](../publish/ios.md#store-rules) and [Follow Google Play's rules](../publish/android.md#store-rules).
 
@@ -25,7 +25,7 @@ When you turn it on, Nowa also:
 
 - Generates `lib/integrations/revenuecat_service.dart` with a `RevenuecatService` class.
 - Adds `await RevenuecatService().configureRevenuecat();` to `main()`, so RevenueCat is ready when the app starts.
-- Saves your keys as constants in `lib/globals/app_constants.dart`. They also appear under **Constants** (**Settings** → **General**). They are public keys, so shipping them inside the app is expected.
+- Saves your keys as constants in `lib/globals/app_constants.dart`. They also appear under **Constants** (**Settings** → **General**). They're public keys, so shipping them inside the app is expected.
 - Makes sure the iOS minimum version is at least 14.0 and switches the Android `MainActivity` to a `FlutterFragmentActivity`.
 
 ## Add the paywall
@@ -36,7 +36,7 @@ When you turn it on, Nowa also:
 
 {/* CAPTURE: id=integrations-revenuecat-1 | state: playground starter open, a screen on the board, RevenueCat Paywall added from the widget picker | show: the placeholder card labeled RevenueCat Paywall / Run to preview inside a screen | crop: the screen on the board */}
 
-The board and **Play** show only placeholders. In **Play**, the widget reads "Run on a simulator/emulator or mobile device to preview". To see the real paywall, run your app on a simulator, emulator or device. That needs the desktop app: see [Run on a device or emulator](../test/devices.md).
+The board and **Play** show only placeholders. In **Play**, the widget reads "Run on a simulator/emulator or mobile device to preview". To see the real paywall, run your app on a simulator, emulator or device. That needs the desktop app. See [Run on a device or emulator](../test/devices.md).
 
 ## Call RevenueCat from logic
 

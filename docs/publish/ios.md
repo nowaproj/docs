@@ -41,7 +41,7 @@ A distribution certificate is Apple's proof that an app comes from you. Nowa sig
 ### Let Nowa generate a key
 
 1. In the **Distribution Certificate** card, click **Generate**. A warning icon means no key is saved yet (**Missing distribution certificate**).
-2. Read the **Important!** warning. Apple allows only three active certificates at a time. If you have already used three, the build fails. Reusing a certificate is best. If you need a new one anyway, revoke an existing one in your Apple Developer account first, which breaks any builds that use the revoked one. Click **Generate anyways** to go on, or **Cancel**.
+2. Read the **Important!** warning. Apple allows only three active certificates at a time, and the build fails if you have already used three. Reusing a certificate is best. If you need a new one anyway, first revoke an existing one in your Apple Developer account (this breaks any builds that use the revoked one). Click **Generate anyways** to go on, or **Cancel**.
 3. In the next **Important!** dialog, click **Download** and save `ios_distribution_certificate_key.p12` somewhere safe. If you lose it, you can't sign other iOS apps and you have to generate a new one.
 
 ### Use a key you already have
@@ -57,7 +57,7 @@ Once a key is saved, the card shows a check mark (hover to read **Distribution c
 
 ## Build and send to App Store Connect
 
-1. In **Start New Build**, pick a **Branch** and click **Build**. Leave the default unless you work with several branches: [Start a build](./builds.md#start-a-build) explains what a branch is. The button stays off until both the certificate and the App Store Connect credentials are saved.
+1. In **Start New Build**, pick a **Branch** and click **Build**. Leave the default unless you work with several branches. [Start a build](./builds.md#start-a-build) explains what a branch is. The button stays off until both the certificate and the App Store Connect credentials are saved.
 2. Follow the build. It signs your app in the **iOS code signing** step, builds the `.ipa` and ends with a **Publishing** stage that uploads it to App Store Connect. [Build history and logs](./builds.md) explains the build card.
 3. When the build finishes, check your app in App Store Connect. By default, the `.ipa` is also listed under **Artifacts**.
 

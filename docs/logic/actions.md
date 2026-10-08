@@ -18,7 +18,7 @@ Dialogs, sheets, snackbars and pickers are on their own page: [Show dialogs, she
 
 ## Write to the logs
 
-`print` writes a message that you can read while you test.
+`print` writes a message you can read while you test.
 
 1. Choose **DART:CORE** → `print`.
 2. Type the message in **Msg**. It starts as "Hello World". Type `$` to put a value inside it, such as `Total: ${total}`.
@@ -26,7 +26,7 @@ Dialogs, sheets, snackbars and pickers are on their own page: [Show dialogs, she
 
 ## Check the platform
 
-**checkPlatform** gives a true or false value that tells where the app is running, so you can do something different on, say, the web or on phones.
+**checkPlatform** gives a true or false value for where the app is running, so you can do one thing on the web and another on phones.
 
 1. Choose **GLOBALS** → **checkPlatform**, or pick it while you link a true or false property. It starts as `isWeb`.
 2. Click `isWeb` and pick another check: `isAndroid`, `isIOS`, `isMacOs`, `isWindows`, `isLinux` or `isDesktop`. `isDesktop` is true on macOS, Windows and Linux. `currentPlatform` gives the platform itself.
@@ -82,7 +82,7 @@ Math, comparison and logic live in the **OPERATORS** category, for example `plus
 
 ## Copy text and vibrate
 
-The **SERVICES** category has two handy classes. Click a class to see its functions.
+The **SERVICES** category has two classes for this. Click a class to see its functions.
 
 - `Clipboard`: `setData` copies text to the clipboard. `getData` and `hasStrings` read from it.
 - `HapticFeedback`: `vibrate`, `lightImpact`, `mediumImpact`, `heavyImpact`, `selectionClick`, `successNotification`, `warningNotification` and `errorNotification`.

@@ -51,6 +51,10 @@ The **Colors** section shows your main color roles as tiles: **Primary**, **Seco
 3. Pick a color. Drag in the color area, use the hue and opacity sliders, use the eyedropper to pick a color from the screen, or type a **HEX** value and an opacity (**OP**).
 4. Check the result in **Preview**, then click the back arrow.
 
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/docs/design/design-themes-video.mp4" type="video/mp4" />
+</video>
+
 ![The Themes panel next to the Edit Primary popup: the role and on-color header, the color picker with hue and opacity sliders, the HEX and OP fields (highlighted) and the Preview swatch.](/img/docs/design/design-themes-2.png)
 
 To edit another role, click **Add Color** and choose one in **Override Color Role**, for example **Primary Container**, **Error**, **Outline** or a **Surface Container** shade. The reset icon in a popup's header puts the role back to the scheme's default.

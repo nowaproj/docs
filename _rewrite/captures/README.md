@@ -111,6 +111,25 @@ Flutter draws to a canvas, so there is no DOM to query. Three ways, in order of 
 - Selecting a widget adds a context chip to the AI chat field. Do not click **Save** (top right) or any AI send button.
 - Product quirks seen: switching the home screen's Group to a Row renders the screen gray with a status-bar
   "Canvas error ... preferredSize"; the widget menu shows `Ctrl ]` for both **Move Up** and **Move Down** (known, P2).
+- Text Field validators: after **+ Add validator** → **Min length validator** (or **Max length**), Details shows one more plain **Message**
+  row and no rule header or **Min** / **max** field. The rule is written as `value.length < min` / `> max` (`form_validator.dart:213,246`) but
+  the loader only reads `<=` / `>=` as Min / Max length and everything else as Required (`:313-328`). A **Regex** rule renders fully, so
+  `reference-forms-1` shows Regex (the page names Min length as its example).
+- **Layout fields right after a drop.** Typing into L / T / W / H of a widget that was just dropped does nothing: click its row in
+  the **Outline** first (rows at y = 139 appBar, then 175, 211, 247 ...). Selected that way, Details has a breadcrumb row, so L / T are
+  at y = 278 and W / H at y = 350 (x = 1273 and 1383). Hover outlines from Outline rows can stay stuck on the board: reach sidebar
+  icons from below instead of crossing the rows.
+- **Integrations pages (Google Maps, AdMob, RevenueCat).** The **Enabled** switch needs pub.dev (unreachable here): its spinner never ends.
+  For the enabled look, add the package in code mode (`pubspec.yaml`: `nowa_mobile_ads: ^0.0.9`, `google_maps_flutter: ^2.14.2`,
+  `purchases_flutter: ^9.12.0`, `purchases_ui_flutter: ^9.12.0`), save with `Control+s`, go back and reload with `goto --keep`: the page then
+  shows **Enabled** on with its **Configuration** fields. The status bar then lists "Setup statement in main.dart ..." problems: crop them out.
+  The **RevenueCat Paywall** shows "Method PaywallView is not found" until the package analyzer answers
+  (`package-analyzer-*.run.app/analyze/<package>/<version>`, unreachable): a `context.route` stand-in that returns one class
+  (`PaywallView`, constructor named `''`) lets the product draw its own purple placeholder card.
+- **Code editor typing.** It auto-closes quotes and brackets, so type code with `page.keyboard.insertText(...)`, not char by char.
+  Ctrl+S in code mode saves to the playground (no sign-in dialog opened). Status bar counts: click them to open the Console on **Problems**.
+- **Phone layout.** `launch({ width: 390, height: 844 })` and `/playground` shows the phone layout (MobileView) without any click.
+  `/signup` opens signed out; its "No response" banner (network) closes with its X. Type nothing there.
 
 ## Coordinates (1440x900, design mode, left panel open)
 
@@ -168,8 +187,8 @@ overlays that close when the pointer leaves (pickers) or the hover you want to s
 
 Videos (`mp4` rows only): `node capture.mjs video scenario.mjs out.mp4`, or `toMp4` / `checkVideo` from the library
 (H.264 High, yuv420p, at most 1920x1080 and 30 fps, no audio, faststart). Check frames with ffmpeg before keeping one.
-Recorded so far: `test-instant-play-video` (15.6 s) and `design-layout-video` (14.2 s), in `static/videos/docs/<section>/`.
-Left: `design-add-widgets-video`, `logic-circuit-video`, `design-themes-video` (see `to-capture.md`). `ai-index-video` is not
+Recorded (in `static/videos/docs/<section>/`): `test-instant-play-video` (15.6 s), `design-layout-video` (14.2 s),
+`design-add-widgets-video` (14.8 s), `logic-circuit-video` (15.3 s) and `design-themes-video` (15.9 s). `ai-index-video` is not
 possible without an account: the playground's first AI send opens the sign-in dialog (`chat_session.dart:264`).
 
 ### Videos: what worked (scripts in the scratchpad of the phase-9 run: `.../scratchpad/cap9/vid/`)
@@ -191,6 +210,19 @@ editor loader, ffmpeg crop and H.264 conversion, `checkVideo`), `lib.mjs` (visib
   breadcrumb says Stack until the alignment is non-default (cosmetic).
 - Details positions differ by how the widget was selected (Edit next to On Pressed is at y=801 after a drop, 841 after an Outline click).
 - Playing a screen zooms the board (about 0.77); a new Switch does not toggle in Play (no state), a Text Field does.
+
+Phase 10 scenarios (same `rec.mjs` and `lib.mjs`, run from a copy in the scratchpad; each took 30-110 s to record):
+
+- `design-add-widgets-video` (`--crop 383,42,1057,836`): click the title (940,231), `lib.key('Control+k', 'Ctrl / Cmd + K')`, type `button`
+  at 130 ms per key, `lib.drag` the 4th row (592,450) to (1010,530). The picker closes while dragging; the Button lands selected.
+- `logic-circuit-video` (`--crop 320,130,1120,740`): setup drops a Button (4th row, to 960,540) and closes the left panel. Main: click **Edit**
+  (1340,841), glide to the dot (720,349) and wait 0.9 s for the **+**, click it, then move the pointer to (560,520) so it does not cover the
+  menu title, type `snack`, click **Show snackbar** (782,670).
+- `design-themes-video` (`--crop 0,42,1130,836`): setup adds Linear Progress Indicator (value 0.6, W 345, Min Height 10), Switch and
+  Checkbox with the Outline + Layout recipe above, then pans the board 160 px left (`lib.pan`). Main: Themes icon (20,147), **Primary** tile
+  (210,195), hold the hue handle at (597,469) and drag to 640 (pink) and on to 428 (orange), back arrow (410,207). Use Checkbox,
+  Switch and Linear Progress: the Slider keeps its own orange and does not follow **Primary**.
+- Open menus and popups stay open while the pointer leaves them, so park the pointer off the title of a menu before typing.
 
 ## Hard limits
 

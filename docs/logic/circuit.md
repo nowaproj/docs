@@ -27,6 +27,10 @@ Circuit opens as a floating panel. Drag it by its title bar and close it with **
 3. Type in the search box, or click a category to open it, then click an item. The node appears at that spot and is selected.
 4. Set it up in the **Details** panel that opens inside Circuit.
 
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/docs/logic/logic-circuit-video.mp4" type="video/mp4" />
+</video>
+
 ![The All nodes for this circuit menu opened from the plus under the onPressed node: the search box, the five top items (Add Return, Add If statement, Add Try statement, Create Local Variable, Add Custom Expression, highlighted) and the collapsed categories below.](/img/docs/logic/logic-circuit-2.png)
 
 The menu starts with five building blocks, each covered below: **Add Return**, **Add If statement**, **Add Try statement**, **Create Local Variable** and **Add Custom Expression**.

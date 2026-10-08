@@ -25,7 +25,9 @@ You can click to place a widget, or drag it from the list to choose the exact sp
 
 While you drag, the picker closes and the board shows where the widget will land. See [where a dragged widget lands](select-and-edit.md#where-a-dragged-widget-lands).
 
-{/* CAPTURE: id=design-add-widgets-2 | state: playground starter open, open the widget picker, drag Container from the list over the screen | show: dragging a widget from the picker onto a screen with the drop highlight and guide lines visible | crop: the board | type: mp4, 10-15 s, no audio */}
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/docs/design/design-add-widgets-video.mp4" type="video/mp4" />
+</video>
 
 ## Add a widget that needs a package
 

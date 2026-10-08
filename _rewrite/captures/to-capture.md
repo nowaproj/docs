@@ -71,21 +71,15 @@ and type are. Videos (`mp4` rows) are marked `(mp4)` in the last section.
 
 Status `skipped: low value` in `requests/`. They need no sign-in; see `README.md` for how to capture. Videos need the video steps in `../CAPTURE.md`.
 
-- **account**: account-project-settings-1
-- **code**: code-packages-1, code-files-2, code-limitations-1
-- **design**: design-add-widgets-2 (mp4), design-select-and-edit-1 (mp4), design-outline-2, design-theme-styles-1, design-fonts-icons-1, design-fonts-icons-2, design-assets-1, design-responsive-1, design-responsive-2
-- **get-started**: get-started-create-account-1, get-started-mobile-1
-- **integrations**: integrations-constants-1, integrations-index-1, integrations-stripe-1, integrations-revenuecat-1, integrations-admob-1, integrations-admob-2, integrations-google-maps-1
-- **logic**: logic-events-2 (mp4), logic-functions-1, logic-expressions-1, logic-popups-1, logic-variables-1, logic-variables-2, logic-navigation-1, logic-navigation-2, logic-parameters-1, logic-global-state-1, logic-models-1
-- **reference**: reference-forms-1, reference-forms-2, reference-lists-1, reference-lists-2, reference-media-1, reference-media-2, reference-navigation-1, reference-navigation-2
-- **test**: test-problems-1, test-problems-2
+- **code**: code-files-2
+- **design**: design-add-widgets-2 (mp4), design-select-and-edit-1 (mp4), design-outline-2, design-fonts-icons-2, design-responsive-2
+- **integrations**: integrations-stripe-1, integrations-admob-2
+- **logic**: logic-events-2 (mp4), logic-variables-2
+- **reference**: reference-forms-2, reference-lists-2, reference-media-2, reference-navigation-2
+- **test**: test-problems-2
+
+The other rows that were in this list (28 screenshots, from `account-project-settings-1` to `get-started-create-account-1`) were captured in a later run: see `log.md`.
 
 ## Videos left for a later run (playground only, no account needed)
 
-Recording method, gotchas and the working scripts: see `README.md` > Videos. Done so far: test-instant-play-video, design-layout-video.
-
-| id | page | after heading | what to record |
-|---|---|---|---|
-| design-add-widgets-video | docs/design/add-widgets.md | Add a widget with the widget picker | Ctrl/Cmd+K, type button, drag the Button row onto the screen (draft `add-widgets.mjs` works; the picker makes frames slow) |
-| logic-circuit-video | docs/logic/circuit.md | Add a node | select a Button, click Edit next to On Pressed, hover the dot, click +, type snack, click Show snackbar |
-| design-themes-video | docs/design/themes.md | Edit colors | Themes panel, click Primary, drag the hue slider while the board (progress bar, switch, slider) changes color |
+None left that a playground can do. Recorded: test-instant-play-video, design-layout-video, design-add-widgets-video, logic-circuit-video and design-themes-video (`log.md`). Recording method and gotchas: see `README.md` > Videos.

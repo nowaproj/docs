@@ -41,6 +41,8 @@ Validators check the text and show a message under the field when it isn't right
 3. Click **+ Add validator** and choose a rule, for example **Min length validator**. Each rule can be added once.
 4. Change each rule's **Message**, and its **Min**, **max** or **Regex** setting.
 
+Set **Min** or **max** right when you add the rule. When you select the field again later, a **Min length** or **Max length** rule comes back as a **Required** rule with the same **Message**, without its **Min** or **max** field. The length check stays in your code. To change the number later, edit it in code mode (see [Edit code in Nowa](../../code/code-mode.md)).
+
 | Rule | The message shows when | Starts as |
 |---|---|---|
 | **Required** | The box is empty. | "Field is required" |

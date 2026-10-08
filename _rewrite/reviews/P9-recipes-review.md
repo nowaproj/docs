@@ -104,6 +104,24 @@ Diff: `git diff b0b2c98 -- docs/design/themes.md` (intro wording, one guide-link
 
 Item 4: 7 rows, 0 fixed, 0 removed.
 
+## Item 5. `docs/test/index.md`, three-row table and guide link
+
+Diff: `git diff b0b2c98 -- docs/test/index.md` (new intro table, the guide-link sentence, and the structure editor's Next steps, which I read but did not re-verify beyond link targets).
+
+| Claim | Verdict | Code ref | Note |
+|---|---|---|---|
+| Row **Play** (**Instant preview** on the phone layout) = Instant Play, interpreted, instant, close not exact | ok | board button tooltip `Play` (`Stop` while playing): `packages/designer/lib/src/panels/canvas_titles.dart:247`; right-click item `Play`: `packages/designer/lib/src/menus/widget_context_menu.dart:39`; phone layout: top-row button `Play` `lib/project/nowago/mobile_view.dart:347` opens "Play your app" (`:92`) whose first card is **Instant preview** with badge `SIMULATED` (`:102-103`); simulate mode `RunMode.simulate`: `play_mode.dart:480` | The "interprets ... not exact" wording matches `test/instant-play.md` and the accuracy warning quoted below the table. |
+| Row **Run** (**Run real app** on the phone layout) = the real app, compiled | ok | top-bar label `Run`: `lib/project/run/run_button.dart:174, 217, 273`; **Run real app**: `mobile_view.dart:117` | `test/run.md` (verified): "Run compiles your real Flutter app". |
+| Row **Run**: "On a computer it shows in the **Embedded preview** or on a device." | fixed | **Embedded preview** row `run_button.dart:609`; devices only in the desktop app, the web editor shows **iOS & Android devices** / "Download the desktop app": `run_button.dart:547, 633-647` | Gate was missing. Now "... or on a device in the desktop app." |
+| Row **Share preview** = a link and QR code that open Instant Play in other people's browsers | ok | tooltip `Share preview`: `play_mode.dart:508`; popup title `Share Preview`: `:664`; the popup shows the link with copy and open buttons and a `Qr code` button: `:670-700`; phone layout item `Share preview`: `mobile_view.dart:461`. The link is `/preview/:id`, which builds `PreviewPage` and shows `PlayModeLoader` (`MobilePlayModeView` on the phone layout): `lib/router.dart:293-302`, `lib/project/preview_page.dart:15-33` | Opens Instant Play, not a compiled app. |
+| Row **Share preview**: cloud-only | fixed | a local project gets a sync notice instead of the popup: `play_mode.dart:46-57` | Gate was missing here, though the table below and `test/share.md` state it. Added "Cloud projects only." |
+| "Learn more" links `instant-play.md`, `run.md`, `share.md` | ok | n/a | Files exist in the same folder. |
+| Guide link: "[Test in the right place](../guides/ship-tips.md#test-in-the-right-place) shows when to use **Play**, **Run**, a device or a shared link, plus a few habits for testing flows." | ok | `docs/guides/ship-tips.md:10` is `## Test in the right place`: table of **Play**, **Run**, phone or emulator, **Share preview** with a "When" column, then "Start a flow at its first screen" and "Try the unhappy paths" | Restates the guide only. Anchor resolves. |
+| Phone paragraph (next to the table): "**Run real app**, marked **REAL APP**" | fixed | badge is `manager.previewReady ? 'LIVE' : 'REAL APP'`: `mobile_view.dart:118`; `previewReady` = run ready and app healthy: `packages/nowa_run/lib/src/nowa_run_manager.dart:86` | True only until the app is running. Now "marked **REAL APP** (**LIVE** once the app is running)". `SIMULATED` on **Instant preview** is right. |
+| Next steps (adjacent): Troubleshooting, Build a great app | ok | `docs/troubleshooting/index.md:10` ("My app shows an error"), `docs/guides/index.md` | Link text matches both targets. |
+
+Item 5: 9 rows, 3 fixed (two gates, one badge detail), 0 removed.
+
 ## Stopped here
 
 Stopped here; left: items 3, 4, 5, 6 and 7 of the assignment (the orchestrator asked for a pause after the item in progress). None of them was started or checked:

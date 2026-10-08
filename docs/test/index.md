@@ -10,8 +10,8 @@ You can try your app at every step without leaving Nowa. Three names show up on 
 | You see | It means | Learn more |
 |---|---|---|
 | **Play** (**Instant preview** on the phone layout) | Instant Play: Nowa interprets your app, so it starts at once and is close to the real app, not exact. | [Play your app on the board](instant-play.md) |
-| **Run** (**Run real app** on the phone layout) | Your real app, compiled. On a computer it shows in the **Embedded preview** or on a device. | [Run your app](run.md) |
-| **Share preview** | A link and QR code that open Instant Play in other people's browsers, so they can tap through your app. | [Share your app](share.md) |
+| **Run** (**Run real app** on the phone layout) | Your real app, compiled. On a computer it shows in the **Embedded preview**, or on a device in the desktop app. | [Run your app](run.md) |
+| **Share preview** | A link and QR code that open Instant Play in other people's browsers, so they can tap through your app. Cloud projects only. | [Share your app](share.md) |
 
 ## Instant Play or Run?
 
@@ -31,7 +31,7 @@ Both show your app working, in different ways. Instant Play interprets your app,
 
 Design with Instant Play, and run the app before you publish. If the two ever disagree, Run is right. That is why Instant Play shows a warning icon that says "In board preview is not 100% accurate, run the app to see the real output".
 
-On a phone, **Play** opens **Play your app** with the same two choices: **Instant preview**, marked **SIMULATED**, and **Run real app**, marked **REAL APP**. See [Use Nowa on your phone](../get-started/mobile.md).
+On a phone, **Play** opens **Play your app** with the same two choices: **Instant preview**, marked **SIMULATED**, and **Run real app**, marked **REAL APP** (**LIVE** once the app is running). See [Use Nowa on your phone](../get-started/mobile.md).
 
 [Test in the right place](../guides/ship-tips.md#test-in-the-right-place) shows when to use **Play**, **Run**, a device or a shared link, plus a few habits for testing flows.
 

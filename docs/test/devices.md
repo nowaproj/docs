@@ -22,7 +22,7 @@ It works for cloud projects and for local projects.
 You can still see your real app on a phone from the web app.
 
 1. Click **Run**. The **Embedded preview** compiles your app and shows it in a phone frame. See [Run your app](run.md).
-2. When the app is running, click **Open on Mobile** in the top bar. A **Scan the QR** code drops down.
+2. When the app is running, click **Open on Mobile** (the QR icon) in the top bar. A **Scan the QR** code drops down.
 3. Scan the code with your phone's camera to open the running app on your phone.
 
 The preview runs your app as a web app. To install a build on a phone instead, [test a debug build on Android](../publish/android.md#test-on-a-device), or [send an iOS build to App Store Connect](../publish/ios.md) and test it with TestFlight. Both need a cloud project on a paid plan.

@@ -17,7 +17,7 @@ Give your app its own voice with a Google Font or your own font file, and choose
 
 Google Fonts download into your project when you pick them. Nowa saves the family's regular file as `assets/fonts/<Font Name>.ttf` and registers it in `pubspec.yaml`.
 
-{/* CAPTURE: id=design-fonts-icons-1 | state: playground starter open, Themes panel open, Default Font clicked | show: the Fonts popup with Import, the search box, the filter button and the font list | crop: left panel + popup */}
+![The Themes panel with the Fonts popup opened from Default Font (highlighted): the Fonts title with the Import button, the Search box with the filter button next to it, the note We recommend checking the fonts on Google Fonts, and the list of fonts (ABeeZee, ADLaM Display, AR One Sans and more) each shown in its own typeface.](/img/docs/design/design-fonts-icons-1.png)
 
 ## Import your own font
 

@@ -15,7 +15,7 @@ Assets are the files your app ships with: images, SVGs, videos, sounds and anima
 
 When you import a file, Nowa updates `pubspec.yaml` for you: every folder under `assets/` that has files is listed under `flutter:` → `assets:`, and fonts are listed under `fonts:`. You don't need to edit it.
 
-{/* CAPTURE: id=design-assets-1 | state: playground starter open, Files panel open with the assets row visible | show: the assets row with the Import asset icon (hover tooltip) next to the lib and boards rows | crop: left panel */}
+![The Files panel with the lib, boards and assets rows. The upload icon on the assets row is highlighted, and its Import asset tooltip shows below it. The lib and boards rows have plus buttons.](/img/docs/design/design-assets-1.png)
 
 Nowa recognizes these file types:
 

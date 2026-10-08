@@ -46,7 +46,7 @@ These steps are for GoRouter projects. For an older project, see [Use the Naviga
 | `pop` | Closes the current screen and goes back. It can hand a **result** to the screen below. |
 | `goNamed`, `pushNamed`, `pushReplacementNamed`, `replaceNamed` | The same actions by route name. The Router panel doesn't set route names, so use these for routes named in code. |
 
-{/* CAPTURE: id=logic-navigation-1 | state: playground starter, the Button's On Pressed open in Circuit, a GoRouter node added from GLOBALS with Type go and Location /home-page | show: the GoRouter node in the circuit and Details with Type and Location | crop: Circuit panel and Details */}
+![The top of the Circuit panel for onPressed: the orange onPressed node and a selected GoRouter node labeled go. In Details, the Type (go) and Location (/home-page) rows are highlighted, below the expression GoRouter of(...) go(...).](/img/docs/logic/logic-navigation-1.png)
 
 The **Extra** field hands any object to the next route without putting it in the URL.
 

@@ -45,7 +45,7 @@ A layout adapts when each part says how it reacts to more or less space. [Lay ou
 | **MacBook Pro** | 1155 × 807 |
 | **1920x1080** | 1920 × 1080 |
 
-{/* CAPTURE: id=design-responsive-1 | state: playground starter open, HomePage title clicked, Details scrolled to the Screen section, Size dropdown open | show: the Size dropdown listing Pixel 3a, iPhone 11 Pro, Galaxy S20+, iPhone 12, MacBook Pro and 1920x1080 | crop: right Details panel */}
+![The Screen section of Details for the selected home screen with the Size dropdown open (highlighted): Pixel 3a, iPhone 11 Pro, Galaxy S20+, iPhone 12 (the current choice), MacBook Pro and 1920x1080. The Color, App Bar, Drawer, Floating Action Button and Bottom Navigation Bar rows are partly behind the list.](/img/docs/design/design-responsive-1.png)
 
 A new screen starts at 393 × 808 unless its template sets another size. For any other size, drag a corner of the screen or type **W** and **H** under **Layout**, and swap them to try landscape. **Size** only changes how big the screen looks on the board. Your app fills whatever device it runs on.
 

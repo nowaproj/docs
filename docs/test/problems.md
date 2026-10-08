@@ -13,7 +13,7 @@ Click the three counts in the status bar at the bottom of the editor: errors, wa
 
 The red number counts the errors in this list. The other two count messages in **Logs**, the second tab, which shows what Nowa and your running app print. See [Read the logs](run.md#read-the-logs).
 
-{/* CAPTURE: id=test-problems-1 | state: playground starter open; in code mode add import 'package:url_launcher/url_launcher.dart'; as the first line of lib/main.dart (any package that is not in pubspec.yaml), save, then click the red error count in the status bar | show: the Console open on the Problems tab with a Packages group, the message "'url_launcher' is imported but is not in the pubspec." with its Fix button, and the status bar counts below | crop: bottom-left of the window, Console panel and status bar */}
+![The Console panel open on the Problems tab at the bottom left of the editor, source From Nowa. One Packages group lists the problem 'url_launcher' is imported but is not in the pubspec. with its Fix button (highlighted). Below, the status bar shows the error, warning and info counts (1, 0, 0), highlighted.](/img/docs/test/test-problems-1.png)
 
 ## Choose where problems come from
 

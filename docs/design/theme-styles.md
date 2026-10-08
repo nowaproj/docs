@@ -15,7 +15,7 @@ Link a widget's color or text style to your [theme](themes.md) and the widget fo
 
 The list shows the colors of your **Active** theme. To change a theme color from here, hover it and click **Edit**. This edits the active theme, so every widget linked to that role updates.
 
-{/* CAPTURE: id=design-theme-styles-1 | state: playground starter open, a Container dropped on the board and selected, its Color swatch clicked | show: the color picker with the theme color list below it (primary, onPrimary ... ) and Show more colors | crop: right Details panel + popup */}
+![The color picker opened from the Color swatch of a selected Container: the Solid dropdown, the color field with hue and opacity sliders, and the HEX and OP fields. Below them the theme color list is highlighted: primary, onPrimary, secondary, onSecondary, tertiary, onTertiary, error, onError, surface, onSurface and shadow with their hex values, then the Show more colors link. The Details panel is partly visible behind the popup.](/img/docs/design/design-theme-styles-1.png)
 
 To stop following the theme, click the **x** on the field, or the detach icon next to **Colors From Theme**. The widget keeps its current color as a fixed value.
 

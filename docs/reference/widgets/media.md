@@ -30,7 +30,7 @@ When a widget needs a package your project doesn't have yet, Nowa opens **Add Mi
    - **Bytes**: a picture held in memory, such as a photo the user picked in your app. Link it to a variable: see [Pick photos or videos](../../logic/popups.md#pick-photos-or-videos).
 3. Set **Fit** to choose how the picture fills its box. `cover` fills it and may crop the edges, `contain` shows the whole picture, and `fill` stretches it.
 
-{/* CAPTURE: id=reference-media-1 | state: playground starter open, an Image added to the home screen and selected, Asset tab chosen, Pick Image clicked | show: the Pick Image popup with the Upload Image button, the search box and the list of project images with thumbnails, next to Details showing the Network, Asset and Bytes tabs | crop: right-hand Details panel and the popup */}
+![The Pick Image popup (highlighted) opened from a selected Image on the Asset tab: the Upload Image button, the Search box and the project images dusk.png, lake.png and sunrise.png with thumbnails. Next to it, Details for the Image with the Source tabs (Network, Asset) and the Pick Image button highlighted.](/img/docs/reference/reference-media-1.png)
 
 **Color** and **Blendmode** tint the picture. **Error Builder** is what to show when it can't load. You can also paste an image onto the board or drag a file from **assets**, and Nowa creates the Image for you.
 

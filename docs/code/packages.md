@@ -16,7 +16,7 @@ The page lists your packages in a table with a **Name** and a **Version** column
 
 New projects start with `nowa_runtime`, `provider`, `shared_preferences`, `dio` and `go_router`. Leave `nowa_runtime` in place, because the code Nowa writes imports it.
 
-{/* CAPTURE: id=code-packages-1 | state: playground starter open; click the gear (Settings) → Packages, click Add New Package, type "intl" and pick the first suggestion so the version fills in (needs network access to pub.dev) | show: the Packages page with the Name and Version table, the Search... box and Add New Package, and the New Package dialog with the name field, the version field, Cancel and Add | crop: the settings content area with the dialog */}
+![The Packages page in Settings behind a dimmed overlay: the Search box and the Name and Version table (nowa_runtime, provider, shared_preferences, dio, go_router), with the Add New Package link highlighted. The empty New Package dialog (highlighted) shows the package_name field, the version field, and the Cancel and Add buttons.](/img/docs/code/code-packages-1.png)
 
 ## Add a package
 

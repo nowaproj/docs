@@ -28,18 +28,22 @@ External Agent is Enterprise only (badge kept); point to Apple/Google store rule
 to allow them (environment settings → Network access → Allowed domains), then run the signed-in capture: rows in
 `captures/to-capture.md` (~50) plus the AI shots and the AI video (at most 5 prompts in total; none sent yet).
 
-**Phase 9 status (2026-10-08 ~04:00 UTC):**
+**Phase 9 status (2026-10-08 ~02:45 UTC): done, except the signed-in captures.**
 
 | Item | Status |
 |---|---|
-| 1 Journey coverage | Done (guides, recipes, routes page with start-on-login-or-home, store rules verified). |
-| 2 Videos | 2 embedded (Instant Play, layout). Capture agent recording add-widgets, Circuit, themes (embed by hand from `captures/log.md`, check frames). AI video needs sign-in. |
-| 3 Warm, clear language | Done: S1 21 pages, S2 28, S3a 22, S3b 8 edited; the style guard flagged no fact changes. |
+| 1 Journey coverage | Done (guides, recipes, routes page, store rules; all verified). |
+| 2 Videos | Done: 5 embedded (add widgets, layout, Instant Play, Circuit, themes). The AI video needs sign-in. |
+| 3 Warm, clear language | Done (79 pages edited; style guard: no fact changes). |
 | 4 Structure | Done. |
-| 5 Highlighted screenshots | 28 new playground shots embedded (57 of 113 pages have media). The rest need sign-in (36 pages): blocked by the network policy (`server.nowa.dev`, `app.nowa.dev`); brief ready: `CAPTURE-SIGNED-IN.md`. |
+| 5 Highlighted screenshots | Done for everything the playground can show (58 of 113 pages have media). 36 pages wait for signed-in captures. |
 | 6 Tips | Done. |
 
-**Left:** embed the videos, final build, update the PR body from `PR-REPORT.md`; signed-in captures once the network allows.
+**Last build:** `yarn build` passed with no warnings (7 videos validated). PR body updated from `PR-REPORT.md`.
+
+**Next (when the user allows `server.nowa.dev` and `app.nowa.dev` in the environment's network settings):** run
+`CAPTURE-SIGNED-IN.md` with one or two capture agents (at most 5 AI prompts in total, none used yet), embed with
+`captures/tools/embed.py` after checking each image, add the AI video by hand, rebuild, update the PR.
 
 **Verification of phase 9 text (non-author agents), state at the pause:**
 - Done: `reviews/P9-gaps-review.md` (coverage gap fixes, integrations overview additions, share.md),

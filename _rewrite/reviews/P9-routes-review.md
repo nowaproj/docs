@@ -4,17 +4,18 @@ Batch "P9 routes": `docs/logic/router.md` (new), `docs/logic/navigation.md`, and
 
 ## Summary
 
-The run was stopped on the orchestrator's request after the first page. Only `router.md` is checked.
+All pages of the batch are checked. The first run stopped after `router.md` on the orchestrator's request; the second run did `navigation.md` and the seven one-line-link pages.
 
 | | |
 |---|---|
-| Pages checked | 1 of 3 batch items (`router.md`) |
-| Claims checked on `router.md` | about 60 (labels, steps, behavior, links) |
-| Fixed | 3 (Supabase typing step, "Stay signed in" softened, drag-edge sentence) |
-| Removed | 1 duplicate Next-steps bullet; 1 Firebase-on-phones claim reduced to what the sources show |
-| Open issues | 5 (below) |
+| Pages checked | 9: `router.md`, `navigation.md`, and the one-line links on 7 pages |
+| Claims checked | about 150 (`router.md` about 60, `navigation.md` about 80, one-line pages 9) |
+| Fixed | 4: `router.md` (Supabase typing step, "Stay signed in" softened, drag-edge sentence); `navigation.md` (recipe step 3 now shows the text after the pick) |
+| Removed or reduced | `router.md`: 1 duplicate Next-steps bullet; 1 Firebase-on-phones claim reduced to web |
+| Wrong statements found in the one-line links | 0 |
+| Open issues | 7 (below) |
 
-Stopped here; left: `docs/logic/navigation.md` (whole page, including `#open-a-detail-screen`, the pointer H2 `{#manage-routes-in-the-router-panel}`, links and anchors); the one-line links on `docs/integrations/supabase/auth.md`, `docs/integrations/firebase/auth.md`, `docs/logic/index.md`, `docs/get-started/editor-tour.md`, `docs/design/screens.md`, `docs/integrations/deep-links.md`, `docs/test/problems.md`. Not started, not checked.
+Stopped here (first run); left then: `navigation.md` and the seven one-line-link pages. All done in the second run; nothing left in the batch. Not done anywhere: a manual run in the app (see open issues 1 and 2).
 
 ## `docs/logic/router.md`
 
@@ -79,10 +80,67 @@ I did not run the editor, so the typing flow, the Eval result and Play behavior 
 
 Edits to the page (all minimal): step 5 Supabase bullet (typing step); "Stay signed in between launches" paragraph (Firebase limited to web, test pointer); the drag sentence (top edge only); the Next steps bullet for the two sign-in pages removed (they are linked under "Before you start" and the closing paragraph points to them); two short sentences tightened to stay under the length guide.
 
+## `docs/logic/navigation.md`
+
+Result: 1,529 visible words (1,526 before my edits). One admonition (tip). No H1, no `---`, headings in sentence case, no hype words, no emoji. Front matter has title, description, sidebar_label and keywords. Still over the ~1,200 guide: see open issue 5. The pointer H2 `## Set up routes in the Router panel {#manage-routes-in-the-router-panel}` is present, and its text matches what `router.md` now holds.
+
+### Open a detail screen {#open-a-detail-screen}
+
+| Claim | Verdict | Code ref | Note |
+|---|---|---|---|
+| Inside a list item `element` is the row it shows; created when a list is connected to a List View or Grid View | ok | `packages/core/lib/src/widgets_to_add/default_blocks.dart:192-213` (`createItemBuilder`: `final element = list[index];`), `packages/core/lib/src/fields/list_view_field.dart:139-163`, `grid_view_field.dart:41-62` | |
+| **Builder** mode; the list can be a variable or the `data` of a **Data Builder** | ok | `docs/reference/widgets/lists.md:31-38` (`#connect-a-list`), `:62` (Grid View starts as a **Builder**), `docs/integrations/show-data.md` ("Show a list") | |
+| Step 1: **List Tile** has **On Tap**; any other widget: **Add Wrapper** → **Gesture Detector** or **Ink Well** | ok | `packages/core/lib/src/interpreter/libraries/material_library.dart:55941` (`ListTile` `onTap`), `packages/core/lib/src/utils.dart:77` (label), `docs/logic/events.md:41`, `docs/reference/wrappers.md:65-66` | |
+| Step 2: the button next to **On Tap** (**+** or **Edit**); GoRouter node from **GLOBALS** starts as `push` with `/path` | ok | `packages/core/lib/src/fields/nowa_fields.dart:793-825`; `packages/core/lib/src/state_management/global_state_suggestions.dart:44-54` (`GoRouter.of(context).push('/path')`) | **Type** defaults to `push`, and a node first inserted has a text **Location**, so `$` works (it may not after switching from `pop`: W6 note) |
+| Step 3: type `$` in **Location**, open **LOCALS**, click `element`; then `.id` | fixed (wording) | `packages/core/lib/src/fields/basic_fields.dart:100-117` (the `$` key opens the menu; the pick is inserted as `{source}` right after the `$`); `interpolated_text_field.dart:68-73`; `reference_field.dart:34-48` (the field shows `${` + parts + `}` as text); `string_interpolation_parser.dart:70-84` (the content of `${...}` is parsed as an expression; unfinished text such as `${element.}` falls back to plain text, so typing `.id` is safe); `packages/core/lib/src/interpreter/suggestion.dart:588-634` (**LOCALS** lists the enclosing declarations: `element`, and a component's public params) | The page now shows what the field reads after the pick, `/product/${element}`, and says to type `.id` inside the braces. Not run: where to click to place the caret (the `element` part is a clickable span, `reference_field.dart:84-104`). Open issue 1 |
+| Component variant: add the tap inside the component, pick the `id` param after `$` | ok | `suggestion.dart:607-633` (public params of the widget class under **LOCALS**) | |
+| Step 4: **Data Builder** wrapper; **Source** → **Supabase**; **Query**; the **Get Record by ID** template; link the id input; `data` | ok | `packages/core/lib/src/fields/source_tabs_field.dart:32` (**Source**), `packages/data/lib/src/supabase/supabase_plugin.dart:45` (tab name), `packages/data/lib/src/supabase/ui/sb_field.dart:33` (**Query**), `packages/data/lib/src/supabase/templates/supabase_template_definitions.dart:29-37` (template and its `id` param), `template_source_generator.dart:41-62` (returns the model, nullable; takes an `int` or `String` id); `docs/integrations/show-data.md` steps for the wrapper and the parameter fields | |
+| Step 5: **Play**; the list screen needs a route | ok | `packages/core/lib/src/interpreter/declaration_info/widget_info.dart:115-165` | |
+| **Extra** can carry a whole row, but the Router panel can't connect it to a screen's param | ok | `packages/core/lib/src/project/env_services/router_file_service.dart:878-886` (only `path` and `query` parameter types); no read of `extra` in `router_file_service.dart`, `go_router_routing_service.dart` or `editors/router_editor/` (grep) | By absence |
+| Navigator variant: model as the param type; brush icon in the **Navigator** node; click the param's name; `element` under **LOCALS** | ok | `packages/code/lib/src/customizations/navigator_field.dart:68-110` (**to**, **result type**, **result**), `nowa_fields.dart:484-506` (brush icon, `Icons.brush`), `packages/core/lib/src/fields/block_field.dart:1010-1016` (a field label opens the link menu), scope as above | |
+| "ask in **Agent** mode" prompt | ok | glossary | A suggestion, not a product claim |
+
+### Rest of the page
+
+| Claim | Verdict | Code ref | Note |
+|---|---|---|---|
+| New projects use GoRouter, since Nowa 3.5; older projects use Navigator | ok | `docs/new/whats-new.md` (3.5, 9 February 2026: "Routing is now GoRouter by default"), `docs/new/change-log.md:246` | |
+| Comparison table: pick by path or screen; web URLs, back button, deep links | ok | `packages/core/lib/src/editors/router_editor/router_migration_editor.dart:69, 73, 105, 109` | The migration page's own rows |
+| **Router** opens **Router Settings** (GoRouter) or **New Router System** (older) | ok | `router_editor_actions.dart:18-37`, `router_settings.dart:6`, `router_migration_editor.dart:21` | |
+| New screen from **Empty Page** gets a route named in lowercase with hyphens (`HomePage` is `/home-page`) | ok | `packages/core/lib/src/file_system/actions/file_actions.dart:47-50`, `packages/core/lib/src/services/templates/built_in/empty_page.dart:4-8` (one template file), `utils.dart:81` | |
+| Select the screen by its title; **Route Settings** in **Details**, GoRouter only; **Path** + Enter creates the route | ok | `packages/designer/lib/src/details/widget_fields.dart:246-251`, `route_details.dart:43-53, 107, 113, 131-133` | |
+| **Make home screen** adds a route if missing and sets the start location | ok | `route_details.dart:262-295`, `go_router_routing_service.dart:13-28` | |
+| Link to `router.md#start-on-login-or-home`; "open the home screen only for signed-in people" | ok | anchor exists; the section does exactly that | |
+| Go to another screen: **Edit** next to **On Pressed**, dot under the top node, **All nodes for this circuit**, **GLOBALS** → **GoRouter**, pushes `/path` | ok | `link_menu.dart:61`, `global_state_suggestions.dart:44-54`, `nowa_fields.dart:793-825`, `docs/logic/events.md:12-16` (a new Button reads **Edit**) | |
+| **Type** list (nine names), **Location**, **Extra**, **result** for `pop`, **await** under **Future Options**, **Store result** | ok | `packages/code/lib/src/customizations/go_router_field.dart:12-22, 94-110, 141-155`; `packages/code/lib/src/fields/future_options.dart:97-107`; `store_result_field.dart:98` | |
+| **Play** starts the router at the screen's path; a screen without a route plays alone | ok | `widget_info.dart:115-165` | |
+| Pass data: **Add Route Parameter** on hover, `/:param1`, path chips, **Screen Parameters**, **Add Query Parameter**, **Rename**, conversions | ok | `route_details.dart:131-146`; `go_router_routing_service.dart:215-229`; `go_route_node_view.dart:97-110, 182-190, 259, 332-367`; `router_context_menus.dart:22-32`; `auto_type_parser.dart` | |
+| Use the Navigator: **GLOBALS** → **Navigator**, **Type** (four names), **to** with the **Components** filter, brush popup, **result type**, **result**, **await**, **onValue**, **Store result** | ok | `navigator_field.dart:68-110`; `future_options.dart:81, 107`; `store_result_field.dart:98` | Labels re-checked; behavior carried from W6 |
+| Next steps and the tip | ok | link texts match the target titles | |
+| Links and anchors | ok | every relative link and `#anchor` on the page resolves (script over headings, `{#id}` and `<Anchor>`); inbound anchors from `ai/prompting.md`, `integrations/supabase/database.md`, `integrations/show-data.md`, `reference/widgets/lists.md`, `guides/complete-app.md` and `logic/parameters.md` resolve; no page links to the moved ids (`#switch-an-older-project-to-gorouter` now lives in `router.md` with the same id) | |
+
+Edits to the page: recipe step 3 (shows the text after the pick; says to type `.id` inside the braces); "In a project that uses the Navigator" became "In a Navigator project" (three words).
+
+## One-line links on seven pages
+
+All seven sentences are true and every target exists.
+
+| Page and line | Claim | Verdict | Code ref |
+|---|---|---|---|
+| `integrations/supabase/auth.md:60` | To skip the login screen when someone is already signed in, see the new section | ok | target `router.md#start-on-login-or-home` exists and covers it, with the Supabase **Custom Expression** (see above) |
+| `integrations/firebase/auth.md:61` | Use `isUserSignedIn()` in the **Redirect Logic** of the home screen's route | ok | `fb_auth_blocks.dart:55-75`; the function is already listed on that page (`auth.md:34`) |
+| `logic/index.md:32` | New "Route" row: the path that opens a screen, such as `/recipe/:id`; the Router panel lists them all | ok | `router_block_view.dart:117-170` (Routes list); link `router.md` |
+| `get-started/editor-tour.md:54` | **Router**: below a divider, opens your app's routes in the workspace, no number | ok | `lib/project/side_bar.dart:148-153` (divider, `showShortcut: false`), `router_editor_actions.dart:18-37` |
+| `design/screens.md:59` | The route icon next to **Route Settings** (**Open Router Editor**) opens the router | ok | `packages/designer/lib/src/details/route_details.dart:121-124` |
+| `integrations/deep-links.md:52` | An older project shows **Enable GoRouter** in the **Router** panel, which lists deep linking as built in for GoRouter and "Not supported out of the box" for Navigator; see Switch an older project to GoRouter | ok | `router_migration_editor.dart:36, 69, 105` (quoted text matches), anchor `router.md#switch-an-older-project-to-gorouter` exists |
+| `test/problems.md:70` | Router problems such as `Duplicate route path found: "/home".`: fix the route in the **Router** panel; see Edit a route | ok | `router_problems.dart:41` (message), anchor `router.md#edit-a-route` exists |
+
 ## Open issues
 
-1. **Not run in the app.** The Supabase **Custom Expression** is confirmed by code (bindings, name lookup, import generation, same chain as the generated `SupabaseService`) but I did not run the editor. Worth one manual try: Redirect Logic → If → **Condition** → **Custom Expression...**, replace `true`, Enter, close the box, then **Run** with Supabase connected.
-2. **Firebase on phones.** Persistence across restarts is not confirmed from local sources (native SDK storage is outside them; `firebase.google.com` is blocked). The page names web only and tells readers to test on a phone. Confirm in the Firebase docs when reachable, then restore a general sentence.
+1. **Not run in the app.** Two things are confirmed by code only. (a) The Supabase **Custom Expression** (bindings, name lookup, import generation, same chain as the generated `SupabaseService`). Worth one manual try: Redirect Logic → If → **Condition** → **Custom Expression...**, replace `true`, Enter, back arrow, then **Run** with Supabase connected. (b) Typing `.id` in the **Location** field of the detail-screen recipe: the field shows `/product/${element}` as editable text and the parser accepts the result, but I could not check where a click lands (the `element` part is a clickable span), so the page doesn't say where to click.
+2. **Firebase on phones.** Persistence across restarts is not confirmed from local sources (native SDK storage is outside them; `firebase.google.com` is blocked). `router.md` names web only and tells readers to test on a phone. Confirm in the Firebase docs when reachable, then restore a general sentence.
 3. **Supabase version.** The local `supabase_flutter` is 2.12.0, Nowa pins `^2.12.2`. Same minor line; not byte-identical.
-4. **Expired restored session.** After a restart the saved Supabase session can be expired; `recoverSession()` runs without being awaited (`supabase.dart:138-143`), so `currentSession != null` can be true for a moment. The page doesn't mention it (the writer left it out on purpose).
-5. **For the lead.** `router.md` has no row in `_rewrite/pages.md` and no sidebar entry yet (writer's note: add `logic/router` after `logic/navigation`); `captures/requests/W6.md` still names `navigation.md` for `logic-navigation-2`, which now lives in `router.md`.
+4. **Expired restored session.** After a restart the saved Supabase session can be expired; `recoverSession()` runs without being awaited (`supabase.dart:138-143`), so `currentSession != null` can be true for a moment. `router.md` doesn't mention it (the writer left it out on purpose).
+5. **`navigation.md` length.** 1,529 words against a guide of about 1,200 (tutorials 1,400). I found no repetition worth cutting without losing a step or a verified fact. Getting under needs a split: "Use the Navigator" (about 235 words) or the detail-screen recipe (about 410 words), both of which the brief keeps on this page. Lead's call.
+6. **Detail-screen recipe, id type.** The **Get Record by ID** function takes an `int` id when the table's id is numeric and a `String` otherwise (`template_source_generator.dart:41-44`), and the path value arrives as text, converted to the screen param's type by the Router panel. The page doesn't say the screen's param must have the matching type. Not added to keep the page short; a clause in step 4 would close it.
+7. **For the lead.** `_rewrite/pages.md` still has no row for `logic/router.md`. The sidebar entry (`sidebars.js:89`) and the capture request (`captures/requests/W6.md:8` now names `docs/logic/router.md`) are already done.

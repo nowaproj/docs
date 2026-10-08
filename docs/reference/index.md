@@ -18,7 +18,7 @@ Need to check a detail? Look it up here: every widget you can add, the wrappers 
 
 ## Widget guides
 
-A few widgets need more than a drop onto the board. Each has its own guide:
+Four guides go deeper on the widgets that need some setup after you drop them on the board:
 
 - [Lists and grids](./widgets/lists.md): repeat one item design for every entry in a list.
 - [Text fields and forms](./widgets/forms.md): add a text field and check what people type.

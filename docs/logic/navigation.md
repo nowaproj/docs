@@ -84,11 +84,11 @@ Before you start, connect a list to a **List View** or **Grid View** in **Builde
 
 1. Select the item in the list. A **List Tile** has **On Tap** in **Details**. For any other widget, click **Add Wrapper** and choose **Gesture Detector** or **Ink Well**. See [Respond to taps and other events](./events.md).
 2. Click the button next to **On Tap**, then add a **GoRouter** node as in [Go to another screen](#go-to-another-screen). Keep **Type** on `push`.
-3. In **Location**, type `/product/` and then `$`. In the menu, open **LOCALS** and click `element`, the tapped row. Then type `.id` after `element`, so the text reads `/product/${element.id}`. Use the field that holds your id. If the item is a [component](../design/components.md) with an `id` param, add the tap inside the component and pick that param after `$` instead.
+3. In **Location**, type `/product/` and then `$`. In the menu, open **LOCALS** and click `element`, the tapped row. The text now reads `/product/${element}`. Type `.id` after `element`, inside the braces, so it reads `/product/${element.id}`. Use the field that holds your id. If the item is a [component](../design/components.md) with an `id` param, add the tap inside the component and pick that param after `$` instead.
 4. On the detail screen, wrap the widget that shows the row in a **Data Builder**. Set **Source** to **Supabase** and pick the function you made from the **Get Record by ID** template as the **Query**. Link its id input to the screen's param under **LOCALS**, then link the widgets inside to `data`. See [Show data in your UI](../integrations/show-data.md).
 5. Click **Play** on the list screen and tap a row. The list screen needs a route for navigation to work in **Play**.
 
-The path carries text, so this recipe sends the id and the detail screen loads the row. **Extra** can carry a whole row, but the Router panel can't connect it to a screen's param. In a project that uses the Navigator, you can send the whole row: give the destination's param your model as its type, then click the brush icon in the **Navigator** node, click the param's name and pick `element` under **LOCALS**. See [Use the Navigator](#use-the-navigator).
+The path carries text, so this recipe sends the id and the detail screen loads the row. **Extra** can carry a whole row, but the Router panel can't connect it to a screen's param. In a Navigator project, you can send the whole row: give the destination's param your model as its type, then click the brush icon in the **Navigator** node, click the param's name and pick `element` under **LOCALS**. See [Use the Navigator](#use-the-navigator).
 
 To have Nowa AI build it, ask in **Agent** mode: "When I tap a product in the list, open a detail screen that shows it."
 

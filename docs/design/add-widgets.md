@@ -59,7 +59,7 @@ A shape you draw is a **Container** with nothing in it, and **Details** shows **
 
 ## Set up lists, forms, navigation bars and media
 
-A few widgets need more than a drop onto the board. Each has its own guide:
+Four guides go deeper on the widgets that need some setup after you drop them on the board:
 
 - [Lists and grids](../reference/widgets/lists.md): repeat one item design for every entry in a list.
 - [Text fields and forms](../reference/widgets/forms.md): add a text field and check what people type.

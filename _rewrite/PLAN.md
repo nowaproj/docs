@@ -36,10 +36,8 @@ to allow them (environment settings → Network access → Allowed domains), the
 - Done: `reviews/P9-gaps-review.md` (coverage gap fixes, integrations overview additions, share.md),
   `reviews/P9-guides-b-review.md` (ai-tips, data-and-state-tips, ship-tips; 19 rows fixed),
   `reviews/P9-guides-a-review.md` (guides index, complete-app, design-tips; 22 fixed, 2 removed).
-- Paused, resume from each log's "Stopped here" line (the verifier prompts are in this session's history; scope is
-  in each log's header): `reviews/P9-routes-review.md` (done: `logic/router.md`; left: `logic/navigation.md` whole
-  page and the one-line links on `supabase/auth.md`, `firebase/auth.md`, `logic/index.md`, `editor-tour.md`,
-  `design/screens.md`, `deep-links.md`, `test/problems.md`), `reviews/P9-recipes-review.md` (done: items 1-2,
+- Done: `reviews/P9-routes-review.md` (router.md, navigation.md, 7 one-line links; 4 fixed, 2 reduced).
+- Resumed: `reviews/P9-recipes-review.md` (done: items 1-2,
   recipe pointers and publishing; left: items 3-7, devices, themes, test/index, theme-styles/global-state, guide
   links on components, templates, constants, publish/index).
 - Not started: the new text from the structure fixes (`reviews/phase9-fixes.md` "Structure fixes": troubleshooting
@@ -49,6 +47,13 @@ to allow them (environment settings → Network access → Allowed domains), the
 **Open points from the routes check:** Firebase sign-in persistence on phones is unconfirmed (the page names the web
 only); a restored Supabase session can be briefly expired because `recoverSession()` isn't awaited (not on the page);
 `router.md` needs a row in `pages.md`.
+
+**Fix-up round (one writer, then one verifier) before the style pass:** (a) say the screen's `id` param must have the
+same type as the Get Record by ID function's id (`String` for a uuid, `int` for a number) in
+`logic/navigation.md#open-a-detail-screen` and `guides/complete-app.md` step 6 (check nullability: a new param is
+`String?`); (b) `guides/complete-app.md` step 4 links `../logic/router.md#start-on-login-or-home`; (c) the
+`integrations/rest-api/index.md` warning "tokens you type here"; (d) `design/boards.md` "in or near view".
+`logic/navigation.md` stays at ~1,530 words (no cut found without losing steps; split only if the style pass can't tighten it).
 
 **Small follow-ups:** `integrations/rest-api/index.md` warning says "tokens you type here" (imprecise; say what
 the warning is about); `design/boards.md` big-board note should say "in or near view" like `guides/ship-tips.md`; link `guides/complete-app.md` step 4 to `../logic/router.md#start-on-login-or-home` once the

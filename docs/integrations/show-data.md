@@ -33,7 +33,7 @@ A source has to return a value that arrives later (a Future) or a live feed (a S
 
 {/* CAPTURE: id=integrations-show-data-1 | state: playground starter, a request with a model, List View wrapped in Data Builder with Source API Request chosen | show: Details with the Data Builder fields, board with placeholder values | crop: right panel + board */}
 
-You can also add Data Builder as a widget: press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd> and search for **Data Builder**. The wrapper keeps the widget you already built, so it is usually the easier way.
+You can also add Data Builder as a widget: press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd> and search for **Data Builder**. The wrapper keeps the widget you already built, so it's usually the easier way.
 
 ## Use the data in your widgets
 
@@ -43,7 +43,7 @@ Inside a Data Builder, `data` is the result of your source. If the source return
 2. Open **LOCALS** and click `data`. If `data` is a model, its fields open next. Pick the one you want, for example `title`.
 3. Click **+** after a linked value to go deeper into it.
 
-If the source returns a model, the fields have names. That is why it helps to [generate a model](./rest-api/index.md#turn-the-response-into-a-model) for your requests. Pick the source first: `data` takes its type from it. For more on the link menu, see [Expressions and conditions](../logic/expressions.md).
+If the source returns a model, the fields have names. That's why it helps to [generate a model](./rest-api/index.md#turn-the-response-into-a-model) for your requests. Pick the source first: `data` takes its type from it. For more on the link menu, see [Expressions and conditions](../logic/expressions.md).
 
 ### Show a list
 
@@ -58,8 +58,8 @@ To open a detail screen when someone taps a row, see [Open a detail screen when 
 
 ## What you see while it loads
 
-- **Loading Widget** shows while the data is on its way. By default it is a centered progress circle.
-- **Error Builder** shows if the call fails. By default it is the error in red text. Inside it, `error` holds the problem.
+- **Loading Widget** shows while the data is on its way. By default it's a centered progress circle.
+- **Error Builder** shows if the call fails. By default it's the error in red text. Inside it, `error` holds the problem.
 
 Both are fields under **Source**, so you can design your own. If the source returns nothing (null), the **Loading Widget** stays on screen. If you haven't picked a source yet, the **Error Builder** shows "No data source provided".
 

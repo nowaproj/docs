@@ -38,9 +38,7 @@ to allow them (environment settings → Network access → Allowed domains), the
   `reviews/P9-guides-a-review.md` (guides index, complete-app, design-tips; 22 fixed, 2 removed).
 - Done: `reviews/P9-routes-review.md` (router.md, navigation.md, 7 one-line links; 4 fixed, 2 reduced).
 - Done: `reviews/P9-recipes-review.md` (17 pages, 65 claims; 4 fixed: test/index.md gates and badge, devices.md QR icon).
-- Running: `reviews/P9-structure-review.md`, the new text from the structure fixes (`reviews/phase9-fixes.md` "Structure fixes": troubleshooting
-  "My app shows an error", publish "Ship an update", code index tip, import "Before you start", reference
-  overview, add-widgets section, welcome steps, first-app step 5).
+- Done: `reviews/P9-structure-review.md` (21 pages, ~100 claims, 3 wording fixes; 0 broken links across 115 pages).
 
 **Open points from the routes check:** Firebase sign-in persistence on phones is unconfirmed (the page names the web
 only); a restored Supabase session can be briefly expired because `recoverSession()` isn't awaited (not on the page);

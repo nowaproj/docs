@@ -44,7 +44,7 @@ In the dashboard's list view, each project row also shows a **Cloud** or **Local
 
 **Project Sync** clones a cloud project to a folder on your computer, or a local project to the cloud, and links the two. Open it from **Settings** → **Project Sync** in the desktop app. On the dashboard, **Upload to cloud** in a local project's ⋮ menu opens the same options.
 
-After that, **Sync from Cloud** and **Sync from Local** copy everything one way and overwrite the other side, so you can use **Deploy** and **Share preview** on the cloud copy. See [Work with local projects](../code/local-projects.md).
+After that, **Sync from Cloud** and **Sync from Local** copy everything one way and overwrite the other side. Use the cloud copy for **Deploy** and **Share preview**, which work on cloud projects only. See [Work with local projects](../code/local-projects.md).
 
 ## Badges in these docs
 

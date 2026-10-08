@@ -103,6 +103,8 @@ Full log with reasons: `_rewrite/decisions.md`. The main ones:
 - Supabase bundled backends deploy edge functions with `verify_jwt: false`.
 - Git (local projects): after **Bring my changes**, **Accept Local** drops your own edits; **Revert Commit** only stages.
 - Shared previews: the "Single Screen Preview" card shows for every single-screen link, and **Attach all** throws.
+- Form validators: **Min length** and **Max length** lose their number field as soon as they're added, and adding or
+  removing another rule silently drops the length check.
 - The in-app shortcuts sheet lists wrong keys, and the Web View help link has a leading space so it does nothing.
 - 32 widget help links in the app point at old URLs (they redirect now; updating them would skip the redirect).
 

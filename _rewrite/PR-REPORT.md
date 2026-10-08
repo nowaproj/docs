@@ -43,9 +43,10 @@ design, logic, data, testing and publishing, with code, account and reference af
   listed in `_rewrite/left-out.md` with the reason (internal, debug, unreachable, private beta).
 - **Redirects**: `@docusaurus/plugin-client-redirects` with 160 redirects in `redirects.js` covers all 166 old URLs and
   the 44 docs links the app opens (old widget help links land on the matching row of the widget catalog; anchors kept).
-- **Screenshots and videos**: 66 screenshots on 57 pages, taken from the real 3.12.5 editor (a local build of `nowa`
+- **Screenshots and videos**: 67 screenshots and 5 short videos on 58 pages, taken from the real 3.12.5 editor (a local build of `nowa`
   `master`, opened at `/playground`), each checked by eye, nearly all with an orange highlight on the control that matters.
-  Short videos show Instant Play and laying out rows and columns. Placeholders for the shots that need an account are
+  The videos show adding a widget, laying out rows and columns, Instant Play, adding a Circuit node and changing
+  a theme color. Placeholders for the shots that need an account are
   hidden MDX comments, listed in `_rewrite/captures/to-capture.md`.
 - **What's New and Changelog**: wording untouched; only links to removed pages were re-pointed (and one empty link
   removed).
@@ -61,14 +62,14 @@ design, logic, data, testing and publishing, with code, account and reference af
    walkthrough (sign-in, a list from Supabase, a detail screen, test, publish), recipes for the steps a fresh-eyes
    review found missing (open a detail screen from a list, start on the login or the home screen, ship an update,
    share with a client, test without the desktop app), a sign-in comparison, and the Apple and Google store rules.
-2. **Video where motion matters**: Instant Play and layout. Adding widgets, Circuit and themes are being recorded;
-   the AI building a screen needs sign-in.
+2. **Video where motion matters**: adding widgets, layout, Instant Play, Circuit and themes (15 s each). The AI
+   building a screen needs sign-in.
 3. **Simple, clear, concise, warm, confident**: a wording pass over every page (79 pages edited). A script compared
    each page before and after and confirmed no label, link, number, step or heading changed.
 4. **Easy to follow**: a fresh-eyes agent walked six real goals through the docs; its fixes are in (journey order
    in the sidebar, "Next steps" on every page, troubleshooting starts from "my app shows an error", a reference
    overview, the long navigation page split).
-5. **A highlighted screenshot where it helps**: 57 pages now have one (up from 29); older shots were re-taken with highlights.
+5. **A highlighted screenshot where it helps**: 58 pages now have one (up from 29); older shots were re-taken with highlights.
 6. **Tips for quality apps**: design, AI, data and state, and test-and-ship guides, linked from the matching feature
    pages.
 
@@ -96,7 +97,7 @@ Full log with reasons: `_rewrite/decisions.md`. The main ones:
 
 ## Product issues found along the way
 
-46 issues spotted while reading the code are in `_rewrite/product-issues.md` (not fixed here). The most important:
+47 issues spotted while reading the code are in `_rewrite/product-issues.md` (not fixed here). The most important:
 - Firebase Google sign-in: the generated `signInWithGoogle()` doesn't compile against `google_sign_in` 7.x.
 - RevenueCat: the generated service has no way to restore purchases, which App Store guideline 3.1.1 asks for.
 - Supabase bundled backends deploy edge functions with `verify_jwt: false`.

@@ -114,3 +114,43 @@ Only the new H2 "Ship an update" and the new Next steps bullet were checked. The
 | "Where to go next" renamed "What's in this section" | ok | | No page, `sidebars.js`, `redirects.js` or `src/` file links to the old auto anchor `#where-to-go-next`. |
 | Next steps: How logic works ("make your design react to taps, remember values and move between screens"), Build a great app | ok | | `logic/index.md` covers events (tap), variables (remember a value) and "Navigate between screens: send people to another screen". |
 | The other groups ("Set up the board and its parts", "Build a screen", "Style your app") | not in scope | | Unchanged. Spot check: every link in them resolves (script run over the whole page). |
+
+## 8. `docs/get-started/welcome.md`: "How building works", "Developers and teams", Key terms, Next steps
+
+| Claim | Verdict | Code ref | Note |
+|---|---|---|---|
+| "How building works" has 9 steps in a sensible order; steps 1-3 and the old Play, Run and Publish text are unchanged apart from renumbering | ok | | 1 Describe, 2 Watch it build, 3 Refine visually, 4 Add logic, 5 Connect data and sign-in, 6 Play, 7 Run, 8 Publish, 9 Update. Link texts match the sidebar categories (`sidebars.js`: "Design your app", "Add logic", "Connect data and services", "Preview and test") or the page title ("Get ready to publish"). |
+| Step 4: "Make your app react to taps, remember values and move between screens. In Agent mode, Nowa AI can build it for you." | ok | `packages/ai/lib/src/agent/local_agent.dart:5-27` (Agent mode tool set) | Matches `logic/index.md` (intro, the **Agent** mode tip and "Navigate between screens"). Step 2 already says "In Agent mode it also writes the logic". |
+| Step 5: "Save data in a database and let people sign in with Supabase or Firebase, or call a REST API." | ok | `packages/data/lib/src/supabase/supabase_manager.dart:228-240` (`signIn`, `signUp`, `signOut` in the generated `SupabaseService`); `packages/data/lib/src/firebase/setup/views/auth_management_view.dart:20-60` (**Available Providers**: Email/Password, Google, Phone) | Matches `integrations/index.md` ("Choose a backend", "Add sign-in"): Supabase and Firebase for database and sign-in, REST API as a third backend. Link text "Connect data and services" is the page title. |
+| Step 9: "Change your app, then publish it again. See Ship an update" | ok | | `publish/index.md#ship-an-update` exists (item 2). |
+| "Developers and teams": Git, packages, custom code, workspaces, import as a local project in the desktop app, VS Code on the same folder | ok | | Links go to `code/git.md`, `code/packages.md`, `code/custom-code.md`, `account/workspaces.md`, `code/import.md`, `code/local-projects.md`, `code/vs-code.md`. **Import project** is desktop-only (`projects_view.dart:331-335`) and can open the folder in place as a local project (`import_project_dialog.dart:242-256`). |
+| Key terms: "More terms are in the glossary" | ok | | `reference/glossary.md` exists. |
+| Next steps: Create your account ("sign up and sign in"), Build your first app ("describe an app and run it"), Build with Nowa AI ("modes, prompts, context and checkpoints"), Build a complete app ("follow one app from idea to published") | ok | | `ai/index.md` mentions modes (line 55), context (59), **Restore Checkpoint** (62) and prompts (83). The other three match their descriptions. |
+| Length, style, prices | ok | | About 770 words. No prices; the existing pricing link stays. |
+
+## 9. `docs/get-started/first-app.md`: step 5 sentence and Next steps
+
+| Claim | Verdict | Code ref | Note |
+|---|---|---|---|
+| Step 5: "To keep data in a database and let people sign in, connect a backend: see Connect data and services" | ok | | Follows the existing sentence that Design mode uses demo data. `integrations/index.md` covers the database (Supabase, Firestore) and sign-in under "Choose a backend" and "Add sign-in". |
+| Next steps: Build a complete app, How logic works ("make your app react to taps, remember values and move between screens"), Connect data and services ("save data in a database and add sign-in"), Get ready to publish ("put your app on the web, Android and iOS") | ok | | Each matches the target's description or intro. Four links, as the editor intended. |
+| Length | ok | | About 1,360 words, inside the ~1,400 allowed for tutorials. |
+
+## 10. Next-steps lists on 12 pages (link targets and one-line descriptions only)
+
+Every link in these lists resolves (file exists; no anchors are used). Each description was compared with the target's front matter and first paragraph.
+
+| Page | Link and description | Verdict | Note |
+|---|---|---|---|
+| `get-started/cloud-and-local.md` | Install the desktop app ("set up Flutter so you can use local projects"); Work with local projects ("create one, link it to the cloud and find it again if it goes missing"); Create and manage projects ("start, find and move your projects") | ok | Match the descriptions of `desktop-app.md`, `code/local-projects.md`, `account/projects.md`. |
+| `design/boards.md` | Create and set up screens ("add a screen and choose your home screen"); Add widgets ("fill a screen with the widget picker"); Play your app on the board ("tap through a screen without leaving the editor") | ok | |
+| `design/screens.md` | Add widgets; Navigation bars and screen parts ("set up the app bar, drawer, floating button and bottom navigation bar"); Build reusable components ("turn part of a screen into a widget you can reuse"); Navigate between screens ("open one screen from another") | ok | `components.md` says "Turn any widget into a component". `logic/navigation.md` still has this title after the routes split. |
+| `design/components.md` | Pass data with parameters ("give a screen or component values from outside"); Add widgets ("drop your components in from the widget picker"); Lists and grids ("repeat one item design for every entry in a list") | ok | The picker lists **Components** (`add-widgets.md` step 2). |
+| `design/select-and-edit.md` | Change widget properties ("edit what you selected in **Details**"); Lay out widgets ("rows, columns, stacks and sizes"); Use the Outline ("select any widget from the widget tree") | ok | |
+| `logic/index.md` | Connect data and services ("need data from a server, or sign-in?"); Preview and test ("try your app at every step"); Find and fix problems ("something not working?"); Build a great app (guides blurb) | ok | |
+| `integrations/index.md` | Preview and test; Get ready to publish ("put your app on the web, Android and iOS"); Build a complete app ("follow one app from idea to published") | ok | |
+| `test/index.md` | Get ready to publish ("put your app on the web or in the app stores"); Troubleshooting ("fix an app error, or find the message Nowa shows"); Build a great app | fixed | "in the app stores" overstated what **Deploy** does: Nowa uploads the iOS build to App Store Connect and gives you an `.aab` to upload to Google Play yourself (`publish/index.md`, `android.md`, `ios.md`). Now "put your app on the web, Android and iOS", as on the other pages. |
+| `account/index.md` | Build your first app ("describe an app in the dashboard's prompt box"); Get ready to publish ("set your app's name, identifier and icon, then deploy it"); Troubleshooting ("having trouble right now? Start here") | ok | `publish/index.md` "Check your app details" lists **App Name**, **Bundle Identifier**, **App Icon**; the Troubleshooting page now opens with "My app shows an error". |
+| `troubleshooting/known-issues.md` | Troubleshooting ("find a fix by the message you see"); Get help ("chat with the Nowa team, report an issue or find the community") | ok | `account/help.md` description covers chat, reporting an issue and the community. |
+| `reference/glossary.md` | Tour the editor ("find your way around the panels and the board"); Build your first app ("put the words to work"); Widget catalog ("every built-in widget") | ok | |
+| `design/assets.md` | Images, video and web content ("show your files with the right widget"); Change widget properties; Fonts and icons; Manage project files | ok | `reference/widgets/media.md`: widgets take "a file from your project's assets". The other three bullets have no description and exist. |

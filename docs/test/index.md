@@ -47,6 +47,6 @@ On a phone, **Play** opens **Play your app** with the same two choices: **Instan
 
 ## Next steps
 
-- [Get ready to publish](../publish/index.md): put your app on the web or in the app stores.
+- [Get ready to publish](../publish/index.md): put your app on the web, Android and iOS.
 - [Troubleshooting](../troubleshooting/index.md): fix an app error, or find the message Nowa shows.
 - [Build a great app](../guides/index.md): a complete walkthrough and tips for design, Nowa AI, data and shipping.

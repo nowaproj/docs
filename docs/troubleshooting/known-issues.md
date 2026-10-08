@@ -1,6 +1,6 @@
 ---
 title: Known issues
-description: Platform limits that you might run into when you use Nowa, and how to work around each one.
+description: Platform limits you may run into when you use Nowa, and how to work around each one.
 sidebar_label: Known issues
 keywords: [known issues, limitations, Windows, Firebase, Firestore, Apple sign-in, Google Maps, AdMob, CORS, desktop app, Linux]
 ---

@@ -67,7 +67,7 @@ This is the quickest route.
 ### Use a Flutter SDK you already have
 
 1. Install Flutter with the official [Flutter install guide](https://docs.flutter.dev/get-started/install).
-2. In **Local Setup**, click **Browse** next to **Flutter SDK Path** and pick the Flutter folder, the one that contains `bin/flutter` (`bin\flutter.bat` on Windows). If Nowa says **Invalid Flutter SDK path**, you picked the wrong folder.
+2. In **Local Setup**, click **Browse** next to **Flutter SDK Path** and pick the Flutter folder, the one that contains `bin/flutter` (`bin\flutter.bat` on Windows). If Nowa says **Invalid Flutter SDK path**, that isn't the Flutter folder: pick another one.
 3. Optional: set **Default Projects Path**. New local projects start with this folder, and local clones are saved in it.
 4. Optional: set **VS code Path** if **Open in VS Code** can't find VS Code. It starts with the usual install location.
 

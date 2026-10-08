@@ -5,7 +5,7 @@ sidebar_label: How it works
 keywords: [Nowa AI, AI assistant, AI agent, AI chat, prompt, vibe coding, build an app with AI, design mode, plan mode, agent mode, think mode, AI credits, AI usage]
 ---
 
-Tell Nowa AI what you want in plain words, and it designs screens, writes logic, adds packages and images, and fixes errors while you watch every step and fine-tune the result on the board. It is a full agent that works inside your real project and writes real Flutter code that you own.
+Tell Nowa AI what you want in plain words. It designs screens, writes logic, adds packages and images, and fixes errors while you watch every step and fine-tune the result on the board. It is a full agent that works inside your real project and writes real Flutter code that you own.
 
 ## Open the AI Assistant
 

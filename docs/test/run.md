@@ -16,7 +16,7 @@ In the [playground](../get-started/playground.md), and in a project you opened f
 ## Run your app
 
 1. Click **Run** in the top bar, or press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>P</kbd> on the board. Nowa saves your project and shows the app in a phone frame.
-2. Wait for the first start. It can take a few minutes, and the preview says "Starting app..." and "This may take a few minutes...". Nowa starts preparing the preview when you open a project, so it is often ready already.
+2. Wait for the first start. It can take a few minutes, and the preview says "Starting app..." and "This may take a few minutes...". Nowa starts preparing the preview when you open a project, so it's often ready already.
 3. Tap, scroll and fill in forms in the app.
 4. Change something in Nowa and save. Every save, automatic or with <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>S</kbd>, updates the running app.
 5. Click **Back to board** to return to the board. The app keeps running in the background.
@@ -39,7 +39,7 @@ While the preview is open, these buttons replace the breadcrumbs in the top bar.
 | **Phone** / **Tablet** | Switches the frame between a phone and a tablet. |
 | **Fullscreen** | Shows the app without a frame. Shortcut: <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>F</kbd>. |
 | **Hot Reload** (local projects) or **Hot Restart** (cloud projects) | Applies your latest saved changes. A local run reloads in place. A cloud run has to come back up. Shortcut: <kbd>Shift</kbd> + <kbd>R</kbd>. |
-| **Start** / **Stop** | Starts or stops the app. When it is stopped, **Start App** in the preview also starts it. |
+| **Start** / **Stop** | Starts or stops the app. When it's stopped, **Start App** in the preview also starts it. |
 | **Open in Browser** (local projects) | Opens the app at `http://localhost:<port>`. Only your computer can reach it. |
 | **Open on Mobile** (cloud projects) | Drops down a "Scan the QR" code. Scan it with your phone's camera to open the running app on your phone. **Open In Browser** in the popup opens it on your computer instead. |
 
@@ -65,7 +65,9 @@ When a restart fails, for example after a save, a card at the top right says "Re
 
 A local project runs the preview with your Flutter SDK. If it isn't set up, the error reads "Exception: Flutter SDK path is not set. Please configure it in the settings." Set it up as described in [Install the desktop app](../get-started/desktop-app.md#setting-up-flutter-sdk).
 
-**Fix with AI** opens the **AI Assistant** and puts a ready-made prompt with the error log into the chat. If the AI isn't busy, the prompt is sent at once. Otherwise it waits in the chat field. It runs in the chat's current mode, so use **Agent** mode to let the AI change your project. In **Plan** mode it only writes a plan. The same button appears on web publishing errors, and **Explain with AI** appears on failed app builds. See [Publish to the web](../publish/web.md) and [Build history and logs](../publish/builds.md).
+**Fix with AI** opens the **AI Assistant** and puts a ready-made prompt with the error log into the chat. If the AI isn't busy, the prompt is sent at once. Otherwise it waits in the chat field.
+
+It runs in the chat's current mode, so use **Agent** mode to let the AI change your project. In **Plan** mode it only writes a plan. The same button appears on web publishing errors, and **Explain with AI** appears on failed app builds. See [Publish to the web](../publish/web.md) and [Build history and logs](../publish/builds.md).
 
 ## Read the logs {#read-the-logs}
 

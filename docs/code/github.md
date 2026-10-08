@@ -88,7 +88,7 @@ Git for a local project runs on your computer, so Nowa signs in from your comput
 | No repository list in **Clone from GitHub** | Connect GitHub first, as above. The list doesn't appear until you do. |
 | "You need to provide authentication for this action" or "You need to add your credentials to access the remote repository" | Connect GitHub, or add an access token: under **Legacy Remote Credentials** for a cloud project, under **External Local Credentials** for a local project. |
 | "You don't have access to this repository, please check your credentials" | Click **Manage** under **GitHub Integration** and make sure Nowa can use that repository, or check your token. |
-| The waiting window closes after two minutes and **Connect GitHub** is still there | You didn't approve in time. Click **Connect GitHub** again and approve Nowa in the browser within two minutes. |
+| The waiting window closes after two minutes and **Connect GitHub** is still there | The approval didn't arrive in time. Click **Connect GitHub** again and approve Nowa in the browser within two minutes. |
 
 ## Next steps
 

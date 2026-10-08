@@ -55,7 +55,7 @@ Nowa opens the folder where it is and doesn't copy it. For monorepos, cloud impo
 
 ## Link a cloud copy with Project Sync
 
-Project Sync makes a cloud copy of your local project (or a local copy of a cloud project), links the two, and lets you copy changes from one to the other when you choose. Nowa keeps the link on this computer.
+Project Sync makes a cloud copy of your local project (or a local copy of a cloud project) and links the two. You then copy changes from one to the other when you choose. Nowa keeps the link on this computer.
 
 To create the copy:
 
@@ -100,7 +100,7 @@ Both take a project off your list, but only one of them touches your files.
 The one exception is a project you imported from inside a larger Git repository, where the repository's root folder is above the project's folder. For that project, **Delete** asks **Remove "name" from Nowa?**, says "The files stay on disk." and, when you click **Remove**, only takes it off the list. A project whose own folder is the repository root is erased like any other. That includes a repository you cloned with **Clone from GitHub** and **Local-only**, and a monorepo whose workspace root is the repository root.
 :::
 
-Either action also drops the project's Project Sync link. A cloud copy is not touched. For cloud projects, see [Create and manage projects](../account/projects.md).
+Either action also drops the project's Project Sync link. A cloud copy isn't touched. For cloud projects, see [Create and manage projects](../account/projects.md).
 
 ## Next steps
 

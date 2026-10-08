@@ -38,7 +38,7 @@ Changes save when you leave a field. Click **Close** when you're done.
 With an **Auth Key**, every request sends `Authorization: Bearer` followed by the token your app saved under that name. Save the token after sign-in with the **SHARED PREFERENCES** → **set** action in Circuit, using the same **Key** and the **Type** `string`. See [Save values on the device](../../logic/actions.md#save-values-on-the-device).
 
 :::warning
-Headers, the base URL and tokens you type here are saved in your project's code and ship inside your app. Never put a server secret in them.
+The **Base URL** and the headers you add, on the collection or on a single request, are written into the collection's Dart file and ship inside your app, even a token you paste into a header value. Never put a server secret there. The **Auth Key** is only a name: Nowa writes no token into your code, and your app reads the token from Shared Preferences on the device.
 :::
 
 ## Add a request

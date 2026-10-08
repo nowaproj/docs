@@ -5,7 +5,7 @@ sidebar_label: Variables
 keywords: [variable, state, Variables panel, default value, type, String, int, bool, list, Set, refresh, setState, local variable, Create Variable]
 ---
 
-A variable is a named value that a screen or component remembers while it is open: a counter, a typed name, a list of products, a loading flag. Widgets can show it, and your logic can change it.
+A variable is a named value that a screen or component remembers while it's open: a counter, a typed name, a list of products, a loading flag. Widgets can show it, and your logic can change it.
 
 ## Open the Variables panel
 
@@ -14,7 +14,7 @@ The **Variables** panel lists what the selected screen or component keeps: **Par
 1. Select a screen or component (click its title on the board), or select any widget inside it.
 2. Click **Variables** at the top right, above **Details**. The panel starts collapsed.
 
-The panel shows the screen's name, then the three sections. Hover a section title to reveal its **+** button. With nothing selected, the panel shows **Globals** instead: see [Share data across your app](./global-state.md). The panel is part of the visual editor, so it is not shown in code mode.
+The panel shows the screen's name, then the three sections. Hover a section title to reveal its **+** button. With nothing selected, the panel shows **Globals** instead: see [Share data across your app](./global-state.md). The panel is part of the visual editor, so it isn't shown in code mode.
 
 {/* CAPTURE: id=logic-variables-1 | state: playground starter open, HomePage selected, Variables tile expanded, one variable added and selected | show: the Variables tile (Params, Variables, Functions) above Details, and Details showing Name, Type and Default Value | crop: right-hand panels */}
 
@@ -47,7 +47,7 @@ Click the variable's type icon in the list, or **Type** in **Details**. The **Se
 - Click **show more...** to see more types, such as `DateTime` and your own [models](./models.md). Type in the search box to find one by name.
 - To store a list, tick **As List** first, then pick the type of the items. A list of text is `String` with **As List** ticked.
 
-Variables you create here can be empty. Give them a **Default Value** so your widgets always have something to show. For a list, the **Default Value** field shows the number of items: change the number or click **+** to add one, drag an item to reorder it, and click **Load More** to see items past the first ten.
+Variables you create here can be empty. Give them a **Default Value** so your widgets always have something to show. For a list, the **Default Value** field shows the number of items. Change the number or click **+** to add one, drag an item to reorder it, and click **Load More** to see items past the first ten.
 
 If you change the type, Nowa keeps the default value when it still fits and replaces it with a fresh default when it doesn't.
 
@@ -63,7 +63,7 @@ You can also start from the widget. Click the property's label and choose **Crea
 
 ## Change a variable from logic
 
-A variable only changes when your logic changes it. Here is how to set one when a button is pressed.
+A variable only changes when your logic changes it. Here's how to set one when a button is pressed.
 
 1. Open the logic. For a button, click **Edit** next to **On Pressed** in **Details**. Circuit opens: see [Respond to taps and other events](./events.md).
 2. Hover the dot under the top node until it becomes **+**, then click it. The **All nodes for this circuit** menu opens.

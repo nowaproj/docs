@@ -35,7 +35,7 @@ Select the App Bar on the board, or in the [Outline](../../design/outline.md) un
 
 ## Add a drawer {#drawer}
 
-A new **Drawer** is empty. In the [Outline](../../design/outline.md), select the Column under the `drawer` slot, then click **+** next to **Children** in the **Group** section of **Details** to add widgets, such as **List Tile** rows with an **On Tap** event.
+A new **Drawer** is empty. In the [Outline](../../design/outline.md), select the Column under the `drawer` slot. Then click **+** next to **Children** in the **Group** section of **Details** to add widgets, such as **List Tile** rows with an **On Tap** event.
 
 Press **Play** to try it. While the screen has a drawer, the App Bar shows a menu button that opens it, unless you set **Leading** yourself.
 

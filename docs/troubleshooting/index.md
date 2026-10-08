@@ -13,7 +13,7 @@ Start here when your app shows an error or doesn't do what you expect. Work thro
 
 1. Open **Problems**. Click the red error count in the status bar at the bottom of the editor, and the **Console** opens on **Problems**. A row with a **Fix** button has a one-click fix. See [Find and fix problems](../test/problems.md).
 2. Run the app and read the logs. Click **Run**, repeat what caused the error, then click the last log line in the status bar. The **Console** opens on **Logs**, where your running app prints its errors. See [Read the logs](../test/run.md#read-the-logs).
-3. Ask Nowa AI to fix it. If an error screen offers **Fix with AI**, click it, and Nowa AI gets the error log in the chat. Or switch to **Agent** mode and ask: "Why does the app show an error when I tap Sign in? Check the logs and fix it." The agent can read your app's logs once you have run the app.
+3. Ask Nowa AI to fix it. If an error screen offers **Fix with AI**, click it to send Nowa AI the error log in the chat. Or switch to **Agent** mode and ask: "Why does the app show an error when I tap Sign in? Check the logs and fix it." The agent can read your app's logs once you have run the app.
 4. Check for a placeholder. If a widget on the board shows as a placeholder, Nowa couldn't read its code. See [A widget shows as a placeholder](#a-widget-shows-as-a-placeholder-or-problems-says-could-not-be-loaded) and [What Nowa can show on the board](../code/limitations.md).
 
 If the preview itself won't open, see [The preview won't start](#the-preview-wont-start).
@@ -81,7 +81,7 @@ If it's your project, see [Share your app](../test/share.md). **Public** makes t
 
 ## Unable to load project
 
-Nowa couldn't open the project. The message holds the project ID and the error Nowa got. Click **Back to dashboard** and open the project again. If it keeps failing, check that you're signed in with an account that can open it, then send the message to support with **?** → **Chat with support**, or email [team@nowa.dev](mailto:team@nowa.dev). See [Get help](../account/help.md).
+Nowa couldn't open the project. Click **Back to dashboard** and open it again. If it keeps failing, check that you're signed in with an account that can open it. Then send the message, which holds the project ID and the error Nowa got, to support with **?** → **Chat with support**, or email [team@nowa.dev](mailto:team@nowa.dev). See [Get help](../account/help.md).
 
 ## Project not found
 
@@ -94,7 +94,7 @@ A cloud project shows **Try again** instead. See [Fix "Project not found"](../ac
 
 ## A project freezes or misbehaves when it opens
 
-Nowa reopens the tabs you had open last time, so a tab that hangs the editor does it on every open.
+Nowa reopens the tabs you had open last time, so a tab that hangs the editor hangs it on every open.
 
 1. On the dashboard, click ⋮ on the project and choose **Open in safe mode**. Nowa skips the old tabs.
 2. The workspace says **Nothing is open**. Click **Open board**, **Browse widgets** or **Open code mode**.

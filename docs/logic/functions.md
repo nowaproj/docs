@@ -21,7 +21,7 @@ With a function selected, **Details** shows **Name**, **Return Type**, **Edit** 
 
 ## Add parameters and a return value
 
-A parameter is a value the function receives. The return value is what it hands back. Here is a function that turns Celsius into Fahrenheit.
+A parameter is a value the function receives. The return value is what it hands back. Here's a function that turns Celsius into Fahrenheit.
 
 1. In Circuit, click the orange node at the top. Hover **Params** and click **+**. A parameter named `param` appears.
 2. Click the parameter. Set **Name** to `celsius` and **Type** to `double`.

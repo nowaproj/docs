@@ -31,7 +31,7 @@ In the **FROM YOUR APP** list, a check mark means the item is already attached, 
 
 You can also paste an image into the chat field with <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>V</kbd>, or drag an image file onto it.
 
-A few limits to know:
+A few limits:
 
 - You can attach up to 5 images to one message.
 - A text file must contain readable text. Other files are skipped.

@@ -31,7 +31,7 @@ Pick what your client needs to see.
 
 - **A quick look.** Send the preview link set to **Public**. Read the warning above first, because **Public** opens your whole project.
 - **A look without making the project public.** Keep the preview **Private** and give your client access. Put the project in a [workspace](../account/workspaces.md) and [invite your client](../account/workspaces.md#invite-people) as a member. Choose **View Only** if they should look but not change anything. They sign in to Nowa to open the link.
-- **The finished app.** The preview is not the compiled app. To hand over the real thing at its own address, [publish your app to the web](../publish/web.md). Publishing needs a paid plan.
+- **The finished app.** The preview isn't the compiled app. To hand over the real thing at its own address, [publish your app to the web](../publish/web.md). Publishing needs a paid plan.
 
 ## Share a preview
 
@@ -47,7 +47,7 @@ The preview is [Instant Play](instant-play.md) in a browser tab: quick, but not 
 
 The link looks like `https://app.nowa.dev/preview/<project>`. If you shared from a played screen, it ends with `?screen=` and that screen's file, so the preview opens on that screen.
 
-To share the whole app, delete the `?screen=…` part of the link. Owners and editors who open a link with `?screen=…` see the warning "Single Screen Preview": "Route-based navigation is disabled in Play Mode for single screen previews. To test navigation, you need to preview the full app." They see it even when the screen has a route.
+To share the whole app, delete the `?screen=…` part of the link. Owners and editors who open a link with `?screen=…` see the warning "Single Screen Preview", even when the screen has a route: "Route-based navigation is disabled in Play Mode for single screen previews. To test navigation, you need to preview the full app."
 
 The link stays the same when you edit your app. People always see the project as last saved.
 
@@ -55,7 +55,9 @@ In a local project, **Share preview** says "Share preview is not available on lo
 
 ## What people see in a preview
 
-On a computer, the app opens in a phone frame (an iPhone 13 at first) with a toolbar at the top. Owners and editors also see cards that list what the preview can't show, such as "Custom code can't be shown" or "Dynamic packages can't be shown". The button above them hides the cards (tooltip **Hide Play Warnings**) and brings them back (tooltip **Show Play Warnings**). The "Unattached global states" card lists global states that aren't attached to your app, which can cause errors if they are used. Its **Attach all** button attaches them to your app. See [Attach or detach a global state](../logic/global-state.md#attach-or-detach-a-global-state).
+On a computer, the app opens in a phone frame (an iPhone 13 at first) with a toolbar at the top.
+
+Owners and editors also see cards that list what the preview can't show, such as "Custom code can't be shown" or "Dynamic packages can't be shown". The button above them hides the cards (tooltip **Hide Play Warnings**) and brings them back (tooltip **Show Play Warnings**). The "Unattached global states" card lists global states that aren't attached to your app, which can cause errors if they're used. Its **Attach all** button attaches them to your app. See [Attach or detach a global state](../logic/global-state.md#attach-or-detach-a-global-state).
 
 | Button | What it does |
 |---|---|
@@ -83,7 +85,9 @@ The link looks like `https://app.nowa.dev/project/<project>`, with your link opt
 
 {/* CAPTURE: id=test-share-2 | state: signed-in cloud project, Settings open on Project Details, scrolled to Sharing with Public project on, Link options popup open | show: the Cover field, the Public project switch with the link and its buttons (Copy link, Open in a new tab, Link options), and the four link options | crop: Settings page, Sharing section */}
 
-Visitors can open the link without an account. Nowa opens your project in a private copy in their browser, so "your project is never changed by a visitor". They can explore, play and edit. Their edits are lost when they close the tab, unless they click **Save to keep changes**, which copies the project into their own account. **Run** and **Deploy** aren't available to them. See [Try Nowa without an account](../get-started/playground.md).
+Visitors can open the link without an account. Nowa opens your project in a private copy in their browser, so "your project is never changed by a visitor". They can explore, play and edit.
+
+Their edits are lost when they close the tab, unless they click **Save to keep changes**, which copies the project into their own account. **Run** and **Deploy** aren't available to them. See [Try Nowa without an account](../get-started/playground.md).
 
 ### Set how the link opens
 

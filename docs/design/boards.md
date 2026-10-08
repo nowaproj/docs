@@ -75,7 +75,7 @@ The **Screen** tool is hidden when a screen or component is open on its own. Whi
 
 ## Big boards and errors
 
-Big boards stay fast without any setup. Items in view build first, and only the item you hover, select or play animates. When more than 8 items are in view, the rest show as still pictures until you hover or select them.
+Big boards stay fast without any setup. Items in view build first, and only the item you hover, select or play animates. When more than 8 items are in or near view, the rest show as still pictures until you hover, select or play them.
 
 If one item fails while drawing, only that item shows **This screen failed to render**, with the error text. The rest of the board keeps working. Fix the cause, in the code or by asking [Nowa AI](../ai/index.md), then click **Reload screen**.
 

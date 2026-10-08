@@ -66,7 +66,7 @@ Widgets, `State` and `ChangeNotifier` classes work as you'd expect. You can also
 
 - **Placeholders.** See the table above.
 - **Details.** Select a widget Nowa kept as code. **Kept as code** shows why. You see nothing there for code you imported as custom code on purpose.
-- **Problems.** Click the problem counts in the status bar. For your own code, it lists a function, enum or other declaration that Nowa couldn't load as `'<name>' could not be loaded: <reason>`, a warning like `'HexColor' extends 'Color', which Nowa can read but cannot construct.` and every syntax error, one per problem. Nowa keeps the text of a file with a syntax error as you wrote it. See [Find and fix problems](../test/problems.md).
+- **Problems.** Click the problem counts in the status bar. For your own code, it lists a function, enum or other declaration that Nowa couldn't load as `'<name>' could not be loaded: <reason>`. It also lists a warning like `'HexColor' extends 'Color', which Nowa can read but cannot construct.` and every syntax error, one per problem. Nowa keeps the text of a file with a syntax error as you wrote it. See [Find and fix problems](../test/problems.md).
 
 Beyond those, **Problems** checks only code Nowa generated. To include your own code, click the filter button (**Which code Nowa checks**) and choose **All files**. Those checks read your code the way the board does, so a problem can be a false alarm. For an exact check, switch to **From Code Analysis** and click **Run Code Check**, which runs `flutter analyze`.
 

@@ -57,6 +57,8 @@ Details: [Connect Supabase](../integrations/supabase/connect.md), [Connect Figma
 5. Select the `signIn` node. Under **Future Options**, let **onValue** open the recipe list with a **GoRouter** node of type `go`, with the list screen's path in **Location**. Add **Show snackbar** to **onError** so people see what went wrong.
 6. Select the login screen and click **Make home screen**.
 
+Want signed-in people to skip the login screen? Make the recipe list your home screen instead of the login screen, then give its route **Redirect Logic** that sends everyone else to the login screen. See [Start on the login screen or the home screen](../logic/router.md#start-on-login-or-home).
+
 For a sign-out button, call `signOut` and open the login screen in **onValue**.
 
 Details: [Sign users in with Supabase](../integrations/supabase/auth.md#login-screen), [Start from a template](../design/templates.md), [Navigate between screens](../logic/navigation.md).
@@ -75,7 +77,7 @@ Details: [Read and write Supabase data](../integrations/supabase/database.md), [
 
 ## 6. Open the detail screen
 
-1. Add an `id` param to the detail screen. In **Route Settings**, set its **Path** to `/recipe/:id`. Open the **Router** panel, select the route and drag the `id` chip onto the screen's `id` param under **Screen Parameters**.
+1. Add an `id` param to the detail screen. Its **Type** must match the `id` that `getByIdRecipes` takes: keep `String`, the default, because the table's `id` is a uuid. In **Route Settings**, set its **Path** to `/recipe/:id`. Open the **Router** panel, select the route and drag the `id` chip onto the screen's `id` param under **Screen Parameters**.
 2. Open `RecipeCard` on its own: in the **Widgets** panel, switch to **Component** and double-click it. Select its main widget, click **Add Wrapper** and choose **Gesture Detector**. Open **On Tap** and add a **GoRouter** node of type `push`. Type `/recipe/` in **Location**, then `$` and pick the `id` param.
 3. On the detail screen, wrap the content in a **Data Builder** with **Source** set to **Supabase** and **Query** set to `getByIdRecipes`. Link its `id` input to the screen's `id` param, then show the fields of `data`.
 

@@ -1,6 +1,6 @@
 ---
 title: Build your first app
-description: Go from one sentence to a running app in about 15 minutes. Describe your idea, watch Nowa AI build it, change it by hand, and run it.
+description: Go from one sentence to a running app in about 15 minutes: describe your idea, watch Nowa AI build it, change it by hand, and run it.
 sidebar_label: Build your first app
 keywords: [quickstart, first app, tutorial, get started, prompt to app, build with AI, Design mode, Make it real, Instant Play, Run, New Cloud Project]
 ---
@@ -20,8 +20,8 @@ You describe an app in plain words, Nowa AI builds it on your board, and you fin
 
    > A habit tracker. The home screen lists today's habits with a checkbox for each one. Another screen adds a new habit.
 
-   Or click one of the examples under **Or try an example prompt**. It fills the box with a full prompt that you can edit. The refresh button shows more examples.
-3. Check the mode chip at the bottom left of the box. It says **Design**. Keep it: the chip's menu marks **Design** as **Start here**, and it builds the look and flow of your app first, with demo data, so you can see and change it before anything is wired up. [Modes](../ai/modes.md) explains **Plan** and **Agent**.
+   Or click one of the examples under **Or try an example prompt**. It fills the box with a full prompt you can edit. The refresh button shows more examples.
+3. Check the mode chip at the bottom left of the box. It says **Design**, which the chip's menu marks **Start here**. Keep it: Design builds the look and flow of your app first, with demo data, so you can see and change it before anything is wired up. [Modes](../ai/modes.md) explains **Plan** and **Agent**.
 4. Check the thinking level chip next to it. Keep it on **Thinking**, or pick **Deep Thinking** for a big, complex app.
 5. Click the send button at the bottom right of the box (tooltip **Build it**).
 
@@ -69,7 +69,7 @@ Select a widget, then type in the chat: "Make this button orange with rounded co
 
 Design mode builds every screen with demo data, so the app doesn't save anything yet. **Make it real** hands your design to **Agent** mode, which makes the features work, starting with the one you pick. To keep data in a database and let people sign in, connect a backend: see [Connect data and services](../integrations/index.md).
 
-1. On the **Your app design is complete** card, pick the feature you want first under **Pick what to make work first:**. Or click **Make it real** and let Nowa AI choose. To change the design first, type what you want in the chat instead.
+1. On the **Your app design is complete** card, pick the feature you want first under **Pick what to make work first:**, or click **Make it real** and let Nowa AI choose. To change the design first, type what you want in the chat instead.
 2. Watch the steps in the chat.
 
 {/* CAPTURE: id=get-started-first-app-2 | state: project after a finished Design-mode run (needs an AI prompt) | show: the board with two or more screens and the chat with the Your app design is complete card and the Make it real button | crop: whole editor window */}
@@ -93,7 +93,7 @@ If an error screen offers **Fix with AI**, click it. Nowa AI gets the error and 
 
 ## 7. Save and share
 
-- **Save:** Nowa saves as you go. **Auto save** is on by default, and every Nowa AI run ends with a save. Press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>S</kbd> to save right away. You see **Saved!**
+- **Save:** Nowa saves as you go. **Auto save** is on by default, and every Nowa AI run ends with a save. Press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>S</kbd> to save right away and you see **Saved!**
 - **Share a screen:** play it (step 4), click **Share preview** in the bar at the bottom of the board, and choose **Private** (people with access to the project) or **Public** (anyone with the link). Then copy the link or show the QR code. Viewers get an interactive preview in any browser.
 - **Come back later:** click the Nowa logo at the top left to return to the dashboard. Your project is listed under **Projects** and in the **RECENTS** list in the sidebar.
 

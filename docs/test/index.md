@@ -29,7 +29,7 @@ Both show your app working, in different ways. Instant Play interprets your app,
 | In the playground | Yes | No, the top bar shows **Save** |
 | Best for | Layout, flows and quick checks while you design | Real behavior, before you publish |
 
-Design with Instant Play, and run the app before you publish. If the two ever disagree, Run is right. That is why Instant Play shows a warning icon that says "In board preview is not 100% accurate, run the app to see the real output".
+Design with Instant Play, and run the app before you publish. If the two ever disagree, Run is right. That's why Instant Play shows a warning icon that says "In board preview is not 100% accurate, run the app to see the real output".
 
 On a phone, **Play** opens **Play your app** with the same two choices: **Instant preview**, marked **SIMULATED**, and **Run real app**, marked **REAL APP** (**LIVE** once the app is running). See [Use Nowa on your phone](../get-started/mobile.md).
 

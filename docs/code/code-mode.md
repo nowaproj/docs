@@ -51,7 +51,7 @@ The editor colors Dart, JSON, YAML, XML, HTML and Markdown. You can edit any tex
 
 [Keyboard shortcuts](../reference/shortcuts.md#code-editor) lists the rest, such as commenting and moving lines.
 
-Outside code mode, right-click a file in **Files** and choose **Show file content** to open its text in a tab. The details panel beside the text has **Font size** (13 by default), **Word wrap** (on by default) and a **Compile** button. Click **Compile** to apply your edits to the project. The button reads **Compiled** and is greyed out when nothing is waiting.
+Outside code mode, right-click a file in **Files** and choose **Show file content** to open its text in a tab. The details panel beside the text has **Font size** (13 by default), **Word wrap** (on by default) and a **Compile** button. Click **Compile** to apply your edits to the project. When nothing is waiting, it reads **Compiled** and is greyed out.
 
 To bring in a snippet or a `.dart` file instead of typing it, leave code mode and choose **Import Dart code...** from the **Add to library** menu in **Files**. See [Import Dart code](custom-code.md#import-dart-code).
 

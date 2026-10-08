@@ -46,7 +46,7 @@ After a linked value, click **+** to use something from it: a field of a model (
 
 ## Choose between two values {#conditional}
 
-A **Conditional** picks one of two values depending on a true or false value. Use it for a text that reads "Online" or "Offline", or a color that changes with a variable.
+A **Conditional** picks one of two values depending on a true or false value. Use it for text that reads "Online" or "Offline", or for a color that changes with a variable.
 
 1. Click the property's label, open **EXPRESSIONS** and click **Conditional**. The **Conditional Expression** popup opens.
 2. Click **condition** and link a true or false value, such as a `bool` variable.

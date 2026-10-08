@@ -16,7 +16,7 @@ Put your Dart in files under `lib/`. Nowa reads every Dart file there. You have 
 - **Import it.** Paste or load code with [Import Dart code](#import-dart-code).
 - **Ask Nowa AI.** It writes into the same files.
 
-Here is a widget and a function you could add:
+Here's a widget and a function you could add:
 
 ```dart
 import 'package:flutter/material.dart';

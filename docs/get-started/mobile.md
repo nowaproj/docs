@@ -28,7 +28,9 @@ The top row has these controls:
 | **Play** | Plays your app. See [Play and run your app](#play-and-run-your-app). |
 | **More** (⋮) | **Support**. |
 
-Below it is the list of your screens and components. Use **Search project...** to find one, and the **All**, **Pages** and **Components** tabs to filter. A toggle switches between a carousel and a list. Tap a screen or component to attach it to your next message to Nowa AI, and tap again to remove it. Long-press one for **Play alone**, **Attach to chat**, **Rename** and **Delete**.
+Below it is the list of your screens and components. Use **Search project...** to find one, and the **All**, **Pages** and **Components** tabs to filter. A toggle switches between a carousel and a list.
+
+Tap a screen or component to attach it to your next message to Nowa AI, and tap again to remove it. Long-press one for **Play alone**, **Attach to chat**, **Rename** and **Delete**.
 
 ## Chat with Nowa AI
 

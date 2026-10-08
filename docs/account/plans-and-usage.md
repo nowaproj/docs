@@ -31,7 +31,7 @@ The badge next to your name on the dashboard and in the avatar menu shows your p
 
 Your current plan is marked **Current**, and on a paid plan its button reads **Manage**. A card with a long feature list has a **Show** / **Hide** link. If your subscription is managed in the billing portal, every plan button opens that portal in your browser instead of a new checkout.
 
-Plan names, prices and features come from Nowa's servers, so the cards show what is on offer now. If you came from AppSumo, use the link AppSumo gave you. It opens the sign-in or sign-up page with your email, and after you sign in Nowa opens the plans page.
+Plan names, prices and features come from Nowa's servers, so the cards show what's on offer now. If you came from AppSumo, use the link AppSumo gave you. It opens the sign-in or sign-up page with your email, and after you sign in Nowa opens the plans page.
 
 ## Check your usage {#usage}
 

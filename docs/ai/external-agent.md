@@ -67,7 +67,7 @@ Some parts of Nowa AI's chat aren't available to a connected agent: tasks, clari
 
 ## If the dialog says the server isn't running
 
-The dialog then says "The server is not running. Port 4680 may be in use; free it and restart Nowa." Close the program that uses port 4680, then restart Nowa.
+The full message is "The server is not running. Port 4680 may be in use; free it and restart Nowa." To fix it, close the program that uses port 4680, then restart Nowa.
 
 ## Next steps
 

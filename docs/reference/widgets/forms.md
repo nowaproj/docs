@@ -36,7 +36,7 @@ To style every text field in your app at once, use the **Fields** settings of yo
 
 Validators check the text and show a message under the field when it isn't right.
 
-1. Select the Text Field. In **Details**, hover the validator row. It is named after the controller, such as **text validator**.
+1. Select the Text Field. In **Details**, hover the validator row. It's named after the controller, such as **text validator**.
 2. Click **+**. A **Required** rule appears with a **Message**, which starts as "Field is required".
 3. Click **+ Add validator** and choose a rule, for example **Min length validator**. Each rule can be added once.
 4. Change each rule's **Message**, and its **Min**, **max** or **Regex** setting.

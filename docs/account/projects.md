@@ -103,7 +103,9 @@ Click ⋮ on a project card or row.
 
 ## Fix "Project not found" {#project-not-found}
 
-If a local project's folder was moved, renamed or deleted, opening it shows **Project not found** and the old path. Click **Locate folder** and pick the folder (it must contain a `pubspec.yaml`), or click a button such as **Use my_app** if Nowa found a matching folder next to the old one. **Remove from projects** drops the project from your list, and **Back to dashboard** leaves it for now. A cloud project shows **Try again** instead. [Work with local projects](../code/local-projects.md) covers this screen in full.
+If a local project's folder was moved, renamed or deleted, opening it shows **Project not found** and the old path. Click **Locate folder** and pick the folder (it must contain a `pubspec.yaml`), or click a button such as **Use my_app** if Nowa found a matching folder next to the old one.
+
+**Remove from projects** drops the project from your list, and **Back to dashboard** leaves it for now. A cloud project shows **Try again** instead. [Work with local projects](../code/local-projects.md) covers this screen in full.
 
 ## Next steps
 

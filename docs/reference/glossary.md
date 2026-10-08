@@ -48,7 +48,7 @@ The words you'll see in Nowa, in plain language. Labels in **bold** are exactly 
 | Support panel | The panel that the round **?** button at the bottom right opens, with **Your tickets**, **Report an issue**, **Chat with support** and more. See [Get help](../account/help.md). |
 | Theme | Your app's colors, text styles and widget styles, edited in the **Themes** panel. See [Create and edit themes](../design/themes.md). |
 | Thinking level | How much Nowa AI reasons before it acts: **Instant** (fastest), **Thinking** (balanced, the default) or **Deep Thinking** (extra reasoning). See [Design, Plan and Agent modes](../ai/modes.md#set-the-thinking-level). |
-| Variable | A named value a screen or component remembers while it is open, such as a counter. See [Store data in variables](../logic/variables.md). |
+| Variable | A named value a screen or component remembers while it's open, such as a counter. See [Store data in variables](../logic/variables.md). |
 | Variables panel | The floating panel at the top right of the board. It lists the **Params**, **Variables** and **Functions** of the selected screen or component, and **Globals** when nothing is selected. See [Store data in variables](../logic/variables.md). |
 | Widget | A building block of your app, such as a text, a button or an image. See [Widget catalog](./widgets/index.md). |
 | Widget picker | The searchable list of widgets you can add, opened with <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd> or the toolbar's **Widget** tool. See [Add widgets](../design/add-widgets.md). |

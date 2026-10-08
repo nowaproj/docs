@@ -5,7 +5,7 @@ sidebar_label: Editor tour
 keywords: [interface, editor, layout, explore interface, top bar, sidebar, panels, board, toolbar, Details, Variables, status bar, console, welcome tour, Nothing is open]
 ---
 
-The editor is a handful of areas that always stay in the same place. This tour names each one, says what it does, and links to the page that covers it in depth.
+The editor is a handful of areas that always stay in the same place. Here is what each one does, with a link to the page that covers it in depth.
 
 ![The whole Nowa editor with numbered callouts: 1 top bar, 2 sidebar, 3 side panel (AI Assistant), 4 board, 5 Variables and Details, 6 board toolbar, 7 status bar, 8 support button.](/img/docs/get-started/get-started-editor-tour-1.png)
 
@@ -25,7 +25,7 @@ The editor is a handful of areas that always stay in the same place. This tour n
 | Control | What it does |
 |---|---|
 | Nowa logo | Returns to the dashboard. If files are unsaved, Nowa lists them and asks first: **Cancel** stays, **Close** leaves without saving, and **Save and close** saves, then leaves. |
-| Starting-point chip | Playground, and public projects you open as a guest. Switches to another starter app or a template. See [Try Nowa without an account](./playground.md). |
+| Starting-point chip | Shown in the playground and in public projects you open as a guest. Switches to another starter app or a template. See [Try Nowa without an account](./playground.md). |
 | Package chip | Appears only when a project has several packages. Picks the one you edit. |
 | Board chip | Shows the current board. Click it to switch boards, **Rename** or **Delete** one, or **Create new board**. When a screen is open on its own, the chip is dimmed and takes you back to the board. See [Work with boards](../design/boards.md). |
 | Screen or component chip | Appears after the board chip when a screen or component is open on its own, and names it. If its file holds several views, click it to switch between them. |
@@ -38,7 +38,7 @@ The editor is a handful of areas that always stay in the same place. This tour n
 
 ## Sidebar and panels
 
-Click an icon to open its panel. Click it again to close the panel. You can also press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> plus the number in the table. The playground has no **Git** icon, so there the numbers after **Search** are one lower.
+Click an icon to open its panel, and click it again to close it. You can also press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> plus the number in the table. The playground has no **Git** icon, so there the numbers after **Search** are one lower.
 
 | Icon | What it opens | Number | Learn more |
 |---|---|---|---|
@@ -106,7 +106,7 @@ From left to right, the status bar shows:
 
 ## The welcome tour {#welcome-tour}
 
-**Welcome to Nowa!** appears over a new project until you have finished or skipped the tour once. Click **Take the quick tour** for seven short tooltips, or **Close** to skip it. After that it doesn't come back for your account.
+**Welcome to Nowa!** appears over a new project until you finish or skip the tour once. Click **Take the quick tour** for seven short tooltips, or **Close** to skip it. It doesn't come back for your account after that.
 
 | Tour step | What it points to |
 |---|---|

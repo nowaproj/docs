@@ -13,11 +13,11 @@ An account gives you the dashboard, your projects and Nowa AI. Sign up with an e
 2. Fill in **First name**, **Last name**, **Email**, **Password** (at least 8 characters) and **Repeat password**.
 3. Tick **I accept the terms & conditions**. The box below it, **I want to receive emails on latest updates and features**, is ticked by default. Untick it if you don't want those emails.
 4. Click **Create account**. The **Confirm your email** step opens.
-5. Type the 6-digit code that Nowa sent to your email address into the six boxes. Nowa checks the code when you enter the last digit, or you can click **Verify**.
+5. Type the 6-digit code Nowa sent to your email into the six boxes. Nowa checks it when you enter the last digit, or you can click **Verify**.
 
 {/* CAPTURE: id=get-started-create-account-1 | state: signed out, app.nowa.dev/signup in a 1440 px wide window | show: the Create your account form with all fields, the terms checkbox, Create account, and the Continue with Google and Continue with Apple buttons | crop: the form column */}
 
-**You should see:** the dashboard with **What do you want to build?** Before that, new accounts answer four short questions (see [Answer the four questions](#answer-the-four-questions)).
+**You should see:** the dashboard with **What do you want to build?** New accounts first answer four short questions (see [Answer the four questions](#answer-the-four-questions)).
 
 If the form won't submit, read the message under the field or in the banner below the form. Passwords need at least 8 characters, both password fields must match, and the terms box must be ticked. If no code arrives, click **Resend the code**. The link changes to **Sent!**
 
@@ -28,7 +28,7 @@ If the form won't submit, read the message under the field or in the banner belo
 
 ## Sign up with Apple
 
-Click **Continue with Apple** and approve in Apple's window. **Continue with Apple** is available in the web app and on iOS. It is not in the desktop app.
+Click **Continue with Apple** and approve in Apple's window. It's available in the web app and on iOS, not in the desktop app.
 
 ## Sign in
 
@@ -50,7 +50,9 @@ If the page says **Invalid link**, the reset link is missing or has expired. Req
 
 ## Answer the four questions
 
-New accounts answer four short questions before they can use the dashboard: what you want to build first, what best describes you, whether you've used another app builder, and where you heard about Nowa. They are labeled **Question 1 of 4** and so on. Click an answer and Nowa moves on. **Other** on the second question and **Yes** on the third also ask for a few words: type them and click **Continue**. Use **Back** to change an earlier answer. You answer the questions once, and you can't skip them.
+Before they can use the dashboard, new accounts answer four short questions: what you want to build first, what best describes you, whether you've used another app builder, and where you heard about Nowa. You answer them once, and you can't skip them.
+
+The questions are labeled **Question 1 of 4** and so on. Click an answer and Nowa moves on. **Other** on the second question and **Yes** on the third also ask for a few words: type them and click **Continue**. Use **Back** to change an earlier answer.
 
 ## Log out
 

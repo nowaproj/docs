@@ -77,7 +77,9 @@ The card then reads **Tool Request**, with an **Approved** or **Denied** badge. 
 
 {/* CAPTURE: id=ai-connectors-2 | state: signed-in project with the Supabase connector on and a request that needs a backend change | show: an Approval Required card with Tool, the expanded Arguments, Deny and Approve | crop: Assistant panel conversation */}
 
-To skip the cards, use **Auto-approve tools**. The switch lives in the Figma menu, so turn the Figma connector on, click its icon, then click **Auto-approve tools**. One switch covers every connector in the project, Supabase included. Its check mark is highlighted while it is on. To turn it off, open the menu and click **Auto-approve tools** again. Nowa remembers the setting for the project on this device.
+To skip the cards, use **Auto-approve tools**. The switch lives in the Figma menu, so turn the Figma connector on, click its icon, then click **Auto-approve tools**. To turn it off, open the menu and click **Auto-approve tools** again.
+
+One switch covers every connector in the project, Supabase included. Its check mark is highlighted while it is on, and Nowa remembers the setting for the project on this device.
 
 :::warning
 With **Auto-approve tools** on, connector actions run without asking, including changes to your Supabase backend such as tables, policies and functions. Turn it on only when you trust the request.

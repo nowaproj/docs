@@ -82,6 +82,8 @@ Tap a row in a list and open a screen about that row. Inside a list item, `eleme
 
 Before you start, connect a list to a **List View** or **Grid View** in **Builder** mode: see [Fill a list from your data](../reference/widgets/lists.md#connect-a-list). The list can be a variable or the `data` of a **Data Builder**. Also set up the detail screen with a path such as `/product/:id`, using steps 1 and 2 of the **Path parameter** in [Pass data to the next screen](#pass-data-to-the-next-screen).
 
+Before you drag the route's chip onto the screen's param, set the param's **Type** in **Details**. The type must match the `id` your **Get Record by ID** function takes, which follows your table's `id` column: `int` for a whole number, `String` for text or a uuid. If the types differ, **Problems** shows an error.
+
 1. Select the item in the list. A **List Tile** has **On Tap** in **Details**. For any other widget, click **Add Wrapper** and choose **Gesture Detector** or **Ink Well**. See [Respond to taps and other events](./events.md).
 2. Click the button next to **On Tap**, then add a **GoRouter** node as in [Go to another screen](#go-to-another-screen). Keep **Type** on `push`.
 3. In **Location**, type `/product/` and then `$`. In the menu, open **LOCALS** and click `element`, the tapped row. The text now reads `/product/${element}`. Type `.id` after `element`, inside the braces, so it reads `/product/${element.id}`. Use the field that holds your id. If the item is a [component](../design/components.md) with an `id` param, add the tap inside the component and pick that param after `$` instead.

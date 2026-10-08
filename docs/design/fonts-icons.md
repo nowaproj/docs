@@ -40,7 +40,7 @@ In the web app the list starts with 100 Google Fonts, and a search shows up to 2
 
 ## Declare fonts yourself
 
-If you declare fonts under `flutter:` → `fonts:` in `pubspec.yaml`, with your own families, weights and styles, Nowa keeps your declarations and the board shows each family under its own name. Font files in `assets/` that you haven't declared are added for you, one family per file, named after the file. Declarations whose files no longer exist are removed.
+If you declare fonts under `flutter:` → `fonts:` in `pubspec.yaml`, with your own families, weights and styles, Nowa keeps your declarations and the board shows each family under its own name. Nowa adds a family for each font file in `assets/` that you haven't declared, named after the file, and removes declarations whose files no longer exist.
 
 The **Fonts** popup lists font files by file name, not the family names you declare.
 

@@ -5,7 +5,7 @@ sidebar_label: Cloud and local projects
 keywords: [cloud project, local project, local-only, On this device, desktop app, Project Sync, where are my files, local vs cloud]
 ---
 
-Every Nowa project is either a **cloud project** or a **local project**. A cloud project lives in your Nowa account and works on any device. A local project is a normal Flutter folder on your computer that you open in the [desktop app](./desktop-app.md). Editing, Nowa AI and **Run** are available in both. Start with a cloud project unless you want the files on your own disk.
+Every Nowa project is either a **cloud project**, which lives in your Nowa account and works on any device, or a **local project**, a normal Flutter folder on your computer that you open in the [desktop app](./desktop-app.md). Editing, Nowa AI and **Run** are available in both. Start with a cloud project unless you want the files on your own disk.
 
 ## The difference at a glance
 
@@ -42,7 +42,9 @@ In the dashboard's list view, each project row also shows a **Cloud** or **Local
 
 ## Link a cloud copy and a local copy
 
-**Project Sync** clones a cloud project to a folder on your computer, or a local project to the cloud, and links the two. Open it from **Settings** → **Project Sync** in the desktop app. After that, **Sync from Cloud** and **Sync from Local** copy everything one way and overwrite the other side, so you can use **Deploy** and **Share preview** on the cloud copy. On the dashboard, **Upload to cloud** in a local project's ⋮ menu opens the same options. See [Work with local projects](../code/local-projects.md).
+**Project Sync** clones a cloud project to a folder on your computer, or a local project to the cloud, and links the two. Open it from **Settings** → **Project Sync** in the desktop app. On the dashboard, **Upload to cloud** in a local project's ⋮ menu opens the same options.
+
+After that, **Sync from Cloud** and **Sync from Local** copy everything one way and overwrite the other side, so you can use **Deploy** and **Share preview** on the cloud copy. See [Work with local projects](../code/local-projects.md).
 
 ## Badges in these docs
 

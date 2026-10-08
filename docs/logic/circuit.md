@@ -18,7 +18,7 @@ Every circuit is one function. The orange node at the top is the function itself
 - **A linked function or computed value**: click the property's label and choose **Open in Circuit**.
 - **A widget builder**: click the widget button next to a dialog's **Builder** and choose **Edit in circuit**.
 
-Circuit opens as a floating panel. Drag it by its title bar and close it with **×**. In a global state or model file, the function you select shows in Circuit in the file's right-hand column instead ([Share data across your app](global-state.md)).
+Circuit opens as a floating panel. Drag it by its title bar and close it with **×**. In a global state or model file, Circuit shows the function you select in the file's right-hand column instead ([Share data across your app](global-state.md)).
 
 ## Add a node {#add-a-node}
 
@@ -29,9 +29,9 @@ Circuit opens as a floating panel. Drag it by its title bar and close it with **
 
 ![The All nodes for this circuit menu opened from the plus under the onPressed node: the search box, the five top items (Add Return, Add If statement, Add Try statement, Create Local Variable, Add Custom Expression, highlighted) and the collapsed categories below.](/img/docs/logic/logic-circuit-2.png)
 
-The menu starts with five building blocks: **Add Return**, **Add If statement**, **Add Try statement**, **Create Local Variable** and **Add Custom Expression**. Each one has a section below.
+The menu starts with five building blocks, each covered below: **Add Return**, **Add If statement**, **Add Try statement**, **Create Local Variable** and **Add Custom Expression**.
 
-Under them, the items sit in categories, which start closed and open on their own while you search.
+Under them, the items sit in categories. They start closed and open on their own while you search.
 
 | Category | What's inside |
 |---|---|
@@ -86,7 +86,7 @@ Nodes that give back nothing don't show **Store result**.
 
 ## Wait for a result {#future-options}
 
-Some actions finish later, such as a picker that waits for a tap or an internet request that waits for a reply. Select such a node and use **Future Options** in **Details**:
+Some actions finish later, such as a picker waiting for a tap or an internet request waiting for a reply. Select the node and use **Future Options** in **Details**:
 
 - **await** pauses the function until the result arrives. Pair it with **Store result** to keep it. The node gets a small clock badge, and Nowa makes the function async for you.
 - **onValue** runs separate logic when the result arrives, without pausing. Click **+** to create it. A new Circuit panel opens for a function that receives `value`.
@@ -133,7 +133,7 @@ There's no node to add a loop. A `while` loop that's already in the function, wr
 
 ## Fix missing permissions with Hot Fix {#hot-fix}
 
-Some actions, such as `showMediaPicker`, need permissions or packages in your project. Their **Details** then show a **Dependencies** section that lists what's needed under **Permissions:** and **Packages:**, with a check mark next to each item that's already on.
+Some actions, such as `showMediaPicker`, need permissions or packages in your project. Their **Details** then show a **Dependencies** section listing what's needed under **Permissions:** and **Packages:**, with a check mark next to each item that's already on.
 
 Click **Hot Fix** to switch on everything that's missing. Click a section title to open that part of the [project settings](../account/project-settings.md).
 

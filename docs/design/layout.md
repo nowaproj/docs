@@ -11,7 +11,9 @@ Layout decides where widgets sit and how they react when space changes. You set 
 
 A **Group** holds several widgets so you can move, align and size them as one. A **Stack** layers widgets on top of each other and lets you place them freely. A **Row** lines them up side by side. A **Column** stacks them top to bottom.
 
-To group widgets, select them on the board or in the **Outline**, then press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>G</kbd> or right-click and choose **Group**. If the widgets sit together in one list of children, such as a Row, Column or Stack, the new group is the same kind as their parent. Otherwise it is a Stack. To take a group apart, select it and right-click **Ungroup**. Pressing the shortcut again nests the group in a new one, so use **Ungroup** instead.
+To group widgets, select them on the board or in the **Outline**, then press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>G</kbd> or right-click and choose **Group**. If the widgets sit together in one list of children, such as a Row, Column or Stack, the new group is the same kind as their parent. Otherwise it is a Stack.
+
+To take a group apart, select it, right-click and choose **Ungroup**. Pressing the shortcut again nests the group in a new one, so use **Ungroup** instead.
 
 You can also add an empty **Group** from the widget picker (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd>).
 

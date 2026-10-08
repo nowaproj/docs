@@ -30,7 +30,7 @@ The preview runs your app as a web app. To install a build on a phone instead, [
 ## Run on a device
 
 1. Click the arrow next to **Run** to open the **Run on** menu.
-2. Look under **DEVICES** (the menu shows it as DEVICES). Nowa lists what your Flutter SDK finds, such as a connected phone, a running emulator, a browser or your own computer. While it searches you see "Looking for devices…". If it says "No devices connected", plug in a device or start an emulator.
+2. Look under **DEVICES**. Nowa lists what your Flutter SDK finds, such as a connected phone, a running emulator, a browser or your own computer. While it searches you see "Looking for devices…". If it says "No devices connected", plug in a device or start an emulator.
 3. Click your device. Nowa builds your app and starts it there. When the app isn't running, **Run** shows the device's name. Click it to run on the same device again.
 4. Wait for the first build. The top bar shows a spinner and a **Cancel** button while it builds. Once the app is running, you see **Stop**, a lightning bolt (**Hot restart**) and an arrow (**Run target**).
 5. Change something in Nowa and save. The running app reloads with your changes. If a change doesn't show up, for example a theme change, click the lightning bolt to restart the app.

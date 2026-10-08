@@ -24,7 +24,7 @@ The window has two groups. In a narrow browser window, such as on a phone, it op
 
 {/* CAPTURE: id=account-account-settings-1 | state: signed in (throwaway account), dashboard sidebar Settings, Account Details page showing | show: the Account Settings and Editor Settings groups on the left and the Account Details page (First Name, Last Name, Email with Change Email, Password, Delete Account, Connected Accounts); blur the email | crop: the window */}
 
-Nowa's editor has a single dark look. There is no light/dark switch and no interface-language setting. Your app's light and dark themes are separate: see [Create and edit themes](../design/themes.md).
+Nowa's editor has a single dark look. There's no light/dark switch and no interface-language setting. Your app's light and dark themes are separate: see [Create and edit themes](../design/themes.md).
 
 ## Update your profile
 

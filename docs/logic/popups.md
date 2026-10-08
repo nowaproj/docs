@@ -62,7 +62,7 @@ To show the date in a text widget that's linked to a text variable:
 2. In **Details**, click the **+** after the variable and choose `format`. Pick a style in the **.format** dropdown, such as `DAY`, `WEEKDAY`, `YEAR_MONTH_DAY` or `HOUR_MINUTE`.
 3. Set **Store result** to **Pick Variable** and choose the text variable. Add **LOCALS** → **refresh** below.
 
-`showTimePicker` works the same way. Set **Initial Time** (hour and minute), and the result is a time you can read with `hour` and `minute`, or turn into text with `format`. `showDateRangePicker` lets people pick a start and an end date, and its result has `start` and `end`.
+`showTimePicker` works the same way. Set **Initial Time** (hour and minute). The result is a time you can read with `hour` and `minute`, or turn into text with `format`. `showDateRangePicker` lets people pick a start and an end date, and its result has `start` and `end`.
 
 ## Pick photos or videos
 

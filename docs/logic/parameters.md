@@ -16,7 +16,7 @@ A param is fixed once it arrives. If a value has to change while the screen is o
 3. Type a name and press <kbd>Enter</kbd>.
 4. In **Details**, choose the **Type** and set the **Default Value**. The type picker works as described in [Choose a type](./variables.md#choose-a-type).
 
-The **Default Value** is used when nothing is passed in, and it is what the board shows. While a param is empty, the board shows a placeholder such as `[title]` wherever it is used. Give the param a default, or pass a value, to see your own content.
+The **Default Value** is used when nothing is passed in, and it's what the board shows. While a param is empty, the board shows a placeholder such as `[title]` wherever the param is used. Give the param a default, or pass a value, to see your own content.
 
 ## Use a param in a widget
 

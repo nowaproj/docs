@@ -29,7 +29,7 @@ Hover over the wrapper's section header, click the **...** button and choose **R
 
 ## All wrappers
 
-The names are the ones the **Add Wrapper** list shows. They are grouped here by what they do.
+The names are the ones the **Add Wrapper** list shows. They're grouped here by what they do.
 
 ### Space, size and position
 

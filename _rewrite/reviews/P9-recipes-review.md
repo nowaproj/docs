@@ -69,6 +69,41 @@ External pages: fetched OK, `developer.android.com/studio/publish`, and the Appl
 
 Item 2: 18 rows (builds 5, android 6, ios 6, web 1), 0 fixed, 0 removed. Edits made to the four pages: none.
 
+## Item 3. `docs/test/devices.md`, new H2 "No desktop app?"
+
+Diff: `git diff b0b2c98 -- docs/test/devices.md` (one clause in the first "Before you start" bullet, the new H2, nothing else).
+
+| Claim | Verdict | Code ref | Note |
+|---|---|---|---|
+| Bullet: "No desktop app? See [No desktop app?](#no-desktop-app)." | ok | n/a | Anchor is the auto slug of the new H2; resolves. |
+| "You can still see your real app on a phone from the web app." | ok | **Embedded preview** "works for every project": `lib/project/run/run_button.dart:19`; in the web editor the menu has only **Embedded preview** and **iOS & Android devices** / "Download the desktop app": `run_button.dart:547, 609, 633-647` | The web app has cloud projects only. |
+| Step 1: click **Run**; the **Embedded preview** compiles the app and shows it in a phone frame; link `run.md` | ok | row label `Embedded preview`: `run_button.dart:609`; steps and "phone frame" as on the verified `test/run.md` ("Run your app" step 1) | `run.md` is in the same folder. |
+| Step 2: when the app is running, click **Open on Mobile** in the top bar; a **Scan the QR** code drops down | fixed (clarity) | label `Open on Mobile` for cloud runs and enabled once the run is ready (`canOpen: state.ready`): `lib/project/top_bar_mapper.dart:127-146`; the control is a QR icon button (`Icons.qr_code_rounded`) with that tooltip, a `MenuAnchor` that drops the panel down: `packages/nowa_ui/lib/top_bar/top_bar_view.dart:833-866`; popup title "Scan the QR": `packages/nowa_run/lib/src/ui/nowa_run_play_tools.dart:9-90`; panel wired in `lib/project/top_bar.dart:334` | Label and behavior were right. The button is an icon with a tooltip, so the step now reads "**Open on Mobile** (the QR icon)", the wording `get-started/first-app.md:88` already uses. |
+| Step 3: scan the code with the phone's camera to open the running app on the phone | ok | the code encodes `manager.previewUrl`: `nowa_run_play_tools.dart:19-20, 50-52` | Same sentence as `test/run.md` (toolbar table, **Open on Mobile** row). |
+| "The preview runs your app as a web app." | ok | `test/run.md` "Fix a preview that won't start" (verified): "The preview runs your app as a web app" | |
+| "test a debug build on Android" links `../publish/android.md#test-on-a-device` | ok | heading "Test on a device" at `android.md:18`; the debug build gives an `.apk` to install (steps 3 and 4 there) | |
+| "send an iOS build to App Store Connect ... and test it with TestFlight" links `../publish/ios.md` | ok | ios.md "After the upload" step 2 (TestFlight; Apple's TestFlight overview fetched, see Item 2); the build ends at the upload: `codemagic_file.dart:120-124` | Link goes to the page top; fine. |
+| "Both need a cloud project on a paid plan." | ok | Android debug and store deploys are gated by the same entitlement: `androidDebugLocked` and `deployLocked` are both `!hasGrantSync(EntitlementKeys.cloudBuilds)`, `lib/project/run/deploy_button.dart:60-61`; stated the same way in `publish/android.md:14` and `publish/ios.md:14` | No plan names, prices or limits (D3). |
+| Rest: front matter unchanged, no H1, no emoji or hype words, no new admonition, 832 words | ok | n/a | All links in the new text resolve (`run.md`, `android.md#test-on-a-device`, `ios.md`). |
+
+Item 3: 10 rows, 1 fixed (clarity), 0 removed.
+
+## Item 4. `docs/design/themes.md`
+
+Diff: `git diff b0b2c98 -- docs/design/themes.md` (intro wording, one guide-link line, new H2 "Widgets that keep their own color" before "Edit theme extensions").
+
+| Claim | Verdict | Code ref | Note |
+|---|---|---|---|
+| Intro: "Change a color once in the **Themes** panel and every widget that uses it follows, live on the board." | ok | linked colors resolve through the theme: `StyleHelper.actualValue` reads the applied theme's `colorScheme`: `packages/core/lib/src/fields/style_fields/style_fields.dart:42-60` | More precise than the old "your whole app follows". |
+| "Set your theme before you design many screens: see [Set the theme first](../guides/design-tips.md#set-the-theme-first)." | ok | `docs/guides/design-tips.md:10` is `## Set the theme first`; its first line is "Open **Themes** ... before you design many screens." | Anchor resolves. The sentence restates that line. |
+| "A theme restyles only the widgets that use it. When a widget's color field shows a role's name, such as `primary`, the widget follows the theme." | ok | a linked color shows the role's name: `StyleButton` text = `StyleHelper.styleName`, or the `ReferenceBlock` name: `packages/core/lib/src/fields/color_fields.dart:522-531, 556-562`; `onSelect` writes `Theme.of(context).colorScheme.<role>`: `color_fields.dart:733-740` | Same behavior the verified `theme-styles.md` "Use a theme color" step 3 states. |
+| "A widget with its own color, picked in the color picker or typed as a HEX value, keeps that color when you edit the theme." | ok | the picker and the HEX box write a fixed `Color(<hex>)`: `color_fields.dart:723-727` (`updateBlock`), `HEXField` `:616-640`, field shows HEX and opacity boxes when not linked `:563-580` | A fixed `Color(...)` has no link to the theme. |
+| "So does a text style you cut loose from the theme." | ok | `theme-styles.md` "Use a theme text style": "To cut the text loose from the theme, click the **x** on the style button. The style becomes your own" (verified page) | Same wording ("cut loose"). |
+| "To bring a widget back, pick one of the theme's colors for it, or a theme text style. See [Use theme colors and text styles](theme-styles.md)." | ok | `onSelect` above; detach button writes the current value back as a fixed one: `color_fields.dart:749-768` | Link target is in the same folder; sections "Use a theme color" and "Use a theme text style" cover both. |
+| Style: sentence-case H2, no admonition, no emoji, no hype words | ok | n/a | Front matter unchanged. |
+
+Item 4: 7 rows, 0 fixed, 0 removed.
+
 ## Stopped here
 
 Stopped here; left: items 3, 4, 5, 6 and 7 of the assignment (the orchestrator asked for a pause after the item in progress). None of them was started or checked:

@@ -19,20 +19,18 @@ Resume from these files alone: `BRIEF.md` (context + rules), `decisions.md`, `op
 | 8 | Draft PR with report | PR | open: https://github.com/nowaproj/docs/pull/18 (update it after phase 9) |
 | 9 | Final quality pass: the user's acceptance criteria (see below) | pages, videos, annotated screenshots, best-practice guides | in progress (see Resume here) |
 
-## Resume here (paused by the user on 2026-10-07 ~14:45 UTC)
+## Resume here (resumed 2026-10-08 ~00:30 UTC after the user's answers)
 
-**State:** phases 0-7 done; draft PR open: https://github.com/nowaproj/docs/pull/18 (CI "Test deployment" runs
-`yarn build` on every push; green so far). The last local `yarn build` passed with no warnings (14:40 UTC).
-Phase 9 is in progress:
+**User answers (2026-10-08):** test account given (stored only in the session scratchpad `test-account.env`, D19);
+External Agent is Enterprise only (badge kept); point to Apple/Google store rules (W21 writer, D18).
+**Blocked:** signed-in captures. The network policy denies `server.nowa.dev` (sign-in and project API:
+`packages/core/lib/src/services/config_service.dart:46`, `user_service.dart:160`) and `app.nowa.dev`. Ask the user
+to allow them (environment settings → Network access → Allowed domains), then run the signed-in capture: rows in
+`captures/to-capture.md` (~50) plus the AI shots and the AI video (at most 5 prompts in total; none sent yet).
 
-| Item | Status |
-|---|---|
-| 1 Journey coverage | Done: guides (`docs/guides/*`), recipes (list to detail, store hand-off, sign-in comparison, share with a client, no desktop app), structure fixes, new `logic/router.md` with "Start on the login screen or the home screen". |
-| 2 Videos | 2 embedded: `test/instant-play.md` (Play a screen), `design/layout.md` (Rows and columns). To record: design-add-widgets-video, logic-circuit-video, design-themes-video (rows `requested` in `captures/requests/W3`, `W5`, `W4`; scripts in `captures/tools/video/`). The AI video needs sign-in (to-capture). Embed by hand from the `captures/log.md` rows (alt cell says page and heading; markup in README "Adding videos"); check frames first. |
-| 3 Warm, clear language | Todo: `STYLE-PASS.md` brief + `tools/style-guard.py`. Run it after verification (3 agents by section: get-started+guides+ai+design / logic+integrations / test+publish+code+account+troubleshooting+reference+home), commit first and give the agents that commit as the guard ref. |
-| 4 Structure | Done except the long-page trims (style pass): editor-tour (~1,530 words), circuit (~1,600), navigation (~1,530), rest-api (~1,440). |
-| 5 Highlighted screenshots | Older shots re-highlighted (8 re-taken: ai-index-1, ai-modes-1, ai-context-1/2, ai-prompting-1, design-templates-1, design-screens-1, design-boards-1; the rest already had highlights). **Capture wave 2 to do:** the ~29 playground-only requests marked `skipped: low value` in `captures/requests/W*.md` (list in `captures/to-capture.md` "Skipped on purpose"), one per page that has no media yet: logic (variables, functions, expressions, popups, global-state, models, navigation, router, parameters), reference widget guides (forms, lists, media, navigation), design (assets, fonts-icons, responsive, theme-styles), integrations (constants, index, admob, revenuecat, google-maps), code (packages, limitations), test/problems, account/project-settings, get-started (create-account sign-in screen without signing in, mobile). Brief: `CAPTURE.md`; 2 agents max, each writing its own log file, merged into `captures/log.md`, then `embed.py`. |
-| 6 Tips | Done: guides + one-line links from 8 feature pages. |
+**Running now:** routes verifier (resumed), recipes verifier (resumed), structure-text verifier
+(`reviews/P9-structure-review.md`), W21 store-rules writer (`reviews/W21-writer-notes.md`), capture wave 2
+(playground shots, then 3 videos). After W21: a verifier for it. After all verifiers: style pass, embed, final build.
 
 **Verification of phase 9 text (non-author agents), state at the pause:**
 - Done: `reviews/P9-gaps-review.md` (coverage gap fixes, integrations overview additions, share.md),

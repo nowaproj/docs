@@ -22,3 +22,6 @@
 | design/components.md | No edits. Steps and bullets are already one action each and speak to the reader. | none |
 | design/fonts-icons.md | "Declare fonts yourself": two passive sentences merged into one active sentence with Nowa as the subject. Rest left as written. | In that sentence, "one family per file" is now "a family for each font file"; meaning should be identical. |
 | design/layout.md | The six-sentence grouping paragraph split into "how to group" and "how to ungroup"; "right-click **Ungroup**" now reads "right-click and choose **Ungroup**", like the Group sentence above it. Tables and the constraints bullet left as written. | none |
+| design/localization.md | No edits. | "Nowa AI can't add the `flutter_localizations` package to a project, so it uses a different approach." The "different approach" is never named. Unclear because the fact behind it is thin; left as written. A fact-checker could say what the approach is, or the clause could be dropped. |
+| design/outline.md | No edits. Intro, icon table and steps already plain and short. | none |
+| design/properties.md | No edits. Reference page: section and editor tables carry the facts, prose is short and active. | none |

@@ -28,19 +28,18 @@ External Agent is Enterprise only (badge kept); point to Apple/Google store rule
 to allow them (environment settings → Network access → Allowed domains), then run the signed-in capture: rows in
 `captures/to-capture.md` (~50) plus the AI shots and the AI video (at most 5 prompts in total; none sent yet).
 
-**Phase 9 status (2026-10-08 ~01:30 UTC):**
+**Phase 9 status (2026-10-08 ~04:00 UTC):**
 
 | Item | Status |
 |---|---|
-| 1 Journey coverage | Done (guides, recipes, routes page with start-on-login-or-home, store rules pending W21). |
-| 2 Videos | 2 embedded (Instant Play, layout). Capture agent records add-widgets, Circuit, themes after its screenshots. AI video needs sign-in. |
-| 3 Warm, clear language | Running with guard ref `9490092`: S1 = get-started, ai, design (not boards.md), log `reviews/style-pass-S1.md`; S2 = logic (not navigation.md), test, code, account, troubleshooting, reference, home, log `reviews/style-pass-S2.md`. S3 later: guides, integrations, publish, design/boards.md, logic/navigation.md (after W21/W22 and their check; commit first and use that commit as the ref). |
-| 4 Structure | Done. Long reference pages kept (troubleshooting ~1,620 words: 23 independent sections). |
-| 5 Highlighted screenshots | Capture wave 2 running (29 playground shots, logged in `captures/log.md`; embed with `embed.py` once page edits settle). Signed-in shots blocked (network). |
+| 1 Journey coverage | Done (guides, recipes, routes page with start-on-login-or-home, store rules verified). |
+| 2 Videos | 2 embedded (Instant Play, layout). Capture agent recording add-widgets, Circuit, themes (embed by hand from `captures/log.md`, check frames). AI video needs sign-in. |
+| 3 Warm, clear language | Done: S1 21 pages, S2 28, S3a 22, S3b 8 edited; the style guard flagged no fact changes. |
+| 4 Structure | Done. |
+| 5 Highlighted screenshots | 28 new playground shots embedded (57 of 113 pages have media). The rest need sign-in (36 pages): blocked by the network policy (`server.nowa.dev`, `app.nowa.dev`); brief ready: `CAPTURE-SIGNED-IN.md`. |
 | 6 Tips | Done. |
 
-**Running now:** W21 store-rules writer (`reviews/W21-writer-notes.md`), W22 fix-ups writer (`reviews/W22-writer-notes.md`),
-capture wave 2, style pass S1 and S2. Next: one verifier for W21 + W22, then style pass S3, then embed, final build, PR.
+**Left:** embed the videos, final build, update the PR body from `PR-REPORT.md`; signed-in captures once the network allows.
 
 **Verification of phase 9 text (non-author agents), state at the pause:**
 - Done: `reviews/P9-gaps-review.md` (coverage gap fixes, integrations overview additions, share.md),
@@ -55,16 +54,7 @@ capture wave 2, style pass S1 and S2. Next: one verifier for W21 + W22, then sty
 only); a restored Supabase session can be briefly expired because `recoverSession()` isn't awaited (not on the page);
 `router.md` needs a row in `pages.md`.
 
-**Fix-up round (W22 writer running; then one verifier) before the style pass:** (a) say the screen's `id` param must have the
-same type as the Get Record by ID function's id (`String` for a uuid, `int` for a number) in
-`logic/navigation.md#open-a-detail-screen` and `guides/complete-app.md` step 6 (check nullability: a new param is
-`String?`); (b) `guides/complete-app.md` step 4 links `../logic/router.md#start-on-login-or-home`; (c) the
-`integrations/rest-api/index.md` warning "tokens you type here"; (d) `design/boards.md` "in or near view".
-`logic/navigation.md` stays at ~1,530 words (no cut found without losing steps; split only if the style pass can't tighten it).
-
-**Small follow-ups:** update `PR-REPORT.md` (Add logic now 13 pages; videos; phase 9 results) and the PR body.
-
-**Then:** style pass, capture wave 2 + embed, final build, update the PR, list what's left.
+**Fix-up round:** done (W22, verified in `reviews/P9-fixups-review.md`).
 
 **Live checks for later** (need the running app): typing `.id` after `element` in a GoRouter **Location**
 (`logic/navigation.md#open-a-detail-screen`); a new `id` param is `String?` while `getByIdRecipes` takes a non-null

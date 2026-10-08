@@ -28,9 +28,19 @@ External Agent is Enterprise only (badge kept); point to Apple/Google store rule
 to allow them (environment settings → Network access → Allowed domains), then run the signed-in capture: rows in
 `captures/to-capture.md` (~50) plus the AI shots and the AI video (at most 5 prompts in total; none sent yet).
 
-**Running now:** routes verifier (resumed), recipes verifier (resumed), structure-text verifier
-(`reviews/P9-structure-review.md`), W21 store-rules writer (`reviews/W21-writer-notes.md`), capture wave 2
-(playground shots, then 3 videos). After W21: a verifier for it. After all verifiers: style pass, embed, final build.
+**Phase 9 status (2026-10-08 ~01:30 UTC):**
+
+| Item | Status |
+|---|---|
+| 1 Journey coverage | Done (guides, recipes, routes page with start-on-login-or-home, store rules pending W21). |
+| 2 Videos | 2 embedded (Instant Play, layout). Capture agent records add-widgets, Circuit, themes after its screenshots. AI video needs sign-in. |
+| 3 Warm, clear language | Running with guard ref `9490092`: S1 = get-started, ai, design (not boards.md), log `reviews/style-pass-S1.md`; S2 = logic (not navigation.md), test, code, account, troubleshooting, reference, home, log `reviews/style-pass-S2.md`. S3 later: guides, integrations, publish, design/boards.md, logic/navigation.md (after W21/W22 and their check; commit first and use that commit as the ref). |
+| 4 Structure | Done. Long reference pages kept (troubleshooting ~1,620 words: 23 independent sections). |
+| 5 Highlighted screenshots | Capture wave 2 running (29 playground shots, logged in `captures/log.md`; embed with `embed.py` once page edits settle). Signed-in shots blocked (network). |
+| 6 Tips | Done. |
+
+**Running now:** W21 store-rules writer (`reviews/W21-writer-notes.md`), W22 fix-ups writer (`reviews/W22-writer-notes.md`),
+capture wave 2, style pass S1 and S2. Next: one verifier for W21 + W22, then style pass S3, then embed, final build, PR.
 
 **Verification of phase 9 text (non-author agents), state at the pause:**
 - Done: `reviews/P9-gaps-review.md` (coverage gap fixes, integrations overview additions, share.md),
@@ -51,9 +61,7 @@ same type as the Get Record by ID function's id (`String` for a uuid, `int` for 
 `integrations/rest-api/index.md` warning "tokens you type here"; (d) `design/boards.md` "in or near view".
 `logic/navigation.md` stays at ~1,530 words (no cut found without losing steps; split only if the style pass can't tighten it).
 
-**Small follow-ups:** `integrations/rest-api/index.md` warning says "tokens you type here" (imprecise; say what
-the warning is about); `design/boards.md` big-board note should say "in or near view" like `guides/ship-tips.md`; link `guides/complete-app.md` step 4 to `../logic/router.md#start-on-login-or-home` once the
-guides verifier is done; update `PR-REPORT.md` (Add logic now 13 pages; videos; phase 9 results) and the PR body.
+**Small follow-ups:** update `PR-REPORT.md` (Add logic now 13 pages; videos; phase 9 results) and the PR body.
 
 **Then:** style pass, capture wave 2 + embed, final build, update the PR, list what's left.
 

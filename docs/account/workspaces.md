@@ -91,7 +91,7 @@ A **View Only** member can open and explore a project, but the editor is read-on
 
 - The board toolbar shows **View only** instead of the tools. You can select widgets, copy them and use **Export as image...**.
 - The save icon in the status bar is hidden, and the code editor is read-only.
-- In the **Files** panel the **Add** (or **Import**) button is turned off, and right-clicking a file only offers **Copy as path**.
+- In code mode, right-clicking a file in the **Files** panel only offers **Copy as path**.
 - **Project Details** hides the **Sharing** section.
 
 Ask an owner to change your role if you need to edit.

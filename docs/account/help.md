@@ -54,7 +54,7 @@ Click **Hire an Expert** in the dashboard sidebar or the support panel. The dial
 
 The bell (tooltip **Notifications**) sits next to the version number on the dashboard and next to your avatar in the editor. A badge counts the ones you haven't seen. Open the bell to read the list, which Nowa then marks as read. Click a notification that has an action to follow it, either a link or the full announcement. "No notifications" means you're caught up.
 
-Announcements can also appear as banners at the bottom right. Click the close button (**Dismiss announcement**) to hide one.
+Announcements can also appear as banners at the bottom right. At most two show at a time, and an announcement past its expiration date no longer shows as a banner. Click the close button (**Dismiss announcement**) to hide one.
 
 ## Join the community and contact us
 

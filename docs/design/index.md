@@ -26,7 +26,7 @@ Screens and components have a title bar above them with their name. Hover it to 
 
 | Where | What it does |
 |---|---|
-| **Library** panel, left sidebar | Lists your screens, components and widgets, plus Nowa's built-in widgets, your packages and your assets. Search it, or drag a row onto the board. See [Find and add things with the Library](library.md). |
+| **Library** panel, left sidebar | Lists your screens and components, Nowa's built-in widgets, your packages and your assets. Search it, or drag a row onto the board. See [Find and add things with the Library](library.md). |
 | **Outline** panel, left sidebar | Shows the widget tree so you can jump to any widget. |
 | Toolbar, bottom of the board | **Select tool**, **Shape**, **Screen**, **Text** and **Widget**. |
 | **Details**, top right | The properties of whatever is selected. With nothing selected, it shows the board's color and grid. |

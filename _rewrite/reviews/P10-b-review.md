@@ -88,3 +88,95 @@ Changed in 3.13: new H3 "Colors from theme extensions" (under "Use a theme color
 
 Fixed 0, removed 0. 1,080 words.
 
+
+## docs/design/assets.md
+
+Heavily changed in 3.13 (Library replaces the Files panel for assets): Import files, Drag an asset onto the board, Rename/remove/find, keywords, alt text of `design-assets-1`.
+
+| claim | verdict | code ref | note |
+|---|---|---|---|
+| Open the Library in the left sidebar, or Ctrl/Cmd+2 | ok | `lib/project/side_bar.dart:36-80` (icon order), `lib/project/panels/panel_actions.dart:19-26` | |
+| **Add** (+) in the Library header (tooltip "Add") opens a menu with **Upload Assets...** | ok | `packages/nowa_ui/lib/library/library_panel.dart:708-713` (`tooltip: 'Add'`), `lib/project/panels/library_panel/library_host.dart:176-186` (`NMenuEntry(label: 'Upload Assets...')`) | the menu lists, in order: New Widget..., New Folder..., New Model..., New Global State..., Generate Models From Json..., plugin entries (API Collection...), Import Dart code..., Upload Assets... (`add_lib_menu.dart:37-103`); matches the alt text and the live menu in `captures/ui-diffs-3.13.md` |
+| Pick one or more files; they go into `assets/` | ok | `packages/core/lib/src/providers/project_provider.dart:792` (`pickFiles(allowMultiple: true)`, `importInDir`) | |
+| Upload target: `assets/`, or the `assets/` subfolder you clicked last (for a file, its folder) | fixed | `library_host.dart:176-181` (`folder = entity is NDirectory ? entity : entity?.parent`; used only `if (folder.isAssets \|\| folder.isInAssets)`, else `assetsDir`), `library_panel.dart:607-612,515-524` (`_active` = row clicked, moved to with the arrows, or right-clicked) | was "the folder in `assets/` that holds the row you clicked last", which is wrong when the clicked row is itself a folder (the upload goes into that folder). A clicked project (lib) row leaves the target at `assets/` |
+| Right-click a folder inside `assets/`, choose **Upload assets...** | ok | `library_host.dart:164-165` (`entity is NDirectory && (isAssets \|\| isInAssets)`; `isInAssets` = has the `assets` folder as a parent, `nfile_impl.dart:44`), `library_service.dart:296-345` (the assets root has no row of its own: `_assetNodes(assetsDir)` lists its children) | menu label is lower-case "assets" here, upper-case in the Add menu; the page matches both |
+| Turn on the **Assets** chip to see the files; click a file for a preview; double-click or Enter opens it | ok | `library_panel.dart:782-795` (chips Project / Packages / Built-in / Assets, hidden while searching), `library_host.dart:145-154` (`_open`: asset file -> `openFile`), `packages/core/lib/src/library/library_actions.dart:14-15,93-123` (`_AssetPreview`, loads the next asset as the selection moves) | |
+| `pubspec.yaml` is updated for you (folders with files under `flutter: assets:`, fonts under `fonts:`) | ok (unchanged) | not in the 3.13 diff of `project_provider.dart`/`pubspec_manager.dart` | |
+| File-type table, "any other type is read as plain text" | ok (unchanged) | | |
+| Duplicate sentence "You can drag files between folders inside **assets** to move them." | removed | | it repeated the move sentence in the last section and still used the old **assets**-row wording |
+| Asset pickers: **Pick Image** / **Pick SVG** / **Pick Lottie** / **Pick Rive** / **Pick Video** / **Pick Audio**, **Upload Image**, tab **Asset** | ok (unchanged) | `packages/core/lib/src/fields/asset_fields.dart:48-56,173-181` (`'Pick $name'`, `'Upload ${widget.name}'`), `basic_fields.dart:921,989,1085,1169,1223,1285` | 3.13 diff of `asset_fields.dart` is restyle only |
+| Paste an image: saved as `pasted_image_<id>` | ok (unchanged) | `packages/designer/lib/src/design/copy_paste.dart:115` | |
+| Turn on the **Assets** chip, then drag a file onto the board; the widget table is unchanged | ok | `packages/designer/lib/src/design_experience/designer_board_controller.dart:240-262` (`LibraryDragData` -> `dragDataFor`), `library_service.dart:121-127` (asset `NFile` -> `entity.content.createDragData()`, the same call the Files tree used) | |
+| Search "looks in your assets even when the **Assets** chip is off" | ok | `library_panel.dart:258-271` (loops over every `LibrarySource.values`), `:331-332` (`_shows`: assets ignore the kind filter) | chips are hidden while searching (`:782`) |
+| "The Library works on one file at a time" | ok | no multi-select in `library_panel.dart` (`_active` is a single id) | |
+| Menu for an asset file: **Open** (Enter), **Rename** (F2, in place), **Delete**, **Show in code**; folders: **Upload assets...** | ok | `library_host.dart:158-171` (entries and shortcut hints `⏎`, `F2`; no **Insert** for an asset because `widgetFor` is null) | |
+| **Delete** asks, confirm with **Yes**; Ctrl/Cmd+Z undoes while the Library has focus | ok | `library_host.dart:39,216-231,298-299` (`RemoveIntent` -> `RemoveFileAction` through the Library's own `Undo`), `packages/core/lib/src/file_system/actions/file_actions.dart:121-160` ("Are you sure you want to delete "name"?"), `packages/core/lib/src/widgets/nowa_dialogs.dart:6-24` (**Cancel** / **Yes**) | |
+| **Rename**: widgets that use the file keep the old path | ok (unchanged) | `file_actions.dart:383-387` (`move`, no reference rewrite for assets) | |
+| **Show in code** switches to code mode and opens the file | ok | `library_host.dart:234-243` (`switchMode(WorkspaceMode.code)`, `openFile`) | |
+| The Delete key does nothing in the Library | ok | `library_panel.dart:544-573` (typing, up arrow `:554`, F2 `:558`, Esc `:562`, Enter only) | |
+| Drag a row onto another folder in `assets/` moves it | ok | `library_host.dart:245-263` (`_canMove`: assets stay in assets) | no row for the `assets` root, so a file cannot be moved back to the top level from the Library; the Files tree can |
+| **Copy as path**, **View in folder** (local) and **Show file content** are in code mode's **Files** tree next to **Remove file**, **Cut**, **Paste** | ok | `lib/project/panels/files_panel/files_tree_host.dart:440-494` | |
+| Keywords (`upload assets`, `library`); links (11) | ok | link checker; `[Library](library.md)`, `../code/files.md` resolve | |
+
+Open: the alt text describes the 3.13 Library shot, but `static/img/docs/design/design-assets-1.png` is still the 3.12.5 Files-panel image (file dated 8 Oct) until the re-take in `captures/requests/W30b.md` is embedded.
+Fixed 1, removed 1 (duplicate sentence). 986 words.
+
+## docs/design/templates.md
+
+Changed in 3.13: one bullet ("Other places to start from": Library **Add** (+) > **New Widget...**).
+
+| claim | verdict | code ref | note |
+|---|---|---|---|
+| Library header **Add** (+) > **New Widget...** opens the same template picker | ok | `lib/project/panels/files_panel/add_lib_menu.dart:37-49` (`NMenuEntry(label: 'New Widget...')` -> `showTemplatePicker`), `packages/nowa_ui/lib/library/library_panel.dart:708-713` (tooltip "Add") | first entry of the menu |
+| The new file opens on its own instead of landing on a board | ok | `add_lib_menu.dart:40-47` (`onAdded` -> `EditorProvider.openFile`; nothing is placed on a board) | the Screen tool's picker places on the board (unchanged) |
+| Link text "Find and add things with the Library" -> `library.md` | ok | `docs/design/library.md` front matter `title:` | library.md lists **New Widget...** with the same description |
+| Template dialogs, names, **Premium** list, built-in list, routes (unchanged text) | ok | `add_template_action.dart` / `file_actions.dart:25-70` (single file: `addRouteByWidget`; `targetDir` pages/components), `templates_service.dart` (not changed in 3.13), dialog diffs (`add_template_dialog.dart`, `template_files_list.dart`) are NButton/NListTile restyle; the file tree's right-click menu now has only **Rename** (no "New Folder"), which the page does not mention | page says "rename and move" the files, still true |
+| Research claim "Onboarding templates add `smooth_page_indicator`" is NOT on the page | ok (agree with the writer) | `packages/core/lib/src/services/templates/built_in/onboarding_template.dart:6` (metadata `packages: {...}`); the only reader of `template.packages` is `ProjectProvider.importTemplate` (`project_provider.dart:766-773`), called only from `template_project_provider.dart:58`; the add flow (`file_actions.dart:25-70`, `add_template_dialog.dart`) never calls `registerPackage` (callers listed with grep: AI tools, data managers, migrations, `packages_provider.dart`, `dependency.dart`) | nothing is claimed; live check item 14 below |
+| Links (11) | ok | link checker | |
+
+Fixed 0, removed 0. 738 words.
+
+## docs/design/localization.md
+
+Changed in 3.13: two new paragraphs (SDK package counts as installed; failing delegate) and one added sentence about the AI package tool.
+
+| claim | verdict | code ref | note |
+|---|---|---|---|
+| "Nowa doesn't support the `flutter_localizations` package, so Nowa AI writes its own localization code instead of adding it" | fixed | `packages/ai/lib/src/tools/packages_tool.dart:164-169` (tool result only: "flutter_localizations is not supported by nowa, use a different approach."); `packages/ai` has no localization prompt (grep) | the style pass (`efd822e`) had widened W4's verified wording ("Nowa AI can't add the package") into a claim about what the AI writes, which the code cannot show. Now: "Nowa AI can't add the `flutter_localizations` package to a project. Its package tool refuses the package and tells the agent to use a different approach." (merged with the writer's added sentence) |
+| A pubspec that lists `flutter_localizations: {sdk: flutter}` counts as installed, so **Problems** no longer says it is missing from the pubspec | ok | `packages/core/lib/src/interpreter/packages/package_service.dart:363-369` (`isPackageInstalled`: `declared is Map && declared.containsKey('sdk')`), `:411-421` (problem text "'$name' is imported but is not in the pubspec.") | |
+| Nowa AI still doesn't add it for you | ok | `packages_tool.dart:164-169` | |
+| A project `LocalizationsDelegate` that fails to load: the board keeps drawing; **Logs** says "Could not load" + the delegate's name + the error | ok | `packages/core/lib/src/localization/localizations_class_instance.dart:33-44` (`catch (e) { logError('Could not load ${instance.type?.name}: $e'); return null; }`) | `instance.type?.name` is the delegate class name |
+| No translation editor or language switcher in the editor (unchanged) | ok | no 3.13 change; the `sdk:`/delegate changes add no UI | "the board can render it" stays as W4 verified it (`widget_info.dart:103-161`, `localization_blocks.dart`); nothing on the page claims the board draws `flutter_localizations` classes (no bridged library exists) |
+| **Text Direction** property (`rtl` / `ltr`) and the **Text Direction** wrapper; **Add Wrapper** link `properties.md#add-a-wrapper` | ok (unchanged) | `packages/core/lib/src/wrappers_to_add.dart:117` | anchor exists |
+| Links (4) | ok | link checker | |
+
+Fixed 1, removed 0. 366 words.
+
+## docs/design/fonts-icons.md
+
+Changed in 3.13: one added sentence (`google_fonts` runs on the board).
+
+| claim | verdict | code ref | note |
+|---|---|---|---|
+| Your own code that uses `google_fonts` (e.g. `GoogleFonts.poppins()`) runs on the board | ok (as far as the code shows) | `packages/core/lib/src/interpreter/libraries/google_fonts_library_custom.dart:5-45` (bridged `GoogleFonts`: `getFont` plus one static per family, each calling the real `GoogleFonts.getFont`), `packages/core/lib/src/interpreter/packages/dart_package.dart:192-196` (`googleFonts` in `SupportedPackages.all`) | the sentence says Nowa "runs it", not that the font file is guaranteed to load (the real package fetches it over the network): live check 9 |
+| The package is one of the built-in packages (`../code/packages.md#how-nowa-loads-your-packages`) | ok | anchor exists; packages.md lists `google_fonts` (checked in the packages.md section below) | |
+| Font picker labels (**Fonts**, **Import**, **All Fonts**, **Default Fonts**, **Imported by you**, "We recommend checking the fonts on Google Fonts"), **Default Font**, **Font Family**, icon picker | ok (unchanged) | `packages/core/lib/src/fields/text_fields.dart:612,681-683,868` | 3.13 diff of `text_fields.dart` / `icon_field.dart` is restyle only (NButton / NListTile) |
+| Links (8) | ok | link checker | |
+
+Fixed 0, removed 0. 708 words.
+
+## docs/design/responsive.md
+
+Changed in 3.13: two table rows (**Image**, **Color**) and one sentence (screens are clipped to their frame on the board). The research said "no edit"; the writer found these three.
+
+| claim | verdict | code ref | note |
+|---|---|---|---|
+| Empty Image value: stand-in picture, 48 x 48 when the image sets no size | ok | `packages/core/lib/src/interpreter/mock.dart:118-132` (`width: val.width ?? _mockImageSize`), `:243-245` (`_mockImageSize = 48.0`), `:323-331` (`'Image'` type mock) | 3.12.5 used `Image.network(mockImage)` with no size |
+| Empty Color: gray; a color that may be empty stays empty so the widget's own default shows | ok | `mock.dart:300-304` (`'Color' => type.isNullable ? null : Colors.grey`) | 3.12.5: always grey |
+| A screen is clipped to its frame on the board; overflow is cut off instead of painting over neighbours | ok | `packages/core/lib/src/board/board_canvas.dart:222-230` (`ClipRect(child: CanvasDetailBuilder(...))` with the comment "A screen ends at its frame") | the clip wraps every `InstanceCanvas` (screens, components, widgets); the page names screens only, which is true |
+| Text `[title]`, List three items, Icon info, Widget 48 px box | ok (unchanged) | `mock.dart:281-340` (`'String' => '[$name]'`, `mockList` 3 items, `Icons.info`, `SizedBox.square(dimension: 48, child: Placeholder())` for a non-nullable Widget) | |
+| Size presets, W/H, Play Settings, Device Size, Free Size, Orientation, Full Screen, Run Phone/Tablet/Fullscreen, Test button, Visibility steps | ok (unchanged) | not in the 3.13 diff of the touched files | `design-responsive-1` / `-2` image and CAPTURE comment unchanged |
+| Links (18), including `../legacy/tutorials/design-responsive.md` and `../test/instant-play.md#placeholders-on-the-board-real-values-in-play` | ok | link checker | |
+
+Fixed 0, removed 0. 1,428 words by `wc -w`, about 1,225 of prose without table markup (it was that long before 3.13); not cut.
+

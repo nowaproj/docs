@@ -38,12 +38,12 @@ What happens when you drop depends on what is under the pointer.
 | Empty board | The widget becomes its own board item and snaps to nearby items. |
 | A **Stack** | It is placed where you drop it, on top of the others. The stack is outlined in purple. |
 | A **Row**, **Column**, **Wrap** or **List View** | It is inserted between the children at the pointer. An orange box outlines the dragged widget. |
-| A screen | It goes into the body, even an App Bar, Floating Action Button, Bottom Navigation Bar or Drawer. To fill one of those slots, pick the widget in the slot under **Screen** in **Details**. See [Set up a screen](screens.md#set-up-a-screen). |
+| A screen, outside its groups | An App Bar, Floating Action Button, Bottom Navigation Bar or Drawer goes into its slot. Anything else goes into the body. |
 | An app bar | The left, middle and right zones fill the leading, title and actions. |
 | A **Text** or a **Padding** | A text can't hold children, so the drop goes to the container behind it. **Padding** passes it to its child. |
 | Any other widget, such as a **Container** | It doesn't take drops. The drop goes to whatever is behind it. To put a widget inside, use **+** in **Details**. |
 
-A component can't be dropped into itself.
+A screen from **Empty Page** has a **Stack** that fills its body, so a drop over it follows the **Stack** row, even for an App Bar, Floating Action Button, Bottom Navigation Bar or Drawer. To fill one of those slots, pick the widget in the slot under **Screen** in **Details**. See [Set up a screen](screens.md#set-up-a-screen). A component can't be dropped into itself.
 
 {/* CAPTURE: id=design-select-and-edit-1 | state: playground starter open, a screen with a Group set to Stack holding two widgets, drag one widget slowly across the other | show: moving a widget in a stack with the purple snap guides and the stack outline visible | crop: the board | type: mp4, 10-15 s, no audio */}
 

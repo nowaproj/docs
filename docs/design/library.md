@@ -26,7 +26,7 @@ The chips **Project**, **Packages**, **Built-in** and **Assets** turn sources on
 | **Built-in** | Nowa's own widgets in groups such as **Basic**, **Buttons** and **Layout**, then Flutter's libraries, **Material** and **Cupertino** first. |
 | **Assets** | The folders and files in your `assets/` folder. |
 
-**Filter** opens a menu headed **Show**. **Widgets** (screens, components and widgets) is the default, so models, global states and other code stay hidden until you pick **Everything** or one kind: **Screens**, **Components**, **Models**, **Global states**, classes, **Functions**, **Enums** or **Variables**. **Private** adds your project's private names, the ones that start with an underscore. The filter never hides assets. **Show as a list** flattens the folders into one list, and **Show as a tree** brings them back.
+**Filter** opens a menu headed **Show**. **Widgets** (screens, components and widgets) is the default, so models, global states and other code stay hidden until you pick **Everything** or one kind: **Screens**, **Components**, **Models**, **Global states**, classes (the entry reads **Classs**), **Functions**, **Enums** or **Variables**. **Private** adds your project's private names, the ones that start with an underscore. The filter never hides assets. **Show as a list** flattens the folders into one list, and **Show as a tree** brings them back.
 
 ## Find something
 

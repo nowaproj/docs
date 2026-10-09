@@ -32,7 +32,7 @@ Changes made before you stopped stay in your project. To undo them, see [Undo AI
 
 ## Read the conversation
 
-{/* CAPTURE: id=ai-chat-1 | state: signed-in project with a finished Agent run that added a screen and a component | show: the user message with an attachment chip, a collapsed Thinking process block, several step rows with status icons, a code card listing the created classes, the Created Widgets card and the Suggested next steps strip above the chat field | crop: Assistant panel */}
+![A finished Agent run in the AI Assistant panel, from the user message to the end: the message with its HomePage and _HomePageState attachment chips, the checkpoint line, collapsed Thinking process rows, Inspecting source steps with green check icons, two Writing code cards that list the created classes (InfoRow, highlighted, and AboutPage), the Analyzing project step, the final reply, and the Created Widgets card with the InfoRow thumbnail (highlighted).](/img/docs/ai/ai-chat-1.png)
 
 - **Thinking process**: Nowa AI's reasoning, collapsed. Click it to read.
 - **Steps**: one row for each action, such as reading a file, writing code, adding a package or downloading a font. The icon shows the state. Hover it to read **Tool is running**, **Tool executed successfully**, **Tool execution failed** or **Tool execution was canceled**.

@@ -12,7 +12,7 @@ Add a widget in seconds: press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd>, ty
 1. Click **Widget** in the toolbar, or press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd>. The [Library](library.md) opens with the search ready, and the field reads **Add...**.
 2. Type part of a name, such as `text` or `button`. Results come in groups by source (**Project**, **Packages**, **Built-in** and **Assets**), and Nowa's own widgets come first in each group. **Filter** narrows the results by kind. A row such as **Show 3 more of other kinds** reveals what it hides.
 3. Press <kbd>↓</kbd> to move through the results. The details card beside the panel shows a preview, the name and the first lines of the description.
-4. Press <kbd>Enter</kbd>, or double-click the result. The widget lands where your pointer last was on the board, and the keys go back to the board. To leave without adding anything, press <kbd>Esc</kbd> to clear the search and again to hand the keys back.
+4. Press <kbd>Enter</kbd>, or double-click the result. The widget lands where your pointer last was on the board, and the keys go back to the board. To leave without adding anything, press <kbd>Esc</kbd> in the search field to clear the search and again to hand the keys back.
 
 You need an open board, screen or component. Without one, Nowa says "Open a screen, a component or a board to insert into".
 

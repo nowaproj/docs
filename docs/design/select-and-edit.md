@@ -43,7 +43,9 @@ What happens when you drop depends on what is under the pointer.
 | A **Text** or a **Padding** | A text can't hold children, so the drop goes to the container behind it. **Padding** passes it to its child. |
 | Any other widget, such as a **Container** | It doesn't take drops. The drop goes to whatever is behind it. To put a widget inside, use **+** in **Details**. |
 
-A screen from **Empty Page** has a **Stack** that fills its body, so a drop over it follows the **Stack** row, even for an App Bar, Floating Action Button, Bottom Navigation Bar or Drawer. To fill one of those slots, pick the widget in the slot under **Screen** in **Details**. See [Set up a screen](screens.md#set-up-a-screen). A component can't be dropped into itself.
+A screen from **Empty Page** has a **Stack** that fills its body, so a drop over it follows the **Stack** row, even for an App Bar, Floating Action Button, Bottom Navigation Bar or Drawer. To fill one of those slots, pick the widget in the slot under **Screen** in **Details**. See [Set up a screen](screens.md#set-up-a-screen).
+
+A component can't be dropped into itself.
 
 {/* CAPTURE: id=design-select-and-edit-1 | state: playground starter open, a screen with a Group set to Stack holding two widgets, drag one widget slowly across the other | show: moving a widget in a stack with the purple snap guides and the stack outline visible | crop: the board | type: mp4, 10-15 s, no audio */}
 

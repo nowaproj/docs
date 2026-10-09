@@ -16,7 +16,7 @@ The Nowa desktop app is the same editor in its own window, for macOS, Windows an
 3. In the **Download Nowa** dialog, click **MacOS**, **Windows** or **Linux**. The dialog also shows the version you are getting. A button is greyed out when there is no download for that system.
 4. On macOS and Windows, open the downloaded installer and follow the steps for your system. On Linux, follow [Install on Linux](#install-on-linux).
 
-{/* CAPTURE: id=get-started-desktop-app-1 | state: signed in on the web dashboard, Download Desktop App clicked | show: the Download Nowa dialog with the MacOS, Windows and Linux buttons and the version line | crop: the dialog */}
+![The Download Nowa dialog opened with Download Desktop App in the dashboard sidebar: three buttons (highlighted), MacOS, Windows and Linux, and the line Download Nowa version: 3.13.0 below them.](/img/docs/get-started/get-started-desktop-app-1.png)
 
 :::note
 When you sign in, the desktop app checks that your account has desktop access. If it doesn't, Nowa shows "Upgrade to unlock desktop version, or use on web at app.nowa.dev" with your billing options. You can upgrade there or keep using the web app. See [pricing](https://nowa.dev/pricing).

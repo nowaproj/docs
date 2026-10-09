@@ -43,7 +43,7 @@ Each has a settings page with an **Enabled** switch. If Firebase handles Google 
 - [Google Sign-In](./google-sign-in.md): sign-in with Google without Firebase, for example with Supabase.
 - [Deep links](./deep-links.md): open your app from a custom URL scheme, or from links on your own domain on Android.
 
-Maps, ads and paywalls come with widgets: **Google Maps**, **Admob Banner** and **RevenueCat Paywall**. If a widget's package is missing, Nowa shows **Add Missing Dependencies** when you add it. Click **Add**. Nowa adds the package, then places the widget. See [Add a widget that needs a package](../design/add-widgets.md#add-a-widget-that-needs-a-package).
+Maps, ads and paywalls come with widgets: **Google Maps**, **Admob Banner** and **RevenueCat Paywall**. If a widget's package is missing, Nowa shows **Add Missing Dependencies** when you add it with <kbd>Enter</kbd> or **Insert**. Click **Add**. Nowa adds the package, then places the widget. Dragging the widget onto a screen doesn't ask: **Problems** lists the missing package, and **Details** has a **Hot Fix** button. See [Add a widget that needs a package](../design/add-widgets.md#add-a-widget-that-needs-a-package).
 
 ### Stripe or RevenueCat?
 

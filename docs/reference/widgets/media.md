@@ -19,7 +19,7 @@ Add pictures, videos, animations and web content from the [Library](../../design
 | **Html** | Text written in HTML | What you type | `flutter_html`, added by you |
 | **Markdown** | Text written in Markdown | What you type | No |
 
-When a widget needs a package your project doesn't have yet, Nowa opens **Add Missing Dependencies** as you pick it. Click **Add** and Nowa installs the package and places the widget. See [Add a widget that needs a package](../../design/add-widgets.md#add-a-widget-that-needs-a-package).
+If a widget needs a package your project doesn't have yet, Nowa opens **Add Missing Dependencies** when you add it with <kbd>Enter</kbd> or **Insert**. Click **Add** and Nowa installs the package and places the widget. Dragging the widget onto a screen doesn't ask: **Problems** lists the missing package, and **Details** has a **Hot Fix** button. See [Add a widget that needs a package](../../design/add-widgets.md#add-a-widget-that-needs-a-package).
 
 ## Add an image {#image}
 

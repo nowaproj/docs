@@ -23,14 +23,14 @@ New projects already include a global state named **AppState** (`lib/globals/app
 
 ## Add variables and functions
 
-1. In the **Library**, click **Filter** and choose **Global states**. The default filter, **Widgets**, hides them. Your global states are under **Project**.
-2. Double-click the global state, such as `CartState`, or select it and press <kbd>Enter</kbd>. A single click only shows a details card. The global state opens in its own tab.
+1. In the **Library**, click **Filter** and choose **Global states**. The default filter, **Widgets**, hides them.
+2. Find the global state, such as `CartState`, in the `globals` folder. Double-click it, or select it and press <kbd>Enter</kbd>. A single click only shows a details card.
 3. Click the class name, such as `CartState`, in the list on the left. Its **Variables** and **Functions** appear in the middle.
-3. Hover **Variables** and click **+**. Rename the new variable, then set its **Type** and **Default Value** on the right. See [Store data in variables](./variables.md). Keep **Is Final** off for a variable your functions will change.
-4. Hover **Functions** and click **+**. Rename the new function, for example `addToCart`. Circuit opens on the right: see [Build logic in Circuit](./circuit.md).
-5. Click the top node, hover **Params** and click **+** to add an input such as `product`. Click the new param to set its **Name** and **Type**.
-6. Add the logic. Click the dot under a node and open **LOCALS**. Pick the variable, click **+** after it in **Details** and choose `add`. Set the input to your param.
-7. Add one more node: **LOCALS** → `notifyListeners`.
+4. Hover **Variables** and click **+**. Rename the new variable, then set its **Type** and **Default Value** on the right. See [Store data in variables](./variables.md). Keep **Is Final** off for a variable your functions will change.
+5. Hover **Functions** and click **+**. Rename the new function, for example `addToCart`. Circuit opens on the right: see [Build logic in Circuit](./circuit.md).
+6. Click the top node, hover **Params** and click **+** to add an input such as `product`. Click the new param to set its **Name** and **Type**.
+7. Add the logic. Click the dot under a node and open **LOCALS**. Pick the variable, click **+** after it in **Details** and choose `add`. Set the input to your param.
+8. Add one more node: **LOCALS** → `notifyListeners`.
 
 `notifyListeners` tells every widget that reads the global state to update. Call it at the end of each function that changes a variable.
 
@@ -45,7 +45,7 @@ Attached means Nowa has added the global state to your app, so screens can use i
 - In the **Variables** panel with nothing selected, click **Pick global state** to attach one that exists in `lib`. The list says "No global states found" when there is nothing left to attach.
 - In the same panel, hover a global state's name and click the three-dots button. **Detach global state** removes it from the app, and the file stays in your project. **Open in new tab** opens the file.
 
-The **Globals** list shows each attached global state by name. Under a name it lists only final variables, so open the file in **Files** to see all of its variables and functions.
+The **Globals** list shows each attached global state by name. Under a name it lists only final variables, so open the global state from the [Library](../design/library.md) to see all of its variables and functions.
 
 ## Use a global state
 

@@ -61,6 +61,10 @@ For when to use which, see [Design, Plan and Agent modes](modes.md).
 - **Edit by hand any time.** What the agent builds is normal Nowa content. Change it in the **Details** panel, the **Outline** or the code, then ask for more.
 - **Undo a whole request.** If you don't like a result, use **Restore Checkpoint**. See [Undo AI changes and reopen chats](undo-and-history.md).
 
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/docs/ai/ai-index-video.mp4" type="video/mp4" />
+</video>
+
 Nowa saves your project automatically when a request finishes.
 
 ## Where else Nowa AI shows up

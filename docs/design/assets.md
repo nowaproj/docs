@@ -10,7 +10,7 @@ Assets are the files your app ships with: images, SVGs, videos, sounds and anima
 ## Import files
 
 1. Open the [Library](library.md) in the left sidebar, or press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>2</kbd>.
-2. Click **Add** (+) in its header and choose **Upload Assets...**. Pick one or more files. They are added to your project's `assets/` folder, or to the folder in `assets/` that holds the row you clicked last.
+2. Click **Add** (+) in its header and choose **Upload Assets...**. Pick one or more files. They are added to your project's `assets/` folder, or to the subfolder of `assets/` you clicked last (for a file, the folder it is in).
 3. Turn on the **Assets** chip to see your files. Click a file to see a preview. Double-click it, or press <kbd>Enter</kbd>, to open it.
 
 To upload straight into a folder inside `assets/`, right-click that folder and choose **Upload assets...**.
@@ -31,7 +31,7 @@ Nowa recognizes these file types:
 | Audio | `.mp3`, `.wav` |
 | Fonts | `.ttf`, `.otf` (see [Fonts and icons](fonts-icons.md)) |
 
-Any other file type is read as plain text, so stick to the types above for images, media and fonts. You can drag files between folders inside **assets** to move them.
+Any other file type is read as plain text, so stick to the types above for images, media and fonts.
 
 :::note
 In the playground, large files can stop your app from being saved in the browser. See [Try Nowa without an account](../get-started/playground.md).

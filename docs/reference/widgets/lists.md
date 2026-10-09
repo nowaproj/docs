@@ -94,4 +94,4 @@ Try "Show the products list as a grid with two columns. Each card shows the pict
 
 - [Show data in your UI](../../integrations/show-data.md) to fill a list from an API, Supabase or Firestore.
 - [Build reusable components](../../design/components.md) to design an item once.
-- [Widget catalog](./index.md) for every widget in the picker.
+- [Widget catalog](./index.md) for every built-in widget.

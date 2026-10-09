@@ -5,7 +5,7 @@ sidebar_label: Images, video and web content
 keywords: [image, svg, video player, youtube player, lottie, rive, web view, webview, html, markdown, pick image, upload image, asset, network image, animation, play video, flutter_svg]
 ---
 
-Add pictures, videos, animations and web content from the widget picker. Most take a web address or a file from your project's assets. A few need a package, and a few show a placeholder on the board until you run your app.
+Add pictures, videos, animations and web content from the [Library](../../design/library.md) (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd>). Most take a web address or a file from your project's assets. A few need a package, and a few show a placeholder on the board until you run your app.
 
 | Widget | Shows | Source | Needs a package |
 |---|---|---|---|
@@ -23,7 +23,7 @@ When a widget needs a package your project doesn't have yet, Nowa opens **Add Mi
 
 ## Add an image {#image}
 
-1. Add an **Image** from the widget picker. It starts with a sample photo from the web.
+1. Add an **Image** from the Library. It starts with a sample photo from the web.
 2. In **Details**, choose where the picture comes from:
    - **Network**: paste a web address that points straight at an image file.
    - **Asset**: click **Pick Image**, then choose a file from your project, or click **Upload Image** to add one from your computer. Nowa saves it in `assets/` and picks it. See [Images, videos and other files](../../design/assets.md).
@@ -118,4 +118,4 @@ Try "Show the YouTube video from this link at the top of the lesson screen, mute
 
 - [Images, videos and other files](../../design/assets.md) to import, rename and manage your assets.
 - [Run on a device or emulator](../../test/devices.md) to see video and web content for real.
-- [Widget catalog](./index.md) for every widget in the picker.
+- [Widget catalog](./index.md) for every built-in widget.

@@ -79,7 +79,7 @@ A **Form** groups fields so one step can check all of them.
 
 A **Dropdown menu** lets people pick one option from a list.
 
-1. Add a **Dropdown menu** from the widget picker. It starts with one option, "first".
+1. Add a **Dropdown menu** from the [Library](../../design/library.md) (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd>). It starts with one option, "first".
 2. In **Details**, open **Items** and click **+** to add an option. Each option has a **Value** and a **Child**, the widget that shows it. A new option copies the last one, so change its **Value** and its text. Until you do, Details says "Values contain duplicates".
 3. **Value type** is the type of the values. It starts as text (`String`).
 4. Click the button next to **On Changed** to open it in Circuit. The option the user picked arrives as `value`. Store it in a variable to use it elsewhere. See [Change a variable from logic](../../logic/variables.md#change-a-variable-from-logic).
@@ -112,5 +112,5 @@ Try "Add a sign-up form with name, email and password fields, and show an error 
 
 - [Respond to taps and other events](../../logic/events.md) to build what happens on a tap or a typed letter.
 - [Store data in variables](../../logic/variables.md) to keep what people choose.
-- [Widget catalog](./index.md) for every widget in the picker.
+- [Widget catalog](./index.md) for every built-in widget.
 - [Form validation](../../legacy/tutorials/form-validation.md), a video walkthrough made with an earlier version of Nowa.

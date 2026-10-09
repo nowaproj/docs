@@ -25,7 +25,7 @@ You describe an app in plain words, Nowa AI builds it on your board, and you fin
 4. Check the thinking level chip next to it. Keep it on **Thinking**, or pick **Deep Thinking** for a big, complex app.
 5. Click the send button at the bottom right of the box (tooltip **Build it**).
 
-{/* CAPTURE: id=get-started-first-app-1 | state: signed-in dashboard, prompt box with a short prompt typed and the mode menu open | show: the What do you want to build? box, the mode menu (Design with Start here, Plan, Agent), the thinking chip, the send button and the example chips | crop: prompt panel only */}
+![The dashboard prompt box under What do you want to build? with a short habit tracker prompt typed, and the mode menu open under the Design chip (highlighted): Design marked Start here, Plan and Agent. The Thinking chip, the send button and the example prompt chips (Split the Bill and part of Shared Grocery List) are around it.](/img/docs/get-started/get-started-first-app-1.png)
 
 **You should see:** a loading screen that says "Setting things up…", then "Naming your app…" and "Creating your project…". Then the editor opens with your prompt in the **AI Assistant** panel and Nowa AI already working on it.
 
@@ -72,7 +72,7 @@ Design mode builds every screen with demo data, so the app doesn't save anything
 1. On the **Your app design is complete** card, pick the feature you want first under **Pick what to make work first:**, or click **Make it real** and let Nowa AI choose. To change the design first, type what you want in the chat instead.
 2. Watch the steps in the chat.
 
-{/* CAPTURE: id=get-started-first-app-2 | state: project after a finished Design-mode run (needs an AI prompt) | show: the board with two or more screens and the chat with the Your app design is complete card and the Make it real button | crop: whole editor window */}
+![The editor after a finished Design-mode run of the recipe app: the board shows three screens (HomePage, SignInPage and RecipeDetailPage) side by side, and the AI Assistant panel shows the Your app design is complete card (highlighted) with the Pick what to make work first chips and the Make it real button.](/img/docs/get-started/get-started-first-app-2.png)
 
 **You should see:** **Switched to Agent mode** on the card, then new steps as Nowa AI starts making the features work.
 

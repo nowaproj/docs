@@ -18,9 +18,9 @@ Restoring a checkpoint also undoes every later request in the same session. It p
 3. Click **Restore Checkpoint**. The **Undo Last Request?** dialog lists the files that request changed.
 4. Click **Continue**. Click **Cancel** to leave everything as it is.
 
-{/* CAPTURE: id=ai-undo-1 | state: signed-in project with a finished Agent run that changed files, pointer hovering the dotted line above the reply | show: the bookmark icon, the dotted line and the Restore Checkpoint button | crop: Assistant panel, conversation area */}
+![The top of an Agent conversation in the AI Assistant panel: the user message with its HomePage and _HomePageState chips, then the checkpoint line (highlighted) with the bookmark icon, the dotted line and the Restore Checkpoint button that appears when you point at the line, above the collapsed Thinking process and the first step rows.](/img/docs/ai/ai-undo-1.png)
 
-{/* CAPTURE: id=ai-undo-2 | state: same project, Restore Checkpoint clicked | show: the Undo Last Request? dialog with the file list, Cancel and Continue | crop: dialog */}
+![The Undo Last Request? dialog opened with Restore Checkpoint: the line "This will remove your last request and undo edits to the following files:", the list of the seven files that request changed (highlighted), and the Cancel and Continue buttons (highlighted).](/img/docs/ai/ai-undo-2.png)
 
 Your project goes back to how it was before that request, and files the request created are deleted. The messages stay in the conversation.
 

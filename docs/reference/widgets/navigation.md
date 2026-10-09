@@ -50,12 +50,12 @@ To change the icon, select the button and click the icon field in **Details**. S
 
 ## Add a bottom navigation bar {#bottom-navigation-bar}
 
-1. Drag a **Bottom Navigation Bar** onto the screen. It starts with two tabs, "home" and "call".
+1. Set a **Bottom Navigation Bar** in the screen's slot, as in [Add a screen part](#screen-parts). It starts with two tabs, "home" and "call".
 2. Nowa adds a variable called `pageIndex`, a whole number that starts at 0. It links **Current Index** to it and fills **On Tap**, so tapping a tab sets `pageIndex` to that tab's number and refreshes the screen.
 3. Under **Items**, click a tab to select it. Change its **Label**, or click the brush next to **Icon** and pick another icon in **Details**. Click **+** to copy the last tab. The arrow buttons move the selected tab left or right, and the remove button deletes it. A bar needs at least two tabs: Nowa says "Cannot have less than 2 items".
 4. Click **Edit** next to **Unselected** or **Selected** to set that state's **Color**, **Show label** and **style**.
 
-{/* CAPTURE: id=reference-navigation-2 | state: playground starter open, a Bottom Navigation Bar dropped onto the home screen and selected | show: Details for the Bottom Navigation Bar with Current Index showing pageIndex, Unselected and Selected with their Edit buttons, On Tap, and the Items strip with its arrows | crop: right-hand Details panel */}
+{/* CAPTURE: id=reference-navigation-2 | state: playground starter open, a Bottom Navigation Bar set in the home screen's Bottom Navigation Bar slot (Details > Screen > click the slot, pick it in the Search for a widget dialog) and selected | show: Details for the Bottom Navigation Bar with Current Index showing pageIndex, Unselected and Selected with their Edit buttons, On Tap, and the Items strip with its arrows | crop: right-hand Details panel */}
 
 Removing the bar removes `pageIndex` too, so anything linked to it needs a new value.
 

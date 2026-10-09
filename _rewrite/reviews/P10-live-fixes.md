@@ -25,6 +25,10 @@ Finding # = number in the short list at the top of `P10-live-checks.md`; "brief 
 | `code/custom-code.md` L72 | "Each variant appears as its own canvas next to it" became "A variant without a `group:` appears as its own canvas below it". Code agrees (`widget_designer.dart` `_layOutVariants`: the component and ungrouped variants share the first column; each group gets its own column). | 6 (brief 7) |
 | `code/custom-code.md` L73 | Dropped "(jumps to the preview code)". Live: `tag.dart` was open at line 1. Code: `canvas_titles.dart` opens the file and calls `navigate(declaration)`, but `DartEditor.navigate` selects a line only when the editor is already in code mode (`_wasInCodeMode`), so the code doesn't clearly show a jump. | 6 (brief 7) |
 | `code/custom-code.md` L60 | Extra: "see the states side by side" became "see the states together" (same claim as L72). | 6 (extra) |
+| `reference/shortcuts.md` L164 (Library search table) | "Go back from the first row to the search" became "Go back to the search from the first result. The first press stops on its group heading, and the next one reaches the search" (same as `design/library.md`). The first note and final report said L162; that is the table separator, the row is L164. | 2 (follow-up) |
+| `reference/shortcuts.md` L168 (Library search table) | "Jump from a row into the search" now adds: the letter you type stays selected, so the next one replaces it. The "click the search field first" tip stays on `design/library.md` only, to keep the table row short. | 2 (follow-up) |
+| `reference/widgets/media.md` L22 | "When a widget needs a package ... Nowa opens **Add Missing Dependencies** as you pick it" became "If a widget needs a package ... Nowa opens **Add Missing Dependencies** when you add it with Enter or **Insert**". Added: dragging the widget onto a screen doesn't ask; **Problems** lists the missing package and **Details** has a **Hot Fix** button. Link to the add-widgets section kept. "Pick it" also covers a drag, and the widget picker dialog (the code opens the dialog there too, `widget_picker.dart`) was not checked live, so only Enter and Insert are named. | 7 (follow-up) |
+| `integrations/index.md` L46 | "Nowa shows **Add Missing Dependencies** when you add it" now reads "... when you add it with Enter or **Insert**". Added the same drag sentence as `media.md`. Link kept. | 7 (follow-up) |
 
 ## Kept on purpose
 
@@ -35,11 +39,11 @@ Finding # = number in the short list at the top of `P10-live-checks.md`; "brief 
 ## Not changed, for the lead to decide
 
 - `logic/navigation.md`: it has no Page View text (its L88 is the GoRouter **On Tap** step), so nothing to fix there. Finding 5 went to `reference/widgets/navigation.md` and `reference/widgets/index.md`.
-- Pages outside the brief that repeat the old claims, not edited:
-  - `reference/shortcuts.md` L162 ("Go back from the first row to the search", ↑) and L168 (typing from a row jumps into the search, no note about the selected first letter).
-  - `reference/widgets/media.md` L22 ("Nowa opens **Add Missing Dependencies** as you pick it") and `integrations/index.md` L46 ("Nowa shows **Add Missing Dependencies** when you add it"). Both hold for Enter and **Insert**, not for a drag.
+- Seen while fixing the follow-up pages, left alone (not on the coordinator's list):
+  - `reference/shortcuts.md` L79 (Ctrl/Cmd+K row): no note that the key does nothing while the focus is in the Library. Its section intro already scopes these keys to the board and the **Outline**.
+  - `code/packages.md` L32 ("The same dialog appears when you add a widget that needs a package"): true for Enter and **Insert**, and it links to the fixed add-widgets section.
 
 ## Checks
 
-- Every relative link and anchor in the six edited pages resolves (script run from the scratchpad; headings and ids untouched, including `#add-a-widget-that-needs-a-package` and `#page-view`).
+- Every relative link and anchor in the nine edited pages resolves (script run from the scratchpad; headings and ids untouched, including `#add-a-widget-that-needs-a-package` and `#page-view`).
 - No banned words from the style guide; new text keeps `<package>` inside code spans so MDX parses.

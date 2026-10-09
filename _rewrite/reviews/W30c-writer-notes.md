@@ -283,7 +283,8 @@ existing one in the Collections / Queries editors.** Product issue candidate (se
   (`packages/nowa_runtime/CHANGELOG.md:1-3`, `packages/core/lib/version.dart:4`); selecting them lists the package under **Dependencies** (`SmoothIndicatorWidgetInfo`,
   `packages/core/lib/src/interpreter/declaration_info/widget_info.dart:256-268`, wired for `AnimatedSmoothIndicator` and `SmoothPageIndicator` at
   `declaration_info_factory.dart:28-29`; the section is `ExprDependencies`, `packages/core/lib/src/fields/expression_builder/expression_dependencies.dart:8-62`, shown by
-  `packages/core/lib/src/fields/class_field.dart:62`); a project that already uses the dots without the package gets **Page indicator migration** (links `code/packages.md#page-indicator-migration`,
+  `packages/core/lib/src/fields/class_field.dart:62`; its **Hot Fix** button appears while a dependency is missing and calls `registerPackage` for a package dependency:
+  `expression_dependencies.dart:51-60`, `packages/core/lib/src/dependency_system/dependency_helper.dart:35-39`, `dependency.dart:16-26`); a project that already uses the dots without the package gets **Page indicator migration** (links `code/packages.md#page-indicator-migration`,
   W30b). Needs a live check: that **Details** shows the **Dependencies** block for the dots, as the research states.
 
 ## Guides
@@ -349,7 +350,7 @@ existing one in the Collections / Queries editors.** Product issue candidate (se
    upstream, so it probably does not): nothing about Linux is written on the Firebase pages or in known-issues.
 2. **Library with the View Only role** (part 6 #2): can a viewer use **Add**, **Rename**, **Delete**, **Insert** in the Library? `account/workspaces.md` deliberately says nothing about the Library.
 3. **Dragging a package widget from the Library when its package is missing** (part 6 #3): not described on my pages (the integration pages use Ctrl/Cmd+K and Enter, which ask first).
-4. **Page View in a project without `smooth_page_indicator`** (part 6 #4) and whether **Details** shows the **Dependencies** block for the dots (`reference/widgets/navigation.md` says it does, from code).
+4. **Page View in a project without `smooth_page_indicator`** (part 6 #4) and whether **Details** shows the **Dependencies** block, with **Hot Fix** adding the package, for the dots (`reference/widgets/navigation.md` says it does, from code).
 5. **Screen parts dragged from the Library** (`reference/widgets/navigation.md`, "Add a screen part"): the capture says the drop lands in the body; `ScaffoldRule` suggests the slot. The page uses the
    **Details** > **Screen** slots and says a drag "can land in the body". Also not tried: Ctrl/Cmd+K then Enter for these four parts.
 6. **Linux run pane** (`test/run.md`): does the run toolbar (**Phone**/**Tablet**, **Fullscreen**, **Hot Reload**) still do anything while the pane only offers **Open in Browser**?

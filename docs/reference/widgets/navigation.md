@@ -90,7 +90,7 @@ The first child shows when `pageIndex` is 0, the second when it is 1, and so on.
 
 The dots are a separate widget. Nowa doesn't connect them to the pages for you.
 
-They come from the `smooth_page_indicator` package, which `nowa_runtime` no longer includes. Select the dots and **Details** lists the package under **Dependencies**. If you open a project that already uses them without the package, Nowa offers a **Page indicator migration**: see [Handle the Page indicator migration](../../code/packages.md#page-indicator-migration).
+They come from the `smooth_page_indicator` package, which `nowa_runtime` no longer includes. Select the dots and **Details** lists the package under **Dependencies**. If your project doesn't have it yet, click **Hot Fix** there to add it. If you open a project that already uses them without the package, Nowa offers a **Page indicator migration**: see [Handle the Page indicator migration](../../code/packages.md#page-indicator-migration).
 
 ### Add tabs {#tabview}
 

@@ -5,19 +5,14 @@ sidebar_label: Files
 keywords: [files, Files panel, file tree, Library, Add, Upload Assets, Add to library, Add board, Import asset, New Folder, rename file, move file, delete file, cut, paste, lib/main.dart, search, replace all, symbols, search for a file, find in files, project search]
 ---
 
-Two panels look after your project's files. The [Library](../design/library.md) is where you add, rename, move and delete your screens, widgets, models and assets. In [code mode](code-mode.md), **Files** shows every file in the project as a tree. The **Search** panel finds any line of code.
+Two panels look after your project's files. In the designer, the [Library](../design/library.md) adds, renames, moves and deletes your screens, widgets, models and assets. In [code mode](code-mode.md), **Files** shows every file in the project as a tree. The **Search** panel finds any line of code.
 
 ## Open the Library or Files {#open-the-files-panel}
 
 The Library and **Files** share one place in the left sidebar, second from the top. Click the icon to open the panel, and click it again to close it.
 
-| | Library | Files |
-|---|---|---|
-| **Where** | Outside code mode. Click **Library**, or press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>2</kbd>. | In code mode only. The folder icon (**Files**) takes the Library's place and opens by itself. <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>2</kbd> opens it too. |
-| **What it shows** | What your `lib/` folder declares, in folders: screens, components, models, global states and more. The chips add your packages, Nowa's built-in widgets and your assets. | The whole project, including `pubspec.yaml` and the platform folders. Folders start closed. |
-| **Add buttons** | **Add** (+) in the header. | None. Leave code mode and use the Library. |
-| **Click a row** | Shows a details card with a preview. Double-click, or press <kbd>Enter</kbd>, to open it. | Opens the file in a tab. |
-| **Follows you** | It marks the widget that is open in the editor. | It selects the file in the open tab. |
+- **Library**: outside code mode, click **Library** or press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>2</kbd>. It lists what your `lib/` folder declares, in folders, and its chips add your packages, Nowa's built-in widgets and your assets. Click a row for a details card with a preview. Double-click it, or press <kbd>Enter</kbd>, to open it.
+- **Files**: in code mode, the folder icon (**Files**) takes the Library's place and opens by itself. <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>2</kbd> opens it too. It lists the whole project, including `pubspec.yaml` and the platform folders, with folders closed. Click a file to open it in a tab. The tree follows the tab you have open.
 
 Names in the **Files** tree carry markers:
 
@@ -27,9 +22,7 @@ Names in the **Files** tree carry markers:
 
 The Library shows the red problem count too, on rows and on their folders, but no `*` and no Git letters.
 
-Nowa doesn't load `.git/`, `build/` or `.DS_Store`, and the **Files** tree doesn't list top-level items whose names start with a dot, such as `.nowa`.
-
-A `.board` file stores one board. The Library doesn't list boards, and in code mode a `.board` file opens a tab that says "Code view is not available for boards". To work on a board, leave code mode and pick it in the **Boards** chip in the top bar. See [Work with boards](../design/boards.md).
+Nowa doesn't load `.git/`, `build/` or `.DS_Store`, and the **Files** tree doesn't list top-level items whose names start with a dot, such as `.nowa`. A `.board` file stores one board. The Library doesn't list boards, and in code mode a `.board` file opens a tab that says "Code view is not available for boards". Pick the board in the **Boards** chip in the top bar instead. See [Work with boards](../design/boards.md).
 
 ## Add files {#add-files}
 
@@ -40,21 +33,19 @@ In the Library, click **Add** (+) in the header and choose what to make.
 | Item | What it creates |
 |---|---|
 | **New Widget...** | A screen or component from a template. See [Start from a template](../design/templates.md). |
-| **New Folder...** | A folder in `lib`. It goes inside the folder of the row you clicked last, if that row is in `lib`. |
+| **New Folder...** | A folder in `lib`. It goes inside the folder you clicked last in the Library (for a widget or another row, the folder that holds it), or directly in `lib`. |
 | **New Model...** | A data model in `lib/models`. See [Data models](../logic/models.md). |
 | **New Global State...** | A global state in `lib/globals`, attached to your app. See [Share data across your app](../logic/global-state.md). |
 | **Generate Models From Json...** | Model classes built from JSON. See [Data models](../logic/models.md). |
 | **API Collection...** | A REST API collection in `lib/api`. See [Connect a REST API](../integrations/rest-api/index.md). |
 | **Import Dart code...** | Dart you paste or load from a file. See [Write your own code](custom-code.md#import-dart-code). |
-| **Upload Assets...** | Files you pick on your computer, in `assets`, or in the folder in `assets` that holds the row you clicked last. See [Images, videos and other files](../design/assets.md). |
+| **Upload Assets...** | Files you pick on your computer, saved in `assets`, or in the `assets` subfolder you clicked last (for a file, its folder). See [Images, videos and other files](../design/assets.md). |
 
-A model or global state asks for a name. It must be a valid Dart name that nothing else in your project already uses, and it can't be a Dart keyword.
+A model or global state asks for a name: a valid Dart name that nothing else in your project uses and that isn't a Dart keyword.
 
-After you add something, look for it in the Library. Its **Filter** starts on **Widgets**, so a new model or global state stays hidden until you choose **Everything**, **Models** or **Global states**. A folder shows in the Library only when something is in it, so a new empty folder appears first in the **Files** tree in code mode.
+The Library's **Filter** starts on **Widgets**, so a new model or global state stays hidden until you choose **Everything**, **Models** or **Global states**. A folder shows in the Library only when something is in it, so a new empty folder appears first in the **Files** tree in code mode.
 
-To add a board, click **Create new board** in the **Boards** chip in the top bar, or press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>B</kbd>. See [Work with boards](../design/boards.md).
-
-In code mode, a blank tab (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>T</kbd>) offers **New Widget** and **Upload a File** too.
+To add a board, click **Create new board** in the **Boards** chip in the top bar, or press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>B</kbd>. See [Work with boards](../design/boards.md). In code mode, a blank tab (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>T</kbd>) offers **New Widget** and **Upload a File** too.
 
 :::tip
 Or ask Nowa AI: "Add a Product model with a name and a price." It creates the file for you.
@@ -62,9 +53,9 @@ Or ask Nowa AI: "Add a Product model with a name and a price." It creates the fi
 
 ## Rename, move and delete files
 
-In the Library, right-click a row for **Insert**, **Open**, **Rename**, **Delete** and **Show in code**, and drag a row onto a folder to move it. Things in `lib` stay in `lib`, and assets stay in `assets`. The Library works on one row at a time. See [Find and add things with the Library](../design/library.md).
+In the Library, right-click a row for **Insert**, **Open**, **Rename**, **Delete** and **Show in code**, and drag a row onto a folder to move it. Things in `lib` stay in `lib`, and assets stay in `assets`. The Library works on one row at a time.
 
-In code mode, right-click a file or folder in **Files**. The row you right-click is selected first. Ctrl/Cmd-click adds a row to the selection and Shift-click selects a range, so one action can cover several files. With the **View Only** role, the menu has only **Copy as path** and **View in folder**.
+In code mode, right-click a file or folder in **Files**. The row is selected first. Ctrl/Cmd-click adds a row to the selection and Shift-click selects a range, so one action can cover several files. With the **View Only** role, the menu has only **Copy as path** and **View in folder**.
 
 | Menu item | What it does |
 |---|---|
@@ -78,11 +69,9 @@ In code mode, right-click a file or folder in **Files**. The row you right-click
 
 To move files, drag them onto a folder. Several selected rows drag together. Files in `lib` can move only within `lib`, files in `assets` only within `assets`, and `.board` files only within `boards`. A folder can't move into itself. Nowa updates imports when you move a Dart file.
 
-The tree works from the keyboard too. The arrow keys move between rows, and <kbd>Shift</kbd> with an arrow extends the selection. <kbd>Space</kbd> selects the focused row. <kbd>Enter</kbd> opens a file or opens and closes a folder, and <kbd>←</kbd> and <kbd>→</kbd> close and open a folder.
+Keys in the tree: the arrow keys move between rows, <kbd>Shift</kbd> with an arrow extends the selection, <kbd>Space</kbd> selects the focused row, <kbd>Enter</kbd> opens a file or opens and closes a folder, and <kbd>←</kbd> and <kbd>→</kbd> close and open a folder. <kbd>Delete</kbd> (<kbd>Backspace</kbd> on macOS) removes the selected files.
 
-To delete a file, you can also select it and press <kbd>Delete</kbd> (<kbd>Backspace</kbd> on macOS). Nowa asks "Are you sure you want to delete…?". If other files use something declared in it, Nowa lists those uses and asks again. Open tabs for the file close. <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Z</kbd> undoes a delete while the **Files** panel has focus.
-
-`lib/main.dart` can't be deleted. Nowa shows **Cannot delete file** and leaves it alone.
+Before a delete, Nowa asks "Are you sure you want to delete…?". If other files use something declared in the file, Nowa lists those uses and asks again. Open tabs for the file close. <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Z</kbd> undoes a delete while the **Files** panel has focus. `lib/main.dart` can't be deleted: Nowa shows **Cannot delete file** and leaves it alone.
 
 ## Search the project
 

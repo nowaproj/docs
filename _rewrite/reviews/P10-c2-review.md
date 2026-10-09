@@ -4,9 +4,45 @@ Verifier: non-author agent. Source of truth: `/home/user/nowa-master` at `3cb320
 `git diff 9844ed6 -- <page>`; product baseline `b84bfdafd` (3.12.5, in `/home/user/nowa`, used for `git diff b84bfdafd 3cb32031c -- <file>`).
 Code refs are `path:line` in the 3.13 tree. Tools: grep for exact labels; a link and anchor checker over the 15 pages.
 
-SUMMARY_PLACEHOLDER
+## Summary
 
-LINKCHECK_PLACEHOLDER
+Pages checked: **15** (account 4, reference 6, guides 3, troubleshooting 2), each in its own section below.
+Claims checked: about **110** claims in text that 3.13 changed, one by one against `3cb32031c` (rows in the tables below; a row can bundle a key pair or
+a label group), plus about **240** labels, keys and steps in unchanged text on the same pages, grepped or taken from the 3.12.5..3.13.0 diff (marked "not re-derived").
+Fixed: **8** (in 5 pages), removed: **0**, plus 3 wording changes (6 pages edited in all). Open issues: 5 (end of this file).
+
+Fixes, most serious first:
+1. `reference/widgets/index.md`: the **Floating Button**, **App Bar** and **Drawer** rows said "Drop it on a screen and it goes into the screen's slot". The deepest
+   opaque drop host wins, so the **Stack** that fills an **Empty Page** body takes the drop, and the live capture saw the same (`ui-diffs-3.13.md` row 12). Rows now point at the
+   slot in **Details** > **Screen** and link `navigation.md#screen-parts`. The writer had fixed `navigation.md` but not these rows (3 fixes).
+2. `reference/shortcuts.md` "Library search": the first row said ↓ moves "from the search to the first result". While you type, the first result is already highlighted
+   (`library_panel.dart:241`), so the first ↓ lands on the second. Row reworded (1 fix).
+3. `reference/widgets/navigation.md`: "the dialog titled **Search for a widget**" is a search-box hint, not a title (now "the dialog with the hint ..."); the drag
+   sentence now says what the code does (a drag fills the slot only where no group is under the pointer; the **Stack** of an **Empty Page** screen takes it), the same
+   wording as `design/screens.md` (2 fixes).
+4. `reference/widgets/media.md`: "drag a file from **assets**" pointed at the old Files section; now the **Assets** chip of the Library (1 fix).
+5. `account/projects.md`: list rows show the edit time only in a window of 600 px or more (`projects_grid.dart:179`); the example package name `docs_capture_notes` (the
+   capture sandbox's project) replaced by `my_app`; the paragraph tightened (1 fix, 2 wording changes).
+6. `troubleshooting/known-issues.md`: "in any app" reworded to "on any platform" (wording change).
+
+The 3.13 text the writer produced held up: all key bindings, Mac key order, the sheet's group contents, sidebar numbers, the Back/Forward and Boards behavior, the
+Library keys, the banner limit, the Download Nowa buttons, the Linux preview pane and update dialog, and the Firestore finding (re-derived: no reachable entry point).
+No price, credit amount or plan limit on any page. Nothing on the pages still says "Widgets panel", "Move Up/Down/To Top/To Bottom", "No Linux desktop app", or
+"macOS and Windows" for the desktop app (the one remaining "on macOS and Windows" in `troubleshooting/index.md` is the in-app update path, which is right).
+
+## Link, anchor and syntax checks
+
+- Outgoing: **307** links, anchors and images in the 15 pages (relative paths, `#anchors`, `/img/` files): **0 broken**. Every changed target resolves, among them
+  `design/library.md`, `design/theme-styles.md#colors-from-theme-extensions`, `integrations/firebase/firestore.md#test-a-query` and `#add-collections-and-queries`,
+  `test/run.md#choose-where-to-run`, `get-started/desktop-app.md#install-on-linux`, `code/packages.md#page-indicator-migration`, `reference/widgets/navigation.md#screen-parts`
+  and `#page-view`.
+- Inbound: **143** links from the rest of `docs/` into these pages (with anchors such as `known-issues.md#firebase-on-windows`): **0 broken**. **42** redirects in
+  `redirects.js` that end on these pages (widget anchors, `/troubleshooting/known-issues#firebase-on-windows`): 0 broken anchors. No link to the deleted
+  `#no-linux-desktop-app` anywhere (docs, `redirects.js`, `sidebars.js`).
+- Old anchor `{#find-a-widget-in-the-picker}` is kept on the renamed heading; the redirect and widget anchors (`<Anchor id=...>`) are unchanged.
+- All 15 pages compile as MDX (syntax check with `@mdx-js/mdx`, heading ids stripped as Docusaurus does); no build was run.
+- Style lint: no H1 in a body, no `---` rule, at most two admonitions per page, no hype words, no emoji, CAPTURE placeholders well formed (`account-workspaces-1/2`,
+  `account-help-1`, `account-index-1`, `account-projects-1/2`, `reference-forms-2`, `reference-navigation-2`, `integrations-firebase-firestore-1`).
 
 ## docs/account/workspaces.md
 
@@ -63,14 +99,14 @@ Changed in 3.13: the paragraph under "Find a project" about card text (the write
 | claim | verdict | code ref | note |
 |---|---|---|---|
 | Cards show a cover image, or the project's first letter, and the name | ok | `packages/nowa_ui/lib/dashboard/projects_grid.dart:274-282` (`ProjectCover`: initial when no cover or the image fails), `:106` (title) | |
-| The line under the name is the project's package name when it differs from the name | ok | `projects_grid.dart:79` (`project.subtitle == null \|\| hovering ? editedLabel : subtitle`), `lib/dashboard/dashboard_mapper.dart:56-62` (`title = friendlyName ?? name`, `subtitle: hasFriendlyName ? project.name : null`); local projects: `packages/core/lib/src/services/local_project_service.dart:26-27` (`friendlyName` = typed name, `name = generatePackageName(...)`) | For a cloud project the server sets `name`; the code cannot show that, but the live capture saw the package-style `docs_capture_notes` under the card (`captures/ui-diffs-3.13.md` row 11), and the page defines **Package Name** in "Name your project". The code's own comment calls this line "the folder name" (`projects_grid.dart:76`), the same value |
+| The line under the name is the project's package name when it differs from the name | ok | `projects_grid.dart:79` (`project.subtitle == null \|\| hovering ? editedLabel : subtitle`), `lib/dashboard/dashboard_mapper.dart:56-62` (`title = friendlyName ?? name`, `subtitle: hasFriendlyName ? project.name : null`); local projects: `packages/core/lib/src/services/local_project_service.dart:26-27` (`friendlyName` = typed name, `name = generatePackageName(...)`) | For a cloud project the server sets `name`; the code cannot show that, but the live capture saw the package-style `docs_capture_notes` under the card (`captures/ui-diffs-3.13.md` row 11), and the page defines **Package Name** in "Name your project". The code's own comment calls this line "the folder name" (`projects_grid.dart:76`), the same value. The example `docs_capture_notes` (the capture sandbox's project) was replaced by `my_app` for a project called My App (`packages/core/lib/src/file_system/naming.dart:193-215`, `generatePackageName`: lowercase, spaces to underscores) |
 | While you point at a card, or when the package name equals the name, the line shows "Edited 5m ago" style text | ok | `projects_grid.dart:79`, `dashboard_mapper.dart:84-103` (`Edited ${m}m ago`, `just now`, `yesterday`, ...) | |
 | List rows show the name, a **Cloud** or **Local** badge and the edit time | fixed | `projects_grid.dart:176` (badge), `:179-186` (`if (!compact)` edit time; `compact` = window under 600 px: `packages/nowa_ui/lib/src/globals/responsive_utils.dart:55`) | the edit time is left out in a narrow window; page now says "unless the window is narrow" |
 | **RECENTS** shows the edit time | ok | `packages/nowa_ui/lib/dashboard/dashboard_side_bar.dart:403` (`subtitle: Text(project.editedLabel)`) | up to five projects: `dashboard_mapper.dart:7` |
 | Labels **Cloud**, **Local** | ok | `projects_grid.dart:253` | |
 | 30 other labels (New project menu, Clone from GitHub, Import project, Sort by, Load More, Open in safe mode, Move to workspace..., Upload to cloud, Remove from list, Delete, Project not found, Locate folder ...) | ok | `projects_grid.dart:300-330`, `projects_view.dart:324-333,434,549` | the 3.12.5..3.13.0 diff of `projects_grid.dart` and `projects_view.dart` is `NMenu`/`NButton` restyle only |
 
-Fixed 1 (narrow-window caveat), removed 0. Length 1,459 words by `wc -w` (tables included; the rest of the page is unchanged).
+Fixed 1 (narrow-window caveat), plus two wording changes (the example package name; the paragraph tightened by about 10 words). Removed 0. Length about 1,400 words of body by my count (tables included): a long how-to, unchanged in size by the edits.
 
 ## docs/reference/shortcuts.md
 
@@ -109,6 +145,12 @@ behavior from the action it reaches.
 
 Not on the page, on purpose: the `/` key that focuses the AI chat (`designer_setup.dart:54`) works only when the New UX bottom bar is shown
 (`research/features-editor-shell.md:358`), not in the released layout.
+
+Live evidence seen after the code check (the other agent's captures in the scratchpad `live-checks/`, 3.13.0 playground, Chromium on Linux; `P10-live-checks.md` item 2 is
+still being written): with `ext` typed, **Text** is highlighted and one press of ↓ moves to **Text Field** (`22-add-mode-text-results.png`, `25-after-arrowdown.png`, which
+confirms the reworded ↓ row); Esc with the card showing puts the card away and keeps the row (`26b-after-escape.png`); a letter typed on a row lands in the search field
+(`40b-typing-while-row-focused.png`); Delete on the **HomePage** row does nothing (`43a-delete-on-homepage-row.png`); Back is greyed on the first place and the
+tooltip reads "Boards (Ctrl B)" (`31b-zoom.png`, `32c-zoom.png`), as the Ctrl format on line 9 says.
 
 Fixed 1 (the ↓ row), removed 0. The "Library search" table has 8 rows, 7 ok. Length is 2,936 words by `wc -w` because the tables carry many `<kbd>`
 tags; prose is short. Front matter fine (keywords added: library, back, forward, boards). One `:::tip`, no H1, no `---` rule.
@@ -171,3 +213,104 @@ Another verifier had already aligned the screen-part text with `design/screens.m
 CAPTURE `reference-navigation-2` is well formed and its state now names the slot path (request row `skipped: low value`; not my concern).
 
 Fixed 2 ("titled", drag rule wording), removed 0. Length 1,529 words by `wc -w` (tables included): fine.
+
+## docs/guides/complete-app.md
+
+Changed in 3.13: step 6.2 (open `RecipeCard`). Also changed since the baseline, not by W30c: the CAPTURE placeholder of step 1 became an embedded 3.13 screenshot (commit `0614733`).
+
+| claim | verdict | code ref | note |
+|---|---|---|---|
+| "Open `RecipeCard` on its own: in the **Library**, double-click it, or select it and press Enter" | ok | `lib/project/panels/library_panel/library_host.dart:147-154` (`_open` -> `openLibrarySource`), `packages/core/lib/src/library/library_actions.dart:67-73` (opens the file at the declaration), `packages/nowa_ui/lib/library/library_panel.dart:527-542` (`_activate` opens when not adding), `:566-573` (Enter on a row), `packages/nowa_ui/lib/library/library_contract.dart:223-225` (default filter **Widgets** lists components) | a component opens on its own as in 3.12.5. Not in add mode: after Ctrl/Cmd+K a double-click inserts instead (`_adding` flips it); the step starts from a plain click, so this holds |
+| The page no longer says "**Widgets** panel", "**Page**/**Component**" | ok | grep | |
+| Embedded screenshot `guides-complete-app-1.png`: alt text matches the image | ok | viewed the file | shows the board with HomePage, SignInPage, RecipeDetailPage, the **Your app design is complete** card with **Make it real**; status bar `v3.13.0-79` |
+| 25 other labels and steps (Design chip, **Build it**, **Questions**, **Create component**, **Supabase** panel steps, **Authentication Template**, **Future Options**, **Redirect Logic**, **Screen Parameters**, **Pick Widget**, **Item Builder**, **Generate a Query**, **No Tables Found**, **Fetch Tables**, **Open on Mobile**, **Run on**, **Router** panel, **Make home screen** ...) | ok | `packages/designer/lib/src/menus/widget_context_menu.dart` (**Create component**), `packages/nowa_ui/lib/top_bar/top_bar_contract.dart` (**Open on Mobile**), `lib/project/run/run_button.dart` (**Run on**), `lib/project/side_bar.dart:102-108` (**Router**), `packages/designer/lib/src/details/route_details.dart`, `packages/core/lib/src/services/templates/built_in/auth_template.dart`, `packages/code/lib/src/fields/future_options.dart`, `packages/core/lib/src/editors/router_editor/router_block_view.dart`, `go_route_node_view.dart`, `packages/core/lib/src/fields/basic_fields.dart`, `grid_view_field.dart`, `packages/data/lib/src/supabase/ui/sb_outline.dart`, `.../templates/ui/template_category_view.dart` | grepped as labels; the flows are unchanged in the 3.12.5..3.13.0 diff |
+
+Fixed 0, removed 0. 1,481 words by `wc -w`, body 1,439: a tutorial, a little over the ~1,400 target. Not cut: every step is needed and the 3.13 edit added 4 words.
+
+## docs/guides/design-tips.md
+
+Changed in 3.13: the theme-extensions bullet, the Descriptions bullet, and (beyond the writer's list) the Boards naming bullet.
+
+| claim | verdict | code ref | note |
+|---|---|---|---|
+| A widget's color picker shows your extension colors as tabs next to **Material** | ok | `packages/core/lib/src/fields/color_fields.dart:826-838` (`NowaTabBar`: one tab per extension, named after its class, plus `NowaTabItem(label: 'Material')`, only when `extensions.isNotEmpty`) | the page says "your extension colors"; the tab is per extension class |
+| **Text Styles** lists their text styles in groups | ok | `packages/core/lib/src/fields/style_fields/style_fields.dart:245-261` (`StyleGroupHeader(extension.name)` per extension at `:248`, then a `Material` header at `:261` over the usual styles) | |
+| Link `../design/theme-styles.md#colors-from-theme-extensions` | ok | heading `### Colors from theme extensions` in `design/theme-styles.md` (link check) | |
+| Theme extensions have no create button, and come from code | ok (unchanged) | `ThemeClassDecl`/`env.themeTokens` read classes from the project; no creation UI found by grep | verified in W4 |
+| Descriptions: **Add description** under a screen's or component's name; the note shows in the Library's details card and in the widget picker dialog | ok | `packages/designer/lib/src/details/widget_details.dart:369` (**Add description**, else the one-line doc), `packages/core/lib/src/library/library_service.dart:281` (`doc: decl.comment.docText?.docSummary`), `packages/nowa_ui/lib/library/library_panel.dart:1192-1253` (card shows up to 4 lines of `doc`), `packages/core/lib/src/widgets/widget_picker.dart:299` (`componentDoc?.docSummary`) | |
+| Boards: Nowa writes the board name in snake_case, so **Login flow** becomes `login_flow` | ok | `packages/designer/lib/src/actions/file_actions.dart:7-26,62-67` (`_recordCreateBoardFile` -> `generateFileName`), `packages/core/lib/src/file_system/naming.dart:158-163` (`strategy: Cases.snakecase`), `:165-172` (`input.snakeCase`) | 3.12.5 gave `loginFlow`; found beyond the writer's list (C9). The **New Board** dialog title is `New ${creatingText}` (`create_file_dialog.dart:94`) |
+| 28 other claims (Themes Ctrl/Cmd+3, **Mode** / **Seed Color** / **Scheme Variant**, `changeTheme`, **Create component**, **Copy as new widget**, **Detach**, template names, size modes, **Safe Area**, **Visibility**, size presets, Ctrl/Cmd+C ...) | ok (not re-derived) | no label change in the 3.12.5..3.13.0 diff of the theme, template and details code beyond restyle and the theme-extension tabs; Themes is sidebar slot 3 (`lib/project/side_bar.dart:55-58`) | verified in P9 |
+
+Fixed 0, removed 0. 1,001 words by `wc -w`: fine.
+
+## docs/guides/data-and-state-tips.md
+
+Changed in 3.13: the **Firestore** bullet under "Test queries before you build the screen" (a coverage find, depends on the Firestore finding).
+
+| claim | verdict | code ref | note |
+|---|---|---|---|
+| "**Firestore:** click **Run Test** in the **Queries** editor" | ok | `packages/data/lib/src/firebase/firestore/queries_builder/ui/query_test_section.dart:94,102` (**Restart**, **Run Test**) | |
+| "Testing isn't possible in the Windows desktop app" | ok | `packages/data/lib/src/firebase/firestore/queries_builder/ui/queries_builder.dart:104-130` (`kIsWeb == false && Platform.isWindows` overlay, "Testing Firestore Queries isn't possible on Windows version") | Windows only: the Linux app shows the active **Test** section; whether it works there is unknown (nothing claimed) |
+| "In Nowa 3.13 the designer can't open a query in that editor" | ok (code finding re-derived) | the outline widgets with **Add New Query** exist only in `FileInfo.preview` (`packages/data/lib/src/firebase/firebase_plugin.dart:37-47`; `FirestoreOutline` has no user); `FileInfo.preview` is read only by `FilePreviewDialogBody` (`lib/project/panels/files_panel/file_preview_body.dart:27`), created only by `FilesTreeHost._activate` in design mode (`files_tree_host.dart:266-282`); **Files** is in the sidebar only in code mode (`lib/project/side_bar.dart:44-53`); `openedQueryObject` is set only by the outline and the manager (`firestore_outline_tile.dart:248`, `query_builder_manager.dart:61-78`) | I re-ran the writer's greps (`CollectionsOutline`, `QueryBuilderOutline`, `FirestoreOutline`, `FilePreviewDialogBody`, `openedQueryObject`) and found no other entry point. Needs a live check (writer note 1); revert as the writer lists if one is found |
+| Links `firestore.md#test-a-query` and `firestore.md#add-collections-and-queries` | ok | link check | both headings exist; the second has an explicit id |
+| 20 other labels (**Testing values**, **Run**, **RLS Policy Error**, **Empty Result - Possible RLS Filtering**, **Test**, **Run Test**, **Json**, **Object**, **Generate Model**, **Generate Models From Json...**, **Loading Widget**, **Error Builder**, **Get Record by ID**, **Future Options**, ...) | ok (not re-derived) | unchanged text; the 3.12.5..3.13.0 diff of the Supabase and REST test code is restyle only; **Generate Models From Json...** is in the Library **Add** menu (`lib/project/panels/files_panel/add_lib_menu.dart:61-82`) | verified in P9 |
+
+Fixed 0, removed 0. 1,027 words by `wc -w`: fine.
+
+## docs/troubleshooting/known-issues.md
+
+Changed in 3.13: the Firestore section (two sentences), the new "Linux" section (replacing "No Linux desktop app"), the keyword list.
+
+| claim | verdict | code ref | note |
+|---|---|---|---|
+| In the Windows desktop app the **Test** section of a Firestore query is switched off: "Testing Firestore Queries isn't possible on Windows version" | ok | `queries_builder.dart:104-130` | unchanged; anchor `{#firebase-on-windows}` kept (redirect `/data-connections/firebase/known-issues/firebase-windows` resolves) |
+| "Or open the same project in the web app or the macOS desktop app, where the **Test** section is on" | ok | the gate is `Platform.isWindows` only (`queries_builder.dart:104,110`) | careful wording: "section is on", not "testing works" (Linux and Android-style desktop are not claimed) |
+| "In Nowa 3.13 the designer can't open a query in its editor on any platform" | ok (reworded) | as in `data-and-state-tips.md` above | applies to web and every desktop app (no platform gate in the plugin). "in any app" could read as "in any app you build", so it now says "on any platform" |
+| Linux: the preview pane says "Your app is running" and offers **Open in Browser**; the in-app preview isn't available on Linux yet | ok | `packages/nowa_run/lib/src/ui/nowa_run_preview.dart:129-130` (comment, then `if (NPlatform.isLinux) return _BrowserPreview(...)`), `:145-171` (texts "Your app is running", "The in-app preview is not available on Linux yet. Open it in your browser instead.", **Open in Browser**, the URL); `packages/nowa_runtime/lib/src/nowa_platform.dart:18` (`isLinux` is `!kIsWeb && defaultTargetPlatform == linux`, so the web app on Linux is not affected) | what the run toolbar does while the pane shows is not claimed (writer note 6) |
+| The Linux app doesn't install updates itself; the message offers **Download v...** and **Skip**; download the new archive and run `install.sh` again | ok | `lib/dashboard/overlays/update_overlay.dart:135-154` (`hasLink && !canAutoInstall` -> **Download v{version}** `:141-144`, then **Skip**), `packages/core/lib/src/services/version_service.dart:39` (`canAutoInstall = !kIsWeb && !NPlatform.isLinux`), `linux/packaging/install.sh:8-12` (replaces the old copy) | |
+| Links `../test/run.md#choose-where-to-run`, `../get-started/desktop-app.md#install-on-linux` | ok | link check | |
+| Old "No Linux desktop app" section removed | ok | `packages/core/lib/src/dialogs/download_nowa_dialog.dart:8` (`_showLinuxDownload = true`) | no inbound link to `#no-linux-desktop-app` anywhere (docs, `redirects.js`, `sidebars.js`) |
+| 6 other sections (API tests in the web app, **Continue with Apple**, Google Maps placeholder, test ads, Instant Play tooltip) | ok (not re-derived) | `lib/auth/auth_widgets.dart:500` (`kAppleSignInSupported = isIOS \|\| isWeb`) for the one that changed shape with the platform list | unchanged text |
+
+Fixed 0 (one wording change: "on any platform"), removed 0. 575 words by `wc -w`: fine.
+
+## docs/troubleshooting/index.md
+
+Changed in 3.13: the Linux bullet under "The preview won't start", **Browse widgets** in "A project freezes", the update-dialog bullets (macOS and Windows split from Linux).
+
+| claim | verdict | code ref | note |
+|---|---|---|---|
+| "Your app is running" with **Open in Browser** in the Linux desktop app is not an error; click it to see your app | ok | `nowa_run_preview.dart:129-130,145-171` | same as `known-issues.md` |
+| **Browse widgets** opens the Library | ok | `lib/project/panels/empty_workspace.dart:41-45` (`sidePanel = 'Library'`); labels **Nothing is open** `:25`, **Open board** `:35`, **Open code mode** `:47` | |
+| macOS and Windows: **Update to v...**, then "Download complete!", **Install & Restart**; **Later** and **Skip** wait; **Or download manually** opens the link | ok | `lib/dashboard/overlays/update_overlay.dart:135-154,202-218` | **Later** is on the "Download complete!" step, **Skip** on the first; the sentence covers both |
+| Linux: **Download v...** and **Skip**; run `install.sh` from the new archive again | ok | `update_overlay.dart:141-144`, `version_service.dart:39`, `linux/packaging/install.sh:8-12` | link `get-started/desktop-app.md#install-on-linux` exists |
+| "Update failed" shows the reason; **Retry**, **Download manually instead** | ok | `update_overlay.dart:235-255` | only the in-app path can fail |
+| **Version out of date** (desktop: **Download**) | ok | `lib/update_required_screen.dart:58` | Linux is in the **Download Nowa** dialog now |
+| Package messages ("'x' is imported but is not in the pubspec.", dev dependency, failed to load) | ok | `packages/core/lib/src/interpreter/packages/package_service.dart:405-419` | an `sdk:` dependency no longer raises the first one (`:410-425`); the page's generic wording stays true |
+| 40 other labels and messages in the page | ok (not re-derived) | unchanged text; no label change in the diffs of `lib/`, `packages/nowa_run`, `lib/project/run` | verified in W11 |
+
+Fixed 0, removed 0. 1,817 words by `wc -w`, a long page by design (many separate symptoms).
+
+## Writer's "needs a live check" items (stay as written when the code supports them)
+
+| # | Item (writer notes) | Pages in this batch | My finding |
+|---|---|---|---|
+| 1 | Firestore: no way to add or select a collection or query in the 3.13 designer | `guides/data-and-state-tips.md`, `troubleshooting/known-issues.md` | Code re-derived (no other user of `CollectionsOutline`, `QueryBuilderOutline`, `FilePreviewDialogBody`, `openedQueryObject`; **Files** is code mode only). The two sentences say only "the designer can't open a query in that editor", which the code shows. Stay as written; revert as the writer lists if a live check finds an entry point. Query testing on Linux is not claimed anywhere |
+| 2 | Library with the View Only role | `account/workspaces.md` | The Library never reads `isViewOnly` (`library_host.dart`, `library_panel.dart`; `_editable` only checks the id prefix). The page says nothing about the Library, but its umbrella sentence "the editor is read-only" is unproven for **Add**, **Rename**, **Delete**, **Insert** there. Left as written |
+| 3 | Dragging a package widget from the Library when its package is missing | `reference/widgets/index.md`, `media.md` | Code: no dependency check on a drop (`designer_board_controller.dart:244-283`). The pages say only that Enter and **Insert** ask, which is true. The live check file (`P10-live-checks.md` item 1) confirms both |
+| 4 | Page View without `smooth_page_indicator`; **Details** showing **Dependencies** for the dots | `reference/widgets/navigation.md`, `index.md` | Code supports it (`SmoothIndicatorWidgetInfo`, `ExprDependencies`, **Hot Fix**); stays as written |
+| 5 | Screen parts dragged from the Library | `reference/widgets/navigation.md` | The text now matches `design/screens.md` and the drag code (the **Stack** of an **Empty Page** screen wins). A Library drag onto a screen whose body is not a Stack is not proven live |
+| 6 | Linux run pane: what the run toolbar does | `known-issues.md`, `troubleshooting/index.md` | Not claimed |
+| 7 | RevenueCat Paywall refused in the capture sandbox | `reference/widgets/index.md` (row **RevenueCat Paywall**) | Not a label change; the row says the board shows a placeholder, unchanged. Likely the sandbox's analyzer; check on a normal account |
+| 8 | Library keyboard table | `reference/shortcuts.md` | Checked against `library_panel.dart:527-665`; one row fixed (↓). Esc order, F2 and typing-to-search all match |
+| 9 | **Linux** button enabled only while the server has a Linux link | `account/index.md` | The row says a button is greyed out when there is no download for that system, which is what the code does (`download_nowa_dialog.dart:53,65,85`) |
+| 10 | Boards chip tooltip on Windows and Linux; Linux minimum system | none of these pages | |
+
+## Open issues
+
+1. **Firestore entry point (P-W30c-1).** Code says there is none in the 3.13 designer. `data-and-state-tips.md` and `known-issues.md` state the limit; `integrations/firebase/firestore.md`
+   and `connect.md` (other batch) carry the long form. If a live check or a product change finds one, revert the places the writer lists at the end of `W30c-writer-notes.md`.
+2. **View Only and the Library (P-W30c-2).** The code does not gate it; whether the server refuses the writes is unknown. `workspaces.md` keeps its umbrella sentence.
+3. **A Library drag of a screen part onto a screen with a non-Stack body** is not proven live (`navigation.md`, `index.md` now point at the slot instead).
+4. **Page View dots: `Dependencies` block and **Hot Fix** in **Details**.** Supported by the code, not seen live (`navigation.md`).
+5. **Firestore query testing and the run toolbar on Linux.** Unknown; no page claims either.

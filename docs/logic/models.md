@@ -16,7 +16,7 @@ A model describes one kind of thing in your app, such as a task, a product or a 
 ## Add fields
 
 1. In the **Library**, click **Filter** and choose **Models**. The default filter, **Widgets**, hides them.
-2. Find the model in the `models` folder. Double-click it, or select it and press <kbd>Enter</kbd>. A single click only shows a details card.
+2. Double-click the model in the `models` folder, or select it and press <kbd>Enter</kbd>. A single click only shows a details card.
 3. Click the class name in the list on the left. Its **Variables** and **Functions** appear in the middle.
 4. Hover **Variables** and click **+**. Rename the new field, for example `title`, then set its **Type** and **Default Value** on the right. See [Store data in variables](./variables.md#choose-a-type) for the type picker.
 5. Repeat for each field.

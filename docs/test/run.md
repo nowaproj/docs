@@ -29,7 +29,7 @@ A dot next to **Run** shows the state. Hover it to read it, for example "Running
 
 While the preview is open, **Run** reads **Hide**. Click it to hide the preview. The app keeps running.
 
-In the Linux desktop app, the preview opens in your browser, because the in-app preview isn't available on Linux yet. The preview pane says **Your app is running** and "The in-app preview is not available on Linux yet. Open it in your browser instead." Click **Open in Browser**, or copy the address shown under the button.
+In the Linux desktop app, the app shows in your browser instead of inside Nowa. The preview pane says **Your app is running** and "The in-app preview is not available on Linux yet. Open it in your browser instead." Click **Open in Browser**, or copy the address shown under the button.
 
 ## Use the run toolbar
 

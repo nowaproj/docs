@@ -18,7 +18,7 @@ You can still use your queries in your app. To see real results:
 1. Connect the query to your UI (see [Use Cloud Firestore](../integrations/firebase/firestore.md)).
 2. Run your app on a simulator, an emulator or a phone (see [Run on a device or emulator](../test/devices.md)).
 
-Or open the same project in the web app or the macOS desktop app, where the **Test** section is on. In Nowa 3.13 the designer can't open a query in its editor in any app: see [Add collections and queries in Nowa 3.13](../integrations/firebase/firestore.md#add-collections-and-queries).
+Or open the same project in the web app or the macOS desktop app, where the **Test** section is on. In Nowa 3.13 the designer can't open a query in its editor on any platform: see [Add collections and queries in Nowa 3.13](../integrations/firebase/firestore.md#add-collections-and-queries).
 
 ## API tests fail in the web app but work elsewhere {#api-requests-blocked-in-the-browser}
 

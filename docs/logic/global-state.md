@@ -24,7 +24,7 @@ New projects already include a global state named **AppState** (`lib/globals/app
 ## Add variables and functions
 
 1. In the **Library**, click **Filter** and choose **Global states**. The default filter, **Widgets**, hides them.
-2. Find the global state, such as `CartState`, in the `globals` folder. Double-click it, or select it and press <kbd>Enter</kbd>. A single click only shows a details card.
+2. Double-click the global state, such as `CartState`, in the `globals` folder, or select it and press <kbd>Enter</kbd>. A single click only shows a details card.
 3. Click the class name, such as `CartState`, in the list on the left. Its **Variables** and **Functions** appear in the middle.
 4. Hover **Variables** and click **+**. Rename the new variable, then set its **Type** and **Default Value** on the right. See [Store data in variables](./variables.md). Keep **Is Final** off for a variable your functions will change.
 5. Hover **Functions** and click **+**. Rename the new function, for example `addToCart`. Circuit opens on the right: see [Build logic in Circuit](./circuit.md).

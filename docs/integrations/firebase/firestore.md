@@ -29,7 +29,7 @@ Here is what works today:
 
 A collection is a list of documents, such as `orders`. In Nowa, each collection is a model with `fromJson` and `toJson` (see [Data models](../../logic/models.md)) that your queries use. It describes the structure only. A collection appears in Firestore when you add its first document.
 
-Nowa keeps your collections in `lib/firebase/collections.dart`. To add one, see [Add collections and queries in Nowa 3.13](#add-collections-and-queries). A collection opens in the **Collections** editor with its field list and, on the right, a details panel:
+Nowa keeps your collections in `lib/firebase/collections.dart`. To add one, see [Add collections and queries in Nowa 3.13](#add-collections-and-queries). When a collection is selected, the **Collections** editor shows its field list and, on the right, a details panel:
 
 1. Click **+ Field** and type a name for the field. A new field starts as text (`String?`).
 2. Click the field's type to pick another one.
@@ -39,7 +39,7 @@ Double-click a field name to rename it later. The name you type for a collection
 
 ## Build a query
 
-Each query is a function of `FirestoreService`, in `lib/firebase/queries.dart`. To add one, see [Add collections and queries in Nowa 3.13](#add-collections-and-queries). A query opens in the **Queries** editor, where you build it one step at a time:
+Each query is a function of `FirestoreService`, in `lib/firebase/queries.dart`. To add one, see [Add collections and queries in Nowa 3.13](#add-collections-and-queries). When a query is selected, the **Queries** editor lets you build it one step at a time:
 
 1. Under **Query**, the builder starts with `FirebaseFirestore.instance`.
 2. Open **Select Collection** and pick a collection. It reads "No Collections" until you define one.

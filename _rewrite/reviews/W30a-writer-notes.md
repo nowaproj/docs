@@ -52,15 +52,15 @@ Claims and code refs:
   **Show in code**, with the conditions of `library_host.dart:156-172,189-192`; no menu on packages (`library_panel.dart:923-925`).
   Delete: "Are you sure you want to delete {name}?" with **Cancel** / **Yes** (`packages/core/lib/src/widgets/nowa_dialogs.dart:6-24`),
   then the references dialog **Cancel** / **Remove** (`packages/core/lib/src/widgets/declaration_references_dialog.dart:79-82`),
-  file removed when the widget is alone in it (`packages/core/lib/src/actions/block_actions.dart:93-104`). Rename renames the file
+  file removed when the widget is alone in it (`packages/core/lib/src/actions/block_actions.dart:87-99`). Rename renames the file
   when named after the symbol (comment at `library_host.dart:198`). Ctrl/Cmd+Z: the Library's own `Undo` (`library_host.dart:39,297-299`).
 - Move by drag, lib stays in lib, assets in assets: `library_host.dart:244-264`.
 - Delete key: the Library never fills its `SelectionProvider` (`library_host.dart:42`), so `RemoveIntent` from the global Delete key
   finds an empty selection and returns (`packages/core/lib/src/actions/general_actions.dart:14-16`,
-  `packages/core/lib/src/file_system/actions/file_actions.dart:122-124`). Stated on the page; marked "needs a live check" below.
+  `packages/core/lib/src/file_system/actions/file_actions.dart:139`). Stated on the page; marked "needs a live check" below.
 - **Add** menu entries: `lib/project/panels/library_panel/library_host.dart:176-186`, `lib/project/panels/files_panel/add_lib_menu.dart:11-105`.
   New Widget... opens the template picker and the new file opens in a tab (`add_lib_menu.dart:38-49`); template files go to
-  `lib/pages` or `lib/components` (`packages/core/lib/src/file_system/actions/file_actions.dart:51-53`), so the page does NOT claim they
+  `lib/pages` or `lib/components` (`packages/core/lib/src/file_system/actions/file_actions.dart:65`), so the page does NOT claim they
   follow the highlighted row. New Folder... uses the highlighted row's folder (`add_lib_menu.dart:50-59`, `library_host.dart:181`).
   Models in `lib/models`, global states in `lib/globals` (`packages/core/lib/src/providers/project_provider.dart:381,387`).
   API Collection... is the Api plugin's entry (`packages/data/lib/src/api/utils/api_util.dart:113-118`; the collection file goes to `lib/api`, not stated).

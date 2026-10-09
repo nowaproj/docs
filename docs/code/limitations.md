@@ -42,11 +42,11 @@ When your code uses Dart that Nowa can't read yet, Nowa skips only that part and
 | A `switch` case with a `when` clause, or with a list or map pattern | An `if` inside the case |
 | A `State` class with a mixin other than `TickerProviderStateMixin`, `SingleTickerProviderStateMixin` or `WidgetsBindingObserver`, such as `AutomaticKeepAliveClientMixin` | Remove the mixin to see the widget on the board, or check it with **Run** |
 
-These do work: record and object destructuring (`final (a, b) = pair;`), a `switch` that matches constants, `||`, `&&`, relational (`> 5`) and object patterns, enhanced enums, mixins and redirecting constructors. An `is` check narrows the value after it, as in `x is Card && x.title`.
+These do work: record and object destructuring (`final (a, b) = pair;`), a `switch` that matches constants, `||`, `&&`, relational (`> 5`) and object patterns, enhanced enums, mixins and redirecting constructors. An `is` check narrows the value for what follows it, as in `other is Trip && other.id == id`.
 
 ### Classes that extend Flutter classes
 
-Widgets, `State` and `ChangeNotifier` classes work as you'd expect. You can also extend `CustomPainter`, `CustomClipper`, `TextInputFormatter`, `NavigatorObserver`, `SliverPersistentHeaderDelegate`, `FocusNode`, `PreferredSizeWidget`, `InheritedWidget` and `Equatable`. Any other Flutter class, such as `Color` in `class HexColor extends Color`, loads, but its objects aren't real ones and fail wherever Flutter needs the real class. **Problems** warns about it.
+Widgets, `State` and `ChangeNotifier` classes work as you'd expect. You can also extend `CustomPainter`, `CustomClipper`, `TextInputFormatter`, `NavigatorObserver`, `SliverPersistentHeaderDelegate`, `FocusNode`, `PreferredSizeWidget`, `InheritedWidget` and `Equatable`. Any other Flutter class, such as `Color` in `class HexColor extends Color`, loads, but its objects aren't real ones. Where Flutter needs the real class, the board uses what the object wraps, for example an inner `ImageProvider`, or a placeholder of that class, so the screen keeps drawing. **Problems** warns about it.
 
 ### Imports and packages
 

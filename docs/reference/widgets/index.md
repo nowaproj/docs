@@ -43,7 +43,7 @@ The Library's details card shows a preview, the name and the first lines of the 
 |---|---|---|
 | <Anchor id="button" />**Button** | A button that runs an action when pressed. | Its label is a Text widget inside it. Click **Edit** next to **On Pressed** to build the action: see [Respond to taps and other events](../../logic/events.md). |
 | <Anchor id="icon-button" />**Icon Button** | A tap target that shows only an icon. | Same events as Button: **On Pressed**, **On Long Press** and **On Hover**. |
-| <Anchor id="floating-action-button" />[**Floating Button**](./navigation.md) | A button that floats above the content of a screen. | Drop it on a screen and it goes into the screen's floating button slot. |
+| <Anchor id="floating-action-button" />[**Floating Button**](./navigation.md) | A button that floats above the content of a screen. | Set it in the screen's **Floating Action Button** slot: see [Add a screen part](./navigation.md#screen-parts). |
 
 ## Layout
 
@@ -97,9 +97,9 @@ The Library's details card shows a preview, the name and the first lines of the 
 
 | Widget | What it does | Good to know |
 |---|---|---|
-| <Anchor id="appbar" />[**App Bar**](./navigation.md) | The bar at the top of a screen, with a title and actions. | Drop it on a screen and it becomes the screen's app bar. |
+| <Anchor id="appbar" />[**App Bar**](./navigation.md) | The bar at the top of a screen, with a title and actions. | Set it in the screen's **App Bar** slot: see [Add a screen part](./navigation.md#screen-parts). |
 | <Anchor id="navigation-bar" />[**Bottom Navigation Bar**](./navigation.md) | A row of tabs at the bottom of a screen. | Nowa creates a `pageIndex` variable and links **Current Index** and **On Tap** to it. |
-| <Anchor id="drawer" />[**Drawer**](./navigation.md) | A side menu that slides in over a screen. | Drop it on a screen and it goes into the screen's drawer slot. Also a [wrapper](../wrappers.md#drawer). |
+| <Anchor id="drawer" />[**Drawer**](./navigation.md) | A side menu that slides in over a screen. | Set it in the screen's **Drawer** slot: see [Add a screen part](./navigation.md#screen-parts). Also a [wrapper](../wrappers.md#drawer). |
 | <Anchor id="listtile" />**List Tile** | One row with a title and optional leading, subtitle and trailing widgets. | Typically the item of a **List View**. **On Tap** makes the row tappable. |
 | <Anchor id="expansion-tile" />**Expansion Tile** | A tile that expands to show more widgets. | Put the hidden widgets in **Children**. **Initially Expanded** opens it from the start. |
 | <Anchor id="alert-dialog" />**Alert Dialog** | A pop-up box with a title, content and action buttons. | To show it in a running app, add a `showDialog` step in logic: see [Show dialogs, sheets, snackbars and pickers](../../logic/popups.md#show-a-dialog). |

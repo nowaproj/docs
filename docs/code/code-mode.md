@@ -53,7 +53,7 @@ The editor colors Dart, JSON, YAML, XML, HTML and Markdown. You can edit any tex
 
 To open a file as plain text, right-click it in **Files** and choose **Show file content**. The entry isn't there with the **View Only** role. In code mode, the edits you type in that tab reach the project when you save.
 
-Outside code mode, a plain text file that opens in a tab, such as a `pubspec.yaml` match from the **Search** panel, has a details panel beside the text. It has **Font size** (13 by default), **Word wrap** (on by default) and a **Compile** button. Click **Compile** to apply your edits to the project. When nothing is waiting, it reads **Compiled** and is greyed out.
+Outside code mode, a plain text file that opens in a tab, such as a `pubspec.yaml` match from the **Search** panel, has a details panel beside the text. It has **Font size** (13 by default), **Word wrap** (on by default) and a **Compile** button. **Compile** applies your edits to the project. When nothing is waiting, it reads **Compiled** and is greyed out.
 
 To bring in a snippet or a `.dart` file instead of typing it, leave code mode and choose **Import Dart code...** from the Library's **Add** (+) menu. See [Import Dart code](custom-code.md#import-dart-code).
 

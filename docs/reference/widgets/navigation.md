@@ -20,9 +20,9 @@ A screen has four places around its body for standard parts: an **App Bar** on t
 2. Click the slot you want: **App Bar**, **Drawer**, **Floating Action Button** or **Bottom Navigation Bar**. An empty slot shows `null`.
 3. In the widget picker, search for the part, such as **Floating Button**, and press <kbd>Enter</kbd>. The part sits in its own place, not in the body.
 
-The widget picker is the dialog titled **Search for a widget**. It offers your own components too, so a custom header you built can be the app bar. See [Create and set up screens](../../design/screens.md).
+The widget picker is the dialog with the hint **Search for a widget**. It offers your own components too, so a custom header you built can be the app bar. See [Create and set up screens](../../design/screens.md).
 
-A part you drag from the [Library](../../design/library.md) onto the screen can land in the body as a free widget instead of in its slot, so use the slot.
+A part you drag from the [Library](../../design/library.md) onto the screen fills its slot only where none of the screen's groups is under the pointer. Over the **Stack** that fills the body of an **Empty Page** screen, it lands in the Stack, so use the slot.
 
 ![The home screen on the board with its standard parts in place: the app bar with the title Home Page on top (highlighted), the purple floating button over the content at the bottom right, and the bottom navigation bar with its home and call tabs at the bottom. The floating button and the bottom navigation bar are inside the second highlight.](/img/docs/reference/reference-navigation-1.png)
 

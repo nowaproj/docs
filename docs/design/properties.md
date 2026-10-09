@@ -43,7 +43,7 @@ Each property has an editor that fits what it holds. The board updates as you ty
 | An image, video or animation | Tabs such as **Network**, **Asset** and **Bytes**, and buttons such as **Pick Image**. See [Images, videos and other files](assets.md). |
 | Padding | Two boxes, for horizontal and vertical space. **Individual padding** switches to left, top, right and bottom. |
 | Alignment | Two sliders, **X** and **Y**, from -1 to 1. Rows and columns use a 3 × 3 grid ([layout](layout.md)). |
-| A choice | A dropdown of the allowed values. When the property may be empty, the list starts with **Default**. Choose it to remove your value, so the widget's own default applies. A property with no value shows **Default**. |
+| A choice | A dropdown of the allowed values. When the property may be empty, such as **Text Align** on a **Text**, the list starts with **Default**. Choose it to remove your value, so the widget's own default applies. A property with no value shows **Default**. |
 | An event | **+** creates the logic and **Edit** reopens it. See [Respond to taps and other events](../logic/events.md). |
 | A widget | A button with the widget's name. Click it to pick another widget. The brush button selects the widget inside. |
 | A list, such as **Shadows** | A header with the item count. Edit the count to add or remove items, or hover and click **+**. Drag a row's handle to reorder. **Load More** shows ten more after the first ten. |

@@ -12,7 +12,7 @@ Two panels look after your project's files. In the designer, the [Library](../de
 The Library and **Files** share one place in the left sidebar, second from the top. Click the icon to open the panel, and click it again to close it.
 
 - **Library**: outside code mode, click **Library** or press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>2</kbd>. It lists what your `lib/` folder declares, in folders, and its chips add your packages, Nowa's built-in widgets and your assets. Click a row for a details card with a preview. Double-click it, or press <kbd>Enter</kbd>, to open it.
-- **Files**: in code mode, the folder icon (**Files**) takes the Library's place and opens by itself. <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>2</kbd> opens it too. It lists the whole project, including `pubspec.yaml` and the platform folders, with folders closed. Click a file to open it in a tab. The tree follows the tab you have open.
+- **Files**: in code mode, the folder icon (**Files**) takes the Library's place and opens by itself. <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>2</kbd> opens it too. It lists the whole project, including `pubspec.yaml` and the platform folders, with folders closed. It has no add buttons: leave code mode and use the Library. Click a file to open it in a tab. The tree follows the tab you have open.
 
 Names in the **Files** tree carry markers:
 

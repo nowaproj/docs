@@ -71,7 +71,7 @@ A variant's name is its `name:` argument, or its function's name in Title Case, 
 
 - **Opened on its own.** Open the screen or component by itself, for example by double-clicking it in the [Library](../design/library.md). Each variant appears as its own canvas next to it, titled with its name. Variants with the same `group:` stack in one column, headed by the group's name.
 - **On a variant's title.** Hover it for **Play**, **Open in new tab** (jumps to the preview code) and **Add to board**. **Add to board** asks which board and puts the variant there. If the package has no boards, Nowa says "This package has no boards yet".
-- **In the Library.** Variants are rows under their widget. Insert one to place that state on the board, at the size its `@Preview` asks for.
+- **In the Library.** Variants are rows under their widget. Insert one to place that state on the board, at its `size:` if the `@Preview` sets one.
 
 Nowa also reads previews from Dart files in a `design/` folder at the top of your project (or of a package, in a workspace), as long as the file names the widget and has a `@Preview`.
 

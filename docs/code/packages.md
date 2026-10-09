@@ -63,7 +63,7 @@ Nowa doesn't list or load packages from another host, so **Problems** may say su
 
 Older versions of `nowa_runtime` came with the `smooth_page_indicator` package, which draws the dots of a Page View. Version 0.2.0 doesn't. When you open a project that uses those dots without listing the package, Nowa shows **Page indicator migration**: "nowa_runtime no longer includes smooth_page_indicator. Nowa will add it to your pubspec and import it in `<files>`."
 
-- Click **Migrate**. Nowa adds `smooth_page_indicator` to `pubspec.yaml` and adds its import to each file that uses it. If adding the package fails, Nowa shows "Could not add smooth_page_indicator to the pubspec".
+- Click **Migrate**. Nowa adds `smooth_page_indicator` to `pubspec.yaml` and adds its import to each file that uses it. If adding the package fails, a red message reads "Exception: Could not add smooth_page_indicator to the pubspec" and the dialog stays open.
 - Click **Later** to leave everything as it is. The dialog comes back the next time you open the project.
 
 ## Edit pubspec.yaml yourself

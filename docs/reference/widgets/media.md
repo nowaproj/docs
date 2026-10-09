@@ -32,7 +32,7 @@ When a widget needs a package your project doesn't have yet, Nowa opens **Add Mi
 
 ![The Pick Image popup (highlighted) opened from a selected Image on the Asset tab: the Upload Image button, the Search box and the project images dusk.png, lake.png and sunrise.png with thumbnails. Next to it, Details for the Image with the Source tabs (Network, Asset) and the Pick Image button highlighted.](/img/docs/reference/reference-media-1.png)
 
-**Color** and **Blendmode** tint the picture. **Error Builder** is what to show when it can't load. You can also paste an image onto the board or drag a file from **assets**, and Nowa creates the Image for you.
+**Color** and **Blendmode** tint the picture. **Error Builder** is what to show when it can't load. You can also paste an image onto the board or drag a file from the **Assets** chip of the [Library](../../design/library.md), and Nowa creates the Image for you.
 
 ## Add an SVG {#svg}
 

@@ -44,7 +44,7 @@ When your code uses Dart that Nowa can't read yet, Nowa skips only that part and
 | A `switch` case with a `when` clause, or with a list or map pattern | An `if` inside the case |
 | A `State` class with a mixin other than `TickerProviderStateMixin`, `SingleTickerProviderStateMixin` or `WidgetsBindingObserver`, such as `AutomaticKeepAliveClientMixin` | Remove the mixin to see the widget on the board, or check it with **Run** |
 
-These do work: record and object destructuring (`final (a, b) = pair;`), a `switch` that matches constants, `||`, `&&`, relational (`> 5`) and object patterns, enhanced enums, mixins and redirecting constructors. An `is` check narrows the value for what follows it, as in `other is Trip && other.id == id`.
+These do work: record and object destructuring (`final (a, b) = pair;`), a `switch` that matches constants, `||`, `&&`, relational (`> 5`) and object patterns, enhanced enums, mixins and redirecting constructors. An `is` check narrows the value inside the same `&&`, `? :` or `if`, as in `other is Trip && other.id == id`.
 
 ### Classes that extend Flutter classes
 

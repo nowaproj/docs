@@ -160,7 +160,7 @@ The search at the top of the [Library](../design/library.md) works like a picker
 
 | Action | Windows / Linux | macOS |
 |---|---|---|
-| Move from the search to the first result, then down the list | <kbd>↓</kbd> | <kbd>↓</kbd> |
+| Move down through the results. While you type, the first result is already highlighted, so the first press goes to the second | <kbd>↓</kbd> | <kbd>↓</kbd> |
 | Go back from the first row to the search | <kbd>↑</kbd> | <kbd>↑</kbd> |
 | Act on the highlighted result: open it when the field reads **Go to...**, insert it when it reads **Add...** | <kbd>Enter</kbd> | <kbd>Return</kbd> |
 | Do the other one | <kbd>Ctrl</kbd> + <kbd>Enter</kbd> | <kbd>Cmd</kbd> + <kbd>Return</kbd> |

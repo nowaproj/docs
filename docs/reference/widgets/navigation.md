@@ -85,12 +85,15 @@ The first child shows when `pageIndex` is 0, the second when it is 1, and so on.
 
 1. Add a **Page View**. It starts with two pages and a row of dots near the bottom.
 2. In the **Outline**, select the PageView. Under **Children**, click **+** to add a page, then replace each page's widget.
-3. Select the dots on the board. Set **Count** to the number of pages and choose a style with **Effect type**.
-4. To make the dots follow the pages, create a whole-number variable, link the dots' **Active Index** to it, and open the Page View's **On Page Changed**. Set the variable to `value` and add **refresh**. See [Store data in variables](../../logic/variables.md).
+3. In the **Outline**, select the dots: the AnimatedSmoothIndicator next to the PageView. Clicking the dots on the board selects the Stack around them instead. Set **Count** to the number of pages.
+4. Click **+** next to **Effect**, then choose a style with **Effect type**. **Effect** has no **+** until your project has the package (see below).
+5. To make the dots follow the pages, create a whole-number variable, link the dots' **Active Index** to it, and open the Page View's **On Page Changed**. Set the variable to `value` and add **refresh**. See [Store data in variables](../../logic/variables.md).
 
 The dots are a separate widget. Nowa doesn't connect them to the pages for you.
 
-They come from the `smooth_page_indicator` package, which `nowa_runtime` no longer includes. Select the dots and **Details** lists the package under **Dependencies**. If your project doesn't have it yet, click **Hot Fix** there to add it. If you open a project that already uses them without the package, Nowa offers a **Page indicator migration**: see [Handle the Page indicator migration](../../code/packages.md#page-indicator-migration).
+They come from the `smooth_page_indicator` package, which `nowa_runtime` no longer includes. Nowa doesn't ask about it when you add a **Page View**. Without the package, the dots still draw on the board and **Problems** shows one error: `'smooth_page_indicator' is imported but is not in the pubspec.`
+
+Select the dots and **Details** lists the package under **Dependencies**. If your project doesn't have it yet, click **Hot Fix** there to add it. If you open a project that already uses them without the package, Nowa offers a **Page indicator migration**: see [Handle the Page indicator migration](../../code/packages.md#page-indicator-migration).
 
 ### Add tabs {#tabview}
 

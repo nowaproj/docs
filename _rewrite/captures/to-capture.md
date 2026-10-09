@@ -66,7 +66,7 @@ and type are. Videos (`mp4` rows) are marked `(mp4)` in the last section.
 Status `skipped: low value` in `requests/`. They need no sign-in; see `README.md` for how to capture. Videos need the video steps in `../CAPTURE.md`.
 
 - **code**: code-files-2
-- **design**: design-add-widgets-2 (mp4), design-select-and-edit-1 (mp4), design-outline-2, design-fonts-icons-2, design-responsive-2
+- **design**: design-add-widgets-2 (mp4), design-select-and-edit-1 (mp4), design-fonts-icons-2, design-responsive-2 (design-outline-2 was taken in the 3.13 re-take: see `log.md`)
 - **integrations**: integrations-stripe-1, integrations-admob-2
 - **logic**: logic-events-2 (mp4), logic-variables-2
 - **reference**: reference-forms-2, reference-lists-2, reference-media-2, reference-navigation-2

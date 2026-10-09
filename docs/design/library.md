@@ -55,9 +55,10 @@ You need an open board, screen or component. Without one, Nowa says "Open a scre
 
 You can also:
 
-- Double-click a row while the search reads **Add...**.
 - Right-click a row and choose **Insert**, or press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Enter</kbd> on it.
 - Drag a row onto the board. The Library stays open and the board shows where it will land. See [where a dragged widget lands](select-and-edit.md#where-a-dragged-widget-lands).
+
+A double-click doesn't add. The first click ends **Add...**, and the second opens the row if it has a file.
 
 Insert works for widgets: your screens and components, and the widgets of Nowa, your packages and Flutter. To place an asset, drag it onto the board. See [Images, videos and other files](assets.md).
 
@@ -103,8 +104,10 @@ Click **Add** (+) in the header and choose what to make.
 
 ## Use the keyboard
 
-- Type a letter, digit or symbol while a row is focused to jump into the search. <kbd>↓</kbd> moves from the search into the results, and <kbd>↑</kbd> on the first row goes back.
+- Type a letter, digit or symbol while a row is focused to jump into the search. The letter stays selected, so the next one replaces it: click the search field first to type a whole word.
+- <kbd>↓</kbd> moves from the search into the results. <kbd>↑</kbd> on the first result stops on its group heading, and one more <kbd>↑</kbd> goes back to the search.
 - In the search field, <kbd>Esc</kbd> clears the search. On an empty search it gives the keys back to the board, so shortcuts work again. On a row, <kbd>Esc</kbd> puts the details card away.
+- <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd> does nothing while the focus is in the Library. Click the board, or press <kbd>Esc</kbd> in an empty search, and it works again.
 - <kbd>Enter</kbd>, <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Enter</kbd> and <kbd>F2</kbd> work as in [Find something](#find-something) and the menu above.
 
 :::tip Or ask Nowa AI

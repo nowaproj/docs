@@ -228,3 +228,34 @@ Phase 10 scenarios (same `rec.mjs` and `lib.mjs`, run from a copy in the scratch
 
 No sign-in, no Save, no deploy/purchase/invitation, no connecting accounts, no AI prompts unless the brief allots them
 (log each in `ai-prompts.md`; none sent so far in the runs that wrote this file). Never commit. Do not edit docs pages.
+
+## Nowa 3.13 on app.nowa.dev (wave 2a notes)
+
+The re-takes of phase 10 come from the live playground (`NOWA_URL=https://app.nowa.dev`, version `v3.13.0-79`), not the local 3.12.5 build.
+
+- **Loading.** Chromium needs `--proxy-server=$HTTPS_PROXY` (the proxy CA is already in the NSS db). Drop the CanvasKit CDN route of `capture.mjs`
+  (its `route.fetch` does not use the proxy and the engine never starts); the editor then loads in about 40 s. Click **Reject** on the cookie
+  banner (`#nowa-consent-banner button`) right after the page loads; do not pre-set the `nowa_consent` cookie. The `/playground` route ends on `/`.
+- **Shared machine.** Use your own `CAPTURE_CDP_PORT` and `CAPTURE_OUT` and a scratchpad sub-folder; a script that connects without `prepareContext`
+  (analytics block) and reloads sends tracking requests.
+- **AI Assistant panel is broken for guests.** The playground opens on it, but the chat field's agent selector throws ("Exception: BillingProvider is not
+  initialized"), so the panel shows a stretched field and a gray box, and the status bar shows that exception. For shots with the status bar: click the log
+  text, then **Clear** (second icon in the Console's tab row), close the Console: the bar reads **Ready** until the AI panel is drawn again.
+  Use the Library or Outline as the open panel in full-window shots.
+- **3.13 coordinates (1440x900, left panel open).** Sidebar x = 20: Assistant 67, Library 107, Themes 147, Search 187, Outline 227, Api 267, Supabase 307,
+  Router 365 (no Files, no Git in the playground). Top bar y = 20: starting-point chip 103, Back 396, Forward 424, Boards chip 484 (these follow the board
+  area's left edge: 185, 213 and 273 with no left panel), `<>` 1313, gear 1351, **Save** 1405. Toolbar y = 847: Select 839, Shape 875, Screen 911, Text 947,
+  Widget 983 (left panel closed: 668 ... 812). Dialog buttons: New Component / template naming **Submit** (765, 538), **New Board** **Submit** (765, 521).
+- **Library.** The home screen's row is under `pages`; a component made with **Create component** sits at the `lib` root. The details card needs a click or
+  an arrow key and stays after the pointer leaves. In add mode (Ctrl+K) the first result is highlighted without a card; one down arrow moves to the next row
+  and shows the card. With `button` typed the first result is `CustomButton` (Packages), **Button** is the first Built-in row (y = 268). **Add...** only shows while the
+  field is empty. Dragging a row onto the screen keeps the Library open. After a new description, click another row and back before the card shows it.
+- **Pickers.** In the template picker the highlight follows the pointer, and a wheel step of `dy` scrolls `dy / 2` px. Context menus open at the pointer
+  (right-click at the right of a row's label so the label stays visible); a menu stays open until you click elsewhere, so move the pointer off it in one step
+  (`steps: 1`) to avoid a stray hover row.
+- **Zoom and placement.** `ctrlwheel` with `dy = -100` nine times zooms the board to about 55% around the pointer. A new screen lands at the last pointer position (it landed on the home screen): set **X** and **Y**
+  in **Details** (double-click, `Control+a`, type, `Enter`); home screen at X 500, Y 200, size 393 x 808.
+- **Video.** `tools/video/rec.mjs` needs three patches for the live site (proxy flag in `ARGS`, remove every `flutter.*` localStorage key, click **Reject** after `goto`) and the
+  CanvasKit route out of `prepareContext`, plus `NOWA_URL`; start the take on the Outline panel (not the AI panel), pan the board with
+  Space + drag so the screen sits next to the panel, and move the key badge up (`#cap-key` bottom 110px) when the crop leaves out the toolbar. `design-add-widgets-video`
+  is 900x784, 16.6 s: Ctrl/Cmd+K, `button`, down arrow, Enter, then a drag of the **Button** row.

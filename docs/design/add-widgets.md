@@ -12,7 +12,7 @@ Add a widget in seconds: press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd>, ty
 1. Click **Widget** in the toolbar, or press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd>. The [Library](library.md) opens with the search ready, and the field reads **Add...**.
 2. Type part of a name, such as `text` or `button`. Results come in groups by source (**Project**, **Packages**, **Built-in** and **Assets**), and Nowa's own widgets come first in each group. **Filter** narrows the results by kind. A row such as **Show 3 more of other kinds** reveals what it hides.
 3. Press <kbd>↓</kbd> to move through the results. The details card beside the panel shows a preview, the name and the first lines of the description.
-4. Press <kbd>Enter</kbd>, or double-click the result. The widget lands where your pointer last was on the board, and the keys go back to the board. To leave without adding anything, press <kbd>Esc</kbd> in the search field to clear the search and again to hand the keys back.
+4. Press <kbd>Enter</kbd>. The widget lands where your pointer last was on the board, and the keys go back to the board. A double-click doesn't add it: the first click ends add mode, and the second opens the result if it has a file. To leave without adding anything, press <kbd>Esc</kbd> in the search field to clear the search and again to hand the keys back.
 
 You need an open board, screen or component. Without one, Nowa says "Open a screen, a component or a board to insert into".
 
@@ -26,7 +26,9 @@ The Library puts a widget at the last spot your pointer was on the board, so poi
 
 ## Add a widget that needs a package
 
-Some widgets rely on a Flutter package. If your project doesn't have it yet, adding the widget with <kbd>Enter</kbd>, a double-click or **Insert** opens **Add Missing Dependencies** with the message "This widget requires the following dependencies". Click **Add**. Nowa adds the packages and then places the widget. To have Nowa ask first, add such a widget with <kbd>Enter</kbd> or **Insert** rather than by dragging.
+Some widgets rely on a Flutter package. If your project doesn't have it yet, adding the widget with <kbd>Enter</kbd> or **Insert** opens **Add Missing Dependencies** with the message "This widget requires the following dependencies". Click **Add**. Nowa adds the packages and then places the widget.
+
+Dragging a built-in widget from the Library onto a screen doesn't ask. The widget drops at once and the board shows it. **Problems** then lists `'<package>' is imported but is not in the pubspec.` with a **Fix** button, and **Details** shows **Dependencies** with a **Hot Fix** button. Click **Hot Fix** to add the package. To have Nowa ask first, add the widget with <kbd>Enter</kbd> or **Insert** instead of dragging.
 
 ## Draw a shape or text
 

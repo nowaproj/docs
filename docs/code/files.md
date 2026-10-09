@@ -22,7 +22,7 @@ Names in the **Files** tree carry markers:
 
 The Library shows the red problem count too, on rows and on their folders, but no `*` and no Git letters.
 
-Nowa doesn't load `.git/`, `build/` or `.DS_Store`, and the **Files** tree doesn't list top-level items whose names start with a dot, such as `.nowa`. A `.board` file stores one board. The Library doesn't list boards, and in code mode a `.board` file opens a tab that says "Code view is not available for boards". Pick the board in the **Boards** chip in the top bar instead. See [Work with boards](../design/boards.md).
+Nowa doesn't load `.git/`, `build/` or `.DS_Store`, and the **Files** tree doesn't list top-level items whose names start with a dot, such as `.nowa`. A `.board` file stores one board. The Library doesn't list boards. In code mode, clicking a `.board` file shows "Code view is not available for boards" in the editor and adds no tab. Leave code mode and pick the board in the **Boards** chip in the top bar instead. See [Work with boards](../design/boards.md).
 
 ## Add files {#add-files}
 
@@ -33,7 +33,7 @@ In the Library, click **Add** (+) in the header and choose what to make.
 | Item | What it creates |
 |---|---|
 | **New Widget...** | A screen or component from a template. See [Start from a template](../design/templates.md). |
-| **New Folder...** | A folder in `lib`. It goes inside the `lib` folder you clicked last in the Library (for a widget or another row, the folder that holds it), or directly in `lib`. |
+| **New Folder...** | A folder in `lib`. It goes inside the `lib` folder you clicked last in the Library (for a widget or another row, the folder that holds it), or directly in `lib`. The dialog is titled **New Directory in** followed by that folder's name. |
 | **New Model...** | A data model in `lib/models`. See [Data models](../logic/models.md). |
 | **New Global State...** | A global state in `lib/globals`, attached to your app. See [Share data across your app](../logic/global-state.md). |
 | **Generate Models From Json...** | Model classes built from JSON. See [Data models](../logic/models.md). |
@@ -43,7 +43,7 @@ In the Library, click **Add** (+) in the header and choose what to make.
 
 A model or global state asks for a name: a valid Dart name that nothing else in your project uses and that isn't a Dart keyword.
 
-The Library's **Filter** starts on **Widgets**, so a new model or global state stays hidden until you choose **Everything**, **Models** or **Global states**. A folder shows in the Library only when something is in it, so a new empty folder appears first in the **Files** tree in code mode.
+The Library's **Filter** starts on **Widgets**, so a new model or global state stays hidden until you choose **Everything**, **Models** or **Global states**. A folder shows in the Library only when something is in it. In the [playground](../get-started/playground.md), a new empty folder isn't in the **Files** tree in code mode either.
 
 To add a board, click **Create new board** in the **Boards** chip in the top bar, or press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>B</kbd>. See [Work with boards](../design/boards.md). In code mode, a blank tab (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>T</kbd>) offers **New Widget** and **Upload a File** too.
 

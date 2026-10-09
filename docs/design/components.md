@@ -25,7 +25,7 @@ Nowa saves the component as a Dart file in `lib/`, named after it, for example `
 Every place you use a component is an instance. To add one:
 
 - Drag it from the [Library](library.md) onto the board or into a screen. Find it under **Project**. The default filter already lists components.
-- Press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd>, type its name and press <kbd>Enter</kbd>. The Library puts it where your pointer last was. To see only components, choose **Components** in **Filter**. See [Add widgets](add-widgets.md).
+- Press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd>, type its name, check the highlighted result and press <kbd>Enter</kbd>. The Library puts it where your pointer last was. To see only components, choose **Components** in **Filter**. See [Add widgets](add-widgets.md).
 - Copy an instance and paste it, or hold <kbd>Alt</kbd>/<kbd>Option</kbd> and drag it.
 
 Instances have a purple label in the [Outline](outline.md).

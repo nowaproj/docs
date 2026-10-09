@@ -34,6 +34,12 @@ Finding # = number in the short list at the top of `P10-live-checks.md`; "brief 
 | `design/add-widgets.md` alt text of `design-add-widgets-1` (L19) | Replaced the old text ("the search field reads Add... with button typed", "the first result is highlighted") with the checked text from `captures/log.md` (row `design-add-widgets-1`). The old text contradicted the new image and the new step 3; `ui-diffs-3.13.md` flags it. Not in the coordinator's list: revert if another agent owns alt texts. | 8 (wave 2a) |
 | `design/library.md` "Find something", results paragraph (was L42) | After "The first result is highlighted as you type": Enter acts on the highlighted row, so check it first; same `button` example. | 8 (wave 2a) |
 | `design/library.md` "Add something to the board" step 2 (was L51) | "Press ↓ to move through the results" became "Check the highlighted result and press ↓ until it's the one you want". Alt text of `design-library-2` was already updated by someone else and matches the log. | 8 (wave 2a) |
+| `reference/widgets/index.md` L11 | "Type part of a name and press **Enter**" became "Type part of a name, check the highlighted result and press **Enter**" (same words as the `design/add-widgets.md` intro). Its link to add-widgets stays. | 8b |
+| `design/components.md` L28 | "type its name and press **Enter**" became "type its name, check the highlighted result and press **Enter**". | 8b |
+| `reference/widgets/forms.md` L12 | "search for `text field` and press **Enter**" became "search for `text field`, check the highlighted result and press **Enter**". | 8b |
+| `reference/widgets/lists.md` L21 | "search for `list view` and press **Enter**" became "search for `list view`, check the highlighted result and press **Enter**". | 8b |
+| `integrations/google-maps.md` L32 | "search for **Google Maps** and press **Enter**" became "search for **Google Maps**, check the highlighted result and press **Enter**". | 8b |
+| `integrations/admob.md` L29 | "search for **Admob Banner** and press **Enter**" became "search for **Admob Banner**, check the highlighted result and press **Enter**". | 8b |
 | `reference/shortcuts.md` L79 (Add a widget row) | Added "The shortcut does nothing while the Library has the focus: click the board first." (the note left out in the first round; "or press Esc in an empty search" stays on `design/library.md` to keep the cell short). | 8 |
 
 ## Kept on purpose
@@ -47,10 +53,12 @@ Finding # = number in the short list at the top of `P10-live-checks.md`; "brief 
 - `logic/navigation.md`: it has no Page View text (its L88 is the GoRouter **On Tap** step), so nothing to fix there. Finding 5 went to `reference/widgets/navigation.md` and `reference/widgets/index.md`.
 - Seen while fixing the follow-up pages, left alone (not on the coordinator's list):
   - `code/packages.md` L32 ("The same dialog appears when you add a widget that needs a package"): true for Enter and **Insert**, and it links to the fixed add-widgets section.
-  - Pages that say "type a name and press Enter" without a check of the highlighted result (only `button` was seen to pick the wrong row, so they may be fine for their own words): `reference/widgets/index.md` L11 (same wording as the old add-widgets intro), `design/components.md` L28, `reference/widgets/forms.md` L12 (`text field`), `reference/widgets/lists.md` L21 (`list view`), `integrations/google-maps.md` L32, `integrations/admob.md` L29. `design/layout.md` L18 already says "select **Group**".
+  - `integrations/revenuecat.md` L32-33 ("search for **RevenueCat Paywall**", then "Press **Enter** to add it") has the same pattern as the six pages fixed in finding 8b; it was not on the list, so it is unchanged. `design/layout.md` L18 already says "select **Group**", and `reference/widgets/navigation.md` L21 is the widget picker dialog, not the Library, so both are unchanged.
 
 ## Checks
 
 - Finding # for the last block of rows: "8 (wave 2a)" is the new live finding from the screenshot agent (first result for `button` is CustomButton); the Ctrl/Cmd+K row is finding 8 of the original list.
-- Every relative link and anchor in the nine edited pages resolves (script run from the scratchpad; headings and ids untouched, including `#add-a-widget-that-needs-a-package` and `#page-view`).
+- "8b" = the same "check the highlighted result" wording carried to the other pages that tell readers to type a name and press Enter in the Library (follow-up to finding 8). Only `button` was seen to pick the wrong row; the wording is kept short and identical on purpose.
+- Every relative link and anchor in the fourteen edited pages resolves (script run from the scratchpad; headings and ids untouched, including `#add-a-widget-that-needs-a-package` and `#page-view`).
 - No banned words from the style guide; new text keeps `<package>` inside code spans so MDX parses.
+| integrations/revenuecat.md | Step 2: "Check the highlighted result and press Enter to add it" (same wording as add-widgets) | 8b (orchestrator, wording only) |

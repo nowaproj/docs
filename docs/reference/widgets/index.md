@@ -8,7 +8,7 @@ Nowa comes with 45 ready-made widgets, from a plain **Container** to a Google ma
 
 ## Find a widget in the Library {#find-a-widget-in-the-picker}
 
-- Press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd> with a board open, or click **Widget** in the toolbar. The [Library](../../design/library.md) opens with its search ready. Type part of a name and press <kbd>Enter</kbd>. [Add widgets](../../design/add-widgets.md) has the full steps, including drag and drop.
+- Press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd> with a board open, or click **Widget** in the toolbar. The [Library](../../design/library.md) opens with its search ready. Type part of a name, check the highlighted result and press <kbd>Enter</kbd>. [Add widgets](../../design/add-widgets.md) has the full steps, including drag and drop.
 - The widgets on this page are under **Built-in**, in groups such as **Basic**, **Buttons** and **Layout**. Your own screens and components are under **Project**. **Filter** limits the list to one kind of thing. Its default, **Widgets**, shows screens, components and widgets.
 - Missing a widget? The Library has no request link. Open the widget picker dialog instead (select an empty container and click **+**, for example), click **Request a Widget** in its search bar, describe it and click **Submit Request**.
 

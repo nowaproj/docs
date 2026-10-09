@@ -9,7 +9,7 @@ A **Text Field** is a box where people type. Nowa creates the variable that hold
 
 ## Add a Text Field {#text-field}
 
-1. Press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd>, search for `text field` and press <kbd>Enter</kbd>. See [Add widgets](../../design/add-widgets.md).
+1. Press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd>, search for `text field`, check the highlighted result and press <kbd>Enter</kbd>. See [Add widgets](../../design/add-widgets.md).
 2. Nowa adds a variable called `text` to the screen or component and links the field's **Controller** to it. Open **Variables** to see it. The next Text Field gets the same name with a number added.
 
 The variable is a controller that holds what the user typed. To use that text, click a property's label, open **LOCALS**, pick the controller and choose `text`. Rename the controller to something clear, such as `email`: the validator row uses its name too. See [Rename, retype or remove a variable](../../logic/variables.md#rename-retype-or-remove-a-variable).

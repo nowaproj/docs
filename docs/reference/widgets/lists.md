@@ -18,7 +18,7 @@ Both widgets have a **Type** switch in **Details**.
 
 ## Add a List View {#list-view}
 
-1. Press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd>, search for `list view` and press <kbd>Enter</kbd>. It starts as a **Builder** with three placeholder items.
+1. Press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd>, search for `list view`, check the highlighted result and press <kbd>Enter</kbd>. It starts as a **Builder** with three placeholder items.
 2. Click the **Item Builder** button and choose **Pick Widget**. Pick a built-in widget or one of your own [components](../../design/components.md).
 3. Select the item on the board or in the [Outline](../../design/outline.md) and design it like any widget.
 4. Type a number in **Item Count** to see the list with more or fewer items.

@@ -21,7 +21,7 @@ On the dashboard, keep the **Design** chip and describe the whole app in the box
 
 Click the send button (tooltip **Build it**). Nowa AI designs the screens on your board with demo data. Answer any **Questions** card, then wait for **Your app design is complete**. Design mode builds the look and flow only. You make it work next, by hand or in **Agent** mode.
 
-{/* CAPTURE: id=guides-complete-app-1 | state: cloud project after a Design-mode run of the recipe box prompt | show: the board with the login, list and detail screens and the design-complete card | crop: whole editor window */}
+![The editor after the Recipe Box Design run: the board (highlighted) shows the recipe list home screen, the sign-in screen and the recipe detail screen side by side, and the AI Assistant panel shows the Your app design is complete card (highlighted) with the Make it real button.](/img/docs/guides/guides-complete-app-1.png)
 
 Details: [Build your first app](../get-started/first-app.md), [Design, Plan and Agent modes](../ai/modes.md).
 

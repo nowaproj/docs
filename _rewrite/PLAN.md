@@ -38,6 +38,23 @@ Steps:
    `test-problems-1` even shows `v3.12.5`), same ids and file names; check each image; embed new ones.
 5. Style guard on changed pages, `yarn build`, update `PR-REPORT.md` and the PR.
 
+**Phase 10 status at the pause (2026-10-09 evening):**
+- Done: research (`research/changes-3.13.md`); writers W30a (incl. new `design/library.md`, in the sidebar), W30b, W30c;
+  verifiers P10-a, P10-b, P10-c1, P10-c2 (all 3.13 page edits checked against `3cb32031c`, 32 fixes); live checks in the
+  3.13 editor (`reviews/P10-live-checks.md`) applied by a non-author agent (`reviews/P10-live-fixes.md`, findings 1-8b).
+- Screenshots from 3.13 (app.nowa.dev): 13 signed-in (dashboard, settings, Deploy menu...), 7 AI (5 of 5 prompts used:
+  `captures/ai-prompts.md`; the account is now on extra AI credits), wave 1 (32 shots + 2 videos), AI panel (6, signed
+  in), wave 2a (15 shots + add-widgets video). Names and emails blurred.
+- In progress at the pause: wave 2b (design properties/layout/responsive/assets/fonts/theme-styles/themes/templates,
+  code-mode, files, reference-widgets-1, layout and themes videos). Resume it from its final message or re-run the ids
+  whose log rows don't say "yes (3.13.0)".
+- **Next:** (1) finish wave 2b; (2) run `python3 -I _rewrite/captures/tools/sync-alt.py` (copies checked alt texts from
+  the log into the pages; 25+ differ); (3) embed any new ids with `embed.py` (look at each image first); (4) `yarn build`;
+  (5) update `PR-REPORT.md` and the PR body/title for 3.13 (D20, D21, Q4, P48-P51, signed-in shots done, paid-plan and
+  external-service shots still missing); (6) CI check.
+- Not possible with this test account: Git/GitHub panels and Android/iOS builds (Starter plan), published web site,
+  connected Supabase/Firebase/Figma/Stripe/Xano screens, desktop-only screens.
+
 Batches (2026-10-09): research done (`research/changes-3.13.md`: 53 pages, 27 changes, 11 open points). Writers:
 **W30a** (new `design/library.md`, get-started, design index/boards/screens/components/add-widgets/select-and-edit/
 outline, glossary), **W30b** (design properties/layout/themes/theme-styles/assets/templates/localization/fonts-icons/

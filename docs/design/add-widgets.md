@@ -5,18 +5,18 @@ sidebar_label: Add widgets
 keywords: [library, add widget, ctrl k, widget tool, widget picker, widget palette, search for a widget, text tool, shape tool, container, request a widget, drag and drop, paste image, add missing dependencies]
 ---
 
-Add a widget in seconds: press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd>, type what you want and press <kbd>Enter</kbd>. You can also draw shapes and text, drag in screens, components and assets, or paste images.
+Add a widget in seconds: press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd>, type what you want, check the highlighted result and press <kbd>Enter</kbd>. You can also draw shapes and text, drag in screens, components and assets, or paste images.
 
 ## Add a widget from the Library {#add-a-widget-with-the-widget-picker}
 
 1. Click **Widget** in the toolbar, or press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd>. The [Library](library.md) opens with the search ready, and the field reads **Add...**.
 2. Type part of a name, such as `text` or `button`. Results come in groups by source (**Project**, **Packages**, **Built-in** and **Assets**), and Nowa's own widgets come first in each group. **Filter** narrows the results by kind. A row such as **Show 3 more of other kinds** reveals what it hides.
-3. Press <kbd>↓</kbd> to move through the results. The details card beside the panel shows a preview, the name and the first lines of the description.
+3. Check the highlighted result, then press <kbd>↓</kbd> until it's the widget you want. In a new project, `button` lists **CustomButton** from `nowa_runtime` first, and one press reaches Nowa's own **Button**. The details card beside the panel opens after your first <kbd>↓</kbd> or a click, and shows a preview, the name and the first lines of the description.
 4. Press <kbd>Enter</kbd>. The widget lands where your pointer last was on the board, and the keys go back to the board. A double-click doesn't add it: the first click ends add mode, and the second opens the result if it has a file. To leave without adding anything, press <kbd>Esc</kbd> in the search field to clear the search and again to hand the keys back.
 
 You need an open board, screen or component. Without one, Nowa says "Open a screen, a component or a board to insert into".
 
-![The Library opened with Ctrl/Cmd+K: the search field reads Add... with button typed, the results are grouped by source with a count at the end of each heading and the first result is highlighted, and a details card with a preview sits beside the panel.](/img/docs/design/design-add-widgets-1.png)
+![The Library opened with Ctrl/Cmd+K and button typed in the search field: the results are grouped by source with a count at the end of each heading (Packages 1 and Built-in 45, both highlighted), the Button row is highlighted after pressing the down arrow, and a details card with a preview, the name and Widget · Buttons sits beside the panel.](/img/docs/design/design-add-widgets-1.png)
 
 The Library puts a widget at the last spot your pointer was on the board, so point at the board first. To choose the exact spot, drag the row onto the board instead. The Library stays open while you drag, and the board shows where the widget will land. See [where a dragged widget lands](select-and-edit.md#where-a-dragged-widget-lands).
 

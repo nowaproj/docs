@@ -76,7 +76,7 @@ These work on a board, on a screen or component opened on its own, and in the **
 
 | Action | Windows / Linux | macOS |
 |---|---|---|
-| **Add a widget**: open the [Library](../design/library.md) with its search ready (the field reads **Add...**). <kbd>Enter</kbd> inserts the highlighted result | <kbd>Ctrl</kbd> + <kbd>K</kbd> | <kbd>Cmd</kbd> + <kbd>K</kbd> |
+| **Add a widget**: open the [Library](../design/library.md) with its search ready (the field reads **Add...**). The shortcut does nothing while the Library has the focus: click the board first. <kbd>Enter</kbd> inserts the highlighted result | <kbd>Ctrl</kbd> + <kbd>K</kbd> | <kbd>Cmd</kbd> + <kbd>K</kbd> |
 | Switch to the **Select tool** | <kbd>V</kbd> | <kbd>V</kbd> |
 | Switch to the **Shape** tool (draws a Container) | <kbd>R</kbd> | <kbd>R</kbd> |
 | Switch to the **Text** tool | <kbd>T</kbd> | <kbd>T</kbd> |

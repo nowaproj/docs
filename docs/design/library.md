@@ -39,7 +39,7 @@ Type in the search field. It looks in all four sources, whatever the chips say (
 
 **Add...** lasts until you add something, click a row or leave the panel. In code mode, <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>O</kbd> opens **Search for a file** instead: see [Manage project files](../code/files.md).
 
-Results come in groups, in the order **Project**, **Packages**, **Built-in** and **Assets**, with a count at the end of each heading. In a group, Nowa's own widgets come first, then names that start with what you typed, then the rest from A to Z. The first result is highlighted as you type. A group shows 100 rows, then a row such as **Show all 250**. Rows such as **Show 3 more of other kinds** and **Show 2 private matches** reveal what the filter hides. When nothing matches, the panel says **No matches**.
+Results come in groups, in the order **Project**, **Packages**, **Built-in** and **Assets**, with a count at the end of each heading. In a group, Nowa's own widgets come first, then names that start with what you typed, then the rest from A to Z. The first result is highlighted as you type, and <kbd>Enter</kbd> acts on the highlighted row, so check it first. In a new project, `button` lists **CustomButton** from `nowa_runtime` before Nowa's own **Button** under **Built-in**. A group shows 100 rows, then a row such as **Show all 250**. Rows such as **Show 3 more of other kinds** and **Show 2 private matches** reveal what the filter hides. When nothing matches, the panel says **No matches**.
 
 With the search empty, **Recent** tops the panel. It lists the last eight things you added to the board.
 
@@ -48,7 +48,7 @@ With the search empty, **Recent** tops the panel. It lists the last eight things
 You need an open board, screen or component. Without one, Nowa says "Open a screen, a component or a board to insert into".
 
 1. Click **Widget** in the toolbar or press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd>. The Library opens with the search ready, and the field reads **Add...**.
-2. Type part of a name, such as `button`. Press <kbd>↓</kbd> to move through the results.
+2. Type part of a name, such as `button`. Check the highlighted result and press <kbd>↓</kbd> until it's the one you want.
 3. Press <kbd>Enter</kbd>. The widget lands where your pointer last was on the board, and the keys go back to the board.
 
 ![The Library after pressing Ctrl/Cmd+K and typing button: the results are grouped under Packages and Built-in headings with a count at the end of each (both highlighted), the Button row is highlighted, and a details card with its preview, name and Widget · Buttons sits beside the panel.](/img/docs/design/design-library-2.png)

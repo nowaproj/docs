@@ -70,19 +70,19 @@ The current home screen shows **This is the home screen** instead of the button.
 ## Rename, describe, copy and open
 
 - **Rename.** Double-click the title on the board, type the new name and press <kbd>Enter</kbd>. Or click the pencil (**Rename**) next to the name in **Details**. Nowa updates every place that uses the screen. It also renames the file when the file is named after the screen, and always when you rename from **Details**.
-- **Add description.** Click **Add description** under the name in **Details**, write a short note, then click the back arrow (**Back to fields**). The note is saved in the screen's code and shows in the widget picker when you pick the screen.
+- **Add description.** Click **Add description** under the name in **Details**, write a short note, then click the back arrow (**Back to fields**). The note is saved in the screen's code. It shows in the details card of the [Library](library.md) and in the widget picker dialog when you pick the screen.
 - **Copy as new widget.** Right-click the screen's title and choose **Copy as new widget**, name it and click **Submit**. You get a separate copy in a new file, placed on the board. Copy and paste only adds another board item that shows the same screen.
-- **Open in new tab.** Hover the title and click **Open in new tab**, or select the screen and press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>I</kbd>. The screen opens on its own, with the **Outline** floating at the top left. Click the dimmed **Board** chip in the top bar to go back.
+- **Open in new tab.** Hover the title and click **Open in new tab**, or select the screen and press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>I</kbd>. The screen opens on its own, with the **Outline** floating at the top left. To go back, click **Back** in the top bar, or open the **Boards** chip and pick the board.
 
 ## Delete a screen
 
 To take a screen off the board, click its title, then right-click the title and choose **Remove**, or press <kbd>Delete</kbd> (<kbd>Backspace</kbd> on macOS). Its file stays in your project.
 
-To delete the screen itself, open the **Widgets** panel, choose **Page**, right-click the screen and choose **Delete**. If other places use it, Nowa lists them and asks you to confirm. See [Build reusable components](components.md#manage-screens-and-components).
+To delete the screen itself, open the [Library](library.md), find the screen under **Project**, right-click it and choose **Delete**, then click **Yes**. If other places use it, Nowa lists them and asks you to confirm again. See [Build reusable components](components.md#manage-screens-and-components).
 
 ## Next steps
 
-- [Add widgets](add-widgets.md): fill the screen with the widget picker.
+- [Add widgets](add-widgets.md): fill the screen from the Library.
 - [Navigation bars and screen parts](../reference/widgets/navigation.md): set up the app bar, drawer, floating button and bottom navigation bar.
 - [Build reusable components](components.md): turn part of a screen into a widget you can reuse.
 - [Navigate between screens](../logic/navigation.md): open one screen from another.

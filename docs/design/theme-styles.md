@@ -19,6 +19,14 @@ The list shows the colors of your **Active** theme. To change a theme color from
 
 To stop following the theme, click the **x** on the field, or the detach icon next to **Colors From Theme**. The widget keeps its current color as a fixed value.
 
+### Colors from theme extensions
+
+If your project has [theme extensions](themes.md#edit-theme-extensions) with colors, such as a set of brand colors, the list has one tab per extension, named after its class, and a last tab, **Material**. **Material** holds the colors above and **Show more colors**. The picker opens on the tab of the color the field is linked to, on the first extension when the field isn't linked, and on **Material** when it's linked to a Material role.
+
+Pick an extension color and the field shows its name, such as `brand`. In your code the field reads `AppColors.of(context).brand`, or `Theme.of(context).extension<AppColors>()!.brand` if the class has no `of`. Extension colors have no **Edit** button here: change them in the **Themes** panel.
+
+{/* CAPTURE: id=design-theme-styles-2 | state: playground starter open; in code mode add a ThemeExtension class AppColors with two Color fields (brand, accent) to lib/globals/themes.dart and list it in lightTheme's extensions; back on the board, drop a Container, select it and click its Color swatch | show: the color picker with the theme color list headed by the tabs AppColors and Material, the AppColors tab open with its colors listed | crop: the color picker popup + the Details panel */}
+
 ## Make a theme color transparent
 
 With a theme color linked, click the property name, for example **Color**, to open its menu, then choose **With values**. Set **Alpha** from 0 (clear) to 1 (solid). **Show more** reveals **Red**, **Green** and **Blue**. The theme color itself doesn't change.
@@ -28,6 +36,8 @@ With a theme color linked, click the property name, for example **Color**, to op
 1. Select a Text widget and find **Style** in **Details**. The button shows the style in use, such as `bodyMedium`.
 2. Click the button and choose a style in **Text Styles**.
 3. To change the style for the whole app, hover it in the list and click **Edit**. This edits the active theme.
+
+If your theme extensions have text styles, **Text Styles** lists them first, each extension's styles under a header with its name, and puts a **Material** header over the usual styles. Without extension text styles there are no headers. Extension styles have no **Edit** button here either.
 
 To change only part of a style on one text, click **Style** (the property name) and choose **CopyWith**. Change the fields that appear. Everything you leave alone still follows the theme. **Remove CopyWith** goes back to the plain theme style. On a text that still uses the default style, the menu item is **Modify Style** instead.
 

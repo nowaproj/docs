@@ -11,7 +11,11 @@ Reach people in their own language. Nowa AI sets up the languages in your code, 
 
 Nowa has no translation editor or language switcher in the editor. To make your app run in more than one language, ask Nowa AI to set it up. It writes the localization code in your project, and the board can render it.
 
-Nowa doesn't support the `flutter_localizations` package, so Nowa AI writes its own localization code instead of adding it.
+Nowa doesn't support the `flutter_localizations` package, so Nowa AI writes its own localization code instead of adding it. Its package tool refuses the package and tells the agent to use a different approach.
+
+If your `pubspec.yaml` already lists `flutter_localizations` as an SDK package (`flutter_localizations: {sdk: flutter}`), Nowa counts it as installed, so **Problems** no longer says it is missing from the pubspec. Nowa AI still doesn't add it for you.
+
+If a localization delegate in your project fails to load, the board keeps drawing. **Logs** says "Could not load" followed by the delegate's name and the error.
 
 :::tip
 Or ask Nowa AI: "Make my app available in English and Arabic." See [Write prompts that work](../ai/prompting.md).

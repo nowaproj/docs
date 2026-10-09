@@ -2,20 +2,22 @@
 title: Images, videos and other files
 description: Import images, SVGs, videos, audio and animations into your project, then use them in your widgets.
 sidebar_label: Assets
-keywords: [assets, images, import asset, upload image, pick image, SVG, Lottie, Rive, video, audio, logo, paste image, pubspec, files panel]
+keywords: [assets, images, import asset, upload assets, upload image, pick image, SVG, Lottie, Rive, video, audio, logo, paste image, pubspec, library]
 ---
 
 Assets are the files your app ships with: images, SVGs, videos, sounds and animations. Import a file once, then pick it in any widget that needs it.
 
 ## Import files
 
-1. Click **Files** in the left sidebar and find the **assets** row.
-2. Click the upload icon (**Import asset**) on that row and choose one or more files. They are added to your project's `assets/` folder.
-3. Click a file to see a preview. Double-click it to open it.
+1. Open the [Library](library.md) in the left sidebar, or press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>2</kbd>.
+2. Click **Add** (+) in its header and choose **Upload Assets...**. Pick one or more files. They are added to your project's `assets/` folder, or to the folder of the asset you clicked last.
+3. Turn on the **Assets** chip to see your files. Click a file to see a preview. Double-click it, or press <kbd>Enter</kbd>, to open it.
+
+To upload straight into a folder inside `assets/`, right-click that folder and choose **Upload assets...**.
 
 When you import a file, Nowa updates `pubspec.yaml` for you: every folder under `assets/` that has files is listed under `flutter:` → `assets:`, and fonts are listed under `fonts:`. You don't need to edit it.
 
-![The Files panel with the lib, boards and assets rows. The upload icon on the assets row is highlighted, and its Import asset tooltip shows below it. The lib and boards rows have plus buttons.](/img/docs/design/design-assets-1.png)
+![The Library with the Assets chip on and the Add menu open from the + button in its header (highlighted): New Widget..., New Folder..., New Model..., New Global State..., Generate Models From Json..., API Collection..., Import Dart code... and Upload Assets... (highlighted), with the folders and files of assets/ listed below the chips.](/img/docs/design/design-assets-1.png)
 
 Nowa recognizes these file types:
 
@@ -60,7 +62,7 @@ Copy an image, point at the board and press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kb
 
 ## Drag an asset onto the board
 
-Drag a file from **assets** onto the board or into a screen. Nowa creates the matching widget.
+Turn on the **Assets** chip in the [Library](library.md), then drag a file onto the board or into a screen. Nowa creates the matching widget.
 
 | File | Widget |
 |---|---|
@@ -71,21 +73,27 @@ Drag a file from **assets** onto the board or into a screen. Nowa creates the ma
 | Font | Text, set in that font |
 | Text file, such as `.txt` | Text, with the file's content |
 
-Lottie and audio files don't create a widget. Dropping files from your computer onto the board doesn't import them: import them first, then drag them from **assets**.
+Lottie and audio files don't create a widget. Dropping files from your computer onto the board doesn't import them: import them first, then drag them from the Library.
 
 ## Rename, remove and find files
 
-Right-click a file in **assets**. Select several files first to act on all of them, except **Rename**, which needs a single file.
+To find a file by name, type in the Library's search. It looks in your assets even when the **Assets** chip is off.
+
+To change a file, right-click it in the Library. The Library works on one file at a time.
 
 | Menu item | What it does |
 |---|---|
-| **Rename** | Type a new name and press <kbd>Enter</kbd>. Widgets that already use the file keep its old path, so pick the file again in them. |
-| **Remove file** | Deletes the file after you confirm with **Yes**. <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Z</kbd> undoes it. With several files selected, it reads **Remove N files**. |
-| **Copy as path** | Copies the file's path. |
-| **View in folder** | Opens the file's folder on your computer. <Badge type="local" /> |
-| **Show file content** | Opens the file's content in a tab. |
+| **Open** | Opens the file in a tab. Key: <kbd>Enter</kbd>. |
+| **Rename** | Edits the name in place. Type a new name and press <kbd>Enter</kbd>. Key: <kbd>F2</kbd>. Widgets that already use the file keep its old path, so pick the file again in them. |
+| **Delete** | Deletes the file after you confirm with **Yes**. <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Z</kbd> undoes it while the Library has focus. |
+| **Show in code** | Switches to code mode and opens the file. |
+| **Upload assets...** | On a folder: adds files to it. |
 
-Removing an Image widget doesn't delete its file. Remove the file from **assets** when you no longer need it.
+To move a file, drag its row onto another folder in `assets/`. The Delete key doesn't act on Library rows, so use the menu.
+
+**Copy as path**, **View in folder** <Badge type="local" /> and **Show file content** are in code mode's **Files** tree, next to **Remove file**, **Cut** and **Paste**. See [Manage project files](../code/files.md).
+
+Removing an Image widget doesn't delete its file. Delete the file in the Library when you no longer need it.
 
 :::tip
 Or ask Nowa AI: "Add the logo I attached to the login screen." Attach the image to the chat first. See [Give Nowa AI context](../ai/context.md).

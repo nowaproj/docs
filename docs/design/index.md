@@ -1,7 +1,7 @@
 ---
 title: How designing works
 description: Boards, screens, components and widgets, and how you design your app visually while Nowa AI builds next to you.
-keywords: [design, designer, board, design board, canvas, UI, screen, component, widget, visual editor, drag and drop]
+keywords: [design, designer, board, design board, canvas, UI, screen, component, widget, library, visual editor, drag and drop]
 ---
 
 In Nowa you design on a board: one big, free-form space where your screens sit side by side. Click anything to change it, drag to rearrange, and let Nowa AI build alongside you. Your screens and components are saved as real Flutter code in your project.
@@ -26,7 +26,7 @@ Screens and components have a title bar above them with their name. Hover it to 
 
 | Where | What it does |
 |---|---|
-| **Widgets** panel, left sidebar | Lists your screens and components. Drag one onto the board. |
+| **Library** panel, left sidebar | Lists your screens, components and widgets, plus Nowa's built-in widgets, your packages and your assets. Search it, or drag a row onto the board. See [Find and add things with the Library](library.md). |
 | **Outline** panel, left sidebar | Shows the widget tree so you can jump to any widget. |
 | Toolbar, bottom of the board | **Select tool**, **Shape**, **Screen**, **Text** and **Widget**. |
 | **Details**, top right | The properties of whatever is selected. With nothing selected, it shows the board's color and grid. |
@@ -58,7 +58,8 @@ Set up the board and its parts:
 
 Build a screen:
 
-- [Add widgets](add-widgets.md): the widget picker, tools, drag and drop, paste.
+- [Find and add things with the Library](library.md): search, filter and manage everything you can add.
+- [Add widgets](add-widgets.md): the Library search, tools, drag and drop, paste.
 - [Select, move and resize](select-and-edit.md): selection, snapping, copy, group, reorder, undo.
 - [Use the Outline](outline.md): the widget tree.
 - [Change widget properties](properties.md): the **Details** panel.

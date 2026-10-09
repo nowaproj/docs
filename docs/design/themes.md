@@ -14,7 +14,7 @@ Set your theme before you design many screens: see [Set the theme first](../guid
 1. Click **Themes** in the left sidebar, or press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>3</kbd>. The active theme opens for editing, with **Colors**, **Typography** and **Widgets** below it.
 2. Click the arrow next to the theme name to show all your themes.
 
-New projects start with two themes, `lightTheme` and `darkTheme`. Each theme is a variable in `lib/globals/themes.dart`, and Nowa writes your edits to that file. **Refresh** re-renders the app with the current theme, and **Open in New Tab** shows the file as code. <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Z</kbd> and <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Y</kbd> undo and redo inside the panel.
+New projects start with two themes, `lightTheme` and `darkTheme`. Each theme is a variable of type `ThemeData` in `lib/globals/themes.dart`, and Nowa writes your edits to that file. Variables of other types in the file aren't listed as themes. A theme that your code builds with a function is one too. **Refresh** re-renders the app with the current theme, and **Open in New Tab** shows the file as code. <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Z</kbd> and <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Y</kbd> undo and redo inside the panel.
 
 ![The Themes panel with lightTheme active: the Colors tiles (Primary, Secondary, Tertiary, Surface, highlighted), Add Color, the Brightness and Mode switches and the start of Typography.](/img/docs/design/design-themes-1.png)
 
@@ -40,7 +40,7 @@ In a new project, your app doesn't switch between light and dark on its own. To 
 Right-click a theme.
 
 - **Rename**: type the new name and press <kbd>Enter</kbd>. Nowa updates the places that use the theme.
-- **Delete**: removes the theme. If other code uses it, Nowa lists where and asks before it deletes. The **Active** theme can't be deleted, so apply another theme first.
+- **Delete**: removes the theme. If other code uses it, Nowa lists where and asks before it deletes. On the **Active** theme, **Delete** is greyed out and says **The applied theme**, so apply another theme first.
 
 ## Edit colors
 
@@ -99,7 +99,7 @@ To bring a widget back, pick one of the theme's colors for it, or a theme text s
 
 ## Edit theme extensions
 
-If a theme has custom extensions, such as a set of brand colors, the editor shows a **Default Theme** tab plus one tab per extension, named after its class. Click a tab to edit that extension's values.
+If a theme has custom extensions, such as a set of brand colors, the editor shows one tab per extension, named after its class. Click a tab to edit that extension's values. A theme written as `ThemeData(...)` also keeps a **Default Theme** tab, first. A theme that a function or `copyWith` builds shows only its extension tabs. A color that points to another color, such as `AppColors.primary`, shows as the color it reads.
 
 There is no button to create an extension. They come from your code. Nowa supports up to 8 theme extensions.
 

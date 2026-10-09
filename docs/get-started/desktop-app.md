@@ -1,11 +1,11 @@
 ---
 title: Install the desktop app
-description: Download Nowa for macOS or Windows, sign in, and set up Flutter so you can use local projects and run your app on devices and emulators.
+description: Download Nowa for macOS, Windows or Linux, sign in, and set up Flutter so you can use local projects and run your app on devices and emulators.
 sidebar_label: Install the desktop app
-keywords: [Nowa Desktop, download, install, macOS, Windows, Flutter SDK, Xcode, Local Setup, Set up automatically, auto update, desktop app, simulator, emulator]
+keywords: [Nowa Desktop, download, install, macOS, Windows, Linux, tar.gz, install.sh, Flutter SDK, Xcode, Local Setup, Set up automatically, auto update, desktop app, simulator, emulator]
 ---
 
-The Nowa desktop app is the same editor in its own window, for macOS and Windows. It adds local projects, importing existing Flutter projects, and running your app on real devices and emulators. It also installs updates from inside the app.
+The Nowa desktop app is the same editor in its own window, for macOS, Windows and Linux. It adds local projects, importing existing Flutter projects, and running your app on real devices and emulators. On macOS and Windows it also installs updates from inside the app.
 
 <Badge type="desktop" />
 
@@ -13,20 +13,34 @@ The Nowa desktop app is the same editor in its own window, for macOS and Windows
 
 1. Sign in at [app.nowa.dev](https://app.nowa.dev) in your browser.
 2. In the dashboard sidebar, click **Download Desktop App**.
-3. In the **Download Nowa** dialog, click **MacOS** or **Windows**. The dialog also shows the version you are getting.
-4. Open the downloaded installer and follow the steps for your system.
+3. In the **Download Nowa** dialog, click **MacOS**, **Windows** or **Linux**. The dialog also shows the version you are getting. A button is greyed out when there is no download for that system.
+4. On macOS and Windows, open the downloaded installer and follow the steps for your system. On Linux, follow [Install on Linux](#install-on-linux).
 
-{/* CAPTURE: id=get-started-desktop-app-1 | state: signed in on the web dashboard, Download Desktop App clicked | show: the Download Nowa dialog with the MacOS and Windows buttons and the version line | crop: the dialog */}
+{/* CAPTURE: id=get-started-desktop-app-1 | state: signed in on the web dashboard, Download Desktop App clicked | show: the Download Nowa dialog with the MacOS, Windows and Linux buttons and the version line | crop: the dialog */}
 
 :::note
 When you sign in, the desktop app checks that your account has desktop access. If it doesn't, Nowa shows "Upgrade to unlock desktop version, or use on web at app.nowa.dev" with your billing options. You can upgrade there or keep using the web app. See [pricing](https://nowa.dev/pricing).
 :::
 
+## Install on Linux {#install-on-linux}
+
+The Linux download is a 64-bit archive named like `Nowa-v<version>-linux-x64.tar.gz`, made on Ubuntu 24.04.
+
+1. Extract the archive. You get a folder named `nowa`.
+2. Open a terminal in that folder and run `./install.sh`.
+3. Start **Nowa** from your applications menu.
+
+The script copies Nowa to `~/.local/share/nowa` (or to a `nowa` folder inside `XDG_DATA_HOME`, if you set it), adds the icon and adds **Nowa** to the applications menu. To reinstall, run the script again. It replaces the old copy.
+
+The in-app preview isn't available on Linux yet. When you run your app in the editor, the preview pane says "Your app is running" and offers **Open in Browser**, with the address of your app. See [Run your app](../test/run.md).
+
 ## Sign in and stay up to date
 
 Open Nowa and sign in with your email and password or with Google. **Continue with Apple** isn't available in the desktop app. Once you have a local project, the dashboard lists it under **On this device**.
 
-When a new version is out, Nowa shows **A new version of Nowa is available**. Click **Update to v…** (the button names the new version) to download it, then click **Install & Restart**. Click **Skip** or **Later** to wait, or **Or download manually** to get the installer yourself.
+When a new version is out, Nowa shows **A new version of Nowa is available**. On macOS and Windows, click **Update to v…** (the button names the new version) to download it, then click **Install & Restart**. Click **Skip** or **Later** to wait, or **Or download manually** to get the installer yourself.
+
+On Linux, Nowa doesn't update itself. The message offers **Download v…** and **Skip**. Download the new archive, then run `install.sh` again.
 
 If Nowa says **Version out of date**, the update is required. Click **Download**, choose your system in the **Download Nowa** dialog, and install the newer version.
 

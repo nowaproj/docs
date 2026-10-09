@@ -2,7 +2,7 @@
 title: Write your own code
 description: Add your own Dart widgets, functions and classes, use them on the board and in Circuit, and import code you already have.
 sidebar_label: Your own code
-keywords: [custom code, hybrid approach, custom widget, custom function, custom class, CustomFunction, preview, Import Dart code, Import as Custom code, Dart, write code, nowa_runtime, NowaGenerated]
+keywords: [custom code, hybrid approach, custom widget, custom function, custom class, CustomFunction, preview, "@Preview", widget variants, Import Dart code, Import as Custom code, Dart, write code, nowa_runtime, NowaGenerated]
 ---
 
 Nowa is real Flutter, so you can write your own widgets, functions and classes and use them next to everything Nowa builds. Nowa reads your code, so you can drop your widgets on the board and call your functions from logic. Earlier docs and release notes call this the **Hybrid approach**.
@@ -49,11 +49,31 @@ Nowa keeps code you write exactly as you wrote it, until you change that declara
 
 | Your code | Where it shows up |
 |---|---|
-| A widget | In the widget picker (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd>) under **Components**, and in the **Widgets** panel. Drag it onto a screen like any [component](../design/components.md). |
+| A widget | In the [Library](../design/library.md) under **Project**. Press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd> and type its name, or open the Library from the sidebar. Drag it onto a screen like any [component](../design/components.md). |
 | A function | In [Circuit](../logic/circuit.md), in the **All nodes for this circuit** menu, under the category named after your project. |
 | A class | As a type. **Select type** lists it when you search for its name or click **show more...** ([Store data in variables](../logic/variables.md)). |
 
 A widget that Nowa can read opens like any other component, so you can change it on the board too. For a one-off formula, you don't need a function: use a custom expression ([Expressions and conditions](../logic/expressions.md#custom-expression)).
+
+## Preview a widget in several states {#preview-variants}
+
+Flutter's `@Preview` annotation marks a function, a static method or a constructor that builds a widget in one particular state. Nowa reads each one as a **variant** of the widget it builds, so you can see the states side by side.
+
+```dart
+import 'package:flutter/material.dart';
+import 'package:flutter/widget_previews.dart';
+
+@Preview(name: 'Five stars', group: 'Ratings', size: Size(220, 48))
+Widget fiveStars() => const StarRating(stars: 5);
+```
+
+A variant's name is its `name:` argument, or its function's name in Title Case. Nowa reads `group:` and `size:` too.
+
+- **Opened on its own.** Open the screen or component by itself, for example by double-clicking it in the [Library](../design/library.md). Each variant appears as its own canvas next to it, titled with its name. Variants with the same `group:` stack in one column, headed by the group's name.
+- **On a variant's title.** Hover it for **Play**, **Open in new tab** (jumps to the preview code) and **Add to board**. **Add to board** asks which board and puts the variant there. If the package has no boards, Nowa says "This package has no boards yet".
+- **In the Library.** Variants are rows under their widget. Insert one to place that state on the board, at the size its `@Preview` asks for.
+
+Nowa also reads previews from Dart files in a `design/` folder at the top of your project (or of a package, in a workspace), as long as the file names the widget and has a `@Preview`.
 
 ## Control what the board shows for a function {#custom-function}
 
@@ -75,8 +95,8 @@ Without a `preview`, the board writes "calling: readingTime" to **Logs** and ret
 
 Use this to bring in a function, a widget or a class you wrote somewhere else.
 
-1. If you're in code mode, click **Back**. The **Add to library** button isn't in the code-mode **Files** panel.
-2. In the **Files** panel, click **+** (**Add to library**) on the `lib` row and choose **Import Dart code...**.
+1. If you're in code mode, click **Back**. Code mode has the **Files** tree, not the Library.
+2. In the [Library](../design/library.md), click **Add** (+) and choose **Import Dart code...**.
 3. Paste your code into the editor, or click **From file** and pick a `.dart` file.
 4. Click **Import** or **Import as Custom code**.
 

@@ -73,8 +73,8 @@ On the board, Nowa fills in values that are still empty, so a design doesn't loo
 |---|---|
 | Text | The name of the variable or param, in square brackets, such as `[title]` |
 | List | Three sample items |
-| Image | A stand-in picture |
-| Color | Gray |
+| Image | A stand-in picture, 48 × 48 pixels when the image sets no size |
+| Color | Gray. A color that may be empty stays empty, so the widget's own default shows |
 | Icon | An info icon |
 | Widget | A small 48-pixel placeholder box |
 

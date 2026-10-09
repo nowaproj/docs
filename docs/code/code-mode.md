@@ -13,7 +13,7 @@ Code mode shows the Dart behind your app in a full code editor. Select a widget,
 2. Click the `<>` button in the top bar, next to **Settings** (the gear). The button has no label, and it stays highlighted while code mode is on. Nowa saves your project first.
 3. The editor opens the file that defines your selection and scrolls to the widget's code. With nothing selected, it opens your home screen's file, or `lib/main.dart` if there is none.
 
-The left panel switches to **Files** and shows the whole project, not only `lib/`, `boards/` and `assets/`. When you leave code mode, the panel you were using comes back.
+The **Files** icon takes the Library's place, second in the left sidebar (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>2</kbd>), and the panel opens on it. It shows the whole project as a tree: `lib/`, `boards/`, `assets/`, `pubspec.yaml` and the platform folders. When you leave code mode, the panel you were using comes back.
 
 ![Code mode: the Files tree on the left, home_page.dart open in a tab with its Dart code, the download and Show preview buttons (highlighted) at the right end of the tab bar, and the preview pane (Play and App) beside the code.](/img/docs/code/code-code-mode-1.png)
 
@@ -23,7 +23,7 @@ You can also open code mode with **Open code mode** on the **Nothing is open** s
 
 Each file opens in its own tab above the editor. A tab shows `*` after its name while the file has unsaved changes.
 
-- Click a file in **Files** to open it.
+- Click a file in **Files** to open it, or move to it with the arrow keys and press <kbd>Enter</kbd>.
 - Click **+** (**New Tab**) to open a blank tab. Its **Empty Tab** page offers **New Widget** and **Upload a File** (which adds a file to `assets/`), and lists your **Recent Files**. Only one blank tab can be open at a time.
 - Close a tab with its **×**, a middle-click, or the shortcut below.
 
@@ -35,7 +35,7 @@ Each file opens in its own tab above the editor. A tab shows `*` after its name 
 | Close the tab | <kbd>Ctrl</kbd> + <kbd>W</kbd> | <kbd>Cmd</kbd> + <kbd>W</kbd> |
 | Search for a file | <kbd>Ctrl</kbd> + <kbd>O</kbd> | <kbd>Cmd</kbd> + <kbd>O</kbd> |
 
-**Search for a file** opens a picker. Type part of a file name, move with <kbd>↑</kbd> and <kbd>↓</kbd>, and press <kbd>Enter</kbd>. It lists the files in `lib/` with their paths. To search inside files, see [Manage project files](files.md#search-the-project).
+**Search for a file** opens a picker. Type part of a file name, move with <kbd>↑</kbd> and <kbd>↓</kbd>, and press <kbd>Enter</kbd>. It lists the files in `lib/` with their paths. To search inside files, see [Manage project files](files.md#search-the-project). On the board, the same keys open the [Library](../design/library.md) search instead.
 
 ## Edit code
 
@@ -51,9 +51,11 @@ The editor colors Dart, JSON, YAML, XML, HTML and Markdown. You can edit any tex
 
 [Keyboard shortcuts](../reference/shortcuts.md#code-editor) lists the rest, such as commenting and moving lines.
 
-Outside code mode, right-click a file in **Files** and choose **Show file content** to open its text in a tab. The details panel beside the text has **Font size** (13 by default), **Word wrap** (on by default) and a **Compile** button. Click **Compile** to apply your edits to the project. When nothing is waiting, it reads **Compiled** and is greyed out.
+To open a file as plain text, right-click it in **Files** and choose **Show file content**. The entry isn't there with the **View Only** role. In code mode, the edits you type in that tab reach the project when you save.
 
-To bring in a snippet or a `.dart` file instead of typing it, leave code mode and choose **Import Dart code...** from the **Add to library** menu in **Files**. See [Import Dart code](custom-code.md#import-dart-code).
+Outside code mode, a plain text file that opens in a tab, such as a `pubspec.yaml` match from the **Search** panel, has a details panel beside the text. It has **Font size** (13 by default), **Word wrap** (on by default) and a **Compile** button. Click **Compile** to apply your edits to the project. When nothing is waiting, it reads **Compiled** and is greyed out.
+
+To bring in a snippet or a `.dart` file instead of typing it, leave code mode and choose **Import Dart code...** from the Library's **Add** (+) menu. See [Import Dart code](custom-code.md#import-dart-code).
 
 ## Save your edits
 

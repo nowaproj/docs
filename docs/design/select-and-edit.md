@@ -2,7 +2,7 @@
 title: Select, move and resize
 description: Select widgets, drag and resize them with snapping guides, and use copy, group, reorder, replace, export and undo.
 sidebar_label: Select, move and resize
-keywords: [select, selection, move, resize, snap, guides, group, ungroup, copy, paste, duplicate, reorder, move up, move down, replace with, export as image, remove, delete widget, undo, redo, action history, drop rules]
+keywords: [select, selection, move, resize, snap, guides, group, ungroup, copy, paste, duplicate, reorder, bring forward, send backward, bring to front, send to back, move up, move down, replace with, export as image, remove, delete widget, undo, redo, action history, drop rules]
 ---
 
 Click to select, drag to move, pull a handle to resize. Purple guides snap things into line, and every change can be undone.
@@ -72,18 +72,18 @@ Right-click a widget to act on it. An unselected widget is selected first.
 | Entry | What it does |
 |---|---|
 | **Remove** | Takes the selected widgets out of your design. A screen or component only leaves the board and stays in your project. Key: <kbd>Delete</kbd>, or <kbd>Backspace</kbd> on macOS. |
-| **Replace with...** | Opens the widget picker and swaps the widget for the one you pick. Nowa keeps its children and the properties the new widget also has. |
+| **Replace with...** | Opens the widget picker dialog and swaps the widget for the one you pick. Nowa keeps its children and the properties the new widget also has. See [Add widgets](add-widgets.md#put-a-widget-inside-a-container). |
 | **Group** | Puts the selected widgets into one group. Key: <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>G</kbd>. Inside a **Row**, **Column** or **Stack** the group matches its parent. Elsewhere it is a **Stack**. |
 | **Ungroup** | Shows when one group is selected. It moves the children out and removes the group. The key only groups. It never ungroups. |
-| **Move Up**, **Move Down** | Moves the widget one place earlier or later among its siblings. Keys: <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>&#91;</kbd> for **Move Up**, <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>&#93;</kbd> for **Move Down**. |
-| **Move To Top**, **Move To Bottom** | Moves the widget to the first or last place. |
+| **Bring forward**, **Send backward** | Moves the widget one place later or earlier among its siblings. Keys: <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>&#93;</kbd> for **Bring forward**, <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>&#91;</kbd> for **Send backward**. |
+| **Bring to front**, **Send to back** | Moves the widget to the last or first place. Keys: <kbd>Alt</kbd>/<kbd>Option</kbd> + <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>&#93;</kbd> for **Bring to front**, <kbd>Alt</kbd>/<kbd>Option</kbd> + <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>&#91;</kbd> for **Send to back**. |
 | **Export as image...** | Saves a widget or screen as a picture. |
 
-Earlier means higher in a **Column**, further left in a **Row**, and further back in a **Stack**, where later widgets sit on top. The menu shows the same <kbd>&#93;</kbd> hint next to both **Move Up** and **Move Down**. The keys in the table are the real ones.
+Later means lower in a **Column**, further right in a **Row**, and in front in a **Stack**, where later widgets sit on top. Each entry shows its own keys. An entry that can't run, such as **Bring forward** on the last widget, is greyed out.
 
-![The right-click menu of a selected Container (highlighted): Play, Remove, Replace with..., Group, Copy, Cut, Move Up, Move Down, Move To Top, Move To Bottom, Create component, Detach, Copy as new widget and Export as image..., with their shortcuts.](/img/docs/design/design-select-and-edit-2.png)
+![The right-click menu of a selected Container (highlighted): Play, Remove, Replace with..., Group, Copy, Cut, Bring to front, Bring forward, Send backward, Send to back, Create component and Export as image..., with their shortcuts.](/img/docs/design/design-select-and-edit-2.png)
 
-**Play**, **Create component**, **Detach** and **Copy as new widget** are covered in [Play your app on the board](../test/instant-play.md) and [Build reusable components](components.md). Right-click empty board space for **Undo**, **Redo**, **Save**, **Create a page** and **Paste**.
+**Play**, **Create component**, **Detach** and **Copy as new widget** are covered in [Play your app on the board](../test/instant-play.md) and [Build reusable components](components.md). **Detach** and **Copy as new widget** show only where they apply. Right-click empty board space for **Undo**, **Redo**, **Save**, **Create a page** and **Paste**.
 
 ## Export as image
 
@@ -95,7 +95,7 @@ Right-click a widget or screen and choose **Export as image...**. Choose a **For
 
 Press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Z</kbd> to undo. Press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>Z</kbd> or <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Y</kbd> to redo. The board's right-click menu has **Undo** and **Redo** too. The keys do nothing while you type in a field.
 
-Each area keeps its own history: every board, the **Widgets** panel, and a screen opened on its own. Press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>H</kbd> to open **Action History**. Click an entry to undo it and every later step. Dimmed entries are steps you undid. Click one to redo up to it.
+Each area keeps its own history: every board, the **Library**, and a screen opened on its own. Press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>H</kbd> to open **Action History**. Click an entry to undo it and every later step. Dimmed entries are steps you undid. Click one to redo up to it.
 
 :::tip Or ask Nowa AI
 Select a widget, then type something like "Make this button full width with rounded corners." The selected widget is attached to your message automatically. See [Give Nowa AI context](../ai/context.md).

@@ -1,58 +1,56 @@
 ---
 title: Manage project files
-description: Browse, create, rename, move and delete project files in the Files panel, and find code with the Search panel or the file picker.
+description: Add, rename, move and delete your project's files in the Library, browse every file in code mode's Files tree, and find code with the Search panel or the file picker.
 sidebar_label: Files
-keywords: [files, Files panel, file tree, Add to library, Add board, Import asset, New Folder, rename file, move file, delete file, lib/main.dart, search, replace all, symbols, search for a file, find in files, project search]
+keywords: [files, Files panel, file tree, Library, Add, Upload Assets, Add to library, Add board, Import asset, New Folder, rename file, move file, delete file, cut, paste, lib/main.dart, search, replace all, symbols, search for a file, find in files, project search]
 ---
 
-The **Files** panel is where you browse your project, create Dart files, import assets, and rename or move things. The **Search** panel finds any line of code.
+Two panels look after your project's files. The [Library](../design/library.md) is where you add, rename, move and delete your screens, widgets, models and assets. In [code mode](code-mode.md), **Files** shows every file in the project as a tree. The **Search** panel finds any line of code.
 
-## Open the Files panel
+## Open the Library or Files {#open-the-files-panel}
 
-Click the folder icon (**Files**) in the left sidebar. Code mode opens it for you. Click the icon again to close the panel.
+The Library and **Files** share one place in the left sidebar, second from the top. Click the icon to open the panel, and click it again to close it.
 
-The panel looks different on the board and in [code mode](code-mode.md).
-
-| | On the board | In code mode |
+| | Library | Files |
 |---|---|---|
-| **What it shows** | Three folders: `lib`, `boards` and `assets`. | The whole project, including `pubspec.yaml` and the platform folders. |
-| **Add buttons** | **Add to library** (+) on `lib`, **Add board** (+) on `boards`, **Import asset** on `assets`. | None. Click **Back** to use them. |
-| **Click a file** | Shows a small preview. Double-click to open the file. | Opens the file in a tab. |
-| **Follows you** | No. | Yes. The panel selects the file in the open tab. |
+| **Where** | Outside code mode. Click **Library**, or press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>2</kbd>. | In code mode only. The folder icon (**Files**) takes the Library's place and opens by itself. <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>2</kbd> opens it too. |
+| **What it shows** | What your `lib/` folder declares, in folders: screens, components, models, global states and more. The chips add your packages, Nowa's built-in widgets and your assets. | The whole project, including `pubspec.yaml` and the platform folders. Folders start closed. |
+| **Add buttons** | **Add** (+) in the header. | None. Leave code mode and use the Library. |
+| **Click a row** | Shows a details card with a preview. Double-click, or press <kbd>Enter</kbd>, to open it. | Opens the file in a tab. |
+| **Follows you** | It marks the widget that is open in the editor. | It selects the file in the open tab. |
 
-![The Files panel with the lib, boards and assets rows and the Add to library menu open from the plus on the lib row (highlighted): New Widget, New Folder, New Model, New Global State, Generate Models From Json, API Collection and Import Dart code.](/img/docs/code/code-files-1.png)
-
-Names in the tree carry markers:
+Names in the **Files** tree carry markers:
 
 - `*` after the name means the file has unsaved changes.
 - A number after the name means the file has problems, and the name turns red. See [Find and fix problems](../test/problems.md).
 - In a project that uses Git, a letter shows a changed file: **A** added, **M** modified, **D** deleted, **R** renamed or **C** conflict. See [Use Git](git.md).
 
-Nowa doesn't load `.git/`, `build/` or `.DS_Store`, and the tree doesn't list top-level items whose names start with a dot, such as `.nowa`. A `.board` file stores one board. Double-click it to open that board ([Work with boards](../design/boards.md)).
+The Library shows the red problem count too, on rows and on their folders, but no `*` and no Git letters.
 
-## Add files
+Nowa doesn't load `.git/`, `build/` or `.DS_Store`, and the **Files** tree doesn't list top-level items whose names start with a dot, such as `.nowa`. A `.board` file stores one board. In code mode it opens a tab that says "Code view is not available for boards". To work on a board, leave code mode and pick it in the **Boards** chip in the top bar ([Work with boards](../design/boards.md)). The Library doesn't list boards.
 
-On the board, use the button on each section.
+## Add files {#add-files}
 
-| Section | Button | What it does |
-|---|---|---|
-| `lib` | **Add to library** (+) | Opens the menu below. |
-| `boards` | **Add board** (+) | Asks for a name and creates a board. |
-| `assets` | **Import asset** | Opens a file picker. See [Images, videos and other files](../design/assets.md). |
+In the Library, click **Add** (+) in the header and choose what to make.
 
-The **Add to library** menu:
+![The Library with its Add menu open from the + button in the header (highlighted): New Widget..., New Folder..., New Model..., New Global State..., Generate Models From Json..., API Collection..., Import Dart code... and Upload Assets....](/img/docs/code/code-files-1.png)
 
 | Item | What it creates |
 |---|---|
 | **New Widget...** | A screen or component from a template. See [Start from a template](../design/templates.md). |
-| **New Folder...** | A folder inside `lib`. |
+| **New Folder...** | A folder in `lib`. It goes inside the folder of the row you clicked last, if that row is in `lib`. |
 | **New Model...** | A data model in `lib/models`. See [Data models](../logic/models.md). |
 | **New Global State...** | A global state in `lib/globals`, attached to your app. See [Share data across your app](../logic/global-state.md). |
 | **Generate Models From Json...** | Model classes built from JSON. See [Data models](../logic/models.md). |
 | **API Collection...** | A REST API collection in `lib/api`. See [Connect a REST API](../integrations/rest-api/index.md). |
 | **Import Dart code...** | Dart you paste or load from a file. See [Write your own code](custom-code.md#import-dart-code). |
+| **Upload Assets...** | Files you pick on your computer, in `assets`, or in the folder of the asset you clicked last. See [Images, videos and other files](../design/assets.md). |
 
 A model or global state asks for a name. It must be a valid Dart name that nothing else in your project already uses, and it can't be a Dart keyword.
+
+The Library's **Filter** starts on **Widgets**, so a new model or global state stays hidden until you choose **Everything**, **Models** or **Global states**. The Library lists a folder only when something is in it, so a new empty folder shows up first in the **Files** tree in code mode.
+
+To add a board, click **Create new board** in the **Boards** chip in the top bar, or press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>B</kbd>. See [Work with boards](../design/boards.md).
 
 In code mode, a blank tab (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>T</kbd>) offers **New Widget** and **Upload a File** too.
 
@@ -62,17 +60,23 @@ Or ask Nowa AI: "Add a Product model with a name and a price." It creates the fi
 
 ## Rename, move and delete files
 
-Right-click a file or folder. Ctrl/Cmd-click adds items to the selection and Shift-click selects a range, so one action can cover several files. With the **View Only** role, the menu has only **Copy as path** and **View in folder**.
+In the Library, right-click a row for **Insert**, **Open**, **Rename**, **Delete** and **Show in code**, and drag a row onto a folder to move it. Things in `lib` stay in `lib`, and assets stay in `assets`. The Library works on one row at a time. See [Find and add things with the Library](../design/library.md).
+
+In code mode, right-click a file or folder in **Files**. The row you right-click is selected first. Ctrl/Cmd-click adds a row to the selection and Shift-click selects a range, so one action can cover several files. With the **View Only** role, the menu has only **Copy as path** and **View in folder**.
 
 | Menu item | What it does |
 |---|---|
-| **Rename** | Edits the name in place. Type the name without the extension and press <kbd>Enter</kbd>. Nowa updates the imports in files that use it. |
 | **Remove file** | Deletes the file after you confirm. With several files selected it reads **Remove N files**. |
+| **Rename** | Edits the name in place, for one file at a time. Type the name without the extension and press <kbd>Enter</kbd>. Nowa updates the imports in files that use it. Key: <kbd>F2</kbd>. |
+| **Cut** | Cuts the selected files. Key: <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>X</kbd>. |
+| **Paste** | Moves the cut files into the selected folder, or into the folder of the selected file. Key: <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>V</kbd>. |
 | **Copy as path** | Copies the path. |
 | **View in folder** <Badge type="local" /> | Opens the folder on your computer. |
-| **Show file content** | Opens the file's text in a tab. |
+| **Show file content** | Opens the file's text in a tab. With several files it reads **Show files content**. |
 
-To move a file, drag it onto a folder. Files in `lib` can move only within `lib`, files in `assets` only within `assets`, and `.board` files only within `boards`. A folder can't move into itself. Nowa updates imports when you move a Dart file.
+To move files, drag them onto a folder. Several selected rows drag together. Files in `lib` can move only within `lib`, files in `assets` only within `assets`, and `.board` files only within `boards`. A folder can't move into itself. Nowa updates imports when you move a Dart file.
+
+The tree works from the keyboard too. The arrow keys move between rows, and <kbd>Shift</kbd> with an arrow extends the selection. <kbd>Space</kbd> selects the focused row. <kbd>Enter</kbd> opens a file or opens and closes a folder, and <kbd>←</kbd> and <kbd>→</kbd> close and open a folder.
 
 To delete a file, you can also select it and press <kbd>Delete</kbd> (<kbd>Backspace</kbd> on macOS). Nowa asks "Are you sure you want to delete…?". If other files use something declared in it, Nowa lists those uses and asks again. Open tabs for the file close. <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Z</kbd> undoes a delete while the **Files** panel has focus.
 
@@ -114,11 +118,14 @@ Click a row to open it. A screen or component opens on the board, a function ope
 
 ## Search for a file by name
 
-Press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>O</kbd>, type part of a file name, and press <kbd>Enter</kbd>. The picker lists the files in `lib/` with their paths, and <kbd>Esc</kbd> closes it.
+In code mode, press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>O</kbd>, type part of a file name, and press <kbd>Enter</kbd>. The picker lists the files in `lib/` with their paths, and <kbd>Esc</kbd> closes it. It skips folders that tools generate: `.dart_tool`, `.git`, `.gradle`, `.idea`, `.symlinks`, `build`, `ephemeral`, `node_modules` and `Pods`.
+
+On the board, the same keys open the Library's search with the hint **Go to...**, and <kbd>Enter</kbd> opens the first result. See [Find and add things with the Library](../design/library.md).
 
 ## Next steps
 
 - [Edit code in Nowa](code-mode.md)
 - [Write your own code](custom-code.md)
+- [Find and add things with the Library](../design/library.md)
 - [Images, videos and other files](../design/assets.md)
 - [Keyboard shortcuts](../reference/shortcuts.md)

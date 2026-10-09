@@ -2,7 +2,7 @@
 title: Build reusable components
 description: Turn any widget into a component you can reuse across screens, give it params, and update every copy by editing it once.
 sidebar_label: Components
-keywords: [component, reusable widget, instance, detach, params, parameters, create component, widgets panel, stateful, reuse, copy as new widget]
+keywords: [component, reusable widget, instance, detach, params, parameters, create component, library, widgets panel, stateful, reuse, copy as new widget]
 ---
 
 A component is a widget you build once and use many times. Change it in one place and every copy updates. That makes it ideal for a product card, a header or a custom button.
@@ -24,15 +24,15 @@ Nowa saves the component as a Dart file in `lib/`, named after it, for example `
 
 Every place you use a component is an instance. To add one:
 
-- Drag it from the **Widgets** panel (switch to **Component**) onto the board or into a screen.
-- Open the widget picker with <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd> and choose from **Components**. See [Add widgets](add-widgets.md).
+- Drag it from the [Library](library.md) onto the board or into a screen. Find it under **Project**. The default filter already lists components.
+- Press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd>, type its name and press <kbd>Enter</kbd>. The Library puts it where your pointer last was. To see only components, choose **Components** in **Filter**. See [Add widgets](add-widgets.md).
 - Copy an instance and paste it, or hold <kbd>Alt</kbd>/<kbd>Option</kbd> and drag it.
 
 Instances have a purple label in the [Outline](outline.md).
 
 ## Edit a component or one instance
 
-- **Change the component for everyone.** Drag it from the **Widgets** panel onto empty board space and click its title, or double-click it in the **Widgets** panel to open it on its own. Edit it like any widget. Every instance updates.
+- **Change the component for everyone.** Drag it from the **Library** onto empty board space and click its title, or double-click it in the **Library** (or press <kbd>Enter</kbd> on it) to open it on its own. Edit it like any widget. Every instance updates.
 - **Edit inside an instance.** Select a widget inside an instance: double-click the instance on the board to go one level deeper, or pick the widget in the [Outline](outline.md). Change it in **Details**. The widget belongs to the component, so every instance updates. The first crumb at the top of **Details** is the component's name. Click it to select the whole instance again.
 - **Set values for one instance.** Select the instance inside a screen. **Details** lists the component's params. Change them there and only this instance changes.
 - **Break the link.** Right-click an instance and choose **Detach**. It turns into plain widgets, and later changes to the component no longer reach it.
@@ -55,20 +55,21 @@ Try "Turn the recipe card on the Home screen into a component and use it on the 
 
 ## Manage screens and components {#manage-screens-and-components}
 
-Open **Widgets** in the left sidebar. It lists the screens and components in your project's `lib/` folder, each with a preview.
+Open **Library** in the left sidebar. Your screens and components are under **Project**, in the folders of your `lib/` folder. [Find and add things with the Library](library.md) covers the whole panel. These are the steps for screens and components.
 
-![The Widgets panel on the Component tab with the Search box, the grid/list button, the Page and Component switch and a component tile, with its right-click menu (highlighted): Open in Editor, Rename and Delete.](/img/docs/design/design-components-2.png)
+![The Library with the project's components listed and the right-click menu of one component row (highlighted): Insert, Open, Rename, Delete and Show in code.](/img/docs/design/design-components-2.png)
 
-- Switch between **Page** (screens) and **Component**, or type in the search box. Search looks at names and file paths in both lists.
-- Click a tile to select it. <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + click or <kbd>Shift</kbd> + click selects several.
-- Double-click a tile, or right-click it and choose **Open in Editor**, to open it on its own.
-- Drag a tile onto the board to place it.
-- Right-click and choose **Rename**, type the new name and press <kbd>Enter</kbd>. Nowa updates every place that uses it.
-- Right-click and choose **Delete**, or press <kbd>Delete</kbd> (<kbd>Backspace</kbd> on macOS). If something uses it, Nowa lists the places and asks you to confirm with **Remove**. If it is the only widget in its file, Nowa deletes the file too. While the panel is focused, <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Z</kbd> undoes a delete.
-- The button next to the search box switches between list and grid (**Switch to grid view** and **Switch to list view**).
+- Type in the search field to find one. To list only one kind, choose **Screens** or **Components** in **Filter**.
+- Click a row for its details card: a preview, its name, where it lives and the first lines of its description. Press <kbd>Esc</kbd> to put the card away.
+- Double-click a row, press <kbd>Enter</kbd>, or right-click it and choose **Open** to open it on its own.
+- Right-click it and choose **Insert**, or press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Enter</kbd>, to put it on the open board. Dragging the row onto the board works too.
+- Right-click and choose **Rename** (or press <kbd>F2</kbd>), type the new name and press <kbd>Enter</kbd>. Nowa updates every place that uses it, and renames the file when the file is named after it.
+- Right-click and choose **Delete**. Nowa asks **Are you sure you want to delete ProductCard?** with **Cancel** and **Yes**. If something uses it, Nowa lists the places and asks you to confirm with **Remove**. If it is the only widget in its file, Nowa deletes the file too. While the Library has focus, <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Z</kbd> undoes a delete.
+- Right-click and choose **Show in code** to open its file in code mode.
 
 ## Next steps
 
 - [Pass data with parameters](../logic/parameters.md): give a screen or component values from outside.
-- [Add widgets](add-widgets.md): drop your components in from the widget picker.
+- [Find and add things with the Library](library.md): search, filter and manage everything in the panel.
+- [Add widgets](add-widgets.md): drop your components in from the Library.
 - [Lists and grids](../reference/widgets/lists.md): repeat one item design for every entry in a list.

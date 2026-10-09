@@ -43,7 +43,7 @@ Nowa builds Flutter apps, so one project can reach several platforms.
 ## Where Nowa runs
 
 - **The web app** at [app.nowa.dev](https://app.nowa.dev). Sign in and build in your browser. On a phone-sized window you get a [phone layout](./mobile.md).
-- **The desktop app** for macOS and Windows. It adds local projects, running on devices and emulators, and importing existing Flutter projects. See [Install the desktop app](./desktop-app.md).
+- **The desktop app** for macOS, Windows and Linux. It adds local projects, running on devices and emulators, and importing existing Flutter projects. See [Install the desktop app](./desktop-app.md).
 - **The playground** at [app.nowa.dev/playground](https://app.nowa.dev/playground). Try the editor without an account. See [Try Nowa without an account](./playground.md).
 
 ## Key terms
@@ -52,7 +52,7 @@ Nowa builds Flutter apps, so one project can reach several platforms.
 |---|---|
 | **Nowa AI** | The AI agent. It lives in the **AI Assistant** panel (the **Assistant** icon in the sidebar) and builds, edits and fixes your app. |
 | **Board** | The design surface where your screens, components and widgets sit side by side. |
-| **Screen** | A page of your app. The **Widgets** panel lists screens as **Page**. |
+| **Screen** | A page of your app. The [Library](../design/library.md) lists your screens. |
 | **Component** | A reusable piece you build once and use on any screen. |
 | **Widget** | A building block, such as a text, a button, an image or a row. Widgets are Flutter widgets. |
 | **Details** | The panel on the right that shows the properties of what you selected. |

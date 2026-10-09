@@ -44,6 +44,8 @@ If you declare fonts under `flutter:` → `fonts:` in `pubspec.yaml`, with your 
 
 The **Fonts** popup lists font files by file name, not the family names you declare.
 
+If your own code uses the `google_fonts` package, for example `GoogleFonts.poppins()`, Nowa runs it on the board. The package is one of the [built-in packages](../code/packages.md#how-nowa-loads-your-packages).
+
 ## Choose an icon
 
 1. Select an Icon widget, or any widget with an icon property.

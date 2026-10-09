@@ -15,7 +15,7 @@ To group widgets, select them on the board or in the **Outline**, then press <kb
 
 To take a group apart, select it, right-click and choose **Ungroup**. Pressing the shortcut again nests the group in a new one, so use **Ungroup** instead.
 
-You can also add an empty **Group** from the widget picker (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd>).
+You can also add an empty **Group** from the [Library](library.md): press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd>, type `group`, move to **Group** with <kbd>↓</kbd> if it isn't highlighted, and press <kbd>Enter</kbd>.
 
 Select a group and open the **Group** section of **Details**. Its header has three buttons: the first sets a **Stack**, the right arrow sets a **Row** and the down arrow sets a **Column**. When you turn a Stack into a Row or Column, Nowa orders the children by their position and takes the **Gap** from the space between them.
 
@@ -76,8 +76,8 @@ The **Layout** section changes with the parent:
 ## Scroll or wrap content
 
 - **Scroll View**: select a Column, or any widget that may not fit, click **Add Wrapper** and choose **Scroll View**. Inside a Scroll View, **Expand** isn't offered along the scroll direction, because a scrolling area has no fixed end to fill.
-- **Wrap**: add it from the widget picker. Children sit side by side and continue on a new line when they run out of room.
-- **List View**: add it from the widget picker for a scrolling list. It starts with three placeholder items that repeat one item design. See [Lists and grids](../reference/widgets/lists.md).
+- **Wrap**: add it from the [Library](library.md) (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd>). Children sit side by side and continue on a new line when they run out of room.
+- **List View**: add it from the Library for a scrolling list. It starts with three placeholder items that repeat one item design. See [Lists and grids](../reference/widgets/lists.md).
 
 :::tip
 Or ask Nowa AI: "Put these three cards in a column with 16 px between them and make it scroll."

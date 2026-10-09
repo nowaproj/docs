@@ -59,6 +59,7 @@ const sidebars = {
         'design/boards',
         'design/screens',
         'design/components',
+        'design/library',
         'design/add-widgets',
         'design/select-and-edit',
         'design/properties',

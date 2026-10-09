@@ -50,13 +50,13 @@ Widgets, `State` and `ChangeNotifier` classes work as you'd expect. You can also
 
 ### Imports and packages
 
-- `package:` imports are the best supported form. `part` and `part of` aren't followed.
+- `package:` imports are the best supported form. `part` and `part of` aren't followed. When Nowa rewrites a file you changed visually, it keeps the `library;`, `part '...';` and `part of '...';` lines and adds no generated imports to a part file.
 - `show` is ignored, so a `show` import brings in the whole file. A conditional import, such as `if (dart.library.io)`, uses its default file.
-- Only the packages you list under `dependencies` with a version are loaded. Packages from Git or a local path aren't, and neither are the packages your packages depend on. See [Add packages](packages.md).
+- Nowa loads the packages you list under `dependencies` with a version. It also lists packages with a `git:` or `path:` source, and in a local project loads them from where `flutter pub get` put them. An `sdk:` package, such as `flutter_localizations`, counts as installed but isn't loaded. Packages from another host, anything under `dev_dependencies` and the packages your packages depend on aren't loaded. See [Add packages](packages.md).
 
 ### What runs differently
 
-- In a constructor's initializer list, `super(...)` and `assert(...)` don't run. Set fields directly, or use `super.name` parameters.
+- In a constructor's initializer list, `assert(...)` doesn't run, and neither does a positional argument of `super(...)`. The named arguments of `super(name: x)` are read like `super.name`. Set other fields directly, or use `super.name` parameters.
 - A call to `super.method()` doesn't run the parent method and gives back nothing.
 - Putting an object in text, as in `'$item'`, ignores the `toString()` you wrote. Call it yourself, as in `'${item.toString()}'`, or use a getter such as `item.label`.
 - A `try` with more than one `catch` clause fails with "Multiple catch clauses are not supported yet" when something is thrown. Use one `catch` and check the type inside.

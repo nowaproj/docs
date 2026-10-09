@@ -95,7 +95,7 @@ Right-click a widget or screen and choose **Export as image...**. Choose a **For
 
 Press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Z</kbd> to undo. Press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>Z</kbd> or <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Y</kbd> to redo. The board's right-click menu has **Undo** and **Redo** too. The keys do nothing while you type in a field.
 
-Each area keeps its own history: every board, the **Library**, and a screen opened on its own. Press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>H</kbd> to open **Action History**. Click an entry to undo it and every later step. Dimmed entries are steps you undid. Click one to redo up to it.
+Each area keeps its own history: every board, the [Library](library.md), and a screen opened on its own. Press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>H</kbd> to open **Action History**. Click an entry to undo it and every later step. Dimmed entries are steps you undid. Click one to redo up to it.
 
 :::tip Or ask Nowa AI
 Select a widget, then type something like "Make this button full width with rounded corners." The selected widget is attached to your message automatically. See [Give Nowa AI context](../ai/context.md).

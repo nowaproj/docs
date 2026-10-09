@@ -11,13 +11,13 @@ A local project is a normal Flutter project that lives in a folder on your compu
 
 ## Before you start
 
-- Install the [Nowa desktop app](../get-started/desktop-app.md). It needs a plan that includes it. If yours doesn't, the app shows "Upgrade to unlock desktop version, or use on web at app.nowa.dev". See [pricing](https://nowa.dev/pricing).
+- Install the [Nowa desktop app](../get-started/desktop-app.md), for macOS, Windows or Linux. It needs a plan that includes it. If yours doesn't, the app shows "Upgrade to unlock desktop version, or use on web at app.nowa.dev". See [pricing](https://nowa.dev/pricing).
 - Set up Flutter. Nowa needs the Flutter SDK to create and run projects. If you see **Flutter SDK not found**, follow [Set up Flutter](../get-started/desktop-app.md#setting-up-flutter-sdk).
 
 A local project differs from a cloud project in three ways:
 
 - **Where it shows up.** Local projects are listed under **On this device** in the desktop app only. Other computers and the web app don't see them.
-- **What you gain.** You can [open it in VS Code](vs-code.md), jump to its folder with **View in folder** (right-click a file in the **Files** panel), and use the [Git](git.md) panel on the repository in that folder.
+- **What you gain.** You can [open it in VS Code](vs-code.md), jump to its folder with **View in folder** (in code mode, right-click a file in **Files**), and use the [Git](git.md) panel on the repository in that folder. Nowa also picks up files you change outside it: see [What syncs and when](vs-code.md#what-syncs-and-when).
 - **What you give up.** **Deploy**, Cloud Build, **Share preview**, **Public project**, **Move to workspace...** and code download are for cloud projects. To use them, link a cloud copy with [Project Sync](#link-a-cloud-copy-with-project-sync).
 
 For a side-by-side comparison, see [Cloud and local projects](../get-started/cloud-and-local.md).

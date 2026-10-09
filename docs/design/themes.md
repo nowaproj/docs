@@ -93,7 +93,7 @@ Buttons pick up the theme once you connect them. See [Connect buttons to the the
 
 ## Widgets that keep their own color
 
-A theme restyles only the widgets that use it. When a widget's color field shows a role's name, such as `primary`, the widget follows the theme. A widget with its own color, picked in the color picker or typed as a HEX value, keeps that color when you edit the theme. So does a text style you cut loose from the theme.
+A theme restyles only the widgets that use it. When a widget's color field shows a role's name, such as `primary`, or an extension color's name, such as `brand`, the widget follows the theme. A widget with its own color, picked in the color picker or typed as a HEX value, keeps that color when you edit the theme. So does a text style you cut loose from the theme.
 
 To bring a widget back, pick one of the theme's colors for it, or a theme text style. See [Use theme colors and text styles](theme-styles.md).
 

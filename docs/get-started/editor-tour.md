@@ -2,7 +2,7 @@
 title: Tour the editor
 description: Find your way around the Nowa editor, from the top bar and sidebar panels to the board, Details, status bar and help.
 sidebar_label: Editor tour
-keywords: [interface, editor, layout, explore interface, top bar, sidebar, panels, board, toolbar, Details, Variables, status bar, console, welcome tour, Nothing is open]
+keywords: [interface, editor, layout, explore interface, top bar, sidebar, panels, library, board, boards chip, back, forward, toolbar, Details, Variables, status bar, console, welcome tour, Nothing is open]
 ---
 
 The editor is a handful of areas that always stay in the same place. Here is what each one does, with a link to the page that covers it in depth.

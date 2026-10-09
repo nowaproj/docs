@@ -11,7 +11,7 @@ Refs are `path:line` in the 3.13 tree unless marked `3.12.5:`.
 Title "Find and add things with the Library" (sidebar_label "Library"). Heading anchors (auto slugs, no explicit ids):
 `#open-the-library`, `#choose-where-to-look`, `#find-something`, `#add-something-to-the-board`, `#preview-a-row`,
 `#open-rename-delete-and-move`, `#create-things-from-the-library`, `#use-the-keyboard`.
-Size: about 1,600 words by `wc -w` (about 1,300 words without markup and key tags). Over the style guide's 1,200 hint because it
+Size: 1,630 words by `wc -w` (about 1,370 words without table markup, key tags and capture comments). Over the style guide's 1,200 hint because it
 holds four reference tables; it could be split into "Library" and "Library reference" if the orchestrator wants.
 
 Claims and code refs:
@@ -267,3 +267,24 @@ get-started-desktop-app-1 (Linux button) and design-outline-2 (Back button, Boar
    ⌘⏎ on every system".
 8. "Login flow" becoming `login_flow` (from the research; not run live).
 9. The filter menu entry "Classs" (typo) is not listed anywhere.
+
+## Where the code differs from changes-3.13.md (the code won, pages follow the code)
+
+1. Source chips and search: the research's add-widgets row says "**Filter** (default **Widgets**) and the source chips narrow the
+   search". In the code the chips are hidden while a query is typed (`packages/nowa_ui/lib/library/library_panel.dart:782`) and a search
+   always walks all four sources (`library_panel.dart:254-275`, `for (final source in LibrarySource.values)`). The pages say that
+   only **Filter** narrows search results, and that the chips hide while you search.
+2. Ranking: "Nowa's picks first, then starts-with, then A to Z" holds inside each source group (`library_panel.dart:393-397`); the groups
+   come in the order Project, Packages, Built-in, Assets (`library_contract.dart:36`, enum order), so the highlighted first result
+   can be a Project row when a project item matches. The pages say "in a group" and never promise that Enter inserts Nowa's widget.
+3. **Add** menu targets: the research says the menu "creates in the highlighted row's `lib` folder (else `lib`)". In the code only
+   **New Folder...** (`add_lib_menu.dart:50-59`), plugin entries like **API Collection...** (target dir argument, although the API
+   collection itself goes to `lib/api`, `api_util.dart:131`) and the upload use the highlighted folder; **New Widget...** goes to
+   `lib/pages` or `lib/components` through the template dialog (`file_actions.dart:65`), **New Model...** to `lib/models` and
+   **New Global State...** to `lib/globals`. The page states only what is certain per entry.
+4. Library **Delete** key: the research says "no Delete-key action"; the code goes one step further (the global Delete shortcut reaches
+   `RemoveFileAction` with an empty selection and returns). Same user-visible result; the page says the key doesn't act on Library rows.
+5. Details card live preview: the research says "live preview for Nowa's picks, project widgets and assets". `canPreview` is true for
+   Nowa's picks and project widgets only (`library_service.dart:92-95`); assets use `_AssetPreview` (`library_actions.dart:93-132`),
+   which draws the file's own thumbnail when it has one and nothing otherwise. The page says "show a preview" for these three and "an icon"
+   for everything else.

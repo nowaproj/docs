@@ -26,11 +26,11 @@ The chips **Project**, **Packages**, **Built-in** and **Assets** turn sources on
 | **Built-in** | Nowa's own widgets in groups such as **Basic**, **Buttons** and **Layout**, then Flutter's libraries, **Material** and **Cupertino** first. |
 | **Assets** | The folders and files in your `assets/` folder. |
 
-**Filter** chooses which kinds show. **Widgets** (screens, components and widgets) is the default, so models and global states stay hidden until you pick **Everything** or one kind: **Screens**, **Components**, **Models**, **Global states**, **Functions**, **Enums** or **Variables**. **Private** adds your project's private names, the ones that start with an underscore. Assets always show. **Show as a list** flattens the folders into one list, and **Show as a tree** brings them back.
+**Filter** opens a menu headed **Show**, where you choose which kinds show. **Widgets** (screens, components and widgets) is the default, so models and global states stay hidden until you pick **Everything** or one kind: **Screens**, **Components**, **Models**, **Global states**, **Functions**, **Enums** or **Variables**. **Private** adds your project's private names, the ones that start with an underscore. Assets always show. **Show as a list** flattens the folders into one list, and **Show as a tree** brings them back.
 
 ## Find something
 
-Type in the search field. It looks in all four sources, whatever the chips say, and lists every name that contains what you typed. The hint tells you what <kbd>Enter</kbd> does.
+Type in the search field. It looks in all four sources, whatever the chips say (they hide while you search), and lists every name that contains what you typed. The hint tells you what <kbd>Enter</kbd> does.
 
 | Hint | How you get it | <kbd>Enter</kbd> | <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Enter</kbd> |
 |---|---|---|---|

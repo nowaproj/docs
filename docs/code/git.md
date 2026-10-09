@@ -61,7 +61,7 @@ If a **Pull** brings in changes that clash with yours, **Resolve Conflicts** ope
 
 ## Work with branches
 
-Click the branch name at the top of the panel. A star marks the current branch.
+Click the branch name at the top of the panel. The menu opens below it, with a **Search branches** field that filters your local branches and the remote branches you don't have locally yet. A star marks the current branch.
 
 | To | Do this |
 |---|---|
@@ -71,7 +71,7 @@ Click the branch name at the top of the panel. A star marks the current branch.
 | Merge | Hover another branch, click **Merge into current branch**, then **Merge**. Commit or discard your changes first. |
 | Delete | Hover a local branch you're not on, click **Delete branch**, then **Delete Branch**. The remote branch stays. |
 
-{/* CAPTURE: id=code-git-2 | state: signed in, Git panel open on a branch with another local branch and a remote-only branch; click the branch name, then click another branch while a file you changed differs on that branch | show: the open branch menu (star on the current branch, Local and Remote headings, New Branch) and the Switch branch? dialog with Cancel and Bring my changes | crop: left panel + dialog */}
+{/* CAPTURE: id=code-git-2 | state: signed in, Git panel open on a branch with another local branch and a remote-only branch; click the branch name, then click another branch while a file you changed differs on that branch | show: the open branch menu below the branch row (the Search branches field, star on the current branch, Local and Remote headings, New Branch) and the Switch branch? dialog with Cancel and Bring my changes | crop: left panel + dialog */}
 
 ## Resolve conflicts
 
@@ -92,10 +92,10 @@ Expand **Commit History** at the bottom of the panel (**Refresh Commits** reload
 | Action | What it does |
 |---|---|
 | **Copy SHA** | Copies the commit's ID. |
-| **Undo Commit** | Takes back your latest commit and moves its changes to **Staged Changes**. It works only on the latest commit, and only before you push it. |
-| **Revert Commit** | Undoes the changes of the commit you picked, so it also works on older and pushed commits. In a local project the undone changes appear under **Staged Changes**; commit them to finish. |
+| **Undo commit** | Takes back your latest commit and moves its changes to **Staged Changes**. It works only on the latest commit, and only before you push it. |
+| **Revert commit** | Undoes the changes of the commit you picked, so it also works on older and pushed commits. In a local project the undone changes appear under **Staged Changes**; commit them to finish. |
 
-Neither works on a repository's first commit. With uncommitted changes they do nothing, even if a success message appears, so commit or discard first.
+Both are greyed out when they can't run. Neither works on a repository's first commit. With the **View Only** role the menu has only **Copy SHA**. With uncommitted changes they do nothing, even if a success message appears, so commit or discard first.
 
 ## Move work between a cloud and a local project
 

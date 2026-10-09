@@ -77,11 +77,11 @@ Nowa treats a folder as a monorepo when its `pubspec.yaml` lists `workspace:` me
 
 ## What to expect on the board
 
-- **A project without boards opens on an empty board.** Your screens and components are in the **Widgets** panel as **Page** and **Component** tiles. Drag one onto the board to see it.
+- **A project without boards opens on an empty board.** Your screens and components are in the [Library](../design/library.md) (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>2</kbd>) under **Project**. Drag one onto the board to see it, or double-click it to open it on its own.
 - **Nowa draws your code by interpreting it, not compiling it.** Parts it can't draw show as placeholders, and anything it skips is reported in the **Problems** tab. Click **Run** to compile the whole app and see the real output. See [What Nowa can show on the board](limitations.md) and [Write your own code](custom-code.md).
-- **Nowa adds a `.nowa` folder** with its settings. Its `temp/` folder and `thumbnail.png` are Git-ignored.
+- **Nowa adds a `.nowa` folder** with its settings. Its `temp/` folder and `thumbnail.png` are Git-ignored. Nowa no longer raises the `version` in `.nowa/settings.json` to match each new release, so updating Nowa doesn't make that file show up as modified in [Git](git.md).
 - **FlutterFlow exports work too.** Nowa draws pages that use `safeSetState`, custom functions and Firestore records with placeholder data, even without a Firebase connection on the board.
-- **Code you change visually is rewritten.** On save, Nowa adds `@NowaGenerated` and an import of `package:nowa_runtime/nowa_runtime.dart`, turns relative imports into `package:` imports, reorders constructor parameters and writes `16` as `16.0`. Code you don't touch stays as you wrote it.
+- **Code you change visually is rewritten.** On save, Nowa adds `@NowaGenerated` and an import of `package:nowa_runtime/nowa_runtime.dart`, turns relative imports into `package:` imports, reorders constructor parameters and writes `16` as `16.0`. Code you don't touch stays as you wrote it, including a `main()` function of your own (one without `@NowaGenerated`) and the `library;` and `part` lines of a file.
 
 :::tip
 Commit before you start editing visually. The [Git](git.md) panel then shows exactly what Nowa changed in your files.

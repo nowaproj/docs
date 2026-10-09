@@ -13,7 +13,7 @@ Start local: move a value to global state only when a second screen needs it. [P
 
 ## Create a global state
 
-1. Open **Files** in the sidebar. Next to the `lib` folder, click **+** (**Add to library**), then **New Global State...**. Inside `lib`, the **Add** button opens the same menu.
+1. Open the [**Library**](../design/library.md) in the sidebar and click **Add** (+) in its header, then **New Global State...**.
 2. Type a name, such as `CartState`. Nowa fills in the **Class name** and the **Path** (the file name) for you. Click either one to change it.
 3. Click **Submit**. Nowa creates the file in `lib/globals` and attaches it to your app.
 
@@ -23,8 +23,9 @@ New projects already include a global state named **AppState** (`lib/globals/app
 
 ## Add variables and functions
 
-1. In **Files**, double-click the global state's file. A single click only shows a preview.
-2. Click the class name, such as `CartState`, in the list on the left. Its **Variables** and **Functions** appear in the middle.
+1. In the **Library**, click **Filter** and choose **Global states**. The default filter, **Widgets**, hides them. Your global states are under **Project**.
+2. Double-click the global state, such as `CartState`, or select it and press <kbd>Enter</kbd>. A single click only shows a details card. The global state opens in its own tab.
+3. Click the class name, such as `CartState`, in the list on the left. Its **Variables** and **Functions** appear in the middle.
 3. Hover **Variables** and click **+**. Rename the new variable, then set its **Type** and **Default Value** on the right. See [Store data in variables](./variables.md). Keep **Is Final** off for a variable your functions will change.
 4. Hover **Functions** and click **+**. Rename the new function, for example `addToCart`. Circuit opens on the right: see [Build logic in Circuit](./circuit.md).
 5. Click the top node, hover **Params** and click **+** to add an input such as `product`. Click the new param to set its **Name** and **Type**.

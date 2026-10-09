@@ -56,7 +56,7 @@ Nowa reads your code to draw it on the board. It doesn't run it there the way a 
 | Page | What you can do |
 |---|---|
 | [Edit code in Nowa](code-mode.md) | Open code mode, work in tabs, edit Dart with find, autocomplete and go to definition, and preview your app next to the code. |
-| [Manage project files](files.md) | Browse, create, move and delete files, and search the whole project. |
+| [Manage project files](files.md) | Add, move and delete files with the Library, browse the whole project in code mode's **Files** tree, and search it. |
 | [Add packages](packages.md) | Add, update and remove pub.dev packages. |
 | [Write your own code](custom-code.md) | Use your own widgets, functions and classes on the board, and import Dart code. |
 | [What Nowa can show on the board](limitations.md) | See what the board can't draw yet, and check the real result with **Run**. |

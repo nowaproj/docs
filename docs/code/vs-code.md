@@ -26,8 +26,8 @@ VS Code opens your project folder at the file you were viewing. If the open tab 
 
 Two more shortcuts:
 
-- Right-click a file or folder in the **Files** panel and choose **View in folder** to show its folder in your file manager.
-- On a text file tab opened with **Show file content**, click **Open in VS Code** in the details panel.
+- In code mode, right-click a file or folder in **Files** and choose **View in folder** to show its folder in your file manager.
+- Outside code mode, on a plain text file tab, click **Open in VS Code** in the details panel.
 
 If Nowa can't start VS Code, it opens the file in its own editor tab instead. Check the path in the next section.
 
@@ -39,7 +39,7 @@ Nowa starts VS Code by running the `code` command that lives in a folder you cho
 2. Under **Editor Settings**, click **Local Setup**.
 3. In **VS code Path**, enter the folder that contains the `code` command, or click **Browse**.
 
-The default is `/usr/local/bin` on macOS and `C:\Program Files\Microsoft VS Code\bin` on Windows. If your computer has no `code` command, [install it from VS Code](https://code.visualstudio.com/docs/editor/command-line) first.
+The default is `/usr/local/bin` on macOS, `/usr/bin` on Linux and `C:\Program Files\Microsoft VS Code\bin` on Windows. If your computer has no `code` command, [install it from VS Code](https://code.visualstudio.com/docs/editor/command-line) first.
 
 ## What syncs and when
 
@@ -48,11 +48,12 @@ Nowa watches your project folder, so you never copy anything between the two too
 | You do this | What happens |
 |---|---|
 | Save in Nowa (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>S</kbd>, or autosave) | Nowa writes your changes to the files in the folder, so VS Code sees them. In code mode, the edits you typed are compiled into the design on save. |
-| Save a file in VS Code | Nowa notices a moment later and reloads the file. The board updates, and a new file in `lib/` shows up too. |
-| Switch branches or pull in VS Code or a terminal | When more than 10 files change at once, Nowa re-reads the whole project. |
+| Save a file in VS Code | Nowa notices a moment later and reloads the file. The board updates, and a new file in `lib/` shows up too. A new file in the `lib/` or `boards/` folder of a package in a workspace shows up as well. |
+| Edit a file right after Nowa saves it | Your edit counts. Nowa remembers what it wrote and compares it with what is on disk, so an outside change isn't lost, however soon it comes. A save that writes a temporary file and renames it over the original counts as a change too. |
+| Switch branches or pull in VS Code or a terminal | When more than 10 files change at once, Nowa re-reads the whole project. After any outside change Nowa also re-reads `pubspec.yaml` and loads the dependencies you added there. |
 | Change a file in both places before saving | If you have unsaved edits in Nowa's code editor when the file changes on disk, a banner says "This file changed while you were editing it". Click **Keep mine** or **Reload**. |
 
-Autosave is on by default. To change how often it runs, click the save icon in the status bar (tooltip **Save options**) and use **Auto save** and **Save every**. Nowa ignores `.git/`, `build/` and `.DS_Store`.
+Autosave is on by default. To change how often it runs, click the save icon in the status bar (tooltip **Save options**) and use **Auto save** and **Save every**. Nowa ignores `.git/`, `build/` and `.DS_Store`, and never loads the hidden temporary files that editors create while saving, such as `.!123!main.dart`.
 
 ## What to expect from your code
 

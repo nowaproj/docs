@@ -18,6 +18,25 @@ Resume from these files alone: `BRIEF.md` (context + rules), `decisions.md`, `op
 | 7 | Final QA: coverage audit, style pass, link check | `coverage.md`, `reviews/final-*.md` | coverage done (348/358, gaps closed); style pass = phase 9 item 3 |
 | 8 | Draft PR with report | PR | open: https://github.com/nowaproj/docs/pull/18 (update it after phase 9) |
 | 9 | Final quality pass: the user's acceptance criteria (see below) | pages, videos, annotated screenshots, best-practice guides | done except signed-in captures (see Resume here) |
+| 10 | Update to Nowa 3.13.0 (released 2026-10-06, live on app.nowa.dev) + all captures from app.nowa.dev, incl. signed-in | `research/changes-3.13.md`, pages, `reviews/P10-*`, captures | in progress (see Phase 10) |
+
+## Phase 10: update to Nowa 3.13.0 (started 2026-10-09)
+
+Why: `master` is now 3.13.0+1 (`3cb32031c`) and app.nowa.dev serves 3.13.0, so the 3.12.5 docs are out of date (D20).
+The user allowed all network domains, so app.nowa.dev and the test account work now.
+
+Steps:
+1. **Research** (1 agent): every user-facing change `b84bfdafd..3cb32031c`, starting from `upcoming-3.13.md`, confirmed
+   against the released tree, with exact labels, code refs and the docs pages + sentences to change →
+   `research/changes-3.13.md`.
+2. **Signed-in captures** from app.nowa.dev with the test account (`CAPTURE-SIGNED-IN.md`): agent A (dashboard,
+   account, settings, deploy menu, Git, import...), agent B (AI shots and the AI video, at most 5 prompts). They
+   log label differences between the pages and the 3.13 UI for the writers.
+3. **Writers** update the affected pages to 3.13 (by section), then **verifiers** (non-authors) check them against
+   `/home/user/nowa-master` at `3cb32031c`.
+4. **Re-take** all existing screenshots and the 5 videos from app.nowa.dev/playground (3.13 restyled most panels;
+   `test-problems-1` even shows `v3.12.5`), same ids and file names; check each image; embed new ones.
+5. Style guard on changed pages, `yarn build`, update `PR-REPORT.md` and the PR.
 
 ## Resume here (resumed 2026-10-08 ~00:30 UTC after the user's answers)
 

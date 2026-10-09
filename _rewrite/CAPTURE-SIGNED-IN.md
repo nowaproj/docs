@@ -17,12 +17,10 @@ test account. Read `CAPTURE.md` and `captures/README.md` first.
 
 ## Where to sign in
 
-1. First try the local 3.12.5 build (`http://localhost:8080`, see `CAPTURE.md`). It talks to `https://server.nowa.dev`.
-   If sign-in fails there (for example a CORS or network error), use `https://app.nowa.dev` instead.
-2. Before using app.nowa.dev, check which version it runs (open `https://app.nowa.dev/version.json`, or the version
-   shown in the app). The docs describe **3.12.5**. If it runs 3.13 or later, the UI differs (Library panel instead
-   of the widget picker, new top bar): capture only screens that look the same as 3.12.5 and list the rest as
-   `not-possible: app.nowa.dev runs <version>`.
+Use **https://app.nowa.dev** directly. It runs Nowa **3.13.0**, the release the docs now describe (D20). Don't use the
+local 3.12.5 build any more. Sign in on the "Welcome back!" page (**Email**, **Password**, **Log In**). A cookie
+banner ("We use cookies ...") appears at the bottom: click **Reject** before you capture. Crop out the status bar's
+error text if it shows one.
 
 ## Hard limits (from the user)
 

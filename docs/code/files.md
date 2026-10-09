@@ -33,7 +33,7 @@ In the Library, click **Add** (+) in the header and choose what to make.
 | Item | What it creates |
 |---|---|
 | **New Widget...** | A screen or component from a template. See [Start from a template](../design/templates.md). |
-| **New Folder...** | A folder in `lib`. It goes inside the folder you clicked last in the Library (for a widget or another row, the folder that holds it), or directly in `lib`. |
+| **New Folder...** | A folder in `lib`. It goes inside the `lib` folder you clicked last in the Library (for a widget or another row, the folder that holds it), or directly in `lib`. |
 | **New Model...** | A data model in `lib/models`. See [Data models](../logic/models.md). |
 | **New Global State...** | A global state in `lib/globals`, attached to your app. See [Share data across your app](../logic/global-state.md). |
 | **Generate Models From Json...** | Model classes built from JSON. See [Data models](../logic/models.md). |
@@ -69,7 +69,7 @@ In code mode, right-click a file or folder in **Files**. The row is selected fir
 
 To move files, drag them onto a folder. Several selected rows drag together. Files in `lib` can move only within `lib`, files in `assets` only within `assets`, and `.board` files only within `boards`. A folder can't move into itself. Nowa updates imports when you move a Dart file.
 
-Keys in the tree: the arrow keys move between rows, <kbd>Shift</kbd> with an arrow extends the selection, <kbd>Space</kbd> selects the focused row, <kbd>Enter</kbd> opens a file or opens and closes a folder, and <kbd>←</kbd> and <kbd>→</kbd> close and open a folder. <kbd>Delete</kbd> (<kbd>Backspace</kbd> on macOS) removes the selected files.
+In the tree, the arrow keys move between rows, <kbd>Enter</kbd> opens a file or opens and closes a folder, and <kbd>Delete</kbd> (<kbd>Backspace</kbd> on macOS) removes the selected files. <kbd>Shift</kbd> with an arrow extends the selection.
 
 Before a delete, Nowa asks "Are you sure you want to delete…?". If other files use something declared in the file, Nowa lists those uses and asks again. Open tabs for the file close. <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Z</kbd> undoes a delete while the **Files** panel has focus. `lib/main.dart` can't be deleted: Nowa shows **Cannot delete file** and leaves it alone.
 

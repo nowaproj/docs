@@ -6,7 +6,47 @@ appended when the page is done. The summary at the top is filled in at the end.
 
 ## Summary
 
-(filled in at the end)
+**Pages checked: 12** (the new `design/library.md`; `design/{add-widgets,components,boards,screens,select-and-edit,outline,index}.md`;
+`get-started/{editor-tour,welcome,desktop-app}.md`; `reference/glossary.md`). **176 claim rows** in this log (a row often groups several labels or keys of
+one step or table, so about 330 individual labels, keys, menu entries, steps and behaviours were opened in the 3.13 code), **165 ok, 11 fixed, 0 removed**.
+Pages edited: `library`, `add-widgets`, `screens`, `select-and-edit`, `index`. No edit was needed on `components`, `boards`, `outline`, `editor-tour`, `welcome`,
+`desktop-app`, `glossary`. Links: 224 relative links in the 12 pages and all 35 anchor links from anywhere in `docs/` into them resolve (own checker, tested on
+bad links); no page links to a `library.md#...` anchor. The old anchors `#add-a-widget-with-the-widget-picker`, `#drag-screens-components-and-files`,
+`#manage-screens-and-components`, `#setting-up-flutter-sdk` and `#macos-install-xcode` still exist. Style: no hype words, no emoji, no H1 in a body, at most one
+admonition per page, capture placeholders well formed. Leftover 3.12.5 wording: none (the words "Widgets panel", "widget picker", "Board chip", "Move Up" and so on
+appear only in `keywords` and in the glossary's "Renamed or removed" table, or mean the dialog picker, which still exists). Every `path:line` ref in this log was
+bounds-checked against the 3.13 tree.
+
+**Most serious fixes**
+1. `screens.md` and `select-and-edit.md` said an App Bar, Floating Action Button, Bottom Navigation Bar or Drawer dragged onto a screen "goes into its slot". For a new
+   widget the deepest group under the pointer wins (`move_tool.dart:340-394`), and an **Empty Page** body is a full-size **Stack** (`empty_page.dart:21-28`), so the live capture
+   (`ui-diffs-3.13.md` row 6) is right. Both pages now say the slot rule holds only outside the screen's groups and show how to fill a slot (click it in **Details**).
+2. `library.md`: the filter list skipped the classes entry (menu label "Classs", product issue P5), **Show all** is really "Show all 250", the "private matches" row was missing,
+   "Assets always show" misled (they only list with the **Assets** chip on), "Show in code works on rows that have a file" was too broad (own rows only, no folders),
+   asset previews exist only for file types that draw a thumbnail, and Esc behaves differently in the search field (clears, then hands the keys back) and on a row (puts
+   the details card away). Double-click for **Open** was added.
+3. `add-widgets.md`: the Esc flow "clear the search, then hand the keys back" is only true in the search field; now says so.
+4. `index.md`: the **Library** row double-counted widgets; reworded.
+
+**Stay as written, needs a live check (the code supports them)**
+- The Delete key does nothing on Library rows (empty `SelectionProvider`: `library_host.dart:42`, `file_actions.dart:138-140`).
+- Ctrl/Cmd+Enter reaching the key handler from inside the search field.
+- The menu hint ⌘⏎ on Windows and Linux (the code draws the literal text, so the page's "every system" holds).
+- What a drop does when a dragged package widget's package is missing (the page only says **Insert** and Enter ask first; the old dialog blocked such drags, the Library does not).
+- Boards chip tooltip text on Windows and Linux (not quoted).
+- Linux: only "made on Ubuntu 24.04" is stated (workflow); no minimum distribution (decision pending). Whether the browser's own Ctrl + - zoom competes with **Back**
+  in the web app on Windows and Linux was not checkable from code.
+- The Library with the View Only role is not mentioned on any page (`library_host.dart` never reads `isViewOnly`).
+
+**Open issues**
+- Media: the PNGs `design-add-widgets-1`, `design-components-2`, `design-boards-1`, `design-select-and-edit-2`, `design-index-1`, `get-started-editor-tour-1` and the video
+  `design-add-widgets-video` still show 3.12.5 UI while the alt text (or nearby text) describes 3.13; retakes are requested in `captures/requests/W30.md`. The placeholders
+  `design-library-1`, `design-library-2`, `design-outline-2` are pending; `get-started-desktop-app-1` has a 3.13.0 image that is not embedded yet.
+- `reference/widgets/navigation.md` (another batch) still says a dragged App Bar etc. "lands in its own place, not in the body" and links to the `select-and-edit.md` table
+  that now explains the exception. It needs the same correction.
+- `library.md` is about 1,390 prose words (1,660 by `wc -w`, which counts table markup) because it holds four reference tables; I trimmed duplicates but did not split it
+  (that would need a sidebar change). `select-and-edit.md` (1,480) and `editor-tour.md` (1,785) are also above the 1,200 hint; they are reference pages and were left alone.
+- The filter entry "Classs" is quoted as the app shows it; when the product fixes the typo (P5) the parenthetical in `library.md` must go.
 
 ---
 

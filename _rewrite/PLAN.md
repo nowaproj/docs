@@ -38,6 +38,15 @@ Steps:
    `test-problems-1` even shows `v3.12.5`), same ids and file names; check each image; embed new ones.
 5. Style guard on changed pages, `yarn build`, update `PR-REPORT.md` and the PR.
 
+Batches (2026-10-09): research done (`research/changes-3.13.md`: 53 pages, 27 changes, 11 open points). Writers:
+**W30a** (new `design/library.md`, get-started, design index/boards/screens/components/add-widgets/select-and-edit/
+outline, glossary), **W30b** (design properties/layout/themes/theme-styles/assets/templates/localization/fonts-icons/
+responsive, all of code/*), **W30c** (todo: logic, integrations incl. Firestore, test, account, reference shortcuts and
+widgets, guides, troubleshooting). Captures: A signed-in (dashboard, settings, deploy menu, Git...), B AI (≤5 prompts),
+C re-take wave 1 (logic, reference, integrations, test, AI panels). Todo: live-check agent for part 6 open points
+(playground-checkable: 3, 4, 8, 9, 10, 11), verifiers per writer batch, re-take wave 2 (editor frame, design, code
+mode, files, the add-widgets/layout/themes videos), add `design/library` to `sidebars.js` before `design/add-widgets`.
+
 ## Resume here (resumed 2026-10-08 ~00:30 UTC after the user's answers)
 
 **User answers (2026-10-08):** test account given (stored only in the session scratchpad `test-account.env`, D19);

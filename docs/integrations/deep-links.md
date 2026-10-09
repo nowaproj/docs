@@ -36,14 +36,14 @@ Nowa writes your settings into the iOS and Android project files, and switches o
 | **Host** | Links like `https://example.com/...` | The Android manifest only, as an App Links intent filter with `autoVerify`. |
 
 :::note[Check the Android manifest]
-In Nowa 3.12.5, saving **URL Scheme** rewrites only the iOS `Info.plist`. The Android manifest gets your scheme the next time Nowa rewrites it, for example when you save **Host**. To add a scheme without a host, save any **Host** and clear it again. Before you test on Android, open `android/app/src/main/AndroidManifest.xml` in code mode and look for your scheme.
+Currently, saving **URL Scheme** rewrites only the iOS `Info.plist`. The Android manifest gets your scheme the next time Nowa rewrites it, for example when you save **Host**. To add a scheme without a host, save any **Host** and clear it again. Before you test on Android, open `android/app/src/main/AndroidManifest.xml` in code mode and look for your scheme.
 :::
 
 Things to know:
 
 - On Android, Nowa registers the scheme together with the host `open.my.app`, so an Android link looks like `myapp://open.my.app/products/12`. The same link works on iOS, which matches on the scheme alone.
 - **Host** doesn't set up iOS Universal Links. Nowa doesn't add the iOS associated-domains entitlement, so web links open your app on Android only until you set up Universal Links yourself ([Apple's guide](https://developer.apple.com/documentation/xcode/supporting-universal-links-in-your-app)). On Android, `autoVerify` makes the system check that you own the domain, so your site must serve the verification file ([Android's guide](https://developer.android.com/training/app-links)).
-- [Google Sign-In](./google-sign-in.md) also writes a URL type to `Info.plist`, once you save its **iOS Client ID**. With both saved, Nowa 3.12.5 writes two separate `CFBundleURLTypes` entries. A property list should hold that key once, so one of the two may not take effect on iOS. Open `ios/Runner/Info.plist` in code mode to check.
+- [Google Sign-In](./google-sign-in.md) also writes a URL type to `Info.plist`, once you save its **iOS Client ID**. With both saved, Nowa writes two separate `CFBundleURLTypes` entries. A property list should hold that key once, so one of the two may not take effect on iOS. Open `ios/Runner/Info.plist` in code mode to check.
 
 ## Handle the link in your app
 

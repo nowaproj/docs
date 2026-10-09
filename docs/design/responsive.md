@@ -47,7 +47,7 @@ A layout adapts when each part says how it reacts to more or less space. [Lay ou
 
 ![The Screen section of Details for the selected home screen with the Size dropdown open (highlighted): Pixel 3a, iPhone 11 Pro, Galaxy S20+, iPhone 12 (the current choice), MacBook Pro and 1920x1080. The Color, App Bar, Drawer, Floating Action Button and Bottom Navigation Bar rows are partly behind the list.](/img/docs/design/design-responsive-1.png)
 
-A new screen starts at 393 × 808 unless its template sets another size. For any other size, drag a corner of the screen or type **W** and **H** under **Layout**, and swap them to try landscape. **Size** only changes how big the screen looks on the board. Your app fills whatever device it runs on.
+A new screen starts at 393 × 808 unless its template sets another size. For any other size, drag a corner of the screen or type **W** and **H** under **Layout**, and swap them to try landscape. **Size** only changes how big the screen looks on the board. Your app fills whatever device it runs on. On the board, a screen is clipped to its frame, so anything that overflows it is cut off instead of painting over the items around it.
 
 To compare two sizes at once, select the screen's title, press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>C</kbd>, point at empty board space and press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>V</kbd>. Give the copy another **Size**. Both items show the same screen, so every edit appears in both.
 

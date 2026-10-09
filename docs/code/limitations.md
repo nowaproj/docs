@@ -19,13 +19,15 @@ The warning icon in the Instant Play controls says it too: "In board preview is 
 
 | You see | What it means | What to do |
 |---|---|---|
-| A small box crossed by two lines, just big enough for a widget's name | The widget comes from a package that Nowa has no built-in support for. | Click **Run** to see the real widget. |
+| A small box crossed by two lines, only as big as a widget's name | The widget comes from a package that Nowa has no built-in support for. | Click **Run** to see the real widget. |
 | A light blue panel with a blue crossed box and a widget's name in large letters | A widget of yours that Nowa keeps as code. Nowa couldn't read it, or you imported it as custom code. | Select it. If Nowa couldn't read it, **Details** shows **Kept as code** and the reason. |
 | A small crossed box with no name | A widget that Nowa has no value for, shown as a small slot so it doesn't take over your layout. | Give it a value, or click **Run**. |
 
 ![A custom KeepAliveBox widget placed on the home screen is drawn as a light blue placeholder with a blue crossed box and the widget's name in large letters, selected on the board. In Details, the Kept as code box (highlighted) gives the reason: Unsupported mixin AutomaticKeepAliveClientMixin, and lists the supported mixins for State classes.](/img/docs/code/code-limitations-1.png)
 
-Functions that Nowa doesn't run return a stand-in value, such as `[...]` for text, `0` for a number or `false` for a true/false value. That covers a function marked [`@CustomFunction`](custom-code.md#custom-function), a method Nowa couldn't read, and any function from a package without built-in support. Each call is written to **Logs**: "calling: `<name>`" for your own code and "Calling `<name>`" for package functions. A stand-in for a value that may be empty, such as an optional number, color or enum, is `null`, so the widget's own default shows.
+Functions that Nowa doesn't run return a stand-in value, such as `[...]` for text, `0` for a number or `false` for a true/false value. That covers a function marked [`@CustomFunction`](custom-code.md#custom-function), a method Nowa couldn't read, and any function from a package without built-in support. Each call is written to **Logs**: "calling: `<name>`" for your own code and "Calling `<name>`" for package functions.
+
+Where a value is empty, the board fills in a stand-in so the design isn't blank. See [Design with realistic content](../design/responsive.md#design-with-realistic-content). A value that may be empty, such as an optional number, true/false value, color or enum, stays empty instead, so the widget's own default shows.
 
 A package widget that wraps a child shows that child instead of a placeholder, and so does a method you call on a widget that gives back a widget, such as an effect. A widget that can't be drawn where a scroll view needs a sliver (a `sliver:` or `slivers:` slot) is drawn as a sliver, so the scroll view keeps working.
 

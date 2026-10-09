@@ -38,7 +38,7 @@ A few packages need phone permissions, such as `geolocator` for location. For th
 
 In a local project Nowa also runs `flutter pub get`.
 
-Leave the **Version** of a package with a `git:` or `path:` source empty. A version you type there replaces its `git:` or `path:` entry in `pubspec.yaml`.
+Don't change the **Version** of a package that comes from Git or a local path. A version you type there replaces its `git:` or `path:` entry in `pubspec.yaml`.
 
 ## Remove a package
 
@@ -48,7 +48,7 @@ Code that still imports the package shows a problem: `'<name>' is imported but i
 
 ## How Nowa loads your packages
 
-- **pub.dev, Git and path packages.** Nowa loads the packages under `dependencies` that list a version. It also lists packages with a `git:` or `path:` source, with an empty **Version** in the table, and in a local project loads them from where `flutter pub get` put them. An `sdk:` package such as `flutter_localizations` counts as installed but isn't loaded. A package from another host and anything under `dev_dependencies` isn't loaded. If your code imports a dev dependency, **Problems** says `'<name>' is a dev dependency, so Nowa does not load it. Move it to dependencies to use it in lib/.`
+- **pub.dev, Git and path packages.** Nowa loads the packages under `dependencies` that list a version. Packages with a `git:` or `path:` source are listed too, with an empty **Version**, and in a local project Nowa loads them from where `flutter pub get` put them. An `sdk:` package such as `flutter_localizations` counts as installed but isn't loaded. A package from another host and anything under `dev_dependencies` isn't loaded. If your code imports a dev dependency, **Problems** says `'<name>' is a dev dependency, so Nowa does not load it. Move it to dependencies to use it in lib/.`
 - **Only the packages you list.** Packages that your packages depend on aren't loaded for you. If your code imports one, add it to your list too.
 - **After the project opens.** Packages load in the background. **Problems** shows "Loading packages..." and reports nothing until they finish.
 - **When one won't load.** **Problems** says `'<name>' is installed but failed to load, so nothing it defines is available:` and gives the reason.
@@ -65,8 +65,6 @@ Older versions of `nowa_runtime` came with the `smooth_page_indicator` package, 
 
 - Click **Migrate**. Nowa adds `smooth_page_indicator` to `pubspec.yaml` and adds its import to each file that uses it. If adding the package fails, Nowa shows "Could not add smooth_page_indicator to the pubspec".
 - Click **Later** to leave everything as it is. The dialog comes back the next time you open the project.
-
-The **Onboarding Screen** template adds the package itself. See [Start from a template](../design/templates.md).
 
 ## Edit pubspec.yaml yourself
 

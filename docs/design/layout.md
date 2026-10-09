@@ -15,7 +15,7 @@ To group widgets, select them on the board or in the **Outline**, then press <kb
 
 To take a group apart, select it, right-click and choose **Ungroup**. Pressing the shortcut again nests the group in a new one, so use **Ungroup** instead.
 
-You can also add an empty **Group** from the [Library](library.md): press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd>, type `group`, move to **Group** with <kbd>↓</kbd> if it isn't highlighted, and press <kbd>Enter</kbd>.
+You can also add an empty **Group** from the [Library](library.md): press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd>, type `group`, select **Group** and press <kbd>Enter</kbd>.
 
 Select a group and open the **Group** section of **Details**. Its header has three buttons: the first sets a **Stack**, the right arrow sets a **Row** and the down arrow sets a **Column**. When you turn a Stack into a Row or Column, Nowa orders the children by their position and takes the **Gap** from the space between them.
 

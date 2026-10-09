@@ -30,8 +30,8 @@ When you turn it on, Nowa also:
 
 ## Add the paywall
 
-1. Open the widget picker (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd>) or click the **Widget** tool, and search for **RevenueCat Paywall**.
-2. Choose it. If Nowa shows **Add Missing Dependencies**, click **Add**. The paywall also needs the `purchases_ui_flutter` package.
+1. Press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd> or click the **Widget** tool to open the [Library](../design/library.md), and search for **RevenueCat Paywall**.
+2. Press <kbd>Enter</kbd> to add it. If Nowa shows **Add Missing Dependencies**, click **Add**. The paywall also needs the `purchases_ui_flutter` package.
 3. The widget sits on the board as a placeholder labeled "RevenueCat Paywall" with the text "Run to preview".
 
 ![The home screen on the board with the RevenueCat Paywall added below the Home Page title: a light purple placeholder card (highlighted) with a card icon, the label RevenueCat Paywall and the text Run to preview.](/img/docs/integrations/integrations-revenuecat-1.png)

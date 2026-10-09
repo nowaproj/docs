@@ -2,7 +2,7 @@
 title: Run your app
 description: Compile and run your real Flutter app inside Nowa, in your browser or on your phone, and see your changes after every save.
 sidebar_label: Run
-keywords: [run, run app, embedded preview, nowa run, app run, hot reload, hot restart, real app preview, qr code, open on mobile, open in browser, logs, console, add web support, pub get, simulator]
+keywords: [run, run app, embedded preview, nowa run, app run, hot reload, hot restart, real app preview, qr code, open on mobile, open in browser, logs, console, add web support, pub get, simulator, Linux]
 ---
 
 **Run** compiles your real Flutter app, with its packages and custom code, and shows it inside Nowa. Edit, save, and the running app follows. Use it when you need to see exactly how your app behaves before you publish.
@@ -28,6 +28,8 @@ A dot next to **Run** shows the state. Hover it to read it, for example "Running
 **Run** is a split button. The arrow next to it opens the **Run on** menu (shown as RUN ON). **Embedded preview** runs the app inside Nowa, as on this page. In the desktop app the menu also lists your devices and emulators. See [Run on a device or emulator](devices.md). In the web app it shows **iOS & Android devices** with "Download the desktop app" instead. **Run** acts on one target at a time.
 
 While the preview is open, **Run** reads **Hide**. Click it to hide the preview. The app keeps running.
+
+In the Linux desktop app, the preview opens in your browser, because the in-app preview isn't available on Linux yet. The preview pane says **Your app is running** and "The in-app preview is not available on Linux yet. Open it in your browser instead." Click **Open in Browser**, or copy the address shown under the button.
 
 ## Use the run toolbar
 

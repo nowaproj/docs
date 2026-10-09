@@ -51,7 +51,7 @@ Click **Fix**. Nowa applies it and checks again. If the fix fails, a red message
 
 | Problem | What Fix does |
 |---|---|
-| `'<package>' is imported but is not in the pubspec.` | Adds the package, at its latest version. |
+| `'<package>' is imported but is not in the pubspec.` | Adds the package, at its latest version. A package that `pubspec.yaml` lists with `sdk:`, `git:` or `path:` doesn't cause this problem. |
 | `The function '<name>' isn't defined.` | Adds the package that defines it, when it is one Nowa knows. |
 | `Setup statement in main.dart for "<key>" is required but not found.` | Adds the statement to `main.dart`. |
 | `Android permission "<name>" is required by <package> but not enabled.` (or iOS) | Turns the permission on. |

@@ -26,7 +26,7 @@ The chips **Project**, **Packages**, **Built-in** and **Assets** turn sources on
 | **Built-in** | Nowa's own widgets in groups such as **Basic**, **Buttons** and **Layout**, then Flutter's libraries, **Material** and **Cupertino** first. |
 | **Assets** | The folders and files in your `assets/` folder. |
 
-**Filter** opens a menu headed **Show**, where you choose which kinds show. **Widgets** (screens, components and widgets) is the default, so models and global states stay hidden until you pick **Everything** or one kind: **Screens**, **Components**, **Models**, **Global states**, **Functions**, **Enums** or **Variables**. **Private** adds your project's private names, the ones that start with an underscore. Assets always show. **Show as a list** flattens the folders into one list, and **Show as a tree** brings them back.
+**Filter** opens a menu headed **Show**, where you choose which kinds show. **Widgets** (screens, components and widgets) is the default, so models, global states and other code stay hidden until you pick **Everything** or one kind: **Screens**, **Components**, **Models**, **Global states**, classes, **Functions**, **Enums** or **Variables**. **Private** adds your project's private names, the ones that start with an underscore. The filter never hides assets. **Show as a list** flattens the folders into one list, and **Show as a tree** brings them back.
 
 ## Find something
 
@@ -39,7 +39,7 @@ Type in the search field. It looks in all four sources, whatever the chips say (
 
 **Add...** lasts until you add something, click a row or leave the panel. In code mode, <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>O</kbd> opens **Search for a file** instead: see [Manage project files](../code/files.md).
 
-Results come in groups, in the order **Project**, **Packages**, **Built-in** and **Assets**, with a count at the end of each heading. In a group, Nowa's own widgets come first, then names that start with what you typed, then the rest from A to Z. The first result is highlighted as you type. A group shows 100 rows, then a **Show all** row. Rows such as **Show 3 more of other kinds** reveal what the filter hides. When nothing matches, the panel says **No matches**.
+Results come in groups, in the order **Project**, **Packages**, **Built-in** and **Assets**, with a count at the end of each heading. In a group, Nowa's own widgets come first, then names that start with what you typed, then the rest from A to Z. The first result is highlighted as you type. A group shows 100 rows, then a row such as **Show all 250**. Rows such as **Show 3 more of other kinds** and **Show 2 private matches** reveal what the filter hides. When nothing matches, the panel says **No matches**.
 
 With the search empty, **Recent** tops the panel. It lists the last eight things you added to the board.
 
@@ -67,7 +67,7 @@ If a widget needs a package your project doesn't have yet, **Insert** first open
 
 Click a row, or move to it with the arrow keys, and a details card opens beside the panel. It shows a preview, the name, the kind and where it lives (for example **Component · lib/components**), and the first lines of its description. For a screen or component, add one with **Add description** in **Details**.
 
-Nowa's widgets, your screens and components, and your assets show a preview. Everything else shows an icon. Once the card is open, it follows your pointer from row to row. Press <kbd>Esc</kbd> to put it away.
+Nowa's own widgets, your screens and components, and most assets show a preview. Other rows show an icon. Once the card is open, it follows your pointer from row to row. Press <kbd>Esc</kbd> on a row to put it away.
 
 ## Open, rename, delete and move
 
@@ -76,13 +76,13 @@ Right-click a row to see what you can do with it.
 | Entry | What it does |
 |---|---|
 | **Insert** | Adds the widget to the open board. Key: <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Enter</kbd>. The menu shows ⌘⏎ on every system. |
-| **Open** | Opens the file at that code: a screen or component opens on its own, in a tab. An asset opens its file. Key: <kbd>Enter</kbd>. Nowa's own widgets and Flutter's have no file, so no **Open**. |
+| **Open** | Opens the file at that code in a tab: a screen or component opens on its own, and an asset opens its file. Key: <kbd>Enter</kbd>, or double-click the row. Nowa's own widgets and Flutter's have no file, so no **Open**. |
 | **Upload assets...** | On a folder in `assets/`: choose files to add to it. |
 | **Rename** | Edits the name in place. Press <kbd>Enter</kbd> to save. Key: <kbd>F2</kbd>. Nowa updates every place that uses the widget, and renames its file when the file is named after it. |
 | **Delete** | Asks **Are you sure you want to delete ProductCard?** with **Cancel** and **Yes**. If something uses it, Nowa lists the places and asks again (**Cancel** or **Remove**). A widget alone in its file takes the file with it. |
 | **Show in code** | Switches to code mode and opens the file at that code. |
 
-**Rename** and **Delete** work on rows under **Project**, on folders and on assets. **Show in code** works on rows that have a file. While the Library has focus, <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Z</kbd> undoes a rename or a delete.
+**Rename**, **Delete** and **Show in code** work on your own rows, under **Project** and **Assets**. Rows under **Packages** and **Built-in** can't be renamed or deleted, and folders have no **Show in code**. While the Library has focus, <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Z</kbd> undoes a rename or a delete.
 
 To move something, drag its row onto a folder. Things in `lib` stay in `lib`, and assets stay in `assets`. A widget moves with its file. The Library works on one row at a time, and the Delete key doesn't act on its rows: use the menu.
 
@@ -104,8 +104,8 @@ Click **Add** (+) in the header and choose what to make.
 ## Use the keyboard
 
 - Type a letter, digit or symbol while a row is focused to jump into the search. <kbd>↓</kbd> moves from the search into the results, and <kbd>↑</kbd> on the first row goes back.
-- <kbd>Enter</kbd> and <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Enter</kbd> work as in [Find something](#find-something). <kbd>F2</kbd> renames the focused row.
-- <kbd>Esc</kbd> clears the search. On an empty search it gives the keys back to the board, so shortcuts work again.
+- <kbd>Enter</kbd> and <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Enter</kbd> work as in [Find something](#find-something). <kbd>F2</kbd> renames the focused row, where **Rename** is available.
+- In the search field, <kbd>Esc</kbd> clears the search. On an empty search it gives the keys back to the board, so shortcuts work again. On a row, <kbd>Esc</kbd> puts the details card away.
 
 :::tip Or ask Nowa AI
 Try "Create a ProductCard component with an image, a title and a price, and use it on the Home screen." The new component then shows up in the Library.

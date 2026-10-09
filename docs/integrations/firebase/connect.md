@@ -5,14 +5,14 @@ sidebar_label: Connect Firebase
 keywords: [Firebase, connect Firebase, Firebase project, Google account, google-services.json, GoogleService-Info.plist, firebase_options, FlutterFire, Continue with Google, Connect Apps, disconnect Firebase]
 ---
 
-Sign in with Google, pick your Firebase project and click **Connect Apps**. Nowa registers your Android, iOS and web apps in Firebase, writes the config files and adds the Firebase code to your project. After that, sign-in, Cloud Firestore and push notifications are each a switch or a few clicks away.
+Sign in with Google, pick your Firebase project and click **Connect Apps**. Nowa registers your Android, iOS and web apps in Firebase, writes the config files and adds the Firebase code to your project. After that, sign-in and push notifications are each a switch away, and your project has the files for Cloud Firestore.
 
 ## Before you start
 
 - Create a Firebase project in the [Firebase console](https://console.firebase.google.com/). Nowa can't create projects.
 - Use a Google account that can manage that project.
 - Set your **Bundle Identifier** in **Settings** → **Project Details** before you connect. Nowa uses it as the package name of your Android app in Firebase and builds the iOS bundle ID from it. See [Project settings](../../account/project-settings.md).
-- On the Windows desktop app you can connect Firebase and build queries, but you can't test them inside Nowa. See [Firebase on Windows](../../troubleshooting/known-issues.md#firebase-on-windows).
+- On the Windows desktop app you can connect Firebase, but you can't test Firestore queries inside Nowa. See [Firebase on Windows](../../troubleshooting/known-issues.md#firebase-on-windows).
 
 ## Connect your project
 
@@ -45,7 +45,7 @@ Nowa AI can't connect Firebase for you. It can't add `firebase_core`, and points
 | `android/app/google-services.json` and `ios/Runner/GoogleService-Info.plist` | Firebase config for your Android and iOS apps. |
 | `lib/firebase_options.dart` | Connection options for Android, iOS and web. macOS apps use the iOS options. Other platforms get none. |
 | `lib/firebase/firebase.dart` | `FirebaseService`, the class that holds your Firebase functions, such as sign-in. |
-| `lib/firebase/collections.dart` and `lib/firebase/queries.dart` | Your Cloud Firestore collections and queries. They start with no collections and no queries. See [Use Cloud Firestore](firestore.md). |
+| `lib/firebase/collections.dart` and `lib/firebase/queries.dart` | Your Cloud Firestore collections and queries. They start with no collections and no queries. In Nowa 3.13 the designer has no button for adding either: see [Use Cloud Firestore](firestore.md#add-collections-and-queries). |
 | `lib/main.dart` | A line that starts Firebase when the app launches. |
 | Packages and build files | `firebase_core` and `cloud_firestore` (added even if you only use sign-in), the Android build files updated for Firebase, and an iOS minimum version of at least 15.0 (set by `cloud_firestore`). |
 

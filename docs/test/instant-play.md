@@ -10,7 +10,7 @@ Instant Play runs a screen right on the board, so you can tap through it without
 ## Play a screen
 
 1. Hover the title bar above a screen or component on the board, or select the item. A play button appears next to the name.
-2. Click it (its tooltip is **Play**). The board zooms to the item, an orange border marks it, and it comes alive.
+2. Click it (its tooltip is **Play**). The board zooms to the item and selects it, an orange border marks it, and it comes alive.
 3. Tap, scroll and type as you would in the real app. While an item plays, scrolling over it scrolls your app, not the board.
 4. Click **Stop** when you're done. It sits in the item's title bar and in the controls at the bottom of the board.
 

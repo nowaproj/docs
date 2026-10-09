@@ -26,7 +26,7 @@ Nowa writes the Android App ID into the Android manifest and the iOS App ID into
 
 ## Add a banner
 
-1. Open the widget picker (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd>) or click the **Widget** tool, and search for **Admob Banner**. If AdMob isn't turned on yet, Nowa shows **Add Missing Dependencies**. Click **Add**.
+1. Press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd> or click the **Widget** tool to open the [Library](../design/library.md), search for **Admob Banner** and press <kbd>Enter</kbd>. If AdMob isn't turned on yet, Nowa shows **Add Missing Dependencies**. Click **Add**.
 2. Place the banner on a screen, usually at the top or bottom. It uses the standard banner size.
 3. In **Details**, fill in **Android Unit ID** and **Ios Unit ID** with your banner ad unit IDs.
 

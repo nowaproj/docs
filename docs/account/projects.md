@@ -71,7 +71,7 @@ The number next to **Projects** counts the cloud projects in the workspace you'r
 - The grid and list buttons switch the layout.
 - **Load More** appears at the bottom when you have more projects than fit.
 
-Cards show a cover image (or the project's first letter), its name and when you last edited it, such as "Edited 5m ago". List rows add a **Cloud** or **Local** badge. The cover is a board screenshot taken whenever you save, unless you set your own under **Project Details** → **Sharing**.
+Cards show a cover image (or the project's first letter) and its name. The line under the name is the project's package name, such as `docs_capture_notes`, when it differs from the name. While you point at a card, or when the package name is the same as the name, that line shows when you last edited the project instead, such as "Edited 5m ago". List rows show the name, a **Cloud** or **Local** badge and the edit time, and **RECENTS** shows the edit time too. The cover is a board screenshot taken whenever you save, unless you set your own under **Project Details** → **Sharing**.
 
 **RECENTS** in the sidebar lists up to five recently edited projects from the workspace you're viewing. Click one to jump straight in.
 

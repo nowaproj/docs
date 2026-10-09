@@ -38,8 +38,6 @@ A template made of several files, such as the **Authentication Template** (a log
 
 **Import** stays off while a file has a problem, and a tooltip asks you to fix it first. Nowa places only the template's screens on the board, side by side. Unlike a single-file template, a multi-file import doesn't add routes. In a GoRouter project, set each screen's route in its **Route Settings**. See [Name the route](screens.md#name-the-route).
 
-The **Onboarding Screen** template needs the `smooth_page_indicator` package for its page dots. When you import it, Nowa adds the package to your `pubspec.yaml` if it isn't there yet. See [Add packages](../code/packages.md).
-
 ## Built-in templates
 
 | Tab | Templates |

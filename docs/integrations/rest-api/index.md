@@ -20,7 +20,7 @@ A collection holds the requests for one API. Nowa saves it as a Dart file, for e
 
 ![The Collections panel in the Api sidebar: the Cats collection (base URL https://catfact.ninja) with a GET request getFact at /fact and a POST request createNote at /notes, and the Add Collection menu open (highlighted) with New Collection, Import from Swagger, Import from Postman and Import from Xano.](/img/docs/integrations/integrations-rest-api-1.png)
 
-You can also use **API Collection...** in the Files panel's **Add to library** menu.
+You can also use **API Collection...** in the **Add** (+) menu of the [Library](../../design/library.md).
 
 ## Set the base URL, headers and sign-in
 

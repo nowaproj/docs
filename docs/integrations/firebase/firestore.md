@@ -1,46 +1,51 @@
 ---
 title: Use Cloud Firestore
-description: Describe your Firestore collections, build queries by picking steps from dropdowns, test them against your database and show the results in your app.
+description: See how Nowa stores Firestore collections and queries, how the query builder and the test work, and how to show the results in your app.
 sidebar_label: Cloud Firestore
-keywords: [Firestore, Cloud Firestore, Firebase database, collections, sub collections, queries, query builder, where, orderBy, snapshots, stream, count, Data Builder, NoSQL]
+keywords: [Firestore, Cloud Firestore, Firebase database, collections, sub collections, queries, query builder, where, orderBy, snapshots, stream, count, Data Builder, NoSQL, Add Main Collection, Add New Query, collections.dart, queries.dart]
 ---
 
-Cloud Firestore is Firebase's database. In Nowa you describe your collections, build queries by picking steps from dropdowns, test them against your database and show the results with a Data Builder. Nowa writes the Firestore code for you.
+Cloud Firestore is Firebase's database. In Nowa, your collections and queries are Dart files that Nowa writes for you. You describe them with fields and dropdown steps, test queries against your database and show the results with a Data Builder.
 
 ## Before you start
 
 - A project connected to Firebase. See [Connect Firebase](connect.md). Connecting creates the collections and queries files.
 - Create a Cloud Firestore database in the Firebase console. Nowa doesn't create it.
-- If you use the Windows desktop app, you can build queries but not test them inside Nowa. See [Firebase on Windows](../../troubleshooting/known-issues.md#firebase-on-windows).
+- If you use the Windows desktop app, you can't test queries inside Nowa. See [Firebase on Windows](../../troubleshooting/known-issues.md#firebase-on-windows).
+- In Nowa 3.13, the designer has no button for adding a collection or a query. Read [Add collections and queries in Nowa 3.13](#add-collections-and-queries) first.
+
+## Add collections and queries in Nowa 3.13 {#add-collections-and-queries}
+
+Nowa 3.13 has no button in the designer for adding a collection or a query. **Add Main Collection** and **Add New Query** used to open when you clicked `collections.dart` or `queries.dart` in the **Files** panel. **Files** now shows only in [code mode](../../code/code-mode.md), where a click opens the file as plain code.
+
+The editors are still there. Open `FirestoreService` (your queries) or one of your collections from the [Library](../../design/library.md), and the **Queries** or **Collections** editor opens. Set **Filter** to **Everything** to list them. The editor says "select a query from the outline panel to open it" or "select a collection from the outline panel to open it", and there is no outline panel for it.
+
+Here is what works today:
+
+- Collections and queries that are already in your project keep working in a [Data Builder](#use-a-query-in-your-app), in Circuit and in your running app.
+- In code mode, open `lib/firebase/collections.dart` or `lib/firebase/queries.dart` from **Files** and edit the Dart code yourself.
 
 ## Define your collections
 
 A collection is a list of documents, such as `orders`. In Nowa, each collection is a model with `fromJson` and `toJson` (see [Data models](../../logic/models.md)) that your queries use. It describes the structure only. A collection appears in Firestore when you add its first document.
 
-1. Open the [**Files** panel](../../code/files.md) and open the **firebase** folder inside **lib**. The Firebase files have the Firebase icon.
-2. Click `collections.dart`. A popup opens with **Add Main Collection** and the collection tree. In code mode the file opens as plain code instead, so switch code mode off.
-3. Click **Add Main Collection**, type a name such as `orders` and click **Add**. The collection appears in the tree.
-4. Click the collection. The editor opens it with the field list and, on the right, a details panel.
-5. Click **+ Field** and type a name for the field. A new field starts as text (`String?`).
-6. Click the field's type to pick another one.
-7. Click a field to edit its details on the right, or to remove it.
-8. For a sub collection, hover a collection in the popup, click **+** (**Add Sub Collection**), name it and click **Add**.
+Nowa keeps your collections in `lib/firebase/collections.dart`. To add one, see [Add collections and queries in Nowa 3.13](#add-collections-and-queries). A collection opens in the **Collections** editor with its field list and, on the right, a details panel:
 
-Double-click a field name to rename it later. The name you type for a collection is its name in Firestore, so it must match your database. Names must be unique. Right-click a collection and choose **Remove** to delete it and its sub collections. You can undo it.
+1. Click **+ Field** and type a name for the field. A new field starts as text (`String?`).
+2. Click the field's type to pick another one.
+3. Click a field to edit its details on the right, or to remove it.
 
-{/* CAPTURE: id=integrations-firebase-firestore-2 | state: connected project; collections.dart popup open next to an open collection with a few fields | show: Add Main Collection, the collection tree, the "This table only represents the structure, not the data." line, the field list with + Field and the details panel | crop: whole editor window */}
+Double-click a field name to rename it later. The name you type for a collection is its name in Firestore, so it must match your database. Names must be unique.
 
 ## Build a query
 
-Each query is a function of `FirestoreService`, in `lib/firebase/queries.dart`. You build it one step at a time.
+Each query is a function of `FirestoreService`, in `lib/firebase/queries.dart`. To add one, see [Add collections and queries in Nowa 3.13](#add-collections-and-queries). A query opens in the **Queries** editor, where you build it one step at a time:
 
-1. In the **Files** panel, click `queries.dart`. A popup opens with **Add New Query**.
-2. Click **Add New Query**, type a name in the **Function Name** dialog and click **Create**. The query appears in the list.
-3. Click the query. The editor opens it. Under **Query**, the builder starts with `FirebaseFirestore.instance`.
-4. Open **Select Collection** and pick a collection. It reads "No Collections" until you define one.
-5. Open the dropdown that appears and pick the next step. Fill in its arguments: **Select Field**, **Select Operator** and **Select Value**.
-6. Keep adding steps until the query ends in a step that reads or writes data. Click the backspace icon at the top right of the builder to remove the last step.
-7. Check the icon at the lower right of the builder. A check mark (tooltip: "Query is Future or Stream, you can run it") means you can test the query. A warning icon (tooltip: "Query not Future or Stream, so you can't run it") means it isn't ready yet.
+1. Under **Query**, the builder starts with `FirebaseFirestore.instance`.
+2. Open **Select Collection** and pick a collection. It reads "No Collections" until you define one.
+3. Open the dropdown that appears and pick the next step. Fill in its arguments: **Select Field**, **Select Operator** and **Select Value**.
+4. Keep adding steps until the query ends in a step that reads or writes data. Click the backspace icon at the top right of the builder to remove the last step.
+5. Check the icon at the lower right of the builder. A check mark (tooltip: "Query is Future or Stream, you can run it") means you can test the query. A warning icon (tooltip: "Query not Future or Stream, so you can't run it") means it isn't ready yet.
 
 | Step | What it does | What can follow |
 |---|---|---|
@@ -61,6 +66,8 @@ To make a query reusable, open a value dropdown and choose **Create New Param**.
 The builder has no `update` or `limit` step.
 
 ## Test a query
+
+The **Test** section sits below the builder in the **Queries** editor.
 
 1. In **Test**, set a value for each parameter under **Parameters**. Parameters you leave alone use their defaults.
 2. Click **Run Test**. The result appears under **Preview**.

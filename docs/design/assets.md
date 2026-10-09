@@ -10,7 +10,7 @@ Assets are the files your app ships with: images, SVGs, videos, sounds and anima
 ## Import files
 
 1. Open the [Library](library.md) in the left sidebar, or press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>2</kbd>.
-2. Click **Add** (+) in its header and choose **Upload Assets...**. Pick one or more files. They are added to your project's `assets/` folder, or to the folder of the asset you clicked last.
+2. Click **Add** (+) in its header and choose **Upload Assets...**. Pick one or more files. They are added to your project's `assets/` folder, or to the folder in `assets/` that holds the row you clicked last.
 3. Turn on the **Assets** chip to see your files. Click a file to see a preview. Double-click it, or press <kbd>Enter</kbd>, to open it.
 
 To upload straight into a folder inside `assets/`, right-click that folder and choose **Upload assets...**.

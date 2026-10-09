@@ -9,16 +9,17 @@ A model describes one kind of thing in your app, such as a task, a product or a 
 
 ## Create a model
 
-1. Open **Files** in the sidebar. Next to the `lib` folder, click **+** (**Add to library**), then **New Model...**. Inside `lib`, the **Add** button opens the same menu.
+1. Open the [**Library**](../design/library.md) in the sidebar and click **Add** (+) in its header, then **New Model...**.
 2. Type a name, such as `Task`. Nowa fills in the **Class name** and the **Path** (the file name) for you: "task model" becomes the class `TaskModel` in `task_model.dart`. Click either one to change it.
 3. Click **Submit**. Nowa creates the file in `lib/models`.
 
 ## Add fields
 
-1. In **Files**, double-click the model's file. A single click only shows a preview.
-2. Click the class name in the list on the left. Its **Variables** and **Functions** appear in the middle.
-3. Hover **Variables** and click **+**. Rename the new field, for example `title`, then set its **Type** and **Default Value** on the right. See [Store data in variables](./variables.md#choose-a-type) for the type picker.
-4. Repeat for each field.
+1. In the **Library**, click **Filter** and choose **Models**. The default filter, **Widgets**, hides them.
+2. Find the model in the `models` folder. Double-click it, or select it and press <kbd>Enter</kbd>. A single click only shows a details card.
+3. Click the class name in the list on the left. Its **Variables** and **Functions** appear in the middle.
+4. Hover **Variables** and click **+**. Rename the new field, for example `title`, then set its **Type** and **Default Value** on the right. See [Store data in variables](./variables.md#choose-a-type) for the type picker.
+5. Repeat for each field.
 
 | Setting | What it does |
 |---|---|
@@ -38,7 +39,7 @@ To add logic to the model, hover **Functions** and click **+**. The function ope
 
 If you have a sample of the data, such as an API response, Nowa can build the models for you, including nested ones.
 
-1. In **Files**, click **+** (**Add to library**) next to `lib`, then **Generate Models From Json...**. The **Generate Models** dialog opens.
+1. In the **Library**, click **Add** (+), then **Generate Models From Json...**. The **Generate Models** dialog opens.
 2. In **Content**, paste your JSON. The editor's three-dots menu has **Wrap**, **Compress** and **Prettify**. Click **Next**. The button stays disabled while the JSON isn't valid.
 3. In **Select Data**, tick the fields to keep. For long data, use the **Select All** checkbox or the **Collapse All** and **Expand All** icons. Click **Next**.
 4. In **Generated Models**, set the **Name** of the main class (it starts as `Root`) and the **Path**. The path starts as `lib/models` and must be inside `lib`. Click **Save and Open**.

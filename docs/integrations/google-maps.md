@@ -29,7 +29,7 @@ Nowa puts each key where its platform needs it:
 
 ## Add the map
 
-1. Open the widget picker (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd>) or click the **Widget** tool, and search for **Google Maps**. If Nowa shows **Add Missing Dependencies**, click **Add**.
+1. Press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd> or click the **Widget** tool to open the [Library](../design/library.md), search for **Google Maps** and press <kbd>Enter</kbd>. If Nowa shows **Add Missing Dependencies**, click **Add**.
 2. Place the widget on a screen and size it.
 3. In **Details**, open **Initial Camera Position** and set **Target** (latitude and longitude) and **Zoom**. A new map starts at latitude 39.5, longitude -98 and zoom 4. The other map options are listed below it.
 

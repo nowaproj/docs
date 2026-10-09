@@ -46,7 +46,7 @@ Nowa puts the functions in `FirebaseService`, in `lib/firebase/firebase.dart`.
 **Google** and **Phone** also add the iOS settings they need, a URL scheme in `Info.plist`.
 
 :::note
-In Nowa 3.12.5, **Google** writes `signInWithGoogle()` for an older version of the `google_sign_in` package than the 7.x version Nowa installs. If your build reports errors about `GoogleSignIn` in `lib/firebase/firebase.dart`, this is the cause. Turning **Google** off removes the function and the package.
+Currently, **Google** writes `signInWithGoogle()` for an older version of the `google_sign_in` package than the 7.x version Nowa installs. If your build reports errors about `GoogleSignIn` in `lib/firebase/firebase.dart`, this is the cause. Turning **Google** off removes the function and the package.
 :::
 
 ## Use the functions in your screens

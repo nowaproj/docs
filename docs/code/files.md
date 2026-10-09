@@ -27,7 +27,9 @@ Names in the **Files** tree carry markers:
 
 The Library shows the red problem count too, on rows and on their folders, but no `*` and no Git letters.
 
-Nowa doesn't load `.git/`, `build/` or `.DS_Store`, and the **Files** tree doesn't list top-level items whose names start with a dot, such as `.nowa`. A `.board` file stores one board. In code mode it opens a tab that says "Code view is not available for boards". To work on a board, leave code mode and pick it in the **Boards** chip in the top bar ([Work with boards](../design/boards.md)). The Library doesn't list boards.
+Nowa doesn't load `.git/`, `build/` or `.DS_Store`, and the **Files** tree doesn't list top-level items whose names start with a dot, such as `.nowa`.
+
+A `.board` file stores one board. The Library doesn't list boards, and in code mode a `.board` file opens a tab that says "Code view is not available for boards". To work on a board, leave code mode and pick it in the **Boards** chip in the top bar. See [Work with boards](../design/boards.md).
 
 ## Add files {#add-files}
 
@@ -44,11 +46,11 @@ In the Library, click **Add** (+) in the header and choose what to make.
 | **Generate Models From Json...** | Model classes built from JSON. See [Data models](../logic/models.md). |
 | **API Collection...** | A REST API collection in `lib/api`. See [Connect a REST API](../integrations/rest-api/index.md). |
 | **Import Dart code...** | Dart you paste or load from a file. See [Write your own code](custom-code.md#import-dart-code). |
-| **Upload Assets...** | Files you pick on your computer, in `assets`, or in the folder of the asset you clicked last. See [Images, videos and other files](../design/assets.md). |
+| **Upload Assets...** | Files you pick on your computer, in `assets`, or in the folder in `assets` that holds the row you clicked last. See [Images, videos and other files](../design/assets.md). |
 
 A model or global state asks for a name. It must be a valid Dart name that nothing else in your project already uses, and it can't be a Dart keyword.
 
-The Library's **Filter** starts on **Widgets**, so a new model or global state stays hidden until you choose **Everything**, **Models** or **Global states**. The Library lists a folder only when something is in it, so a new empty folder shows up first in the **Files** tree in code mode.
+After you add something, look for it in the Library. Its **Filter** starts on **Widgets**, so a new model or global state stays hidden until you choose **Everything**, **Models** or **Global states**. A folder shows in the Library only when something is in it, so a new empty folder appears first in the **Files** tree in code mode.
 
 To add a board, click **Create new board** in the **Boards** chip in the top bar, or press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>B</kbd>. See [Work with boards](../design/boards.md).
 

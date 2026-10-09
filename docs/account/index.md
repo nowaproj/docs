@@ -22,7 +22,7 @@ The sidebar, from top to bottom:
 | **RECENTS** | Lists up to five recently edited projects. Click one to open it. | [Create and manage projects](./projects.md#find-a-project) |
 | **Upgrade your plan** | Opens **Adjust Plan** in **Billing**. It shows only while an upgrade is on offer for your account. | [Plans, billing and AI usage](./plans-and-usage.md) |
 | **Invite a Friend** | Shows your invite link. When a friend signs up with it and verifies their email, you both get credits. | [Plans, billing and AI usage](./plans-and-usage.md#invite-a-friend) |
-| **Download Desktop App** (web app only) | Opens **Download Nowa** with download buttons for macOS and Windows. | [Install the desktop app](../get-started/desktop-app.md) |
+| **Download Desktop App** (web app only) | Opens **Download Nowa** with download buttons for macOS, Windows and Linux. A button is greyed out when there is no download for that system. | [Install the desktop app](../get-started/desktop-app.md) |
 | **Hire an Expert** | Opens a dialog where you can book a free consultation with a certified Nowa expert. | [Get help](./help.md#hire-an-expert) |
 | **Learning Resources** | Opens these docs. | [Get help](./help.md) |
 | **Settings** | Opens your account settings: profile, plan, usage and editor setup. | [Account settings](./account-settings.md) |

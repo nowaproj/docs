@@ -45,10 +45,8 @@ Steps:
 - Screenshots from 3.13 (app.nowa.dev): 13 signed-in (dashboard, settings, Deploy menu...), 7 AI (5 of 5 prompts used:
   `captures/ai-prompts.md`; the account is now on extra AI credits), wave 1 (32 shots + 2 videos), AI panel (6, signed
   in), wave 2a (15 shots + add-widgets video). Names and emails blurred.
-- In progress at the pause: wave 2b (design properties/layout/responsive/assets/fonts/theme-styles/themes/templates,
-  code-mode, files, reference-widgets-1, layout and themes videos). Resume it from its final message or re-run the ids
-  whose log rows don't say "yes (3.13.0)".
-- **Next:** (1) finish wave 2b; (2) run `python3 -I _rewrite/captures/tools/sync-alt.py` (copies checked alt texts from
+- Wave 2b done (15 shots incl. new design-theme-styles-2, layout and themes videos). Recorder for app.nowa.dev: `captures/tools/video/rec-live.mjs` (clicks Reject itself, reloads if icons fail).
+- **Next:** (1) check layout.md's Group header (a fourth three-dot button appears after an Alignment click: `captures/ui-diffs-3.13.md`); (2) run `python3 -I _rewrite/captures/tools/sync-alt.py` (copies checked alt texts from
   the log into the pages; 25+ differ); (3) embed any new ids with `embed.py` (look at each image first); (4) `yarn build`;
   (5) update `PR-REPORT.md` and the PR body/title for 3.13 (D20, D21, Q4, P48-P51, signed-in shots done, paid-plan and
   external-service shots still missing); (6) CI check.

@@ -1,22 +1,24 @@
 ---
 title: Widget catalog
-description: Every built-in widget in Nowa's widget picker, grouped by what it does, with what each one needs and links to the pages that cover the rest.
+description: Every built-in widget in Nowa's Library, grouped by what it does, with what each one needs and links to the pages that cover the rest.
 keywords: [widgets, widget list, widget catalog, widget picker, built-in widgets, container, text, text field, icon, sizedbox, empty widget, image, svg, button, icon button, floating button, group, tabview, list view, grid view, swipeable stack, page view, indexed stack, cross fade, wrap, data builder, video player, youtube player, lottie, rive, animated container, loading indicator, progress indicator, checkbox, switch, popup menu button, dropdown menu, slider, pin code field, app bar, bottom navigation bar, navigation bar, drawer, list tile, expansion tile, alert dialog, admob banner, web view, html, markdown, google maps, revenuecat paywall, request a widget, loading circular, index stack, lottie animation, rive animation, webview, listtile, floating action button, appbar, tabs, elevated button, text form field, dropdown menu item, card swiper, otp]
 ---
 
 Nowa comes with 45 ready-made widgets, from a plain **Container** to a Google map. This page lists every one, what it does and what it needs, and points you to the page that covers the ones with extra setup.
 
-## Find a widget in the picker
+## Find a widget in the Library {#find-a-widget-in-the-picker}
 
-- Press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd> with a board open, or click **Widget** in the toolbar. Type part of a name and press <kbd>Enter</kbd>. [Add widgets](../../design/add-widgets.md) has the full steps, including drag and drop.
-- Your own screens and components appear in the same list. Under **Search for:**, choose **Components** to see only them, or **BuiltIn** to see only the widgets on this page.
-- Missing a widget? Click **Request a Widget** in the picker's search bar, describe it and click **Submit Request**.
+- Press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd> with a board open, or click **Widget** in the toolbar. The [Library](../../design/library.md) opens with its search ready. Type part of a name and press <kbd>Enter</kbd>. [Add widgets](../../design/add-widgets.md) has the full steps, including drag and drop.
+- The widgets on this page are under **Built-in**, in groups such as **Basic**, **Buttons** and **Layout**. Your own screens and components are under **Project**. **Filter** limits the list to one kind of thing. Its default, **Widgets**, shows screens, components and widgets.
+- Missing a widget? The Library has no request link. Open the widget picker dialog instead (select an empty container and click **+**, for example), click **Request a Widget** in its search bar, describe it and click **Submit Request**.
 
-With nothing typed, the picker lists the widgets in the order of the tables below, without group headings. The groups here are only to help you browse.
+The Library lists the built-in widgets by group, not in the order of the tables below. The groups on this page follow the same ones, only to help you browse.
 
-Nine widgets need a Flutter package: SVG, Swipeable Stack, YouTube Player, Lottie, Rive, Pin Code Field, Admob Banner, Google Maps and RevenueCat Paywall. If your project doesn't have the package yet, Nowa opens **Add Missing Dependencies** when you pick one. Clicking **Add** installs the package and places the widget. See [Add a widget that needs a package](../../design/add-widgets.md#add-a-widget-that-needs-a-package).
+Nine widgets need a Flutter package: SVG, Swipeable Stack, YouTube Player, Lottie, Rive, Pin Code Field, Admob Banner, Google Maps and RevenueCat Paywall. If your project doesn't have the package yet, Nowa opens **Add Missing Dependencies** when you add one with <kbd>Enter</kbd>, a double-click or **Insert**. Clicking **Add** installs the package and places the widget. See [Add a widget that needs a package](../../design/add-widgets.md#add-a-widget-that-needs-a-package).
 
-![The widget picker with svg typed in the search box. The SVG row is selected, and its preview card shows the description, the Dependencies list with flutter_svg (highlighted) and the Open Documentation link.](/img/docs/reference/reference-widgets-1.png)
+![The widget picker dialog with svg typed in the search box. The SVG row is selected, and its preview card shows the description, the Dependencies list with flutter_svg (highlighted) and the Open Documentation link.](/img/docs/reference/reference-widgets-1.png)
+
+The Library's details card shows a preview, the name and the first lines of the description, but no **Dependencies** list or **Open Documentation** link. The picture above is the widget picker dialog, which has both.
 
 ## Basic
 

@@ -14,7 +14,7 @@ Set your theme before you design many screens: see [Set the theme first](../guid
 1. Click **Themes** in the left sidebar, or press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>3</kbd>. The active theme opens for editing, with **Colors**, **Typography** and **Widgets** below it.
 2. Click the arrow next to the theme name to show all your themes.
 
-New projects start with two themes, `lightTheme` and `darkTheme`. Each theme is a variable of type `ThemeData` in `lib/globals/themes.dart`, and Nowa writes your edits to that file. Variables of other types in the file aren't listed as themes. A theme that your code builds with a function is one too. **Refresh** re-renders the app with the current theme, and **Open in New Tab** shows the file as code. <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Z</kbd> and <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Y</kbd> undo and redo inside the panel.
+New projects start with two themes, `lightTheme` and `darkTheme`. Each theme is a variable of type `ThemeData` in `lib/globals/themes.dart`, and Nowa writes your edits to that file. Variables of other types in the file aren't listed as themes. A `ThemeData` variable that a function builds is listed too. **Refresh** re-renders the app with the current theme, and **Open in New Tab** shows the file as code. <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Z</kbd> and <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Y</kbd> undo and redo inside the panel.
 
 ![The Themes panel with lightTheme active: the Colors tiles (Primary, Secondary, Tertiary, Surface, highlighted), Add Color, the Brightness and Mode switches and the start of Typography.](/img/docs/design/design-themes-1.png)
 

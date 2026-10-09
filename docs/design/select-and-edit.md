@@ -38,7 +38,7 @@ What happens when you drop depends on what is under the pointer.
 | Empty board | The widget becomes its own board item and snaps to nearby items. |
 | A **Stack** | It is placed where you drop it, on top of the others. The stack is outlined in purple. |
 | A **Row**, **Column**, **Wrap** or **List View** | It is inserted between the children at the pointer. An orange box outlines the dragged widget. |
-| A screen | An App Bar, Floating Action Button, Bottom Navigation Bar or Drawer goes into its slot. Anything else goes into the body. |
+| A screen | It goes into the body, even an App Bar, Floating Action Button, Bottom Navigation Bar or Drawer. To fill one of those slots, pick the widget in the slot under **Screen** in **Details**. See [Set up a screen](screens.md#set-up-a-screen). |
 | An app bar | The left, middle and right zones fill the leading, title and actions. |
 | A **Text** or a **Padding** | A text can't hold children, so the drop goes to the container behind it. **Padding** passes it to its child. |
 | Any other widget, such as a **Container** | It doesn't take drops. The drop goes to whatever is behind it. To put a widget inside, use **+** in **Details**. |

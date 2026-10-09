@@ -78,7 +78,7 @@ Details: [Read and write Supabase data](../integrations/supabase/database.md), [
 ## 6. Open the detail screen
 
 1. Add an `id` param to the detail screen. Its **Type** must match the `id` that `getByIdRecipes` takes: keep `String`, the default, because the table's `id` is a uuid. In **Route Settings**, set its **Path** to `/recipe/:id`. Open the **Router** panel, select the route and drag the `id` chip onto the screen's `id` param under **Screen Parameters**.
-2. Open `RecipeCard` on its own: in the **Widgets** panel, switch to **Component** and double-click it. Select its main widget, click **Add Wrapper** and choose **Gesture Detector**. Open **On Tap** and add a **GoRouter** node of type `push`. Type `/recipe/` in **Location**, then `$` and pick the `id` param.
+2. Open `RecipeCard` on its own: in the [Library](../design/library.md), double-click it, or select it and press <kbd>Enter</kbd>. Select its main widget, click **Add Wrapper** and choose **Gesture Detector**. Open **On Tap** and add a **GoRouter** node of type `push`. Type `/recipe/` in **Location**, then `$` and pick the `id` param.
 3. On the detail screen, wrap the content in a **Data Builder** with **Source** set to **Supabase** and **Query** set to `getByIdRecipes`. Link its `id` input to the screen's `id` param, then show the fields of `data`.
 
 Details: [Open a detail screen when a list item is tapped](../logic/navigation.md#open-a-detail-screen).

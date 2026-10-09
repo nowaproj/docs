@@ -25,6 +25,7 @@ If the preview itself won't open, see [The preview won't start](#the-preview-won
 - "Your app couldn't start because of a code error" or "The app preview failed to start": click **Fix with AI**, or fix the error yourself and click **Retry**.
 - "The preview hit a problem on our side — your app is fine": click **Retry**, and if it keeps happening, **Report issue**.
 - "Your preview session timed out": click **Restart**.
+- "Your app is running" with an **Open in Browser** button, in the Linux desktop app: nothing is wrong. The in-app preview isn't available on Linux yet, so click **Open in Browser** to see your app. See [Choose where to run](../test/run.md#choose-where-to-run).
 
 See [Fix a preview that won't start](../test/run.md#fix-a-preview-that-wont-start).
 
@@ -97,7 +98,7 @@ A cloud project shows **Try again** instead. See [Fix "Project not found"](../ac
 Nowa reopens the tabs you had open last time, so a tab that hangs the editor hangs it on every open.
 
 1. On the dashboard, click ⋮ on the project and choose **Open in safe mode**. Nowa skips the old tabs.
-2. The workspace says **Nothing is open**. Click **Open board**, **Browse widgets** or **Open code mode**.
+2. The workspace says **Nothing is open**. Click **Open board**, **Browse widgets** (it opens the [Library](../design/library.md)) or **Open code mode**.
 3. Fix the file that caused it, or ask Nowa AI.
 
 See [Use the project menu](../account/projects.md#project-menu).
@@ -134,7 +135,8 @@ The desktop app checks that your plan includes desktop access. The page shows yo
 
 An update is out. The dashboard shows this dialog with both versions.
 
-- **Desktop app:** click **Update to v…**. When it says "Download complete!", click **Install & Restart**, and Nowa reopens on the new version. **Later** and **Skip** wait. **Or download manually** opens the download link.
+- **Desktop app on macOS and Windows:** click **Update to v…**. When it says "Download complete!", click **Install & Restart**, and Nowa reopens on the new version. **Later** and **Skip** wait. **Or download manually** opens the download link.
+- **Desktop app on Linux:** Nowa doesn't install updates itself. Click **Download v…** to get the new archive, then run `install.sh` from it again. **Skip** waits. See [Install on Linux](../get-started/desktop-app.md#install-on-linux).
 - **Web app:** click **Update**. The page reloads on the new version.
 
 "Update failed" shows the reason underneath, for example "Could not connect to the update server. Please check your internet connection and try again." Click **Retry**, or **Download manually instead**.

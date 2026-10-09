@@ -51,7 +51,7 @@ Anything inside your app can be read by anyone who has it.
 
 - **Supabase:** click a function in the **Supabase** panel, fill in **Testing values** and click **Run**. If the table uses RLS, sign in first. **RLS Policy Error** means a policy blocked the call, and **Empty Result - Possible RLS Filtering** means a policy may be hiding rows. See [Test a function](../integrations/supabase/database.md#test-a-function).
 - **REST API:** click **Test**, then **Run Test**. Check the **Json** and **Object** results, then click **Generate Model**. See [Test a request](../integrations/rest-api/index.md#test-a-request).
-- **Firestore:** click **Run Test**. Testing isn't possible in the Windows desktop app. See [Test a query](../integrations/firebase/firestore.md#test-a-query).
+- **Firestore:** click **Run Test** in the **Queries** editor. Testing isn't possible in the Windows desktop app. In Nowa 3.13 the designer can't open a query in that editor: see [Test a query](../integrations/firebase/firestore.md#test-a-query) and [what works in Nowa 3.13](../integrations/firebase/firestore.md#add-collections-and-queries).
 
 Tests run against your real backend, so create, update and delete calls change real data. Use a test project or throwaway rows.
 

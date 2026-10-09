@@ -5,7 +5,7 @@ sidebar_label: Navigation bars and screen parts
 keywords: [app bar, appbar, drawer, floating action button, floating button, bottom navigation bar, navigation bar, navbar, tab bar, tabs, tabview, page view, indexed stack, cross fade, pageIndex, screen slot, menu, swipe pages, custom app bar]
 ---
 
-A screen has four places around its body for standard parts: an **App Bar** on top, a **Drawer** at the side, a **Floating Button** over the content and a **Bottom Navigation Bar** at the bottom. Drop one on a screen and Nowa puts it in the right place.
+A screen has four places around its body for standard parts: an **App Bar** on top, a **Drawer** at the side, a **Floating Button** over the content and a **Bottom Navigation Bar** at the bottom. Pick one for its slot and Nowa puts it in the right place.
 
 ## Add a screen part {#screen-parts}
 
@@ -16,10 +16,13 @@ A screen has four places around its body for standard parts: an **App Bar** on t
 | **Floating Button** | A button that floats over the content. | **Floating Action Button** |
 | **Bottom Navigation Bar** | A row of tabs at the bottom. | **Bottom Navigation Bar** |
 
-1. Press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd> and search for the part.
-2. Drag it from the list onto the screen. It lands in its own place, not in the body. See [where a dragged widget lands](../../design/select-and-edit.md#where-a-dragged-widget-lands).
+1. Select the screen and open its **Screen** section in **Details**.
+2. Click the slot you want: **App Bar**, **Drawer**, **Floating Action Button** or **Bottom Navigation Bar**. An empty slot shows `null`.
+3. In the widget picker, search for the part, such as **Floating Button**, and press <kbd>Enter</kbd>. The part sits in its own place, not in the body.
 
-You can also select the screen, open its **Screen** section in **Details**, click a slot such as **App Bar** and pick a widget. The same list offers your own components, so a custom header you built can be the app bar. See [Create and set up screens](../../design/screens.md).
+The widget picker is the dialog titled **Search for a widget**. It offers your own components too, so a custom header you built can be the app bar. See [Create and set up screens](../../design/screens.md).
+
+A part you drag from the [Library](../../design/library.md) onto the screen can land in the body as a free widget instead of in its slot, so use the slot.
 
 ![The home screen on the board with its standard parts in place: the app bar with the title Home Page on top (highlighted), the purple floating button over the content at the bottom right, and the bottom navigation bar with its home and call tabs at the bottom. The floating button and the bottom navigation bar are inside the second highlight.](/img/docs/reference/reference-navigation-1.png)
 
@@ -87,6 +90,8 @@ The first child shows when `pageIndex` is 0, the second when it is 1, and so on.
 
 The dots are a separate widget. Nowa doesn't connect them to the pages for you.
 
+They come from the `smooth_page_indicator` package, which `nowa_runtime` no longer includes. Select the dots and **Details** lists the package under **Dependencies**. If you open a project that already uses them without the package, Nowa offers a **Page indicator migration**: see [Handle the Page indicator migration](../../code/packages.md#page-indicator-migration).
+
 ### Add tabs {#tabview}
 
 1. Add a **TabView**. It starts with two tabs, "Tab1" and "Tab2", and a text page for each.
@@ -111,4 +116,4 @@ Try "Add a bottom navigation bar with Home, Search and Profile tabs, and show a 
 
 - [Navigate between screens](../../logic/navigation.md) to open other screens from a tap.
 - [Create and set up screens](../../design/screens.md) for the rest of a screen's settings.
-- [Widget catalog](./index.md) for every widget in the picker.
+- [Widget catalog](./index.md) for every built-in widget.

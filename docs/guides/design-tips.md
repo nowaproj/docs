@@ -16,7 +16,7 @@ Open **Themes** (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>3</kbd>) before you desig
 - **Style buttons and fields once.** Under **Widgets** in the theme, set how every button and text field looks. A new **Button** follows the theme by itself.
 - **Bend one thing, not everything.** Use **CopyWith** to change one part of one text, such as its weight, while the rest still follows the theme.
 - **Plan for dark.** New projects start with `lightTheme` and `darkTheme`, and the board shows the **Active** one. The app doesn't switch on its own, so add a switch with `changeTheme`. See [Switch themes while the app runs](../design/theme-styles.md#switch-themes-while-the-app-runs).
-- **Theme extensions** hold extra values, such as brand colors, and show up as tabs in **Themes**. There's no button to create one: they come from code that you or Nowa AI write. Widget color pickers list the standard color roles only, so use those for everyday colors.
+- **Theme extensions** hold extra values, such as brand colors, and show up as tabs in **Themes**. There's no button to create one: they come from code that you or Nowa AI write. A widget's color picker shows your extension colors as tabs next to **Material**, and **Text Styles** lists their text styles in groups. See [Colors from theme extensions](../design/theme-styles.md#colors-from-theme-extensions).
 
 ## Build once, reuse everywhere
 
@@ -48,8 +48,8 @@ Nowa has no breakpoints and no separate phone and tablet layouts. You build one 
 - **Screens and components:** name them for what they show or are, such as `RecipeListPage` and `RecipeCard`. When you rename, Nowa updates every place that uses them.
 - **Variables:** name them for what they hold, such as `isLoading` or `email`.
 - **Routes:** a screen's default path comes from its name, so `HomePage` becomes `/home-page`.
-- **Boards:** keep one per flow. When you create a board, Nowa turns the name you type into one word, so **Login flow** becomes `loginFlow`.
-- **Descriptions:** click **Add description** under a screen's or component's name. The note shows in the widget picker.
+- **Boards:** keep one per flow. When you create a board, Nowa writes the name in snake_case, so **Login flow** becomes `login_flow`.
+- **Descriptions:** click **Add description** under a screen's or component's name. The note shows in the [Library](../design/library.md)'s details card and in the widget picker dialog.
 
 Clear names also help Nowa AI, because every request carries a map of your widget names. See [Give Nowa AI context](../ai/context.md).
 

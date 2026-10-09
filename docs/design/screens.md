@@ -40,7 +40,7 @@ Click the screen's title to select it. In **Details**, the **Screen** section ho
 | **Bottom Navigation Bar** | A bar at the bottom for switching between sections. |
 | **Size** | Resizes the screen on the board. Presets: **Pixel 3a**, **iPhone 11 Pro**, **Galaxy S20+**, **iPhone 12**, **MacBook Pro** and **1920x1080**. |
 
-You can also drag an App Bar, Floating Action Button, Bottom Navigation Bar or Drawer widget onto the screen, and it drops into its slot.
+Fill the other slots the same way: click the slot, which reads **null** while it is empty, and pick a widget. Dragging an App Bar, Floating Action Button, Bottom Navigation Bar or Drawer onto the screen puts it in the body, not in its slot.
 
 **Size** only changes how big the screen looks on the board. Your app fills the real device. See [Design for every screen size](responsive.md).
 

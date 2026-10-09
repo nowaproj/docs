@@ -14,7 +14,7 @@ The Outline lists every widget on the board as a tree, like a table of contents 
 
 ![The Outline panel with HomePage expanded: the home icon, the appBar slot row, the selected Button row (highlighted, with the layers icon) and the loose Container row.](/img/docs/design/design-outline-1.png)
 
-{/* CAPTURE: id=design-outline-2 | state: playground starter open, hover the home screen title on the board and click Open in new tab | show: the screen on its own with the floating Outline box at the top left (expanded) and Variables and Details at the top right; the Back button and the Boards chip (not dimmed, showing Boards) in the top bar | crop: full editor window */}
+![The home screen opened on its own: the floating Outline box at the top left (highlighted, open, with the HomePage row), Variables and Details at the top right, and in the top bar the Back and Forward arrows, the Boards chip (showing Boards, not dimmed) and the HomePage chip, highlighted together.](/img/docs/design/design-outline-2.png)
 
 Every row starts collapsed. When you select a widget on the board, the Outline opens the rows above it and scrolls to it.
 

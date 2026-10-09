@@ -11,7 +11,7 @@ The Library is one panel for everything you can put on your board: your screens 
 
 Click **Library**, the second icon in the left sidebar, or press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>2</kbd>. The panel has a header with **Add** (+) and a **Show as a list** or **Show as a tree** button, a search field with **Filter** next to it, four source chips, and the rows.
 
-{/* CAPTURE: id=design-library-1 | state: playground starter open, Library open with Ctrl/Cmd+2, one component row clicked so its details card shows | show: the header with Add and the list/tree button, the search field with Filter, the four chips with Project on, the project rows, and the details card beside the panel | crop: left panel + details card */}
+![The Library panel opened from the second sidebar icon (highlighted): the header with the Add (+) and list or tree buttons, the Go to... search field with the Filter button and the four chips Project (on), Packages, Built-in and Assets (all in one highlighted box), then the project rows: the pages folder with HomePage and the selected ProductCard component. A details card beside the panel shows its preview, its name, Component · lib and its description.](/img/docs/design/design-library-1.png)
 
 In code mode, **Files** takes the Library's place: see [Manage project files](../code/files.md). A phone-sized window has no Library: see the [phone layout](../get-started/mobile.md).
 
@@ -51,7 +51,7 @@ You need an open board, screen or component. Without one, Nowa says "Open a scre
 2. Type part of a name, such as `button`. Press <kbd>↓</kbd> to move through the results.
 3. Press <kbd>Enter</kbd>. The widget lands where your pointer last was on the board, and the keys go back to the board.
 
-{/* CAPTURE: id=design-library-2 | state: playground starter open, Ctrl/Cmd+K pressed, button typed in the Library search | show: the Add... hint, the grouped results with their counts and the first result highlighted, and the details card beside the panel | crop: left panel + details card */}
+![The Library after pressing Ctrl/Cmd+K and typing button: the results are grouped under Packages and Built-in headings with a count at the end of each (both highlighted), the Button row is highlighted, and a details card with its preview, name and Widget · Buttons sits beside the panel.](/img/docs/design/design-library-2.png)
 
 You can also:
 

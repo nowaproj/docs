@@ -41,7 +41,7 @@ Actual: the secret is in the bundle and in git history.
 Expected: a red error under the button; no check mark.
 Actual: a check mark and "Deployed successfully!". With **Use Keys** the migration, function deploy and secrets go through Nowa's Supabase proxy, which needs the grant that only **Connect** creates (inferred, not run). Any other failure (offline, Supabase error) ends the same way.
 
-**Root cause.** `SupabaseOAuthManager.setSecret` (`packages/data/lib/src/supabase/supabase_oauth_manager.dart:125-146`), `deployEdgeFunction` (`:148-188`) and `applyMigration` (`:190-209`) end in `catch (e) { _error = e.toString(); }` and never rethrow. `StripeSupabaseService` owns its own instance (`stripe_supabase_service.dart:20`) and calls it without reading `error` (`:227-252`), so `deploy()` (`:374-427`) reaches `'Deployment successful!'` (`:419`) and `stripe_settings.dart:643-650` shows the snackbar whenever `deploymentError == null`. `saveSecret` (`:499-509`) would rethrow, but nothing is thrown, so `AsyncTextField` (`packages/core/lib/src/fields/nowa_fields.dart:1150-1263`) draws the check mark.
+**Root cause.** `SupabaseOAuthManager.setSecret` (`packages/data/lib/src/supabase/supabase_oauth_manager.dart:125-146`), `deployEdgeFunction` (`:148-188`) and `applyMigration` (`:190-209`) end in `catch (e) { _error = e.toString(); }` and never rethrow. `StripeSupabaseService` (`packages/core/lib/src/integrations/stripe/services/stripe_supabase_service.dart`) owns its own instance (`:20`) and calls it without reading `error` (`:224-251`), so `deploy()` (`:374-427`) reaches `'Deployment successful!'` (`:419`) and `packages/core/lib/src/integrations/stripe/stripe_settings.dart:643-650` shows the snackbar whenever `deploymentError == null`. The service's `saveSecret` (`stripe_supabase_service.dart:499-509`) would rethrow, but nothing is thrown, so `AsyncTextField` (`packages/core/lib/src/fields/nowa_fields.dart:1191-1226,1252-1257`) draws the check mark.
 
 **Suggested fix.** Have the Stripe service check `_oauthManager.error` after each call and throw (or make the three methods rethrow behind a flag; other callers read `error`). Show the Stripe secret and deploy sections only when `isOAuthAuthenticated`. Add a service test with a fake manager whose calls set `error` (`packages/core/test/` has no Stripe tests yet).
 
@@ -64,7 +64,7 @@ Actual: a check mark and "Deployed successfully!". With **Use Keys** the migrati
 Expected: the function deploys and cancels at period end.
 Actual: by the source, it can't be bundled; the deploy error is swallowed (R2). Not run.
 
-**Root cause.** `packages/core/lib/src/integrations/stripe/stripe_edge_functions.dart:659`. Deployed at `services/stripe_supabase_service.dart:487-492`; the app-side call is generated at `:823-834`.
+**Root cause.** `packages/core/lib/src/integrations/stripe/stripe_edge_functions.dart:659`. Deployed at `packages/core/lib/src/integrations/stripe/services/stripe_supabase_service.dart:487-492`; the app-side call is generated at `:823-834` of the same file.
 
 **Suggested fix.** `.order('created_at', { ascending: false })`. Add a test that scans every generated edge-function string for Dart-style named arguments, or run `deno check` over them in CI. Existing projects need a new **Deploy Configuration** to replace the function.
 
@@ -111,7 +111,7 @@ Actual: the folder and its `.git` are deleted.
 Expected: the edit and the helper stay.
 Actual (from reading): `testEnv: true` is back; the helper is gone.
 
-**Root cause.** The literal is at `stripe_supabase_service.dart:850`. `_updateServiceClass` (`:517-526`) calls `_addOrUpdateMembers` (`:530-566`): `_setMember` replaces every generated member and the loop at `:553-559` removes any member not in the generated set. `deploy()` calls it (`:394`).
+**Root cause.** The literal is at `packages/core/lib/src/integrations/stripe/services/stripe_supabase_service.dart:850`. `_updateServiceClass` (`:517-526`) calls `_addOrUpdateMembers` (`:530-566`): `_setMember` replaces every generated member and the loop at `:553-561` removes any member not in the generated set. `deploy()` calls it (`:394`).
 
 **Suggested fix.** Make the environment a setting under **2. Payment Methods** (test by default) and generate `testEnv: <value>`; keep members Nowa didn't generate, and leave a member alone once it no longer matches the generated source. Test: generate the service twice with an edited member (`packages/core/test/`).
 
@@ -157,9 +157,9 @@ Actual (from reading): `my_pkg: ''`.
 3. Right-click a screen row; open the header **Add** (+) menu.
 
 Expected: edit actions disabled or hidden, as in **Files**.
-Actual: **Rename**, **Delete**, **Insert**, **New Widget...**, **New Model...** and **Upload Assets...** are offered. Autosave runs for viewers too (`packages/core/lib/src/project/saving_service.dart:65-69`). Not run.
+Actual: **Rename**, **Delete**, **Insert**, **New Widget...**, **New Model...** and **Upload Assets...** are offered. `SavingService._autoSave` (`packages/core/lib/src/project/saving_service.dart:65-69`) has no View Only check either. Not run.
 
-**Root cause.** `library_host.dart` builds its menu (`:161-170`), the **Add** menu (`:176-186`) and drag-to-move (`:245-263`) without `gProject.isViewOnly` (`packages/core/lib/src/providers/project_provider.dart:578`). Contrast `lib/project/panels/files_panel/files_tree_host.dart:34,41-45,445-462`, which nulls `startDrag`, `drop`, `add`, `rename` and menu entries for viewers. A grep finds `isViewOnly` read only in `setup_general_actions.dart`, `status_bar.dart`, the Files panel, `assets_panel.dart`, the Git commit menu, the designer board controller and tools, and the code editor, so check **Details**, **Themes** and the Variables panel too.
+**Root cause.** `lib/project/panels/library_panel/library_host.dart` builds its row menu (`:161-170`), the **Add** menu (`:176-186`) and drag-to-move (`:245-263`) without `gProject.isViewOnly` (defined at `packages/core/lib/src/providers/project_provider.dart:578`). Contrast `lib/project/panels/files_panel/files_tree_host.dart:34,41-45,445-462`, which nulls `startDrag`, `drop`, `add`, `rename` and menu entries for viewers. A grep finds `isViewOnly` read in `lib/setup_general_actions.dart`, `lib/status_bar.dart`, `lib/project/panels/assets_panel.dart`, the Files panel files, the Git commit menu, `packages/core/lib/src/settings/project_detail_settings.dart`, the code editor and four designer files (`designer.dart`, `designer_setup.dart`, `widget_context_menu.dart`, `designer_tools.dart`), but nowhere in the Library. **Details**, **Themes** and the Variables panel weren't checked.
 
 **Suggested fix.** Read `isViewOnly` in `LibraryHost`: hide **Add**, drop the `rename`, `delete`, `insert`, `upload` entries and `startDrag`/`drop`, and don't bind `RemoveFileAction` (`:299`). Confirm on the server that writes from viewers are refused. Test: a `LibraryHost` widget test with a viewer project.
 
@@ -228,7 +228,7 @@ Actual (from reading): the **Sign in** page.
 Expected: the part fills its Scaffold slot.
 Actual: the Outline shows it as a free widget in the body, next to `appBar`; **Layout** shows **L** and **T**; the status bar reads "Could not find index for navbar: ...".
 
-**Root cause.** `ScaffoldRule` (`drag_rule.dart:396-436`) maps the four classes to their slots and marks them opaque, but `DeepHostWidgetFinder` (`move_tool.dart:340-394`) keeps the last opaque candidate, which is the body `Stack` (`StackRule`, `drag_rule.dart:217`; `empty_page.dart:23`). The message is a `logInfo` at `packages/designer/lib/src/details/navbar_field.dart:159`.
+**Root cause.** `ScaffoldRule` (`packages/designer/lib/src/design_experience/drag_rule.dart:396-439`) maps the four classes to their slots and marks them opaque, but `DeepHostWidgetFinder` (`packages/designer/lib/src/design_experience/move_tool.dart:340-394`) keeps the last opaque candidate, which is the body `Stack` (`StackRule`, `drag_rule.dart:217`; the template's `Stack` is at `packages/core/lib/src/services/templates/built_in/empty_page.dart:23`). The message is a `logInfo` at `packages/designer/lib/src/details/navbar_field.dart:159`.
 
 **Suggested fix.** When the dragged widget is one of the four slot classes, resolve the host to the nearest Scaffold ancestor before the deeper opaque Stack. Test: `packages/designer/test/move_test.dart`.
 
@@ -274,11 +274,11 @@ Actual: **CustomButton** (group **Packages**, from `nowa_runtime`). One ↓ firs
 Expected: the model is listed and selected, or its file opens.
 Actual: only screens show. **Filter** → **Models** or **Everything** lists `models` → `Product`. **New Global State...** behaves the same.
 
-**Root cause.** `library_contract.dart:223-226` (`kinds = widgets`). `library_host.dart:182` calls `addToLibraryEntries(_scoped, _files)` without `onAdd`, and `add_lib_menu.dart:18-33` reveals or opens a new file only through `onAdd` (**New Widget...** opens its own file, `:37-47`).
+**Root cause.** `packages/nowa_ui/lib/library/library_contract.dart:218,225` (`kinds = widgets`: screens, components, widgets). `lib/project/panels/library_panel/library_host.dart:183` calls `addToLibraryEntries(_scoped, _files)` without `onAdd`, and `lib/project/panels/files_panel/add_lib_menu.dart:17-35` (`createFile`, used by **New Model...** and **New Global State...**) reports the new file only through `onAdd` (`:31`); **New Widget...** opens its own file (`:40-47`).
 
 **Suggested fix.** Pass an `onAdd` that widens the filter to the new kind, selects the row and opens the file. Test: a `LibraryHost` widget test.
 
-**Docs impact.** `docs/logic/models.md`, `docs/logic/global-state.md`, `docs/code/files.md` (L46) and `docs/design/library.md` tell readers to change **Filter** first.
+**Docs impact.** `docs/logic/models.md`, `docs/logic/global-state.md`, `docs/code/files.md` (L48) and `docs/design/library.md` tell readers to change **Filter** first.
 
 ### R13. In a local project, the "You need to provide authentication for this action" popup saves credentials where local Git never looks
 
@@ -298,7 +298,7 @@ Actual: only screens show. **Filter** → **Models** or **Everything** lists `mo
 Expected: the retry uses them.
 Actual (from reading): the retry runs with no credentials and fails again.
 
-**Root cause.** `git_details.dart:641-645` shows `FixNoRemoteAuthPopup` (`:1383-1400`) for every project kind. It embeds `RemoteGitCredentialsSettings` (`git_settings.dart:221-325`), which uses `locator.get<GitService>()` (`:231`, registered as `NetworkGitService`, `packages/core/lib/src/services/locator.dart:38`) and `GitCredentialsPopup(isLocal: false)` (`:257`). Local credentials live in `LocalGitServiceImpl` (`packages/git_nowa/lib/src/local/local_git_service.dart:290-303,352-357`). `findGitService(isLocal)` already exists (`git_utils.dart:5`) and `GitCredentialsTile` uses it (`git_settings.dart:343`).
+**Root cause.** `lib/project/panels/git_panel/git_details.dart:641-645` shows `FixNoRemoteAuthPopup` (`:1383-1400`) for every project kind. It embeds `RemoteGitCredentialsSettings` (`packages/core/lib/src/settings/git_settings.dart:221-325`), which uses `locator.get<GitService>()` (`git_settings.dart:231`; registered as `NetworkGitService` at `packages/core/lib/src/services/locator.dart:38`) and `GitCredentialsPopup(isLocal: false)` (`git_settings.dart:257`). Local credentials live in `LocalGitServiceImpl` (`packages/git_nowa/lib/src/local/local_git_service.dart:290-303,352-357`). `findGitService(isLocal)` already exists (`packages/git_nowa/lib/src/git_utils.dart:5`) and `GitCredentialsTile` uses it (`git_settings.dart:343`).
 
 **Suggested fix.** For local projects show the **External Local Credentials** form (or open **Settings** → **Git**) in `FixNoRemoteAuthPopup`. Test: `packages/git_nowa/test/` or a widget test.
 
@@ -321,7 +321,7 @@ Actual (from reading): the retry runs with no credentials and fails again.
 Expected: a message to commit or discard first, or disabled entries.
 Actual: a green "Commit undone, changes moved to staging area." or "Commit reverted successfully."; nothing changed.
 
-**Root cause.** `git_manager.dart:806-807` and `:817-818` start with `if (repo.localChanges.isNotEmpty) return;`. `git_commit_actions.dart:34-40` and `:71-77` show the snackbar after the call regardless. `commitMenuEntries` (`git_commit_context_menu.dart:9-33`) enables the entries from commit properties only.
+**Root cause.** `git_manager.dart:806-807` and `:817-818` start with `if (repo.localChanges.isNotEmpty) return;`. `git_commit_actions.dart:34-40` and `:71-77` show the snackbar after the call regardless. `commitMenuEntries` (`lib/project/panels/git_panel/git_commit_context_menu.dart:9-32`) enables the entries from commit properties only.
 
 **Suggested fix.** Throw a typed exception (or return a bool) and show an error snackbar ("Commit or discard your changes first"); disable the entries while `localChanges` is not empty. Test: `packages/git_nowa/test/git_nowa_test.dart`.
 
@@ -369,7 +369,7 @@ Actual: the status bar message above and one error in the counter.
 Expected: no call from the board.
 Actual: the request is sent (seen for GET).
 
-**Root cause.** `BlockExpr.tryMock` (`block_tree.dart:790-812`) asks `Mock.tryMockExpr` for `Future` types; for `Response` the mock fails with an `UnsupportedError` and returns null (`mock.dart:195-212`), and the code falls through to `runner.call(scope)`.
+**Root cause.** `BlockExpr.tryMock` (`packages/core/lib/src/interpreter/block_tree.dart:790-812`) asks `Mock.tryMockExpr` for `Future` types, which for a call goes to `Mock.tryMockCall` (`packages/core/lib/src/interpreter/mock.dart:95-157`). `Response` is a library class, so `mockValue` throws `UnsupportedError` for it (`mock.dart:334`), `tryMockCall` catches that and returns null (`:154-156`), and `tryMock` falls through to `runner.call(scope)`.
 
 **Suggested fix.** In designer mode never run API request functions: return a mock `Response` (a `MockLibraryObject` for Dio's `Response`) or have generated request functions short-circuit when `scope.env?.mode == RunMode.designer`. Test: next to `packages/data/test/loading_fake_data_test.dart`.
 
@@ -396,7 +396,7 @@ Actual (from reading): the app opens at its initial route.
 
 **Root cause.** `packages/core/lib/src/interpreter/packages/integrations/app_links_package_config.dart:18-27,58-66` (the two static opt-out tokens and their templates); no listener anywhere; `packages/core/lib/src/editors/router_editor/router_migration_editor.dart:104` (the go_router "built-in" claim).
 
-**Suggested fix.** Don't write the opt-out flags until generated code listens to links, or generate that code: a service using `AppLinks().uriLinkStream` that calls the router, added to `main()` through a `MainStatement` like RevenueCat's (`revenuecat_package_config.dart:55-61`). Also drop the fixed `android:host="open.my.app"` (`:91`), see P42. Test: a config test in `packages/core/test/`.
+**Suggested fix.** Don't write the opt-out flags until generated code listens to links, or generate that code: a service using `AppLinks().uriLinkStream` that calls the router, added to `main()` through a `MainStatement` like RevenueCat's (`packages/core/lib/src/interpreter/packages/integrations/revenuecat_package_config.dart:50-55`). Also drop the fixed `android:host="open.my.app"` (`app_links_package_config.dart:91`), see P42. Test: a config test in `packages/core/test/`.
 
 **Docs impact.** `docs/integrations/deep-links.md` ("Turn on deep links" note about switching off built-in handling, and "Handle the link in your app"), `docs/logic/router.md` (go_router "built in" deep linking).
 
@@ -418,7 +418,7 @@ Actual (from reading): the app opens at its initial route.
 Expected: the board shows `second` selected.
 Actual: unknown. By the code the choice goes to `value`, a parameter the interpreter doesn't declare, so **Problems** may report "The named parameter 'value' isn't defined." (`packages/core/lib/src/interpreter/block_problems.dart:216-218`).
 
-**Root cause.** `form_fields.dart:228-238` (`field.getField('value')`) vs `packages/core/lib/src/interpreter/libraries/material_library_custom.dart:989` (`initialValue`), `widgets_to_add.dart:697` and `widget_info.dart:543-545` (`valueName = 'initialValue'`, `'value'` only for `DropdownButton`, `declaration_info_factory.dart:37`).
+**Root cause.** `packages/core/lib/src/fields/form_fields.dart:228-238` (`field.getField('value')`) vs `packages/core/lib/src/interpreter/libraries/material_library_custom.dart:989` (`initialValue`), `packages/core/lib/src/widgets_to_add/widgets_to_add.dart:697` and `packages/core/lib/src/interpreter/declaration_info/widget_info.dart:543-545` (`valueName = 'initialValue'`; `'value'` only for `DropdownButton`, `.../declaration_info/declaration_info_factory.dart:37`).
 
 **Suggested fix.** Use the same `valueName` as `DropdownButtonFormFieldInfo` in `BFDropdownButton` (`initialValue` for the form field, `value` for `DropdownButton`). Test next to `packages/core/test/interpreter_tests/`.
 
@@ -441,11 +441,11 @@ Actual: unknown. By the code the choice goes to `value`, a parameter the interpr
 Expected: `getAllTodoItems`.
 Actual: the function source starts `Future<List<...>> getAllTodo Items()`.
 
-**Root cause.** `supabase_template_manager.dart:93-95` builds `functionName`; `camelCaseToSpaces` (`packages/core/lib/src/utils.dart:77-79`) inserts a space at each lower-to-upper boundary; the name goes unchanged into `_generateFunctionSource` and `addMemberAction` (`:98-105`).
+**Root cause.** `packages/data/lib/src/supabase/templates/supabase_template_manager.dart:94-96` builds `functionName`; `camelCaseToSpaces` (`packages/core/lib/src/utils.dart:77-79`) inserts a space at each lower-to-upper boundary; the name goes unchanged into `_generateFunctionSource` and `addMemberAction` (`supabase_template_manager.dart:102-104`).
 
 **Suggested fix.** Build the name with `generateSymbolName(...)` or PascalCase the table (`todoItems` → `TodoItems`, `user_profiles` → `UserProfiles`); this also fixes P25. Test: `packages/data/test/supabase_test.dart`.
 
-**Docs impact.** `docs/integrations/supabase/database.md` L34 ("named after its action and the table, with the first letter capitalized").
+**Docs impact.** `docs/integrations/supabase/database.md` L35 ("named after its action and the table, with the first letter capitalized").
 
 ### R20. The Firebase iOS app is registered with a re-cased Bundle Identifier that can differ from the Xcode project's
 
@@ -465,7 +465,7 @@ Actual: the function source starts `Future<List<...>> getAllTodo Items()`.
 Expected: all three identical.
 Actual (from reading): Firebase and the plist have `com.mycompany.myApp`, Xcode `com.mycompany.MyApp`.
 
-**Root cause.** `firebase_api_service.dart:103` and `setup/views/fb_apps.dart:168` apply `convertNameCase(e, Cases.camelcase)` per segment; `packages/core/lib/src/project/rename.dart:117-121` writes the identifier unchanged; `setup/fb_setup_manager.dart:195-203` copies the plist's `BUNDLE_ID` into `iosBundleId`.
+**Root cause.** `packages/data/lib/src/firebase/firebase_api_service.dart:103` and `packages/data/lib/src/firebase/setup/views/fb_apps.dart:168` apply `convertNameCase(e, Cases.camelcase)` per segment; `packages/core/lib/src/project/rename.dart:117-121` writes the identifier unchanged; `packages/data/lib/src/firebase/setup/fb_setup_manager.dart:195-203` copies the plist's `BUNDLE_ID` into `iosBundleId`.
 
 **Suggested fix.** Send the identifier unchanged and match existing apps case-insensitively in `loadApps` (`fb_apps.dart:168-176`). Check on a device that push and Google sign-in work with the corrected id. Test: `packages/data/test/firebase/firebase_test.dart`.
 
@@ -512,7 +512,7 @@ Actual: none.
 Expected: the package is added with the template.
 Actual (from reading): `'smooth_page_indicator' is imported but is not in the pubspec.` with **Fix**.
 
-**Root cause.** `onboarding_template.dart:6` (and `animated_onboarding_template.dart:7`). `ProjectProvider.importTemplate` registers `template.packages` (`project_provider.dart:~762-772`), and its only caller is `template_project_provider.dart:58`. The add flow (`add_template_dialog.dart`, `file_actions.dart:25-70`) never calls `registerPackage`.
+**Root cause.** `packages/core/lib/src/services/templates/built_in/onboarding_template.dart:6` (and `animated_onboarding_template.dart:7`). `ProjectProvider.importTemplate` registers `template.packages` (`packages/core/lib/src/providers/project_provider.dart:768-772`), and its only non-test caller is `packages/core/lib/src/providers/template_project_provider.dart:58`. The add flow (`packages/core/lib/src/file_system/widgets/template_widgets/add_template_dialog.dart:110-119`, behind **Import**, and `packages/core/lib/src/file_system/actions/file_actions.dart:25-70`) never calls `registerPackage`.
 
 **Suggested fix.** After a template is added to a project, run the same `registerPackage` loop for `template.packages`. Test: `packages/core/test/file_tests/template_test.dart`.
 
@@ -535,7 +535,7 @@ Actual (from reading): `'smooth_page_indicator' is imported but is not in the pu
 Expected: **Add Missing Dependencies**, as with **Insert**.
 Actual: the widget drops; **Problems** shows `'lottie' is imported but is not in the pubspec.` Same for **Google Maps**. **Page View** added with Enter shows no dialog either.
 
-**Root cause.** `designer_board_controller.dart:228-283` (`onDragEnd` and `onDragMove` never read `WidgetInfo.dependencies`) vs `library_actions.dart:76-92` (`placeLibraryWidget` builds `DependencyHelper(WidgetInfo(widget.data()).dependencies)` for the root widget only).
+**Root cause.** `packages/designer/lib/src/design_experience/designer_board_controller.dart:228-232,244-293` (`onDragEnd` and `onDragMove` never read `WidgetInfo.dependencies`) vs `packages/core/lib/src/library/library_actions.dart:75-91` (`placeLibraryWidget` builds `DependencyHelper(WidgetInfo(widget.data()).dependencies)` for the root widget only).
 
 **Suggested fix.** Run the dependency check on drag end, and let `DependencyHelper` walk the whole inserted tree.
 
@@ -581,7 +581,7 @@ Actual: it reads `utton`; nothing happens until you click the board or press Esc
 Expected: `Cats`.
 Actual: `ApiCollectionCats`. Same for **New Request** (`newRequest`), **New Directory in ...** (`Directory`), **New Model** (`Model`), **New GlobalState** (`GlobalState`) and **New Board** (`board`).
 
-**Root cause.** `file_name_text_field.dart:88-92` (text set in `initState`) and `:166` (`autofocus: true`, no selection); `api_request_dialogs.dart:55-60`.
+**Root cause.** `packages/core/lib/src/file_system/widgets/file_name_text_field.dart:88-92` (text set in `initState`) and `:166` (`autofocus: true`, no selection); `packages/data/lib/src/api/views/widgets/api_request_dialogs.dart:23-26,60,73` (**New Request**: `initialValue` `'newRequest'`, `autofocus: true`); the **New Collection** suggestion is `suggestedName: 'ApiCollection'` at `packages/data/lib/src/api/utils/api_util.dart:116`.
 
 **Suggested fix.** Select the whole text after autofocus (`TextSelection(baseOffset: 0, extentOffset: text.length)`), as the rename field does (`packages/core/lib/src/widgets/rename_declaration_field.dart`). Test: widget tests in `packages/core/test/file_tests/`.
 
@@ -612,13 +612,13 @@ Actual: the header is unchanged until the panel is closed.
 
 ### R27. Error messages show Dart's raw `Exception: ` prefix
 
-- **Area:** Error snackbars and dialogs (`showSnackbarError` in `packages/core/lib/src/utils.dart:108`, 52 call sites)
+- **Area:** Error snackbars and dialogs (`showSnackbarError` in `packages/core/lib/src/utils.dart:108`; 58 call sites pass `e.toString()`)
 - **Severity:** Low — messages read "Exception: Icon must be 1024x1024 or smaller" and stay for 2 seconds.
 - **Where:** both
 - **Status:** Present in 3.13.0 and dev
 - **Confidence:** Confirmed in code for every row. Found by `reviews/W7-review.md`, `W11-review.md`, `W16-review.md`, `W10-review.md` and `P10-b-review.md`.
 
-**What happens.** `showSnackbarError(context, e.toString())` prints `Exception.toString()`, so people read "Exception: ..." in the snackbar. The table lists five messages.
+**What happens.** `showSnackbarError(context, e.toString())` prints `Exception.toString()`, so people read "Exception: ..." in the snackbar or error text. The table lists five messages.
 
 **Steps to reproduce**
 1. Do what the first column of any row says (the rows are independent).
@@ -629,7 +629,7 @@ Actual: the header is unchanged until the panel is closed.
 | Local project, no Flutter SDK set; click **Run** | "Exception: Flutter SDK path is not set. Please configure it in the settings." | `packages/core/lib/flutter_tool.dart:38`; `packages/nowa_run/lib/src/nowa_run_manager.dart:422-424` |
 | **Settings** → **Project Details** → pick an app icon over 1024 px | "Exception: Icon must be 1024x1024 or smaller" | `packages/core/lib/src/settings/app_icon_manager.dart:171`; `app_icon_settings.dart:74` |
 | **Settings** → **Firebase** → **Add Provider** → **Google** while Google isn't enabled in Firebase | "Exception: Must Enable Google Authentication on Firebase" | `packages/data/lib/src/firebase/auth/fb_auth_manager.dart:61,115`; `.../setup/views/auth_management_view.dart:96-102` |
-| **Page indicator migration** dialog → **Migrate** fails | "Exception: Could not add smooth_page_indicator to the pubspec" | `packages/core/lib/src/migrations/migration_service.dart:~250`; snackbar `:147-150` |
+| **Page indicator migration** dialog → **Migrate** fails | "Exception: Could not add smooth_page_indicator to the pubspec" | `packages/core/lib/src/migrations/migration_service.dart:252-255`; snackbar `:147-150` of the same file |
 | **Import project** on a folder without `pubspec.yaml` | The dialog first says "No pubspec.yaml here — Nowa can browse and edit the files, but not design them.", then fails with "Exception: Chosen folder is not a nowa project or a flutter project" | `lib/dashboard/create_new_project/import_project_dialog.dart:130,178-183`; `packages/core/lib/src/services/local_project_service.dart:103-107` |
 
 Expected: plain messages. For **Import project**, a warning that doesn't promise what the next click refuses.
@@ -704,9 +704,9 @@ Actual (from reading): the Outline entry of the full list (which the sidebar doe
 2. In the **Supabase** panel click **Connect**; don't approve; wait two minutes.
 
 Expected: an error inside the dialog and a way to retry.
-Actual: GitHub: the dialog closes, nothing says why. Supabase: "Authorization timed out. Please try again." for 2 s while the dialog stays on "Waiting for 2m 0s...".
+Actual: GitHub: the dialog closes, nothing says why. Supabase: "Authorization timed out. Please try again." for 2 s while the dialog stays open with its counter stopped (by the code at "Waiting for 1m 59s...": the 120 s tick returns before `setState`).
 
-**Root cause.** `auth_dialog.dart:44-60`; callers `github_integration_settings.dart:93-99` (`onError` pops `false`), `packages/data/lib/src/supabase/ui/sb_setup/sb_oauth_setup.dart:192-198`, `packages/core/lib/src/figma/figma_auth_dialog.dart:18-24`.
+**Root cause.** `auth_dialog.dart:44-60`; callers `packages/core/lib/src/settings/github_integration_settings.dart:90-99` (`onError` pops `false`), `packages/data/lib/src/supabase/ui/sb_setup/sb_oauth_setup.dart:192-198`, `packages/core/lib/src/figma/figma_auth_dialog.dart:18-24`.
 
 **Suggested fix.** Handle `onError` in the dialog: show the message, stop the spinner, offer **Try again** and **Close**.
 
@@ -729,7 +729,7 @@ Actual: GitHub: the dialog closes, nothing says why. Supabase: "Authorization ti
 Expected: the dashboard opens (or a message); **Set up Backend** is listed.
 Actual: nothing for (a); (b) no **Set up Backend** until **Pull Backend Files** has run.
 
-**Root cause.** `sb_outline.dart:261-271` returns null for other hosts and `:288-291` ignores null; `:326` reads `hasBundleCached` (`packages/data/lib/src/supabase/migrations/sb_backend_bundle_service.dart:65`, set at `:71,77,107,140` only when the bundle is read).
+**Root cause.** `sb_outline.dart:261-272` returns null for other hosts and `:289-292` ignores null; `:326` reads `hasBundleCached` (`packages/data/lib/src/supabase/migrations/sb_backend_bundle_service.dart:65`, set at `:71,77,107,140` only when the bundle is read).
 
 **Suggested fix.** (a) Fall back to `https://supabase.com/dashboard` or show a snackbar. (b) Refresh the cache when the project loads (call `bundledMigrationFiles()` in the Supabase plugin's load).
 
@@ -754,13 +754,13 @@ Actual: nothing for (a); (b) no **Set up Backend** until **Pull Backend Files** 
 | **Git** → **Discard all changes** dialog | "This will discard all uncommited changes, you can't undo this action." | "uncommitted" | `lib/project/panels/git_panel/git_commands.dart:78` | W10-review |
 | **Settings** → account → **Delete Account**, password box | "Enter you password" | "your" | `packages/core/lib/src/settings/account_editor_settings/account_details/delete_account.dart:123` | W11-review |
 | Environment setup dialog, Android step | "You can add these later from Settings → Environment." The tab is **Local Setup** (its page title is "Environment") | "Local Setup" | `packages/core/lib/src/environment/environment_setup_dialog.dart:548`; `.../account_editor_settings.dart:33` | W1-review |
-| **Boards** chip → rename icon | Dialog titled "New Rename first.board" | "Rename first.board" | `file_actions.dart:464` passes "Rename ..." and `create_file_dialog.dart:94` prefixes "New " | W3-review |
+| **Boards** chip → rename icon | Dialog titled "New Rename first.board" | "Rename first.board" | `packages/core/lib/src/file_system/actions/file_actions.dart:464` passes "Rename ..." and `packages/core/lib/src/file_system/widgets/create_file_dialog.dart:94` prefixes "New " | W3-review |
 | **Grid View** → **Fixed** / **Max** switch | Row label "Source" | for example "Columns" | `packages/core/lib/src/fields/grid_view_field.dart:195-206` gives no `title`; default at `source_tabs_field.dart:32` | W13-review |
-| **Cross Fade** widget | Outline and breadcrumb read `AnimatedCrossFade` | "Cross Fade" | `declaration_info_factory.dart:42`: the key is `'AnimatedCrossFadeInfo'` (the info class), not the widget class | W13-review |
+| **Cross Fade** widget | Outline and breadcrumb read `AnimatedCrossFade` | "Cross Fade" | `packages/core/lib/src/interpreter/declaration_info/declaration_info_factory.dart:44`: the key is `'AnimatedCrossFadeInfo'` (the info class), not the widget class; the name "Cross Fade" is in `.../widget_info.dart:700-704` | W13-review |
 | Library row menu → **Insert** | Hint "⌘⏎" on every system | "Ctrl ⏎" on Windows and Linux | `lib/project/panels/library_panel/library_host.dart:161` | P10-live-checks |
 | **Firebase** page, before connecting | "Only the project owner can add, modify and remove members from the project. Learn more about roles in the documentation." under the header (workspace text) | remove | `packages/data/lib/src/firebase/setup/views/sign_in_with_google.dart:29-37` | W16-writer-notes |
 | Instant Play: Firebase Authentication preview dialogs | Google dialog says "preview for Sign Out"; both **Sign In Preview** dialogs say "preview for Create Account" | name the right function | `packages/data/lib/src/firebase/auth/fb_auth_blocks.dart:142,288,436` | W16-writer-notes |
-| **Project Details** → **Experimental flags** → **load packages** | "Load packages from pubspec.yaml file automatically, need to restart the project, this will increase loading times..." The flag only lets Nowa AI's packages tool add packages | describe that | `packages/core/lib/src/settings/experimental_flags_dialog.dart:55-58`; the only reader `packages/ai/lib/src/tools/packages_tool.dart:137-141` | W11-review |
+| **Project Details** → **Experimental flags** → **load packages** | "Load packages from pubspec.yaml file automatically, need to restart the project, this will increase loading times..." The flag only lets Nowa AI's packages tool add packages | describe that | `packages/core/lib/src/settings/experimental_flags_dialog.dart:55-58`; its only readers are two AI tools, `packages/ai/lib/src/tools/packages_tool.dart:137-141` and `packages/ai/lib/src/tools/legacy/packages_tools.dart:94` | W11-review |
 
 Expected: correct text. Actual: as in the second column.
 
@@ -768,7 +768,7 @@ Expected: correct text. Actual: as in the second column.
 
 **Suggested fix.** One edit per row. The Library hint should come from the shortcut registry (as other menus do) instead of a literal. P5 (**Classs**) and P55 (**Base URL** popover) are the same kind of slip and already listed.
 
-**Docs impact.** `docs/account/project-settings.md` (**load packages** row, L106), `docs/get-started/desktop-app.md` (Local Setup), `docs/design/library.md` L78 ("The menu shows ⌘⏎ on every system"); the rest: None.
+**Docs impact.** `docs/account/project-settings.md` (**load packages** row, L106), `docs/get-started/desktop-app.md` (Local Setup), `docs/design/library.md` L85 ("The menu shows ⌘⏎ on every system"); the rest: None.
 
 ### R33. Controls that do nothing, or fail without a message (batch)
 
@@ -786,7 +786,7 @@ Expected: correct text. Actual: as in the second column.
 
 | Where | Expected | Actual | Code | Log |
 |---|---|---|---|---|
-| **Run** (embedded preview), press Esc | Closes or stops the preview, as the overlay's comment says | Nothing: Esc is registered under "Play Mode" but `StopAppAction.invoke` is empty | `packages/nowa_run/lib/src/actions/actions_setup.dart:19`; `.../actions/nowa_run_actions.dart:17-20` | W7-review |
+| **Run** (embedded preview), press Esc | Closes or stops the preview, as the overlay's comment says | Nothing: Esc is registered under "Play Mode" but `StopAppAction.invoke` is empty | `packages/nowa_run/lib/src/actions/actions_setup.dart:19`; `.../actions/nowa_run_actions.dart:17-22` | W7-review |
 | **Details** → **Route Settings** → **Route Parameters** → **+** (**Add Route Parameter**) on a screen without a route **Path** | A parameter is added or a message asks for a path | Nothing happens until the **Path** field has a value | `packages/designer/lib/src/details/route_details.dart:55-56` | W6-review |
 | **Git** panel → **Refresh** | Fetches from the remote | Only calls `tryUpdateState()`, which fetches when 5 minutes have passed since the last fetch (and a 500 ms throttle drops quick repeats), although the comment says the refresh action fetches | `lib/project/panels/git_panel/git_details.dart:220-224`; `packages/git_nowa/lib/src/git_manager.dart:272-296` | W10-review |
 | **Settings** → **Packages** → **Add New Package** → **Cancel** in **Add Missing Dependencies** | The table returns to normal | "Loading packages..." keeps showing: `_handleDependencies` throws on Cancel and the table's handler has no try/catch | `packages/core/lib/src/interpreter/packages/package_service.dart:274-285`; `packages/core/lib/src/settings/packages/packages_settings.dart:108-113` | W9-writer-notes |
@@ -798,6 +798,6 @@ Expected: the second column. Actual: the third column.
 
 **Root cause.** Per row, as listed under "Code".
 
-**Suggested fix.** Esc: make `StopAppAction` close the overlay (`workspace.runOverlayOpen = false`) or drop the binding. Route **+**: disable it (or create a default path). **Refresh**: call `updateState` with `fetch: true`. Add package: wrap the call in try/catch and reset `_loading`. Upload and Import: catch, `showSnackbarError`, continue with the next file. New UX: return `false` until drill-in exists.
+**Suggested fix.** Esc: make `StopAppAction` close the overlay (`workspace.runOverlayOpen = false`) or drop the binding. Route **+**: disable it (or create a default path). **Refresh**: give `updateState` a `fetch` flag (it now passes `fetch: _fetchIsDue` to `updateAheadBehind`, `git_manager.dart:258`) and pass `true` from `refresh()`. Add package: wrap the call in try/catch and reset `_loading`. Upload and Import: catch, `showSnackbarError`, continue with the next file. New UX: return `false` until drill-in exists.
 
 **Docs impact.** `docs/account/project-settings.md` (New UX row), `docs/code/git.md` (Refresh), `docs/code/packages.md`; the rest: None.

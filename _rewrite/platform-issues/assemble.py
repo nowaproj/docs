@@ -26,6 +26,7 @@ AREAS = [
 ]
 SEVERITY_ORDER = {'Critical': 0, 'High': 1, 'Medium': 2, 'Low': 3}
 HEADING = re.compile(r'^### ([PRMX]\d+)\. (.+)$', re.M)
+DUPLICATES = {'R3': 'X1'}  # R3 (review sweep) = X1 (checked with three TypeScript parsers): keep X1
 
 
 def split_entries(text):
@@ -94,23 +95,43 @@ def load():
         groups.append((title, entries, path.exists()))
     new_entries = []
     for path in sorted(HERE.glob('S*.md')):
-        new_entries += split_entries(path.read_text())
+        new_entries += [e for e in split_entries(path.read_text()) if e[0] not in DUPLICATES]
     return groups, new_entries
 
 
 def renumber(new_entries, start=59):
+    """Number new entries P59, P60, ... most severe first (file order within a severity)."""
+    new_entries = sorted(new_entries, key=lambda e: SEVERITY_ORDER.get(
+        first_word(field(e[2], 'Severity'), list(SEVERITY_ORDER)), 9))
     mapping = {}
     for i, (tid, _, _) in enumerate(new_entries):
         mapping[tid] = f'P{start + i}'
+    for dup, kept in DUPLICATES.items():
+        if kept in mapping:
+            mapping[dup] = mapping[kept]
     out = []
     for tid, title, body in new_entries:
-        for old, new in mapping.items():
-            body = re.sub(r'\b' + re.escape(old) + r'\b', new, body)
+        body = re.sub(r'\b([RMX]\d+)\b', lambda m: mapping.get(m.group(1), m.group(1)), body)
         out.append((mapping[tid], title, body))
     return out, mapping
 
 
+LOCAL_PATHS = [
+    (r'in `/home/user/nowa-build`', 'in 3.12.5 (`b84bfdafd`)'),
+    (r'`/home/user/nowa-build`', '3.12.5 (`b84bfdafd`)'),
+    (r'`/home/user/nowa-master`', '3.13.0 (`3cb32031c`)'),
+]
+
+
+def clean(body):
+    """Replace local checkout paths with the commits they stand for."""
+    for pattern, repl in LOCAL_PATHS:
+        body = re.sub(pattern, repl, body)
+    return body
+
+
 def info(eid, title, body, group):
+    body = clean(body)
     return {
         'id': eid, 'title': title, 'body': body, 'group': group,
         'area': short_area(field(body, 'Area')),
@@ -151,6 +172,44 @@ def check_refs(entries):
                 problems.append(f"{e['id']}: {path}:{m.group(2)}{'-' + m.group(3) if m.group(3) else ''} -> file has {lengths[target]} lines")
     return problems
 
+def header(entries, counts, statuses, confidences):
+    total = len(entries)
+    sev = ', '.join(f"{counts.get(s, 0)} {s}" for s in SEVERITY_ORDER)
+    critical = [e for e in entries if e['severity'] == 'Critical' and e['status'] != 'Fixed']
+    fixed = statuses.get('Fixed', 0)
+    urgent = '; '.join(f"**{e['id']}** {e['title']}" for e in sorted(critical, key=lambda e: int(e['id'][1:])))
+    return f"""# Nowa platform issues (3.13.0)
+
+Problems in Nowa itself, found while the docs were rewritten for 3.13 (October 2026) and written up so an engineer
+can fix them one at a time. Each one was re-checked in the 3.13.0 code and comes with steps to reproduce, the root
+cause with code references, a suggested fix and, where it helps, a test to add.
+
+**{total} issues:** {sev}. {confidences.get('Live', 0)} were reproduced in the running app,
+{confidences.get('Code', 0)} are confirmed in the code, and {confidences.get('Reading only', 0)} come from code reading
+only, so reproduce those before you change anything. {fixed} {'is' if fixed == 1 else 'are'} already fixed in 3.13.0
+and kept for the record.
+
+**Most urgent (Critical):** {urgent}.
+
+## How to read an entry
+
+| Field | Values |
+| --- | --- |
+| **Severity** | **Critical**: lost work or data, a security exposure, or a core flow broken for everyone. **High**: a broken feature, or generated code that doesn't build, in a common flow. **Medium**: broken or misleading, with a workaround. **Low**: cosmetic, a typo, a small UI glitch. |
+| **Confidence** | **Reproduced live**: seen in the running 3.13.0 app (app.nowa.dev). **Confirmed in code**: the code path shows it beyond doubt. **Code reading only**: likely from the code, never run. |
+| **Status** | **Present** in 3.13.0 and `dev`, **Fixed** (where), or **Can't tell** (what's missing). |
+| **Code refs** | `path:line` from the root of this repo at `master` = 3.13.0 (`3cb32031c`). `dev` (`7c341f356`) is 6 commits ahead and only changes `lib/project/project_page.dart` and `packages/nowa_ui/lib/library/library_panel.dart`. |
+| **Docs impact** | `docs/...` paths there are in the **nowaproj/docs** repo (branch `docs-rewrite` until its PR #18 merges), not in this repo's `docs/` folder. |
+| **Sources** | `reviews/...`, `captures/...` and `_rewrite/...` files named under **Confidence** are the working notes in nowaproj/docs, under `_rewrite/` on the same branch. |
+
+## Working on an issue
+
+1. Reproduce it first, above all when its confidence is "Code reading only". If it doesn't reproduce, note why in
+   the entry and move on.
+2. Make the smallest fix the entry suggests, and add the test it names.
+3. Line numbers are for `3cb32031c`; search for the quoted code if they have moved.
+4. When the fix ships, update the docs page named under **Docs impact** (table at the end)."""
+
 
 def main():
     groups, new_raw = load()
@@ -177,9 +236,10 @@ def main():
     sections['all-issues'] = '## All issues\n\n' + '\n'.join(rows)
 
     for (title, entries, _), (prefix, slug, _) in zip(groups, AREAS):
-        body = '\n\n'.join(f'### {eid}. {t}\n\n{b}' for eid, t, b in entries)
+        body = '\n\n'.join(f'### {eid}. {t}\n\n{clean(b)}' for eid, t, b in entries)
         sections[slug] = f'## {title}\n\n{body}'
-    sections['newly-found'] = '## Newly found\n\n' + '\n\n'.join(f'### {eid}. {t}\n\n{b}' for eid, t, b in new_entries)
+    sections['newly-found'] = '## Newly found\n\n' + '\n\n'.join(
+        f'### {eid}. {t}\n\n{clean(b)}' for eid, t, b in sorted(new_entries, key=lambda e: int(e[0][1:])))
 
     rows = ['| Issue | Docs page and change after the fix |', '| --- | --- |']
     rows += [f"| {e['id']} | {cell(e['docs'])} |" for e in sorted(all_entries, key=lambda e: int(e['id'][1:]))
@@ -205,9 +265,13 @@ def main():
         f"severity {counts}\nstatus {statuses}\nconfidence {confidences}\n"
         f"missing batches {[t for t, _, ok in groups if not ok]}\n")
 
-    order = ['fix-first', 'all-issues'] + [slug for _, slug, _ in AREAS] + ['newly-found', 'docs-impact']
+    sections['header'] = header(all_entries, counts, statuses, confidences)
+    (out / 'header.md').write_text(sections['header'] + '\n')
+    order = ['header', 'fix-first', 'all-issues'] + [slug for _, slug, _ in AREAS] + ['newly-found', 'docs-impact']
     (HERE / 'report.md').write_text('\n\n'.join(sections[k] for k in order) + '\n')
     problems = check_refs(all_entries)
+    problems += [f"{e['id']}: local path left: {m}" for e in all_entries
+                 for m in re.findall(r'/home/user\S*|/tmp/\S*|scratchpad\S*', e['body'])]
     (HERE / 'check.txt').write_text('\n'.join(problems) + '\n')
     print((HERE / 'counts.txt').read_text(), end='')
     print(f'code refs to check: {len(problems)} (check.txt)')

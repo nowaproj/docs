@@ -801,3 +801,97 @@ Expected: the second column. Actual: the third column.
 **Suggested fix.** Esc: make `StopAppAction` close the overlay (`workspace.runOverlayOpen = false`) or drop the binding. Route **+**: disable it (or create a default path). **Refresh**: give `updateState` a `fetch` flag (it now passes `fetch: _fetchIsDue` to `updateAheadBehind`, `git_manager.dart:258`) and pass `true` from `refresh()`. Add package: wrap the call in try/catch and reset `_loading`. Upload and Import: catch, `showSnackbarError`, continue with the next file. New UX: return `false` until drill-in exists.
 
 **Docs impact.** `docs/account/project-settings.md` (New UX row), `docs/code/git.md` (Refresh), `docs/code/packages.md`; the rest: None.
+
+### R34. Details shows "Instance of 'minified:csO'" while the Shape or Text tool is active
+
+- **Area:** Details panel and the placing tools (`packages/designer/lib/src/widgets/designer_tools.dart`, `packages/core/lib/src/panels/details/details_panel.dart`)
+- **Severity:** Low — a raw object name fills the Details panel while the tool is active; the tool itself works.
+- **Where:** both (seen in the web app; a build that keeps class names would print the class name, from reading)
+- **Status:** Present in 3.13.0 and dev (also in 3.12.5: the same line, `designer_tools.dart:109`, and no editor for the object)
+- **Confidence:** Reproduced live (3.13.0-79 playground: screenshot `46c-r-after-leave.png`, against `46b-esc-in-empty-search.png` taken before the tool was chosen) and the cause is confirmed in code. Found by `reviews/P10-live-checks.md` (last bullets: "Details shows "Instance of 'minified:csO'" ... a product glitch").
+
+**What happens.** Choosing **Shape** or **Text** puts the tool's internal placing object (`PlaceData`) into the selection. Details has no editor for that type and falls back to printing the object's `toString()`.
+
+**Steps to reproduce**
+1. Open a board with nothing selected: **Details** shows **Show Grid** and **Board Color**.
+2. Click **Shape** in the bottom toolbar (or press R with the board focused).
+3. Read **Details**.
+
+Expected: the board's Details stay, or the tool's options show.
+Actual: Details shows one line, "Instance of 'minified:csO'" (by the code the class is `PlaceData`).
+
+**Root cause.** `DesignerToolsController.setPlaceTool` runs `selection.select([placeData])` (`packages/designer/lib/src/widgets/designer_tools.dart:108-109`), called for **Shape** and **Text** (`:90-94`). `DetailsPanel` uses `emptyBuilder` only when the selection is empty (`packages/core/lib/src/panels/details/details_panel.dart:69-71`); otherwise `DetailsCreator.build` finds no creator for `PlaceData` (the registered ones are `NFile` and `Declaration` at `packages/core/lib/core_hooks.dart:50-51`, `WidgetInstanceImpl` at `packages/designer/lib/src/designer_plugin.dart:40` and `CircuitNode` at `packages/code/lib/src/circuit_plugin.dart:18`) and returns `DefaultDetailsEditor`, which draws `Text(e.toString())` (`details_panel.dart:41-49`). `PlaceBoard` keeps its own `placeData` (`packages/designer/lib/src/design_experience/place_board.dart:38`), and a grep finds nothing that reads a `PlaceData` back from the selection.
+
+**Suggested fix.** If `setPlaceTool` selects the object only to drop the widget selection, call `selection.clearSelection()` (`packages/core/lib/src/providers/selection_provider.dart:79`) instead, so the board's Details come back. Also make `DefaultDetailsEditor` draw nothing for an object it can't edit instead of its `toString()`. Test: `packages/designer/test/details_test.dart`.
+
+**Docs impact.** None.
+
+### R35. Pasting a BMP image onto the board does nothing and says nothing
+
+- **Area:** Paste on the board (`packages/designer/lib/src/design/copy_paste.dart`, `packages/designer/lib/src/design/nowa_copy_paste.dart`)
+- **Severity:** Low — a copied `.bmp` file is accepted as an image and then dropped; PNG, JPEG and WebP paste fine.
+- **Where:** desktop app (copied files); the web paste route wasn't checked
+- **Status:** Present in 3.13.0 and dev (also in 3.12.5)
+- **Confidence:** Code reading only, not run (it needs a `.bmp` file on the clipboard); the `mime` 2.0.0 source (`pubspec.lock`) was read. Found by `reviews/W3-review.md` ("Product issues noticed", third bullet; also item 3 of its most serious errors).
+
+**What happens.** The paste handler treats bytes that start with `BM` as an image and hands them to `pasteImage`, which names the new asset from the `mime` package's magic numbers. That table has no BMP entry, so the extension is null and `pasteImage` returns without a widget, a file or a message. Nowa AI's image tool and the chat field already deal with BMP.
+
+**Steps to reproduce**
+1. In the desktop app, copy a `.bmp` image file in your file manager.
+2. Open a screen on the board, point at the board and press Ctrl/Cmd+V.
+
+Expected: an **Image** widget appears and the file is saved in `assets/`.
+Actual (from reading): nothing happens.
+
+**Root cause.** `NowaCopyPaste._tryHandleFilePaste` calls `onImagePasted` when `_isImageBytes` is true, and that check accepts the BMP signature (`packages/designer/lib/src/design/nowa_copy_paste.dart:61-84,108-109`). `copy_paste.dart:81` passes the bytes to `pasteImage`, which stops at `if (extension == null) return;` (`packages/designer/lib/src/design/copy_paste.dart:110-112`) after `ImageFile.extensionFromBytes` (`packages/core/lib/src/file_system/file_object.dart:422-426`, `lookupMimeType('test', headerBytes: bytes)`). `mime` 2.0.0 lists GIF, JPEG, PNG, TIFF, WebP and HEIC in `lib/src/magic_number.dart`, and `bmp` only in `default_extension_map.dart:66`, which needs a file name ending in `.bmp`. The pieces that cope with BMP exist: `NowaCopyPaste.detectImageFormat` (`nowa_copy_paste.dart:114-146`, used by the AI chat field) and `_isBmp` in `packages/ai/lib/src/tools/image_asset.dart:42,148-153`.
+
+**Suggested fix.** In `pasteImage`, fall back to `detectImageFormat(bytes)?.extension` (or share the `_isBmp` check) before returning, and show a message when the format is still unknown. Test: a paste test next to `packages/designer/test/board_actions_test.dart` with BMP bytes.
+
+**Docs impact.** None: `docs/design/add-widgets.md` L52 names no formats, and `docs/design/assets.md` L26 lists `.bmp` as an image type, which holds for **Upload Assets**.
+
+### R36. The device-size list for the **Empty Page** template can never show in the template picker
+
+- **Area:** Template picker (`packages/core/lib/src/services/templates/add_template_action.dart`)
+- **Severity:** Low — you can't choose a device size when adding an **Empty Page**; the screen is placed at the first preset (393 × 808) and **Size** in **Details** changes it afterwards.
+- **Where:** both
+- **Status:** Present in 3.13.0 and dev (also in 3.12.5)
+- **Confidence:** Confirmed in code, not run. Found by `reviews/W3-review.md` (template picker row, and "Product issues noticed", second bullet).
+
+**What happens.** The picker's right-hand pane is meant to list device sizes for the empty-screen template (`EmptyTemplate`: Pixel 3a, iPhone 11 Pro, Galaxy S20+, iPhone 12, MacBook Pro, 1920x1080), and tapping one adds the screen at that size. The pane tests for a template named `Empty`, but the built-in template is named `Empty Page`, so the list is never built and the pane shows the live preview instead.
+
+**Steps to reproduce**
+1. Click the **Screen** tool in the board toolbar (or right-click empty board space and choose **Create a page**).
+2. Highlight **Empty Page** in the picker and look at the pane on the right.
+
+Expected: a list of device sizes.
+Actual (from reading): the live preview of the page. **Enter** adds the screen at the first preset size.
+
+**Root cause.** `WidgetTemplateView._buildPreviewWidget` checks `template!.name == "Empty"` (`add_template_action.dart:164`); the built-in template is `name: 'Empty Page'` (`packages/core/lib/src/services/templates/built_in/empty_page.dart:4`), and the same file compares with `emptyTemplate.name` where it means the template (`add_template_action.dart:79`). The size would travel through `_addTemplate(..., size: screenSize.size)` (`:87-91`) to `packages/designer/lib/src/actions/add_template_designer.dart:31-32`, which otherwise falls back to `screenSizes.first` (`packages/core/lib/src/screen_sizes.dart:12-14`).
+
+**Suggested fix.** Compare with `emptyTemplate.name` at `add_template_action.dart:164`, as line 79 of the same file does, and check that the list works with the keyboard. Or delete `EmptyTemplate` if the size step was dropped on purpose. Test: next to `packages/core/test/file_tests/template_test.dart`.
+
+**Docs impact.** `docs/design/screens.md` L14-15 (the steps for **Empty Page**) and L20 ("A new screen is 393 × 808 unless the template sets its own size"): add the size choice if the list is restored; today the page is right.
+
+### R37. View Only: right-clicking the board does nothing, although a View Only menu exists
+
+- **Area:** View Only board (`packages/designer/lib/src/design_experience/designer_board_controller.dart`)
+- **Severity:** Low — a viewer can't copy a widget or export it as an image from the board; the Outline row menu works.
+- **Where:** both; cloud projects in a workspace
+- **Status:** Present in 3.13.0 and dev (also in 3.12.5)
+- **Confidence:** Confirmed in code, not run (it needs a **View Only** member). Found by `reviews/W3-review.md` ("Product issues noticed", first bullet; item 1 of its most serious errors).
+
+**What happens.** `widgetMenuEntries` returns **Copy** and **Export as image...** for a viewer, and its comment says it serves a right click "on the board or in the outline". The board controller used for viewers has no `contextMenu()`, so a right click on the board opens nothing.
+
+**Steps to reproduce**
+1. As a **View Only** member, open a cloud project of the workspace.
+2. Right-click a widget on the board.
+3. Right-click the same widget's row in the **Outline**.
+
+Expected: the same two entries on the board.
+Actual (from reading): no menu on the board; the **Outline** row offers **Copy** and **Export as image...**.
+
+**Root cause.** `Designer` picks `ViewOnlyController` for viewers (`packages/designer/lib/src/design/designer.dart:25`). The board opens `designer.board.controller.contextMenu()` (`packages/designer/lib/src/panels/designer_board.dart:86`); `BoardController.contextMenu()` returns `const []` (`packages/core/lib/src/board/board_controller.dart:108`), and only `DesignerBoardController` overrides it (`designer_board_controller.dart:340-345`). `ViewOnlyController` (`:348`) doesn't. The View Only entries are built in `packages/designer/lib/src/menus/widget_context_menu.dart:9-16` and reached only from the Outline (`packages/designer/lib/src/panels/outline_panel.dart:190-196`).
+
+**Suggested fix.** Override `contextMenu()` in `ViewOnlyController` with the same lookup as `DesignerBoardController.contextMenu()`, returning `widgetMenuEntries(context, instances)` for the selected or hovered instance and `const []` otherwise. Test: `packages/designer/test/board_actions_test.dart`.
+
+**Docs impact.** `docs/design/boards.md` L85 (the Outline detour for **Copy** and **Export as image...**) and `docs/account/workspaces.md` L92: drop the detour once the board menu works.

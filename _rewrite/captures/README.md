@@ -97,10 +97,11 @@ Flutter draws to a canvas, so there is no DOM to query. Three ways, in order of 
   (`deltaY = -15` moves it about 15 px down); over **Details** it scrolls the panel.
 - **State persists.** `goto /playground` clears only `flutter.playground_bundle` (back to the clean starter);
   `goto --keep` brings your edits back.
-- **No outbound network.** Template and widget previews fetch images through `server.nowa.dev`, which is unreachable:
-  the status bar then shows "HTTP request failed ..." instead of "Ready". Reload before full-window shots, or crop away
-  from the status bar. **Run Test** on an API request fails (XMLHttpRequest error), so shots of a successful test,
-  Generate Model, models from a real API and pub.dev package suggestions are not possible here.
+- **No outbound network (early runs only).** In the first runs, template and widget previews fetched images through
+  `server.nowa.dev`, which was unreachable: the status bar then showed "HTTP request failed ..." instead of "Ready".
+  Reload before full-window shots, or crop away from the status bar. **Run Test** on an API request failed
+  (XMLHttpRequest error). Since the network was opened (10 Oct, live app through `$HTTPS_PROXY`), **Run Test**,
+  **Generate Model** and Instant Play reach public CORS-enabled APIs (`catfact.ninja`, `jsonplaceholder.typicode.com`).
 - **Toolbar moves.** It is centered in the board area, so closing the left panel shifts it 171 px left.
 - **Details panel.** Taller than the window for most widgets: scroll it with the wheel, and crop at y <= 830 to keep
   the round **?** button (1408, 852) out of the shot. Collapse **Details** (click its header, (1410, 108)) when a

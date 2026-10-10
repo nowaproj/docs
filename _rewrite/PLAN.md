@@ -18,7 +18,7 @@ Resume from these files alone: `BRIEF.md` (context + rules), `decisions.md`, `op
 | 7 | Final QA: coverage audit, style pass, link check | `coverage.md`, `reviews/final-*.md` | coverage done (348/358, gaps closed); style pass = phase 9 item 3 |
 | 8 | Draft PR with report | PR | open: https://github.com/nowaproj/docs/pull/18 (update it after phase 9) |
 | 9 | Final quality pass: the user's acceptance criteria (see below) | pages, videos, annotated screenshots, best-practice guides | done except signed-in captures (see Resume here) |
-| 10 | Update to Nowa 3.13.0 (released 2026-10-06, live on app.nowa.dev) + all captures from app.nowa.dev, incl. signed-in | `research/changes-3.13.md`, pages, `reviews/P10-*`, captures | in progress (see Phase 10) |
+| 10 | Update to Nowa 3.13.0 (released 2026-10-06, live on app.nowa.dev) + all captures from app.nowa.dev, incl. signed-in | `research/changes-3.13.md`, pages, `reviews/P10-*`, captures | done 2026-10-10 (build green, PR updated) |
 
 ## Phase 10: update to Nowa 3.13.0 (started 2026-10-09)
 

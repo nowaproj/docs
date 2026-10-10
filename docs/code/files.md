@@ -9,10 +9,10 @@ Two panels look after your project's files. In the designer, the [Library](../de
 
 ## Open the Library or Files {#open-the-files-panel}
 
-The Library and **Files** share one place in the left sidebar, second from the top. Click the icon to open the panel, and click it again to close it.
+The Library and **Files** share one place in the left sidebar, second from the top. Click the icon to open the panel, and again to close it.
 
 - **Library**: outside code mode, click **Library** or press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>2</kbd>. It lists what your `lib/` folder declares, in folders, and its chips add your packages, Nowa's built-in widgets and your assets. Click a row for a details card with a preview. Double-click it, or press <kbd>Enter</kbd>, to open it.
-- **Files**: in code mode, the folder icon (**Files**) takes the Library's place and opens by itself. <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>2</kbd> opens it too. It lists the whole project, including `pubspec.yaml` and the platform folders, with folders closed. It has no add buttons: leave code mode and use the Library. Click a file to open it in a tab. The tree follows the tab you have open.
+- **Files**: in code mode, the folder icon (**Files**) takes the Library's place and opens by itself. <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>2</kbd> opens it too. It lists the whole project, including `pubspec.yaml` and the platform folders, with folders closed. It has no add buttons, so leave code mode and use the Library. Click a file to open it in a tab, and the tree follows the tab you have open.
 
 Names in the **Files** tree carry markers:
 
@@ -22,7 +22,9 @@ Names in the **Files** tree carry markers:
 
 The Library shows the red problem count too, on rows and on their folders, but no `*` and no Git letters.
 
-Nowa doesn't load `.git/`, `build/` or `.DS_Store`, and the **Files** tree doesn't list top-level items whose names start with a dot, such as `.nowa`. A `.board` file stores one board. The Library doesn't list boards. In code mode, clicking a `.board` file shows "Code view is not available for boards" in the editor and adds no tab. Leave code mode and pick the board in the **Boards** chip in the top bar instead. See [Work with boards](../design/boards.md).
+Nowa doesn't load `.git/`, `build/` or `.DS_Store`, and the **Files** tree doesn't list top-level items whose names start with a dot, such as `.nowa`.
+
+A `.board` file stores one board, and the Library doesn't list boards. In code mode, clicking a `.board` file shows "Code view is not available for boards" in the editor and adds no tab. Leave code mode and pick the board in the **Boards** chip in the top bar instead. See [Work with boards](../design/boards.md).
 
 ## Add files {#add-files}
 
@@ -45,7 +47,7 @@ A model or global state asks for a name: a valid Dart name that nothing else in 
 
 The Library's **Filter** starts on **Widgets**, so a new model or global state stays hidden until you choose **Everything**, **Models** or **Global states**. A folder shows in the Library only when something is in it. In the [playground](../get-started/playground.md), a new empty folder isn't in the **Files** tree in code mode either.
 
-To add a board, click **Create new board** in the **Boards** chip in the top bar, or press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>B</kbd>. See [Work with boards](../design/boards.md). In code mode, a blank tab (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>T</kbd>) offers **New Widget** and **Upload a File** too.
+To add a board, click **Create new board** in the **Boards** chip in the top bar, or press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>B</kbd> (see [Work with boards](../design/boards.md)). In code mode, a blank tab (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>T</kbd>) offers **New Widget** and **Upload a File** too.
 
 :::tip
 Or ask Nowa AI: "Add a Product model with a name and a price." It creates the file for you.
@@ -55,7 +57,7 @@ Or ask Nowa AI: "Add a Product model with a name and a price." It creates the fi
 
 In the Library, right-click a row for **Insert**, **Open**, **Rename**, **Delete** and **Show in code**, and drag a row onto a folder to move it. Things in `lib` stay in `lib`, and assets stay in `assets`. The Library works on one row at a time.
 
-In code mode, right-click a file or folder in **Files**. The row is selected first. Ctrl/Cmd-click adds a row to the selection and Shift-click selects a range, so one action can cover several files. With the **View Only** role, the menu has only **Copy as path** and **View in folder**.
+In code mode, right-click a file or folder in **Files**. Nowa selects the row first. Ctrl/Cmd-click adds a row to the selection and Shift-click selects a range, so one action can cover several files. With the **View Only** role, the menu has only **Copy as path** and **View in folder**.
 
 | Menu item | What it does |
 |---|---|
@@ -71,7 +73,9 @@ To move files, drag them onto a folder. Several selected rows drag together. Fil
 
 In the tree, the arrow keys move between rows, <kbd>Enter</kbd> opens a file or opens and closes a folder, and <kbd>Delete</kbd> (<kbd>Backspace</kbd> on macOS) removes the selected files. <kbd>Shift</kbd> with an arrow extends the selection.
 
-Before a delete, Nowa asks "Are you sure you want to delete…?". If other files use something declared in the file, Nowa lists those uses and asks again. Open tabs for the file close. <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Z</kbd> undoes a delete while the **Files** panel has focus. `lib/main.dart` can't be deleted: Nowa shows **Cannot delete file** and leaves it alone.
+Before a delete, Nowa asks "Are you sure you want to delete…?". If other files use something declared in the file, Nowa lists those uses and asks again. Open tabs for the file close.
+
+<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Z</kbd> undoes a delete while the **Files** panel has focus. `lib/main.dart` can't be deleted: Nowa shows **Cannot delete file** and leaves it alone.
 
 ## Search the project
 
@@ -81,12 +85,14 @@ Click **Search** (the magnifier) in the left sidebar, or press <kbd>Ctrl</kbd>/<
 
 ### Search text
 
-1. Type in **Search**. Results appear after a short pause, grouped by file, with a match count for each file.
+1. Type in **Search**. Results appear after a short pause, grouped by file, each with a match count.
 2. Turn on any of **Aa** (**Match case**), **ab** (**Whole word**) or `.*` (**Regular expression**).
 3. Click a match. If the match sits inside a widget on the open board, Nowa selects that widget and zooms to it. In every other case, and always in code mode, Nowa opens the file.
 4. Click a file's row to collapse its matches.
 
-The search covers the whole project, including edits you haven't saved. It reads lines one at a time, so a pattern can't span two lines. It skips images, fonts and other binary files, `.g.dart` files and folders such as `build`. It stops at 2,000 matches, and a count with a `+` means there are more.
+The search covers the whole project, including edits you haven't saved. It reads lines one at a time, so a pattern can't span two lines.
+
+It skips images, fonts and other binary files, `.g.dart` files and folders such as `build`. It stops at 2,000 matches, and a count with a `+` means there are more.
 
 ### Replace in many files
 

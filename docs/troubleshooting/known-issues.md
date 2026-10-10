@@ -54,9 +54,9 @@ preview is not 100% accurate, run the app to see the real output". Use **Run** t
 
 ## Linux: the preview opens in your browser and updates are manual
 
-The Linux desktop app has no in-app preview yet. When you run your app, the preview pane says "Your app is running" and offers **Open in Browser**. Click it to see your app in your browser. See [Run your app](../test/run.md#choose-where-to-run).
+The Linux desktop app has no in-app preview yet. When you run your app, the preview pane says "Your app is running" and offers **Open in Browser**. Click it to open your app in your browser. See [Run your app](../test/run.md#choose-where-to-run).
 
-The Linux app doesn't install updates itself either. When a new version is out, the message offers **Download v…** and **Skip**. Download the new archive and run `install.sh` again. See [Install on Linux](../get-started/desktop-app.md#install-on-linux).
+The Linux app doesn't update itself either. When a new version is out, the update message offers **Download v…** and **Skip**. To update, download the new archive and run `install.sh` again. See [Install on Linux](../get-started/desktop-app.md#install-on-linux).
 
 ## Next steps
 

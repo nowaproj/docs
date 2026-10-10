@@ -16,11 +16,11 @@ Cloud Firestore is Firebase's database. In Nowa, your collections and queries ar
 
 ## Add collections and queries in Nowa 3.13 {#add-collections-and-queries}
 
-Nowa 3.13 has no button in the designer for adding a collection or a query. **Add Main Collection** and **Add New Query** used to open when you clicked `collections.dart` or `queries.dart` in the **Files** panel. **Files** now shows only in [code mode](../../code/code-mode.md), where a click opens the file as plain code.
+Nowa 3.13 has no button in the designer for adding a collection or a query. **Add Main Collection** and **Add New Query** used to open when you clicked `collections.dart` or `queries.dart` in the **Files** panel, but **Files** now shows only in [code mode](../../code/code-mode.md), where a click opens the file as plain code.
 
-The editors are still there. Open `FirestoreService` (your queries) or one of your collections from the [Library](../../design/library.md), and the **Queries** or **Collections** editor opens. Set **Filter** to **Everything** to list them. The editor says "select a query from the outline panel to open it" or "select a collection from the outline panel to open it", and there is no outline panel for it.
+The editors are still there. Open `FirestoreService` (your queries) or one of your collections from the [Library](../../design/library.md), and the **Queries** or **Collections** editor opens. To list them, set **Filter** to **Everything**. The editor says "select a query from the outline panel to open it" or "select a collection from the outline panel to open it", but there's no outline panel for it.
 
-Here is what works today:
+Here's what works today:
 
 - Collections and queries that are already in your project keep working in a [Data Builder](#use-a-query-in-your-app), in Circuit and in your running app.
 - In code mode, open `lib/firebase/collections.dart` or `lib/firebase/queries.dart` from **Files** and edit the Dart code yourself.
@@ -29,7 +29,7 @@ Here is what works today:
 
 A collection is a list of documents, such as `orders`. In Nowa, each collection is a model with `fromJson` and `toJson` (see [Data models](../../logic/models.md)) that your queries use. It describes the structure only. A collection appears in Firestore when you add its first document.
 
-Nowa keeps your collections in `lib/firebase/collections.dart`. To add one, see [Add collections and queries in Nowa 3.13](#add-collections-and-queries). When a collection is selected, the **Collections** editor shows its field list and, on the right, a details panel:
+Nowa keeps your collections in `lib/firebase/collections.dart`. To add one, see [Add collections and queries in Nowa 3.13](#add-collections-and-queries). When a collection is selected, the **Collections** editor shows its field list, with a details panel on the right:
 
 1. Click **+ Field** and type a name for the field. A new field starts as text (`String?`).
 2. Click the field's type to pick another one.

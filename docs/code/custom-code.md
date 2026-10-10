@@ -67,13 +67,13 @@ import 'package:flutter/widget_previews.dart';
 Widget fiveStars() => const StarRating(stars: 5);
 ```
 
-A variant's name is its `name:` argument, or its function's name in Title Case, such as Five Stars for `fiveStars`. Nowa reads `group:` and `size:` too.
+A variant's name is its `name:` argument or, without one, its function's name in Title Case, such as Five Stars for `fiveStars`. Nowa reads `group:` and `size:` too.
 
 - **Opened on its own.** Open the screen or component by itself, for example by double-clicking it in the [Library](../design/library.md). A variant without a `group:` appears as its own canvas below it, titled with its name. Variants with the same `group:` stack in one column, headed by the group's name.
 - **On a variant's title.** Hover it for **Play**, **Open in new tab** and **Add to board**. **Add to board** asks which board and puts the variant there. If the package has no boards, Nowa says "This package has no boards yet".
 - **In the Library.** Variants are rows under their widget. Insert one to place that state on the board, at its `size:` if the `@Preview` sets one.
 
-Nowa also reads previews from Dart files in a `design/` folder at the top of your project (or of a package, in a workspace), as long as the file names the widget and has a `@Preview`.
+Nowa also reads previews from Dart files in a `design/` folder at the top of your project (or of a package, in a workspace), when the file mentions the widget by name and has a `@Preview`.
 
 ## Control what the board shows for a function {#custom-function}
 

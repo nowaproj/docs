@@ -107,7 +107,7 @@ Full log with reasons: `_rewrite/decisions.md`. The main ones:
 
 ## Product issues found along the way
 
-51 issues spotted while reading the code are in `_rewrite/product-issues.md` (not fixed here). The most important:
+52 issues spotted while reading the code are in `_rewrite/product-issues.md` (not fixed here). The most important:
 - Firestore (3.13): no designer entry point to add collections or queries.
 - Firebase Google sign-in: the generated `signInWithGoogle()` doesn't compile against `google_sign_in` 7.x.
 - RevenueCat: the generated service has no way to restore purchases, which App Store guideline 3.1.1 asks for.

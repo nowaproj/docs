@@ -17,7 +17,11 @@ To take a group apart, select it, right-click and choose **Ungroup**. Pressing t
 
 You can also add an empty **Group** from the [Library](library.md): press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd>, type `group`, select **Group** and press <kbd>Enter</kbd>.
 
-Select a group and open the **Group** section of **Details**. Its header has three buttons: the first sets a **Stack**, the right arrow sets a **Row** and the down arrow sets a **Column**. While you point at the section, a **⋯** button also shows to their left, with **Replace with...** to swap the group for another widget. When you turn a Stack into a Row or Column, Nowa orders the children by their position and takes the **Gap** from the space between them.
+Select a group and open the **Group** section of **Details**. Its header has three buttons: the first sets a **Stack**, the right arrow sets a **Row** and the down arrow sets a **Column**.
+
+While you point at the section, a **⋯** button also shows to their left. Its **Replace with...** swaps the group for another widget.
+
+When you turn a Stack into a Row or Column, Nowa orders the children by their position and takes the **Gap** from the space between them.
 
 ![The Group section of Details for the home screen after switching to a Row: the three layout buttons (Stack, Row, Column) are highlighted with the Row arrow on, and below them the Alignment grid, Main Axis Size (max), Spacing (Fixed), Gap, Children and Padding.](/img/docs/design/design-layout-1.png)
 

@@ -163,7 +163,7 @@ The search at the top of the [Library](../design/library.md) works like a picker
 | Move down through the results. While you type, the first result is already highlighted, so the first press goes to the second | <kbd>↓</kbd> | <kbd>↓</kbd> |
 | Go back to the search from the first result. The first press stops on its group heading, and the next one reaches the search | <kbd>↑</kbd> | <kbd>↑</kbd> |
 | Act on the highlighted result: open it when the field reads **Go to...**, insert it when it reads **Add...** | <kbd>Enter</kbd> | <kbd>Return</kbd> |
-| Do the other one | <kbd>Ctrl</kbd> + <kbd>Enter</kbd> | <kbd>Cmd</kbd> + <kbd>Return</kbd> |
+| Do the other one: insert it when the field reads **Go to...**, open it when it reads **Add...** | <kbd>Ctrl</kbd> + <kbd>Enter</kbd> | <kbd>Cmd</kbd> + <kbd>Return</kbd> |
 | Clear the search. On an empty search, give the keys back to the board so shortcuts work again | <kbd>Esc</kbd> | <kbd>Esc</kbd> |
 | Jump from a row into the search. The letter you type stays selected, so the next one replaces it | Type a letter, digit or symbol | Type a letter, digit or symbol |
 | Rename the row you're on | <kbd>F2</kbd> | <kbd>F2</kbd> |

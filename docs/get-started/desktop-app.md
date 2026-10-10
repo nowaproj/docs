@@ -30,7 +30,7 @@ The Linux download is a 64-bit archive named like `Nowa-v<version>-linux-x64.tar
 2. Open a terminal in that folder and run `./install.sh`.
 3. Start **Nowa** from your applications menu.
 
-The script copies Nowa to `~/.local/share/nowa` (or to a `nowa` folder inside `XDG_DATA_HOME`, if you set it), adds the icon and adds **Nowa** to the applications menu. To reinstall, run the script again. It replaces the old copy.
+The script copies Nowa to `~/.local/share/nowa` (or to a `nowa` folder inside `XDG_DATA_HOME`, if you set it), adds the icon and puts **Nowa** in the applications menu. To reinstall, run the script again. It replaces the old copy.
 
 The in-app preview isn't available on Linux yet. When you run your app in the editor, the preview pane says "Your app is running" and offers **Open in Browser**, with the address of your app. See [Run your app](../test/run.md).
 
@@ -40,7 +40,7 @@ Open Nowa and sign in with your email and password or with Google. **Continue wi
 
 When a new version is out, Nowa shows **A new version of Nowa is available**. On macOS and Windows, click **Update to v…** (the button names the new version) to download it, then click **Install & Restart**. Click **Skip** or **Later** to wait, or **Or download manually** to get the installer yourself.
 
-On Linux, Nowa doesn't update itself. The message offers **Download v…** and **Skip**. Download the new archive, then run `install.sh` again.
+On Linux, Nowa doesn't update itself. The message offers **Download v…** and **Skip**. To update, download the new archive, then run `install.sh` again.
 
 If Nowa says **Version out of date**, the update is required. Click **Download**, choose your system in the **Download Nowa** dialog, and install the newer version.
 

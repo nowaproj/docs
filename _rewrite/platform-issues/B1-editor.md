@@ -4,7 +4,8 @@ Code references are against 3.13.0 (`/home/user/nowa-master` at `3cb32031c`) unl
 changes only `lib/project/project_page.dart` and `packages/nowa_ui/lib/library/library_panel.dart` (rename and snackbar fixes),
 so every "present" below is the same on dev. The app was not run for this report (the only execution was a one-line
 `Uri.parse` check on the Dart SDK for P6); "Reproduced live" means a log in `_rewrite/reviews/` or `_rewrite/captures/`
-recorded it in the running app.
+recorded it in the running app. Flutter source references (P14, P20, P21) are to Flutter 3.44.8, the version CI builds both
+3.12.5 and 3.13.0 with (`.github/workflows/web-build.yml:24`), read from the SDK on disk.
 
 ### P1. The Shortcuts sheet lists keys that do nothing, or do less than it says
 
@@ -15,7 +16,7 @@ recorded it in the running app.
 - **Confidence:** Confirmed in code — every sheet row compared with the registered shortcuts and actions; not run.
 
 **What happens.** The sheet (the **Shortcuts** icon at the bottom of the left sidebar, or Ctrl/Cmd + .) is a hard-coded list
-(`shortcuts_cheat_sheet.dart:15-63`), not built from the bindings, so rows drift from what the keys do. Rows that differ in 3.13.0:
+(`packages/core/lib/src/widgets/shortcuts_cheat_sheet.dart:15-63`), not built from the bindings, so rows drift from what the keys do. Rows that differ in 3.13.0 (a bare `:NN` is a line of that file):
 
 | Sheet row | Sheet shows | What the code does | Verdict |
 |---|---|---|---|
@@ -33,7 +34,7 @@ history**, **Close current tab**, the keys of **Back** and **Forward**, **Zoom I
 file** (⌘I), **Text** (T), **Bring forward**, **Send backward**, **Bring to front**, **Send to back** and **Delete**.
 
 Correction: "Open widget picker ⌘P" no longer exists. 3.13.0 reads **Add a widget** ⌘K, which is right (commit `b51ed7216`,
-`designer_setup.dart:51`); ⌘P is Play. The entry above is about the rows that are still wrong.
+`packages/designer/lib/src/designer_setup.dart:51`); ⌘P is Play. The entry above is about the rows that are still wrong.
 
 **Steps to reproduce**
 1. Open any project (the playground is enough) and press Ctrl/Cmd + . to open the sheet. Under **Designer** it lists **Show/Hide panels** with ⌘\.
@@ -44,8 +45,8 @@ Correction: "Open widget picker ⌘P" no longer exists. 3.13.0 reads **Add a wid
 Expected: each key does what its row says.
 Actual: step 2 does nothing; step 3 nests the group in another group instead of taking it apart; step 4 does nothing.
 
-**Root cause.** The rows are literals (`shortcuts_cheat_sheet.dart:15-63`) beside the real maps (`lib/setup_general_actions.dart:24-64`,
-`designer_setup.dart:15-56`). The file's own comment says the registry-driven sheet is "currently commented out because the
+**Root cause.** The rows are literals (`packages/core/lib/src/widgets/shortcuts_cheat_sheet.dart:15-63`) beside the real maps (`lib/setup_general_actions.dart:24-64`,
+`packages/designer/lib/src/designer_setup.dart:15-56`). The file's own comment says the registry-driven sheet is "currently commented out because the
 shortcuts system needs to be refactored" (`:258-266`; the draft is at `:267-400`).
 
 **Suggested fix.** Smallest: delete **Show/Hide panels**; rename **Group/Ungroup** to **Group** (or bind `UngroupIntent`); mark
@@ -86,11 +87,11 @@ Actual: the reorder entries are right (Ctrl Alt ], Ctrl ], Ctrl [, Ctrl Alt [ on
 
 **Root cause.** 3.12.5: `ContextMenuFromIntent` took the first registered activator of the intent class, so both `ReorderIntent`
 entries got `]` (3.12.5 `packages/designer/lib/src/menus/widget_context_menu.dart:78-79`, `packages/core/lib/src/widgets/menu.dart:50-60`).
-3.13.0: `intentEntry(..., matches:)` picks the activator whose `goNext` and `allTheWay` match (`menu.dart:49-72`,
-`widget_context_menu.dart:45-48,61-68`; bindings `designer_setup.dart:21-25`). The Library hint and the tooltips are literals.
+3.13.0: `intentEntry(..., matches:)` picks the activator whose `goNext` and `allTheWay` match (`packages/core/lib/src/widgets/menu.dart:49-72`,
+`packages/designer/lib/src/menus/widget_context_menu.dart:45-48,61-68`; bindings `packages/designer/lib/src/designer_setup.dart:21-25`). The Library hint and the tooltips are literals.
 
 **Suggested fix.** Format the Library hints from `AdaptiveActivator(LogicalKeyboardKey.enter).shortcut` and the Back and Forward
-tooltips from `SingleActivator(LogicalKeyboardKey.minus, control: true).shortcut` (`inputs.dart:27-38`) instead of literals. Add
+tooltips from `SingleActivator(LogicalKeyboardKey.minus, control: true).shortcut` (`packages/core/lib/src/inputs.dart:27-38`) instead of literals. Add
 a test in the root `test/` folder that no menu or tooltip hint contains ⌘ or ⌃ when `isMac` is false.
 
 **Docs impact.** `docs/design/library.md:85` says "The menu shows ⌘⏎ on every system": change it when the Library hint is
@@ -162,15 +163,15 @@ Actual: the hint stays "Right-click, and choose 'Group' to wrap them in a Column
 
 **Root cause.** 3.12.5 gave the Group entry `anchorId: WalkthroughAnchorIds.groupContextMenuItem` (3.12.5
 `packages/designer/lib/src/menus/widget_context_menu.dart:68-73`). The NMenu migration (commit `54d7680da`) made the sub-step wait
-for the registry (`walkthrough_catalogue.dart:1101-1106`: `shownWhen` is `WalkthroughAnchorRegistry.get(...)?.currentContext != null`),
-but the new entry, `intentEntry(context, label: 'Group', ...)` (`widget_context_menu.dart:40`), has no anchor, and `NMenuEntry`
+for the registry (`packages/core/lib/src/walkthrough/walkthrough_catalogue.dart:1101-1106`: `shownWhen` is `WalkthroughAnchorRegistry.get(...)?.currentContext != null`),
+but the new entry, `intentEntry(context, label: 'Group', ...)` (`packages/designer/lib/src/menus/widget_context_menu.dart:40`), has no anchor, and `NMenuEntry`
 cannot carry one (`packages/nowa_ui/lib/src/components/nmenu.dart:7-47`; `nowa_ui` cannot import core's `WalkthroughAnchor`). The
-engine shows the last sub-step whose `shownWhen` is true (`walkthrough_engine.dart:132`), so the earlier hint stays. This is the
-only id in `WalkthroughAnchorIds` (`overlay/walkthrough_anchors.dart:15`) that nothing registers.
+engine shows the last sub-step whose `shownWhen` is true (`packages/core/lib/src/walkthrough/walkthrough_engine.dart:132`), so the earlier hint stays. This is the
+only id in `WalkthroughAnchorIds` (`packages/core/lib/src/walkthrough/overlay/walkthrough_anchors.dart:15`) that nothing registers (`labelText` and `prefixIcon` are registered by field name, `packages/core/lib/src/fields/basic_fields.dart:1787-1793`).
 
 **Suggested fix.** Give `NMenuEntry` an optional `Widget Function(Widget child)? wrap` that the menu row applies, and pass
 `wrap: (child) => WalkthroughAnchor(id: WalkthroughAnchorIds.groupContextMenuItem, child: child)` for **Group** in
-`widget_context_menu.dart:40`. Add a test to `packages/core/test/walkthrough_tests.dart`: open the widget menu and expect
+`packages/designer/lib/src/menus/widget_context_menu.dart:40`. Add a test to `packages/core/test/walkthrough_tests.dart`: open the widget menu and expect
 `WalkthroughAnchorRegistry.get(WalkthroughAnchorIds.groupContextMenuItem)?.currentContext` to be non-null. Do this before turning
 the walkthrough on.
 
@@ -194,9 +195,9 @@ the walkthrough on.
 Expected: **Classes**.
 Actual: **Classs**.
 
-**Root cause.** `_kindName(kind, plural: true)` appends `s` to the singular (`library_panel.dart:759`, `:971-979`). The singular is
+**Root cause.** `_kindName(kind, plural: true)` appends `s` to the singular (`packages/nowa_ui/lib/library/library_panel.dart:759`, `:971-979`). The singular is
 `Class`; every other kind (Screen, Component, Model, Global state, Function, Enum, Variable) takes a plain `s`. Same code on dev
-(`library_panel.dart:764`, `:983-991`).
+(`packages/nowa_ui/lib/library/library_panel.dart:764`, `:983-991`).
 
 **Suggested fix.** Handle the one irregular plural, for example `plural ? (name.endsWith('s') ? '${name}es' : '${name}s') : name`.
 The singular in the details card ("Class · location", `:1236`) is fine. `packages/nowa_ui` has no `test/` folder: a widget test
@@ -215,7 +216,7 @@ that opens the filter menu and expects "Classes" needs a new one.
 **What happens.** In the widget picker dialog the **Web View** preview card has an **Open Documentation.** link. It does nothing:
 the URL string starts with a space, so `Uri.parse` throws inside the tap handler.
 
-Correction: the line moved. Web View's `docUrl` is `widgets_to_add.dart:884` in 3.13.0 (857 in 3.12.5). The link exists only in the
+Correction: the line moved. Web View's `docUrl` is `packages/core/lib/src/widgets_to_add/widgets_to_add.dart:884` in 3.13.0 (857 in 3.12.5). The link exists only in the
 dialog picker (right-click **Replace with...**, the **+** of an empty widget slot, widget-valued properties); the Library's
 details card has no documentation link.
 
@@ -227,7 +228,7 @@ details card has no documentation link.
 Expected: the docs page for Web View opens in a new tab.
 Actual: nothing opens. Repeat with **Container**: its link opens `https://docs.nowa.dev/ui/widgets/widget-desc/container`.
 
-**Root cause.** `docUrl: ' https://docs.nowa.dev/ui/widgets/widget-desc/webview'` (leading space, `widgets_to_add.dart:884`) goes to
+**Root cause.** `docUrl: ' https://docs.nowa.dev/ui/widgets/widget-desc/webview'` (leading space, `packages/core/lib/src/widgets_to_add/widgets_to_add.dart:884`) goes to
 `launchUrl(Uri.parse(docUrl))` (`packages/core/lib/src/widgets/widget_picker.dart:338-340`). `Uri.parse(' https://...')` throws
 `FormatException: Scheme not starting with alphabetic character (at character 1)`. The other 31 `docUrl`s parse.
 
@@ -253,7 +254,7 @@ list it in `docs/troubleshooting/known-issues.md` until it is fixed.
 `redirects.js` sends all 32 to `/reference/widgets#<slug>` or `/design/layout#groups`.
 
 Correction: the old row says "32 `/ui/widgets/widget-desc/<slug>` URLs"; it is 31 of those plus `/ui/layout/groups`
-(`widgets_to_add.dart:276`), which together are all 32 `docUrl:` lines (`:150-884`). 3.13 did not touch them.
+(`packages/core/lib/src/widgets_to_add/widgets_to_add.dart:276`), which together are all 32 `docUrl:` lines (`:150-884`). 3.13 did not touch them.
 
 **Steps to reproduce**
 1. Do steps 1 and 2 of P6, then select **Container** and click **Open Documentation.**
@@ -290,13 +291,13 @@ Keep the old redirects for released builds. The `Uri.parse` test from P6 covers 
 Expected: it lists `lib/globals/themes.dart` and `lib/globals/app_state.dart`.
 Actual: it lists `lib/global/theme.dart` and `lib/global/app_state.dart`.
 
-**Root cause.** The two `Text` lines are literals (`theme_setup_view.dart:62-63`); the files come from `FileTemplate.themesDart` and
+**Root cause.** The two `Text` lines are literals (`packages/core/lib/src/file_system/widgets/previews/main_preview/theme_setup_view.dart:62-63`); the files come from `FileTemplate.themesDart` and
 `FileTemplate.appState` (`packages/core/lib/src/file_system/templates/file_template.dart:33-34`). The dialog also lists both files every
 time, though `setupThemeSystem` skips one that exists (`packages/core/lib/src/project_environment/env_manager.dart:155-176`; the Empty app has
 `app_state.dart` already). The sentence has a lower-case "adding" after a full stop (`:61`).
 
 **Suggested fix.** Build the two lines from `FileTemplate.themesDart` and `FileTemplate.appState` and list only the files that do
-not exist yet (`gProject.files.getEntitySync`, as `EnvironmentManager.hasThemeSetup` does, `env_manager.dart:24-28`). Extend the test
+not exist yet (`gProject.files.getEntitySync`, as `EnvironmentManager.hasThemeSetup` does, `packages/core/lib/src/project_environment/env_manager.dart:24-28`). Extend the test
 at `packages/core/test/envirnoment_tests/envirnoment_provider_test.dart:115` to compare the dialog's paths with the created files.
 
 **Docs impact.** `docs/design/themes.md:108` names the real paths and is right; its "Projects you create in Nowa already have
@@ -311,8 +312,8 @@ both files" does not hold for the playground's **Empty app**. Nothing else to ch
 - **Confidence:** Confirmed in code — the option is offered and the widgets Nowa writes are invalid inside a Wrap (Flutter source read); the board result not run.
 
 **What happens.** A child of a **Wrap** gets **W** and **H** mode dropdowns with **Fixed**, **Expand** and **Auto**. **Expand**
-cannot work in a Wrap: along the Wrap's direction Nowa wraps the child in a `Flexible`, across it sets an infinite size, and
-Flutter rejects both.
+cannot work in a Wrap: along the Wrap's direction Nowa wraps the child in a `Flexible`, which Flutter rejects in every build;
+across it Nowa sets an infinite size, which Flutter rejects in debug builds.
 
 **Steps to reproduce** (not run)
 1. Open the playground, press Ctrl/Cmd + K, type `wrap` and press Enter to add a **Wrap**.
@@ -322,21 +323,22 @@ Flutter rejects both.
 Expected: **Expand** is not offered for a Wrap's child.
 Actual (by the code): **W** → **Expand** puts `Flexible` directly under the Wrap ("Incorrect use of ParentDataWidget" in debug,
 a type-cast error in release); **H** → **Expand** gives the child `height: double.infinity` inside a Wrap whose cross axis is
-unbounded ("BoxConstraints forces an infinite height"). The board then shows its Canvas error.
+unbounded ("BoxConstraints forces an infinite height", an assertion that only a debug build runs; what a release build draws was
+not checked). The canvas error boundary logs the error as "Canvas error: ..." (`packages/designer/lib/src/error_boundary.dart:95-106`).
 
 **Root cause.** A Wrap's children get the flex layout (`packages/core/lib/src/layout/layout.dart:52-59`, `'Wrap': FlexLayout.new`), so
 both dropdowns show (`packages/designer/lib/src/details/flex_size_field.dart:5-31`). The offered modes come from
 `SizeTypeHelper.fromFieldFlex` (`packages/designer/lib/src/details/size_fields.dart:125-131`); `canExpandField` (`:42-63`) only
 checks for a Scroll View ancestor, never the parent type. Choosing **Expand** on the Wrap's own axis sets `flex = 1`
-(`flex_size_field.dart:61-68,114-121`, axis from `DirectionHelper.findDirection`,
+(`packages/designer/lib/src/details/flex_size_field.dart:61-68,114-121`, axis from `DirectionHelper.findDirection`,
 `packages/core/lib/src/layout/flex_layout.dart:119-146`), which `FlexSizedBox` builds as `Flexible(fit: tight)`
 (`packages/nowa_runtime/lib/src/widgets/widgets.dart:85`); on the other axis it sets `double.infinity`. In the Flutter 3.44.8 source on disk
 `Flexible` is a `ParentDataWidget<FlexParentData>` (`packages/flutter/lib/src/widgets/basic.dart:6044-6070`) checked at
 `widgets/framework.dart:6876-6902`; `RenderWrap` passes its children an unbounded cross axis (`rendering/wrap.dart:739-742`);
-a tight infinite size is rejected (`rendering/box.dart:608-614`).
+a tight infinite size is rejected by a debug assertion (`rendering/box.dart:608-614`).
 
 **Suggested fix.** In `SizeTypeHelper.canExpandField` (or `fromFieldFlex`) return false when the field's instance's parent widget
-is a `Wrap` (`FlexSizedBoxHelper.target.widgetParent`, `flex_layout.dart:71-74`, has `className == 'Wrap'`). A child that already
+is a `Wrap` (`FlexSizedBoxHelper.target.widgetParent`, `packages/core/lib/src/layout/flex_layout.dart:71-74`, has `className == 'Wrap'`). A child that already
 holds an Expand value should show **Fixed** or **Auto**, not an option the menu no longer lists. Test in
 `packages/designer/test/details_test.dart`.
 
@@ -375,7 +377,7 @@ Actual: nothing appears in **Globals**. The editor in step 4 lists a new variabl
 `ConstructorImpl` (`packages/core/lib/src/interpreter/declaration_runtime.dart:455-461`, `NotifierClassDecl.withBody` `packages/core/lib/src/state_management/provider_blocks.dart:20-24`),
 so the new variable is non-final and filtered out. The Library's class editor passes `onlyFinalVars: false` (`packages/core/lib/src/fields/class_editor.dart:43`).
 
-**Suggested fix.** Pass `onlyFinalVars: false` in `global_state_widgets.dart:60`. Add a widget test in
+**Suggested fix.** Pass `onlyFinalVars: false` in `packages/core/lib/src/state_management/global_state_widgets.dart:60`. Add a widget test in
 `packages/core/test/interpreter_tests/global_state_test.dart`: pump `ProviderList`, tap **+**, expect a new row.
 
 **Docs impact.** `docs/logic/global-state.md:48` ("Under a name it lists only final variables, so open the global state from the
@@ -400,21 +402,21 @@ and reads it back unchecked, so the broken view returns on reload.
 
 Expected: the zoom changes by at most 10% per event, and a stored zoom outside a sane range is ignored.
 Actual: the board matrix is multiplied by a value of 0 or less.
-Recovery (unverified): select a screen in the **Outline** and press F, or double-click its row (`docs/design/boards.md:40`; the code resets the matrix in `animateTo`, `board_view.dart:261-273`); or delete the `flutter.listBoardViewStatus` entry.
+Recovery (unverified): select a screen in the **Outline** and press F, or double-click its row (`docs/design/boards.md:40`; the code resets the matrix in `animateTo`, `packages/core/lib/src/board/board_view.dart:261-273`); or delete the `flutter.listBoardViewStatus` entry.
 
 **Root cause.** `zoom` computes `zoomDelta = -delta / 500` and then calls `clampDouble(zoomDelta, -0.1, 0.1);` as a statement
-without using the result (`board_view.dart:123-126`), then multiplies the matrix by `zoomDelta + 1` (`:134-136`). That factor is
+without using the result (`packages/core/lib/src/board/board_view.dart:123-126`), then multiplies the matrix by `zoomDelta + 1` (`:134-136`). That factor is
 0 or less when `delta >= 500`. Flutter web turns Ctrl + wheel into a `PointerScaleEvent` with `scale = exp(-deltaY / 200)` (Flutter
-3.44.8 `engine/src/flutter/lib/web_ui/lib/src/engine/pointer_binding.dart:758-772`), and Nowa passes `(scale - 1) * 50` (`board_view.dart:225-229`), so
+3.44.8 `engine/src/flutter/lib/web_ui/lib/src/engine/pointer_binding.dart:758-772`), and Nowa passes `(scale - 1) * 50` (`packages/core/lib/src/board/board_view.dart:225-229`), so
 the factor is 0 or less at `deltaY <= -480` (a pinch with no Ctrl held uses `(1 - scale) * 1000`, which breaks at `deltaY >= 139`);
 the desktop wheel path passes `scrollDelta.dy` (`:237-241`). The view is saved from `currentZoom` and the translation
-(`packages/designer/lib/src/design_experience/designer_board_controller.dart:136-139,160-181`, `board_file_state.dart:44-66`) and applied on open without a check
+(`packages/designer/lib/src/design_experience/designer_board_controller.dart:136-139,160-181`, `packages/core/lib/src/file_system/board_file_state.dart:44-66`) and applied on open without a check
 (`packages/designer/lib/src/board/board_editor.dart:22-31`, `packages/core/lib/src/board/board_controller.dart:18-20`). Web storage:
 `shared_preferences_web` writes `localStorage` with the prefix `flutter.` (`shared_preferences_web-2.4.3/lib/shared_preferences_web.dart:26,93`).
 
-**Suggested fix.** Use the result: `final zoomDelta = clampDouble(-delta / 500, -0.1, 0.1);` (`board_view.dart:124-126`). Also reject
+**Suggested fix.** Use the result: `final zoomDelta = clampDouble(-delta / 500, -0.1, 0.1);` (`packages/core/lib/src/board/board_view.dart:124-126`). Also reject
 a bad view: skip `_saveViewState` when the zoom is not finite or outside, say, 0.05 to 20, and ignore such a stored value in
-`BoardFileStateService.getViewData` (`board_file_state.dart:68-76`). Test: a new `packages/core/test/board_view_test.dart` that calls
+`BoardFileStateService.getViewData` (`packages/core/lib/src/file_system/board_file_state.dart:68-76`). Test: a new `packages/core/test/board_view_test.dart` that calls
 `ViewController.zoom(-1800)` and `zoom(2000)` and expects `currentZoom` within bounds and a positive scale.
 
 **Docs impact.** None required. `docs/design/boards.md:39-42` ("Each board remembers its zoom and position on your device") is
@@ -432,9 +434,10 @@ right; until the fix, a known-issues line may tell people to press F on a select
 screen's Group to a Row painted the screen grey, with "Canvas error ... preferredSize" in the status bar.
 
 What the code says:
-- Grey is a build error. Flutter replaces the failed widget with its error widget, which is plain grey in a release build (Flutter 3.44.8 `packages/flutter/lib/src/rendering/error.dart:112-117`, `widgets/framework.dart:5655`).
-- The status text is `Canvas error: <exception>` plus the first 12 stack frames (`error_boundary.dart:95-106`); only "preferredSize" was noted. In Flutter, `preferredSize` is read by `Scaffold` for its `appBar` (`packages/flutter/lib/src/material/scaffold.dart:3051`), and the starter's home page is `Scaffold(appBar: AppBar(...), body: SafeArea(child: Stack(...)))` (`packages/core/lib/src/file_system/templates/common/home_page_template.dart:21-32`).
-- The switch runs `BFGroup._toDirection` → `_replace(createRow([]))` (`group_details.dart:44-60`) → `Designer.recordReplaceAndKeepArgs` (`packages/designer/lib/src/design/widget_design.dart:6-40`) → `DesignerModel.replaceWidget` (`packages/core/lib/src/interpreter/widget/designer_model.dart:439-452`) → `CallExpr.replaceAndKeepArgs` (`packages/core/lib/src/interpreter/block_tree.dart:6296-6304`). These are unchanged from 3.12.5 apart from an NMenu edit in `group_details.dart` and a console dump added to `error_boundary.dart:96-98`. `git log -S"preferredSize" b84bfdafd..3cb32031c` finds nothing, so no commit touched it.
+- Grey is how a release build paints a widget that failed to build: Flutter swaps in its error widget, a plain grey box (Flutter 3.44.8 `packages/flutter/lib/src/rendering/error.dart:112-117`, `widgets/framework.dart:5655`).
+- The status text is `Canvas error: <exception>` plus the first 12 stack frames (`packages/designer/lib/src/error_boundary.dart:95-106`); only "preferredSize" was noted. In Flutter, `preferredSize` is read by `Scaffold` for its `appBar` (`packages/flutter/lib/src/material/scaffold.dart:3051`), and the starter's home page is `Scaffold(appBar: AppBar(...), body: SafeArea(child: Stack(...)))` (`packages/core/lib/src/file_system/templates/common/home_page_template.dart:21-32`).
+- The switch runs `BFGroup._toDirection` → `_replace(createRow([]))` (`packages/designer/lib/src/details/group_details.dart:44-60`) → `Designer.recordReplaceAndKeepArgs` (`packages/designer/lib/src/design/widget_design.dart:6-40`) → `DesignerModel.replaceWidget` (`packages/core/lib/src/interpreter/widget/designer_model.dart:439-452`) → `CallExpr.replaceAndKeepArgs` (`packages/core/lib/src/interpreter/block_tree.dart:6296-6304`). These are unchanged from 3.12.5 apart from an NMenu edit in `group_details.dart` and a console dump added to `packages/designer/lib/src/error_boundary.dart:96-98`. `git log -S"preferredSize" b84bfdafd..3cb32031c` finds nothing, so no commit touched it.
+- The boundary retries the screen once by itself and should then show its own panel (**This screen failed to render** and a **Reload screen** button, `packages/designer/lib/src/error_boundary.dart:226-262`) if the error returns. It cannot: `_trip` sets `_pendingError` (`:100`) and only the panel branch clears it (`:118`), so after the retry every later error returns at `:99`. The panel never replaces the grey widget, and a boundary logs only its first error (this is not in the issue log).
 - 3.13.0 live evidence points both ways: the re-take of `design-layout-1` switched the home screen's Group to a Row (Stack → Row), and `design-layout-video` ran a Column on the same screen, both without a recorded error (`_rewrite/captures/log.md:20,43`). Neither did Column → Row.
 
 Missing: the full status-bar text (message and frames), and one run of Stack → Column → Row on 3.13.0.
@@ -449,11 +452,13 @@ Actual on 3.12.5: the screen is grey and the status bar reads "Canvas error ... 
 
 **Root cause.** Unknown. Where to look once the text is known: if it names `Scaffold` or `AppBar`, check what `Scaffold(appBar:)` receives
 after `replaceWidget`, which runs `onRemove()` and `onAdd()` on the top widget (here the Scaffold) and walks everything under it
-(`designer_model.dart:439-452`, `packages/core/lib/src/interpreter/widget/widget_blocks.dart:131-200`).
+(`packages/core/lib/src/interpreter/widget/designer_model.dart:439-452`, `packages/core/lib/src/interpreter/widget/widget_blocks.dart:131-200`).
 
-**Suggested fix.** None until the text is captured. Add the whole message to the report; the boundary already logs it
-(`error_boundary.dart:106`), and in a debug build every boundary error also reaches the console (`:96-98`). A regression test then
-goes in `packages/designer/test/widget_test.dart` beside "Replacing a Row with a Stack".
+**Suggested fix.** For the cause: none until the text is captured. Add the whole message to the report; the boundary already logs it
+(`packages/designer/lib/src/error_boundary.dart:106`), and in a debug build every boundary error also reaches the console (`:96-98`). A regression test then
+goes in `packages/designer/test/widget_test.dart` beside "Replacing a Row with a Stack". Separately, clear `_pendingError` in the
+retry branch (`packages/designer/lib/src/error_boundary.dart:111-114`) so an error that returns reaches the panel and the log; a new widget test in
+`packages/designer/test/` with a child that always throws on build should find "This screen failed to render" after `pumpAndSettle`.
 
 **Docs impact.** None until confirmed. `docs/design/layout.md` (Groups) documents the three Group buttons.
 
@@ -481,16 +486,16 @@ Expected: `countDown` is still in the file, as you wrote it.
 Actual (by the code): `countDown` is gone, and **Problems** no longer lists it.
 
 **Root cause.**
-- Loading. `visitCompilationUnit` loads each top-level declaration in a `try`; with `continueOnException` (set by the importer and by `DartFile.fromSource` and `reparse`: `packages/core/lib/src/file_system/dart_importer.dart:20`, `dart_file.dart:46,101`) an exception only adds a `DeclarationLoadFailure`, and the declaration is left out of the unit (`ast_to_block_visitor.dart:161-180`, `decls` at `:180`).
+- Loading. `visitCompilationUnit` loads each top-level declaration in a `try`; with `continueOnException` (set by the importer and by `DartFile.fromSource` and `reparse`: `packages/core/lib/src/file_system/dart_importer.dart:20`, `packages/core/lib/src/file_system/dart_file.dart:46,101`) an exception only adds a `DeclarationLoadFailure`, and the declaration is left out of the unit (`packages/core/lib/src/interpreter/visitors/ast_to_block_visitor.dart:161-180`, `decls` at `:180`). The class is documented as "kept so the file can say what it lost instead of dropping it silently" (`:100-101`): the loss is expected, and **Problems** is the only report.
 - No fallback for functions or enums. Classes fall back to a custom class that keeps their text (`:688-691`), methods to `CustomMethodDecl` (`:1130-1136`). A top-level function keeps its text only with `@CustomFunction` (`:1171-1186`); otherwise its body is read with no `try` (`:1168-1223`, `visitBlock` has none: `:1499-1502`; `yield` has no visitor). Enums (`:621-669`), top-level variables (`:945-947`), mixins (`:586-618`) and extensions (`:2146-2162`) have none either.
-- Saving. `BlockUnit.source` is the loaded declarations only (`packages/core/lib/src/interpreter/block_tree.dart:7044-7062`); `loadFailures` is read only to list problems (`dart_file.dart:319`). `DartFile.text` returns the original text only when the parser reported syntax errors (`errors.isNotEmpty`), otherwise it regenerates from the unit (`dart_file.dart:116-122`). A dirty file is written from that text (`packages/core/lib/src/file_system/file_object.dart:546`, `nfile_impl.dart:329-343`).
-- Triggers. Any change to the unit marks the file dirty (`dart_file.dart:146-158`). A rename or move of a file marks every file that imports it dirty (`nfile_impl.dart:115-127`), as does `relinkProjectAndRegenerateImports` when imports change (`packages/core/lib/src/providers/project_provider.dart:884-902`). Auto-save: `packages/core/lib/src/project/saving_service.dart:8-9,15-16,66`.
+- Saving. `BlockUnit.source` is the loaded declarations only (`packages/core/lib/src/interpreter/block_tree.dart:7044-7062`); `loadFailures` is read only to list problems (`packages/core/lib/src/file_system/dart_file.dart:319`). `DartFile.text` returns the original text only when the parser reported syntax errors (`errors.isNotEmpty`), otherwise it regenerates from the unit (`packages/core/lib/src/file_system/dart_file.dart:116-122`). A dirty file is written from that text (`packages/core/lib/src/file_system/file_object.dart:546`, `packages/core/lib/src/file_system/nfile_impl.dart:329-343`).
+- Triggers. Any change to the unit marks the file dirty (`packages/core/lib/src/file_system/dart_file.dart:146-158`). A rename or move of a file marks every file that imports it dirty (`packages/core/lib/src/file_system/nfile_impl.dart:115-127`), as does `relinkProjectAndRegenerateImports` when imports change (`packages/core/lib/src/providers/project_provider.dart:884-902`). Auto-save: `packages/core/lib/src/project/saving_service.dart:8-9,15-16,66`.
 - Second path, the AI **edit** tool: it reads `content.text` (the regenerated text, without the function) and writes its edit over that (`packages/ai/lib/src/tools/edit_tool.dart:43-48,60,113`), so an AI edit anywhere in the file drops it as well.
-- Safe paths: code-mode saves write the buffer's exact text (`packages/core/lib/src/widgets/code_editor/code_options.dart:210-224`); files with syntax errors; classes and methods; `@CustomFunction(...)` with arguments. A bare `@CustomFunction()` loses its annotation on the first rewrite (`declaration_hybrid.dart:98-111`) and is then loaded as a normal function again.
-- Same in 3.12.5 (`block_tree.dart:6851-6858`, `dart_file.dart` unchanged). 3.13 added the `library;` and `part` lines to what `BlockUnit.source` writes and a loader change that keeps the file's declaration order; neither keeps a failed declaration.
+- Safe paths: code-mode saves write the buffer's exact text (`packages/core/lib/src/widgets/code_editor/code_options.dart:210-224`); files with syntax errors; classes and methods; `@CustomFunction(...)` with arguments. A bare `@CustomFunction()` loses its annotation on the first rewrite (`packages/core/lib/src/interpreter/declaration_hybrid.dart:98-111`) and is then loaded as a normal function again.
+- Same in 3.12.5 (`packages/core/lib/src/interpreter/block_tree.dart:6851-6858`, `dart_file.dart` unchanged). 3.13 added the `library;` and `part` lines to what `BlockUnit.source` writes and a loader change that keeps the file's declaration order; neither keeps a failed declaration.
 
 **Suggested fix.** Keep what fails. In `visitFunctionDeclaration` catch the load error and fall back to `CustomFunctionDecl(node, ...)..loadFailure = e.toString()`,
-as `visitMethodDeclaration` does (`:1130-1136`); do the same for enums with `CustomEnum(node)` (`declaration_hybrid.dart`), and add
+as `visitMethodDeclaration` does (`:1130-1136`); do the same for enums with `CustomEnum(node)` (`packages/core/lib/src/interpreter/declaration_hybrid.dart`), and add
 one generic "raw declaration" (original text from the AST node) for variables, mixins and extensions. As a backstop store the
 source span in `DeclarationLoadFailure` and have `BlockUnit.source` write failed declarations back in file order, so no loader bug
 can delete code. Make the edit tool's `old_string` match against the same text it writes. Tests: `packages/core/test/interpreter_tests/dart_loading_test.dart`
@@ -513,8 +518,8 @@ workarounds (edit such files only in code mode, or give the function `@CustomFun
 returns the `preview`). `@CustomWidget(preview:, imports:)` is the matching annotation for widget classes, but it does not
 switch a widget to custom code, and its `preview` is never read.
 
-Correction: the old row's lines moved. In 3.13.0 the reads of `@CustomWidget` are `ast_to_block_visitor.dart:716-732` and
-`declaration_hybrid.dart:182-231`.
+Correction: the old row's lines moved. In 3.13.0 the reads of `@CustomWidget` are `packages/core/lib/src/interpreter/visitors/ast_to_block_visitor.dart:716-732` and
+`packages/core/lib/src/interpreter/declaration_hybrid.dart:182-231`.
 
 **Steps to reproduce**
 1. In code mode create `lib/components/greeting.dart` with `@CustomWidget(preview: "const Text('preview')")` above `class Greeting extends StatelessWidget` whose `build` returns `const Text('hello')`. Import `package:nowa_runtime/nowa_runtime.dart`. Save, then click `<>` to leave code mode.
@@ -524,20 +529,21 @@ Correction: the old row's lines moved. In 3.13.0 the reads of `@CustomWidget` ar
 Expected (as with `@CustomFunction`): the widget is kept as code, so the board shows a placeholder or the `preview`, and **Details** says **Kept as code**.
 Actual (by the code): the board draws the real `Text('hello')`; nothing marks it as custom code.
 
-**Root cause.** `visitFunctionDeclaration` switches on the function annotation at once (`ast_to_block_visitor.dart:1171-1186`, and for methods
+**Root cause.** `visitFunctionDeclaration` switches on the function annotation at once (`packages/core/lib/src/interpreter/visitors/ast_to_block_visitor.dart:1171-1186`, and for methods
 `:1099-1102`). `visitClassDeclaration` never looks for `@CustomWidget` (`:672-693`). It is read only in `_createCustomClass`
 (`:716-732`), which runs when a class fails to load or when a file is imported with **Import as Custom code** (`loadCustomCode: false`,
-`packages/ai/lib/src/tools/ai_response_actions.dart:19`). Even then `CustomWidgetDecl.preview` is stored (`declaration_hybrid.dart:196`) and
+`packages/ai/lib/src/tools/ai_response_actions.dart:19`). Even then `CustomWidgetDecl.preview` is stored (`packages/core/lib/src/interpreter/declaration_hybrid.dart:196`) and
 never used: its `build` is a `CustomMethodDecl` without a preview, and `customInvoke` returns the blue placeholder for any
-widget (`declaration_hybrid.dart:29-32,156-165`). For a regular class the annotation is also in `_interpretedAnnotations` (`:237`), so it is
-not kept, and the class is rewritten without it after the next visual edit (`_keepAnnotations`, `:265-285`; not run). `imports` does
-work (`declaration_hybrid.dart:201-202`, `imports_visitor.dart:74-104`). The product repo's own plan lists both annotations as one
+widget (`packages/core/lib/src/interpreter/declaration_hybrid.dart:29-32,156-165`). For a regular class the annotation is also in `_interpretedAnnotations` (`:237`), so it is
+not kept: the class is written back verbatim until something inside it is changed in the designer (`packages/core/lib/src/interpreter/block_tree.dart:289-296,553-561`),
+then regenerated without it (`_keepAnnotations`, `:265-285`; not run). `imports` does
+work (`packages/core/lib/src/interpreter/declaration_hybrid.dart:201-202`, `packages/core/lib/src/interpreter/visitors/imports_visitor.dart:74-104`). The product repo's own plan lists both annotations as one
 unchecked item (`docs/features/hybrid approach.md:16`).
 
 **Suggested fix.** Decide with product, then do one of two small things. Make it real: in `visitClassDeclaration` return
 `_createCustomClass(node)` when the class has `@CustomWidget` and a widget superclass (mirrors `:1178`), and build `preview` as a
 widget expression in `CustomWidgetDecl` instead of the placeholder. Or remove it: delete `CustomWidget` from `annotations.dart` and
-`_interpretedAnnotations`. Either way, fix `CustomFunctionDecl.annotationSource` (`declaration_hybrid.dart:98-111`) so a bare
+`_interpretedAnnotations`. Either way, fix `CustomFunctionDecl.annotationSource` (`packages/core/lib/src/interpreter/declaration_hybrid.dart:98-111`) so a bare
 `@CustomFunction()` is kept on rewrite. Test: `packages/core/test/interpreter_tests/lib_test.dart`, next to "loading a custom function" (`:909-922`).
 
 **Docs impact.** `docs/code/custom-code.md` (section "Control what the board shows for a function", line 80) names only
@@ -547,7 +553,7 @@ widget expression in `CustomWidgetDecl` instead of the placeholder. Or remove it
 ### P52. Group header ⋯ → Remove deletes every child but the first
 
 - **Area:** Details → Group section (`packages/core/lib/src/fields/class_field.dart`, `packages/core/lib/src/interpreter/widget`)
-- **Severity:** High — widgets the user placed in a group are deleted without a warning, and Undo does not bring them back (by the code).
+- **Severity:** High — an explicit **Remove** click deletes all but the first child with no warning and Undo does not restore them (by the code); the design can be rebuilt, unlike P22's code.
 - **Where:** both; both
 - **Status:** Present in 3.13.0 and dev
 - **Confidence:** Code reading only, not run — traced from the menu entry to the tree edit and its undo.
@@ -572,16 +578,16 @@ Actual (by the code): the first box stays, the second is deleted; Undo restores 
 
 **Root cause.**
 - The entry shows when `instance.widgets.length > 1` (`> 2` when the outermost widget is an Expanded, Positioned, SizedBox, FlexSizedBox or BoardPosition, `packages/core/lib/src/interpreter/widget/widget_blocks.dart:465`) (`packages/core/lib/src/fields/class_field.dart:378-386,396-400`), where `widgets` is the base widget plus every wrapper above it (`packages/core/lib/src/interpreter/widget/designer_model.dart:225-242`, `isWrapperClass` `packages/core/lib/src/interpreter/widget/widget_blocks.dart:291-304`; Scaffold is named **Screen**, `packages/core/lib/src/interpreter/declaration_info/widget_info.dart:667-672`). The Group header uses it at `packages/designer/lib/src/details/group_details.dart:82`.
-- **Remove** calls `recordRemoveWidget` on the group itself (`class_field.dart:388-393`), which runs `removeWidget` → `widget.dissolve()` (`designer_model.dart:394-402`). `dissolveTree` takes all widget children out of the group, then `parent.setChild(slot, children.first)` unless the parent is a `ListBlock` (`widget_blocks.dart:131-162`). The wrapper is not a `ListBlock`, so `children[1..]` are dropped.
-- Undo is `addBaseWidget(group)` (`designer_model.dart:404-417,419-436`): it sets the already emptied group back into the wrapper's slot, replacing the first child.
+- **Remove** calls `recordRemoveWidget` on the group itself (`packages/core/lib/src/fields/class_field.dart:388-393`), which runs `removeWidget` → `widget.dissolve()` (`packages/core/lib/src/interpreter/widget/designer_model.dart:394-402`, `packages/core/lib/src/interpreter/block_tree.dart:6139-6141`). `dissolveTree` takes all widget children out of the group, then `parent.setChild(slot, children.first)` unless the parent is a `ListBlock` (`packages/core/lib/src/interpreter/widget/widget_blocks.dart:131-162`). The wrapper is not a `ListBlock`, so `children[1..]` are dropped.
+- Undo is `addBaseWidget(group)` (`packages/core/lib/src/interpreter/widget/designer_model.dart:404-417,419-436`): it sets the already emptied group back into the wrapper's slot, replacing the first child.
 - **Ungroup** is safe: it moves each child out first (`packages/designer/lib/src/design/common_design.dart:25-50`).
 
 **Suggested fix.** Smallest: hide **Remove** when the base widget has more than one widget child and its parent is not a list, in
-`WidgetMoreButton.isRemovable` (`class_field.dart:378-386`); and make `dissolveTree` throw `UnsupportedError('dissolving an object with
-multiple children')` for that case, as `Block.dissolve` does (`block_tree.dart:281`), so nothing is lost silently. If **Remove**
+`WidgetMoreButton.isRemovable` (`packages/core/lib/src/fields/class_field.dart:378-386`); and make `dissolveTree` throw `UnsupportedError('dissolving an object with
+multiple children')` for that case, as `Block.dissolve` does (`packages/core/lib/src/interpreter/block_tree.dart:281`), so nothing is lost silently. If **Remove**
 should delete the group and its content, remove the whole widget instead and say so in the label. Give the undo a snapshot of the
-group's subtree (as `recordReplaceAndKeepArgs` does with `BlockSnapshot`, `widget_design.dart:31-42`). While there: the `ListBlock` branch
-inserts every child at the same index (`widget_blocks.dart:154`), which reverses their order; the menu does not reach it today.
+group's subtree (as `recordReplaceAndKeepArgs` does with `BlockSnapshot`, `packages/designer/lib/src/design/widget_design.dart:31-42`). While there: the `ListBlock` branch
+inserts every child at the same index (`packages/core/lib/src/interpreter/widget/widget_blocks.dart:154`), which reverses their order; the menu does not reach it today.
 Test in `packages/designer/test/widget_test.dart` beside "Dissolving a column within a tree": `Padding(child: Column([a, b]))`, remove the Column, expect `a` and `b`
 still present (or the entry hidden), and that undo restores both.
 

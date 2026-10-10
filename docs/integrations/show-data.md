@@ -31,7 +31,7 @@ A source has to return a value that arrives later (a Future) or a live feed (a S
 | **Supabase** | **Query** | The functions in your Supabase panel. |
 | **Firestore** | **Query** | Your Firestore queries. |
 
-{/* CAPTURE: id=integrations-show-data-1 | state: playground starter, a request with a model, List View wrapped in Data Builder with Source API Request chosen | show: Details with the Data Builder fields, board with placeholder values | crop: right panel + board */}
+![The Details panel for the List View, scrolled to its Data Builder section, next to the board: the Source row (API Request) and the API row (getTodos) are highlighted, with Loading Widget and Error Builder below. The HomePage screen on the board shows the connected list with three items that show the placeholder text title in brackets.](/img/docs/integrations/integrations-show-data-1.png)
 
 You can also add Data Builder as a widget: press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd> and search for **Data Builder**. The wrapper keeps the widget you already built, so it's usually the easier way.
 

@@ -95,7 +95,7 @@ If the body has a file field (**MultipartFile**), the right panel also shows **U
 
 Click **Back to Request** to return to the editor. To test faster, hover a request in the **Collections** panel and click the play icon (**Run Query**). It opens the test view and sends the request at once.
 
-{/* CAPTURE: id=integrations-rest-api-2 | state: same project, getFact opened, Test then Run Test done | show: header with API URL and Status 200, Json body, right panel with Testing values, Generate Model and Run Test | crop: bottom panel */}
+![The test view of the getFact request after a successful run: the header shows the API URL https://catfact.ninja/fact and Status 200 OK (highlighted), and the Body tab shows the Json view (Object beside it) with the answer. The right panel holds Testing values, Generate Model and Run Test.](/img/docs/integrations/integrations-rest-api-2.png)
 
 If a test works in the desktop app but fails in the web app, see [API requests blocked in the browser](../../troubleshooting/known-issues.md#api-requests-blocked-in-the-browser).
 

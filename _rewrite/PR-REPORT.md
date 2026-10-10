@@ -49,12 +49,12 @@ design, logic, data, testing and publishing, with code, account and reference af
   in `_rewrite/left-out.md` with the reason (internal, debug, unreachable, private beta).
 - **Redirects**: `@docusaurus/plugin-client-redirects` with 160 redirects in `redirects.js` covers all 166 old URLs and
   the 44 docs links the app opens (old widget help links land on the matching row of the widget catalog; anchors kept).
-- **Screenshots and videos, all from 3.13**: 90 screenshots and 6 short videos on 74 pages, taken on app.nowa.dev
+- **Screenshots and videos, all from 3.13**: 92 screenshots and 6 short videos on 75 pages, taken on app.nowa.dev
   (the playground, and the test account for the dashboard, settings, Deploy menu, Run, Share and Nowa AI), each
   checked by eye, nearly all with an orange highlight on what matters, and names and emails blurred. The videos show adding a
   widget from the Library, laying out rows and columns, Instant Play, adding a Circuit node, changing a theme color
   and Nowa AI building an app. The remaining placeholders are hidden MDX comments, listed in
-  `_rewrite/captures/to-capture.md`.
+  `_rewrite/captures/to-capture.md` (rebuilt from the pages by `_rewrite/captures/tools/to-capture.py`).
 - **What's New and Changelog**: wording untouched; only links to removed pages were re-pointed (and one empty link
   removed). They have no 3.13 entry yet.
 - **Site**: explicit `sidebars.js`; global `<Badge>` and `<Anchor>` components (`<Anchor>` registers link targets in
@@ -73,7 +73,7 @@ design, logic, data, testing and publishing, with code, account and reference af
 3. **Simple, clear, concise, warm, confident**: a wording pass over every page; a script compared each page before and
    after and confirmed no label, link, number, step or heading changed.
 4. **Easy to follow**: a fresh-eyes agent walked six real goals through the docs; its fixes are in.
-5. **A highlighted screenshot where it helps**: 74 pages have one now (29 before the pass).
+5. **A highlighted screenshot where it helps**: 75 pages have one now (29 before the pass).
 6. **Tips for quality apps**: design, AI, data and state, and test-and-ship guides, linked from the feature pages.
 
 ## Decisions made for you
@@ -120,10 +120,11 @@ Full log with reasons: `_rewrite/decisions.md`. The main ones:
 
 ## Unfinished
 
-- **Screenshots the test account can't produce**: the Git and GitHub panels and Android/iOS builds (the account is on
-  the Starter plan), a published web site (needs a deploy), connected Supabase, Firebase, Figma, Stripe or Xano
-  screens (no external accounts), and desktop-only screens. They stay as hidden placeholders in
-  `_rewrite/captures/to-capture.md`.
+- **Screenshots the test account can't produce** (36): the Git and GitHub panels and Android/iOS builds (the account
+  is on the Starter plan), a published web site (needs a deploy), the public-link options (no project may be made
+  public), connected Supabase, Firebase, Figma or Stripe screens (no external accounts), and desktop-only screens.
+  13 more were possible in the playground but skipped as low value, because their pages already have a screenshot.
+  All 49 stay as hidden placeholders, listed in `_rewrite/captures/to-capture.md`.
 - **Live checks** that need those setups (for example the Firestore flow, View Only in the Library) are listed in
   `_rewrite/PLAN.md` and the review logs.
 - **Test account clean-up**: four "Docs capture ..." projects and a "Docs capture" workspace can be deleted.

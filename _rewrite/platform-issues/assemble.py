@@ -73,7 +73,7 @@ def short_confidence(value):
 
 
 def short_area(value):
-    return re.sub(r'\s*\(`[^`]*`\)\s*$', '', value).strip()
+    return re.sub(r'\s*\(`.*\)\s*$', '', value).strip()
 
 
 def cell(text):
@@ -137,7 +137,7 @@ def check_refs(entries):
     for e in entries:
         for m in ref.finditer(e['body']):
             path, a, b = m.group(1), int(m.group(2)), int(m.group(3) or m.group(2))
-            if path.startswith(('docs/', '~', '/')) or 'pub-cache' in path or 'dio-' in path:
+            if path.startswith(('docs/', '~', '/')) or 'pub-cache' in path or re.match(r'[\w-]+-\d+\.\d+', path):
                 continue
             candidates = [path] if (NOWA / path).is_file() else by_name.get(path.rsplit('/', 1)[-1], [])
             if len(candidates) != 1:

@@ -25,7 +25,7 @@ AREAS = [
     ('B4b', 'git-integrations', 'Git, deep links and other integrations'),
 ]
 SEVERITY_ORDER = {'Critical': 0, 'High': 1, 'Medium': 2, 'Low': 3}
-HEADING = re.compile(r'^### ([PRM]\d+)\. (.+)$', re.M)
+HEADING = re.compile(r'^### ([PRMX]\d+)\. (.+)$', re.M)
 
 
 def split_entries(text):

@@ -21,8 +21,8 @@ A source has to return a value that arrives later (a Future) or a live feed (a S
 
 1. Select the widget that should show the data. For a list, add a **List View** first.
 2. In **Details**, scroll down and click **Add Wrapper**. Search for **Data Builder** and click it. Your widget now sits inside it.
-3. Below your widget's own settings, the Data Builder fields appear. Set **Source** to **API Request**, **Supabase** or **Firestore**.
-4. In the row below **Source**, click the button that reads `none`. The row is labeled **API** for requests and **Query** for Supabase and Firestore. Pick your request, function or query from the list, or pick **None** to clear it.
+3. Below your widget's own settings, the Data Builder fields appear. Set **Source** to **API Request**, **Supabase** or **Firestore**. A new Data Builder starts on **Custom**, which loads nothing.
+4. In the row below **Source**, click the button that reads `none`. The row is labeled **API** for requests and **Query** for Supabase and Firestore. Pick your request, function or query from the list. To switch to another one later, click the button again.
 5. If the request has parameters, their fields appear. Fill them in or link them to variables.
 
 | Source | Row label | What the list shows |

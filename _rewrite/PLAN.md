@@ -53,6 +53,14 @@ Steps:
 - Not possible with this test account: Git/GitHub panels and Android/iOS builds (Starter plan), published web site,
   connected Supabase/Firebase/Figma/Stripe/Xano screens, desktop-only screens.
 
+**Phase 10 follow-up (2026-10-10):** the "Next" list above is done (build green, PR updated, CI green on `ed94374`).
+Then: `integrations-rest-api-2` and `integrations-show-data-1` captured in the live playground (blocked before by the
+missing network); live check of the REST API and Show data pages (`reviews/P10-live-data-pages.md`: 10 mismatches),
+9 fixed with code refs (`reviews/P10-live-data-fixes.md`) and verified by another agent
+(`reviews/P10-live-data-verify.md`); the same hover-only **+** fixed on `design/components.md`; product issues P53-P58;
+`captures/tools/to-capture.py` rebuilds `captures/to-capture.md` from the pages (49 left: 36 not possible with the
+test account, 13 skipped as low value).
+
 Batches (2026-10-09): research done (`research/changes-3.13.md`: 53 pages, 27 changes, 11 open points). Writers:
 **W30a** (new `design/library.md`, get-started, design index/boards/screens/components/add-widgets/select-and-edit/
 outline, glossary), **W30b** (design properties/layout/themes/theme-styles/assets/templates/localization/fonts-icons/

@@ -39,7 +39,9 @@ design, logic, data, testing and publishing, with code, account and reference af
 - **Checked against the code**: every page was verified claim by claim by a separate agent, which fixed what was wrong
   (about 2,100 checks and 410 fixes in the first pass, about 790 claims and 61 fixes for the quality-pass text, about
   1,400 checks and 32 fixes for the 3.13 update). A check in the live 3.13 editor then caught 8 behaviors the code
-  alone didn't show, and those pages were corrected. Review logs are in `_rewrite/reviews/`.
+  alone didn't show, and those pages were corrected. A second live check, of the REST API and Data Builder pages once
+  the network was open, found 10 more differences; 9 needed a fix, each confirmed in the code by another agent.
+  Review logs are in `_rewrite/reviews/`.
 - **Updated to Nowa 3.13.0** (released 6 October): the Library panel replaces the Widgets panel, Ctrl/Cmd+K and the
   toolbar's **Widget** tool open the Library, the top bar has **Back** / **Forward** and a searchable **Boards** chip,
   **Files** moved into code mode as a tree, menu entries were renamed (**Bring forward**, **Send backward**...), the
@@ -107,12 +109,15 @@ Full log with reasons: `_rewrite/decisions.md`. The main ones:
 
 ## Product issues found along the way
 
-52 issues spotted while reading the code are in `_rewrite/product-issues.md` (not fixed here). The most important:
+58 issues spotted while reading the code or checking the live editor are in `_rewrite/product-issues.md` (not fixed
+here). The most important:
 - Firestore (3.13): no designer entry point to add collections or queries.
 - Firebase Google sign-in: the generated `signInWithGoogle()` doesn't compile against `google_sign_in` 7.x.
 - RevenueCat: the generated service has no way to restore purchases, which App Store guideline 3.1.1 asks for.
 - Signed-out playground (3.13): the AI chat field's toolbar is broken ("BillingProvider is not initialized").
 - Supabase bundled backends deploy edge functions with `verify_jwt: false`.
+- REST API (3.13): setting a collection's **Auth Key** shows a false "Undefined name 'headers'" error in **Problems**
+  (Nowa's model of Dio has no `RequestOptions.headers`).
 - Git (local projects): after **Bring my changes**, **Accept Local** drops your own edits; **Revert Commit** only stages.
 - Form validators: **Min length** and **Max length** lose their number field as soon as they're added, and adding or
   removing another rule silently drops the length check.

@@ -15,7 +15,7 @@ A collection holds the requests for one API. Nowa saves it as a Dart file, for e
 
 1. Click **Api** in the left sidebar. The **Collections** panel opens.
 2. Click **+** (**Add Collection**), then **New Collection**.
-3. In the **Create New Collection** dialog, delete the suggested name (**ApiCollection**) and type your own. Nowa shows the **Class name** and a **Path** preview.
+3. In the **Create New Collection** dialog, delete the suggested name (`ApiCollection`) and type your own. Nowa shows the **Class name** and a **Path** preview.
 4. Click **Submit**. The collection appears in the panel.
 
 ![The Collections panel in the Api sidebar: the Cats collection (base URL https://catfact.ninja) with a GET request getFact at /fact and a POST request createNote at /notes, and the Add Collection menu open (highlighted) with New Collection, Import from Swagger, Import from Postman and Import from Xano.](/img/docs/integrations/integrations-rest-api-1.png)
@@ -44,7 +44,7 @@ The **Base URL** and the headers you add, on the collection or on a single reque
 ## Add a request
 
 1. Hover the collection, click **+**, then **New Request**.
-2. Delete the suggested name (**newRequest**), type yours and click **Create**. Nowa turns the name into a function name such as `getCats`. The request appears under the collection.
+2. Delete the suggested name (`newRequest`), type yours and click **Create**. Nowa turns the name into a function name such as `getCats`. The request appears under the collection.
 3. Click the request. It opens in a panel at the bottom of the editor.
 4. Pick the method, such as **GET**, **POST**, **PUT**, **DELETE**, **PATCH** or **HEAD**, and type the endpoint. With a base URL set, you only type the path, for example `/v1/items`.
 5. To send headers for this request only, open the **Headers** tab and click **Add header**. Headers from the collection are listed there too, read-only.
@@ -81,7 +81,7 @@ Use a parameter for anything that changes between calls, such as a search word.
 
 - **Rename a request:** right-click it in the **Collections** panel and choose **Rename**. The name turns into a text box. Type the new name and press <kbd>Enter</kbd>.
 - **Remove a request:** right-click it and choose **Remove**. It goes right away, without a question.
-- **Remove a collection:** right-click it and choose **Remove**. Nowa asks **Are you sure you want to delete "cats.api.dart"?** with **Cancel** and **Yes**. If something in your app uses the collection, Nowa lists those places first (**Cancel** or **Remove**), then asks the same question.
+- **Remove a collection:** right-click it and choose **Remove**. If something in your app uses the collection, Nowa lists those places first (**Cancel** or **Remove**). Then it asks **Are you sure you want to delete "cats.api.dart"?** with **Cancel** and **Yes**.
 - **Search:** type in the **Search...** box at the top of the panel. It filters the requests of every collection by name or endpoint.
 
 ## Test a request

@@ -44,10 +44,10 @@ Params let each instance show different content, such as a title or a picture.
 
 1. Select the component's board item, or open the component on its own.
 2. Expand **Variables** above **Details**. It lists **Params**, **Variables** and **Functions**.
-3. Click **+** next to **Params**. Nowa adds a param called `param`. Rename it and choose its type.
+3. Hover **Params** and click **+**. Nowa adds a param called `param`. Rename it and choose its type.
 4. Link a property of a widget inside the component to the param. Each instance now has its own value for it in **Details**.
 
-Adding a variable with **+** next to **Variables** makes the component stateful for you. There is nothing to set up. Learn more in [Pass data with parameters](../logic/parameters.md) and [Store data in variables](../logic/variables.md).
+Adding a variable (hover **Variables**, then click **+**) makes the component stateful for you. There is nothing to set up. Learn more in [Pass data with parameters](../logic/parameters.md) and [Store data in variables](../logic/variables.md).
 
 :::tip Or ask Nowa AI
 Try "Turn the recipe card on the Home screen into a component and use it on the Favorites screen."

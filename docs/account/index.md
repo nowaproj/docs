@@ -11,7 +11,7 @@ Everything outside the editor lives here: the dashboard where your projects wait
 
 After you sign in at [app.nowa.dev](https://app.nowa.dev), you land on the dashboard. The sidebar on the left has your navigation. The main area has the prompt box and your projects. In a narrow browser window, such as on a phone, the sidebar becomes a drawer.
 
-{/* CAPTURE: id=account-index-1 | state: signed in, dashboard in the Personal workspace with 3-4 cloud projects | show: the whole dashboard: sidebar (workspace switcher, RECENTS, Invite a Friend, Hire an Expert, Learning Resources, Settings, name and plan badge), the What do you want to build? prompt box, the Projects header and project cards, the ? support button | crop: full window */}
+![The Nowa dashboard after sign-in: the sidebar (highlighted) with the Personal workspace switcher, RECENTS, Upgrade your plan, Invite a Friend, Download Desktop App, Hire an Expert, Learning Resources, Settings and the account name with its plan badge (email blurred). The main area has the What do you want to build? prompt box with the Design and Thinking chips and example prompts, and the Projects header (highlighted) with Search, the sort button, the grid and list switch, New project and three project cards. The ? support button is at the bottom right.](/img/docs/account/account-index-1.png)
 
 The sidebar, from top to bottom:
 

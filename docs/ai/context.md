@@ -25,7 +25,7 @@ Click a screen or widget on the board. A chip with its name appears at the top o
    - A screen, component or class under **FROM YOUR APP**.
 3. The attachment appears as a chip at the top of the chat field. Click **×** to remove one, or **Remove all attachments** to clear them all.
 
-![The Add context palette opened from the plus button in the chat field: a search box, the UPLOAD section (Attach image, Attach text file) and the FROM YOUR APP list (MyApp, AppState, AppConstants, HomePage).](/img/docs/ai/ai-context-1.png)
+![The Add context palette (highlighted) opened from the plus button (highlighted) in the chat field: a search box, the UPLOAD section (Attach image, Attach text file) and the FROM YOUR APP list (MyApp, AppConstants, AppState, HomePage).](/img/docs/ai/ai-context-1.png)
 
 In the **FROM YOUR APP** list, a check mark means the item is already attached, a lock means it is read-only, and **included** means Nowa already sends it as a related declaration, in short form.
 
@@ -44,7 +44,7 @@ A few limits:
 
 The list shows what you have already attached and every screen, component and class in your project. A mention appears highlighted in your message and counts as an attachment for it. In a message you've sent, click the mention to open its file.
 
-![The mention suggestion list (MyApp, AppState, AppConstants, HomePage) open above the chat field after typing an at sign.](/img/docs/ai/ai-context-2.png)
+![The mention suggestion list (MyApp, AppConstants, AppState, HomePage), highlighted, open above the chat field after typing an at sign.](/img/docs/ai/ai-context-2.png)
 
 ## What Nowa AI receives
 

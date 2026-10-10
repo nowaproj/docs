@@ -18,7 +18,7 @@ Every Nowa app starts on the dashboard. Describe your idea and Nowa AI builds th
 
 The **New project** button sits in the **Projects** header. In a narrower window it reads **New**.
 
-{/* CAPTURE: id=account-projects-1 | state: signed-in dashboard with a few projects, click the arrow next to New project | show: the Projects header (count, Search..., sort button, grid/list toggle) and the open New project menu with New project, Clone from GitHub and Import project | crop: top of the dashboard main area */}
+![The Projects header on the dashboard (the title with the count 3, the Search box, the sort button and the grid and list switch) with the arrow menu of New project open and highlighted: New project and Clone from GitHub. The menu sits over the New project button and part of the view switch.](/img/docs/account/account-projects-1.png)
 
 ### Start from a prompt
 
@@ -85,7 +85,7 @@ Can't see a project? Check the workspace switcher in the sidebar: each workspace
 
 Click ⋮ on a project card or row.
 
-{/* CAPTURE: id=account-projects-2 | state: signed-in dashboard, open the ⋮ menu on a cloud project card | show: the menu with Open in safe mode, Move to workspace... and Delete (a local project also shows Upload to cloud and Remove from list) | crop: one card plus its menu */}
+![A project card on the dashboard (Docs capture Main) with its three-dot menu open and highlighted: Open in safe mode, Move to workspace... and Delete (in red). The menu sits over the card's name row.](/img/docs/account/account-projects-2.png)
 
 | Menu item | What it does | Shown for |
 |---|---|---|

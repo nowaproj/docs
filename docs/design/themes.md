@@ -16,7 +16,7 @@ Set your theme before you design many screens: see [Set the theme first](../guid
 
 New projects start with two themes, `lightTheme` and `darkTheme`. Each theme is a variable of type `ThemeData` in `lib/globals/themes.dart`, and Nowa writes your edits to that file. Variables of other types in the file aren't listed as themes. A `ThemeData` variable that a function builds is listed too. **Refresh** re-renders the app with the current theme, and **Open in New Tab** shows the file as code. <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Z</kbd> and <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Y</kbd> undo and redo inside the panel.
 
-![The Themes panel with lightTheme active: the Colors tiles (Primary, Secondary, Tertiary, Surface, highlighted), Add Color, the Brightness and Mode switches and the start of Typography.](/img/docs/design/design-themes-1.png)
+![The Themes panel with lightTheme active (the Active label and a menu arrow): the header with the Refresh and Open in New Tab buttons, the Colors tiles (Primary, Secondary, Tertiary and Surface, highlighted), Add Color, the Brightness (Light, Dark) and Mode (Fixed, Seed) switches, and the start of Typography with the Default Font button.](/img/docs/design/design-themes-1.png)
 
 :::note
 If a theme doesn't set a color scheme yet, Nowa adds one when you open it: `ColorScheme.fromSeed` with a purple seed. In an imported project, colors can change the first time you open the **Themes** panel.
@@ -55,7 +55,7 @@ The **Colors** section shows your main color roles as tiles: **Primary**, **Seco
   <source src="/videos/docs/design/design-themes-video.mp4" type="video/mp4" />
 </video>
 
-![The Themes panel next to the Edit Primary popup: the role and on-color header, the color picker with hue and opacity sliders, the HEX and OP fields (highlighted) and the Preview swatch.](/img/docs/design/design-themes-2.png)
+![The Themes panel next to the Edit Primary popup: its header with a back arrow and a reset icon, the Primary role tile with its on-color, the color picker with hue and opacity sliders, the HEX (6200EE) and OP (100%) fields (highlighted) and the Preview swatch.](/img/docs/design/design-themes-2.png)
 
 To edit another role, click **Add Color** and choose one in **Override Color Role**, for example **Primary Container**, **Error**, **Outline** or a **Surface Container** shade. The reset icon in a popup's header puts the role back to the scheme's default.
 

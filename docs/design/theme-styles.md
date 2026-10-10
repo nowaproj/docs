@@ -25,7 +25,7 @@ If your project has [theme extensions](themes.md#edit-theme-extensions) with col
 
 Pick an extension color and the field shows its name, such as `brand`. In your code the field reads `AppColors.of(context).brand`, or `Theme.of(context).extension<AppColors>()!.brand` if the class has no `of`. Extension colors have no **Edit** button here: change them in the **Themes** panel.
 
-{/* CAPTURE: id=design-theme-styles-2 | state: playground starter open; in code mode add a ThemeExtension class AppColors with two Color fields (brand, accent) to lib/globals/themes.dart and list it in lightTheme's extensions; back on the board, drop a Container, select it and click its Color swatch | show: the color picker with the theme color list headed by the tabs AppColors and Material, the AppColors tab open with its colors listed | crop: the color picker popup + the Details panel */}
+![The color picker opened from the Color swatch of a selected Container, beside the Details panel. Below the Solid dropdown, the color field with hue and opacity sliders and the HEX and OP fields, the theme color list is headed by two tabs, AppColors (open) and Material. The AppColors tab lists brand (#6750A4) and accent (#FF8A00); the tabs and list are highlighted.](/img/docs/design/design-theme-styles-2.png)
 
 ## Make a theme color transparent
 

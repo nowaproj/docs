@@ -83,7 +83,7 @@ Right-click a widget to act on it. An unselected widget is selected first.
 
 Later means lower in a **Column**, further right in a **Row**, and in front in a **Stack**, where later widgets sit on top. Each entry shows its own keys. An entry that can't run, such as **Bring forward** on the last widget, is greyed out.
 
-![The right-click menu of a selected Container (highlighted): Play, Remove, Replace with..., Group, Copy, Cut, Bring to front, Bring forward, Send backward, Send to back, Create component and Export as image..., with their shortcuts.](/img/docs/design/design-select-and-edit-2.png)
+![The right-click menu of a selected Container (highlighted): Play, Remove, Replace with..., Group, Copy, Cut, Bring to front, Bring forward, Send backward, Send to back, Create component and Export as image..., with their shortcuts. Bring to front and Bring forward are greyed out.](/img/docs/design/design-select-and-edit-2.png)
 
 **Play**, **Create component**, **Detach** and **Copy as new widget** are covered in [Play your app on the board](../test/instant-play.md) and [Build reusable components](components.md). **Detach** and **Copy as new widget** show only where they apply. Right-click empty board space for **Undo**, **Redo**, **Save**, **Create a page** and **Paste**.
 

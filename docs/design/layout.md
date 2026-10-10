@@ -17,9 +17,9 @@ To take a group apart, select it, right-click and choose **Ungroup**. Pressing t
 
 You can also add an empty **Group** from the [Library](library.md): press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd>, type `group`, select **Group** and press <kbd>Enter</kbd>.
 
-Select a group and open the **Group** section of **Details**. Its header has three buttons: the first sets a **Stack**, the right arrow sets a **Row** and the down arrow sets a **Column**. When you turn a Stack into a Row or Column, Nowa orders the children by their position and takes the **Gap** from the space between them.
+Select a group and open the **Group** section of **Details**. Its header has three buttons: the first sets a **Stack**, the right arrow sets a **Row** and the down arrow sets a **Column**. While you point at the section, a **⋯** button also shows to their left, with **Replace with...** to swap the group for another widget. When you turn a Stack into a Row or Column, Nowa orders the children by their position and takes the **Gap** from the space between them.
 
-![The Group section of Details for the home screen after switching to a Row: the three layout buttons (Stack, Row, Column) are highlighted, with the Alignment grid, Main Axis Size, Spacing, Gap and Padding below.](/img/docs/design/design-layout-1.png)
+![The Group section of Details for the home screen after switching to a Row: the three layout buttons (Stack, Row, Column) are highlighted with the Row arrow on, and below them the Alignment grid, Main Axis Size (max), Spacing (Fixed), Gap, Children and Padding.](/img/docs/design/design-layout-1.png)
 
 **Padding** in the **Group** section sets space inside the group. Type a value for the horizontal and vertical sides, or click **Individual padding** for left, top, right and bottom. Nowa adds a **Padding** wrapper around the group for you.
 
@@ -63,7 +63,7 @@ Select a widget and open **Layout**. **W** and **H** each have a mode dropdown.
 | **Auto** | Sizes to the content. Offered only when the widget has a natural size. |
 | **Expand** | In a Row or Column: along the row or column it takes the space left over, and across it fills the full width or height. |
 
-![The Layout section of Details for a Button inside a Column, with the W mode dropdown open (highlighted) listing Fixed, Expand and Auto.](/img/docs/design/design-layout-2.png)
+![The Layout section of Details for a Button inside a Column (the breadcrumbs read HomePage, Column and Button), with the W mode dropdown open (highlighted) listing Fixed, Expand and Auto (Auto is the current choice). The H mode shows Fixed beside it, and the Text section starts below.](/img/docs/design/design-layout-2.png)
 
 The **Layout** section changes with the parent:
 

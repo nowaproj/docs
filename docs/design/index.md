@@ -22,7 +22,7 @@ Screens and components have a title bar above them with their name. Hover it to 
 
 ## The tools you work with
 
-![The whole editor with a Button selected and the Outline panel open. The toolbar at the bottom of the board and the Variables and Details panels at the top right are highlighted.](/img/docs/design/design-index-1.png)
+![The whole editor with a Button selected and the Outline panel open. The top bar shows the Back and Forward arrows and the Boards chip, and the sidebar has the Library icon and no Files icon. The toolbar at the bottom of the board and the Variables and Details panels at the top right are highlighted.](/img/docs/design/design-index-1.png)
 
 | Where | What it does |
 |---|---|

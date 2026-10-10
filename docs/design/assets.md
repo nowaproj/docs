@@ -17,7 +17,7 @@ To upload straight into a folder inside `assets/`, right-click that folder and c
 
 When you import a file, Nowa updates `pubspec.yaml` for you: every folder under `assets/` that has files is listed under `flutter:` → `assets:`, and fonts are listed under `fonts:`. You don't need to edit it.
 
-![The Library with the Assets chip on and the Add menu open from the + button in its header (highlighted): New Widget..., New Folder..., New Model..., New Global State..., Generate Models From Json..., API Collection..., Import Dart code... and Upload Assets... (highlighted), with the folders and files of assets/ listed below the chips.](/img/docs/design/design-assets-1.png)
+![The Library with the Project and Assets chips on and its Add menu open from the + button in the header (highlighted): New Widget..., New Folder..., New Model..., New Global State..., Generate Models From Json..., API Collection..., Import Dart code... and Upload Assets... (highlighted). Under the chips, the Project group lists the pages folder with HomePage and the Assets group lists avatar.png, hero.jpg and logo.png.](/img/docs/design/design-assets-1.png)
 
 Nowa recognizes these file types:
 

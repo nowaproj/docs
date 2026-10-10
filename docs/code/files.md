@@ -28,7 +28,7 @@ Nowa doesn't load `.git/`, `build/` or `.DS_Store`, and the **Files** tree doesn
 
 In the Library, click **Add** (+) in the header and choose what to make.
 
-![The Library with its Add menu open from the + button in the header (highlighted): New Widget..., New Folder..., New Model..., New Global State..., Generate Models From Json..., API Collection..., Import Dart code... and Upload Assets....](/img/docs/code/code-files-1.png)
+![The Library with its Add menu open from the + button in the header (highlighted): New Widget..., New Folder..., New Model..., New Global State..., Generate Models From Json..., API Collection..., Import Dart code... and Upload Assets.... Only the Project chip is on, and the pages folder with HomePage is listed beside the menu.](/img/docs/code/code-files-1.png)
 
 | Item | What it creates |
 |---|---|

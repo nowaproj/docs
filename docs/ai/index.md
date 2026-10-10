@@ -11,7 +11,7 @@ Tell Nowa AI what you want in plain words. It designs screens, writes logic, add
 
 The **AI Assistant** panel is open when you open a project. If you closed it, click the **Assistant** icon at the top of the left sidebar, or press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>1</kbd>. The same shortcut hides it again.
 
-![The AI Assistant panel on first open: the header with the New Session (+) and more (three dots) buttons, the suggestion chips, and the chat field with the Agent and thinking-level chips, Add context, Supabase, Figma and Send.](/img/docs/ai/ai-index-1.png)
+![The AI Assistant panel on first open, with the left sidebar: the Assistant icon (highlighted) at the top, the header with the New Session (+) and more (three dots) buttons, the suggestion chips, and the chat field (highlighted) with the Agent and thinking-level chips, Add context, Supabase, Figma and Send.](/img/docs/ai/ai-index-1.png)
 
 The panel has three parts:
 

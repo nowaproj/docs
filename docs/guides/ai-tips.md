@@ -23,7 +23,7 @@ Nowa AI does its best work when you steer it: the right mode, the right context 
 - **Attach an image** as a design reference or a logo. To put a logo in your app, say so, and Nowa AI saves it to your assets. The limit is 5 images.
 - **Attach less, not more.** Nowa AI can look around the project itself, so one focused attachment keeps its changes accurate.
 
-![The bottom of the AI Assistant panel with a Button selected on the board. The chat field shows the selection chip Button with its remove (x) button above the Build something wild hint (highlighted), and below it the Agent mode chip, the Thinking level chip and the + (Add context) button (highlighted), then the Supabase, Figma and Send buttons.](/img/docs/guides/guides-ai-tips-1.png)
+![The bottom of the AI Assistant panel with the AppBar of the home screen selected on the board. The chat field shows the selection chip AppBar with its remove (x) button (highlighted) above the Build something wild hint, and below it the Agent mode chip, the Thinking level chip and the + (Add context) button (highlighted), then the Supabase, Figma and Send buttons.](/img/docs/guides/guides-ai-tips-1.png)
 
 See [Give Nowa AI context](../ai/context.md).
 

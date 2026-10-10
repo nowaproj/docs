@@ -16,7 +16,7 @@ Your app is real Flutter code, and it belongs to you. Download it as a zip to ke
 3. Click **Compress Project**. Nowa saves your project and compresses it. **Compressing...** shows while it works.
 4. Click the zip file that appears in the list. It shows the file name and when it was created.
 
-{/* CAPTURE: id=publish-download-code-1 | state: signed in, cloud project in code mode (the <> button in the top bar), Code download icon clicked | show: the popup with "Compress to get the latest code download.", Compress Project and a zip file row with name and date | crop: top-right of the code editor with the popup */}
+![The Code download popup opened from the download icon in the code editor's tab bar (highlighted): the line Compress to get the latest code download., the Compress Project button, and the empty list that says Compress your project to download it. This is the state before the first zip exists.](/img/docs/publish/publish-download-code-1.png)
 
 In the web app, your browser downloads the file. In the desktop app, a **Save project** dialog asks where to keep it. Nowa then opens that folder and shows "Project downloaded successfully to" followed by the file's path.
 

@@ -40,7 +40,7 @@ Open **Settings** → **Usage**. It has two parts:
 - **Plan Usage Limits** shows your plan badge and one row for each feature your plan meters. Each row has a progress bar, when it resets ("Resets in" a time) and "N% used". Which features appear depends on your plan.
 - **Extra AI Usage** says "Top up your account to continue using Nowa AI if you hit a limit." It shows your **Current balance** and **Buy credits**.
 
-{/* CAPTURE: id=account-plans-and-usage-1 | state: signed in, dashboard Settings then Usage | show: Plan Usage Limits with progress bars and "N% used", and the Extra AI Usage block with Current balance and Buy credits (blur the balance) | crop: the Usage page */}
+![The Usage page of the account settings window. Plan Usage Limits (highlighted) shows the Starter plan badge and an AI Usage row with its reset time, a progress bar and 0% used. Extra AI Usage (highlighted) shows its description, the Current balance (blurred) and the Buy credits button.](/img/docs/account/account-plans-and-usage-1.png)
 
 Inside a project, the **AI Assistant** panel keeps you posted as you work:
 

@@ -45,7 +45,7 @@ While the preview is open, these buttons replace the breadcrumbs in the top bar.
 | **Open in Browser** (local projects) | Opens the app at `http://localhost:<port>`. Only your computer can reach it. |
 | **Open on Mobile** (cloud projects) | Drops down a "Scan the QR" code. Scan it with your phone's camera to open the running app on your phone. **Open In Browser** in the popup opens it on your computer instead. |
 
-{/* CAPTURE: id=test-run-1 | state: signed-in cloud project open, Run clicked and the app running in the phone frame, Open on Mobile dropdown open | show: the run toolbar in the top bar (Back to board, Phone, Fullscreen, Hot Restart, Stop, Open on Mobile) and the Scan the QR dropdown with its code and Open In Browser | crop: top bar plus the preview area */}
+![The run toolbar at the top of the editor while the embedded preview is open (highlighted): Back to board, Phone, Fullscreen, Hot Restart, Stop and Open on Mobile. The Scan the QR dropdown opened from the last button (highlighted) shows its QR code (blurred here) and Open In Browser.](/img/docs/test/test-run-1.png)
 
 ## Fix a preview that won't start
 

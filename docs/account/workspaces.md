@@ -31,7 +31,7 @@ Every member has a role:
 
 If you leave the name empty, Nowa says "Name cannot be empty".
 
-{/* CAPTURE: id=account-workspaces-1 | state: signed-in dashboard, workspace switcher open | show: the open menu with Personal ("Projects not in a workspace"), a workspace row with its gear icon, and Create workspace | crop: sidebar top-left plus the menu */}
+![The workspace switcher at the top of the dashboard sidebar with its menu open and highlighted: Personal (Projects not in a workspace, checked), a workspace named Docs capture with its gear icon, and Create workspace.](/img/docs/account/account-workspaces-1.png)
 
 ## Switch workspaces and move projects
 
@@ -56,7 +56,7 @@ Only an owner sees the invite row.
 
 To cancel or resend, click the **Pending** badge, then **Cancel invitation** or **Resend invitation**. If the address isn't valid, Nowa says "Please enter a valid email address".
 
-{/* CAPTURE: id=account-workspaces-2 | state: signed-in as an owner, Workspace settings open on a workspace that already has members and a Pending invitation (do not send real invitations) | show: Workspace name, Members with the invite row (email, role, Invite), role badges, a Pending badge, and the red Delete workspace box | crop: the dialog */}
+![The Workspace settings dialog of a workspace you own: the Workspace name field with its color swatch; Members (1 person) with the invite row (the teammate@company.com hint, the Editor role menu and Invite) and the member list showing you as Owner (last name and email blurred), highlighted; and the red Delete workspace box (highlighted) above Cancel and Save changes. No invitation is pending in this example.](/img/docs/account/account-workspaces-2.png)
 
 ## Accept an invitation
 

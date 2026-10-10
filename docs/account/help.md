@@ -22,7 +22,7 @@ The panel opens on "Hey There" and "Let’s help you build a great app!" with th
 | **YouTube Channel** | Opens the Nowa channel. |
 | **Hire an Expert** | Opens the expert dialog (see below). |
 
-{/* CAPTURE: id=account-help-1 | state: signed in, a project open, click the ? button | show: the support panel home with Hey There, Your tickets (if any), Report an issue, Chat with support, Documentation, YouTube Channel and Hire an Expert | crop: the panel at the bottom right of the window */}
+![The support panel opened with the round ? button inside a project: the Hey There header with Let's help you build a great app!, then the options (highlighted): Report an issue, Chat with support, Documentation, YouTube Channel and Hire an Expert. No tickets are listed yet, so Your tickets does not show.](/img/docs/account/account-help-1.png)
 
 ## Report an issue {#report-an-issue}
 

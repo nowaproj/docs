@@ -57,7 +57,7 @@ Try "Turn the recipe card on the Home screen into a component and use it on the 
 
 Open **Library** in the left sidebar. Your screens and components are under **Project**, in the folders of your `lib/` folder. [Find and add things with the Library](library.md) covers the whole panel. These are the steps for screens and components.
 
-![The Library with the project's components listed and the right-click menu of one component row (highlighted): Insert, Open, Rename, Delete and Show in code.](/img/docs/design/design-components-2.png)
+![The Library with the project rows (the pages folder with HomePage, and the selected ProductCard component) and the right-click menu of the ProductCard row (highlighted): Insert, Open, Rename, Delete and Show in code, with the keys beside the first three.](/img/docs/design/design-components-2.png)
 
 - Type in the search field to find one. To list only one kind, choose **Screens** or **Components** in **Filter**.
 - Click a row for its details card: a preview, its name, where it lives and the first lines of its description. Press <kbd>Esc</kbd> to put the card away.

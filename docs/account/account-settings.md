@@ -22,7 +22,7 @@ The window has two groups. In a narrow browser window, such as on a phone, it op
 | **Editor Settings** | **Local Setup** | Flutter SDK, projects folder and VS Code path (desktop app). See [Install the desktop app](../get-started/desktop-app.md). |
 | | **Git** | Your GitHub connection and Git credentials. It needs a plan that includes Git. See [Connect GitHub](../code/github.md). |
 
-{/* CAPTURE: id=account-account-settings-1 | state: signed in (throwaway account), dashboard sidebar Settings, Account Details page showing | show: the Account Settings and Editor Settings groups on the left and the Account Details page (First Name, Last Name, Email with Change Email, Password, Delete Account, Connected Accounts); blur the email | crop: the window */}
+![The account settings window opened with Settings in the dashboard sidebar. The list on the left (highlighted) has the Account Settings group (Account Details, Billing, Usage) and the Editor Settings group (Local Setup, Git). Account Details shows First Name, Last Name, Email with the Change Email button, Password with Change Password, the red Delete Account button, and Connected Accounts with Figma and Connect. The last name and the email are blurred.](/img/docs/account/account-account-settings-1.png)
 
 Nowa's editor has a single dark look. There's no light/dark switch and no interface-language setting. Your app's light and dark themes are separate: see [Create and edit themes](../design/themes.md).
 

@@ -20,7 +20,7 @@ Deleting asks **Are you sure you want to delete "…"?** Click **Yes**. The scre
 
 You can also press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>B</kbd> to create a board. <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>B</kbd> opens the list with the search ready. The chip isn't there in code mode or while your app runs in the editor, so the key does nothing then.
 
-![The Boards list open: the Search boards field at the top, two boards (one hovered, showing the Rename and Delete buttons, and the current board marked) and Create new board at the bottom.](/img/docs/design/design-boards-1.png)
+![The Boards list open from the login_flow chip, which sits after the Back and Forward arrows: the Search boards field at the top, two boards (first, hovered, with its Rename and Delete buttons highlighted, and login_flow, the current board, marked with a check) and Create new board at the bottom, highlighted too.](/img/docs/design/design-boards-1.png)
 
 ## Set the board color and grid
 
@@ -51,7 +51,7 @@ Everything directly on a board is a board item: a screen, a component, or a loos
 - **Loose widgets** have no title bar. They're saved only in the board file, so they're not part of your app until you place them inside a screen.
 - **Frame.** An item ends at its frame. Overflow, error boxes and blurs don't paint over the items around it.
 
-![The board with two screens, SettingsPage and HomePage, and a loose gray shape. The HomePage title bar is highlighted: it shows the home icon, the Play button and the Open in new tab button.](/img/docs/design/design-boards-2.png)
+![The board with a loose gray shape and two screens, HomePage (with a Button) and SettingsPage. The HomePage title bar is highlighted: it shows the home icon, the Play button and the Open in new tab button.](/img/docs/design/design-boards-2.png)
 
 **Play** runs the item on the board so you can tap through it. See [Play your app on the board](../test/instant-play.md). **Open in new tab** opens the screen or component on its own, in place of the board. To come back, click **Back** in the top bar or press <kbd>Ctrl</kbd> + <kbd>-</kbd> (the Control key, also on a Mac). You can also open the **Boards** chip and pick the board.
 

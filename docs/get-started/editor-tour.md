@@ -7,7 +7,7 @@ keywords: [interface, editor, layout, explore interface, top bar, sidebar, panel
 
 The editor is a handful of areas that always stay in the same place. Here is what each one does, with a link to the page that covers it in depth.
 
-![The whole Nowa editor with numbered callouts: 1 top bar, 2 sidebar, 3 side panel (AI Assistant), 4 board, 5 Variables and Details, 6 board toolbar, 7 status bar, 8 support button.](/img/docs/get-started/get-started-editor-tour-1.png)
+![The whole Nowa editor 3.13 with numbered callouts: 1 top bar (Back and Forward arrows, Boards chip), 2 sidebar (Assistant, Library, Themes, Search, Outline, Api, Supabase, Router), 3 side panel (the Library here), 4 board, 5 Variables and Details, 6 board toolbar, 7 status bar (v3.13.0-79), 8 support button.](/img/docs/get-started/get-started-editor-tour-1.png)
 
 ## The layout at a glance
 

@@ -15,7 +15,7 @@ Code mode shows the Dart behind your app in a full code editor. Select a widget,
 
 The **Files** icon takes the Library's place, second in the left sidebar (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>2</kbd>), and the panel opens on it. It shows the whole project as a tree: `lib/`, `boards/`, `assets/`, `pubspec.yaml` and the platform folders. When you leave code mode, the panel you were using comes back.
 
-![Code mode: the Files tree on the left, home_page.dart open in a tab with its Dart code, the download and Show preview buttons (highlighted) at the right end of the tab bar, and the preview pane (Play and App) beside the code.](/img/docs/code/code-code-mode-1.png)
+![Code mode: the Files tree on the left (android, assets, boards, lib with globals, main.dart and pages, macos and pubspec.yaml) with home_page.dart selected, home_page.dart open in a tab with its Dart code, the download and Show preview buttons (highlighted) at the right end of the tab bar, and the preview pane (Play · App) beside the code showing the Home Page.](/img/docs/code/code-code-mode-1.png)
 
 You can also open code mode with **Open code mode** on the **Nothing is open** screen. A Dart file with no screen or component in it, such as a model or a global state, opens with an outline of its contents and a **View Code** button that switches to code mode.
 

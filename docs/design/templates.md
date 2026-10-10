@@ -14,7 +14,7 @@ Skip the blank page. A template gives you a finished screen or component, such a
 3. Point at a template, or move to it with the arrow keys, to see its preview. Click it, or press <kbd>Enter</kbd>, to add it.
 4. Finish the dialog that opens. What it asks depends on the template. See the next two sections.
 
-![The screen template picker opened from the Screen tool: a Search for templates box, the Screens and Components chips, the template list (Onboarding Screen highlighted, Premium badges on Article and Dashboard) and a preview pane showing the Onboarding Screen template.](/img/docs/design/design-templates-1.png)
+![The screen template picker opened from the Screen tool: a Search for templates box, the Screens and Components chips (highlighted), the template list scrolled a little (Onboarding Screen highlighted, Premium badges on Article and Dashboard, then the start of Event Info) and the preview pane (highlighted) showing the Onboarding Screen template with a placeholder image, Welcome to Our App and Skip and Next buttons.](/img/docs/design/design-templates-1.png)
 
 Nowa places the new screen or component on the board near your pointer. A screen doesn't become your home screen automatically. See [Create and set up screens](screens.md).
 

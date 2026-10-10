@@ -18,7 +18,7 @@ Nowa AI has three modes. **Design** builds the look and flow first, **Plan** wor
 | **Plan** | For planning complex tasks before building | What would you like to plan? |
 | **Agent** | For everything, from design to functionality | Build something wild... |
 
-![The mode menu open above the chat field, listing Design, Plan and Agent with a one-line description each; Agent is checked.](/img/docs/ai/ai-modes-1.png)
+![The mode menu (highlighted) open above the chat field, listing Design, Plan and Agent with a one-line description each; Agent is checked.](/img/docs/ai/ai-modes-1.png)
 
 The mode chip and the thinking-level chip are disabled while Nowa AI is working. Wait for the request to finish, or [stop it](chat.md#stop-a-request) first.
 

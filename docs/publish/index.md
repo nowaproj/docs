@@ -43,7 +43,7 @@ Before you publish, work through the [publish checklist](../guides/ship-tips.md#
 2. Click **Deploy**. The menu lists **Web**, **Android Debug**, **Android Release** and **iOS**, each with its status.
 3. Click **Deploy** on the row you want. The top-bar button reads **Deploying** while anything is building.
 
-{/* CAPTURE: id=publish-index-1 | state: signed in, cloud project open, Deploy menu open | show: the four rows (Web, Android Debug, Android Release, iOS) with status text and buttons, and Advanced build settings | crop: top-right of the editor with the menu */}
+![The Deploy menu open from the Deploy button in the top bar (both highlighted): the Web row (Not published yet, with a Deploy button), the Android Debug, Android Release and iOS rows (Not deployed yet, each with a Premium button because this plan doesn't include them), the Claim your Nowa Launch Benefits row and Advanced build settings at the bottom.](/img/docs/publish/publish-index-1.png)
 
 Each row keeps you posted:
 

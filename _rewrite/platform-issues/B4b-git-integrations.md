@@ -79,3 +79,52 @@ Watch out: the cloud path reads conflicts from the server (`packages/git_nowa/li
 Test: next to `packages/git_nowa/test/merge_test.dart` (same `git(...)` helper): branch `feature` with a committed edit on a line, an uncommitted edit of the same line on `main`, then `service.checkoutBranch(path, 'feature', migrate: true)` must throw `ConflictException` with `conflict.local` = your edit and `conflict.remote` = the `feature` text.
 
 **Docs impact.** `docs/code/git.md`, section "Resolve conflicts": delete "In a local project, the panes are the other way round after **Bring my changes**: **Local** is the version on the branch you switched to, and **Remote** holds your own changes." once the panes are fixed. Until then the page's "Read both panes" step is the only protection.
+
+### P29. Resolve Conflicts: Accept makes Git forget the other conflicts, and Accept Remote can write the next file's text
+
+- **Area:** Git, Resolve Conflicts dialog (`lib/project/panels/git_panel`, `packages/git_nowa`)
+- **Severity:** High — **Accept Remote** can put another file's text into the file you just resolved and stage it, and any **Accept** removes the other conflicted files from Git's index. The row as logged ("Accept may clear all remaining conflicts") alone would be Medium; the second fault is new and is what makes this High.
+- **Where:** both; cloud and local projects (the dialog is shared). The index clearing is persistent in local projects; in cloud projects only the list on screen is cleared until the next refresh.
+- **Status:** Present in 3.13.0 and dev (same code in 3.12.5: `git_details.dart:1860-1869, 1975-1983` there)
+- **Confidence:** Confirmed in code and with libgit2 for the first fault — Nowa's call sequence run against the bundled libgit2 1.9.1: after staging one file the other conflict is gone, and `git status` shows `D  b.txt` plus `?? b.txt`. The second fault is code reading plus a stand-alone Dart 3.12.2 script that copies the two functions (it printed `{lib/a.dart: B-remote}`). The dialog itself was not run.
+
+**What happens.** Two separate faults in the same dialog.
+1. Accepting one file's version tells Git that every conflict is resolved. The **Conflicts** list empties, and in a local project Git's index drops the other conflicted files. Their working copies still hold the conflict markers, but nothing says "unresolved" any more. Git sees each as deleted in the index plus a new untracked file.
+2. With two or more files in the dialog, **Accept Remote** on any file except the last writes the next file's **Remote** text into the file you are resolving, then stages it. **Accept Local** is not affected.
+
+By the code, the first fault ends in a bad commit. With something staged, the button reads **Commit Staged** and commits the index, which no longer holds the unresolved files, so the commit deletes them from the repository (they stay on disk with markers). With nothing staged, **Commit All** stages them and commits the markers. `getStatus` also overwrites their statuses with `wtNew` (`git_manager.dart:781-783`), so the panel shows them as plain new files under **Changes**.
+
+You are safe from the first fault only if you accept every file in one go. You hit it when you open one file from **Conflicts** (hover the file, click **Resolve conflict**), or close the dialog (×) before the last file.
+
+**Steps to reproduce** (desktop app, local project with Git; the git steps were run with libgit2, the dialog was not clicked)
+1. Make a merge conflict in two files: on branch `feature` change the same line in two files (for example `lib/pages/home_page.dart` and `lib/globals/app_state.dart`) and click **Commit All**. Switch back to `main`, change the same lines differently and commit.
+2. On `main`, click the branch name, hover `feature`, click **Merge into current branch**, then **Merge**. **Resolve Conflicts** opens on the first file.
+
+First fault:
+3. Click × to close the dialog. Under **Conflicts** both files are listed.
+4. Hover the first file, click **Resolve conflict**, then **Accept Local**.
+
+Expected: the second file is still under **Conflicts**.
+Actual: **Conflicts** is gone. The second file still shows `<<<<<<<` markers in the editor and now looks like a new file under **Changes**.
+
+Second fault (repeat 1-2 on a fresh conflict):
+3. In the open dialog, click **Accept Remote** on the first file.
+4. Open the first file in code mode.
+
+Expected: the first file holds its own **Remote** text.
+Actual: it holds the second file's **Remote** text.
+
+**Root cause.**
+- First fault. `_acceptChanges` ends with `gitManager.resolveAllConflicts()` (`lib/project/panels/git_panel/git_details.dart:1785`). That calls `service.resolveConflicts` and then sets `conflicts: []` (`packages/git_nowa/lib/src/git_manager.dart:731-734`). Locally it is `index.cleanupConflict()` (`packages/git_nowa/lib/src/local/local_git_service.dart:368-372`), documented as "Removes all conflicts in the index (entries with a stage greater than 0)" (`git2dart-0.4.0/lib/src/index.dart:148-151`). The files lose their stage entries and get no stage-0 entry. The call is not needed: `addFiles([path])` just before it runs `index.addAll(paths); index.write()` (`local_git_service.dart:205-210`) and already resolves only that path (probe: after `git_index_add_all` on `a.txt`, only `b.txt` stays conflicted). The list is rebuilt from the index by `updateConflicts()` (`git_manager.dart:268, 736-739`). The cleaned in-memory index is what the next `index.write()` and the commit's `index.writeTree()` use (`local_git_service.dart:223`). Cloud: `NetworkGitService.resolveConflicts` returns at once (`network_git_service.dart:117-119`).
+- Second fault. `_acceptChanges` reads the pane text after an `await` (`git_details.dart:1777-1786`): `final file = await gitManager.fileFor(conflictPath); final content = local ? _localController... : _remoteController.controller.text;`. **Accept Local** awaits `_acceptChanges(true)` before moving on (`:1877-1887`). **Accept Remote** calls `_acceptChanges(false)` without `await` (`:1892`) and, in the same turn, runs `index++; _loadTexts()` (`:1894-1895`). `_loadTexts` sets both controllers to the next file's text (`:1769-1775`), and the controller's `text` setter is synchronous (`re_editor-0.10.0/lib/src/_code_line.dart:175-181`). When `_acceptChanges` resumes, it reads the next file's text and writes it to the first file's path. The last file is safe because no `_loadTexts` follows.
+
+**Suggested fix.**
+1. In `_acceptChanges`, read `content` before the first `await`, and `await` it in both handlers (or use one shared handler). Catch errors and show them.
+2. Delete the `resolveAllConflicts()` call at `git_details.dart:1785`, and make `addFiles` wait for its refresh (`git_manager.dart:478`: `await updateState()`). The index then keeps unresolved files as conflicts and the list stays right. If you still want a final clear, do it after the last file, only when `repo.index.hasConflicts` is false.
+3. Optional: reopen **Resolve conflict** from the live list, not from the list the dialog was given.
+
+Test: in `packages/git_nowa/test/merge_test.dart` style, make two conflicting files, call `service.stageFiles(path, ['a.txt'])` and assert `service.getConflicts(path)` still lists `b.txt`. Add a widget test of `ResolveConflictsDialog` with two conflicts: **Accept Remote** on the first must write the first file's **Remote** text.
+
+Also seen, not in the log: `NConflict.sha` is "carried so the resolving commit can record the merged branch as its second parent" (`packages/git_nowa/test/merge_test.dart:101-102`), but nothing passes it on. The commit box calls `commit(message)` without it (`lib/project/panels/git_panel/git_commands.dart:57, 68`), so the commit after a resolved pull or merge has one parent. Not investigated further.
+
+**Docs impact.** `docs/code/git.md`, section "Resolve conflicts": step 2 says "Repeat for each file. Nowa stages the resolved files." Once fixed, add that you can close the dialog and reopen it from **Conflicts**. Until then the page should tell readers to resolve every file in one pass and to check each file afterwards, especially after **Accept Remote**.

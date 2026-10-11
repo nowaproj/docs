@@ -73,7 +73,7 @@ A variable only changes when your logic changes it. Here's how to set one when a
 
 Without **refresh**, the value changes but the screen keeps showing the old one. Screen and component variables don't redraw on their own.
 
-{/* CAPTURE: id=logic-variables-2 | state: playground starter, a Button's On Pressed open in Circuit, a variable node with the Set button used and a refresh node below it | show: the Circuit panel with the two nodes and Details showing the Set button and Value field | crop: Circuit panel and Details */}
+![Circuit for a Button's onPressed: below the onPressed node, a Set counter node and a refresh node (both highlighted). The Details panel inside Circuit shows the Set counter node's Value, counter! + 1 (highlighted), as a Math Expression, with Store result set to Pick Variable and Variable counter.](/img/docs/logic/logic-variables-2.png)
 
 Any node that returns a value can also write its result into a variable. Select the node, set **Store result** to **Pick Variable**, and choose the variable.
 

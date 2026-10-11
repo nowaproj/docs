@@ -19,7 +19,7 @@ The red number counts the errors in this list. The other two count messages in *
 
 The menu at the top left of the tab picks the source.
 
-{/* CAPTURE: id=test-problems-2 | state: same project, Console on Problems, click the source menu at the top left of the tab | show: the open menu with From Nowa (Instant) and From Code Analysis (Accurate), and the filter and refresh buttons on the right | crop: the Console panel */}
+![The Console on the Problems tab with the source menu open (highlighted): From Nowa, marked Instant and currently chosen, and From Code Analysis, marked Accurate. The filter and refresh buttons sit on the right of the tab.](/img/docs/test/test-problems-2.png)
 
 | | From Nowa (Instant) | From Code Analysis (Accurate) |
 |---|---|---|

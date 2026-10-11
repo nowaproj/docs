@@ -52,7 +52,7 @@ If your own code uses the `google_fonts` package, for example `GoogleFonts.poppi
 2. In **Details**, click the icon field. It shows the current icon and its name, or **none**.
 3. In the **Icons** popup, type a name such as "home" in the search box, then click an icon.
 
-{/* CAPTURE: id=design-fonts-icons-2 | state: playground starter open, an Icon widget on a screen selected, the icon field clicked, "home" typed in the search box | show: the Icons popup with search and the icon grid | crop: right Details panel + popup */}
+![The Icons popup opened from the icon field of a selected Icon widget (highlighted): the Icons title, the search box with home typed in it and a grid of matching Material icons. To its right, the Icon section of Details still shows the current icon, star_bor... (star_border).](/img/docs/design/design-fonts-icons-2.png)
 
 The picker lists Flutter's Material Icons only. For any other icon, add it as an SVG file and show it with an SVG widget. See [Images, videos and other files](assets.md).
 

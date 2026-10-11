@@ -51,7 +51,7 @@ A new screen starts at 393 × 808 unless its template sets another size. For any
 
 To compare two sizes at once, select the screen's title, press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>C</kbd>, point at empty board space and press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>V</kbd>. Give the copy another **Size**. Both items show the same screen, so every edit appears in both.
 
-{/* CAPTURE: id=design-responsive-2 | state: playground starter open, HomePage title selected, Ctrl/Cmd+C, click empty board space to the right, Ctrl/Cmd+V, then the copy's Size set to MacBook Pro | show: the same screen twice on the board, one at phone size and one at MacBook Pro size, each with its title bar | crop: the board */}
+![The home screen twice on the board, at phone size (393 × 808) on the left and at MacBook Pro size (1155 × 807) on the right, both titled HomePage (the two title bars are highlighted). A purple Container pinned left and right stretches across each width.](/img/docs/design/design-responsive-2.png)
 
 Hover a screen's title and click **Play** to tap and scroll at its current size. See [Play your app on the board](../test/instant-play.md).
 

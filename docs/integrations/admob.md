@@ -34,7 +34,7 @@ Nowa writes the Android App ID into the Android manifest and the iOS App ID into
 
 If **Details** shows "No API Keys" with an **AdMob setup** button, click the button to open the **AdMob** page and add the missing App ID. The same goes for a button named **AdMob Android setup** or **AdMob IOS setup** that replaces a unit ID field.
 
-{/* CAPTURE: id=integrations-admob-2 | state: playground starter open, AdMob enabled with both App IDs set, an Admob Banner selected on a screen | show: the Details panel with Android Unit ID, Ios Unit ID and Show Test Ads, and the red editor-preview banner on the board | crop: board item + Details panel */}
+![An Admob Banner selected near the top of the home screen, drawn on the board as a red box reading This is an editor preview for Admob. Details, headed NowaAdBannerWidget, shows its Layout and, highlighted, the Android Unit ID and Ios Unit ID fields (both null) and the Show Test Ads switch, on.](/img/docs/integrations/integrations-admob-2.png)
 
 What the banner shows depends on where it runs:
 

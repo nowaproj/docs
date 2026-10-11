@@ -30,7 +30,7 @@ Stripe lets your app take card, Apple Pay and Google Pay payments. Nowa sets up 
 
 You can select more than one type, and at least one always stays selected.
 
-{/* CAPTURE: id=integrations-stripe-1 | state: playground starter open, Settings open on Integrations → Stripe, Enabled on | show: Enabled switch, 1. API Keys fields and the Purchase Types buttons | crop: Settings window content area */}
+![The Stripe page in Settings with Enabled on. Under 1. API Keys, the Merchant Name, Country Code (US) and Publishable Key fields are highlighted, and under Purchase Types the One-Time, Consumable and Subscription buttons are highlighted, with One-Time selected and its note below. At the bottom: Connect to Supabase to configure backend settings, secrets, and deploy edge functions.](/img/docs/integrations/integrations-stripe-1.png)
 
 Nowa saves the three values from step 3 in **Constants** (**Settings** → **General**) and compiles them into your app.
 

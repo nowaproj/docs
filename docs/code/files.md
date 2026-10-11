@@ -81,7 +81,7 @@ Before a delete, Nowa asks "Are you sure you want to delete…?". If other files
 
 Click **Search** (the magnifier) in the left sidebar, or press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd>. The chips at the top switch between **Text** and **Symbols**.
 
-{/* CAPTURE: id=code-files-2 | state: playground starter open; Search panel open; type "Home" in Search and click the arrow next to it to show the Replace row | show: the Text chip, the Search field with the Aa, ab and .* buttons, the Replace field with Replace all, the "N in M files" status and the grouped results | crop: left panel */}
+![The Search panel on Text with Home typed in Search: the Search field with its Aa, ab and .* buttons and the Replace field with the Replace all button are highlighted. Below, the status 9 in 3 files and the matches grouped by file (boards/first.board, lib/pages/home_page.dart and lib/globals/router.dart), each file with its match count.](/img/docs/code/code-files-2.png)
 
 ### Search text
 

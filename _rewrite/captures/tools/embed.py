@@ -14,7 +14,7 @@ import sys
 ROOT = pathlib.Path(__file__).resolve().parents[3]
 LOG = ROOT / '_rewrite' / 'captures' / 'log.md'
 DOCS = ROOT / 'docs'
-PLACEHOLDER = re.compile(r'\{/\*\s*CAPTURE:\s*id=([a-z0-9-]+)[^*]*\*/\}')
+PLACEHOLDER = re.compile(r'\{/\*\s*CAPTURE:\s*id=([a-z0-9-]+).*?\*/\}', re.S)  # a `*` may appear inside
 
 
 def read_log():

@@ -74,7 +74,7 @@ This is the quickest route.
 7. To build for Android, click **Download** next to "Android isn't set up". The next screen lists **Android toolchain** and an optional **Android emulator**: click **Install** next to each one you want. Click **Skip for now** if you only target web or desktop. You can add them later from **Local Setup**.
 8. Click **Done**.
 
-{/* CAPTURE: id=get-started-desktop-app-2 | state: desktop app, Local Setup page open, Set up automatically clicked, Flutter step showing | show: the Set up local environment dialog on the Flutter step with Install location, the license checkbox and the Install button | crop: the dialog */}
+![The Set up local environment dialog on its Flutter step in the desktop app: the Install location field with Browse, the ticked license checkbox (highlighted) with its Android SDK Terms, Flutter license, Temurin JDK license and Privacy links, and the Flutter row marked Not installed with the Install button (highlighted).](/img/docs/get-started/get-started-desktop-app-2.png)
 
 **You should see:** each tool you installed with a **Ready** status. If Flutter is installed but old, the button reads **Update Flutter SDK** next to "Flutter SDK is outdated".
 

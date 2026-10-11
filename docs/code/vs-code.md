@@ -22,7 +22,7 @@ A local project is an ordinary Flutter folder, so you can open it in Nowa and in
 
 VS Code opens your project folder at the file you were viewing. If the open tab isn't a Dart file, it opens `lib/main.dart`.
 
-{/* CAPTURE: id=code-vs-code-1 | state: desktop app, a local project open in code mode with a Dart file open, VS Code installed; click Open in VS Code and arrange both windows side by side | show: the Open in VS Code button in Nowa's code tab bar, and the same file open in VS Code | crop: both windows */}
+![Nowa and VS Code side by side: on the left Nowa in code mode with lib/main.dart open and the Open in VS Code icon (highlighted) at the right end of the tab bar next to the preview toggle, on the right VS Code showing the same project folder with main.dart open (its tab highlighted).](/img/docs/code/code-vs-code-1.png)
 
 Two more shortcuts:
 

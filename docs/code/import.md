@@ -35,7 +35,7 @@ Both start from the arrow next to **New project** on the dashboard.
    - To keep your folder where it is, expand **Advanced** and click **Local-only project**. The footer reads "Imported locally — stays on this device, no cloud features."
 5. Click **Import project**. The project opens.
 
-{/* CAPTURE: id=code-import-1 | state: desktop app, signed in, dashboard open; click the arrow next to New project, choose Import project, browse to a folder that is a Flutter workspace with several packages | show: the Project folder field, the open Package to open menu with its hints (Has boards, Workspace root, App, Library), the Advanced section and the footer text | crop: the dialog */}
+![The Import project dialog for a pub workspace folder: the Project folder path with Browse and the open Package to open menu (highlighted) listing the workspace root as Workspace root, admin_app as App, shop_app as Has boards (selected) and ui_kit as Library. The menu covers most of the locked Local-only project card under Advanced, and the footer reads Imported locally — git and the other packages stay reachable.](/img/docs/code/code-import-1.png)
 
 What to know before you click **Import project**:
 

@@ -32,7 +32,7 @@ For a side-by-side comparison, see [Cloud and local projects](../get-started/clo
 
 The folder is named after your project's package name: your project name in lowercase, with underscores for spaces. A leading digit is spelled out, so `2048 Game` becomes `two_048_game`. The dashboard shows the name you typed. If Nowa says a folder with that name already exists, pick another name or path.
 
-{/* CAPTURE: id=code-local-projects-1 | state: desktop app, signed in, dashboard open, click New project, expand Advanced, tick Local-only project | show: the Project name field, the Advanced card with Local-only project ticked and the PRIVATE tag, the Path field with Browse, and Create project | crop: the dialog */}
+![The New project dialog with the name Docs capture local and Advanced expanded: the Local-only project card ticked with its PRIVATE tag and the Path field with Browse (highlighted together), no Flutter SDK warning, and the footer Local-only projects stay on this device and can't use cloud features next to Create project.](/img/docs/code/code-local-projects-1.png)
 
 ## Open a local project
 
@@ -71,7 +71,7 @@ To copy changes later:
 
 A sync overwrites existing data in the destination with the files from the source. It runs one way at a time and never on its own, so back up the destination first.
 
-{/* CAPTURE: id=code-local-projects-2 | state: desktop app, a local project linked to a cloud copy, top bar Settings (gear) then Project Sync | show: the Cloud Project and Local Project cards with Current, Open Project, Sync from Cloud and Sync from Local, and the link icon between them | crop: the Project Sync page */}
+![The Project Sync page of a local project linked to a cloud copy: the Local Project card marked Current and the Cloud Project card with its Open Project icon, the link icon between them, and the Sync from Cloud and Sync from Local buttons (highlighted).](/img/docs/code/code-local-projects-2.png)
 
 To break the link, click the link icon between the cards (tooltip **Unlink Project**) and confirm with **Unlink Project**. Both projects stay as they are. To link them again, clone the project again.
 

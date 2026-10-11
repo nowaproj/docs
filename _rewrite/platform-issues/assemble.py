@@ -214,6 +214,11 @@ and kept for the record.
 def main():
     groups, new_raw = load()
     new_entries, mapping = renumber(new_raw)
+
+    def remap(body):
+        return re.sub(r'\b([RMX]\d+)\b', lambda m: mapping.get(m.group(1), m.group(1)), body)
+
+    groups = [(title, [(eid, t, remap(b)) for eid, t, b in entries], ok) for title, entries, ok in groups]
     all_entries = []
     for title, entries, _ in groups:
         all_entries += [info(eid, t, body, title) for eid, t, body in entries]

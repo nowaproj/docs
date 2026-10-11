@@ -222,7 +222,7 @@ from research are not on the page)
    **Visible**, **Replacement**, **Alignment** (Fitted Box). A verifier with a live editor should spot-check a few.
 7. "Spins until you set **Value**" (progress indicators) and "Typically used as the item of a List View" are Flutter semantics / the picker's own description, not Nowa-specific code.
 8. The Request a Widget dialog sends the text with the account email and date (`packages/core/lib/src/dialogs/dialog_data_sender.dart:24-28`); I did not mention it on the page. Say so if you want
-   a privacy line there. (The same file holds the hard-coded credential noted in research open question 13: not docs content.)
+   a privacy line there. (A security note about this area was reported to the Nowa team privately: not docs content.)
 
 ### Coverage notes
 

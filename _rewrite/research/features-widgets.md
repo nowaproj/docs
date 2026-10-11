@@ -502,6 +502,6 @@ Notes:
 10. **RevenueCat Paywall fields.** They come from `PaywallView` in `purchases_ui_flutter`, not defined in Nowa's code; list them only after a live check.
 11. **Button "Enabled" -> Compute -> "Create Variable".** The code carries the comment "FixMe: the additional items are not showing up in the linkMenu" (`button_fields.dart:155-156`); does "Create Variable" appear?
 12. **In-app Shortcuts sheet says "Open widget picker" is Ctrl/⌘+P** (`shortcuts_cheat_sheet.dart:40`) but the binding is K and P is Play. Also noted in `upcoming-3.13.md`. Product issue.
-13. **Hard-coded Airtable credential** in the client (`dialog_data_sender.dart:9-16`). Not docs content; logged here for the orchestrator.
+13. A security finding in this area was reported to the Nowa team privately. Not docs content.
 14. **Add Wrapper conditions.** `canWrapWidget` hides the button for some slots; which user-visible cases (for example a widget placed directly as a list-builder return) hide it was not enumerated.
 15. **Which widgets are mobile-only at run time** (Admob real ads, Google Maps, RevenueCat) is stated in integration page texts, not per-widget in the code; the integration researcher owns it.

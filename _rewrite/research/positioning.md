@@ -172,7 +172,7 @@ In-app help entry points the docs can point to (exact labels):
 | 47-49 | "Instant App Preview… click **Play**" | Partly outdated | Name it Instant Play (What's New) and give current actions: hover a screen and hit play (`docs/new/whats-new.md:251`), right-click → **Play** (`:27`), Run menu → Embedded preview. |
 | 60-63 | Local projects and desktop app | Accurate | Add badge **Desktop app only** (`new_project_dialog.dart:267`). |
 | 67 | Nowa + VS Code "sync instantly both ways" | Needs scope | nowa.dev says this for **local projects**; the docs must say so too. |
-| 79 | Integrations include **Airtable** | **Unconfirmed** | Only an internal endpoint exists (`packages/core/lib/src/dialogs/dialog_data_sender.dart:10`). Drop it; list integrations from feature research (nowa.dev lists Xano, Stripe, RevenueCat, OpenAI…). |
+| 79 | Integrations include **Airtable** | **Unconfirmed** | Only an internal feedback endpoint exists. Drop it; list integrations from feature research (nowa.dev lists Xano, Stripe, RevenueCat, OpenAI…). |
 | 83-84 | Deploy "with a single click", custom domains | Partly | Custom domains need a higher plan (`custom_domain_section.dart:50`). |
 | 86-87 | "Templates & Marketplace" | Unverified | Code calls it "Sample Projects" (`marketplace_view.dart:155`); confirm it is reachable. |
 | 102 | "better app building" | Tone | Empty superlative. |

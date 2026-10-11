@@ -50,3 +50,19 @@ then the rest.
 Log each capture in `captures/log.md` right after you check it. Update the request rows' status. Never commit.
 
 Final message (at most 15 lines): captured / not possible counts, AI prompts sent (with the log), problems.
+
+## Phase 11 rules (2026-10-11, from the user)
+
+The user upgraded the test account to a paid plan (**Scale**, trial until 25 Oct: cloud builds, code download, desktop,
+GitHub integration) and created throwaway external accounts. These rules replace the hard limits above where they differ.
+
+- **Allowed now:** in a project named `Docs capture ...` that you create: a web publish of that project, one Android
+  build, generating an Android signing key, opening every Deployment tab. Connecting the throwaway **Figma** account to the
+  test account (its credentials are in the scratchpad file `ext-accounts.env`, `EXT_MAIN_EMAIL` / `EXT_MAIN_PASSWORD`;
+  same handling rules as the test account).
+- **Still not allowed:** iOS builds (no Apple credentials), custom domains, making a project public, purchases, upgrades,
+  invitations, AI prompts (the 5-prompt budget is used up), and solving any CAPTCHA or working around a site's bot checks.
+  Supabase, Stripe, GitHub and Google block the cloud browser: don't sign in to them. The user may connect Supabase and
+  GitHub to the test account from their own browser; use those connections only if they show up as connected.
+- **Privacy:** blur every email address, person's name, username and avatar in a screenshot (the docs repo is public).
+  Never put an account email in a file name, alt text, log or commit.

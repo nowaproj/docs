@@ -11,7 +11,7 @@ Every Android and iOS build runs in the cloud and leaves a record. Start a build
 
 ## Start a build
 
-1. Click **Settings** → **Deployment** and open the **Android** or **iOS** tab. On **Android**, **Debug mode** decides which build you start.
+1. Click **Settings** → **Deployment** and open the **Android** or **iOS** tab. On **Android**, **Debug mode** decides which build you start and which builds you see: debug and release builds are listed separately. It's off whenever you open the page from **Settings**, so turn it on to see your debug builds.
 2. In **Start New Build**, pick a **Branch**. It starts on the branch you have checked out.
 3. Click **Build**. Above the button, Nowa reminds you: "Starting a build will commit all changes to the selected branch."
 
@@ -36,7 +36,7 @@ Your plan sets how many builds you can run. When the allowance is used up, **Tim
 
 While a build runs, the card is called **Active Build**. It shows the current status and a **Cancel** button. Nowa checks the status every few seconds, so you don't need to refresh.
 
-Along the way the status reads **Queued**, **Initializing**, **Preparing**, **Fetching**, **Building**, **Testing**, **Publishing** or **Finishing**. It ends as **Finished**, **Failed**, **Canceled**, **Skipped** or **Timeout**.
+Along the way the status reads **Queued**, **Initializing**, **Preparing**, **Fetching**, **Building**, **Testing**, **Publishing** or **Finishing**. It ends as **Finished**, **Failed**, **Canceled**, **Skipped** or **Timeout**. A build can wait in **Queued** for a while before it starts. You can close Nowa in the meantime: the build keeps going in the cloud.
 
 The **Deploy** button in the top bar reads **Deploying** while a build runs, and the build's row in the **Deploy** menu shows the same status.
 

@@ -78,7 +78,7 @@ design, logic, data, testing and publishing, with code, account and reference af
    recipes for the steps a fresh-eyes review found missing (detail screen from a list, start on the login or the home
    screen, ship an update, share with a client, test without the desktop app), a sign-in comparison, and the Apple and
    Google store rules.
-2. **Video where motion matters**: six short videos, including Nowa AI building an app.
+2. **Video where motion matters**: eight short videos, including Nowa AI building an app.
 3. **Simple, clear, concise, warm, confident**: a wording pass over every page; a script compared each page before and
    after and confirmed no label, link, number, step or heading changed.
 4. **Easy to follow**: a fresh-eyes agent walked six real goals through the docs; its fixes are in.

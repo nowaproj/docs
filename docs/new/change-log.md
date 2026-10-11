@@ -10,28 +10,28 @@ sidebar_position: 2
 ## **3.13.0 (6 October 2026)**
 
 #### **Added 🌟**
-- **Library panel**: replaces the Widgets panel. One searchable list of your screens, components, models, global states, classes, functions and variables, the widgets in your packages, Nowa's built-in widgets and Flutter's libraries, and your assets. Filter it by kind, switch sources with the **Project**, **Packages**, **Built-in** and **Assets** chips, insert with drag and drop or **Ctrl/Cmd + Enter**, and jump to the code with **Show in code**.
-- **Add and go to from the keyboard**: **Ctrl/Cmd + K** and the toolbar's **Widget** tool open the Library ready to add a widget. **Ctrl/Cmd + O** goes to one.
-- **Back and Forward**: arrows in the top bar, and **Ctrl + -** / **Ctrl + Shift + -**, step through the screens and files you opened.
+- **Library panel**: replaces the Widgets panel. One searchable list of your screens, components, models, global states, classes, functions and variables, the widgets in your packages, Nowa's built-in widgets and Flutter's libraries, and your assets. Filter it by kind, turn sources on and off with the **Project**, **Packages**, **Built-in** and **Assets** chips, insert with drag and drop or **Ctrl/Cmd + Enter**, and jump to the code with **Show in code**.
+- **Add and go to from the keyboard**: **Ctrl/Cmd + K** and the toolbar's **Widget** tool open the Library ready to add a widget. In the designer, **Ctrl/Cmd + O** opens it to go to one.
+- **Back and Forward**: arrows in the top bar, and **Ctrl + -** / **Ctrl + Shift + -** (Control on macOS too), step through the screens and files you opened.
 - **Board picker**: the board chip lists every board in your project, with search, rename, delete and **Create new board**. **Ctrl/Cmd + B** opens it.
 - **Linux desktop app**: a 64-bit `.tar.gz` with an `install.sh` that adds Nowa to your app menu. On Linux, updates are downloaded from the update dialog, and your app's preview opens in your browser.
 - **Widget variants from `@Preview`**: each Flutter `@Preview` becomes a named variant of its widget, shown next to the component, as a choice in the widget picker, and under the widget in the Library.
 - **Theme extensions in the pickers**: the color picker has a tab per theme extension next to **Material**, and the text style picker groups each extension's styles.
 - **Default option** first in the dropdown of an enum property that can be left empty.
 - **Branch search** in the Git branch menu.
-- **Built-in packages**: `gap`, `flutter_animate`, `google_fonts` and `smooth_page_indicator`.
+- **Package support**: `gap`, `flutter_animate`, `google_fonts` and `smooth_page_indicator` now work in the designer.
 
 #### **Improved ⚙️**
-- **Files panel**: now in code mode only, as a tree of your whole project with keyboard navigation, multi-select, drag and drop, and **Copy as path**.
+- **Files panel**: now in code mode only, with keyboard navigation, and several selected files drag into a folder together.
 - **Menus and shortcuts**: **Bring forward**, **Send backward**, **Bring to front** and **Send to back** replace the old move entries, and **Ctrl/Cmd + Alt/Option + ]** or **[** moves a widget all the way. Key hints list modifiers in Mac order (⌃⌥⇧⌘), and menus close when the board pans or zooms.
-- **Packages**: `git:` and `path:` dependencies load as packages, and `sdk:` dependencies like `flutter_localizations` count as installed.
+- **Packages**: in local projects, `git:` and `path:` dependencies load as packages, and `sdk:` dependencies like `flutter_localizations` count as installed.
 - **Hand-written code on the board**: relational and `&&` switch patterns, named arguments passed to `super(...)`, callable classes, `firstWhere(orElse:)` and more. Screens from open-source apps like compass_app and Wonderous render.
-- **Placeholders**: a package widget Nowa can't draw is a small box sized to its label, a widget that wraps a child shows the child, unset optional values keep the widget's own defaults, and an image with no size is 48 × 48 px.
+- **Placeholders**: a package widget Nowa can't draw is a small box sized to its label, one that wraps a child shows the child, unset optional colors and enums keep the widget's own defaults, and a placeholder image with no size is 48 × 48 px.
 - **Local projects**: dependencies added to `pubspec.yaml` outside Nowa load without reopening the project, and hidden editor temp files are never loaded as code.
 - **`nowa_runtime` 0.2.0**: no longer includes `smooth_page_indicator`. Projects that use it get a **Page indicator migration** dialog that adds it to `pubspec.yaml`.
 - **Playing from a title**: playing a screen or component from its title also selects it.
 - **New look**: refreshed buttons, lists, trees and menus.
-- **Announcements**: at most two banners at a time, and expired announcements no longer show.
+- **Announcements**: at most two banners at a time, and expired announcements no longer show as banners.
 
 #### **Fixed 🩹**
 - Fixed **edits made in another editor right after Nowa saved** being ignored in local projects.
@@ -40,12 +40,11 @@ sidebar_position: 2
 - Fixed **a project's own `LocalizationsDelegate`** blanking the board when it failed to load.
 - Fixed **screens painting outside their frame** on the board, so overflow, error boxes and blurs no longer cover the screens next to them.
 - Fixed **snap guides** that didn't line up with widgets at some zoom levels.
-- Fixed **Material 2 themes** showing a grey canvas behind the board's home widget.
+- Fixed **Material 2 themes** showing a grey background behind widgets on the board.
 - Fixed **the editor's font**, which fell back to the system font instead of Albert Sans.
 - Fixed **`.nowa/settings.json`** being rewritten by every new release, which showed up as a change in Git.
-- Fixed **`index.html` files with an inlined Flutter bootstrap** being replaced on upgrade.
-- Fixed **the Shortcuts sheet** showing the wrong key for adding a widget, and one key for both reorder entries.
-- Fixed **a crash in the AI chat** when a project was reopened while Nowa was checking your plan.
+- Fixed **`index.html` files that inline Flutter's bootstrap** being replaced when Nowa opened the project.
+- Fixed **the Shortcuts sheet** showing the wrong key for adding a widget, and **the right-click menu** showing one key for both move entries.
 
 ---
 

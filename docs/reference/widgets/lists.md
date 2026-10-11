@@ -43,9 +43,9 @@ To open a screen when someone taps an item, see [Open a detail screen when a lis
 
 ## Know what the board shows
 
-On the board, a Builder list or grid shows the first item at full strength and fades the rest. If Nowa can't work out how many items there are, for example because the list has no value yet, the board shows 20.
+On the board, a Builder list or grid shows the first item at full strength and fades the rest. If the connected list has no entries yet, the board shows three sample items, so the design never looks blank.
 
-Press **Play** to see every item at full strength with your real data. See [Play your app on the board](../../test/instant-play.md).
+Press **Play** to see every item at full strength with your real data. A list that is still empty stays empty in **Play** until your logic fills it. See [Play your app on the board](../../test/instant-play.md).
 
 ![The home screen on the board with a List View whose Item Count is 5 (highlighted): the first Placeholder item is drawn at full strength and the four below it are faded.](/img/docs/reference/reference-lists-2.png)
 

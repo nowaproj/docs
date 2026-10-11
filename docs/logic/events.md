@@ -24,9 +24,9 @@ The orange node at the top of the circuit is the function Nowa made for the even
 
 1. Select the button. In **Details**, click the button next to **On Pressed**. Circuit opens.
 2. Hover the dot under the orange node and click the **+** that appears. The **All nodes for this circuit** menu opens.
-3. Search for `snack`, or open **GLOBALS**, and click **Show snackbar**. A node is added.
-4. In **Details**, click the brush next to **Content** and change the text, which starts as "Hello World". For example, write `Saved!`.
-5. Close Circuit. Click **Play** in the screen's title bar and tap the button. The message appears at the bottom of the screen.
+3. Search for `snack`, or scroll down and open **GLOBALS**, and click **Show snackbar**. A node is added.
+4. In the **Details** panel inside Circuit, click the brush next to **Content**. In the popup, click the **Text** field to select "Hello World", then type your message, for example `Saved!`. Click outside the popup or press <kbd>Esc</kbd> to close it. <kbd>Enter</kbd> adds a line break to the message.
+5. Close Circuit. Click the screen's title, then click **Play** next to its name and tap the button. The message appears at the bottom of the screen.
 
 <video controls playsInline preload="metadata" width="100%">
   <source src="/videos/docs/logic/logic-events-2.mp4" type="video/mp4" />

@@ -51,9 +51,11 @@ To change the icon, select the button and click the icon field in **Details**. S
 ## Add a bottom navigation bar {#bottom-navigation-bar}
 
 1. Set a **Bottom Navigation Bar** in the screen's slot, as in [Add a screen part](#screen-parts). It starts with two tabs, "home" and "call".
-2. Nowa adds a variable called `pageIndex`, a whole number that starts at 0. It links **Current Index** to it and fills **On Tap**, so tapping a tab sets `pageIndex` to that tab's number and refreshes the screen.
-3. Under **Items**, click a tab to select it. Change its **Label**, or click the brush next to **Icon** and pick another icon in **Details**. Click **+** to copy the last tab. The arrow buttons move the selected tab left or right, and the remove button deletes it. A bar needs at least two tabs: Nowa says "Cannot have less than 2 items".
-4. Click **Edit** next to **Unselected** or **Selected** to set that state's **Color**, **Show label** and **style**.
+2. Select the bar in the [Outline](../../design/outline.md), under the `bottomNavigationBar` slot. **Current Index** reads 0 and **On Tap** is empty, so the tabs don't switch yet. The next two steps connect them.
+3. Click the **Current Index** label and choose **Create Variable...**. Nowa adds a whole-number variable that starts at 0 and links **Current Index** to it. Open **Variables**, select the new variable and change its **Name** in **Details** to `pageIndex`.
+4. Select the bar again and click **+** next to **On Tap**. In Circuit, set `pageIndex` to `value`, the number of the tapped tab, and add **refresh**. See [Change a variable from logic](../../logic/variables.md#change-a-variable-from-logic). In **Play**, tapping a tab now selects it.
+5. Under **Items**, click a tab to select it and change its **Label**. To change its icon, select the tab's Icon under the bar in the Outline and click the icon field in **Details** (see [Choose an icon](../../design/fonts-icons.md#choose-an-icon)). Click **+** to copy the last tab. The arrow buttons move the selected tab left or right, and the remove button deletes it. A bar needs at least two tabs, so with two left the remove button does nothing.
+6. Click **Edit** next to **Unselected** or **Selected** to set that state's **Color**, **Show label** and **style**.
 
 ![Details for a selected Bottom Navigation Bar: Current Index linked to pageIndex (highlighted), then Background, Elevation, Type and Landscape. The second highlight holds Unselected and Selected with their Edit buttons, On Tap with Edit, and the Items strip with the home and call tabs, the + button, the left and right arrows and the remove button; Label (home), Active Icon, Tooltip and Semantics follow.](/img/docs/reference/reference-navigation-2.png)
 

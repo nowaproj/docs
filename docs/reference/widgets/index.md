@@ -98,7 +98,7 @@ The Library's details card shows a preview, the name and the first lines of the 
 | Widget | What it does | Good to know |
 |---|---|---|
 | <Anchor id="appbar" />[**App Bar**](./navigation.md) | The bar at the top of a screen, with a title and actions. | Set it in the screen's **App Bar** slot: see [Add a screen part](./navigation.md#screen-parts). |
-| <Anchor id="navigation-bar" />[**Bottom Navigation Bar**](./navigation.md) | A row of tabs at the bottom of a screen. | Nowa creates a `pageIndex` variable and links **Current Index** and **On Tap** to it. |
+| <Anchor id="navigation-bar" />[**Bottom Navigation Bar**](./navigation.md) | A row of tabs at the bottom of a screen. | Set it in the screen's **Bottom Navigation Bar** slot, then link **Current Index** and **On Tap** to a variable: see [Add a bottom navigation bar](./navigation.md#bottom-navigation-bar). |
 | <Anchor id="drawer" />[**Drawer**](./navigation.md) | A side menu that slides in over a screen. | Set it in the screen's **Drawer** slot: see [Add a screen part](./navigation.md#screen-parts). Also a [wrapper](../wrappers.md#drawer). |
 | <Anchor id="listtile" />**List Tile** | One row with a title and optional leading, subtitle and trailing widgets. | Typically the item of a **List View**. **On Tap** makes the row tappable. |
 | <Anchor id="expansion-tile" />**Expansion Tile** | A tile that expands to show more widgets. | Put the hidden widgets in **Children**. **Initially Expanded** opens it from the start. |

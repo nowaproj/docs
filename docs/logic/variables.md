@@ -21,8 +21,8 @@ The panel shows the screen's name, then the three sections. Hover a section titl
 ## Add a variable
 
 1. Select the screen or component and expand **Variables**.
-2. Hover the **Variables** section title and click **+**. A new variable appears, selected and ready to rename. Nowa names the first one `var1`.
-3. Type a name and press <kbd>Enter</kbd>.
+2. Hover the **Variables** section title and click **+**. A new variable appears, selected. Nowa names the first one `var1`.
+3. In **Details**, type a name in **Name** and press <kbd>Enter</kbd>. The list opens a name field too, but there the letters t, r, v and f trigger board shortcuts instead of typing, so **Details** is the safer place.
 4. In **Details**, choose the **Type** and set the **Default Value**.
 
 The **Default Value** is what the variable holds when the screen opens. The board shows it too, so you can preview your design with real-looking data.
@@ -67,8 +67,8 @@ A variable only changes when your logic changes it. Here's how to set one when a
 
 1. Open the logic. For a button, click **Edit** next to **On Pressed** in **Details**. Circuit opens: see [Respond to taps and other events](./events.md).
 2. Hover the dot under the top node until it becomes **+**, then click it. The **All nodes for this circuit** menu opens.
-3. Open **LOCALS** and click your variable. A node is added and selected.
-4. In **Details**, click the button named **Set** plus your variable's name (for example **Set counter**). Then set **Value**: type one, or click the label to link a variable or an expression.
+3. Open **LOCALS**, near the end of the list, and click your variable. A node is added and selected.
+4. In the **Details** panel inside Circuit, click the button named **Set** plus your variable's name (for example **Set counter**). The button turns into a **Value** field: type a value, or click the label to link a variable or an expression.
 5. Add one more node: **LOCALS** → **refresh**. The screen redraws, and every widget linked to the variable shows the new value.
 
 Without **refresh**, the value changes but the screen keeps showing the old one. Screen and component variables don't redraw on their own.
@@ -88,7 +88,7 @@ Later nodes find local variables under **LOCALS**. See [Build logic in Circuit](
 
 ## Rename, retype or remove a variable
 
-- **Rename**: double-click the variable in the list, type the new name and press <kbd>Enter</kbd>. Or edit **Name** in **Details**. Nowa updates everything that uses it.
+- **Rename**: select the variable, edit **Name** in **Details** and press <kbd>Enter</kbd>. Nowa updates everything that uses it. Double-clicking the variable in the list also starts a rename, but there the letters t, r, v and f trigger board shortcuts instead of typing.
 - **Change the type**: click the type icon next to the variable, or use **Type** in **Details**.
 - **Remove**: right-click the variable and choose **Remove**, or select it and click **Remove** at the bottom of **Details**. If something uses the variable, Nowa lists those places in a dialog that says the variable "is in use". Click **Remove** to go ahead or **Cancel** to keep it.
 

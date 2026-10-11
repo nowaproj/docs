@@ -9,8 +9,8 @@ A **Text Field** is a box where people type. Nowa creates the variable that hold
 
 ## Add a Text Field {#text-field}
 
-1. Press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd>, search for `text field`, check the highlighted result and press <kbd>Enter</kbd>. See [Add widgets](../../design/add-widgets.md).
-2. Nowa adds a variable called `text` to the screen or component and links the field's **Controller** to it. Open **Variables** to see it. The next Text Field gets the same name with a number added.
+1. Point at the screen, press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd>, search for `text field`, check the highlighted result and press <kbd>Enter</kbd>. The field lands where your pointer was. See [Add widgets](../../design/add-widgets.md).
+2. Nowa adds a variable called `text` to the screen or component and links the field's **Controller** to it. Open **Variables** to see it. The next Text Field gets the same name with a number added. A field that lands loose on the board, outside a screen, gets no variable.
 
 The variable is a controller that holds what the user typed. To use that text, click a property's label, open **LOCALS**, pick the controller and choose `text`. Rename the controller to something clear, such as `email`: the validator row uses its name too. See [Rename, retype or remove a variable](../../logic/variables.md#rename-retype-or-remove-a-variable).
 
@@ -62,13 +62,13 @@ Validators run only when your logic asks the form to check. The next section sho
 
 A **Form** groups fields so one step can check all of them.
 
-1. Select the group that holds your fields. Click a field, then its parent in the breadcrumbs at the top of **Details**.
+1. Select the group that holds your fields: click its row in the [Outline](../../design/outline.md), or click a field there and then its parent in the breadcrumbs at the top of **Details**.
 2. In **Details**, click **Add Wrapper**, search for `Form` and press <kbd>Enter</kbd>. See [Wrappers](../wrappers.md#form).
 3. Nowa adds a variable called `formKey`. The **Form** section of **Details** now lists a validator row for every Text Field, Dropdown menu and Pin Code Field inside it, so you can set all the rules in one place.
 4. Select your submit button.
 5. In **Details**, click the button next to **On Pressed**. [Circuit](../../logic/circuit.md) opens.
 6. Hover the dot under the orange node, click the **+** that appears and choose **Add If statement**.
-7. In **Details**, click the **Condition** label, open **LOCALS**, pick `formKey`, then choose `currentState` and `validate`.
+7. In **Details**, click the **Condition** label, scroll down and open **LOCALS**, pick `formKey`, then choose `currentState` and `validate`.
 8. Click the dot in the **True** branch and add what should happen when every field passes.
 
 `validate` returns true when every field passes. Fields that fail show their messages. Press **Play**, leave a field empty and tap the button to see them.

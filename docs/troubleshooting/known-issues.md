@@ -1,12 +1,12 @@
 ---
 title: Known issues
-description: Platform limits you may run into when you use Nowa, and how to work around each one.
+description: Platform limits and editor quirks you may run into when you use Nowa, and how to work around each one.
 sidebar_label: Known issues
-keywords: [known issues, limitations, Windows, Firebase, Firestore, Apple sign-in, Google Maps, AdMob, CORS, desktop app, Linux]
+keywords: [known issues, limitations, Windows, Firebase, Firestore, Apple sign-in, Google Maps, AdMob, CORS, desktop app, Linux, rename variable, Shift drag]
 ---
 
-A few things work differently depending on where you run Nowa or your app. Here's what to expect and the quickest way
-around each one.
+A few things work differently depending on where you run Nowa or your app, and a few editor actions need a workaround
+in this version. Here's what to expect and the quickest way around each one.
 
 ## Firestore queries can't be tested on Windows {#firebase-on-windows}
 
@@ -57,6 +57,14 @@ preview is not 100% accurate, run the app to see the real output". Use **Run** t
 The Linux desktop app has no in-app preview yet. When you run your app, the preview pane says "Your app is running" and offers **Open in Browser**. Click it to open your app in your browser. See [Run your app](../test/run.md#choose-where-to-run).
 
 The Linux app doesn't update itself either. When a new version is out, the update message offers **Download v…** and **Skip**. To update, download the new archive and run `install.sh` again. See [Install on Linux](../get-started/desktop-app.md#install-on-linux).
+
+## Some letters don't type in the Variables list {#variables-list-rename}
+
+When you name a new variable, param or function in the **Variables** list, or double-click one to rename it, the letters t, r, v and f trigger board shortcuts instead of typing, and the rename stops. Select the item and type the name in **Name** in **Details** instead, which takes every letter. See [Store data in variables](../logic/variables.md#add-a-variable).
+
+## Shift + drag moves a widget out of its screen {#shift-drag}
+
+Holding <kbd>Shift</kbd> while you drag a widget keeps the move on one axis, but when you let go, the widget leaves its screen and becomes its own item on the board. Press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Z</kbd> to undo the drop. To nudge a widget along one axis inside its screen, select it and press <kbd>Shift</kbd> + an arrow key, 10 pixels per press. See [Select, move and resize](../design/select-and-edit.md#move-widgets).
 
 ## Next steps
 

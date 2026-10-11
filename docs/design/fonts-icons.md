@@ -50,7 +50,7 @@ If your own code uses the `google_fonts` package, for example `GoogleFonts.poppi
 
 1. Select an Icon widget, or any widget with an icon property.
 2. In **Details**, click the icon field. It shows the current icon and its name, or **none**.
-3. In the **Icons** popup, type a name such as "home" in the search box, then click an icon.
+3. In the **Icons** popup, type a name such as "home" in the search box, then click an icon. Hover an icon to see its name.
 
 ![The Icons popup opened from the icon field of a selected Icon widget (highlighted): the Icons title, the search box with home typed in it and a grid of matching Material icons. To its right, the Icon section of Details still shows the current icon, star_bor... (star_border).](/img/docs/design/design-fonts-icons-2.png)
 

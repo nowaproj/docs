@@ -19,7 +19,7 @@ Stripe lets your app take card, Apple Pay and Google Pay payments. Nowa sets up 
 
 1. Click the gear in the top bar (**Settings**) or press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>,</kbd>. Under **Integrations**, click **Stripe**.
 2. Turn on **Enabled**. Nowa adds the `flutter_stripe` package to your project.
-3. Under **1. API Keys**, fill in **Merchant Name** (the name customers see), **Country Code** (two letters, such as `US`) and **Publishable Key** (starts with `pk_`). Press <kbd>Enter</kbd> or click the send icon (**Submit**) after each one. A check mark confirms the save.
+3. Under **1. API Keys**, fill in **Merchant Name** (the name customers see), **Country Code** (two letters; it starts as `US`) and **Publishable Key** (starts with `pk_`). Press <kbd>Enter</kbd> or click the send icon (**Submit**) after each one. A check mark confirms the save.
 4. Under **Purchase Types**, select what your app sells.
 
 | Purchase type | Use it for | How it works |

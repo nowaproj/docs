@@ -22,8 +22,8 @@ Click to select, drag to move, pull a handle to resize. Purple guides snap thing
 
 ## Move widgets
 
-- Drag a widget. You don't need to select it first.
-- Hold <kbd>Shift</kbd> while dragging to move along one axis only.
+- Drag a widget. You don't need to select it first. Start moving right away: if you hold the mouse button still on a widget for about half a second, its right-click menu opens instead.
+- Hold <kbd>Shift</kbd> while dragging to move along one axis only. In Nowa 3.13 the drop also takes the widget out of its screen and onto the board. Press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Z</kbd> to undo that, and use <kbd>Shift</kbd> + arrow keys to move a widget along one axis inside its screen.
 - Hold <kbd>Alt</kbd>/<kbd>Option</kbd> while dragging to drag a copy instead. You can press or release the key mid-drag.
 - Press an arrow key to nudge a free widget by 1 pixel, or <kbd>Shift</kbd> + arrow for 10. Free means placed in a **Stack** or directly on the board. In a **Row** or **Column**, the arrow along the layout direction moves the widget one place earlier or later.
 
@@ -36,7 +36,7 @@ What happens when you drop depends on what is under the pointer.
 | Under the pointer | What happens |
 |---|---|
 | Empty board | The widget becomes its own board item and snaps to nearby items. |
-| A **Stack** | It is placed where you drop it, on top of the others. The stack is outlined in purple. |
+| A **Stack** | It is placed where you drop it. A widget from elsewhere goes on top of the others, and one you move within the stack keeps its place in the stacking order (use **Bring to front** to change that). The stack is outlined in purple. |
 | A **Row**, **Column**, **Wrap** or **List View** | It is inserted between the children at the pointer. An orange box outlines the dragged widget. |
 | A screen, outside its groups | An App Bar, Floating Action Button, Bottom Navigation Bar or Drawer goes into its slot. Anything else goes into the body. |
 | An app bar | The left, middle and right zones fill the leading, title and actions. |

@@ -32,6 +32,10 @@ A layout adapts when each part says how it reacts to more or less space. [Lay ou
 2. Select a text field, a card or a button. Under **Layout**, set **W** to **Expand** so it fills the width. Repeat for other widgets that should stretch, and leave small things, such as icons, alone.
 3. Click the screen's title and set **Size** to **1920x1080**, then to a phone preset such as **iPhone 12**. The widgets follow the width of the screen.
 
+:::note
+On the starter app's home screen, step 1 can turn the screen gray and show a "Canvas error" in the status bar. You can still make widgets stretch without changing the group: keep the **Stack**, select each widget and set its across constraint to **Left and right** under **Layout** (see [Place widgets in a stack](layout.md#place-widgets-in-a-stack)). Then do step 3.
+:::
+
 ## Check your layout at other sizes
 
 **On the board.** Click a screen's title and find **Size** in the **Screen** section of **Details**.
@@ -49,7 +53,7 @@ A layout adapts when each part says how it reacts to more or less space. [Lay ou
 
 A new screen starts at 393 × 808 unless its template sets another size. For any other size, drag a corner of the screen or type **W** and **H** under **Layout**, and swap them to try landscape. **Size** only changes how big the screen looks on the board. Your app fills whatever device it runs on. On the board, a screen is clipped to its frame, so anything that overflows it is cut off instead of painting over the items around it.
 
-To compare two sizes at once, select the screen's title, press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>C</kbd>, point at empty board space and press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>V</kbd>. Give the copy another **Size**. Both items show the same screen, so every edit appears in both.
+To compare two sizes at once, select the screen's title, press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>C</kbd>, point at empty board space and press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>V</kbd>. Give the copy another **Size**. Both items show the same screen, so every edit appears in both. In the web app, your browser may ask to see your clipboard the first time you paste: allow it, or nothing is pasted.
 
 ![The home screen twice on the board, at phone size (393 × 808) on the left and at MacBook Pro size (1155 × 807) on the right, both titled HomePage (the two title bars are highlighted). A purple Container pinned left and right stretches across each width.](/img/docs/design/design-responsive-2.png)
 

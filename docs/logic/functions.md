@@ -11,8 +11,8 @@ A function is a named list of steps that you build once and run from many places
 
 1. Select a screen or component and open the **Variables** panel. See [Store data in variables](variables.md).
 2. Hover **Functions** and click **+**. If a menu opens, click **Add Function**.
-3. A function named `func` appears, ready to rename. Type a name and press <kbd>Enter</kbd>. Names follow the same rules as variable names.
-4. Select the function. In **Details**, choose a **Return Type** if it gives something back. Leave it as `void` if it only does things.
+3. A function named `func` appears. Select it, type a name in **Name** in **Details** and press <kbd>Enter</kbd>. Names follow the same rules as variable names. The list opens a name field too, but there the letters t, r, v and f trigger board shortcuts instead of typing.
+4. In **Details**, choose a **Return Type** if it gives something back. Leave it as `void` if it only does things.
 5. Click **Edit**. [Circuit](circuit.md) opens, ready for your steps.
 
 With a function selected, **Details** shows **Name**, **Return Type**, **Edit** and **Remove**.
@@ -61,7 +61,7 @@ Some steps take time, such as a picker or an internet request. Turn on **await**
 
 ## Rename, change or remove a function
 
-Select the function. Change **Name** or **Return Type** in **Details**, or double-click it in the list to rename it. To delete it, click **Remove** in **Details**, or right-click it and choose **Remove**. If something uses the function, Nowa lists those places and asks before it removes it.
+Select the function. Change **Name** or **Return Type** in **Details**. Double-clicking it in the list also starts a rename, but there the letters t, r, v and f trigger board shortcuts instead of typing. To delete it, click **Remove** in **Details**, or right-click it and choose **Remove**. If something uses the function, Nowa lists those places and asks before it removes it.
 
 :::tip Or ask Nowa AI
 In **Agent** mode, try: "Add a function that converts Celsius to Fahrenheit, and call it when the button is pressed." Open the function in Circuit to see how it was built. See [How Nowa AI works](../ai/index.md).

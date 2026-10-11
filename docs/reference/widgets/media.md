@@ -84,7 +84,7 @@ You make Rive animations in [Rive](https://rive.app).
 
 ## Show a web page {#web-view}
 
-Add a **Web View** and type the address in **Url**. It starts at `https://nowa.dev`. If you leave out `http`, Nowa adds `https://`. Run your app to see the page.
+Add a **Web View** and type the address in **Url**. It starts at `https://nowa.dev`. If you leave out `http`, Nowa adds `https://`. Run your app to see the page. In the web app, **Play** loads it too.
 
 ## Show HTML {#html}
 
@@ -100,11 +100,11 @@ In both **Data** boxes, type `$` to put a variable into the text. See [Put a val
 
 ## Know what the board shows
 
-Most of these widgets show live on the board. Three show a stand-in until you run your app:
+Most of these widgets show live on the board. Three show a stand-in there:
 
 - **Video Player**: a black box that says "Designer mode".
 - **YouTube Player**: the video's thumbnail and title, loaded from YouTube.
-- **Web View**: a placeholder that says "Run to preview".
+- **Web View**: a page sketch that says "Web view to" and your address, then "Run to preview".
 
 ![The home screen on the board with the three stand-ins stacked (highlighted): the Video Player as a black box reading Designer mode with a play icon, the YouTube Player as the video thumbnail with its title (Meet Nowa: the first app builder for profes...), and the Web View as a sketch placeholder reading Web view to https://nowa.dev and Run to preview.](/img/docs/reference/reference-media-2.png)
 

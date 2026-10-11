@@ -109,7 +109,7 @@ If a file changed after the search, Nowa skips it and says "Skipped N files that
 
 ### Search symbols
 
-Switch to **Symbols**, then type a name. Nowa lists classes, functions, variables, parameters, uses of the name and literal values that contain it. Each row says what it is, for example "Class: HomePage", and shows its file.
+Switch to **Symbols**, then type a name. Nowa lists classes, functions, variables, parameters, uses of the name and literal values that contain it. Each row says what it is, for example "Class: HomePage", or "Reference: HomePage" for a place that uses the name. Most rows also show their file.
 
 Click a row to open it. A screen or component opens on the board, a function opens in [Circuit](../logic/circuit.md), and anything else opens its file. Hover a use of a name and click **Go to Declaration of** to jump to where it's defined.
 

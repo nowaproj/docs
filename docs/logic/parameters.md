@@ -13,7 +13,7 @@ A param is fixed once it arrives. If a value has to change while the screen is o
 
 1. Select the screen or component and expand **Variables**. See [Open the Variables panel](./variables.md#open-the-variables-panel).
 2. Hover the **Params** section title and click **+**. A new param appears, selected.
-3. In **Details**, type a name in **Name** and press <kbd>Enter</kbd>. The list opens a name field too, but there the letters t, r, v and f trigger board shortcuts instead of typing.
+3. In **Details**, type a name in **Name** and press <kbd>Enter</kbd>. The list opens a name field too, but there the letters t, r, v and f can trigger board shortcuts instead of typing.
 4. In **Details**, choose the **Type** and set the **Default Value**. The type picker works as described in [Choose a type](./variables.md#choose-a-type).
 
 The **Default Value** is used when nothing is passed in, and it's what the board shows. While a param is empty, the board shows a placeholder such as `[title]` wherever the param is used. Give the param a default, or pass a value, to see your own content.
@@ -57,7 +57,7 @@ To preview a screen or component on the board with sample data, select its title
 
 ## Rename, retype or remove a param
 
-Select the param in the **Params** list and use **Details**. Double-clicking it also starts a rename, but in the list the letters t, r, v and f trigger board shortcuts instead of typing. Renaming, changing the type and removing work as they do for variables: see [Rename, retype or remove a variable](./variables.md#rename-retype-or-remove-a-variable).
+Select the param in the **Params** list and use **Details**. Double-clicking it also starts a rename, but in the list the letters t, r, v and f can trigger board shortcuts instead of typing. Renaming, changing the type and removing work as they do for variables: see [Rename, retype or remove a variable](./variables.md#rename-retype-or-remove-a-variable).
 
 To use a param's value in something that changes, copy it into a variable. For example, fill the variable from the param in an **InitState Function**. See [Create functions](./functions.md).
 

@@ -22,7 +22,7 @@ The panel shows the screen's name, then the three sections. Hover a section titl
 
 1. Select the screen or component and expand **Variables**.
 2. Hover the **Variables** section title and click **+**. A new variable appears, selected. Nowa names the first one `var1`.
-3. In **Details**, type a name in **Name** and press <kbd>Enter</kbd>. The list opens a name field too, but there the letters t, r, v and f trigger board shortcuts instead of typing, so **Details** is the safer place.
+3. In **Details**, type a name in **Name** and press <kbd>Enter</kbd>. The list opens a name field too, but there the letters t, r, v and f can trigger board shortcuts instead of typing, so **Details** is the safer place.
 4. In **Details**, choose the **Type** and set the **Default Value**.
 
 The **Default Value** is what the variable holds when the screen opens. The board shows it too, so you can preview your design with real-looking data.
@@ -88,7 +88,7 @@ Later nodes find local variables under **LOCALS**. See [Build logic in Circuit](
 
 ## Rename, retype or remove a variable
 
-- **Rename**: select the variable, edit **Name** in **Details** and press <kbd>Enter</kbd>. Nowa updates everything that uses it. Double-clicking the variable in the list also starts a rename, but there the letters t, r, v and f trigger board shortcuts instead of typing.
+- **Rename**: select the variable, edit **Name** in **Details** and press <kbd>Enter</kbd>. Nowa updates everything that uses it. Double-clicking the variable in the list also starts a rename, but there the letters t, r, v and f can trigger board shortcuts instead of typing.
 - **Change the type**: click the type icon next to the variable, or use **Type** in **Details**.
 - **Remove**: right-click the variable and choose **Remove**, or select it and click **Remove** at the bottom of **Details**. If something uses the variable, Nowa lists those places in a dialog that says the variable "is in use". Click **Remove** to go ahead or **Cancel** to keep it.
 

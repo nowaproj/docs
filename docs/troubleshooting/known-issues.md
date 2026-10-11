@@ -60,11 +60,11 @@ The Linux app doesn't update itself either. When a new version is out, the updat
 
 ## Some letters don't type in the Variables list {#variables-list-rename}
 
-When you name a new variable, param or function in the **Variables** list, or double-click one to rename it, the letters t, r, v and f trigger board shortcuts instead of typing, and the rename stops. Select the item and type the name in **Name** in **Details** instead, which takes every letter. See [Store data in variables](../logic/variables.md#add-a-variable).
+When you name a new variable, param or function in the **Variables** list, or double-click one to rename it, the letters t, r, v and f can trigger board shortcuts instead of typing, and the rename may stop. Select the item and type the name in **Name** in **Details** instead, which takes every letter. See [Store data in variables](../logic/variables.md#add-a-variable).
 
 ## Shift + drag moves a widget out of its screen {#shift-drag}
 
-Holding <kbd>Shift</kbd> while you drag a widget keeps the move on one axis, but when you let go, the widget leaves its screen and becomes its own item on the board. Press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Z</kbd> to undo the drop. To nudge a widget along one axis inside its screen, select it and press <kbd>Shift</kbd> + an arrow key, 10 pixels per press. See [Select, move and resize](../design/select-and-edit.md#move-widgets).
+Holding <kbd>Shift</kbd> while you drag a widget keeps the move on one axis, but when you let go, the widget leaves its screen and becomes its own item on the board. Press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Z</kbd> to undo the drop. To nudge a widget in a **Stack** along one axis, select it and press <kbd>Shift</kbd> + an arrow key, 10 pixels per press. See [Select, move and resize](../design/select-and-edit.md#move-widgets).
 
 ## Next steps
 

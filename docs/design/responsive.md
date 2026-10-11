@@ -28,13 +28,13 @@ A layout adapts when each part says how it reacts to more or less space. [Lay ou
 
 ## Try it: make a screen stretch
 
+:::note
+On the starter app's home screen, step 1 can turn the screen gray and show a "Canvas error" in the status bar. You can still make widgets stretch without changing the group: keep the **Stack**, select each widget and choose **Left and right** in its constraints under **Layout** (see [Place widgets in a stack](layout.md#place-widgets-in-a-stack)). Then do step 3.
+:::
+
 1. Click the screen's title. In **Details**, find the **Group** section and click the down arrow. The screen's main group becomes a **Column**, with your widgets in the same order and the space between them kept as the **Gap**.
 2. Select a text field, a card or a button. Under **Layout**, set **W** to **Expand** so it fills the width. Repeat for other widgets that should stretch, and leave small things, such as icons, alone.
 3. Click the screen's title and set **Size** to **1920x1080**, then to a phone preset such as **iPhone 12**. The widgets follow the width of the screen.
-
-:::note
-On the starter app's home screen, step 1 can turn the screen gray and show a "Canvas error" in the status bar. You can still make widgets stretch without changing the group: keep the **Stack**, select each widget and set its across constraint to **Left and right** under **Layout** (see [Place widgets in a stack](layout.md#place-widgets-in-a-stack)). Then do step 3.
-:::
 
 ## Check your layout at other sizes
 

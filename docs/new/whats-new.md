@@ -8,6 +8,53 @@ sidebar_position: 1
 
 ---
 
+### **3.13.0 (6 October 2026)**
+
+Nowa 3.13 gives everything in your project one home: the new **Library**. 📚 Find any screen, component or widget in a few keystrokes and add it to your board without reaching for the mouse. This release also brings a desktop app for Linux, quicker ways to move around your project, and your theme extension colors right in the color picker.
+
+#### **New in This Version ✨**
+
+- 📚 **The Library: Your Whole Project in One Place**
+  The **Library** replaces the Widgets panel. Your screens, components, models and global states, Nowa's built-in widgets, the widgets in your packages and your assets now live in one searchable list.
+  - **Add anything fast**: press **Ctrl/Cmd + K** (or click the **Widget** tool), type what you need and press **Enter** to drop it on your board.
+  - **Go anywhere**: press **Ctrl/Cmd + O**, type a name and press **Enter** to open it.
+  - **Find your way around**: filter by kind, switch between your project, packages, built-in widgets and assets, and jump straight to the code with **Show in code**.
+
+  **Files** has moved to code mode, where it now shows your whole project as a tree. Learn more in [Find and add things with the Library](../design/library.md).
+
+- ↔️ **Back, Forward and All Your Boards**
+  Two new arrows in the top bar take you back and forward through the screens and files you've opened, just like in a browser (**Ctrl + -** and **Ctrl + Shift + -**). The board chip now lists every board in your project: press **Ctrl/Cmd + B**, type a name and press **Enter**, or create a new board right from the list.
+
+- 🐧 **Nowa for Linux**
+  Nowa now has a desktop app for Linux. Choose **Linux** when you download Nowa to get a 64-bit archive with an install script that adds Nowa to your app menu. On Linux, you download updates from the update dialog, and your app's preview opens in your browser. See [Install the desktop app](../get-started/desktop-app.md).
+
+- 🎨 **Your Theme Extensions in the Pickers**
+  If your theme uses theme extensions, the color picker now shows a tab for each one next to **Material**, and the text style picker lists their styles in their own groups. Pick a color and Nowa links it to your extension for you. See [Edit theme extensions](../design/themes.md#edit-theme-extensions).
+
+- 🧩 **Widget Variants from `@Preview`**
+  Add Flutter's `@Preview` to a function or constructor that builds your widget, and Nowa shows it as a named variant: next to the component when you open it, as a choice in the widget picker, and under the widget in the Library. See [Preview a widget in several states](../code/custom-code.md#preview-variants).
+
+- 📦 **More of Your Code and Packages Just Work**
+  - **Packages**: `git:` and `path:` dependencies now load, `sdk:` dependencies like `flutter_localizations` count as installed, and `gap`, `flutter_animate`, `google_fonts` and `smooth_page_indicator` are built in.
+  - **Your own Flutter code**: much more hand-written code renders on the board, including switch patterns like `> 5`, named arguments passed to `super(...)`, and `part` files, which now stay intact when Nowa saves. Screens from open-source apps like Flutter's compass_app and Wonderous render too.
+  - **Smarter placeholders**: a package widget Nowa can't draw is now a small box, and a widget that wraps another one (like `Animate`) shows what it wraps.
+  - **Page indicators**: `nowa_runtime` no longer includes `smooth_page_indicator`. If your project uses page dots, Nowa offers to add the package to your pubspec in one click (**Migrate**).
+
+- 💻 **Local Projects Stay in Sync**
+  Changes you make in another editor right after Nowa saves are no longer missed, and new dependencies you add to `pubspec.yaml` outside Nowa load on their own.
+
+- ✨ **Smaller Touches**
+  - **A fresh look**: new buttons, lists and menus throughout, and the Albert Sans font is back.
+  - **Design-tool words**: **Bring forward**, **Send backward**, **Bring to front** and **Send to back** replace the old move entries. **Ctrl/Cmd + Alt/Option + ]** or **[** moves a widget all the way to the front or back.
+  - **Default in dropdowns**: properties that can be left empty now start with **Default**, which keeps the widget's own default.
+  - **Branch search**: find a Git branch by typing in the branch menu.
+  - **Tidier boards**: each screen stays inside its frame, and snap guides line up at any zoom.
+  - **Quieter Git history**: opening a project in a newer Nowa no longer changes `.nowa/settings.json`.
+
+➡️ Tell us how the Library feels! Click the **? icon** to chat with us directly, or email us at `team@nowa.dev`. Happy building!
+
+---
+
 ### **3.12.5 (25 September 2026)**
 
 Nowa 3.12.5 makes big projects feel light again. ⚡ Boards with lots of screens are now **up to 50x faster** to move around and work in, projects reopen faster, and Instant Play can now play anything on your board. This release also lets you switch Git branches without committing first, gives your connected agent a way to bring images (including the ones in your Figma designs) into your project, and helps Nowa understand even more of the Flutter code you write yourself.

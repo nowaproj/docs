@@ -74,9 +74,9 @@ In Nowa 3.13, a `/` you type in a field in **Details** is dropped. Fields in Cir
 
 When you detach a component instance, the plain widgets still point at the component's params, and the values you gave that instance are lost. The board shows a red box such as "[title] is not found", while **Problems** lists nothing. Note the values before you detach. Afterwards, click each broken property's name, choose **Detach...** and type the value again, or link it to something else. See [Build reusable components](../design/components.md#edit-a-component-or-one-instance).
 
-## A widget dragged across the app bar can land squashed {#drag-across-app-bar}
+## A widget dragged across the app bar keeps the app bar's size {#drag-across-app-bar}
 
-When you drag a widget in a screen over the screen's app bar, the app bar takes it in while your pointer is there. If you carry on and drop it in the body or on the board, it can land as a thin line with a height of 0. Press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Z</kbd> to undo the drop, and keep the pointer off the app bar while you drag. See [Where a dragged widget lands](../design/select-and-edit.md#where-a-dragged-widget-lands).
+When you drag a widget in a screen over the screen's app bar, the app bar takes it in while your pointer is there. If you carry on and drop it in the body or on the board, it keeps the size it had in the app bar: a Container can land as a thin line with a height of 0, and a Text or a Button gets a fixed width and height. Press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Z</kbd> to undo the drop, and keep the pointer off the app bar while you drag. See [Where a dragged widget lands](../design/select-and-edit.md#where-a-dragged-widget-lands).
 
 ## Next steps
 

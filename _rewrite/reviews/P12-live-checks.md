@@ -48,6 +48,29 @@ Also seen on these sections:
   title selects it and **Details** shows the component's root widget properties (`18-component-board-item.png`, `43ab-boarditem.png`).
 - A long press (about half a second) on a widget opens the widget menu (seen by accident during the Alt+drag, `61a-alt-drag-mid.png`).
 
+## Item 2: pasting onto the board (`docs/design/add-widgets.md` "Paste images, links and text", `docs/design/assets.md` "Paste an image onto the board")
+
+Set-up: a real PNG (240 x 160, "PASTE TEST") put on the X11 CLIPBOARD by a small helper process (xclip stand-in) on the headed browser's
+display; the helper's log shows Chrome asking for `TARGETS` and then `image/png`. Links and text were served the same way as
+`UTF8_STRING` / `text/plain`. Clipboard permission had been allowed at the first paste (item 1).
+
+| page | claim (quote) | what the UI shows | evidence (scratchpad file) | suggestion |
+|---|---|---|---|---|
+| design/add-widgets L49 | "Copy something, point at the board and press Ctrl/Cmd + V" | **holds.** In the browser the first paste shows Chrome's "See text and images copied to the clipboard" prompt (**Block** / **Allow**); nothing happens until **Allow**. | `57-paste-instance-x.png`, `100-paste-image-empty-board.png` | Add: "The first time, your browser asks to see the clipboard: click **Allow**." |
+| design/add-widgets L49 | "or right-click empty board space and choose **Paste**" | **holds.** The board menu is **Undo**, **Redo**, **Save**, **Create a page**, **Paste** (`Ctrl V`). With nothing selected the item lands at the spot you right-clicked (X 958, Y 604 for a right-click at that point). A right-click on a widget opens the widget menu, which has no **Paste**. | `88-rclick-empty-board.png`, `109b-board-menu.png`, `109c-menu-paste-nothing-selected.png` | none |
+| design/add-widgets L49 | "With a widget selected, the paste goes into that widget's parent." | **holds, with a catch.** With an Image inside HomePage selected and the pointer on empty board, the paste went into HomePage, at the pointer's position measured from the screen (L 578, T 43): outside the 393-wide screen, so it is clipped and only its selection box shows. **Paste** from the board menu did the same (third Image in HomePage). | `107-paste-with-selection.png`, `107b-outline.png`, `108b-menu-paste.png` | Optional: "...the paste goes into that widget's parent, at the pointer, so point inside that parent." |
+| design/add-widgets L51 | "A copied widget pastes as a copy." | **holds.** Ctrl+C on a Text puts `{"x":0,"y":0,"data":{...,"widget":"const Text('Hello from the clipboard',)"}}` on the clipboard; Ctrl+V adds a second Text with its top-left at the pointer. Same for a component instance (item 1). | `113-copy-paste-text-widget.png`, `59-paste-instance-2.png` | none |
+| design/add-widgets L52 | "A copied image becomes an **Image** widget, and Nowa saves the image in `assets/`." | **holds.** An **Image** with **Source** **Asset**, **Fit** cover. On empty board it is a loose item at its pixel size (W/H Auto); over a screen it goes inside at 100 x 100 (Fixed); over a component's board item it went **inside that component** (undone). Every paste saves a **new** file: six pastes of the same picture gave six `pasted_image_*.png`, including the undone one. | `100-paste-image-empty-board.png`, `106-paste-image-into-screen.png`, `103-paste-image-in-screen.png`, `110-assets-after-pastes.png` | Optional: "Each paste adds a new file to `assets/`; delete the ones you don't use." |
+| design/add-widgets L53 | "A link that starts with `http` becomes an **Image** widget that loads it." | **holds.** `https://picsum.photos/id/237/300/200` became an **Image** with **Source** **Network** and that **Url**, showing the photo. | `111-paste-link.png` | none |
+| design/add-widgets L54 | "Any other text becomes a **Text** widget." | **holds.** `Hello from the clipboard` became a Text. The status bar also shows a warning "FormatException: SyntaxError: Unexpected token 'H', "Hello from"... is not valid JSON" and the warning count goes to 1 (product bug 4). | `112-paste-text.png` | none |
+| design/assets L61 | "Nowa saves the image in `assets/` as `pasted_image_<id>` and places an Image widget where your pointer is." | **holds.** The Library's **Assets** group lists `pasted_image_bx0JEs.png`, details card "Asset · assets"; the widget's top-left is at the pointer (X 1028, Y 639 for a paste at that point). | `101-assets-chip.png`, `102b-asset-card-full.png`, `100-paste-image-empty-board.png` | Optional: `pasted_image_<id>.png`. |
+| design/assets L61 | "or right-click the board and choose **Paste**" | **mismatch (minor).** Only a right-click on **empty** board space offers **Paste**; on a widget you get the widget menu (no **Paste**). | `88-rclick-empty-board.png`, `89a-outline-instance-menu.png` | "or right-click empty board space and choose **Paste**" (as add-widgets says). |
+| design/add-widgets L52, assets L61 | "In the desktop app you can also copy image files from your file manager" | not checked (browser only). | n/a | n/a |
+
+Also seen: with the **AI Assistant** panel open, pasting an image on the board puts it on the board only; the chip that appears in the
+chat field is the usual selected-widget chip and goes away when you deselect (`114-paste-image-ai-panel-open.png`,
+`115-ai-chip-after-deselect.png`).
+
 ## Product bugs found (steps, expected)
 
 1. **Detach loses the instance's param values.** Make a component with a String param linked to a Text inside it, put an instance in a
@@ -67,3 +90,8 @@ Also seen on these sections:
 3. **Code check fails with a raw error for guests.** Playground, status bar counts > Console > **Problems** > **From Code Analysis** >
    **Run Code Check**. Seen: "Code check failed / DioException [bad response]: Unauthorized" (also in the status bar). Expected: a message
    that the code check needs an account (or the option hidden in the playground). Evidence `94-run-code-check.png`.
+4. **Pasting plain text logs a JSON error.** Put any text that isn't a link on the clipboard, point at the board, Ctrl+V. The Text widget
+   is added, but the status bar shows the warning "FormatException: SyntaxError: Unexpected token 'H', "Hello from"... is not valid JSON"
+   and the warning count goes up. Expected: no warning (plain text is a normal case). Code: `packages/designer/lib/src/design/copy_paste.dart:157-168`
+   tries to read every text as copied-widget JSON and logs the failure. Evidence `112-paste-text.png`.
+

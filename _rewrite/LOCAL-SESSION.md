@@ -11,7 +11,8 @@ app.nowa.dev"), and the request rows below in `_rewrite/captures/requests/W*.md`
 `nowaproj/docs`, branch `docs-rewrite`.
 
 **Accounts.** Use only the Nowa test account and the throwaway Supabase, Stripe, GitHub, Figma and Google (Firebase)
-accounts the user created for this. The user gives you their sign-in details in your session; never write them into a
+accounts the user created for this. The user signs in to each site themselves when you open its sign-in page (and
+clicks any CAPTCHA), so you never need the passwords; if they give you sign-in details anyway, never write them into a
 file, a commit or a screenshot. **The docs repo is public:** blur every email, person's name, username and avatar in a
 screenshot, and keep them out of file names, alt text and logs.
 

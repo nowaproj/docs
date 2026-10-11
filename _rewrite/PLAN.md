@@ -73,6 +73,17 @@ to the private product repo (it describes security problems). Next: the local co
 (`LOCAL-SESSION.md`: connect Supabase and GitHub, enter Stripe test keys, Firebase and emulator shots), then the Supabase,
 Stripe and GitHub shots from the cloud.
 
+**Phase 12 (2026-10-11): the optional playground shots and the open live checks.** 11 screenshots and 2 videos that
+had been skipped as low value were taken in the signed-out playground (`captures/phase12/a.md`, `b.md`, `c.md`), so
+every capture the playground allows is done (114 screenshots, 8 videos on 83 pages). A live check of the open points
+(component instances, paste, router paths, the first-app steps; `reviews/P12-live-checks.md`, 56 claims) and the
+capture agents' own checks led to two fix rounds on 27 pages, 5 new Known issues entries, each checked in code
+(`reviews/P12-fixes.md`, `P12-verify.md`, `P12-fixes-2.md`, `P12-verify-2.md`), and 20 more product issues (P128-P147;
+P21 reproduced and raised to High) in the private report. Computer use can't reach the user's Mac from this cloud
+session, so `LOCAL-SESSION.md` is now a brief for a Claude session on the Mac (signed-in Chrome, Nowa desktop app); the
+cloud takes the Supabase, Stripe and GitHub shots after it (`CAPTURE-PHASE13.md`). Last live check of 6 points:
+`reviews/P12-live-checks-2.md`.
+
 Batches (2026-10-09): research done (`research/changes-3.13.md`: 53 pages, 27 changes, 11 open points). Writers:
 **W30a** (new `design/library.md`, get-started, design index/boards/screens/components/add-widgets/select-and-edit/
 outline, glossary), **W30b** (design properties/layout/themes/theme-styles/assets/templates/localization/fonts-icons/

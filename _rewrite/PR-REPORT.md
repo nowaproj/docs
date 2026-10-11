@@ -42,7 +42,10 @@ design, logic, data, testing and publishing, with code, account and reference af
   alone didn't show, and those pages were corrected. A second live check, of the REST API and Data Builder pages once
   the network was open, found 10 more differences; 9 needed a fix, each confirmed in the code by another agent. A
   third round on 11 October, with the paid plan and the Nowa desktop app for Linux, found 12 more (desktop setup, local
-  projects, import, builds, AI connectors), all fixed and checked in code by another agent. Review logs are in
+  projects, import, builds, AI connectors), all fixed and checked in code by another agent. A fourth round the same
+  day, in the live playground, checked the pages behind 13 new screenshots and videos and 56 claims the code couldn't
+  settle (components, pasting, router paths, the first-app steps): about 60 corrections on 27 pages, including 5 new
+  entries in Known issues, all checked in code by another agent (142 claims, 16 more corrections). Review logs are in
   `_rewrite/reviews/`.
 - **Updated to Nowa 3.13.0** (released 6 October): the Library panel replaces the Widgets panel, Ctrl/Cmd+K and the
   toolbar's **Widget** tool open the Library, the top bar has **Back** / **Forward** and a searchable **Boards** chip,
@@ -53,12 +56,12 @@ design, logic, data, testing and publishing, with code, account and reference af
   in `_rewrite/left-out.md` with the reason (internal, debug, unreachable, private beta).
 - **Redirects**: `@docusaurus/plugin-client-redirects` with 160 redirects in `redirects.js` covers all 166 old URLs and
   the 44 docs links the app opens (old widget help links land on the matching row of the widget catalog; anchors kept).
-- **Screenshots and videos, all from 3.13**: 103 screenshots and 6 short videos on 83 pages, taken on app.nowa.dev
+- **Screenshots and videos, all from 3.13**: 114 screenshots and 8 short videos on 83 pages, taken on app.nowa.dev
   (the playground, and the test account for the dashboard, settings, Deploy menu, deployment tabs, builds, Git, Run,
   Share and Nowa AI) and in the Nowa desktop app for Linux (Local Setup, local projects, import, VS Code), each
   checked by eye, nearly all with an orange highlight on what matters, and names and emails blurred. The videos show adding a
-  widget from the Library, laying out rows and columns, Instant Play, adding a Circuit node, changing a theme color
-  and Nowa AI building an app. The remaining placeholders are hidden MDX comments, listed in
+  widget from the Library, laying out rows and columns, moving a widget along the snap guides, Instant Play, adding a
+  Circuit node, a button showing a snackbar, changing a theme color and Nowa AI building an app. The remaining placeholders are hidden MDX comments, listed in
   `_rewrite/captures/to-capture.md` (rebuilt from the pages by `_rewrite/captures/tools/to-capture.py`).
 - **What's New and Changelog**: new 3.13.0 entries (the Library, Back/Forward and boards, Linux, theme extensions,
   `@Preview` variants, packages and code, local sync), checked claim by claim against the code. Older entries are
@@ -105,8 +108,9 @@ Full log with reasons: `_rewrite/decisions.md`. The main ones:
   AI prompts you allowed were used (logged in `_rewrite/captures/ai-prompts.md`).
 - You upgraded the test account to a paid plan and created throwaway Supabase, Stripe, GitHub, Figma and Google
   accounts (credentials kept outside the repo). Figma signs in from the cloud; Supabase and Stripe show CAPTCHAs and
-  GitHub and Google block automated browsers, so those sign-ins move to a local computer-use session where you click
-  any CAPTCHA (`_rewrite/LOCAL-SESSION.md`).
+  GitHub and Google block automated browsers, and computer use can't reach your Mac from a cloud session. So a Claude
+  session on your Mac, in your signed-in Chrome, connects them and takes the Firebase and simulator screenshots
+  (`_rewrite/LOCAL-SESSION.md`); the cloud then takes the Supabase, Stripe and GitHub ones (`_rewrite/CAPTURE-PHASE13.md`).
 - You asked for a 3.13 entry in What's New: written, with a Changelog entry, and checked against the code.
 
 ## Open questions
@@ -117,7 +121,7 @@ Full log with reasons: `_rewrite/decisions.md`. The main ones:
 
 ## Product issues found along the way
 
-127 product issues were written up for the engineering team, each with steps to reproduce, the root cause with code
+147 product issues were written up for the engineering team, each with steps to reproduce, the root cause with code
 references and a suggested fix. Some describe security problems, so the full report lives in the private product repo
 (`nowaproj/nowa`, `docs/platform_issues/`, branch `claude/tender-pascal-quit5k`); `_rewrite/product-issues.md` keeps
 the first 58 as short notes. A few that affect the docs:
@@ -131,16 +135,22 @@ the first 58 as short notes. A few that affect the docs:
 - Git (local projects): after **Bring my changes**, **Accept Local** drops your own edits; **Revert Commit** only stages.
 - Form validators: **Min length** and **Max length** lose their number field as soon as they're added, and adding or
   removing another rule silently drops the length check.
+- Typing `/` in a **Details** field does nothing (3.13), so **Route Settings** can't take a path like `/product/:id`;
+  the docs use the Router panel's **Path** instead.
+- **Create Variable...** on a property left at its default makes a variable with no value, so the app doesn't compile;
+  the docs say to type a **Default Value**.
+- In the **Variables** list's name field, t, r and v switch board tools; the docs name things in **Details** instead.
+- Switching the starter screen's **Group** from Stack to Column turns the screen grey, and undo doesn't bring it back.
 - 32 widget help links in the app point at old URLs (they redirect now; updating them would skip the redirect).
 
 ## Unfinished
 
-- **25 screenshots still need something**: Supabase (8) and Stripe (1) once Supabase is connected, GitHub (3) once
-  GitHub is connected, Firebase (7) and the device menu with an emulator (1) in the local computer-use session
-  (`_rewrite/LOCAL-SESSION.md`), Figma (1) once its connection is fixed, and four that need your decision: one AI request
-  for the Supabase approval card, a custom domain, a project made public for a moment, and the Enterprise feature for
-  **Connect External Agent**. 13 more were possible in the playground but skipped as low value, because their pages
-  already have a screenshot. All 38 stay as hidden placeholders, listed in `_rewrite/captures/to-capture.md`.
+- **25 screenshots still need something**: Supabase (8), Stripe (1) and GitHub (3) once the Mac session has connected
+  them, Firebase (7) and the device menu with a simulator (1) from the Mac session itself (`_rewrite/LOCAL-SESSION.md`),
+  Figma (1) once its connection is fixed on Nowa's side, and four that need your decision: one AI request for the
+  Supabase approval card, a custom domain, a project made public for a moment, and the Enterprise feature for
+  **Connect External Agent**. All 25 stay as hidden placeholders, listed in `_rewrite/captures/to-capture.md`. Every
+  screenshot the playground allows is taken.
 - **Live checks** that need those setups (for example the Firestore flow, View Only in the Library) are listed in
   `_rewrite/PLAN.md` and the review logs.
 - **Clean-up**: the "Docs capture ..." projects (including "Docs capture paid", whose preview site expires on its

@@ -47,7 +47,7 @@ On the board, a Builder list or grid shows the first item at full strength and f
 
 Press **Play** to see every item at full strength with your real data. See [Play your app on the board](../../test/instant-play.md).
 
-{/* CAPTURE: id=reference-lists-2 | state: playground starter open, a List View on the home screen with Item Count set to 5 | show: the screen on the board with the list: the first item at full strength and the other four faded | crop: the screen on the board */}
+![The home screen on the board with a List View whose Item Count is 5 (highlighted): the first Placeholder item is drawn at full strength and the four below it are faded.](/img/docs/reference/reference-lists-2.png)
 
 ## Build a list by hand
 

@@ -106,7 +106,7 @@ Most of these widgets show live on the board. Three show a stand-in until you ru
 - **YouTube Player**: the video's thumbnail and title, loaded from YouTube.
 - **Web View**: a placeholder that says "Run to preview".
 
-{/* CAPTURE: id=reference-media-2 | state: playground starter open, a Video Player, a YouTube Player and a Web View placed side by side on one screen (sample values) | show: the three board stand-ins: the black Designer mode box, the YouTube thumbnail with its title, and the Web View placeholder reading Run to preview | crop: the screen on the board */}
+![The home screen on the board with the three stand-ins stacked (highlighted): the Video Player as a black box reading Designer mode with a play icon, the YouTube Player as the video thumbnail with its title (Meet Nowa: the first app builder for profes...), and the Web View as a sketch placeholder reading Web view to https://nowa.dev and Run to preview.](/img/docs/reference/reference-media-2.png)
 
 Press **Play** for a closer look, and [run your app](../../test/run.md) to check the real thing. See [What Nowa can show on the board](../../code/limitations.md).
 

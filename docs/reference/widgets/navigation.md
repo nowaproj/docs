@@ -55,7 +55,7 @@ To change the icon, select the button and click the icon field in **Details**. S
 3. Under **Items**, click a tab to select it. Change its **Label**, or click the brush next to **Icon** and pick another icon in **Details**. Click **+** to copy the last tab. The arrow buttons move the selected tab left or right, and the remove button deletes it. A bar needs at least two tabs: Nowa says "Cannot have less than 2 items".
 4. Click **Edit** next to **Unselected** or **Selected** to set that state's **Color**, **Show label** and **style**.
 
-{/* CAPTURE: id=reference-navigation-2 | state: playground starter open, a Bottom Navigation Bar set in the home screen's Bottom Navigation Bar slot (Details > Screen > click the slot, pick it in the Search for a widget dialog) and selected | show: Details for the Bottom Navigation Bar with Current Index showing pageIndex, Unselected and Selected with their Edit buttons, On Tap, and the Items strip with its arrows | crop: right-hand Details panel */}
+![Details for a selected Bottom Navigation Bar: Current Index linked to pageIndex (highlighted), then Background, Elevation, Type and Landscape. The second highlight holds Unselected and Selected with their Edit buttons, On Tap with Edit, and the Items strip with the home and call tabs, the + button, the left and right arrows and the remove button; Label (home), Active Icon, Tooltip and Semantics follow.](/img/docs/reference/reference-navigation-2.png)
 
 Removing the bar removes `pageIndex` too, so anything linked to it needs a new value.
 

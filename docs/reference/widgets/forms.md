@@ -73,7 +73,7 @@ A **Form** groups fields so one step can check all of them.
 
 `validate` returns true when every field passes. Fields that fail show their messages. Press **Play**, leave a field empty and tap the button to see them.
 
-{/* CAPTURE: id=reference-forms-2 | state: playground starter open, two Text Fields grouped together on the home screen (select both, Ctrl/Cmd+G), each with a validator, then the Group selected and Add Wrapper → Form chosen, Variables expanded | show: the Form section in Details with one validator row per field, and the Variables panel listing text, text1 and formKey | crop: right-hand panels */}
+![Variables and Details for a group of two Text Fields wrapped in a Form: Variables lists text, text1 and formKey (highlighted). The Form section of Details (highlighted) has a text validator and a text1 validator row, each open with its Message (Field is required) and + Add validator.](/img/docs/reference/reference-forms-2.png)
 
 ## Add a dropdown {#dropdown-menu}
 

@@ -112,6 +112,23 @@ Also seen:
 | get-started/first-app L97 | "click **Share preview** in the bar at the bottom of the board, and choose **Private** (people with access to the project) or **Public** (anyone with the link). Then copy the link or show the QR code." | **holds.** Popup **Share Preview**, "Choose visibility and share the preview link.", **Public** "Anyone with the link can view the preview.", **Private** "Only members that have access to the project" (**selected by default**), and a link `https://app.nowa.dev/preview/playgr...` with **Copy**, **Open in browser** and **Qr code**. Nothing chosen, nothing copied. | `132-share-preview-menu.png`, `133abc-share-link-tips.png` | Optional: "**Private** is selected at first." |
 | get-started/first-app L98 | "click the Nowa logo at the top left to return to the dashboard" | in the playground the logo opens the sign-in page ("Welcome back!", `/signin`): expected without an account. | `209b-after-logo-click.png` | none |
 
+## Item 5: Shift + drag and Shift + arrow keys (`docs/troubleshooting/known-issues.md` "Shift + drag moves a widget out of its screen", `docs/design/select-and-edit.md` "Move widgets")
+
+Set-up: fresh playground starter app, a Container (160 x 100) drawn in the HomePage screen (it goes into the screen's body **Stack**,
+Details shows **L**/**T**). All drags with a real button press and Shift held from before the press to after the release.
+
+| page | claim (quote) | what the UI shows | evidence (scratchpad file) | suggestion |
+|---|---|---|---|---|
+| troubleshooting/known-issues L67, design/select-and-edit L26 | "Holding Shift while you drag a widget keeps the move on one axis" | **holds.** A drag of 119 px right and 5 px down moved the Container from L 79 to L 193 with T staying 43; the outline follows only the main axis while dragging. | `224a-shift-drag-mid.png`, `224b-shift-drag-after.png`, `228ab-shift-drag-then-undo.png` | none |
+| troubleshooting/known-issues L67 | "but when you let go, the widget leaves its screen and becomes its own item on the board." | **mismatch.** Shift + drag inside HomePage drops the Container **in its screen**: the Outline keeps it under HomePage, Details still shows the crumbs **HomePage** > **Container** and **L**/**T** (tried with the widget selected first and not selected, right and left). It leaves the screen only when the **pointer** is outside the screen at the drop. Then it becomes a board item (Details **X**/**Y**, no crumbs), the same as a drag without Shift (`229ab`). The catch with Shift: the widget's outline stays on the axis while the pointer can drift, so the widget can leave while it still looks inside. A drag down with the pointer ending 20 px past the screen's right edge left the Container drawn over the screen, but it was a board item at X 563, Y 531. Code: the drop target comes from the raw pointer (`move_tool.dart:116-127`, `_findHost(to)`), the drawn spot from `_mapSingleAxis`. | `224b-shift-drag-after.png`, `224c-outline-after-shift-drag.png`, `225a-shift-drag-unselected.png`, `228ab-shift-drag-then-undo.png`, `226a-shift-drag-out-mid.png`, `226b-shift-drag-out-after.png`, `229ab-plain-drag-out-then-undo.png`, `233ab-shift-drag-pointer-outside.png` | Retitle "Shift + drag can drop a widget out of its screen" and say: "With Shift held, the widget's outline stays on one axis but the spot where it lands follows your pointer. If the pointer ends outside the screen, the widget leaves the screen and becomes its own board item, even when it still looks inside. Keep the pointer inside the screen, or press Ctrl/Cmd + Z to undo the drop." |
+| troubleshooting/known-issues L67 | "Press Ctrl/Cmd + Z to undo the drop." | **holds.** After a Shift + drag past the screen edge (board item at X 916, Y 299) one Ctrl+Z put the Container back in HomePage at L 63, T 43, 160 x 100. After the drop with the pointer outside (`233ab`) one Ctrl+Z restored it too. After a Shift + drag inside the screen (L 63 to L 173) one Ctrl+Z moved it back to L 63. | `226c-after-undo.png`, `233bc-pointer-outside-then-undo.png`, `228ab-shift-drag-then-undo.png` | none |
+| troubleshooting/known-issues L67, design/select-and-edit L26 and L28 | "To nudge a widget in a **Stack** along one axis, select it and press Shift + an arrow key, 10 pixels per press." / "Press an arrow key to nudge a free widget by 1 pixel, or Shift + arrow for 10." | **holds.** Container selected in the HomePage Stack: Shift+Right L 58 to 68 to 78, Shift+Down T 33 to 43, Right alone L 78 to 79. | `223abcd-shift-arrows.png` | none |
+| design/select-and-edit L26 | "In Nowa 3.13 the drop also takes the widget out of its screen and onto the board. Press Ctrl/Cmd + Z to undo that, and use Shift + arrow keys to move a widget along one axis inside its screen." | **mismatch** (same as row 2): the drop takes the widget out only when the pointer ends outside the screen. The undo and the arrow-key parts hold. | as rows 2-4 | "If the pointer ends outside the screen, the drop takes the widget out of the screen even when it looks inside: press Ctrl/Cmd + Z to undo, or use Shift + arrow keys to move a widget along one axis inside its screen." |
+
+Also seen: dragging a widget **across the screen's app bar** squashes it to the app bar's title slot: the Container (160 x 100) was
+dropped as a 361 x 0 line, both on the board and when dragged back into the body (product bug 7). This happens with or without Shift
+and may be what people ran into. Each drop came back with one Ctrl+Z.
+
 ## Product bugs found (steps, expected)
 
 1. **Detach loses the instance's param values.** Make a component with a String param linked to a Text inside it, put an instance in a
@@ -144,4 +161,9 @@ Also seen:
    `FieldFocus`. Evidence `169c-slash-in-text.png`, `169d-xdotool-slash.png`, `167-path-set.png`, `172-problems.png`.
 6. **Route parameter chip label unreadable.** Router panel > a route with `:id`: the chip's `id` text is black on the dark panel
    (cosmetic). Evidence `199c-chip-zoom.png`.
-
+7. **Dragging a widget across a screen's app bar squashes it.** Starter app, draw a Container (160 x 100) in the HomePage body, drag it up
+   over the app bar and then either out above the screen or back down into the body, and let go. Seen: while the pointer is over the
+   app bar the widget is taken into the app bar (the slots show, the Container row leaves the Outline); after the drop it is 361 x 0
+   (W 361, H 0) wherever it lands, a thin line on the board or at L 141, T 88 in the body. Same with Shift held. Ctrl+Z restores it.
+   Expected: the widget keeps its size when it passes over a target it isn't dropped into. Evidence `230ab-shift-drag-via-appbar.png`,
+   `231ab-plain-drag-via-appbar.png`, `232x1-over-appbar.png`, `232x2-back-in-body.png`, `232d-undo.png`.

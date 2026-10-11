@@ -30,7 +30,7 @@ You do these three things on Apple's side. Apple's own guides cover the clicks:
 3. Next to **Private Key File**, click **Browse** and pick your `.p8` file. You can also paste the key text into the field.
 4. Click **Save**. The icon turns into a check mark (hover to read **App Store Connect credentials saved**).
 
-{/* CAPTURE: id=publish-ios-1 | state: signed in, paid plan, cloud project with no iOS credentials yet; Settings → Deployment → iOS tab | show: Distribution Certificate card with Generate, Certificate Private Key + Browse + Save, and the App Store Connect section with Key ID, Issuer ID, Private Key File | crop: Deployment page, iOS tab */}
+![The iOS tab of the Deployment page for a project with no Apple credentials: the Distribution Certificate card with its warning icon, Generate, the Certificate Private Key field with Browse and Save, and the App Store Connect section (highlighted) with Key ID, Issuer ID, the Private Key File box, Browse and Save.](/img/docs/publish/publish-ios-1.png)
 
 Nowa saves your **Bundle Identifier** together with these credentials. If you change the identifier later, click the pencil (**Change credentials**) and **Save** again so Nowa picks up the new one. The X (**Discard changes**) closes the form without saving.
 

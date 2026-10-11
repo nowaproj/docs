@@ -51,7 +51,7 @@ Once a key is saved, the icon turns into a check mark (hover to read **Signing k
 - The download icon (**Download Signing Key**) saves the zip again.
 - **Remove** asks "Are you sure?" before it deletes the key.
 
-{/* CAPTURE: id=publish-android-1 | state: signed in, paid plan, cloud project with a saved Android signing key; Settings → Deployment → Android tab, Debug mode off | show: Debug mode switch, saved Signing Key card with SHA-1 and SHA-256 rows, download icon and Remove, and the Start New Build card | crop: Deployment page, Android tab */}
+![The Android tab of the Deployment page with Debug mode off: the saved Signing Key card (highlighted) with its check mark, the SHA-1 and SHA-256 fingerprints with copy buttons, the download icon and Remove, and below it the Start New Build card with the main branch and the Build button.](/img/docs/publish/publish-android-1.png)
 
 ## Build a release
 

@@ -21,7 +21,7 @@ Publish your Flutter app as a website straight from Nowa. One click builds it, h
 3. When it finishes, the **Your Website** card shows **Published** with the date, and your site's address below it.
 4. Click the open icon (**Open in browser**) to visit the site, or the copy icon (**Copy**) to copy the address and share it.
 
-{/* CAPTURE: id=publish-web-1 | state: signed in, paid plan, cloud project already published; Settings → Deployment → Web tab | show: the Your Website card with Published date, address field with open and copy icons, Custom Domain, Download Files, Deactivate, Update | crop: Deployment page content area */}
+![The Web tab of the Deployment page after publishing: the Your Website card with Published Oct 11, 2026 and a green dot, the Expires In: countdown, the site address with its open and copy icons (highlighted), the Custom Domain field with Set, Download Files, Deactivate and Update.](/img/docs/publish/publish-web-1.png)
 
 If the **Problems** tab lists anything when you click **Publish** on the **Web** tab, a **Your Project has Problems** dialog asks first. Click **Close** to go and fix them, or **Ignore and Publish** to continue anyway.
 

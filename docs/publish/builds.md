@@ -48,7 +48,7 @@ When a build ends, the card is called **Latest Build**. Click its header to open
 - **Artifacts** lists the files the build produced. Click a file to download it in your browser. Download links are short-lived. If one stops working, open the build again from **History** to reload its files.
 - **Steps** lists each stage with a status icon and how long it took. Click a step to read its log.
 
-{/* CAPTURE: id=publish-builds-1 | state: signed in, paid plan, cloud project with a finished Android build; Settings → Deployment → Android, Latest Build open with one step expanded | show: Build Info, Artifacts, Steps with one step's log open, and the History list below | crop: Deployment page, Android tab */}
+![The Latest Build card of a finished Android debug build: Build Info with the build ID, Status Finished, Branch main, Started and Duration, the app-debug.apk file under Artifacts (highlighted), the Steps list with a check mark and duration for each stage and the Publishing step open on its log (highlighted), and the History list below with one finished build and the 1 of 1 page counter.](/img/docs/publish/publish-builds-1.png)
 
 ## When a build fails
 

@@ -20,7 +20,7 @@ Click **Git** in the left sidebar, or the branch name in the status bar. A badge
 
 New projects start with a repository and an **Initial commit**. In a project that has no repository yet, for example a cloud [import](import.md), click **Create Git Repository...**.
 
-{/* CAPTURE: id=code-git-1 | state: signed in, a plan with Git integration, a project with one staged file and two unstaged changes and one local commit not yet pushed, Git panel open from the left sidebar | show: the branch row, Staged Changes and Changes lists with counts, the Commit message box with the Commit Staged button, and the Commit History bar | crop: the left panel */}
+![The Git panel opened from the Git icon in the left sidebar (highlighted), on the main branch: Staged Changes with one file (README.md), Changes with two files (home_page.dart and index.html), a commit message in the box above the Commit Staged button, and the collapsed Commit History bar at the bottom.](/img/docs/code/code-git-1.png)
 
 ## Commit your changes
 
@@ -71,7 +71,7 @@ Click the branch name at the top of the panel. The menu opens below it, with a *
 | Merge | Hover another branch, click **Merge into current branch**, then **Merge**. Commit or discard your changes first. |
 | Delete | Hover a local branch you're not on, click **Delete branch**, then **Delete Branch**. The remote branch stays. |
 
-{/* CAPTURE: id=code-git-2 | state: signed in, Git panel open on a branch with another local branch and a remote-only branch; click the branch name, then click another branch while a file you changed differs on that branch | show: the open branch menu below the branch row (the Search branches field, star on the current branch, Local and Remote headings, New Branch) and the Switch branch? dialog with Cancel and Bring my changes | crop: left panel + dialog */}
+![Two steps side by side: the branch menu open below the main branch row, with the Search branches field (highlighted), the feature-title branch, a star on the current branch main and New Branch; then the Switch branch? dialog shown after clicking feature-title with uncommitted changes, reading Your local changes conflict with feature-title., with Cancel and Bring my changes.](/img/docs/code/code-git-2.png)
 
 ## Resolve conflicts
 

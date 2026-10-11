@@ -23,9 +23,11 @@ Each screen needs a route, the path that opens it. A new screen from the **Empty
 
 To set or change a path:
 
-1. Select the screen (click its title on the board).
-2. In **Details**, find **Route Settings**. It only appears in GoRouter projects.
-3. Type a **Path**, such as `/settings`, and press <kbd>Enter</kbd>. If the screen has no route yet, Nowa creates it.
+1. Click **Router** in the sidebar. See [Open the Router panel](./router.md#open-the-router-panel).
+2. In the **Routes** list, select the screen's route.
+3. Type the path in **Path**, such as `/settings`, and press <kbd>Enter</kbd>.
+
+If the screen has no route yet, click **+** (**Add Route**) and choose **Route**. Then type its **Path** and click **Screen** to pick the screen. The screen's **Details** also has a **Path** field under **Route Settings**, but in Nowa 3.13 it drops every `/` you type: see [Known issues](../troubleshooting/known-issues.md#slash-in-details).
 
 To make a screen the one your app opens first, click **Make home screen** in the screen's **Details**. Nowa adds a route if the screen has none and sets it as the start location. To open the home screen only for signed-in people, see [Start on the login screen or the home screen](./router.md#start-on-login-or-home).
 
@@ -52,7 +54,7 @@ The **Extra** field hands any object to the next route without putting it in the
 
 To go back with a value, add a **GoRouter** node with **Type** `pop` and set **result**. On the screen that opened it, select the `push` node, turn on **await** under **Future Options**, and use **Store result** to keep the value. See [Build logic in Circuit](./circuit.md).
 
-In **Play**, a screen with a route starts your app's router at that path, so navigation works. A screen without a route plays on its own, with route-based navigation off.
+In **Play**, a screen with a route starts your app's router at that path, so navigation works. If the path has a parameter, such as `/product/:id`, the screen can show your home screen instead, so play the screen that opens it. A screen without a route plays on its own, with route-based navigation off.
 
 :::tip Or ask Nowa AI
 Try: "When I tap the Get Started button, open the Settings screen." See [How Nowa AI works](../ai/index.md).
@@ -64,7 +66,7 @@ The destination screen receives data through its **Params**, so add one there fi
 
 **Path parameter**, like the `42` in `/product/42`:
 
-1. Select the destination screen, which needs a path. In **Details** → **Route Settings**, hover the **Route Parameters** row and click **+** (**Add Route Parameter**). Nowa adds `/:param1` to the **Path**. You can also type `/product/:id` into the **Path**.
+1. Select the destination screen, which needs a path. In **Details** → **Route Settings**, hover the **Route Parameters** row and click **+** (**Add Route Parameter**). Nowa adds `/:param1` to the **Path**. To type a path such as `/product/:id` yourself, use **Path** in the Router panel (step 2): in Nowa 3.13 the **Path** in **Details** drops every `/` you type.
 2. Open the [**Router** panel](./router.md#open-the-router-panel) and select the route. Drag the parameter's chip onto the screen's parameter under **Screen Parameters**.
 3. Navigate to `/product/` followed by `$` and a variable.
 
@@ -82,11 +84,11 @@ Tap a row in a list and open a screen about that row. Inside a list item, `eleme
 
 Before you start, connect a list to a **List View** or **Grid View** in **Builder** mode. The list can be a variable or the `data` of a **Data Builder**. See [Fill a list from your data](../reference/widgets/lists.md#connect-a-list). Also set up the detail screen with a path such as `/product/:id`, using steps 1 and 2 of the **Path parameter** in [Pass data to the next screen](#pass-data-to-the-next-screen).
 
-Before you drag the parameter's chip onto the screen's param, set that param's **Type** in **Details**. It must match the `id` your **Get Record by ID** function takes: `int` if your table's `id` is a whole number, `String` if it's text or a uuid. If the types differ, **Problems** shows an error.
+Before you drag the parameter's chip onto the screen's param, set that param's **Type** in **Details**. It must match the `id` your **Get Record by ID** function takes: `int` if your table's `id` is a whole number, `String` if it's text or a uuid. If the types differ, **Problems** shows an error. If you change the type later, drag the chip onto the param again.
 
 1. Select the item in the list. A **List Tile** has **On Tap** in **Details**. For any other widget, click **Add Wrapper** and choose **Gesture Detector** or **Ink Well**. See [Respond to taps and other events](./events.md).
 2. Click the button next to **On Tap**, then add a **GoRouter** node as in [Go to another screen](#go-to-another-screen). Keep **Type** on `push`.
-3. In **Location**, type `/product/` and then `$`. In the menu, open **LOCALS** and click `element`, the tapped row. The text now reads `/product/${element}`. Type `.id` after `element`, inside the braces, so it reads `/product/${element.id}`. Use the field that holds your id. If the item is a [component](../design/components.md) with an `id` param, add the tap inside the component and pick that param after `$` instead.
+3. In **Location**, type `/product/` and then `$`. In the menu, open **LOCALS**, near the end of the list, and click `element`, the tapped row. The text now reads `/product/${element}`, all of it selected, so typing now would replace it. Click right before the closing `}` (or press <kbd>End</kbd>, then <kbd>←</kbd>) and type `.id`, so it reads `/product/${element.id}`. Use the field that holds your id. If the name is wrong, the GoRouter node shows a red mark: point at it to see why. If the item is a [component](../design/components.md) with an `id` param, add the tap inside the component and pick that param after `$` instead.
 4. On the detail screen, wrap the widget that shows the row in a **Data Builder**. Set **Source** to **Supabase** and pick the function you made from the **Get Record by ID** template as the **Query**. Link its id input to the screen's param under **LOCALS**, then link the widgets inside to `data`. See [Show data in your UI](../integrations/show-data.md).
 5. Click **Play** on the list screen and tap a row. The list screen needs a route for navigation to work in **Play**.
 

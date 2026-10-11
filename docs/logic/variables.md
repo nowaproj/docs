@@ -59,7 +59,7 @@ If you change the type, Nowa keeps the default value when it still fits and repl
 
 To mix a variable into text, type `$` in the text field and pick the variable. A text such as `Hello ${name}` shows "Hello" followed by the value of `name`. To show a number as text, link the number, click the **+** after it and pick `toString`. The [expressions page](./expressions.md) covers the Link menu in full.
 
-You can also start from the widget. Click the property's label and choose **Create Variable...**. Nowa creates a variable of the right type, links it, and starts it with the property's current value when that is a fixed value.
+You can also start from the widget. Click the property's label and choose **Create Variable...**. Nowa creates a variable of the right type, links it, and starts it with the property's current value when that is a fixed value. If the property was never set and only shows its default, the variable's **Default Value** starts empty: select the variable and type one.
 
 ## Change a variable from logic
 

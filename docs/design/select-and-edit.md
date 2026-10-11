@@ -23,7 +23,7 @@ Click to select, drag to move, pull a handle to resize. Purple guides snap thing
 ## Move widgets
 
 - Drag a widget. You don't need to select it first. Start moving right away: if you hold the mouse button still on a widget for about half a second, its right-click menu opens instead.
-- Hold <kbd>Shift</kbd> while dragging to move along one axis only. In Nowa 3.13 the drop also takes the widget out of its screen and onto the board. Press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Z</kbd> to undo that, and use <kbd>Shift</kbd> + arrow keys to move a widget along one axis inside its screen.
+- Hold <kbd>Shift</kbd> while dragging to move along one axis only. Keep the pointer inside the screen when you let go: if it's outside, the widget leaves the screen and becomes its own board item, even if it still looks inside. Press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Z</kbd> to undo that, or use <kbd>Shift</kbd> + arrow keys to move a widget along one axis inside its screen.
 - Hold <kbd>Alt</kbd>/<kbd>Option</kbd> while dragging to drag a copy instead. You can press or release the key mid-drag.
 - Press an arrow key to nudge a free widget by 1 pixel, or <kbd>Shift</kbd> + arrow for 10. Free means placed in a **Stack** or directly on the board. In a **Row** or **Column**, the arrow along the layout direction moves the widget one place earlier or later.
 

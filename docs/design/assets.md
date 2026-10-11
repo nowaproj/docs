@@ -58,7 +58,7 @@ Each list shows only files of the matching kind. An asset audio file plays only 
 
 ## Paste an image onto the board
 
-Copy an image, point at the board and press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>V</kbd>, or right-click the board and choose **Paste**. Nowa saves the image in `assets/` as `pasted_image_<id>` and places an Image widget where your pointer is. In the desktop app you can also copy image files in your file manager and paste them.
+Copy an image, point at the board and press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>V</kbd>, or right-click empty board space and choose **Paste**. Nowa saves the image in `assets/` as `pasted_image_<id>` and places an Image widget where your pointer is. In the desktop app you can also copy image files in your file manager and paste them.
 
 ## Drag an asset onto the board
 

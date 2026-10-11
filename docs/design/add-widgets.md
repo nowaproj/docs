@@ -37,7 +37,7 @@ Dragging a built-in widget from the Library onto a screen doesn't ask. The widge
 - **Shape** (<kbd>R</kbd>): click the board to place a gray container. Click over a **Stack**, **Row** or **Column** and it goes inside. Click and drag to draw its size. Hold <kbd>Shift</kbd> to keep the proportions and <kbd>Alt</kbd>/<kbd>Option</kbd> to draw from the center.
 - **Text** (<kbd>T</kbd>): click to place a text that says "Write something" and type right away. Click and drag to draw its size.
 
-Both tools switch back to **Select tool** after one use. Tool keys don't work while you type in a field.
+Both tools switch back to **Select tool** after one use. Tool keys don't work while you type in a field in **Details**. The name field in the **Variables** list is an exception: see [Known issues](../troubleshooting/known-issues.md#variables-list-rename).
 
 ## Drag screens, components and assets {#drag-screens-components-and-files}
 
@@ -46,7 +46,7 @@ Both tools switch back to **Select tool** after one use. Tool keys don't work wh
 
 ## Paste images, links and text
 
-Copy something, point at the board and press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>V</kbd>, or right-click empty board space and choose **Paste**. With a widget selected, the paste goes into that widget's parent.
+Copy something, point at the board and press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>V</kbd>, or right-click empty board space and choose **Paste**. With a widget selected, the paste goes into that widget's parent, at your pointer, so point inside that parent. In the web app, your browser may ask to see your clipboard the first time you paste: allow it, or nothing is pasted.
 
 - A copied widget pastes as a copy.
 - A copied image becomes an **Image** widget, and Nowa saves the image in `assets/`. In the desktop app you can also copy image files from your file manager.

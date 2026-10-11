@@ -36,7 +36,7 @@ A template made of several files, such as the **Authentication Template** (a log
 1. Review the files the template will add. Untick the ones you don't need, or rename and move them.
 2. Click **Import**. If a file with the same name already exists, Nowa asks before it overwrites it.
 
-**Import** stays off while a file has a problem, and a tooltip asks you to fix it first. Nowa places only the template's screens on the board, side by side. Unlike a single-file template, a multi-file import doesn't add routes. In a GoRouter project, set each screen's route in its **Route Settings**. See [Name the route](screens.md#name-the-route).
+**Import** stays off while a file has a problem, and a tooltip asks you to fix it first. Nowa places only the template's screens on the board, side by side. Unlike a single-file template, a multi-file import doesn't add routes. In a GoRouter project, add a route for each screen in the **Router** panel. See [Set up routes in the Router panel](../logic/router.md#add-nest-and-delete-routes).
 
 ## Built-in templates
 

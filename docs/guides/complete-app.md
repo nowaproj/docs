@@ -52,7 +52,7 @@ Details: [Connect Supabase](../integrations/supabase/connect.md), [Connect Figma
 
 1. In the **Supabase** panel, click `signUp` under **Authentication**. Type an **Email** and a **Password** under **Testing values** and click **Run**.
 2. Run `signIn` with the same values, after you confirm the email if Supabase asks. The section now reads **Testing as:** and your email.
-3. Use the login screen Nowa AI designed, or add the **Authentication Template** with the **Screen** tool. Its two screens, login and register, come without routes, so give each screen you open a path in **Route Settings**.
+3. Use the login screen Nowa AI designed, or add the **Authentication Template** with the **Screen** tool. Its two screens, login and register, come without routes, so give each screen you open a route in the **Router** panel: see [Give a screen a path](../logic/navigation.md#give-a-screen-a-path).
 4. Select the login button, open its **On Pressed** and add `SupabaseService` → `signIn`. Link **Email** and **Password** to the `text` of your text fields' controllers.
 5. Select the `signIn` node. Under **Future Options**, let **onValue** open the recipe list with a **GoRouter** node of type `go`, with the list screen's path in **Location**. Add **Show snackbar** to **onError** so people see what went wrong.
 6. Select the login screen and click **Make home screen**.
@@ -77,7 +77,7 @@ Details: [Read and write Supabase data](../integrations/supabase/database.md), [
 
 ## 6. Open the detail screen
 
-1. Add an `id` param to the detail screen. Its **Type** must match the `id` that `getByIdRecipes` takes: keep `String`, the default, because the table's `id` is a uuid. In **Route Settings**, set its **Path** to `/recipe/:id`. Open the **Router** panel, select the route and drag the `id` chip onto the screen's `id` param under **Screen Parameters**.
+1. Add an `id` param to the detail screen. Its **Type** must match the `id` that `getByIdRecipes` takes: keep `String`, the default, because the table's `id` is a uuid. Open the **Router** panel, select the detail screen's route (if it has none, see [Give a screen a path](../logic/navigation.md#give-a-screen-a-path)), type `/recipe/:id` in **Path** and press <kbd>Enter</kbd>. Then drag the `id` chip onto the screen's `id` param under **Screen Parameters**.
 2. Open `RecipeCard` on its own: in the [Library](../design/library.md), double-click it, or select it and press <kbd>Enter</kbd>. Select its main widget, click **Add Wrapper** and choose **Gesture Detector**. Open **On Tap** and add a **GoRouter** node of type `push`. Type `/recipe/` in **Location**, then `$` and pick the `id` param.
 3. On the detail screen, wrap the content in a **Data Builder** with **Source** set to **Supabase** and **Query** set to `getByIdRecipes`. Link its `id` input to the screen's `id` param, then show the fields of `data`.
 

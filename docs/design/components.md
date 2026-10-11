@@ -33,10 +33,10 @@ Instances have a purple label in the [Outline](outline.md).
 ## Edit a component or one instance
 
 - **Change the component for everyone.** Drag it from the **Library** onto empty board space and click its title, or double-click it in the **Library** (or press <kbd>Enter</kbd> on it) to open it on its own. Edit it like any widget. Every instance updates.
-- **Edit inside an instance.** Select a widget inside an instance: double-click the instance on the board to go one level deeper, or pick the widget in the [Outline](outline.md). Change it in **Details**. The widget belongs to the component, so every instance updates. The first crumb at the top of **Details** is the component's name. Click it to select the whole instance again.
+- **Edit inside an instance.** Select a widget inside an instance: double-click the instance on the board to go one level deeper, or expand the instance in the [Outline](outline.md) and pick the widget. If the row has nothing to expand, edit the component itself instead. Change it in **Details**. The widget belongs to the component, so every instance updates. The first crumb at the top of **Details** is the component's name. Click it to select the whole instance again.
 - **Set values for one instance.** Select the instance inside a screen. **Details** lists the component's params. Change them there and only this instance changes.
-- **Break the link.** Right-click an instance and choose **Detach**. It turns into plain widgets, and later changes to the component no longer reach it.
-- **Make a separate copy.** Right-click a component and choose **Copy as new widget**, name it and click **Submit**. You get a new component in its own file.
+- **Break the link.** Right-click an instance and choose **Detach**. It turns into plain widgets, and later changes to the component no longer reach it. In Nowa 3.13 the values you set on that instance are lost, and widgets linked to a param show a red box such as "[title] is not found": see [Detach loses an instance's param values](../troubleshooting/known-issues.md#detach).
+- **Make a separate copy.** Right-click an instance and choose **Copy as new widget**, name it and click **Submit**. You get a new component in its own file.
 
 ## Give a component params
 
@@ -44,7 +44,7 @@ Params let each instance show different content, such as a title or a picture.
 
 1. Select the component's board item, or open the component on its own.
 2. Expand **Variables** above **Details**. It lists **Params**, **Variables** and **Functions**.
-3. Hover **Params** and click **+**. Nowa adds a param called `param`. Rename it and choose its type.
+3. Hover **Params** and click **+**. Nowa adds a param called `param`. In **Details**, type its name in **Name**, press <kbd>Enter</kbd> and choose its **Type**. The list opens a name field too, but there the letters t, r, v and f can trigger board shortcuts instead of typing.
 4. Link a property of a widget inside the component to the param. Each instance now has its own value for it in **Details**.
 
 Adding a variable (hover **Variables**, then click **+**) makes the component stateful for you. There is nothing to set up. Learn more in [Pass data with parameters](../logic/parameters.md) and [Store data in variables](../logic/variables.md).

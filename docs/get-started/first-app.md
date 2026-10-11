@@ -43,9 +43,9 @@ The **AI Assistant** panel on the left shows each step as it happens. New screen
 
 ## 3. Change something by hand
 
-1. Click a widget on a screen, such as a heading or a button. The **Details** panel on the right shows its properties. If it is hard to click, pick it in the **Outline** panel instead (sidebar → **Outline**).
+1. Click a widget on a screen, such as a heading or a button. The **Details** panel on the right shows its properties. If it is hard to click, or the click selects something bigger (a heading in the app bar selects the whole app bar), pick it in the **Outline** panel instead (sidebar → **Outline**).
 2. Change a property. For a text, edit **Text** in **Details**, or double-click the text on the board and type. Colors, sizes and spacing have their own fields in **Details**.
-3. Don't like it? Press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Z</kbd> to undo.
+3. Don't like it? Press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Z</kbd> to undo. Selecting counts as a step too, so press it again if the first press only changes the selection.
 
 If you can't see **Details**, make the window wider or close the left panel. Nowa hides **Details** when the board area is narrower than 600 px.
 

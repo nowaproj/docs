@@ -2,7 +2,7 @@
 title: Known issues
 description: Platform limits and editor quirks you may run into when you use Nowa, and how to work around each one.
 sidebar_label: Known issues
-keywords: [known issues, limitations, Windows, Firebase, Firestore, Apple sign-in, Google Maps, AdMob, CORS, desktop app, Linux, rename variable, Shift drag]
+keywords: [known issues, limitations, Windows, Firebase, Firestore, Apple sign-in, Google Maps, AdMob, CORS, desktop app, Linux, rename variable, Shift drag, slash, route path, detach component, app bar drag]
 ---
 
 A few things work differently depending on where you run Nowa or your app, and a few editor actions need a workaround
@@ -62,9 +62,21 @@ The Linux app doesn't update itself either. When a new version is out, the updat
 
 When you name a new variable, param or function in the **Variables** list, or double-click one to rename it, the letters t, r, v and f can trigger board shortcuts instead of typing, and the rename may stop. Select the item and type the name in **Name** in **Details** instead, which takes every letter. See [Store data in variables](../logic/variables.md#add-a-variable).
 
-## Shift + drag moves a widget out of its screen {#shift-drag}
+## Shift + drag can drop a widget out of its screen {#shift-drag}
 
-Holding <kbd>Shift</kbd> while you drag a widget keeps the move on one axis, but when you let go, the widget leaves its screen and becomes its own item on the board. Press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Z</kbd> to undo the drop. To nudge a widget in a **Stack** along one axis, select it and press <kbd>Shift</kbd> + an arrow key, 10 pixels per press. See [Select, move and resize](../design/select-and-edit.md#move-widgets).
+Holding <kbd>Shift</kbd> while you drag a widget keeps it on one axis, even when your pointer drifts off that line. If the pointer is outside the screen when you let go, the widget leaves the screen and becomes its own item on the board, even if it still looks inside. Keep the pointer inside the screen, or press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Z</kbd> once to put the widget back. To nudge a widget in a **Stack** along one axis, select it and press <kbd>Shift</kbd> + an arrow key, 10 pixels per press. See [Select, move and resize](../design/select-and-edit.md#move-widgets).
+
+## A `/` you type in Details doesn't appear {#slash-in-details}
+
+In Nowa 3.13, a `/` you type in a field in **Details** is dropped. A route path typed in **Route Settings** loses its slashes, and **Problems** reports "Top-level route path must start with a leading slash". Type route paths in the Router panel instead: select the route and type the path in **Path**, which keeps every `/`. For other text with a `/`, such as a web address, paste it into the field. See [Give a screen a path](../logic/navigation.md#give-a-screen-a-path).
+
+## Detach loses an instance's param values {#detach}
+
+When you detach a component instance, the plain widgets still point at the component's params, and the values you gave that instance are lost. The board shows a red box such as "[title] is not found" for each one, while **Problems** lists nothing. Note the values before you detach. Afterwards, click each broken property's name, choose **Detach...** and type the value again, or link it to something else. See [Build reusable components](../design/components.md#edit-a-component-or-one-instance).
+
+## A widget dragged across the app bar lands squashed {#drag-across-app-bar}
+
+When you drag a widget in a screen over the screen's app bar, the app bar takes it in while your pointer is there. If you carry on and drop it in the body or on the board, it lands as a thin line with a height of 0. Press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Z</kbd> to undo the drop, and keep the pointer off the app bar while you drag. See [Where a dragged widget lands](../design/select-and-edit.md#where-a-dragged-widget-lands).
 
 ## Next steps
 

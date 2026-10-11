@@ -84,7 +84,7 @@ You make Rive animations in [Rive](https://rive.app).
 
 ## Show a web page {#web-view}
 
-Add a **Web View** and type the address in **Url**. It starts at `https://nowa.dev`. If you leave out `http`, Nowa adds `https://`. Run your app to see the page. In the web app, **Play** loads it too.
+Add a **Web View** and set the address in **Url**. It starts at `https://nowa.dev`. If you leave out `http`, Nowa adds `https://`. Paste the address rather than typing it: in Nowa 3.13 a `/` you type in **Details** is dropped (see [Known issues](../../troubleshooting/known-issues.md#slash-in-details)). Run your app to see the page. In the web app, **Play** loads it too.
 
 ## Show HTML {#html}
 
@@ -96,7 +96,7 @@ Html comes from the `flutter_html` package. Nowa doesn't show **Add Missing Depe
 
 Add a **Markdown** widget and type or paste your Markdown in **Data**. It starts as `# Hello World`. People can select the text unless you turn off **Selectable**. **Style** sets the text style.
 
-In both **Data** boxes, type `$` to put a variable into the text. See [Put a value inside text](../../logic/expressions.md#dollar). Double-click either widget on the board to edit its text in place.
+In both **Data** boxes, type `$` to put a variable into the text. See [Put a value inside text](../../logic/expressions.md#dollar). In Nowa 3.13 a `/` you type in either box is dropped, so paste text that has one, such as an HTML closing tag or a link. Double-click either widget on the board to edit its text in place.
 
 ## Know what the board shows
 

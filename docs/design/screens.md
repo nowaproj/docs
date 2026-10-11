@@ -52,11 +52,11 @@ Other sections of **Details**, such as **Group** and **Safe Area**, control the 
 
 **Route Settings**, in the **Screen** section, sets how this screen is addressed in your app. It appears in projects that use GoRouter, the default for new projects.
 
-1. Click the **Path** field and type a path, such as `/settings`. Press <kbd>Enter</kbd>. The field's hint shows the default: the screen name in lowercase words joined by hyphens, for example `/home-page`.
+1. Click the route icon next to **Route Settings** (**Open Router Editor**). In the Router panel, select the screen's route, type a path such as `/settings` in **Path** and press <kbd>Enter</kbd>. Don't type it in the **Path** field of **Route Settings**: in Nowa 3.13 that field drops every `/` you type.
 2. To pass data in the address, expand **Route Parameters** and click **+** (**Add Route Parameter**).
 3. Type a **Param name**, link it to one of the screen's params with the link button, and set a **Default value** if you like.
 
-The route icon next to **Route Settings** (**Open Router Editor**) opens the router. See [Set up routes in the Router panel](../logic/router.md).
+A screen without a route shows the default path as the hint in **Path**: its name in lowercase words joined by hyphens, for example `/home-page`. To add its route, see [Set up routes in the Router panel](../logic/router.md#add-nest-and-delete-routes).
 
 ## Choose the home screen
 

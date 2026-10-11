@@ -27,7 +27,7 @@ The menu also has these items:
 | **Custom Expression...** | Lets you type a formula. See [below](#custom-expression). |
 | **Detach...** | Breaks the link and puts the current value, or a default, in its place. Shown when the property is linked. |
 | **Create Param...** | Makes a new parameter of the right type and links it. Inside a function it's a function parameter, otherwise a screen or component param. See [Pass data with parameters](parameters.md). |
-| **Create Variable...** | Makes a new variable of the right type and links it. It starts with the property's current value if that's a fixed value. |
+| **Create Variable...** | Makes a new variable of the right type and links it. It starts with the property's current value if that's a fixed value. If the property only shows its default, the variable's **Default Value** starts empty, so fill it in. |
 | **Compute...** | Makes a function that works out the value. See [below](#compute). |
 | **Edit** | Opens the linked variable's settings in a popup. Shown when the property is linked to a variable. |
 | **Open in Circuit** | Opens the linked function. |

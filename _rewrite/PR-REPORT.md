@@ -121,7 +121,7 @@ Full log with reasons: `_rewrite/decisions.md`. The main ones:
 
 ## Product issues found along the way
 
-147 product issues were written up for the engineering team, each with steps to reproduce, the root cause with code
+149 product issues were written up for the engineering team, each with steps to reproduce, the root cause with code
 references and a suggested fix. Some describe security problems, so the full report lives in the private product repo
 (`nowaproj/nowa`, `docs/platform_issues/`, branch `claude/tender-pascal-quit5k`); `_rewrite/product-issues.md` keeps
 the first 58 as short notes. A few that affect the docs:

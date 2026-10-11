@@ -78,7 +78,7 @@ had been skipped as low value were taken in the signed-out playground (`captures
 every capture the playground allows is done (114 screenshots, 8 videos on 83 pages). A live check of the open points
 (component instances, paste, router paths, the first-app steps; `reviews/P12-live-checks.md`, 56 claims) and the
 capture agents' own checks led to two fix rounds on 27 pages, 5 new Known issues entries, each checked in code
-(`reviews/P12-fixes.md`, `P12-verify.md`, `P12-fixes-2.md`, `P12-verify-2.md`), and 20 more product issues (P128-P147;
+(`reviews/P12-fixes.md`, `P12-verify.md`, `P12-fixes-2.md`, `P12-verify-2.md`), and 22 more product issues (P128-P149;
 P21 reproduced and raised to High) in the private report. Computer use can't reach the user's Mac from this cloud
 session, so `LOCAL-SESSION.md` is now a brief for a Claude session on the Mac (signed-in Chrome, Nowa desktop app); the
 cloud takes the Supabase, Stripe and GitHub shots after it (`CAPTURE-PHASE13.md`). Last live check of 6 points:

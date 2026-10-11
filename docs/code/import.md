@@ -28,7 +28,7 @@ Both start from the arrow next to **New project** on the dashboard.
 <Badge type="desktop" />
 
 1. Click the arrow next to **New project** and choose **Import project**.
-2. Next to **Project folder**, click **Browse** and pick your Flutter project's folder. You can also paste a path and press <kbd>Enter</kbd>.
+2. Next to **Project folder**, click **Browse** and pick your Flutter project's folder. You can also paste a path, then click outside the field so Nowa reads the folder.
 3. If a **Package to open** menu appears, pick the package to edit. See [Work with a monorepo](#work-with-a-monorepo).
 4. Choose where the project lives:
    - To upload a copy to your Nowa account, keep the default. The footer reads "Imported to the cloud — run, share and build from anywhere." The workspace chip at the top of the dialog picks which workspace gets the copy.
@@ -77,7 +77,7 @@ Nowa treats a folder as a monorepo when its `pubspec.yaml` lists `workspace:` me
 
 ## What to expect on the board
 
-- **A project without boards opens on an empty board.** Your screens and components are in the [Library](../design/library.md) (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>2</kbd>) under **Project**. Drag one onto the board to see it, or double-click it to open it on its own.
+- **The first time, Nowa opens a board called first.** If your project has no `first.board` file, Nowa creates an empty one, even when the project has other boards. Open your boards from the **Boards** chip in the top bar. Your screens and components are in the [Library](../design/library.md) (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>2</kbd>) under **Project**. Drag one onto the board to see it, or double-click it to open it on its own.
 - **Nowa draws your code by interpreting it, not compiling it.** Parts it can't draw show as placeholders, and anything it skips is reported in the **Problems** tab. Click **Run** to compile the whole app and see the real output. See [What Nowa can show on the board](limitations.md) and [Write your own code](custom-code.md).
 - **Nowa adds a `.nowa` folder** with its settings. Its `temp/` folder and `thumbnail.png` are Git-ignored. Nowa no longer raises the `version` in `.nowa/settings.json` to match each new release, so updating Nowa doesn't make that file show up as modified in [Git](git.md).
 - **FlutterFlow exports work too.** Nowa draws pages that use `safeSetState`, custom functions and Firestore records with placeholder data, even without a Firebase connection on the board.

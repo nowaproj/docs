@@ -27,7 +27,7 @@ For a side-by-side comparison, see [Cloud and local projects](../get-started/clo
 1. On the dashboard, click **New project**.
 2. Type a **Project name**. You can use letters, numbers, spaces, hyphens and underscores.
 3. Expand **Advanced** and click **Local-only project**. The card says "Stored only on this device. No Cloud Build or backups."
-4. Check the **Path**. It starts as your **Default Projects Path** from **Local Setup**. Click **Browse** to pick another folder.
+4. Check the **Path**. It starts as your **Default Projects Path** from **Local Setup**, and it's empty if you haven't set one. Click **Browse** to pick a folder, or type its path.
 5. Click **Create project**. Nowa creates a Flutter project in a new folder inside that path, adds its starter app (routing, theme, a home page and a board), and opens it.
 
 The folder is named after your project's package name: your project name in lowercase, with underscores for spaces. A leading digit is spelled out, so `2048 Game` becomes `two_048_game`. The dashboard shows the name you typed. If Nowa says a folder with that name already exists, pick another name or path.

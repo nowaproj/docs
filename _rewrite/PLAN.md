@@ -61,6 +61,18 @@ missing network); live check of the REST API and Show data pages (`reviews/P10-l
 `captures/tools/to-capture.py` rebuilds `captures/to-capture.md` from the pages (49 left: 36 not possible with the
 test account, 13 skipped as low value).
 
+**Phase 11 (2026-10-11): paid plan, throwaway accounts, Linux desktop app.** The user upgraded the test account (Scale
+trial) and created throwaway accounts. Logins from the cloud browser: Nowa and Figma work; Supabase and Stripe show
+CAPTCHAs, GitHub and Google block automated browsers (not worked around). Done: 6 paid-plan shots (deployment tabs, an
+Android build, a web publish of "Docs capture paid", Git panel, branch switch), 5 desktop shots from the official Linux
+build (Local Setup, local-only project, Project Sync, Import, VS Code), live checks of the publish, git, desktop-app,
+local-projects, import and AI connector pages (12 fixes, verified: `reviews/P11-linux-fixes.md`, `P11-linux-verify.md`),
+3.13 What's New and Changelog entries (verified: `reviews/P10-whats-new-verify.md`), 11 more product issues (P117-P127,
+Figma connection broken for everyone, black window on Linux without NetworkManager...). The platform issues report moved
+to the private product repo (it describes security problems). Next: the local computer-use session
+(`LOCAL-SESSION.md`: connect Supabase and GitHub, enter Stripe test keys, Firebase and emulator shots), then the Supabase,
+Stripe and GitHub shots from the cloud.
+
 Batches (2026-10-09): research done (`research/changes-3.13.md`: 53 pages, 27 changes, 11 open points). Writers:
 **W30a** (new `design/library.md`, get-started, design index/boards/screens/components/add-widgets/select-and-edit/
 outline, glossary), **W30b** (design properties/layout/themes/theme-styles/assets/templates/localization/fonts-icons/

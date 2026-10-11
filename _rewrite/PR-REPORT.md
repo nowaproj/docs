@@ -40,8 +40,10 @@ design, logic, data, testing and publishing, with code, account and reference af
   (about 2,100 checks and 410 fixes in the first pass, about 790 claims and 61 fixes for the quality-pass text, about
   1,400 checks and 32 fixes for the 3.13 update). A check in the live 3.13 editor then caught 8 behaviors the code
   alone didn't show, and those pages were corrected. A second live check, of the REST API and Data Builder pages once
-  the network was open, found 10 more differences; 9 needed a fix, each confirmed in the code by another agent.
-  Review logs are in `_rewrite/reviews/`.
+  the network was open, found 10 more differences; 9 needed a fix, each confirmed in the code by another agent. A
+  third round on 11 October, with the paid plan and the Nowa desktop app for Linux, found 12 more (desktop setup, local
+  projects, import, builds, AI connectors), all fixed and checked in code by another agent. Review logs are in
+  `_rewrite/reviews/`.
 - **Updated to Nowa 3.13.0** (released 6 October): the Library panel replaces the Widgets panel, Ctrl/Cmd+K and the
   toolbar's **Widget** tool open the Library, the top bar has **Back** / **Forward** and a searchable **Boards** chip,
   **Files** moved into code mode as a tree, menu entries were renamed (**Bring forward**, **Send backward**...), the
@@ -51,14 +53,16 @@ design, logic, data, testing and publishing, with code, account and reference af
   in `_rewrite/left-out.md` with the reason (internal, debug, unreachable, private beta).
 - **Redirects**: `@docusaurus/plugin-client-redirects` with 160 redirects in `redirects.js` covers all 166 old URLs and
   the 44 docs links the app opens (old widget help links land on the matching row of the widget catalog; anchors kept).
-- **Screenshots and videos, all from 3.13**: 92 screenshots and 6 short videos on 75 pages, taken on app.nowa.dev
-  (the playground, and the test account for the dashboard, settings, Deploy menu, Run, Share and Nowa AI), each
+- **Screenshots and videos, all from 3.13**: 103 screenshots and 6 short videos on 83 pages, taken on app.nowa.dev
+  (the playground, and the test account for the dashboard, settings, Deploy menu, deployment tabs, builds, Git, Run,
+  Share and Nowa AI) and in the Nowa desktop app for Linux (Local Setup, local projects, import, VS Code), each
   checked by eye, nearly all with an orange highlight on what matters, and names and emails blurred. The videos show adding a
   widget from the Library, laying out rows and columns, Instant Play, adding a Circuit node, changing a theme color
   and Nowa AI building an app. The remaining placeholders are hidden MDX comments, listed in
   `_rewrite/captures/to-capture.md` (rebuilt from the pages by `_rewrite/captures/tools/to-capture.py`).
-- **What's New and Changelog**: wording untouched; only links to removed pages were re-pointed (and one empty link
-  removed). They have no 3.13 entry yet.
+- **What's New and Changelog**: new 3.13.0 entries (the Library, Back/Forward and boards, Linux, theme extensions,
+  `@Preview` variants, packages and code, local sync), checked claim by claim against the code. Older entries are
+  untouched; only links to removed pages were re-pointed (and one empty link removed).
 - **Site**: explicit `sidebars.js`; global `<Badge>` and `<Anchor>` components (`<Anchor>` registers link targets in
   tables with the broken-anchor check); broken Markdown links now fail the build; fixed the sidebar override that put
   `[object Object]` in every link title; a current social card; "What's new" in the navbar; "Community forum" in the
@@ -75,7 +79,7 @@ design, logic, data, testing and publishing, with code, account and reference af
 3. **Simple, clear, concise, warm, confident**: a wording pass over every page; a script compared each page before and
    after and confirmed no label, link, number, step or heading changed.
 4. **Easy to follow**: a fresh-eyes agent walked six real goals through the docs; its fixes are in.
-5. **A highlighted screenshot where it helps**: 75 pages have one now (29 before the pass).
+5. **A highlighted screenshot where it helps**: 83 pages have one now (29 before the pass).
 6. **Tips for quality apps**: design, AI, data and state, and test-and-ship guides, linked from the feature pages.
 
 ## Decisions made for you
@@ -98,8 +102,12 @@ Full log with reasons: `_rewrite/decisions.md`. The main ones:
 - Connect External Agent is **Enterprise** only: badge kept.
 - The docs point to Apple's and Google's store rules.
 - The test account was used for the signed-in screenshots and is kept outside the repo (never committed). 5 of the 5
-  AI prompts you allowed were used (logged in `_rewrite/captures/ai-prompts.md`); the account's AI allowance now shows
-  "100% used · Using extra credits".
+  AI prompts you allowed were used (logged in `_rewrite/captures/ai-prompts.md`).
+- You upgraded the test account to a paid plan and created throwaway Supabase, Stripe, GitHub, Figma and Google
+  accounts (credentials kept outside the repo). Figma signs in from the cloud; Supabase and Stripe show CAPTCHAs and
+  GitHub and Google block automated browsers, so those sign-ins move to a local computer-use session where you click
+  any CAPTCHA (`_rewrite/LOCAL-SESSION.md`).
+- You asked for a 3.13 entry in What's New: written, with a Changelog entry, and checked against the code.
 
 ## Open questions
 
@@ -109,13 +117,15 @@ Full log with reasons: `_rewrite/decisions.md`. The main ones:
 
 ## Product issues found along the way
 
-58 issues spotted while reading the code or checking the live editor are in `_rewrite/product-issues.md` (not fixed
-here). The most important:
+127 product issues were written up for the engineering team, each with steps to reproduce, the root cause with code
+references and a suggested fix. Some describe security problems, so the full report lives in the private product repo
+(`nowaproj/nowa`, `docs/platform_issues/`, branch `claude/tender-pascal-quit5k`); `_rewrite/product-issues.md` keeps
+the first 58 as short notes. A few that affect the docs:
 - Firestore (3.13): no designer entry point to add collections or queries.
 - Firebase Google sign-in: the generated `signInWithGoogle()` doesn't compile against `google_sign_in` 7.x.
 - RevenueCat: the generated service has no way to restore purchases, which App Store guideline 3.1.1 asks for.
 - Signed-out playground (3.13): the AI chat field's toolbar is broken ("BillingProvider is not initialized").
-- Supabase bundled backends deploy edge functions with `verify_jwt: false`.
+- Connecting Figma fails for everyone today: Figma rejects Nowa's OAuth app (server-side setup).
 - REST API (3.13): setting a collection's **Auth Key** shows a false "Undefined name 'headers'" error in **Problems**
   (Nowa's model of Dio has no `RequestOptions.headers`).
 - Git (local projects): after **Bring my changes**, **Accept Local** drops your own edits; **Revert Commit** only stages.
@@ -125,14 +135,17 @@ here). The most important:
 
 ## Unfinished
 
-- **Screenshots the test account can't produce** (36): the Git and GitHub panels and Android/iOS builds (the account
-  is on the Starter plan), a published web site (needs a deploy), the public-link options (no project may be made
-  public), connected Supabase, Firebase, Figma or Stripe screens (no external accounts), and desktop-only screens.
-  13 more were possible in the playground but skipped as low value, because their pages already have a screenshot.
-  All 49 stay as hidden placeholders, listed in `_rewrite/captures/to-capture.md`.
+- **25 screenshots still need something**: Supabase (8) and Stripe (1) once Supabase is connected, GitHub (3) once
+  GitHub is connected, Firebase (7) and the device menu with an emulator (1) in the local computer-use session
+  (`_rewrite/LOCAL-SESSION.md`), Figma (1) once its connection is fixed, and four that need your decision: one AI request
+  for the Supabase approval card, a custom domain, a project made public for a moment, and the Enterprise feature for
+  **Connect External Agent**. 13 more were possible in the playground but skipped as low value, because their pages
+  already have a screenshot. All 38 stay as hidden placeholders, listed in `_rewrite/captures/to-capture.md`.
 - **Live checks** that need those setups (for example the Firestore flow, View Only in the Library) are listed in
   `_rewrite/PLAN.md` and the review logs.
-- **Test account clean-up**: four "Docs capture ..." projects and a "Docs capture" workspace can be deleted.
+- **Clean-up**: the "Docs capture ..." projects (including "Docs capture paid", whose preview site expires on its
+  own, and "Docs capture local" from the Linux app) and the "Docs capture" workspace can be deleted. Change the
+  passwords of the test and throwaway accounts once the screenshots are done.
 
 ## How to review
 

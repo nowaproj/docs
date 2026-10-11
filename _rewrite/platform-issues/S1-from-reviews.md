@@ -3,10 +3,10 @@
 ### R1. A service token for Nowa's feedback tables is hard-coded in the shipped client
 
 - **Area:** Feedback and "Request a Widget" dialogs (`packages/core/lib/src/dialogs`)
-- **Severity:** Critical — a secret in the shipped client: a live Airtable token is readable by anyone who opens the web app or unpacks a desktop build, and the tables it writes to receive signed-in users' email addresses.
+- **Severity:** Critical — a secret in the shipped client: an Airtable personal access token is readable by anyone who opens the web app or unpacks a desktop build, and the tables it writes to receive signed-in users' email addresses.
 - **Where:** both; cloud and local projects
-- **Status:** Present in 3.13.0 and dev (also in 3.12.5; the token has been in the repo since `831944f37`, 16 Feb 2025)
-- **Confidence:** Confirmed in code — found by `reviews/W13a-writer-notes.md` (line 225, "hard-coded credential"). The token's scopes can't be told from the repo, so how much it can read or change is unknown. The token is not copied here.
+- **Status:** Present in 3.13.0 and dev (also in 3.12.5; the same token string has been in the repo since `8103874cf`, 12 Feb 2025, and `831944f37`, 16 Feb 2025, moved the file into `packages/core`)
+- **Confidence:** Confirmed in code — found by `reviews/W13a-writer-notes.md` (line 225, "hard-coded credential"). The string has the exact shape of an Airtable personal access token (`pat`, 14 characters, a dot, 64 hex characters). It was not used, so whether it is still active is unknown, and its scopes can't be told from the repo, so how much it can read or change is unknown. The token is not copied here.
 
 **What happens.** The dialogs that send feedback ("Request a Widget", "Request a Template", "Report Problem", suggestions) post straight from the app to Airtable. The base URL and a personal access token are default constructor arguments in Dart source, so they ship in every build.
 
@@ -77,7 +77,7 @@ Actual: by the source, it can't be bundled; the deploy error is swallowed (R2). 
 ### R4. **Delete** on a local project erases the folder of an imported repository
 
 - **Area:** Dashboard projects (`lib/dashboard/dashboard_page.dart`, `packages/core/lib/src/providers/projects_view_provider.dart`)
-- **Severity:** Critical — work is lost: the user's own working tree, `.git` included, is deleted from disk, Nowa can't bring it back, and the dialog never says the folder goes.
+- **Severity:** Critical — work is lost: the user's own working tree, `.git` included, is deleted from disk, Nowa can't bring it back, and the confirmation ("This action cannot be reversed.") never says that files on disk, or which folder, go.
 - **Where:** desktop app; local projects
 - **Status:** Present in 3.13.0 and dev
 - **Confidence:** Confirmed in code, not run. Found by `reviews/W10-review.md` (open issue 12), `reviews/W10-writer-notes.md` and `reviews/W11-review.md` (**Delete** row).
@@ -91,9 +91,9 @@ Actual: by the source, it can't be bundled; the deploy error is swallowed (R2). 
 Expected: like the nested-repository case, the files stay; or the dialog says the folder will be erased.
 Actual: the folder and its `.git` are deleted.
 
-**Root cause.** `LocalProjectService.addProject` stores `gitRoot: workspace.gitRoot == workspace.root ? null : workspace.gitRoot` (`packages/core/lib/src/services/local_project_service.dart:88`), so a repo-root import has `isInGitRepo == false` (`packages/core/lib/src/models/project.dart:189`). That flag is the only guard (`dashboard_page.dart:256-293`, `projects_view_provider.dart:95-101,278-289`). The delete itself, `NDirectory.removeProject`, is documented "not undoable" (`packages/core/lib/src/file_system/nfile_impl.dart:664-668`).
+**Root cause.** `LocalProjectService.addProject` stores `gitRoot: workspace.gitRoot == workspace.root ? null : workspace.gitRoot` (`packages/core/lib/src/services/local_project_service.dart:88`), so a repo-root import has `isInGitRepo == false` (`packages/core/lib/src/models/project.dart:189`). That flag is the only guard (`dashboard_page.dart:256-293`, `projects_view_provider.dart:95-101,278-289`). The delete itself, `NDirectory.removeProject`, is documented "not undoable" (`packages/core/lib/src/file_system/nfile_impl.dart:664-668`) and deletes the directory recursively, not to the Trash (`packages/core/lib/src/services/local_file_service.dart:100-104`). `discoverPackages` also sets `gitRoot` to the workspace root when it finds no repository at all (`packages/core/lib/src/project/owned/package_scan.dart:171`), so a folder imported without Git is erased the same way.
 
-**Suggested fix.** Record on `Project` that it was imported (set in `addProject`) and treat it like `isInGitRepo`: only unlist. Or, for every local project, name the folder in the dialog ("This also deletes <path> from your disk") and rename the button. Test: `packages/core/test/local_project_service_test.dart` (import a repo-root folder, remove, assert the folder is still there).
+**Suggested fix.** Record on `Project` that it was imported (set in `addProject`) and treat it like `isInGitRepo`: only unlist. Projects already in the list carry no such flag, so also, for every local project, name the folder in the dialog ("This also deletes <path> from your disk") and rename the button. Test: `packages/core/test/local_project_service_test.dart` (import a repo-root folder, remove, assert the folder is still there).
 
 **Docs impact.** `docs/account/projects.md` L96-101 and `docs/code/local-projects.md` L87-100 warn about this; update them with the fix.
 

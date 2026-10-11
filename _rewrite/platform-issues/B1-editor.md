@@ -67,7 +67,7 @@ Related: P2, P3.
 - **Area:** Widget right-click menu (`packages/designer/lib/src/menus`, `packages/core/lib/src/widgets/menu.dart`)
 - **Severity:** Low — a wrong key hint on one pair of entries.
 - **Where:** both; both
-- **Status:** Fixed in 3.13.0 (commit `1e386bd8f`, 1 Oct 2026) for **Move Up** and **Move Down**; dev is the same. The two hints under "Two other hints are wrong" below are still present in 3.13.0 and dev.
+- **Status:** Present in 3.13.0 and dev for two key hints on Windows and Linux (under "Two other hints are wrong" below): the Library row menu's **Insert** shows ⌘⏎, and the top-bar **Back** and **Forward** tooltips show the Mac glyphs ⌃- and ⌃⇧-. Fixed in 3.13.0 (commit `1e386bd8f`, 1 Oct 2026) for the original problem, the same key beside **Move Up** and **Move Down**; dev is the same.
 - **Confidence:** Reproduced live — the 3.13.0 playground menu (docs screenshot `static/img/docs/design/design-select-and-edit-2.png`, Linux) shows a different key on each reorder entry; also confirmed in code.
 
 **What happens.** In 3.12.5 **Move Up** and **Move Down** both showed `]`. In 3.13.0 the reorder entries are renamed (**Bring to
@@ -480,10 +480,10 @@ retry branch (`packages/designer/lib/src/error_boundary.dart:111-114`) so an err
 
 Related: M20.
 
-### P22. A top-level function or enum Nowa could not load is deleted when Nowa saves the file
+### P22. Top-level code Nowa can't load or doesn't keep (functions, enums, typedefs, exports) is deleted when Nowa saves the file
 
 - **Area:** Code sync (`packages/core/lib/src/interpreter/visitors`, `packages/core/lib/src/file_system`)
-- **Severity:** Critical — work is lost: hand-written code is deleted when Nowa saves the file, Nowa can't bring it back (Undo and AI checkpoints don't hold it), and nothing warns it will go (**Problems** only says it "could not be loaded", and the docs say Nowa "skips" it). It needs a top-level declaration of the kinds listed under **Root cause** in a file that Nowa then rewrites, which a board edit, a rename or an AI edit does.
+- **Severity:** Critical — work is lost: hand-written code is deleted when Nowa saves the file, Nowa can't bring it back (Undo and AI checkpoints don't hold it), and nothing warns it will go (**Problems** only says it "could not be loaded", and the docs say Nowa "skips" it). It needs a top-level declaration of the kinds listed in the root cause below in a file that Nowa then rewrites, which a board edit, a rename or an AI edit does.
 - **Where:** both; both
 - **Status:** Present in 3.13.0 and dev
 - **Confidence:** Code reading only, not run — every step traced in code, then traced again independently (which kinds are dropped, and when); no guard was found.
@@ -508,24 +508,24 @@ Actual (by the code): `countDown` is gone from the file. **Problems** still list
 - What is dropped. `BlockUnit.source` writes only the declarations the visitor produced, so by kind (3.13.0):
   - Dropped when loading fails, with no fallback: top-level functions (a function keeps its text only with `@CustomFunction`, `:1171-1186`; otherwise its body is read with no `try`, `:1168-1223`, and `visitBlock` has none, `:1499-1502`; a node with no visitor throws, as `yield` and pattern assignment do, and the visitor rejects list and map destructuring and `switch` `when` guards and list or map patterns: the table at `docs/code/limitations.md:38-45`); enums (`:621-669`: one unreadable constant argument, field initializer or constructor body fails the whole enum); top-level variables with an initializer it can't read (`:945-947`, `:1044-1056`); mixins (`:586-618`) and extensions (`:2146-2162`) with an unreadable field; every `extension type` (no visitor, so the analyzer's `ThrowingAstVisitor` throws "Missing implementation of visitExtensionTypeDeclaration").
   - Kept: classes fall back to a custom class that keeps their text (`:688-691`; unless that fallback throws too, for example on a parameter default value the loader can't read, `:487`), methods to `CustomMethodDecl` (`:1130-1136`). The same unreadable code therefore survives inside a class and is dropped in a top-level function.
-  - Dropped although they load (found while verifying, code reading only): `typedef`s, which are registered in the project scope and return no declaration (`:528-551`, `:165-171`), and `export` directives, which are kept only to order loading (`:185-199`, `packages/core/lib/src/interpreter/block_tree.dart:7000-7002`; `source` does not write them). Nothing is listed in **Problems** for these.
+  - Dropped although they load (found while verifying, code reading only): `typedef`s, which are registered in the project scope and return no declaration (`:528-551`, `:165-171`), and `export` directives, which are kept only to order loading (`:185-199`, `packages/core/lib/src/interpreter/block_tree.dart:7001-7002`; `source` does not write them). Nothing is listed in **Problems** for these.
 - Saving. `BlockUnit.source` is the loaded declarations only (`packages/core/lib/src/interpreter/block_tree.dart:7044-7062`); `loadFailures` is read only to list problems (`packages/core/lib/src/file_system/dart_file.dart:319`). `DartFile.text` returns the original text only when the parser reported syntax errors (`errors.isNotEmpty`), otherwise it regenerates from the unit (`packages/core/lib/src/file_system/dart_file.dart:116-122`). A dirty file is written from that text (`packages/core/lib/src/file_system/file_object.dart:546`, `packages/core/lib/src/file_system/nfile_impl.dart:329-343`).
-- Triggers. Any change to the unit marks the file dirty (`packages/core/lib/src/file_system/dart_file.dart:146-158`). A rename or move of a file marks every file that imports it dirty (`packages/core/lib/src/file_system/nfile_impl.dart:115-127`), as does `relinkProjectAndRegenerateImports` when imports change (`packages/core/lib/src/providers/project_provider.dart:884-902`). Auto-save: `packages/core/lib/src/project/saving_service.dart:8-9,15-16,66`.
-- Second path, the AI **edit** tool: it reads `content.text` (the regenerated text, without the function) and writes its edit over that (`packages/ai/lib/src/tools/edit_tool.dart:43-48,60,113`), so an AI edit anywhere in the file drops it as well.
+- Triggers. Any change to the unit marks the file dirty (`packages/core/lib/src/file_system/dart_file.dart:146-158`). A rename or move marks the file itself and every file that uses it dirty (for a folder, every file in it: `packages/core/lib/src/file_system/nfile_impl.dart:102-127`, `:601-606`); undoing the delete of a file marks it dirty (`:322-326`, `packages/core/lib/src/providers/project_provider.dart:520`); so does `relinkProjectAndRegenerateImports` when imports change (`packages/core/lib/src/providers/project_provider.dart:884-902`). Auto-save: `packages/core/lib/src/project/saving_service.dart:8-9,15-16,66`.
+- Second path, the AI **edit** tool: it reads `content.text` (the regenerated text, without the function) and writes its edit over that (`packages/ai/lib/src/tools/edit_tool.dart:43-48,60,113`), so an AI edit anywhere in the file drops it as well. The AI checkpoint stores `file.content.bytes`, the same regenerated text, so restoring a checkpoint doesn't bring the function back either (`packages/ai/lib/src/checkpoints/checkpoint_service.dart:131,180`).
 - Safe paths: code-mode saves write the buffer's exact text (`packages/core/lib/src/widgets/code_editor/code_options.dart:210-224`); files with syntax errors; classes and methods; `@CustomFunction(...)` with arguments. A bare `@CustomFunction()` loses its annotation on the first rewrite (`packages/core/lib/src/interpreter/declaration_hybrid.dart:98-111`) and is then loaded as a normal function again.
-- Same in 3.12.5 (`packages/core/lib/src/interpreter/block_tree.dart:6851-6858`, `dart_file.dart` unchanged). 3.13 added the `library;` and `part` lines to what `BlockUnit.source` writes and a loader change that keeps the file's declaration order; neither keeps a failed declaration.
+- Same in 3.12.5 (`packages/core/lib/src/interpreter/block_tree.dart:6851-6858` in that tree; the text and dirty logic of `dart_file.dart`, `nfile_impl.dart`, the edit tool and the checkpoint service is unchanged). 3.13 added the `library;` and `part` lines to what `BlockUnit.source` writes and a loader change that keeps the file's declaration order; neither keeps a failed declaration, a typedef or an export.
 
-**Suggested fix.** Keep what fails. In `visitFunctionDeclaration` catch the load error and fall back to `CustomFunctionDecl(node, ...)..loadFailure = e.toString()`,
-as `visitMethodDeclaration` does (`:1130-1136`); do the same for enums with `CustomEnum(node)` (`packages/core/lib/src/interpreter/declaration_hybrid.dart`), and add
-one generic "raw declaration" (original text from the AST node) for variables, mixins and extensions. As a backstop store the
-source span in `DeclarationLoadFailure` and have `BlockUnit.source` write failed declarations back in file order, so no loader bug
+**Suggested fix.** Keep what fails, and what never loaded. In `visitFunctionDeclaration` catch the load error and fall back to `CustomFunctionDecl(node, ...)..loadFailure = e.toString()`,
+as `visitMethodDeclaration` does (`:1130-1136`; the constructor reads the parameter list again, `packages/core/lib/src/interpreter/declaration_hybrid.dart:84`, so guard that too); do the same for enums with `CustomEnum(node)` (`declaration_hybrid.dart:258`) and for variables with `CustomVariableDecl` (`:268`, already used at `:1040-1042`), and add
+one generic "raw declaration" (original text from the AST node) for mixins, extensions, extension types and typedefs. As a backstop make `visitCompilationUnit` keep such a raw
+declaration, in file order, for every top-level member that yields no declaration (it threw, or returned `null` as a typedef does), and write `exports` after the imports in `BlockUnit.source`, so no loader gap
 can delete code. Make the edit tool's `old_string` match against the same text it writes. Tests: `packages/core/test/interpreter_tests/dart_loading_test.dart`
-(a screen plus an `async*` function: change the screen, expect `file.text` to contain the function) and `packages/ai/test/edit_tool_test.dart`.
+(a screen plus an `async*` function, a `typedef` and an `export`: change the screen, expect `file.text` to contain all three) and `packages/ai/test/edit_tool_test.dart`.
 
 **Docs impact.** `docs/code/limitations.md:36` ("Nowa skips only that part and loads the rest of the file") and `:73`,
 `docs/test/problems.md:79` and `docs/code/custom-code.md:118` ("skipped and listed in Problems"): until fixed, add that a skipped
-function or enum is removed from the file the next time Nowa saves it after a change on the board or by the AI, with the
-workarounds (edit such files only in code mode, or give the function `@CustomFunction(preview: '...')`). After the fix, say it stays as you wrote it.
+function, enum or `extension type` (and any `typedef`) is removed from the file the next time Nowa saves it after a change on the board, a rename or by the AI, with the
+workarounds (keep such code in a file you only edit in code mode, with no board edits, renames or AI edits in it, or give the function `@CustomFunction(preview: '...')`). After the fix, say it stays as you wrote it.
 
 Related: P38.
 

@@ -179,6 +179,8 @@ def header(entries, counts, statuses, confidences):
     sev = ', '.join(f"{counts.get(s, 0)} {s}" for s in SEVERITY_ORDER)
     critical = [e for e in entries if e['severity'] == 'Critical' and e['status'] != 'Fixed']
     fixed = statuses.get('Fixed', 0)
+    fixed_note = (f" {fixed} {'is' if fixed == 1 else 'are'} already fixed in 3.13.0 and kept for the record."
+                  if fixed else '')
     urgent = '; '.join(f"**{e['id']}** {e['title']}" for e in sorted(critical, key=lambda e: int(e['id'][1:])))
     return f"""# Nowa platform issues (3.13.0)
 
@@ -188,8 +190,7 @@ cause with code references, a suggested fix and, where it helps, a test to add.
 
 **{total} issues:** {sev}. {confidences.get('Live', 0)} were reproduced in the running app,
 {confidences.get('Code', 0)} are confirmed in the code, and {confidences.get('Reading only', 0)} come from code reading
-only, so reproduce those before you change anything. {fixed} {'is' if fixed == 1 else 'are'} already fixed in 3.13.0
-and kept for the record.
+only, so reproduce those before you change anything.{fixed_note}
 
 **Most urgent (Critical):** {urgent}.
 

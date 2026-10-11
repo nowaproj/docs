@@ -28,7 +28,9 @@ The orange node at the top of the circuit is the function Nowa made for the even
 4. In **Details**, click the brush next to **Content** and change the text, which starts as "Hello World". For example, write `Saved!`.
 5. Close Circuit. Click **Play** in the screen's title bar and tap the button. The message appears at the bottom of the screen.
 
-{/* CAPTURE: id=logic-events-2 | state: playground starter open, Button selected, On Pressed showing Edit | show: click Edit next to On Pressed, add GLOBALS → Show snackbar, change its Content text, close Circuit, click Play on the screen title, tap the button and see the snackbar (about 15 s, no audio) | crop: whole editor */}
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/docs/logic/logic-events-2.mp4" type="video/mp4" />
+</video>
 
 To learn more about **Play**, see [Play your app on the board](../test/instant-play.md).
 

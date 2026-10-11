@@ -47,7 +47,9 @@ A screen from **Empty Page** has a **Stack** that fills its body, so a drop over
 
 A component can't be dropped into itself.
 
-{/* CAPTURE: id=design-select-and-edit-1 | state: playground starter open, a screen with a Group set to Stack holding two widgets, drag one widget slowly across the other | show: moving a widget in a stack with the purple snap guides and the stack outline visible | crop: the board | type: mp4, 10-15 s, no audio */}
+<video controls playsInline preload="metadata" width="100%" style={{maxWidth: '456px'}}>
+  <source src="/videos/docs/design/design-select-and-edit-1.mp4" type="video/mp4" />
+</video>
 
 ## Resize widgets
 

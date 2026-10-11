@@ -19,7 +19,7 @@ Click **Router** in the sidebar, below the divider under the other panel icons. 
 
 In the **Routes** list:
 
-- Click **+** (**Add Route**) and choose **Route** to add a route. Then set its **Path** and **Screen**.
+- Click **+** (**Add Route**) and choose **Route** to add a route. Select the new `/` route, then set its **Path** and pick its screen from the name next to **Screen**.
 - Hover a route and click **+** (**Add Sub-Route**) to nest a route inside it. To move a route, drag it onto another route to nest it, or onto a route's top edge to place it at that route's level. A moved route goes to the end of its new list.
 - Right-click a route and choose **Delete route**. A **Remove Route** dialog warns that the route's child routes go too.
 

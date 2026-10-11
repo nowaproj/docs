@@ -54,7 +54,7 @@ Other sections of **Details**, such as **Group** and **Safe Area**, control the 
 
 1. Click the route icon next to **Route Settings** (**Open Router Editor**). In the Router panel, select the screen's route, type a path such as `/settings` in **Path** and press <kbd>Enter</kbd>. Don't type it in the **Path** field of **Route Settings**: in Nowa 3.13 that field drops every `/` you type.
 2. To pass data in the address, expand **Route Parameters** and click **+** (**Add Route Parameter**).
-3. Type a **Param name**, link it to one of the screen's params with the link button, and set a **Default value** if you like.
+3. Type a **Param name** and link it to one of the screen's params with the link button.
 
 A screen without a route shows the default path as the hint in **Path**: its name in lowercase words joined by hyphens, for example `/home-page`. To add its route, see [Set up routes in the Router panel](../logic/router.md#add-nest-and-delete-routes).
 

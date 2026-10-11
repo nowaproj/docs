@@ -27,7 +27,7 @@ To set or change a path:
 2. In the **Routes** list, select the screen's route.
 3. Type the path in **Path**, such as `/settings`, and press <kbd>Enter</kbd>.
 
-If the screen has no route yet, click **+** (**Add Route**) and choose **Route**. Then type its **Path** and click **Screen** to pick the screen. The screen's **Details** also has a **Path** field under **Route Settings**, but in Nowa 3.13 it drops every `/` you type: see [Known issues](../troubleshooting/known-issues.md#slash-in-details).
+If the screen has no route yet, click **+** (**Add Route**) and choose **Route**. Select the new `/` route, type its **Path**, then click the name next to **Screen** to pick the screen. The screen's **Details** also has a **Path** field under **Route Settings**, but in Nowa 3.13 it drops every `/` you type: see [Known issues](../troubleshooting/known-issues.md#slash-in-details).
 
 To make a screen the one your app opens first, click **Make home screen** in the screen's **Details**. Nowa adds a route if the screen has none and sets it as the start location. To open the home screen only for signed-in people, see [Start on the login screen or the home screen](./router.md#start-on-login-or-home).
 

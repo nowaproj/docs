@@ -3,7 +3,7 @@
 ### P35. DOWNLOAD request method drops the address and produces code that doesn't compile
 
 - **Area:** REST request editor, method dropdown (`packages/data`)
-- **Severity:** Medium — few users pick **DOWNLOAD**, but doing so loses the request's address and leaves Dart that fails to build; Nowa's Problems list doesn't flag the missing save path.
+- **Severity:** High — generated code that doesn't build: choosing **DOWNLOAD** loses the request's address and leaves a call Dart rejects, and Nowa's Problems list doesn't flag the missing save path (few users pick it).
 - **Where:** both; both projects
 - **Status:** Present in 3.13.0 and dev. Correction to the old row: it says only that there is no save path; picking **DOWNLOAD** also drops the request's address, and Dio's `download` can never work on web.
 - **Confidence:** Confirmed in code — the seven-item menu with **DOWNLOAD** was seen live in 3.13.0, but **DOWNLOAD** was never run. The lost address and the missing save path are read from the code and the Dio 5.9.1 source, not run.
@@ -46,11 +46,11 @@ Actual: the address field is empty and `getFact` calls `dioClient.download()` wi
 2. Hover **Shop**, click **+**, choose **New Request**, name it `login` (select `newRequest` first) and click **Create**. Click **login**.
 3. Set the method to **POST** and type `https://example.com/token` as the address.
 4. Open the **Body** tab and choose **x-www-form-urlencoded**. The editor is empty and shows the yellow **Invalid JSON** icon.
-5. Type `username=emilys&password=emilyspass`. The icon stays on **Invalid JSON**.
+5. Type `username=emilys&password=<redacted>`. The icon stays on **Invalid JSON**.
 6. Click **Test**, then **Back to Request**, and look at the **Body** tab.
 7. Click the `<>` button in the top bar and open `lib/api/shop.api.dart` from the **Files** tree.
 
-Expected: the text is saved and sent as `username=emilys&password=emilyspass`, and **x-www-form-urlencoded** stays selected.
+Expected: the text is saved and sent as `username=emilys&password=<redacted>`, and **x-www-form-urlencoded** stays selected.
 Actual: step 6 shows **JSON** selected with an empty editor, because the text was never saved; in step 7 `login` has `data: ''` and `options: Options(contentType: 'application/x-www-form-urlencoded')`. If you type `{"username": "emilys"}` in step 5 instead, the icon turns to **Valid JSON** and the code gets `data: '{"username": "emilys"}'`: JSON text, sent as is under the form content type.
 
 **Root cause.**
@@ -89,10 +89,12 @@ Actual: the address is `/fact`. Open `lib/api/cats.api.dart` in code mode: the c
 
 **Docs impact.** None to change. `docs/integrations/rest-api/import.md:61` and `:75` ("the address in the command must start with the collection's **Base URL**") and `docs/integrations/rest-api/index.md:36` ("Changes save when you leave a field") describe the intended behavior; re-read them after the fix.
 
+Related: P53.
+
 ### P47. Min length and Max length validators lose their number field, and their check is silently dropped when other rules change
 
 - **Area:** Form validators in **Details** (`packages/core`)
-- **Severity:** High — a length rule vanishes from the user's app with no sign in the panel, and Details can never edit its number (6 or 40).
+- **Severity:** High — a length rule silently vanishes from the user's app when other rules change, with no sign in the panel (Undo should bring it back; not tried), and Details can never edit its number (6 or 40).
 - **Where:** both; both projects
 - **Status:** Present in 3.13.0 and dev. Correction to the old row: its line numbers are 3.12.5's (the 3.13.0 ones are below), and only the length rule added last survives, so Min and Max can't coexist through Details.
 - **Confidence:** Confirmed in code — the misread was seen live by the capture agent on the local 3.12.5 web build (one extra plain **Message** row, no **Min** field; `_rewrite/captures/README.md:115-118`). The dropped check is read from the code and was not run. In `form_validator.dart` 3.13.0 differs from 3.12.5 only in the **+ Add validator** button widget.
@@ -155,6 +157,8 @@ Actual: one error under `lib/api/cats.api.dart`: "Undefined name 'headers'." (`o
 
 **Docs impact.** None once fixed. `docs/integrations/rest-api/index.md:33` and `:38` explain **Auth Key** and don't mention the error; until the fix, `docs/troubleshooting/known-issues.md` could carry a line saying the error is safe to ignore.
 
+Related: P37.
+
 ### P54. Model button keeps the old model name after Return as Response Object
 
 - **Area:** REST request editor, **Model** button (`packages/data`)
@@ -181,6 +185,8 @@ Actual: it still reads `GetFactModel`. It reads **Response** after you close the
 
 **Docs impact.** None. `docs/integrations/rest-api/index.md:110-116` describes the intended behavior and doesn't mention the stale label.
 
+Related: R26.
+
 ### P55. Typo and copy-pasted text in the collection settings info popovers
 
 - **Area:** REST collection settings dialog (`packages/data`)
@@ -204,6 +210,8 @@ Actual: both read "The Base URL will applies on all requests".
 **Suggested fix.** Base URL: "The Base URL applies to all requests." Headers, for example: "These headers are sent with every request in this collection." (collection headers go into the client's `BaseOptions`, `packages/data/lib/src/api/model/api_collection.dart:60-63`, and are listed read-only on each request's **Headers** tab, `packages/data/lib/src/api/views/api_panel/api_setup_panel/api_request_form.dart:50`). No test needed.
 
 **Docs impact.** None. The docs don't quote the popovers; `docs/integrations/rest-api/index.md:27` already says the settings apply to every request.
+
+Related: R32.
 
 ### P56. Create New Collection Path preview ends in .dart but the file is saved as .api.dart
 
@@ -231,6 +239,8 @@ Actual: **Path** reads `lib/api/cats .dart`.
 **Suggested fix.** Don't pass `.api.dart` as `extension`: `FileNameTextField` compares `widget.extension == ".dart"` in eight places (`file_name_text_field.dart:78, 90, 164, 172, 179, 195, 199, 204`), so the **Class name** row and the name logic would disappear. Add an optional `pathSuffix` (default: `extension`) used only for the **Path** row's suffix (`:205`) and the clash checks (`:135-136, 157-159`), and pass `.api.dart` from `CreateCollectionDialog`. Do the same for the `FileDialog` in `add_lib_menu.dart:83-95` and point its `targetDir` at `gProject.files.apiDir`. `CreateFileResult.fileNameWithoutExtension` already yields `cats` for `cats.api.dart`. No test covers this dialog; add a widget test in `packages/data/test/` that pumps `CreateCollectionDialog`, enters `cats` and finds `.api.dart` in the **Path** row. Leave the 3 px gap alone.
 
 **Docs impact.** `docs/integrations/rest-api/index.md:14` already gives the saved name (`lib/api/cats.api.dart`), and line 18 calls the line a "**Path** preview" on purpose. After the fix, line 18 can say the preview shows the saved name. `docs/design/library.md:109` needs no change.
+
+Related: R25.
 
 ### P57. Undo can't bring the old request body back after a body-type switch
 
@@ -264,12 +274,12 @@ Actual: **raw** stays selected and the body stays empty; the Action History has 
 ### P58. The None entry of the Data Builder source pickers is never shown
 
 - **Area:** Data Builder source pickers: **Select API**, Supabase and Firestore (`packages/data`, `packages/core`)
-- **Severity:** Medium — once a request, function or query is chosen, nothing in the picker clears it; picking another source or editing the code is the only way.
+- **Severity:** Medium — once a request, function or query is chosen, nothing in the picker clears it; picking a different one or editing the code is the only way.
 - **Where:** both; both projects
 - **Status:** Present in 3.13.0 and dev.
 - **Confidence:** Reproduced live for **Select API** — 3.13.0-79 web playground: no **None**, and searching `none` finds nothing, also with a request already chosen. The Supabase and Firestore pickers were empty in the playground (nothing connected), so **None** wasn't seen there; they use the same menu (code).
 
-**What happens.** The picker code builds a **None** item that is meant to clear the source, but the menu never draws it, in all three pickers.
+**What happens.** The picker code builds a **None** item that is meant to clear the source, but the menu never draws it, in all three pickers. Switching the **Source** dropdown doesn't clear the call either.
 
 **Steps to reproduce**
 1. Create a collection with a request (**Api** in the left sidebar, **+** (**Add Collection**), **New Collection**, then **+** on the collection and **New Request**).
@@ -286,6 +296,7 @@ Actual: only the requests are listed; searching `none` finds nothing.
 - `LinkMenu.build` draws additional items only when the finder has a number of categories other than one (`packages/core/lib/src/fields/link_menu.dart:176, 196`), and `SuggestionQuery.categories` keeps every category even when a search matches nothing (`packages/core/lib/src/interpreter/suggestion.dart:343-345`). So the count is always 1 and **None** is never added.
 - All three pickers build a `DataLinkMenu` (`packages/data/lib/src/api/views/api_field.dart:73`, `packages/data/lib/src/supabase/ui/sb_field.dart:43`, `packages/data/lib/src/firebase/firebase_field.dart:72`).
 - Even if it showed, the tile's `onTap` only calls `field.remove()` (`data_link_menu.dart:83-89`). It skips `_onUpdate(null, context)`, which also resets the widget's `typeArgs` and records the undo step (`:22-30`); nothing calls `_onUpdate` with `null`.
+- Switching **Source** doesn't clear the call either: the dropdown's `onUpdate` only does `setState(() => _dataBuilder = newVal)` (`packages/core/lib/src/fields/data_field.dart:217`), so it changes which picker is shown and nothing in the code. Its **Custom** entry is `SelectField`'s fallback for a value that matches no listed source (`packages/core/lib/src/fields/nowa_fields.dart:877-884`), so it is listed only while no source matches the code.
 
 **Suggested fix.** In `LinkMenu.build` always draw `_filteredAdditionalItems()` (drop the `length != 1` condition at `link_menu.dart:196`); sub-menus already clear `additionalItems` (`:100`, `:134`). Check the other callers that pass additional items, `packages/code/lib/src/widgets/add_statement_menu.dart:60` and `packages/core/lib/src/fields/field_link_menu.dart:342`, because any of their menus that has one category would start showing them. Make the **None** tile call `_onUpdate(null, context)`. Test: `packages/core/test/interpreter_tests/suggestion_test.dart` covers suggestions but not menus; add a widget test that pumps `DataLinkMenu` and finds the text **None**.
 

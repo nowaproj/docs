@@ -12,7 +12,7 @@ recorded it in the running app. Flutter source references (P14, P20, P21) are to
 - **Area:** Shortcuts sheet (`packages/core/lib/src/widgets/shortcuts_cheat_sheet.dart`)
 - **Severity:** Low — a person presses a listed key and nothing, or something else, happens.
 - **Where:** both; both
-- **Status:** Present in 3.13.0 and dev (the ⌘P row of the old entry is fixed; three other rows are wrong or misleading)
+- **Status:** Present in 3.13.0 and dev (the ⌘P row of the old entry is fixed; eight other rows differ: three are wrong or misleading, five are label, order or glyph slips)
 - **Confidence:** Confirmed in code — every sheet row compared with the registered shortcuts and actions; not run.
 
 **What happens.** The sheet (the **Shortcuts** icon at the bottom of the left sidebar, or Ctrl/Cmd + .) is a hard-coded list
@@ -24,13 +24,14 @@ recorded it in the running app. Flutter source references (P14, P20, P21) are to
 | **Group/Ungroup** (`:56`) | ⌘ G | ⌘G only runs `CreateGroupIntent` (`packages/designer/lib/src/designer_setup.dart:20`, `packages/designer/lib/src/actions/designer_actions.dart:46-86`), so on a group it nests it in a new group. **Ungroup** exists only in the right-click menu (`packages/designer/lib/src/menus/widget_context_menu.dart:41-42`). | Half wrong |
 | **Boards** (`:36`) | ⌘ B | Opens the board list only where the top bar shows the Boards chip. In code mode, the Run view and Settings it does nothing (P3). | Misleading |
 | **Container** (`:47`) | R | The toolbar calls that tool **Shape** (`packages/designer/lib/src/widgets/designer_tools.dart:142`). | Label |
+| **Open selection in new file** (`:46`) | ⌘ I | The key is bound, but to `OpenSelectionInNewTabIntent` (`packages/designer/lib/src/designer_setup.dart:53`): it opens the file of the selected widget's class in an editor tab (`packages/designer/lib/src/actions/designer_actions.dart:298-313`, `packages/core/lib/src/providers/editor_provider.dart:56-78`). No file is created. | Label |
 | **Redo**, **Open action history** (`:23-24`) | ⌘ ⇧ Z, ⌘ ⇧ H on a Mac | Menus and tooltips write ⇧⌘ (Mac order ⌃⌥⇧⌘, `packages/core/lib/src/inputs.dart:27-38`). | Order, Mac |
 | **Next tab**, **Previous tab**, **Back**, **Forward** (`:31-32`, `:34-35`) | A caret or control-key glyph on every OS | The Control key. Other rows say **Ctrl** as text on Windows and Linux; these use `Icons.keyboard_arrow_up` and `Icons.keyboard_control_key` with no platform check. | Cosmetic |
 | **Bring to front**, **Send to back** (`:59-60`) | `Alt Ctrl ]` on Windows and Linux | The menu writes `Ctrl Alt ]`. Same chord. | Order, Win/Linux |
 
 The other rows match their bindings: **Save**, **Copy**, **Paste**, **Cut**, **Undo**, the keys of **Redo** and **Open action
 history**, **Close current tab**, the keys of **Back** and **Forward**, **Zoom In/out** (Ctrl/Cmd + scroll,
-`packages/core/lib/src/board/board_view.dart:237-241`), **Add a widget** (⌘K), **Go to a widget** (⌘O), **Open selection in new
+`packages/core/lib/src/board/board_view.dart:237-241`), **Add a widget** (⌘K), **Go to a widget** (⌘O), the key of **Open selection in new
 file** (⌘I), **Text** (T), **Bring forward**, **Send backward**, **Bring to front**, **Send to back** and **Delete**.
 
 Correction: "Open widget picker ⌘P" no longer exists. 3.13.0 reads **Add a widget** ⌘K, which is right (commit `b51ed7216`,
@@ -41,9 +42,10 @@ Correction: "Open widget picker ⌘P" no longer exists. 3.13.0 reads **Add a wid
 2. Close the sheet, click the board and press Ctrl/Cmd + \. No panel opens or closes.
 3. Draw two boxes with the **Shape** tool, drag a box around both to select them, press Ctrl/Cmd + G (they group), then press Ctrl/Cmd + G again with the group selected.
 4. Click the `<>` button next to **Settings** (code mode) and press Ctrl/Cmd + B.
+5. Leave code mode, select a widget on a screen and press Ctrl/Cmd + I.
 
 Expected: each key does what its row says.
-Actual: step 2 does nothing; step 3 nests the group in another group instead of taking it apart; step 4 does nothing.
+Actual: step 2 does nothing; step 3 nests the group in another group instead of taking it apart; step 4 does nothing; step 5 (by the code) opens the file the widget belongs to in a tab and creates no new file.
 
 **Root cause.** The rows are literals (`packages/core/lib/src/widgets/shortcuts_cheat_sheet.dart:15-63`) beside the real maps (`lib/setup_general_actions.dart:24-64`,
 `packages/designer/lib/src/designer_setup.dart:15-56`). The file's own comment says the registry-driven sheet is "currently commented out because the
@@ -58,12 +60,14 @@ so it cannot drift, and add a test in `packages/core/test/` that every sheet row
 its rows; add **Boards** to it (or keep the clause in the General table, line 48). The Mac-order sentence at line 11 is about menus
 and tooltips and stays right.
 
+Related: P2, P3.
+
 ### P2. The right-click menu showed the same key beside Move Up and Move Down
 
 - **Area:** Widget right-click menu (`packages/designer/lib/src/menus`, `packages/core/lib/src/widgets/menu.dart`)
 - **Severity:** Low — a wrong key hint on one pair of entries.
 - **Where:** both; both
-- **Status:** Fixed in 3.13.0 (commit `1e386bd8f`, 1 Oct 2026); dev is the same
+- **Status:** Fixed in 3.13.0 (commit `1e386bd8f`, 1 Oct 2026) for **Move Up** and **Move Down**; dev is the same. The two hints under "Two other hints are wrong" below are still present in 3.13.0 and dev.
 - **Confidence:** Reproduced live — the 3.13.0 playground menu (docs screenshot `static/img/docs/design/design-select-and-edit-2.png`, Linux) shows a different key on each reorder entry; also confirmed in code.
 
 **What happens.** In 3.12.5 **Move Up** and **Move Down** both showed `]`. In 3.13.0 the reorder entries are renamed (**Bring to
@@ -97,6 +101,8 @@ a test in the root `test/` folder that no menu or tooltip hint contains ⌘ or �
 **Docs impact.** `docs/design/library.md:85` says "The menu shows ⌘⏎ on every system": change it when the Library hint is
 fixed. `docs/design/select-and-edit.md:80-86` and `docs/reference/glossary.md:75` already describe the fixed menu: no change.
 
+Related: P1, R32, M9.
+
 ### P3. Ctrl/Cmd + B does nothing in code mode and the Run view
 
 - **Area:** Board picker shortcut (`lib/project`, `packages/nowa_ui/lib/top_bar`)
@@ -107,7 +113,7 @@ fixed. `docs/design/select-and-edit.md:80-86` and `docs/reference/glossary.md:75
 
 **What happens.** Ctrl/Cmd + B opens the **Boards** list with its search focused, but only while the top bar shows the **Boards**
 chip. In code mode, in the Run view and in Settings there is no chip, so the key does nothing. The sheet still lists **Boards** ⌘B
-(P1). Correction: the old row says "code mode"; the Run view, Settings and the New UX layout behave the same.
+(P1). Correction: the old row says "code mode"; the Run view, Settings and the New UX layout behave the same. The dev note that the code-mode **Boards** tab tooltip still shows ⌘B does not apply: the **Boards** tab button is not built in code mode (`lib/tabs_view.dart:25`), so no tooltip promises the key there.
 
 **Steps to reproduce**
 1. Open a project and press Ctrl/Cmd + B: the **Boards** list opens. Press Esc.
@@ -132,6 +138,8 @@ mode". Better: in code mode open the same list through `showCommandPalette`, as 
 
 **Docs impact.** `docs/reference/shortcuts.md:48`, `docs/design/boards.md:12,21` and `docs/get-started/editor-tour.md:31` already
 say "not in code mode or the Run view"; drop that clause only if the key starts working there.
+
+Related: P1.
 
 ### P4. The "Group" step of the guided walkthrough lost its highlight
 
@@ -205,6 +213,8 @@ that opens the filter menu and expects "Classes" needs a new one.
 
 **Docs impact.** `docs/design/library.md:29` quotes "the entry reads **Classs**": change it to **Classes** after the fix.
 
+Related: R32.
+
 ### P6. The Web View "Open Documentation." link does nothing
 
 - **Area:** Widget picker preview, Web View (`packages/core/lib/src/widgets_to_add`, `packages/core/lib/src/widgets`)
@@ -239,6 +249,8 @@ covers P7).
 **Docs impact.** `docs/design/add-widgets.md:63` and `docs/reference/widgets/index.md:19-21` describe the link; no change needed. Optionally
 list it in `docs/troubleshooting/known-issues.md` until it is fixed.
 
+Related: P7.
+
 ### P7. 32 widget documentation links point at the old docs site's paths
 
 - **Area:** Widget picker preview links (`packages/core/lib/src/widgets_to_add/widgets_to_add.dart`)
@@ -272,6 +284,8 @@ Keep the old redirects for released builds. The `Uri.parse` test from P6 covers 
 **Docs impact.** `redirects.js` must keep its `/ui/widgets/widget-desc/<slug>` entries (at least the 31 the app links) and
 `/ui/layout/groups` (`:106`) as long as released apps link there (decision D13 in `_rewrite/decisions.md`). `docs/reference/widgets/index.md:19-21`: no change.
 
+Related: P6.
+
 ### P13. The Create Theme Setup dialog names the wrong files
 
 - **Area:** Themes, Create Theme Setup (`packages/core/lib/src/file_system/widgets/previews/main_preview/theme_setup_view.dart`)
@@ -302,6 +316,8 @@ at `packages/core/test/envirnoment_tests/envirnoment_provider_test.dart:115` to 
 
 **Docs impact.** `docs/design/themes.md:108` names the real paths and is right; its "Projects you create in Nowa already have
 both files" does not hold for the playground's **Empty app**. Nothing else to change.
+
+Related: R32.
 
 ### P14. Expand is offered for a child of a Wrap, and Flutter rejects it
 
@@ -462,10 +478,12 @@ retry branch (`packages/designer/lib/src/error_boundary.dart:111-114`) so an err
 
 **Docs impact.** None until confirmed. `docs/design/layout.md` (Groups) documents the three Group buttons.
 
+Related: M20.
+
 ### P22. A top-level function or enum Nowa could not load is deleted when Nowa saves the file
 
 - **Area:** Code sync (`packages/core/lib/src/interpreter/visitors`, `packages/core/lib/src/file_system`)
-- **Severity:** Critical — hand-written code disappears without a warning; the trigger is narrow (a top-level function or enum Nowa cannot read, in a file Nowa then saves).
+- **Severity:** Critical — work is lost: hand-written code is deleted when Nowa saves the file, Nowa can't bring it back, and nothing warns it will go (**Problems** only says it "could not be loaded"); the trigger is narrow (a top-level function or enum Nowa cannot read, in a file Nowa then saves).
 - **Where:** both; both
 - **Status:** Present in 3.13.0 and dev
 - **Confidence:** Code reading only, not run — every step traced in code; no guard was found.
@@ -505,6 +523,8 @@ can delete code. Make the edit tool's `old_string` match against the same text i
 `docs/test/problems.md:79` and `docs/code/custom-code.md:118` ("skipped and listed in Problems"): until fixed, add that a skipped
 function or enum is removed from the file the next time Nowa saves it after a change on the board or by the AI, with the
 workarounds (edit such files only in code mode, or give the function `@CustomFunction(preview: '...')`). After the fix, say it stays as you wrote it.
+
+Related: P38.
 
 ### P38. @CustomWidget has no effect, unlike @CustomFunction
 
@@ -550,10 +570,12 @@ widget expression in `CustomWidgetDecl` instead of the placeholder. Or remove it
 `@CustomFunction`, which is right. Keep it that way until the annotation works (`_rewrite/coverage.md` gap G11 suggests naming
 `@CustomWidget`: don't); then add a short `@CustomWidget` paragraph to that section.
 
+Related: P22.
+
 ### P52. Group header ⋯ → Remove deletes every child but the first
 
 - **Area:** Details → Group section (`packages/core/lib/src/fields/class_field.dart`, `packages/core/lib/src/interpreter/widget`)
-- **Severity:** High — an explicit **Remove** click deletes all but the first child with no warning and Undo does not restore them (by the code); the design can be rebuilt, unlike P22's code.
+- **Severity:** Critical — work is lost: an explicit **Remove** click deletes all but the first child with no warning, and by the code Undo does not restore them.
 - **Where:** both; both
 - **Status:** Present in 3.13.0 and dev
 - **Confidence:** Code reading only, not run — traced from the menu entry to the tree edit and its undo.

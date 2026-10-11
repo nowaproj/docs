@@ -21,7 +21,7 @@ Actual: the green "Commit reverted successfully." appears, the history is unchan
 **Root cause.** `RevertCommitAction` shows the promise at `lib/project/panels/git_panel/git_commit_actions.dart:26-27`, calls `manager.revertCommit` (`:34`) and always shows the success snackbar (`:36-41`). `GitManager.revertCommit` (`packages/git_nowa/lib/src/git_manager.dart:806-815`) hands over to `LocalGitServiceImpl.revertCommit`, which runs `commit.revert()` and returns `[]` (`packages/git_nowa/lib/src/local/local_git_service.dart:837-844`). In git2dart that is `git_revert` and nothing else: "Reverts the commit, producing changes in the index and working directory" (`git2dart-0.4.0/lib/src/commit.dart:178`, binding `git2dart-0.4.0/lib/src/bindings/commit.dart:504`), the equivalent of `git revert --no-commit`. Nothing commits afterwards. The repository stays in the REVERT state until the next commit, whose `repo.stateCleanup()` ends it (`local_git_service.dart:250`).
 
 Two more faults in the same path:
-- With uncommitted changes `revertCommit` returns at the first line (`git_manager.dart:807`) and the snackbar still says it worked.
+- With uncommitted changes `revertCommit` returns at the first line (`git_manager.dart:807`) and the snackbar still says it worked. R14 covers this for **Revert commit** and for **Undo commit**.
 - `git_revert` can leave conflicts. Nothing checks for them, so the snackbar says success while files sit in conflict.
 
 A cloud revert is `POST /git/revert/<sha>` (`network_git_service.dart:282-286`). Whether the server commits can't be seen from the client.
@@ -36,10 +36,12 @@ Test: add a case next to `packages/git_nowa/test/merge_test.dart` (same `git(...
 
 **Docs impact.** `docs/code/git.md`, section "Browse and undo history": the **Revert commit** row says "In a local project the undone changes appear under **Staged Changes**; commit them to finish", and the paragraph below says that with uncommitted changes the actions "do nothing, even if a success message appears". Drop the local caveat (if the commit is made) and the "even if a success message appears" clause once the false success is gone.
 
+Related: R14, P28, P30.
+
 ### P28. After Bring my changes, the Local and Remote panes are swapped, so Accept Local throws away your own edits
 
 - **Area:** Git, Resolve Conflicts after a branch switch (`lib/project/panels/git_panel`, `packages/git_nowa`)
-- **Severity:** High — one click on **Accept Local** can silently discard uncommitted edits. High and not Critical because it takes a local project, a true same-lines clash after **Bring my changes** and that one click, and the edits stay recoverable from `.git` by hand.
+- **Severity:** Critical — work is lost: one click on **Accept Local** discards your uncommitted edits, the stash that held them is already dropped, and only `git fsck` outside Nowa can find them again. The trigger is narrow (a local project, a same-lines clash after **Bring my changes**, that one click).
 - **Where:** desktop app; local projects (cloud conflicts come from the server, and which side is which there can't be seen from the client)
 - **Status:** Present in 3.13.0 and dev (the logic in `packages/git_nowa` is unchanged since 3.12.5)
 - **Confidence:** Confirmed in code and with libgit2 — W10 ran it with pygit2 (libgit2 1.9.7). I re-ran Nowa's exact call sequence against the libgit2 1.9.1 in `git2dart_binaries` 1.10.3 (ctypes, scratch repo) and got the same result. The app itself was not run.
@@ -80,54 +82,45 @@ Test: next to `packages/git_nowa/test/merge_test.dart` (same `git(...)` helper):
 
 **Docs impact.** `docs/code/git.md`, section "Resolve conflicts": delete "In a local project, the panes are the other way round after **Bring my changes**: **Local** is the version on the branch you switched to, and **Remote** holds your own changes." once the panes are fixed. Until then the page's "Read both panes" step is the only protection.
 
-### P29. Resolve Conflicts: Accept makes Git forget the other conflicts, and Accept Remote can write the next file's text
+Related: P27, X2.
+
+### P29. Resolve Conflicts: Accept makes Git forget the other conflicts
 
 - **Area:** Git, Resolve Conflicts dialog (`lib/project/panels/git_panel`, `packages/git_nowa`)
-- **Severity:** High — **Accept Remote** can put another file's text into the file you just resolved and stage it, and any **Accept** removes the other conflicted files from Git's index. The row as logged ("Accept may clear all remaining conflicts") alone would be Medium; the second fault is new and is what makes this High.
+- **Severity:** Medium — **Accept** makes Git forget the other conflicted files, so a later commit can delete them from the repository or record their conflict markers; nothing is lost on disk, and accepting every file in one pass avoids it.
 - **Where:** both; cloud and local projects (the dialog is shared). The index clearing is persistent in local projects; in cloud projects only the list on screen is cleared until the next refresh.
-- **Status:** Present in 3.13.0 and dev (same code in 3.12.5: `git_details.dart:1860-1869, 1975-1983` there)
-- **Confidence:** Confirmed in code and with libgit2 for the first fault — Nowa's call sequence run against the bundled libgit2 1.9.1: after staging one file the other conflict is gone, and `git status` shows `D  b.txt` plus `?? b.txt`. The second fault is code reading plus a stand-alone Dart 3.12.2 script that copies the two functions (it printed `{lib/a.dart: B-remote}`). The dialog itself was not run.
+- **Status:** Present in 3.13.0 and dev (same code in 3.12.5: `git_details.dart:1860-1869` there)
+- **Confidence:** Confirmed in code and with libgit2 — Nowa's call sequence run against the bundled libgit2 1.9.1: after staging one file the other conflict is gone, and `git status` shows `D  b.txt` plus `?? b.txt`. The dialog itself was not run.
 
-**What happens.** Two separate faults in the same dialog.
-1. Accepting one file's version tells Git that every conflict is resolved. The **Conflicts** list empties, and in a local project Git's index drops the other conflicted files. Their working copies still hold the conflict markers, but nothing says "unresolved" any more. Git sees each as deleted in the index plus a new untracked file.
-2. With two or more files in the dialog, **Accept Remote** on any file except the last writes the next file's **Remote** text into the file you are resolving, then stages it. **Accept Local** is not affected.
+**What happens.** Accepting one file's version tells Git that every conflict is resolved. The **Conflicts** list empties, and in a local project Git's index drops the other conflicted files. Their working copies still hold the conflict markers, but nothing says "unresolved" any more. Git sees each as deleted in the index plus a new untracked file. (The dialog has a second, separate fault, X2: **Accept Remote** can write the next file's text into the file you resolved.)
 
-By the code, the first fault ends in a bad commit. With something staged, the button reads **Commit Staged** and commits the index, which no longer holds the unresolved files, so the commit deletes them from the repository (they stay on disk with markers). With nothing staged, **Commit All** stages them and commits the markers. `getStatus` also overwrites their statuses with `wtNew` (`git_manager.dart:781-783`), so the panel shows them as plain new files under **Changes**.
+By the code, this ends in a bad commit. With something staged, the button reads **Commit Staged** and commits the index, which no longer holds the unresolved files, so the commit deletes them from the repository (they stay on disk with markers). With nothing staged, **Commit All** stages them and commits the markers. `getStatus` also overwrites their statuses with `wtNew` (`git_manager.dart:781-783`), so the panel shows them as plain new files under **Changes**.
 
-You are safe from the first fault only if you accept every file in one go. You hit it when you open one file from **Conflicts** (hover the file, click **Resolve conflict**), or close the dialog (×) before the last file.
+You are safe only if you accept every file in one go. You hit it when you open one file from **Conflicts** (hover the file, click **Resolve conflict**), or close the dialog (×) before the last file.
 
 **Steps to reproduce** (desktop app, local project with Git; the git steps were run with libgit2, the dialog was not clicked)
 1. Make a merge conflict in two files: on branch `feature` change the same line in two files (for example `lib/pages/home_page.dart` and `lib/globals/app_state.dart`) and click **Commit All**. Switch back to `main`, change the same lines differently and commit.
 2. On `main`, click the branch name, hover `feature`, click **Merge into current branch**, then **Merge**. **Resolve Conflicts** opens on the first file.
-
-First fault:
 3. Click × to close the dialog. Under **Conflicts** both files are listed.
 4. Hover the first file, click **Resolve conflict**, then **Accept Local**.
 
 Expected: the second file is still under **Conflicts**.
 Actual: **Conflicts** is gone. The second file still shows `<<<<<<<` markers in the editor and now looks like a new file under **Changes**.
 
-Second fault (repeat 1-2 on a fresh conflict):
-3. In the open dialog, click **Accept Remote** on the first file.
-4. Open the first file in code mode.
-
-Expected: the first file holds its own **Remote** text.
-Actual: it holds the second file's **Remote** text.
-
 **Root cause.**
-- First fault. `_acceptChanges` ends with `gitManager.resolveAllConflicts()` (`lib/project/panels/git_panel/git_details.dart:1785`). That calls `service.resolveConflicts` and then sets `conflicts: []` (`packages/git_nowa/lib/src/git_manager.dart:731-734`). Locally it is `index.cleanupConflict()` (`packages/git_nowa/lib/src/local/local_git_service.dart:368-372`), documented as "Removes all conflicts in the index (entries with a stage greater than 0)" (`git2dart-0.4.0/lib/src/index.dart:148-151`). The files lose their stage entries and get no stage-0 entry. The call is not needed: `addFiles([path])` just before it runs `index.addAll(paths); index.write()` (`local_git_service.dart:205-210`) and already resolves only that path (probe: after `git_index_add_all` on `a.txt`, only `b.txt` stays conflicted). The list is rebuilt from the index by `updateConflicts()` (`git_manager.dart:268, 736-739`). The cleaned in-memory index is what the next `index.write()` and the commit's `index.writeTree()` use (`local_git_service.dart:223`). Cloud: `NetworkGitService.resolveConflicts` returns at once (`network_git_service.dart:117-119`).
-- Second fault. `_acceptChanges` reads the pane text after an `await` (`git_details.dart:1777-1786`): `final file = await gitManager.fileFor(conflictPath); final content = local ? _localController... : _remoteController.controller.text;`. **Accept Local** awaits `_acceptChanges(true)` before moving on (`:1877-1887`). **Accept Remote** calls `_acceptChanges(false)` without `await` (`:1892`) and, in the same turn, runs `index++; _loadTexts()` (`:1894-1895`). `_loadTexts` sets both controllers to the next file's text (`:1769-1775`), and the controller's `text` setter is synchronous (`re_editor-0.10.0/lib/src/_code_line.dart:175-181`). When `_acceptChanges` resumes, it reads the next file's text and writes it to the first file's path. The last file is safe because no `_loadTexts` follows.
+- `_acceptChanges` ends with `gitManager.resolveAllConflicts()` (`lib/project/panels/git_panel/git_details.dart:1785`). That calls `service.resolveConflicts` and then sets `conflicts: []` (`packages/git_nowa/lib/src/git_manager.dart:731-734`). Locally it is `index.cleanupConflict()` (`packages/git_nowa/lib/src/local/local_git_service.dart:368-372`), documented as "Removes all conflicts in the index (entries with a stage greater than 0)" (`git2dart-0.4.0/lib/src/index.dart:148-151`). The files lose their stage entries and get no stage-0 entry. The call is not needed: `addFiles([path])` just before it runs `index.addAll(paths); index.write()` (`local_git_service.dart:205-210`) and already resolves only that path (probe: after `git_index_add_all` on `a.txt`, only `b.txt` stays conflicted). The list is rebuilt from the index by `updateConflicts()` (`git_manager.dart:268, 736-739`). The cleaned in-memory index is what the next `index.write()` and the commit's `index.writeTree()` use (`local_git_service.dart:223`). Cloud: `NetworkGitService.resolveConflicts` returns at once (`network_git_service.dart:117-119`).
 
 **Suggested fix.**
-1. In `_acceptChanges`, read `content` before the first `await`, and `await` it in both handlers (or use one shared handler). Catch errors and show them.
-2. Delete the `resolveAllConflicts()` call at `git_details.dart:1785`, and make `addFiles` wait for its refresh (`git_manager.dart:478`: `await updateState()`). The index then keeps unresolved files as conflicts and the list stays right. If you still want a final clear, do it after the last file, only when `repo.index.hasConflicts` is false.
-3. Optional: reopen **Resolve conflict** from the live list, not from the list the dialog was given.
+1. Delete the `resolveAllConflicts()` call at `git_details.dart:1785`, and make `addFiles` wait for its refresh (`git_manager.dart:478`: `await updateState()`). The index then keeps unresolved files as conflicts and the list stays right. If you still want a final clear, do it after the last file, only when `repo.index.hasConflicts` is false.
+2. Optional: reopen **Resolve conflict** from the live list, not from the list the dialog was given.
 
-Test: in `packages/git_nowa/test/merge_test.dart` style, make two conflicting files, call `service.stageFiles(path, ['a.txt'])` and assert `service.getConflicts(path)` still lists `b.txt`. Add a widget test of `ResolveConflictsDialog` with two conflicts: **Accept Remote** on the first must write the first file's **Remote** text.
+Test: in `packages/git_nowa/test/merge_test.dart` style, make two conflicting files, call `service.stageFiles(path, ['a.txt'])` and assert `service.getConflicts(path)` still lists `b.txt`. The widget test for the order of the two **Accept** handlers is under X2.
 
 Also seen, not in the log: `NConflict.sha` is "carried so the resolving commit can record the merged branch as its second parent" (`packages/git_nowa/test/merge_test.dart:101-102`), but nothing passes it on. The commit box calls `commit(message)` without it (`lib/project/panels/git_panel/git_commands.dart:57, 68`), so the commit after a resolved pull or merge has one parent. Not investigated further.
 
-**Docs impact.** `docs/code/git.md`, section "Resolve conflicts": step 2 says "Repeat for each file. Nowa stages the resolved files." Once fixed, add that you can close the dialog and reopen it from **Conflicts**. Until then the page should tell readers to resolve every file in one pass and to check each file afterwards, especially after **Accept Remote**.
+**Docs impact.** `docs/code/git.md`, section "Resolve conflicts": step 2 says "Repeat for each file. Nowa stages the resolved files." Once fixed, add that you can close the dialog and reopen it from **Conflicts**. Until then the page should tell readers to resolve every file in one pass and to check each file afterwards.
+
+Related: X2.
 
 ### P30. Committing without a Git identity in a local project shows a raw libgit2 error, not the identity form
 
@@ -165,6 +158,8 @@ Actual: a red snackbar with the raw message above, and no commit. Clicking the g
 Test: a developer machine has a global identity, so the test must point libgit2 at an empty config folder (for example `HOME` in the test process). Then assert that `service.commit(...)` on a fresh repository throws `IdentityRequiredException`. Existing identity tests: `packages/git_nowa/test/git_nowa_test.dart:98-120`.
 
 **Docs impact.** `docs/code/git.md`, "Commit your changes", last paragraph ("A local project uses the identity in its repository or in Git on your computer, so set your identity if neither has one") and `docs/code/github.md#set-your-git-identity` (last sentence). Once fixed, say that local projects ask for the identity too.
+
+Related: P27, R13.
 
 ### P39. Deep Links: saving URL Scheme updates only the iOS file, the Android manifest follows later, and enabling writes nothing
 
@@ -204,6 +199,8 @@ Test: no test covers the templates today. Add `packages/core/test/package_config
 
 **Docs impact.** `docs/integrations/deep-links.md`: the **URL Scheme** row of the "What each field sets up" table ("as soon as you save it. The Android manifest ... the next time Nowa rewrites it"), the "Check the Android manifest" note with its "save any **Host** and clear it again" workaround, and "Nowa writes your settings into the iOS and Android project files" under "Turn on deep links". After the fix, delete the note and say both files are written on save.
 
+Related: P40, P42, R17, M21.
+
 ### P40. Deep Links and Google Sign-In each write their own CFBundleURLTypes key, so Info.plist gets the key twice
 
 - **Area:** Deep Links and Google Sign-In settings, iOS `Info.plist` (`packages/core/lib/src/interpreter/packages`, `packages/core/lib/src/file_system/templates/ios`)
@@ -242,6 +239,8 @@ Test: in the new `packages/core/test/package_config_test.dart` proposed under P3
 
 **Docs impact.** `docs/integrations/deep-links.md`, "Things to know", third bullet (the Google Sign-In warning about two `CFBundleURLTypes` entries), and `docs/integrations/google-sign-in.md`, the sentence after the field table ("If you also set a **URL Scheme** under Deep links, check `Info.plist` as described there"). Remove both once the key is written once.
 
+Related: P39, R17, M21.
+
 ### P41. The Google Maps key warning and the AdMob "No API Keys" panel exist only in the session where the package was added
 
 - **Area:** Google Maps and AdMob, **Details** panel (`packages/core/lib/src/interpreter/packages`)
@@ -269,6 +268,8 @@ Watch out: `allFields` is static, so a field added for one project stays registe
 Test: in `packages/core/test/dependencies_test.dart` style (MockProject), put `google_maps_flutter` in the pubspec, load the project and expect `BlockField.allFields.containsKey('GoogleMap')`.
 
 **Docs impact.** `docs/integrations/google-maps.md`, "Add the map": "While no key is saved, **Details** can show ..." can become "shows". `docs/integrations/admob.md`, "Add a banner": "If **Details** shows 'No API Keys' ..." already reads correctly and needs no change.
+
+Related: P49, R31.
 
 ### P42. The in-app Deep Links text promises myapp://path and iOS Universal Links, which the settings don't set up
 
@@ -301,6 +302,8 @@ Actual: the filter reads `<data android:scheme="myapp" android:host="open.my.app
 Test: in the new `packages/core/test/package_config_test.dart` proposed under P39, after saving **URL Scheme** assert the manifest filter has no `android:host` (if the filter is changed).
 
 **Docs impact.** `docs/integrations/deep-links.md`: the first two bullets under "Things to know" (the `open.my.app` host, and **Host** not setting up Universal Links) and the **URL Scheme** table row. With the text-only fix they stay as they are. If the filter changes, remove the `open.my.app` bullet and the host mention in the table. If Universal Links are added, rewrite the second bullet.
+
+Related: P39, R17.
 
 ### P43. Google Sign-In keeps showing "Managed by Firebase" after the Google provider is removed in Firebase
 
@@ -337,6 +340,8 @@ Test: a widget test of `PackageConfigSettings(googleSignInPackageConfig)` with a
 
 **Docs impact.** `docs/integrations/google-sign-in.md`, section "When Firebase manages Google sign-in", and `docs/integrations/index.md` (the line "If Firebase handles Google sign-in, the **Google Sign-In** page shows **Managed by Firebase** instead"). Once fixed, say the panel goes away when you remove the Google provider.
 
+Related: P33.
+
 ### P46. The generated RevenuecatService has no restore-purchases call, and the paywall may not offer one
 
 - **Area:** RevenueCat integration (`packages/core/lib/src/interpreter/packages/integrations/revenuecat_package_config.dart`)
@@ -355,7 +360,7 @@ Test: a widget test of `PackageConfigSettings(googleSignInPackageConfig)` with a
 Apple's text is Guideline 3.1.1: "you should make sure you have a restore mechanism for any restorable in-app purchases" (checked in `reviews/P9-store-review.md:51`).
 
 **Steps to reproduce**
-1. Click the gear (**Settings**), then **RevenueCat** under **Integrations**, and turn on **Enabled**. (See the version problem under P51 before relying on this step.)
+1. Click the gear (**Settings**), then **RevenueCat** under **Integrations**, and turn on **Enabled**. (See X3 for the version problem before relying on this step.)
 2. Click the `<>` button (code mode), open **Files** and open `lib/integrations/revenuecat_service.dart`.
 
 Expected: a restore method next to the other three, or a documented way to restore.
@@ -382,6 +387,8 @@ Actual: only `configureRevenuecat`, `fetchOfferings` and `purchasePackage`.
 Test: a template test in `packages/core/test/` that the generated text contains `restorePurchases`.
 
 **Docs impact.** `docs/integrations/revenuecat.md`: add a `restorePurchases()` row to the table in "Call RevenueCat from logic", and in "Add the paywall" say that a restore button on the paywall comes from its design in RevenueCat. `docs/publish/ios.md`, "Payments" bullet under store rules: the restore sentence was removed because the docs could not help meet it (`reviews/P9-store-review.md:144`). Put it back, with a link to the RevenueCat page, once the call exists.
+
+Related: R21, X3.
 
 ### P51. RevenueCat Paywall: Add Missing Dependencies never finishes, and the widget is then refused with "Bad state"
 
@@ -425,6 +432,6 @@ Second route: instead of step 3, click **Cancel**, open code mode, add `purchase
 
 Test: a widget test of the dialog with a fake `PackageService` whose `registerPackage` stalls or throws (**Cancel** must still work), and a library test that `PaywallView` is a Widget subclass once bundled.
 
-**Related problem found while tracing this, not in the log.** The **Enabled** switch installs the latest version, but the paywall pins 9.x. `PackageToggle` calls `addPackageByName`, which adds `^<latest on pub.dev>` (`packages/core/lib/src/settings/settings_widgets.dart:167`, `package_service.dart:129-133`). Today that is `purchases_flutter ^10.15.2` (10.0.0 came out on 2026-04-15). The paywall's dependency list pins `purchases_ui_flutter ^9.12.0` (`dart_package.dart:188`), and every 9.x requires `purchases_flutter ^9.x` (`purchases_ui_flutter-9.16.2/pubspec.yaml:14`). So the order in the docs (turn RevenueCat on, then add the paywall) leaves `purchases_flutter: ^10.15.2` and `purchases_ui_flutter: ^9.12.0` in one pubspec, which pub cannot solve. This comes from the code and pub.dev's package data; it was not run. The dialog then lists only `purchases_ui_flutter`, because `isPackageInstalled` accepts any version (`dependency.dart:29`). The generated service compiles against both lines (`configure`, `getOfferings`, `purchase` and `restorePurchases` exist in 9.12.0 and 10.15.2). If confirmed it is High: builds fail for anyone who follows the docs. Fix: install the config's pinned version in the switch (`SupportedPackages.find(name)?.package`), and move both RevenueCat pins together when they change.
-
 **Docs impact.** `docs/integrations/revenuecat.md`, "Add the paywall", steps 2 and 3 ("If Nowa shows **Add Missing Dependencies**, click **Add**" and the placeholder card): they describe what should happen and are right once the paywall is bundled. Until then they do not match the web app. `docs/integrations/index.md` ("Maps, ads and paywalls come with widgets ...") and `docs/reference/widgets/index.md` ("Nine widgets need a Flutter package ...") make the same promise.
+
+Related: R23, R33, X3.

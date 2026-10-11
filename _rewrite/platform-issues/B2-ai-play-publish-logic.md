@@ -20,9 +20,11 @@ Actual: it opens on the **Android** tab.
 
 **Root cause.** The button is built as `MenuTextButton(onPressed: _openSettings, label: 'Set up')` (`lib/project/run/deploy_button.dart:286`), so `_openSettings([String tab = DeploymentSettings.tabAndroid])` runs with its default (`:220-225`). The row's own tap goes through `_openWorkflow(m.workflow)` (`:296-298`, `:205-212`), which picks the iOS tab and sets `DeploymentSettings.requestedAndroidDebug` for the Android rows (`packages/core/lib/src/settings/deployment_settings.dart:25,172`). The button skips both, so **Set up** on **Android Debug** opens whichever Android variant the tab was last on (release on first open). `_deployMobile` has the same bare call (`:175`) but is only reached if the row changed after it was drawn.
 
-**Suggested fix.** Use the row's handler: `onPressed: () => _openWorkflow(m.workflow)` at `:286` and `_openWorkflow(m.workflow)` at `:175`. Leave **Advanced build settings** (`:255`) on the Android default. Add `test/deploy_menu_test.dart` (new) that taps **Set up** on the iOS row and expects `DeploymentSettings.requestedTab.value == DeploymentSettings.tabIos`. Same menu, not in the log: the comment on `_deployMobile` says it checks the weekly build quota (`:168-173`) but the code doesn't (the plan lock is applied earlier, on the row); the quota check exists only in the Deployment page's **Build** button (`packages/core/lib/src/cloud_build_v2/ui/workflow_details_page.dart:358-368`).
+**Suggested fix.** Use the row's handler: `onPressed: () => _openWorkflow(m.workflow)` at `:286` and `_openWorkflow(m.workflow)` at `:175`. Leave **Advanced build settings** (`:255`) on the Android default. Add `test/deploy_menu_test.dart` (new) that taps **Set up** on the iOS row and expects `DeploymentSettings.requestedTab.value == DeploymentSettings.tabIos`. Same menu, not in the log: the comment on `_deployMobile` says it checks the weekly build quota (`:168-173`) but the code doesn't (the plan lock is applied earlier, on the row); the quota check exists only in the Deployment page's **Build** button (`packages/core/lib/src/cloud_build_v2/ui/workflow_details_page.dart:358-368`). M7 covers this gap and what a failed start leaves behind.
 
 **Docs impact.** `docs/publish/index.md:55` says **Set up** "opens the **Deployment** page, where you pick the tab you need"; after the fix say it opens the tab of that row. `docs/publish/ios.md:64` and `docs/publish/android.md:62` need no change.
+
+Related: M7.
 
 ### P9. Code download spinner never stops in the web app
 
@@ -81,7 +83,7 @@ final totalBytes = await file.length();
 ### P11. Restore Checkpoint dialog says "last request" but undoes every later request
 
 - **Area:** AI checkpoints (`packages/ai/lib/src/checkpoints/`, `packages/ai/lib/src/ui/content_views.dart`)
-- **Severity:** Medium — a destructive restore is described as smaller than it is, and it can overwrite your own edits in files the dialog doesn't list.
+- **Severity:** High — a destructive restore is described as smaller than it is: later requests are undone too (**Reapply Checkpoint** brings the AI's changes back), and your own edits in files the dialog doesn't list are overwritten for good.
 - **Where:** both; cloud and local projects (no checkpoints in the playground or for guests, `packages/ai/lib/src/ai_plugin.dart:19-21`)
 - **Status:** Present in 3.13.0 and dev. Correction: the dialog is wrong in two more ways: its file list holds only the clicked request's files, and "remove your last request" is untrue (every chat message stays).
 - **Confidence:** Confirmed in code — dialog text, file list and chain restore traced; chain restore also has a unit test (`packages/ai/test/checkpoints_test.dart:289-320`); dialog not run (it needs real AI requests, and the capture runs used up their prompt budget).
@@ -236,6 +238,8 @@ StringField(
 
 **Docs impact.** `docs/design/screens.md:56` step 3 says "set a **Default value** if you like". Until the fix, drop that clause; after it, keep it and say when the default is used once the team confirms.
 
+Related: R33.
+
 ### P44. Single Screen Preview warning shows on shared links even when the screen has a route
 
 - **Area:** Shared preview, play warnings (`packages/designer/lib/src/play_mode/`, `lib/project/preview_page.dart`)
@@ -259,6 +263,8 @@ Actual: the warnings button and cards appear at the top left, including **Single
 **Suggested fix.** Give the warnings what `PlayMode` knows instead of reading `Designer`: pass `screenClass: widget.expr.cachedReturnType.klass` (and `widget.controller`) into `PlayModeWarnings` at `play_mode.dart:203` and compute `hasRoute` from it (`play_mode_warning.dart:38-49`). Test: new `packages/designer/test/play_mode_warning_test.dart` that pumps `PlayModeWarnings` with no `Provider<Designer>` for a screen with a route and expects no `SingleScreenPlayWarning`.
 
 **Docs impact.** `docs/test/share.md:50` documents the card as current behavior ("even when the screen has a route"); delete that clause once fixed.
+
+Related: P45.
 
 ### P45. Attach all on a shared preview attaches the states, then throws
 
@@ -290,10 +296,12 @@ The first line (`:140`) throws on the preview page, which provides no `Designer`
 
 **Docs impact.** `docs/test/share.md:60` says **Attach all** attaches the states; that becomes true on the preview page after the fix. No edit needed.
 
+Related: P44.
+
 ### P50. Signed-out playground: the AI chat toolbar breaks with "BillingProvider is not initialized"
 
 - **Area:** AI chat field and billing (`packages/ai/lib/src/ui/chat_field/ai_chat_field.dart`, `packages/core/lib/src/billing/`)
-- **Severity:** High — the AI Assistant is the playground's default panel and the first thing a no-account visitor sees, and its toolbar is unusable.
+- **Severity:** High — every signed-out playground visitor hits it: the AI Assistant is the default panel and its toolbar is unusable; signing in is the only way around it.
 - **Where:** web app; playground project; playground only (signed out). By code, signed-out guests of a public project and a signed-in cold load of `/playground` should take the same path (not tried).
 - **Status:** Present in 3.13.0 and dev (seen live on app.nowa.dev, v3.13.0-79).
 - **Confidence:** Reproduced live — signed-out playground on 3.13.0-79 by two capture agents (`_rewrite/captures/ui-diffs-3.13.md`, `_rewrite/captures/README.md`); the cause is traced in code, the fix wasn't tried.

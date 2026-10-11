@@ -3,7 +3,7 @@
 ### R1. A service token for Nowa's feedback tables is hard-coded in the shipped client
 
 - **Area:** Feedback and "Request a Widget" dialogs (`packages/core/lib/src/dialogs`)
-- **Severity:** Critical — a live Airtable token is readable by anyone who opens the web app or unpacks a desktop build, and the tables it writes to receive signed-in users' email addresses.
+- **Severity:** Critical — a secret in the shipped client: a live Airtable token is readable by anyone who opens the web app or unpacks a desktop build, and the tables it writes to receive signed-in users' email addresses.
 - **Where:** both; cloud and local projects
 - **Status:** Present in 3.13.0 and dev (also in 3.12.5; the token has been in the repo since `831944f37`, 16 Feb 2025)
 - **Confidence:** Confirmed in code — found by `reviews/W13a-writer-notes.md` (line 225, "hard-coded credential"). The token's scopes can't be told from the repo, so how much it can read or change is unknown. The token is not copied here.
@@ -23,10 +23,12 @@ Actual: the secret is in the bundle and in git history.
 
 **Docs impact.** None.
 
+Related: M1.
+
 ### R2. Stripe **Deploy Configuration** says "Deployed successfully!" even when its steps failed
 
 - **Area:** Stripe integration (`packages/core/lib/src/integrations/stripe`, `packages/data/lib/src/supabase`)
-- **Severity:** High — payments set-up can end half-done (no table, function or secret) while the person is told it worked.
+- **Severity:** Medium — misleading: payments set-up can end half-done (no table, function or secret) while the person is told it worked; the docs already say to use **Connect**, not **Use Keys**, and to check the Supabase dashboard.
 - **Where:** both; cloud projects with Supabase
 - **Status:** Present in 3.13.0 and dev
 - **Confidence:** Confirmed in code (the swallowed errors and the success message). That **Use Keys** makes the steps fail is inferred from the code, not run. Found by `reviews/W17-review.md` (Stripe: "Messages show progress" row, open issue 2) and `reviews/W15-review.md`.
@@ -46,6 +48,8 @@ Actual: a check mark and "Deployed successfully!". With **Use Keys** the migrati
 **Suggested fix.** Have the Stripe service check `_oauthManager.error` after each call and throw (or make the three methods rethrow behind a flag; other callers read `error`). Show the Stripe secret and deploy sections only when `isOAuthAuthenticated`. Add a service test with a fake manager whose calls set `error` (`packages/core/test/` has no Stripe tests yet).
 
 **Docs impact.** `docs/integrations/stripe.md`: L13 (**Use Keys** isn't enough) and "Deploy the configuration" (L76, "Deployed successfully!" at the end, errors in red). After the fix say that each step's error shows under the button.
+
+Related: X1, P23.
 
 ### R3. The `stripe-cancel-subscription` edge function is generated with invalid TypeScript
 
@@ -73,7 +77,7 @@ Actual: by the source, it can't be bundled; the deploy error is swallowed (R2). 
 ### R4. **Delete** on a local project erases the folder of an imported repository
 
 - **Area:** Dashboard projects (`lib/dashboard/dashboard_page.dart`, `packages/core/lib/src/providers/projects_view_provider.dart`)
-- **Severity:** High — data loss: the user's own working tree, `.git` included, is deleted from disk and Nowa can't bring it back.
+- **Severity:** Critical — work is lost: the user's own working tree, `.git` included, is deleted from disk, Nowa can't bring it back, and the dialog never says the folder goes.
 - **Where:** desktop app; local projects
 - **Status:** Present in 3.13.0 and dev
 - **Confidence:** Confirmed in code, not run. Found by `reviews/W10-review.md` (open issue 12), `reviews/W10-writer-notes.md` and `reviews/W11-review.md` (**Delete** row).
@@ -141,10 +145,12 @@ Actual (from reading): `my_pkg: ''`.
 
 **Docs impact.** `docs/code/packages.md`: the caution about the **Version** of a git or path package, and the **Fix** warning (L59).
 
+Related: M5.
+
 ### R7. The Library never checks the View Only role
 
 - **Area:** Library panel (`lib/project/panels/library_panel/library_host.dart`)
-- **Severity:** Medium — a **View Only** member is offered **Rename**, **Delete**, **Insert**, **Upload Assets...**, **Add** and drag-to-move. If the server doesn't refuse the writes, a viewer can change the project (High then).
+- **Severity:** Medium — a **View Only** member is offered **Rename**, **Delete**, **Insert**, **Upload Assets...**, **Add** and drag-to-move. If the server doesn't refuse the writes, a viewer can change the project (then it is an authorization bypass, which the scale rates Critical).
 - **Where:** both; cloud projects in a workspace
 - **Status:** Present in 3.13.0 and dev. What the server does with the writes: can't tell.
 - **Confidence:** Confirmed in code (no `isViewOnly` read in the Library), not run. Found by `reviews/W30c-writer-notes.md` ("P-W30c-2"); also `reviews/P10-c2-review.md` and `reviews/W30a-writer-notes.md`.
@@ -168,7 +174,7 @@ Actual: **Rename**, **Delete**, **Insert**, **New Widget...**, **New Model...** 
 ### R8. The member role menu (**Make Owner**, **Remove member**) is offered to every member of a workspace
 
 - **Area:** Workspace members (`packages/core/lib/src/settings/member_settings.dart`)
-- **Severity:** Medium — non-owners are shown owner-only actions; whether the server rejects them can't be told.
+- **Severity:** Medium — non-owners are shown owner-only actions; whether the server rejects them can't be told (if it doesn't, any member can remove members or make an owner, an authorization bypass).
 - **Where:** both; cloud (workspaces)
 - **Status:** Present in 3.13.0 and dev. Server behaviour: can't tell.
 - **Confidence:** Confirmed in code, not run. Found by `reviews/W11-review.md` (workspaces "Open issues").
@@ -234,6 +240,8 @@ Actual: the Outline shows it as a free widget in the body, next to `appBar`; **L
 
 **Docs impact.** `docs/design/screens.md`, `docs/design/select-and-edit.md` ("Where a dragged widget lands"), `docs/reference/widgets/navigation.md` (Add a screen part) and `docs/reference/widgets/index.md` now tell readers to use the slot; revert when fixed.
 
+Related: R23.
+
 ### R11. In the Library, Enter after a search can insert a package widget instead of Nowa's own (`button` gives `CustomButton`)
 
 - **Area:** Library search (`packages/nowa_ui/lib/library/library_panel.dart`)
@@ -257,6 +265,8 @@ Actual: **CustomButton** (group **Packages**, from `nowa_runtime`). One ↓ firs
 
 **Docs impact.** `docs/design/add-widgets.md`, `docs/design/library.md`, `docs/reference/widgets/index.md` and six more pages say "check the highlighted result" because of this; drop the caveat after the fix.
 
+Related: R24.
+
 ### R12. **New Model...** and **New Global State...** in the Library create the file but show nothing
 
 - **Area:** Library (`lib/project/panels/library_panel/library_host.dart`, `packages/nowa_ui/lib/library/library_contract.dart`)
@@ -265,7 +275,7 @@ Actual: **CustomButton** (group **Packages**, from `nowa_runtime`). One ↓ firs
 - **Status:** Present in 3.13.0 and dev
 - **Confidence:** Reproduced live (3.13.0-79 playground, `reviews/P10-live-checks.md` item 6) and confirmed in code. Also seen by `reviews/W30c-writer-notes.md` and `reviews/W30b-writer-notes.md` ("Needs a live check" 6).
 
-**What happens.** The Library's default **Filter** is **Widgets** (screens, components, widgets). Creating a model or global state succeeds, but neither is listed and the editor doesn't open the new file.
+**What happens.** The Library's default **Filter** is **Widgets** (screens, components, widgets). Creating a model or global state succeeds, but neither is listed and the editor doesn't open the new file. **New Folder...** is a third silent create, with a different cause: it never creates the folder (M3).
 
 **Steps to reproduce**
 1. **Library** → header **Add** (+) → **New Model...**; name it `Product`; submit.
@@ -279,6 +289,8 @@ Actual: only screens show. **Filter** → **Models** or **Everything** lists `mo
 **Suggested fix.** Pass an `onAdd` that widens the filter to the new kind, selects the row and opens the file. Test: a `LibraryHost` widget test.
 
 **Docs impact.** `docs/logic/models.md`, `docs/logic/global-state.md`, `docs/code/files.md` (L48) and `docs/design/library.md` tell readers to change **Filter** first.
+
+Related: M3.
 
 ### R13. In a local project, the "You need to provide authentication for this action" popup saves credentials where local Git never looks
 
@@ -304,6 +316,8 @@ Actual (from reading): the retry runs with no credentials and fails again.
 
 **Docs impact.** `docs/code/git.md` and `docs/code/github.md` already send local users to **External Local Credentials**; no change needed.
 
+Related: P30, M6.
+
 ### R14. **Revert commit** and **Undo commit** report success when Nowa did nothing
 
 - **Area:** Git panel, Commit History (`lib/project/panels/git_panel/git_commit_actions.dart`, `packages/git_nowa/lib/src/git_manager.dart`)
@@ -326,6 +340,8 @@ Actual: a green "Commit undone, changes moved to staging area." or "Commit rever
 **Suggested fix.** Throw a typed exception (or return a bool) and show an error snackbar ("Commit or discard your changes first"); disable the entries while `localChanges` is not empty. Test: `packages/git_nowa/test/git_nowa_test.dart`.
 
 **Docs impact.** `docs/code/git.md` already says they do nothing with uncommitted changes "even if a success message appears"; remove that clause after the fix. Related: P27 (local **Revert Commit** creates no commit).
+
+Related: P27.
 
 ### R15. Linking a list item's text to `element.title` logs "Canvas error: NoSuchMethodError: method not found: 'charCodeAt'"
 
@@ -351,6 +367,8 @@ Actual: the status bar message above and one error in the counter.
 
 **Docs impact.** None today; `docs/integrations/show-data.md` ("See it on the board and in Play") is right as written.
 
+Related: R16.
+
 ### R16. The board calls the real API for a request that has no **Model**, including POST, PUT and DELETE
 
 - **Area:** Data Builder, board preview (`packages/core/lib/src/interpreter/block_tree.dart`, `mock.dart`)
@@ -375,13 +393,15 @@ Actual: the request is sent (seen for GET).
 
 **Docs impact.** `docs/integrations/show-data.md` L70 says only that "a request that has a **Model** isn't called"; add the case without a model until it is fixed.
 
+Related: R15.
+
 ### R17. Turning on **Deep Links** switches off Flutter's own link handling and generates nothing to replace it
 
 - **Area:** Deep Links integration (`packages/core/lib/src/interpreter/packages/integrations/app_links_package_config.dart`)
 - **Severity:** Medium — in a go_router app links open the app at its first screen instead of the screen they name, unless the person writes the handler.
 - **Where:** both (Android and iOS builds)
 - **Status:** Present in 3.13.0 and dev
-- **Confidence:** Confirmed in code (the written files, and a grep for any link listener), not run on a device. Found by `reviews/W17-writer-notes.md` (Deep Links notes) and `reviews/W17-review.md`; the contrast with the Router panel is my addition. Related: P39, P40, P42.
+- **Confidence:** Confirmed in code (the written files, and a grep for any link listener), not run on a device. Found by `reviews/W17-writer-notes.md` (Deep Links notes) and `reviews/W17-review.md`; the contrast with the Router panel is my addition.
 
 **What happens.** Enabling the integration writes `FlutterDeepLinkingEnabled` `<false/>` (iOS `Info.plist`) and `flutter_deeplinking_enabled` `false` (Android manifest), which Nowa's own comment calls "Flutter's default deep linking". It adds the `app_links` package but no code that reads an incoming link (a grep finds no `AppLinks` or `uriLinkStream` outside the config). The Router panel, meanwhile, lists "Deep Linking: Built-in support for deep links" as a go_router benefit.
 
@@ -399,6 +419,8 @@ Actual (from reading): the app opens at its initial route.
 **Suggested fix.** Don't write the opt-out flags until generated code listens to links, or generate that code: a service using `AppLinks().uriLinkStream` that calls the router, added to `main()` through a `MainStatement` like RevenueCat's (`packages/core/lib/src/interpreter/packages/integrations/revenuecat_package_config.dart:50-55`). Also drop the fixed `android:host="open.my.app"` (`app_links_package_config.dart:91`), see P42. Test: a config test in `packages/core/test/`.
 
 **Docs impact.** `docs/integrations/deep-links.md` ("Turn on deep links" note about switching off built-in handling, and "Handle the link in your app"), `docs/logic/router.md` (go_router "built in" deep linking).
+
+Related: P39, P40, P42.
 
 ### R18. The **Dropdown menu** **Value** row edits `value`, but the widget's selected item is `initialValue`
 
@@ -424,29 +446,6 @@ Actual: unknown. By the code the choice goes to `value`, a parameter the interpr
 
 **Docs impact.** `docs/reference/widgets/forms.md` (dropdown section, L78-90) doesn't mention the row; add a sentence once it works.
 
-### R19. Supabase **Query Templates** name a function with a space for camelCase tables
-
-- **Area:** Supabase **Add Supabase Function** (`packages/data/lib/src/supabase/templates`)
-- **Severity:** Medium — the generated member can't parse, so the function isn't added (how the failure shows isn't traced).
-- **Where:** both; cloud projects
-- **Status:** Present in 3.13.0 and dev
-- **Confidence:** Code reading only. Found by `reviews/W15-review.md` (product behavior list). Same line as P25, which covers only snake_case names (`getAllUser_profiles`).
-
-**What happens.** The function name is the action plus `tableName.camelCaseToSpaces()`. For a table `todoItems` that is `getAllTodo Items`, not valid Dart.
-
-**Steps to reproduce**
-1. Connect a Supabase project that has a table named `todoItems` (quoted camelCase).
-2. **Supabase** panel → **+** next to **Generate a Query** → **Query Templates** → **Get All Records** → pick `todoItems` → choose a model → **Generate Function**.
-
-Expected: `getAllTodoItems`.
-Actual: the function source starts `Future<List<...>> getAllTodo Items()`.
-
-**Root cause.** `packages/data/lib/src/supabase/templates/supabase_template_manager.dart:94-96` builds `functionName`; `camelCaseToSpaces` (`packages/core/lib/src/utils.dart:77-79`) inserts a space at each lower-to-upper boundary; the name goes unchanged into `_generateFunctionSource` and `addMemberAction` (`supabase_template_manager.dart:102-104`).
-
-**Suggested fix.** Build the name with `generateSymbolName(...)` or PascalCase the table (`todoItems` → `TodoItems`, `user_profiles` → `UserProfiles`); this also fixes P25. Test: `packages/data/test/supabase_test.dart`.
-
-**Docs impact.** `docs/integrations/supabase/database.md` L35 ("named after its action and the table, with the first letter capitalized").
-
 ### R20. The Firebase iOS app is registered with a re-cased Bundle Identifier that can differ from the Xcode project's
 
 - **Area:** Firebase **Connect Apps** (`packages/data/lib/src/firebase`)
@@ -471,6 +470,8 @@ Actual (from reading): Firebase and the plist have `com.mycompany.myApp`, Xcode 
 
 **Docs impact.** `docs/integrations/firebase/connect.md` ("builds the iOS bundle ID from it").
 
+Related: M17.
+
 ### R21. Firebase Authentication generates sign-up and sign-in functions but none to delete an account
 
 - **Area:** Firebase Authentication (`packages/data/lib/src/firebase/auth/fb_auth_blocks.dart`)
@@ -493,6 +494,8 @@ Actual: none.
 **Suggested fix.** Generate a `deleteAccount()` with Authentication (handle `requires-recent-login`) and a preview dialog like the others. Test: `packages/data/test/firebase/firebase_test.dart`.
 
 **Docs impact.** `docs/integrations/firebase/auth.md` (function table), `docs/publish/ios.md` L86 and the account-deletion bullet in `docs/publish/android.md` say the functions don't delete accounts; update both after the fix.
+
+Related: P46.
 
 ### R22. Adding the **Onboarding Screen** template to an existing project doesn't add `smooth_page_indicator`
 
@@ -518,15 +521,17 @@ Actual (from reading): `'smooth_page_indicator' is imported but is not in the pu
 
 **Docs impact.** `docs/design/templates.md` (multi-file templates), `docs/code/packages.md#page-indicator-migration`.
 
+Related: R23.
+
 ### R23. Dragging a package widget from the Library, or adding a **Page View**, doesn't offer **Add Missing Dependencies**
 
 - **Area:** Library insert (`packages/core/lib/src/library/library_actions.dart`, `packages/designer/lib/src/design_experience/designer_board_controller.dart`)
-- **Severity:** Low — the widget is placed and **Problems** lists the missing package with **Fix** (also **Details** → **Dependencies** → **Hot Fix**).
+- **Severity:** Medium — the widget is placed without its package, so the project doesn't build until **Fix** is clicked in **Problems** (also **Details** → **Dependencies** → **Hot Fix**).
 - **Where:** both
 - **Status:** Present in 3.13.0 and dev
 - **Confidence:** Reproduced live (3.13.0-79 playground, `reviews/P10-live-checks.md` items 1 and 7) and confirmed in code.
 
-**What happens.** **Insert** and Enter go through `placeLibraryWidget`, which asks first. A drag doesn't. **Page View** is a `Stack` whose dots need `smooth_page_indicator`, but only the root widget's dependencies are checked.
+**What happens.** **Insert** and Enter go through `placeLibraryWidget`, which asks first. A drag doesn't. **Page View** is a `Stack` whose dots need `smooth_page_indicator`, but only the root widget's dependencies are checked. **Html** (`flutter_html`) declares no dependency at all, so even **Insert** never asks for it (`docs/reference/widgets/media.md:93` already tells readers to add the package themselves). Dropping an `.svg` or `.riv` asset row from the Library onto the board builds `SvgPicture` or the Rive widget through the same unchecked drop path, so `flutter_svg` and `rive` aren't offered either. Lottie has no asset drop, and video needs no package (`NowaVideoPlayer` is in `nowa_runtime`).
 
 **Steps to reproduce**
 1. Starter app (it has no `lottie` package).
@@ -535,11 +540,13 @@ Actual (from reading): `'smooth_page_indicator' is imported but is not in the pu
 Expected: **Add Missing Dependencies**, as with **Insert**.
 Actual: the widget drops; **Problems** shows `'lottie' is imported but is not in the pubspec.` Same for **Google Maps**. **Page View** added with Enter shows no dialog either.
 
-**Root cause.** `packages/designer/lib/src/design_experience/designer_board_controller.dart:228-232,244-293` (`onDragEnd` and `onDragMove` never read `WidgetInfo.dependencies`) vs `packages/core/lib/src/library/library_actions.dart:75-91` (`placeLibraryWidget` builds `DependencyHelper(WidgetInfo(widget.data()).dependencies)` for the root widget only).
+**Root cause.** `packages/designer/lib/src/design_experience/designer_board_controller.dart:228-232,244-293` (`onDragEnd` and `onDragMove` never read `WidgetInfo.dependencies`) vs `packages/core/lib/src/library/library_actions.dart:75-91` (`placeLibraryWidget` builds `DependencyHelper(WidgetInfo(widget.data()).dependencies)` for the root widget only). No `WidgetInfo` is registered for **Html** (`packages/core/lib/src/interpreter/declaration_info/declaration_info_factory.dart:13-59`). Asset rows reach the board through `LibraryService.dragDataFor` (`packages/core/lib/src/library/library_service.dart:121-127`) and `SVGFile`/`NowaRiveFile.createDragData` (`packages/core/lib/src/file_system/file_object.dart:619-621`, `:650-652`).
 
-**Suggested fix.** Run the dependency check on drag end, and let `DependencyHelper` walk the whole inserted tree.
+**Suggested fix.** Run the dependency check on drag end, and let `DependencyHelper` walk the whole inserted tree. Give **Html** a `WidgetInfo` that declares `flutter_html` (`SupportedPackages.flutterHtml`, `packages/core/lib/src/interpreter/packages/dart_package.dart:117`).
 
 **Docs impact.** `docs/design/add-widgets.md` ("Add a widget that needs a package"), `docs/reference/widgets/media.md`, `docs/integrations/index.md`, `docs/reference/widgets/navigation.md` (Page View) describe the drag case.
+
+Related: R10, R22, P51.
 
 ### R24. Library keyboard: the first letter typed from a focused row is lost, and Ctrl/Cmd+K is ignored while the Library has focus
 
@@ -564,6 +571,8 @@ Actual: it reads `utton`; nothing happens until you click the board or press Esc
 
 **Docs impact.** `docs/design/library.md` ("Use the keyboard") and `docs/reference/shortcuts.md` (Library search table, **Add a widget** row) describe both quirks.
 
+Related: R11.
+
 ### R25. "New ..." dialogs open with a suggested name that isn't selected, so typing appends to it
 
 - **Area:** File and API dialogs (`packages/core/lib/src/file_system/widgets/file_name_text_field.dart`, `packages/data/lib/src/api/views/widgets/api_request_dialogs.dart`)
@@ -587,6 +596,8 @@ Actual: `ApiCollectionCats`. Same for **New Request** (`newRequest`), **New Dire
 
 **Docs impact.** `docs/integrations/rest-api/index.md` L18 and L47 ("delete the suggested name"); `docs/design/boards.md` and `docs/code/files.md` mention the dialogs.
 
+Related: P56.
+
 ### R26. The request editor's header keeps the last test's URL and status after **Back to Request**
 
 - **Area:** REST request editor (`packages/data/lib/src/api/views/api_overlay`)
@@ -609,6 +620,8 @@ Actual: the header is unchanged until the panel is closed.
 **Suggested fix.** Pass `showTestSection` to the header, or clear `response` when the request changes.
 
 **Docs impact.** None.
+
+Related: P54.
 
 ### R27. Error messages show Dart's raw `Exception: ` prefix
 
@@ -641,30 +654,6 @@ Actual: the prefix, and the contradiction in the last row.
 
 **Docs impact.** `docs/troubleshooting/index.md` and `docs/test/run.md` L68 quote "Exception: Flutter SDK path is not set..."; `docs/account/project-settings.md` (icon limit), `docs/integrations/firebase/auth.md`, `docs/code/packages.md` and `docs/code/import.md` quote the others.
 
-### R28. The in-app Shortcuts sheet lists two shortcuts that don't exist or don't do what it says
-
-- **Area:** Shortcuts sheet (`packages/core/lib/src/widgets/shortcuts_cheat_sheet.dart`)
-- **Severity:** Low — **Show/Hide panels** (Ctrl/Cmd+\) is bound to nothing; **Group/Ungroup** (Ctrl/Cmd+G) only groups.
-- **Where:** both
-- **Status:** Present in 3.13.0 and dev. The two slips of 3.12.5, P1 and P2, are fixed.
-- **Confidence:** Confirmed in code, not run. Found by `reviews/W30c-writer-notes.md` and `reviews/P10-c2-review.md` (shortcuts rows).
-
-**What happens.** Two rows of the sheet describe keys that don't behave that way.
-
-**Steps to reproduce**
-1. Press Ctrl/Cmd+. to open the Shortcuts sheet.
-2. Under **Designer** read **Show/Hide panels**; press Ctrl/Cmd+\ with the board focused.
-3. Under **Widgets** read **Group/Ungroup**; select a group and press Ctrl/Cmd+G.
-
-Expected: panels toggle; the group is dissolved.
-Actual: nothing happens; Ctrl/Cmd+G runs the group action again, and ungrouping exists only in the right-click menu (**Ungroup**).
-
-**Root cause.** Sheet rows at `shortcuts_cheat_sheet.dart:49` and `:56`; no `LogicalKeyboardKey.backslash` binding anywhere in `lib/` or `packages/`; `designer_setup.dart:20` maps `keyG` to `CreateGroupIntent`, and `UngroupIntent` appears only in `packages/designer/lib/src/menus/widget_context_menu.dart:42`.
-
-**Suggested fix.** Delete the **Show/Hide panels** row or bind the key; rename the second row **Group** (or make Ctrl/Cmd+G ungroup a selected group and add a key for **Ungroup**).
-
-**Docs impact.** `docs/reference/shortcuts.md` L28-29 (the "two entries don't match" caveat).
-
 ### R29. Sidebar panel numbers disagree with the icons when the Outline icon is hidden
 
 - **Area:** Sidebar shortcuts (`lib/project/side_bar.dart`, `lib/project/panels/panel_actions.dart`, `lib/setup_general_actions.dart`)
@@ -689,6 +678,8 @@ Actual (from reading): the Outline entry of the full list (which the sidebar doe
 
 **Docs impact.** `docs/reference/shortcuts.md` (Sidebar panels table, L60-70).
 
+Related: M9.
+
 ### R30. The "Waiting for Authorization..." dialog drops errors and the 2-minute timeout
 
 - **Area:** OAuth waiting dialog (`packages/core/lib/src/settings/oauth_settings/auth_dialog.dart` and its three callers)
@@ -712,13 +703,15 @@ Actual: GitHub: the dialog closes, nothing says why. Supabase: "Authorization ti
 
 **Docs impact.** `docs/code/github.md` L18 and L91, `docs/integrations/supabase/connect.md` L118.
 
+Related: P24.
+
 ### R31. Supabase ⋮ menu: **Open Supabase** can do nothing, and **Set up Backend** is missing after the project is reopened
 
 - **Area:** Supabase panel (`packages/data/lib/src/supabase/ui/sb_outline.dart`)
-- **Severity:** Low
+- **Severity:** Medium — **Set up Backend** is missing from the menu after a project is reopened until a bundle read, and **Open Supabase** silently does nothing for custom domains; each has a workaround.
 - **Where:** both; cloud projects
 - **Status:** Present in 3.13.0 and dev
-- **Confidence:** Code reading only. Found by `reviews/W15-review.md` (open issue 2, product behavior list). Related to P41 and P49 (state not loaded on project open).
+- **Confidence:** Code reading only. Found by `reviews/W15-review.md` (open issue 2, product behavior list).
 
 **What happens.** (a) **Open Supabase** opens the dashboard only for URLs ending in `.supabase.co`; otherwise nothing happens and nothing is said (custom domains, self-hosted). (b) **Set up Backend** shows only when `hasBundleCached` is true. The cache starts false and is filled only when the bundle is read (after **Connect**, **Use Keys**, **Set up Backend** or **Pull Backend Files**), so a reopened project that already holds `supabase/migrations/*.sql` hides the item until one of those runs.
 
@@ -735,15 +728,17 @@ Actual: nothing for (a); (b) no **Set up Backend** until **Pull Backend Files** 
 
 **Docs impact.** `docs/integrations/supabase/backend.md` and `connect.md` describe the menu and "This item shows when the project has backend files".
 
+Related: P26, P41, P49.
+
 ### R32. Wrong labels, typos and copy in dialogs and Details (batch)
 
 - **Area:** various (code references below)
 - **Severity:** Low — each row is a one-line text fix.
 - **Where:** both
 - **Status:** Present in 3.13.0 and dev
-- **Confidence:** Confirmed in code for every row, not run (the Library hint and the grid label were also seen live). Found by the review logs in the last column.
+- **Confidence:** Confirmed in code for every row, not run (the grid label was also seen live). Found by the review logs and research notes in the last column.
 
-**What happens.** The UI shows text that is misspelled, names the wrong place, or belongs elsewhere.
+**What happens.** The UI shows text that is misspelled, names the wrong place, or belongs elsewhere. The Library **Insert** hint (⌘⏎ on every system) is in P2.
 
 **Steps to reproduce**
 1. Open the place named in the first column of any row (the rows are independent).
@@ -754,21 +749,25 @@ Actual: nothing for (a); (b) no **Set up Backend** until **Pull Backend Files** 
 | **Git** → **Discard all changes** dialog | "This will discard all uncommited changes, you can't undo this action." | "uncommitted" | `lib/project/panels/git_panel/git_commands.dart:78` | W10-review |
 | **Settings** → account → **Delete Account**, password box | "Enter you password" | "your" | `packages/core/lib/src/settings/account_editor_settings/account_details/delete_account.dart:123` | W11-review |
 | Environment setup dialog, Android step | "You can add these later from Settings → Environment." The tab is **Local Setup** (its page title is "Environment") | "Local Setup" | `packages/core/lib/src/environment/environment_setup_dialog.dart:548`; `.../account_editor_settings.dart:33` | W1-review |
-| **Boards** chip → rename icon | Dialog titled "New Rename first.board" | "Rename first.board" | `packages/core/lib/src/file_system/actions/file_actions.dart:464` passes "Rename ..." and `packages/core/lib/src/file_system/widgets/create_file_dialog.dart:94` prefixes "New " | W3-review |
+| **Boards** chip → rename icon | Dialog titled "New Rename first.board" | "Rename first.board" | `packages/core/lib/src/file_system/actions/file_actions.dart:464` passes "Rename ..." and `packages/core/lib/src/file_system/widgets/create_file_dialog.dart:94` prefixes "New " (the same line makes the global-state titles below) | W3-review |
 | **Grid View** → **Fixed** / **Max** switch | Row label "Source" | for example "Columns" | `packages/core/lib/src/fields/grid_view_field.dart:195-206` gives no `title`; default at `source_tabs_field.dart:32` | W13-review |
 | **Cross Fade** widget | Outline and breadcrumb read `AnimatedCrossFade` | "Cross Fade" | `packages/core/lib/src/interpreter/declaration_info/declaration_info_factory.dart:44`: the key is `'AnimatedCrossFadeInfo'` (the info class), not the widget class; the name "Cross Fade" is in `.../widget_info.dart:700-704` | W13-review |
-| Library row menu → **Insert** | Hint "⌘⏎" on every system | "Ctrl ⏎" on Windows and Linux | `lib/project/panels/library_panel/library_host.dart:161` | P10-live-checks |
 | **Firebase** page, before connecting | "Only the project owner can add, modify and remove members from the project. Learn more about roles in the documentation." under the header (workspace text) | remove | `packages/data/lib/src/firebase/setup/views/sign_in_with_google.dart:29-37` | W16-writer-notes |
 | Instant Play: Firebase Authentication preview dialogs | Google dialog says "preview for Sign Out"; both **Sign In Preview** dialogs say "preview for Create Account" | name the right function | `packages/data/lib/src/firebase/auth/fb_auth_blocks.dart:142,288,436` | W16-writer-notes |
 | **Project Details** → **Experimental flags** → **load packages** | "Load packages from pubspec.yaml file automatically, need to restart the project, this will increase loading times..." The flag only lets Nowa AI's packages tool add packages | describe that | `packages/core/lib/src/settings/experimental_flags_dialog.dart:55-58`; its only readers are two AI tools, `packages/ai/lib/src/tools/packages_tool.dart:137-141` and `packages/ai/lib/src/tools/legacy/packages_tools.dart:94` | W11-review |
+| **Library** → **Add** (+) → **Generate Models From Json...**, paste JSON with no fields to model (a list of plain values such as `[1, 2, 3]`; the same check also fires for `{}`), click **Next** | Red snackbar "You can generate model for List of primitives", which says the opposite of what happens | "You can't generate a model for a list of plain values" (and a sentence for `{}`) | `packages/core/lib/src/model_generator/generate_models_dialog.dart:40-41` | features-logic, features-data |
+| **Variables** panel with nothing selected → **Globals** → **Create global state** | Dialog titled "New Create global state" (hint "Create global state name"). The Library's **New Global State...** shows "New GlobalState" | "New Global State" in both | `packages/core/lib/src/state_management/global_state_widgets.dart:22` (headline); `packages/core/lib/src/file_system/widgets/create_file_dialog.dart:94` and `file_name_text_field.dart:167` build "New …" and "… name" from it; `lib/project/panels/files_panel/add_lib_menu.dart:70` passes `'GlobalState'` | features-logic |
+| **Settings** → **Project Details** → **Bundle Identifier**, type `com.example.x` or `com_example.app` and press Enter | Error text "Invalid package name" under a field labelled **Bundle Identifier**; the rule (letters and digits separated by dots, starting with a letter, last part at least two characters) isn't shown | "Invalid Bundle Identifier: use letters and digits separated by dots, such as com.yourcompany.yourapp" | `packages/core/lib/src/settings/project_detail_settings.dart:122-123` | docs publish/index.md |
 
 Expected: correct text. Actual: as in the second column.
 
-**Root cause.** Plain text slips; the "New Rename" title is a composed string, and the grid and Cross Fade rows are a missing argument and a wrong map key.
+**Root cause.** Plain text slips; the "New …" titles are composed strings (`"New ${creatingText}"`, so a sentence-like headline reads wrong), and the grid and Cross Fade rows are a missing argument and a wrong map key. The global-state files also differ in place: the **Variables**-panel button creates the file in `lib/` (`global_state_widgets.dart:23`) and the Library item in `lib/globals/` (`add_lib_menu.dart:70`).
 
-**Suggested fix.** One edit per row. The Library hint should come from the shortcut registry (as other menus do) instead of a literal. P5 (**Classs**) and P55 (**Base URL** popover) are the same kind of slip and already listed.
+**Suggested fix.** One edit per row; for the global-state titles pass `'Global State'` from both callers (and move the Variables-panel button's file to `globalsDir` if the folder should match). P2 holds the Library **Insert** hint (`library_host.dart:161`); P5 (**Classs**), P13 and P55 (**Base URL** popover) are the same kind of slip and already listed. Test: none needed for text; a widget test on the Generate Models dialog can check that `[1, 2, 3]` shows the new message.
 
-**Docs impact.** `docs/account/project-settings.md` (**load packages** row, L106), `docs/get-started/desktop-app.md` (Local Setup), `docs/design/library.md` L85 ("The menu shows ⌘⏎ on every system"); the rest: None.
+**Docs impact.** `docs/account/project-settings.md` (**load packages** row, L106; L49 quotes "Invalid package name"), `docs/publish/index.md` (L29 quotes "Invalid package name"), `docs/get-started/desktop-app.md` (Local Setup), `docs/logic/global-state.md` (L20 says the file goes in `lib`); update them when the text or the folder changes. The rest: None.
+
+Related: P2, P5, P13, P55, M9.
 
 ### R33. Controls that do nothing, or fail without a message (batch)
 
@@ -801,6 +800,8 @@ Expected: the second column. Actual: the third column.
 **Suggested fix.** Esc: make `StopAppAction` close the overlay (`workspace.runOverlayOpen = false`) or drop the binding. Route **+**: disable it (or create a default path). **Refresh**: give `updateState` a `fetch` flag (it now passes `fetch: _fetchIsDue` to `updateAheadBehind`, `git_manager.dart:258`) and pass `true` from `refresh()`. Add package: wrap the call in try/catch and reset `_loading`. Upload and Import: catch, `showSnackbarError`, continue with the next file. New UX: return `false` until drill-in exists.
 
 **Docs impact.** `docs/account/project-settings.md` (New UX row), `docs/code/git.md` (Refresh), `docs/code/packages.md`; the rest: None.
+
+Related: P18, P51.
 
 ### R34. Details shows "Instance of 'minified:csO'" while the Shape or Text tool is active
 

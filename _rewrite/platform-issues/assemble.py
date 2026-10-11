@@ -195,7 +195,7 @@ and kept for the record.
 
 | Field | Values |
 | --- | --- |
-| **Severity** | **Critical**: lost work or data, a security exposure, or a core flow broken for everyone. **High**: a broken feature, or generated code that doesn't build, in a common flow. **Medium**: broken or misleading, with a workaround. **Low**: cosmetic, a typo, a small UI glitch. |
+| **Severity** | **Critical**: work or data lost with no way back from inside Nowa (no undo, no warning first), a security exposure, or a core flow broken for everyone. **High**: a loss that Nowa's undo or a warning can avoid or reverse, generated code or dependencies that don't build, or a common flow broken with no easy workaround. **Medium**: broken or misleading, with a workaround. **Low**: cosmetic, a typo, a small UI glitch. |
 | **Confidence** | **Reproduced live**: seen in the running 3.13.0 app (app.nowa.dev). **Confirmed in code**: the code path shows it beyond doubt. **Code reading only**: likely from the code, never run. |
 | **Status** | **Present** in 3.13.0 and `dev`, **Fixed** (where), or **Can't tell** (what's missing). |
 | **Code refs** | `path:line` from the root of this repo at `master` = 3.13.0 (`3cb32031c`). `dev` (`7c341f356`) is 6 commits ahead and only changes `lib/project/project_page.dart` and `packages/nowa_ui/lib/library/library_panel.dart`. |

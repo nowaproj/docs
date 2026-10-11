@@ -3,7 +3,7 @@
 ### P23. Edge functions deployed by Nowa always have JWT verification switched off
 
 - **Area:** Supabase backend setup and Stripe deploy (`packages/data/lib/src/supabase`, `packages/core/lib/src/integrations/stripe`)
-- **Severity:** High — every function Nowa deploys silently loses Supabase's gateway check, even ones the author had protected (not Critical: that check is thin and Nowa's own functions don't rely on it).
+- **Severity:** Critical — a security exposure: every function Nowa deploys silently loses Supabase's JWT gateway check, even ones the author had protected. The check is thin (the anon key passes it) and Nowa's own payment functions check the caller themselves, so the exposure is real for pulled and hand-written functions that relied on it.
 - **Where:** both; both cloud and local projects (needs a Nowa sign-in and a Supabase authorization)
 - **Status:** Present in 3.13.0 and dev (same code in 3.12.5)
 - **Confidence:** Confirmed in code — the flag, every caller and the function templates were read; what Supabase's gateway does with the flag is Supabase's documented behavior, not run (no Supabase account).
@@ -54,6 +54,8 @@ Test: nothing covers these calls (`packages/data/test/supabase_test.dart` only l
 
 **Docs impact.** `docs/integrations/supabase/backend.md` ("Set up a backend that came with a project", step 3 says Nowa "deploys each edge function"): once fixed, say that functions keep the JWT check the source project had, and which are public. `docs/integrations/stripe.md` ("Deploy the configuration" function table): note that only `stripe-webhook` is public. Neither page mentions the setting today.
 
+Related: R2, X1.
+
 ### P24. "No organizations found" is never shown; the Supabase waiting dialog just stays open
 
 - **Area:** Supabase connect (`packages/data/lib/src/supabase/ui/sb_setup`, `packages/core/lib/src/settings/oauth_settings`)
@@ -64,7 +66,7 @@ Test: nothing covers these calls (`packages/data/test/supabase_test.dart` only l
 
 **What happens.** After the browser authorization succeeds, Nowa fetches the organizations. When the list is empty, `getOrganization()` throws "No organizations found. Please create a Supabase organization first.", but nothing catches it: the dialog keeps saying **Waiting for Authorization...**, its "Waiting for ...s" counter stops, and the message never appears. Any other failure of that request ends the same way.
 
-Correction: the row is right but incomplete. A user who is already authorized and has no organization doesn't see the message either (`_start` swallows it and opens the browser step again), and the 120-second timeout has a similar dead end (a red snackbar, the dialog stays).
+Correction: the row is right but incomplete. A user who is already authorized and has no organization doesn't see the message either (`_start` swallows it and opens the browser step again), and the 120-second timeout has a similar dead end (a red snackbar, the dialog stays; R30).
 
 **Steps to reproduce** (not run)
 1. Open a project while signed in to Nowa. Use a Supabase account whose authorization lists no organization (for example, the organization was deleted after you authorized; not tried).
@@ -74,19 +76,21 @@ Correction: the row is right but incomplete. A user who is already authorized an
 Expected: the dialog shows "No organizations found. Please create a Supabase organization first." with a **Close** button.
 Actual: the dialog stays on **Waiting for Authorization...** with a stopped counter and a **Cancel** button, and the error goes unhandled.
 
-**Root cause.** `WaitingForAuthDialog` takes `final VoidCallback onSuccess` (`packages/core/lib/src/settings/oauth_settings/auth_dialog.dart:18`). On success it marks itself completed, cancels its timer and calls `widget.onSuccess()` (`auth_dialog.dart:57-60`), dropping the returned future. The Supabase side passes `_onSuccess`, which is `await _oauthManager.getOrganization()` with no try/catch (`packages/data/lib/src/supabase/ui/sb_setup/sb_oauth_setup.dart:156-159, 195`); the throw is at `packages/data/lib/src/supabase/supabase_oauth_manager.dart:66-68`. Nothing sets `_oauthManager.error`, so the error panel `_buildError` (`sb_oauth_setup.dart:221-238`) never shows, and `getError: () => null` (`sb_oauth_setup.dart:194`) switches off the waiting dialog's own error path. `_start` (`sb_oauth_setup.dart:116-124`) catches every exception from the same call and goes on to `_connect()`.
+**Root cause.** `WaitingForAuthDialog` takes `final VoidCallback onSuccess` (`packages/core/lib/src/settings/oauth_settings/auth_dialog.dart:18`). On success it marks itself completed, cancels its timer and calls `widget.onSuccess()` (`auth_dialog.dart:57-60`), dropping the returned future. The Supabase side passes `_onSuccess`, which is `await _oauthManager.getOrganization()` with no try/catch (`packages/data/lib/src/supabase/ui/sb_setup/sb_oauth_setup.dart:156-159, 195`); the throw is at `packages/data/lib/src/supabase/supabase_oauth_manager.dart:66-68`. Nothing sets `_oauthManager.error`, so the error panel `_buildError` (`sb_oauth_setup.dart:221-238`) never shows, and `getError: () => null` (`sb_oauth_setup.dart:194`) switches off the waiting dialog's own error path. `_start` (`sb_oauth_setup.dart:116-124`) catches every exception from the same call and goes on to `_connect()`. `_start` doesn't await that call (`:122`), and `_connect` throws `Exception('User not logged in')` when there is no signed-in Nowa user (`:131`): nothing catches that either, no browser step starts, and the dialog waits until the 120-second timeout (R30).
 
-**Suggested fix.** In `_onSuccess`, catch the exception and store the message on `SupabaseOAuthManager` (add a small setter; `error` is read-only, `packages/data/lib/src/supabase/supabase_oauth_manager.dart:13-14`), so the existing `_buildError` with **Close** shows it. In `_start`, fall back to `_connect()` only for an authorization failure (401/403), not for "No organizations found". For the timeout, `onError` should replace the dialog's content, not only raise a snackbar (`sb_oauth_setup.dart:196`). If you change `WaitingForAuthDialog` itself (await `onSuccess`, route errors to `onError`), GitHub and Figma use it too (`packages/core/lib/src/settings/github_integration_settings.dart:94`, `packages/core/lib/src/figma/figma_auth_dialog.dart:18`). Test: there are no tests near the dialog; add a widget test in `packages/core/test/` where `onSuccess` throws and assert that `onError` runs.
+**Suggested fix.** In `_onSuccess`, catch the exception and store the message on `SupabaseOAuthManager` (add a small setter; `error` is read-only, `packages/data/lib/src/supabase/supabase_oauth_manager.dart:13-14`), so the existing `_buildError` with **Close** shows it. In `_start`, fall back to `_connect()` only for an authorization failure (401/403), not for "No organizations found". For the timeout, `onError` should replace the dialog's content, not only raise a snackbar (`sb_oauth_setup.dart:196`). If you change `WaitingForAuthDialog` itself (await `onSuccess`, route errors to `onError`), GitHub and Figma use it too (`packages/core/lib/src/settings/github_integration_settings.dart:94`, `packages/core/lib/src/figma/figma_auth_dialog.dart:18`). In `_connect`, put "User not logged in" into `_oauthManager`'s error (or close the dialog with a snackbar) instead of throwing, and `await` it in `_start`. Test: there are no tests near the dialog; add a widget test in `packages/core/test/` where `onSuccess` throws and assert that `onError` runs.
 
 **Docs impact.** `docs/integrations/supabase/connect.md`, "If something goes wrong" table: it has no row for this message because it never appears. Add one once it is shown ("No organizations found. Please create a Supabase organization first." → create an organization in Supabase, then click **Connect** again). The "Authorization timed out" row says to click **Cancel** first; keep that until the timeout path is fixed.
 
-### P25. Supabase query templates build function names with a label helper, giving `getAllUser_profiles`
+Related: R30.
+
+### P25. Supabase query templates build function names with a label helper, giving `getAllUser_profiles` and `getAllTodo Items`
 
 - **Area:** Supabase Query Templates (`packages/data/lib/src/supabase/templates`)
-- **Severity:** Low — ordinary snake_case tables get an odd name; only unusual table names (camelCase, PascalCase, hyphens) give a name that isn't valid Dart.
+- **Severity:** Medium — snake_case tables get an odd name (`getAllUser_profiles`), but camelCase and PascalCase tables get a name with a space, which is not valid Dart, so **Generate Function** can't add the function; renaming the table or writing the function by hand works around it.
 - **Where:** both; both cloud and local projects
 - **Status:** Present in 3.13.0 and dev (same code in 3.12.5)
-- **Confidence:** Confirmed in code — the name is a plain string transformation; not run in the app (needs a Supabase table).
+- **Confidence:** Confirmed in code — the name is a plain string transformation; not run in the app (needs a Supabase table). How a name with a space fails (an error snackbar or a broken `SupabaseService`) wasn't traced.
 
 **What happens.** The generated function is named after the template's operation plus the table name. `todos` gives `getAllTodos`, but `user_profiles` gives `getAllUser_profiles`, which doesn't match the model name Nowa suggests in the next step (`UserProfilesModel`).
 
@@ -100,9 +104,11 @@ Correction: the row has only the snake_case example, which is valid but unidioma
 Expected: `getAllUserProfiles`, matching `UserProfilesModel`.
 Actual: the message `Function "getAllUser_profiles" generated successfully!`, and the function appears under **Queries** with that name.
 
-**Root cause.** `packages/data/lib/src/supabase/templates/supabase_template_manager.dart:94-96` builds the name as `'${template.operation}${tableName.camelCaseToSpaces()}'`. `camelCaseToSpaces` (`packages/core/lib/src/utils.dart:77-79`) is a label helper: it capitalizes the first letter and puts a space between a lowercase and an uppercase letter, and its other callers show the result as a label. It leaves `_` alone, so snake_case keeps its underscore, and it inserts spaces into camelCase names. The result is pasted straight into the generated Dart (`packages/data/lib/src/supabase/templates/template_source_generator.dart:47, 56, 69, 82`); what Nowa does with `getAllTodo Items` (an error snackbar, or a broken `SupabaseService`) wasn't run. The model-name suggestion already uses `convertNameCase(tableName, Cases.pascalcase)` (`packages/data/lib/src/supabase/templates/ui/model_selection_view.dart:41`), which turns `user_profiles` into `UserProfiles` (`recase` 4.1.0 source).
+Repeat with a table whose name is camelCase (created with a quoted name, for example `"todoItems"`): expected `getAllTodoItems`; actual: the function source starts `Future<List<...>> getAllTodo Items()`, which is not valid Dart.
 
-**Suggested fix.** Build the name with the same helper: `'${template.operation}${convertNameCase(tableName, Cases.pascalcase)}'`. Put it in a small function (for example `templateFunctionName(operation, table)`) that also drops characters Dart doesn't allow in a name. Watch out for two tables that map to one name (`user_profiles` and `userProfiles`): generating a template again replaces the earlier function (`docs/integrations/supabase/database.md`). Test: a unit test in `packages/data/test/` for that function with `todos`, `user_profiles`, `todoItems`, `UserProfiles` and `user-profiles`.
+**Root cause.** `packages/data/lib/src/supabase/templates/supabase_template_manager.dart:94-96` builds the name as `'${template.operation}${tableName.camelCaseToSpaces()}'`. `camelCaseToSpaces` (`packages/core/lib/src/utils.dart:77-79`) is a label helper: it capitalizes the first letter and puts a space between a lowercase and an uppercase letter, and its other callers show the result as a label. It leaves `_` alone, so snake_case keeps its underscore, and it inserts spaces into camelCase names. The result goes unchanged into `_generateFunctionSource` and `addMemberAction` (`packages/data/lib/src/supabase/templates/supabase_template_manager.dart:102-104`) and is pasted straight into the generated Dart (`packages/data/lib/src/supabase/templates/template_source_generator.dart:47, 56, 69, 82`); what Nowa does with `getAllTodo Items` (an error snackbar, or a broken `SupabaseService`) wasn't run. The model-name suggestion already uses `convertNameCase(tableName, Cases.pascalcase)` (`packages/data/lib/src/supabase/templates/ui/model_selection_view.dart:41`), which turns `user_profiles` into `UserProfiles` (`recase` 4.1.0 source).
+
+**Suggested fix.** Build the name with the same helper: `'${template.operation}${convertNameCase(tableName, Cases.pascalcase)}'`. Put it in a small function (for example `templateFunctionName(operation, table)`) that also drops characters Dart doesn't allow in a name (`generateSymbolName` in `packages/core/lib/src/file_system/naming.dart:125` does that check, but it numbers a clash where the docs say a regenerated template replaces the function). Watch out for two tables that map to one name (`user_profiles` and `userProfiles`): generating a template again replaces the earlier function (`docs/integrations/supabase/database.md`). Test: a unit test in `packages/data/test/` for that function with `todos`, `user_profiles`, `todoItems`, `UserProfiles` and `user-profiles`.
 
 **Docs impact.** `docs/integrations/supabase/database.md`: "Each function is named after its action and the table, with the first letter of the table name capitalized." and the `getAllTodos()` table. After the fix, say the table name is written in PascalCase (`user_profiles` → `getAllUserProfiles`).
 
@@ -130,10 +136,12 @@ Actual: the Assistant gets the fixed "backend is already configured" prompt abov
 
 **Docs impact.** `docs/integrations/supabase/backend.md`: "Click **Fix with AI** to open Nowa AI with a ready-made prompt, or **Close** to stop." Accurate today; after the fix, say the prompt names the failed step and its error.
 
+Related: R31.
+
 ### P31. Firebase Google sign-in: the generated `signInWithGoogle()` doesn't compile against `google_sign_in` 7.x
 
 - **Area:** Firebase Authentication, Google provider (`packages/data/lib/src/firebase/auth`)
-- **Severity:** High — an app with the Google provider on can't be built once the generated file is part of it, and a hand edit of the function is probably overwritten.
+- **Severity:** High — generated code that doesn't build: an app with the Google provider on can't be built once the generated file is part of it, and a hand edit of the function is probably overwritten.
 - **Where:** both; both cloud and local projects
 - **Status:** Present in 3.13.0 and dev (same code in 3.12.5)
 - **Confidence:** Confirmed in code — the template and the `google_sign_in` 7.2.0 source (on disk in `~/.pub-cache/hosted/pub.dev/google_sign_in-7.2.0`) were read; the error wording below is from `analyzer-10.2.0`'s message table, not from a build.
@@ -181,6 +189,8 @@ The provider switch registers `DartPackage('google_sign_in', '^7.2.0')` (`packag
 
 **Docs impact.** `docs/integrations/firebase/auth.md`: the `:::note` under the function table ("Currently, **Google** writes `signInWithGoogle()` for an older version of the `google_sign_in` package ...") should be deleted once fixed. The table row for `signInWithGoogle()` stays true.
 
+Related: P33.
+
 ### P32. After a failed Connect Apps, every retry on the same screen fails
 
 - **Area:** Firebase connect (`packages/data/lib/src/firebase/setup/views`)
@@ -210,7 +220,7 @@ Actual: the banner stays and the page doesn't connect (the apps now exist in Fir
 ### P33. Disconnecting leaves `google_sign_in` behind, and turning Authentication off leaves `sendPasswordResetEmail()`
 
 - **Area:** Firebase disconnect and Authentication (`packages/data/lib/src/firebase`)
-- **Severity:** Medium — turning **Authentication** off leaves a function that no longer compiles; **Disconnect Project** leaves an unused package (that half is Low).
+- **Severity:** Medium — turning **Authentication** off leaves a function that no longer compiles (the docs tell you to delete it in code mode); **Disconnect Project** leaves an unused package (that half is Low).
 - **Where:** both; both cloud and local projects
 - **Status:** Present in 3.13.0 and dev (same code in 3.12.5)
 - **Confidence:** Confirmed in code — the call order and the member removals were read; not run (needs a connected Firebase project).
@@ -245,16 +255,18 @@ data.fbBaseClass = null;
 await auth.disconnectAuth();
 ```
 
-Every `is...Enabled` check reads `fbBaseClass?.instanceMembers[...]` through the shared data object (`packages/data/lib/src/firebase/auth/fb_auth_manager.dart:20, 24-32`), so they all read false. `disconnectGoogleAuth()` (`fb_auth_manager.dart:135-140`), the only code that removes `google_sign_in` and rewrites `Info.plist`, never runs. Removing a package is also what triggers its platform clean-up (`packages/core/lib/src/interpreter/packages/package_config/package_config.dart:206-210`), so the iOS settings the provider wrote probably stay too (not traced). Separately, `connectEmailPasswordAuth()` adds three functions (`fb_auth_manager.dart:44-52`) and `disconnectEmailPasswordAuth()` removes two (`fb_auth_manager.dart:142-145`). The test 'Disconnect Firebase without Disable Auth' (`packages/data/test/firebase/firebase_test.dart:197-213`) asserts those same booleans, which are false because the base class is null, so it passes.
+Every `is...Enabled` check reads `fbBaseClass?.instanceMembers[...]` through the shared data object (`packages/data/lib/src/firebase/auth/fb_auth_manager.dart:20, 24-32`), so they all read false. `disconnectGoogleAuth()` (`fb_auth_manager.dart:135-140`), the only code that removes `google_sign_in` and rewrites `Info.plist`, never runs. Removing a package is also what triggers its platform clean-up (`packages/core/lib/src/interpreter/packages/package_config/package_config.dart:206-210`), so the iOS settings the provider wrote probably stay too (not traced). Separately, `connectEmailPasswordAuth()` adds three functions, the third at `fb_auth_manager.dart:51` (`SendPasswordResetEmailFunc()`), and `disconnectEmailPasswordAuth()` removes two (`:142-145`). No other path removes `sendPasswordResetEmail`: `disconnectAuth()` (`:121-133`) removes four general functions and hands the rest to the provider disconnects. `google_sign_in` is removed only by `disconnectGoogleAuth()` (`:135-140`), which `disconnectAuth()` calls only `if (isGoogleAuthEnabled)` (`:130`; the getter is at `:28`). The test 'Disconnect Firebase without Disable Auth' (`packages/data/test/firebase/firebase_test.dart:197-213`) asserts those same booleans, which are false because the base class is null, so it passes.
 
 **Suggested fix.** In `disconnect()` call `await auth.disconnectAuth()` before `data.fbBaseClass = null` (`packages/data/lib/src/firebase/firebase_manager.dart:161-162`), or make `disconnectAuth` remove `google_sign_in` and `firebase_auth` by package name instead of by member. Add `fbBaseClass?.instanceMembers['sendPasswordResetEmail']?.remove();` to `disconnectEmailPasswordAuth()`. Await the fire-and-forget `removePackage` calls (`packages/data/lib/src/firebase/auth/fb_auth_manager.dart:123, 136`). Watch out: `google_sign_in` is also what the standalone **Google Sign-In** integration installs for Supabase (`packages/core/lib/src/interpreter/packages/integrations/google_sign_in_package_config.dart:7-9`), so don't remove it when that integration is in use. Test: in group 'Firebase Auth' of `packages/data/test/firebase/firebase_test.dart`, (1) connect Authentication and Google, call `disconnect()`, expect `getPackage('google_sign_in')` to be null; (2) connect Email/Password, call `disconnectEmailPasswordAuth()`, expect no `sendPasswordResetEmail` member.
 
 **Docs impact.** `docs/integrations/firebase/auth.md`, "Turn Authentication off": drop "except `sendPasswordResetEmail()`, which stays in `FirebaseService`. Delete it in code mode if you don't need it." `docs/integrations/firebase/connect.md`, "Disconnect Firebase": "the Firebase packages" becomes accurate; no change.
 
+Related: P31, P34, P43.
+
 ### P34. An expired Google sign-in during "Send Test Notification" disconnects Firebase from the project
 
 - **Area:** Firebase push notifications (`packages/data/lib/src/firebase/setup/views`, `packages/data/lib/src/firebase/push_notifications`)
-- **Severity:** High — one click on a test button deletes the Firebase setup (config files, generated code, packages) with no warning, and anything edited in the deleted files is lost.
+- **Severity:** High — one click on a test button deletes the Firebase setup (config files, generated code, packages) with no warning; **Connect Apps** regenerates the files, but anything edited in them is lost.
 - **Where:** both; both cloud and local projects
 - **Status:** Present in 3.13.0 and dev (same code in 3.12.5)
 - **Confidence:** Confirmed in code — the 401 path and the disconnect were read; not run (needs a connected Firebase project and an expired token).
@@ -281,6 +293,8 @@ Every other 401 goes through `FirebaseApiServiceImpl`, which only calls `disconn
 
 **Docs impact.** `docs/integrations/firebase/notifications.md`: the `:::warning` under "Send a test notification" ("If Google no longer accepts Nowa's sign-in ... Nowa disconnects Firebase from your project ...") is accurate today. After the fix, say Nowa asks you to sign in with Google again and keeps the project connected.
 
+Related: P33.
+
 ### P48. The 3.13.0 designer has no way to add or pick a Firestore collection or query
 
 - **Area:** Firebase / Cloud Firestore (`packages/data/lib/src/firebase`, `lib/project/panels/files_panel`, `lib/project/side_bar.dart`)
@@ -303,7 +317,7 @@ Every other 401 goes through `FirebaseApiServiceImpl`, which only calls `disconn
 Expected: an obvious way to add and select a collection or a query, as **Files** gave in 3.12.5.
 Actual: only step 7 works (or typing Dart in step 6).
 
-**Root cause**
+**Root cause.**
 - The outline widgets are built in one place, the `FileInfo.preview` of `collections.dart` and `queries.dart` (`packages/data/lib/src/firebase/firebase_plugin.dart:37-47`). `FirestoreOutline` (`packages/data/lib/src/firebase/firestore/widgets/firestore_outline.dart:13-24`) is defined and never used.
 - `FileInfo.preview` is read only by `FilePreviewDialogBody` (`lib/project/panels/files_panel/file_preview_body.dart:24-27`), which only `FilesTreeHost._activate` opens, and only in design mode; in code mode the same click opens the file (`lib/project/panels/files_panel/files_tree_host.dart:266-282`).
 - 3.13.0 swapped the designer's **Files** for **Library** (`lib/project/side_bar.dart:44-54`); code mode switches the panel to Files (`packages/core/lib/src/panels/panel.dart:205-208`). 3.12.5 listed both (`lib/project/side_bar.dart:43, 63` in `/home/user/nowa-build`), and a click on a file there showed the popup (`lib/project/panels/files_panel/files_list.dart:334-342` in `/home/user/nowa-build`).
@@ -319,6 +333,8 @@ Actual: only step 7 works (or typing Dart in step 6).
 Watch out: `PluginPanel` has no visibility hook, so the icon shows in every project (Supabase's does too). Don't use `registerDartFileCreator` for this: it creates a file, not a class inside the shared `collections.dart`. Putting **Files** back in the designer sidebar would also work, but undoes the 3.13 sidebar change. Test: in `packages/data/test/firebase/`, a plugin test that `FirebasePlugin.init()` registers the panel, and a widget test that pumps `FirestoreSetup` with `CollectionsOutline`, runs **Add Main Collection** and expects `collectionsManager.collections` to grow. The manager side has tests (`packages/data/test/firebase/firebase_test.dart:215-290`); the widgets have none.
 
 **Docs impact.** `docs/integrations/firebase/firestore.md`: the intro, the **Before you start** bullet, the whole section "Add collections and queries in Nowa 3.13" and the lead-ins of "Define your collections" and "Build a query" (restore the removed steps: **Add Main Collection**, **Add Sub Collection**, **Add New Query**, **Function Name**). Also `docs/integrations/firebase/connect.md` (the `collections.dart` / `queries.dart` row in the file table, and the Windows bullet), `docs/troubleshooting/known-issues.md` (last sentence of the Firestore section) and `docs/guides/data-and-state-tips.md` (the **Firestore** bullet under the query-testing tips). The hidden URL stays undocumented (D21 in `_rewrite/decisions.md`).
+
+Related: P49.
 
 ### P49. Firestore queries and collections are missing from the pickers after a project is reopened, until Refresh is clicked
 
@@ -344,3 +360,5 @@ Actual (from the code): the picker is empty, and the category has only `Firebase
 **Suggested fix.** Call a Firestore load from `FBManager.load()` after `loadFBBaseFile()` (`packages/data/lib/src/firebase/firebase_manager.dart:63-69`). Watch out: `loadQueriesClass()` and `loadFireStoreCollectionFile()` create their files when missing, and the second also moves classes out of the old `firestore_collections.dart` (`packages/data/lib/src/firebase/firestore/collections_manager.dart:29-63`). Doing that at open would recreate files a user deleted and would try to write in a View Only project, so add a lookup-only variant for open and keep the creating one for `createSetup`. Guard the cast `lookupInScope('FirestoreService') as ClassDeclImpl` (`packages/data/lib/src/firebase/firestore/queries_builder/provider/query_builder_manager.dart:39`) for a file without that class. Test: in the 'Firebase Firestore' group of `packages/data/test/firebase/firebase_test.dart` (`:215`), after `createFBManagerWithSetup()` add a query and a collection, create a fresh `FBManager` over the same settings file, `await load()`, and expect `queryManager.queryFunctions` and `collectionsManager.collections` to be non-empty (both are empty today).
 
 **Docs impact.** `docs/integrations/firebase/firestore.md`: "Build a query" step 2 ("It reads 'No Collections' until you define one"), "Use a query in your app" step 3 and the Circuit paragraph, and `docs/logic/circuit.md:51` (the **FIREBASE** category). Until the fix they could carry a one-line workaround ("If the list is empty after you reopen the project, click **Refresh/Update apps and config files** in Settings → Integrations → Firebase"). After the fix nothing changes.
+
+Related: P41, P48, R31.

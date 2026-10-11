@@ -3,7 +3,7 @@
 ### M1. Two Google OAuth client secrets and a Google Fonts API key are hard-coded in the shipped client
 
 - **Area:** Google sign-in, Firebase connect and Google Fonts download (`packages/core/lib/src/services`, `packages/core/lib/src/fields`)
-- **Severity:** Medium — credentials sit in the source and in every build; what an outsider can do with them depends on the Google client types and the key's restrictions, which the repo can't show (it becomes High if the "web" client is a Web-application client: nothing reads its secret, so it is shipped for no reason).
+- **Severity:** Critical — a secret in the shipped client: two Google OAuth client secrets and a Google Fonts API key sit in the source and in every build. What an outsider can do with them depends on the Google client types and the key's restrictions, which the repo can't show; the "web" secret is read by nothing, so it is shipped for no reason.
 - **Where:** both; cloud and local projects (the desktop app's Google sign-in and **Firebase** connect use the first secret; the font picker of both apps uses the key)
 - **Status:** Present in 3.13.0 and dev (also in 3.12.5, same files)
 - **Confidence:** Confirmed in code — the strings are in the source. Whether the client IDs and the key are live, the client type of each ID and any key restriction can't be told from the repo. The values are not copied here. Found by a repo scan prompted by `left-out.md` (the "widgets" row, line 124: the hard-coded feedback credential) and by R1's closing advice to check the rest of the repo.
@@ -32,6 +32,8 @@ Actual: all three strings are in the source.
 4. Add secret scanning to CI (R1 asks for the same) and a test in `packages/core/test/` that fails when a `lib/` source string matches `GOCSPX-` or `AIza` followed by key characters.
 
 **Docs impact.** None.
+
+Related: R1.
 
 ### M2. Circuit can't open a function that contains a `for` loop, `switch`, `break`, `continue`, a local function or a destructuring declaration
 
@@ -96,6 +98,8 @@ Actual: `lib/archive` isn't in **Files**; the dialog closed without a message.
 
 **Docs impact.** `docs/design/library.md` (L105) and `docs/code/files.md` (L38 and L48: "A folder shows in the Library only when something is in it. In the playground, a new empty folder isn't in the Files tree in code mode either"). After the fix, say whether an empty folder shows in the Library.
 
+Related: R12.
+
 ### M4. A file uploaded from a widget property (**Upload Image**, **Upload Video**, **Upload Audio**, **Upload Lottie**) isn't added to `pubspec.yaml`'s `assets:`
 
 - **Area:** Asset pickers and pubspec (`packages/core/lib/src/fields/asset_fields.dart`, `packages/core/lib/src/settings/pubspec_manager.dart`)
@@ -123,6 +127,8 @@ Actual (from the code): `flutter:` still holds only `uses-material-design: true`
 
 **Docs impact.** `docs/design/assets.md` (L18, "You don't need to edit it") and `docs/reference/widgets/media.md` (L29) are right once this is fixed; until then the first upload from a property needs another refresh.
 
+Related: M5.
+
 ### M5. Nowa replaces the whole `flutter: assets:` list of `pubspec.yaml`, so an imported project loses entries that aren't folders under `assets/`
 
 - **Area:** Pubspec management and project import (`packages/core/lib/src/settings/pubspec_manager.dart`)
@@ -148,6 +154,8 @@ Monorepo: after importing a workspace with **Package to open** set to a package 
 **Suggested fix.** Merge instead of replace: keep every existing entry that isn't one of Nowa's own `assets/…/` directory entries (plain strings and maps with `path:`, `flavors:` or `transformers:`), drop only the `assets/` entries whose folder no longer exists, add the missing ones, and remove the key only when the result is empty. Resolve the folder with `fs.assetsDir` and write package-relative paths (`fromPackagePath`). Test: a new `packages/core/test/pubspec_manager_test.dart` with a pubspec that has `.env`, `images/` and a `path:` map, one with only `assets/`, and a workspace package, checking `flutter.assets` after `refresh()`.
 
 **Docs impact.** `docs/design/assets.md` (L18) and `docs/code/import.md` (the "What to know before you click **Import project**" list and the monorepo section): until fixed, say that Nowa manages `flutter: assets:` and that other entries are removed; after the fix, nothing to change.
+
+Related: M4, M21, R6.
 
 ### M6. Git over SSH can't be set up from the app: the SSH-key form is unreachable and **Connect Repository** refuses SSH URLs
 
@@ -175,6 +183,8 @@ Actual: both are refused or missing. A key with a custom name, or one with a pas
 
 **Docs impact.** `docs/code/github.md` (L81-82: the SSH bullets and "Adding an SSH remote"), `docs/new/whats-new.md` (L118-119); after a fix, `docs/code/local-projects.md` too if it mentions SSH.
 
+Related: R13.
+
 ### M7. A failed build start from the **Deploy** menu is only logged and leaves **Deploy** and **Build** disabled until the project is reopened
 
 - **Area:** Cloud builds (`lib/project/run/deploy_button.dart`, `packages/core/lib/src/cloud_build_v2/ui`)
@@ -201,6 +211,8 @@ Actual (from the code): no message, and both buttons stay disabled until the pro
 **Suggested fix.** Put the remaining-builds check in one method both callers use (it reads `getRemainingGrant(EntitlementKeys.cloudBuilds)` and shows `PaymentDialog`), and call it first in `_deployMobile`. In `WorkflowManager.startBuild`, return to `idle` after recording the error (or give `error` a retry), and show the message with `showSnackbarError` in both callers. Test: `packages/core/test/cloud_build_v2/workflow_manager_test.dart` already has a `WorkflowManager` with a mock service; add a service whose `startBuild` throws and expect `canStartBuild` to be true again.
 
 **Docs impact.** `docs/publish/builds.md` (L22: "You can also click **Deploy** in the top bar"; L33: the quota paragraph holds today only for the Settings **Build** button).
+
+Related: P8.
 
 ### M8. The status bar's warning and info counts open **Problems**, where those messages aren't
 
@@ -247,6 +259,8 @@ Actual (from the code): **Assistant** with the Shift+F hint. Ctrl/Cmd+1 still op
 **Suggested fix.** Make the tooltip skip intents that carry an explicit name: `predicate: (intent) => intent.index == widget.index && intent.name == null` (`lib/project/side_bar.dart:423`). Test: a registry test that registers the same entries as `lib/setup_general_actions.dart` and checks that the lookup for index 0 returns the digit-1 activator.
 
 **Docs impact.** None.
+
+Related: P2, R29, R32.
 
 ### M10. **Change Password** accepts any non-empty new password, but **Log In** refuses a password under 8 characters
 
@@ -319,38 +333,10 @@ Actual: the Switch and Checkbox turn pink; the Slider stays orange with a white 
 
 **Docs impact.** `docs/reference/widgets/index.md` (L93, the **Slider** row) and `docs/design/themes.md` (L96, "A widget with its own color ... keeps that color"): after the fix nothing to change; until then the Slider is an example of a widget that doesn't follow the theme.
 
-### M13. Three more wrong labels and messages in dialogs (batch)
-
-- **Area:** various (code references below)
-- **Severity:** Low — each row is a one-line text fix.
-- **Where:** both; both
-- **Status:** Present in 3.13.0 and dev
-- **Confidence:** Confirmed in code for every row, not run. Found by `research/features-logic.md` (line 781 and the Open question "Dialog title when creating a global state from the Variables panel"), `research/features-data.md` (line 745, the copy bugs list) and `docs/publish/index.md` (L29, which quotes the Bundle Identifier message).
-
-**What happens.** Three texts are wrong or garbled. R32 holds the other slips of this kind; none of these rows is in it.
-
-**Steps to reproduce**
-1. Open the place named in the first column of any row (the rows are independent).
-2. Read the text.
-
-| Where | UI says | Should say | Code |
-|---|---|---|---|
-| **Library** → **Add** (+) → **Generate Models From Json...**, paste JSON with no fields to model (a list of plain values such as `[1, 2, 3]`; the same check also fires for `{}`), click **Next** | Red snackbar "You can generate model for List of primitives", which says the opposite of what happens | "You can't generate a model for a list of plain values" (and a sentence for `{}`) | `packages/core/lib/src/model_generator/generate_models_dialog.dart:40-41` |
-| **Variables** panel with nothing selected → **Globals** → **Create global state** | Dialog titled "New Create global state" (hint "Create global state name"). The Library's **New Global State...** shows "New GlobalState" | "New Global State" in both | `packages/core/lib/src/state_management/global_state_widgets.dart:22` (headline); `packages/core/lib/src/file_system/widgets/create_file_dialog.dart:94` and `file_name_text_field.dart:167` build "New …" and "… name" from it; `lib/project/panels/files_panel/add_lib_menu.dart:70` passes `'GlobalState'` |
-| **Settings** → **Project Details** → **Bundle Identifier**, type `com.example.x` or `com_example.app` and press Enter | Error text "Invalid package name" under a field labelled **Bundle Identifier**; the rule (letters and digits separated by dots, starting with a letter, last part at least two characters) isn't shown | "Invalid Bundle Identifier: use letters and digits separated by dots, such as com.yourcompany.yourapp" | `packages/core/lib/src/settings/project_detail_settings.dart:122-123` |
-
-Expected: correct text. Actual: as in the second column.
-
-**Root cause.** Plain text. The dialog title is composed as `"New ${creatingText}"` from whatever the caller passes, so a sentence-like headline reads wrong; the global-state files also differ in place: the Variables-panel button creates the file in `lib/` (`global_state_widgets.dart:23`) and the Library item in `lib/globals/` (`add_lib_menu.dart:70`).
-
-**Suggested fix.** One edit per row; pass `'Global State'` from both callers (and move the Variables-panel button's file to `globalsDir` if the folder should match). Test: none needed for text; a widget test on the Generate Models dialog can check that `[1, 2, 3]` shows the new message.
-
-**Docs impact.** `docs/account/project-settings.md` (L49) and `docs/publish/index.md` (L29) quote "Invalid package name"; `docs/logic/global-state.md` (L20) says the file goes in `lib`. Update them when the text or the folder changes.
-
 ### M14. **GLOBALS** offers **Navigator**, **GoRouter**, **Media Query** and **Show snackbar** in functions that have no `context`
 
 - **Area:** Circuit add-node menu (`packages/core/lib/src/state_management/global_state_suggestions.dart`, `packages/core/lib/src/interpreter/suggestion.dart`)
-- **Severity:** Medium — in a global state, model or other non-widget function the node writes code that refers to a `context` the function doesn't have; the workaround (add a `BuildContext context` param) is not hinted anywhere.
+- **Severity:** High — generated code that doesn't build: in a global state, model or other non-widget function the node writes code that refers to a `context` the function doesn't have, and nothing hints at the workaround (add a `BuildContext context` param).
 - **Where:** both; both
 - **Status:** Present in 3.13.0 and dev (also in 3.12.5, same code)
 - **Confidence:** Code reading only, not run — found by `research/features-logic.md` (Open questions, "Context-dependent actions outside screens", and the line 722 limit that **GLOBALS** inside a global-state function lists these five entries). What the analyzer then reports wasn't observed.
@@ -398,7 +384,7 @@ Actual (from the code): the heading **Clone from GitHub**, the line "Pick a repo
 ### M16. A playground that grows past about 2 MB is silently not stored, and a reload brings back an older copy
 
 - **Area:** Playground persistence (`packages/core/lib/src/playground/playground_manager.dart`)
-- **Severity:** Medium — edits (for example after uploading a couple of photos) are lost on reload with no warning; the playground is the signed-out entry point and **Save** to an account avoids it.
+- **Severity:** High — a loss a warning would let you avoid: edits made after the playground passes about 2 MB are lost on reload with no notice in the app (the docs say very large playgrounds aren't kept); saving to an account avoids it.
 - **Where:** web app (the browser's local storage); playground only
 - **Status:** Present in 3.13.0 and dev (also in 3.12.5)
 - **Confidence:** Confirmed in code, not run (a project this large has to be built by hand) — found by `research/features-account-projects.md` (Open questions, "Playground storage cap"). `docs/get-started/playground.md` (L39) already says "Very large playgrounds aren't kept"; the code keeps the last small copy, which that sentence doesn't say.
@@ -441,6 +427,8 @@ Actual (from the code): the signing step runs `app-store-connect fetch-signing-f
 **Suggested fix.** After a successful `changeBundleId` in a cloud project, update `BUNDLE_ID` through the same `updateVariable` call `saveAppStoreConnectCreds` uses, or have `startBuild` compare the saved value with the project's and either update it or stop with "The Bundle Identifier changed; save the iOS credentials again". Test: `packages/core/test/cloud_build_v2/workflow_manager_test.dart` (mock service): change the bundle id, start an iOS build, expect the variable to be updated.
 
 **Docs impact.** `docs/publish/ios.md` (L35: "If you change the identifier later, click the pencil ... and Save again"); remove that step after the fix.
+
+Related: M21, R20.
 
 ### M18. Renaming, moving or deleting an asset in the Library leaves widgets pointing at the old path, and nothing reports it
 
@@ -490,6 +478,8 @@ Actual (live): step 2 changes nothing and **Details** shows no breadcrumb row; a
 
 **Docs impact.** None today (the captures README keeps the workaround). If it is not fixed, `docs/design/layout.md` could say "click the widget first".
 
+Related: M20.
+
 ### M20. After a Group is changed to a Row or a Column, the **Details** breadcrumb keeps saying **Stack** until the pointer moves over a widget
 
 - **Area:** Details breadcrumb and Group section (`packages/designer/lib/src/details/widget_details.dart`, `packages/designer/lib/src/details/group_details.dart`)
@@ -513,6 +503,8 @@ Actual (live): "Stack" at step 3, "Column" after the pointer moved over the boar
 **Suggested fix.** Select the placed widget after the replace runs (build `newSelection` inside the batch's `executeCallback`, or call `select` with `owner.getSelection(newBlock)` once the record has executed). Or let `SelectionBreadcrumbs` also listen to the selected instance's block changes, as the field widgets do. Test: `packages/designer/test/details_test.dart` — change a Stack group to a Column and check the breadcrumb label.
 
 **Docs impact.** None (`docs/design/layout.md` doesn't mention the breadcrumb).
+
+Related: P21, M19.
 
 ### M21. Changing the App Name, the Bundle Identifier, a permission or a package's setup rewrites whole platform files from templates, wiping what an imported app had in them
 
@@ -541,6 +533,8 @@ Actual (from the code): both files are Nowa's template; the service, the filter 
 **Suggested fix.** Patch instead of replace: parse the existing XML and plist and change only Nowa's elements (the label, the permissions, snippets between `nowa:begin` and `nowa:end` comments), as `changeIosBundleId` already patches single lines. Only write a whole template when the file is missing or still equals the previously generated one. At least, before the first regeneration of a file that differs from its template, ask first ("This replaces AndroidManifest.xml...") and save a copy through the checkpoint service. For the bundle id, change only the lines whose value equals the old identifier. Test: `packages/core/test/` — a manifest with an extra `<service>` keeps it after `PermissionsService.addPermission` and after `changeAppName`.
 
 **Docs impact.** `docs/account/project-settings.md` (L73: name the Gradle file and the `Podfile` too, and the actions that trigger it) and `docs/code/import.md` (a note for imported apps). After a fix, say that hand edits are kept.
+
+Related: M5, M17, P39, P40.
 
 ### M22. On the board and in Instant Play, `try` runs its `catch` for any error, ignoring `on Type`, and throws when it has two `catch` clauses
 

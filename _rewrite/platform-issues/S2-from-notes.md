@@ -336,10 +336,10 @@ Actual: the Switch and Checkbox turn pink; the Slider stays orange with a white 
 ### M14. **GLOBALS** offers **Navigator**, **GoRouter**, **Media Query** and **Show snackbar** in functions that have no `context`
 
 - **Area:** Circuit add-node menu (`packages/core/lib/src/state_management/global_state_suggestions.dart`, `packages/core/lib/src/interpreter/suggestion.dart`)
-- **Severity:** High — generated code that doesn't build: in a global state, model or other non-widget function the node writes code that refers to a `context` the function doesn't have, and nothing hints at the workaround (add a `BuildContext context` param).
+- **Severity:** High — generated code that doesn't build: in a global state, model or other non-widget function the node writes code that refers to a `context` the function doesn't have, and the editor only says "Undefined name 'context'." without hinting at the workaround (add a `BuildContext context` param; the docs warn, `docs/logic/navigation.md:116`).
 - **Where:** both; both
 - **Status:** Present in 3.13.0 and dev (also in 3.12.5, same code)
-- **Confidence:** Code reading only, not run — found by `research/features-logic.md` (Open questions, "Context-dependent actions outside screens", and the line 722 limit that **GLOBALS** inside a global-state function lists these five entries). What the analyzer then reports wasn't observed.
+- **Confidence:** Code reading only, not run — found by `research/features-logic.md` (Open questions, "Context-dependent actions outside screens", and the line 722 limit that **GLOBALS** inside a global-state function lists these five entries). What the analyzer then reports wasn't observed; on re-check the check Nowa itself runs was traced, see Root cause.
 
 **What happens.** The **Globals** category is built by `GlobalStateSuggestionsFinder` for every function. Four of its entries build calls on `ReferenceBlock('context')`: `Navigator.of(context).push(...)`, `GoRouter.of(context).push(...)`, `MediaQuery.of(context)` and `ScaffoldMessenger.of(context).showSnackBar(...)`. A function in a screen or component has a `context` (the build method's, or the State's). A global-state function doesn't, so the code the node writes has an undefined name. The finder already knows this for the global states themselves, which it lists only inside widget classes.
 
@@ -354,9 +354,11 @@ Actual (from the code): the node is added and writes `ScaffoldMessenger.of(conte
 
 **Root cause.** `GlobalStateSuggestionsFinder.suggestions` returns the four context-based entries unconditionally (`packages/core/lib/src/state_management/global_state_suggestions.dart:6-21,29-67`) and guards only the global-state entries with `scope.enclosingWidgetClass == null` (`:70-74`). `GeneralSuggestions.generateCategories` adds the **Globals** category for every scope, in and out of Circuit (`packages/core/lib/src/interpreter/suggestion.dart:468-480`). `checkPlatform` doesn't use `context` and is fine anywhere.
 
+Build or runtime? It fails to build. A global-state class defines no `context`: the only `context` in a `NotifierClassDecl` is the parameter of its generated `of` factory (`packages/core/lib/src/state_management/provider_blocks.dart:26-43`). The reference has no declaration, so Nowa's own check lists "Undefined name 'context'." at once (`UndefinedIdentifier`, `packages/core/lib/src/interpreter/block_tree.dart:3846-3856`, `block_problems.dart:276-277`), and Dart rejects the same name when the app is analysed or built. It is not a runtime-only failure, and it is not silent. It needs a UI action (a node picked in a non-widget function), and the docs already warn against it.
+
 **Suggested fix.** Apply the same guard to the four entries: return them only when the scope has a widget class or a `BuildContext` parameter in reach (for example, a function whose `ParamList` has a `BuildContext`). Otherwise offer them with a small "Add context param" action that adds `BuildContext context` to the function. Test: a suggestions test in `packages/core/test/interpreter_tests/` that asks for the **Globals** category inside a `NotifierClassDecl` function and checks that the four entries are missing.
 
-**Docs impact.** `docs/logic/global-state.md` (L62: "**GLOBALS** lists attached global states only inside screens and components") and `docs/logic/actions.md`: until fixed, say that **Navigator**, **GoRouter**, **Media Query** and **Show snackbar** need a `BuildContext context` param in a global-state function.
+**Docs impact.** The docs already warn for three of the four: `docs/logic/navigation.md:116` (**Navigator** and **GoRouter** "not to a global state's functions") and `docs/logic/popups.md:10` (snackbars and pop-ups belong in logic of a screen or component). `docs/logic/actions.md:39-41` (**Media Query**) and `docs/logic/global-state.md` (L62: "**GLOBALS** lists attached global states only inside screens and components") say nothing about it: until fixed, add that **Media Query** needs a `context` too. After the fix, drop the warnings that are no longer needed.
 
 ### M15. **Clone from GitHub** shows an empty list and no way to connect when GitHub isn't connected
 

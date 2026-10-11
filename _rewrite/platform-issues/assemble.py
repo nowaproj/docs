@@ -59,6 +59,8 @@ def short_status(value):
         return 'Fixed'
     if v.startswith("can't tell") or v.startswith('cannot tell'):
         return "Can't tell"
+    if v.startswith("can't confirm") or v.startswith('cannot confirm'):
+        return "Can't confirm"
     return value.split(' ')[0] if value else '?'
 
 
@@ -197,7 +199,7 @@ and kept for the record.
 | --- | --- |
 | **Severity** | **Critical**: work or data lost with no way back from inside Nowa (no undo, no warning first), a security exposure, or a core flow broken for everyone. **High**: a loss that Nowa's undo or a warning can avoid or reverse, generated code or dependencies that don't build, or a common flow broken with no easy workaround. **Medium**: broken or misleading, with a workaround. **Low**: cosmetic, a typo, a small UI glitch. |
 | **Confidence** | **Reproduced live**: seen in the running 3.13.0 app (app.nowa.dev). **Confirmed in code**: the code path shows it beyond doubt. **Code reading only**: likely from the code, never run. |
-| **Status** | **Present** in 3.13.0 and `dev`, **Fixed** (where), or **Can't tell** (what's missing). |
+| **Status** | **Present** in 3.13.0 and `dev`, **Fixed** (where), **Can't tell** (what's missing), or **Can't confirm** (a second check couldn't reproduce the cause; the entry says what would settle it). |
 | **Code refs** | `path:line` from the root of this repo at `master` = 3.13.0 (`3cb32031c`). `dev` (`7c341f356`) is 6 commits ahead and only changes `lib/project/project_page.dart` and `packages/nowa_ui/lib/library/library_panel.dart`. |
 | **Docs impact** | `docs/...` paths there are in the **nowaproj/docs** repo (branch `docs-rewrite` until its PR #18 merges), not in this repo's `docs/` folder. |
 | **Sources** | `reviews/...`, `captures/...` and `_rewrite/...` files named under **Confidence** are the working notes in nowaproj/docs, under `_rewrite/` on the same branch. |

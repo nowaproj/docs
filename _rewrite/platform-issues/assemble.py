@@ -210,6 +210,86 @@ and kept for the record.
 3. Line numbers are for `3cb32031c`; search for the quoted code if they have moved.
 4. When the fix ships, update the docs page named under **Docs impact** (table at the end)."""
 
+# Files for the nowa repo (docs/platform_issues/): one README with the tables, one file per area.
+NOWA_FILES = [
+    ('editor', 'Editor, designer, Library and widgets'),
+    ('ai-play-publish-logic', 'AI, play and preview, publishing and builds, logic'),
+    ('rest-data', 'REST API, Data Builder and forms'),
+    ('supabase-firebase-stripe', 'Supabase, Firebase and Stripe'),
+    ('git-code-integrations', 'Git, local projects, code and integrations'),
+    ('account-app', 'Account, workspaces, security and app-wide'),
+]
+BATCH_FILE = {'Editor, designer and widgets': 'editor',
+              'AI, play and shared preview, publishing, logic': 'ai-play-publish-logic',
+              'REST API, Data Builder and forms': 'rest-data',
+              'Supabase, Firebase and Firestore': 'supabase-firebase-stripe',
+              'Git, deep links and other integrations': 'git-code-integrations'}
+NEW_FILE = {}
+for _file, _ids in {
+    'editor': 'R7 R10 R11 R12 R22 R23 R24 R28 R29 R34 R35 R36 R37 M3 M9 M11 M12 M18 M19 M20',
+    'ai-play-publish-logic': 'M2 M7 M14 M16 M17',
+    'rest-data': 'R15 R16 R18 R25 R26',
+    'supabase-firebase-stripe': 'R2 R3 R5 R19 R20 R21 R30 R31 X1',
+    'git-code-integrations': 'R4 R6 R13 R14 R17 M4 M5 M6 M15 M21 M22 X2 X3',
+    'account-app': 'R1 R8 R9 R27 M1 M8 M10 R32 R33 M13',
+}.items():
+    for _id in _ids.split():
+        NEW_FILE[_id] = _file
+
+
+def github_slug(heading):
+    """GitHub's anchor for a Markdown heading."""
+    s = re.sub(r'[`*_]', '', heading).strip().lower()
+    s = re.sub(r'[^\w\- ]', '', s)
+    return s.replace(' ', '-')
+
+
+def write_nowa(all_entries, header_text, sections, temp_ids):
+    out = HERE / 'nowa'
+    out.mkdir(exist_ok=True)
+    by_file = {f: [] for f, _ in NOWA_FILES}
+    unplaced = []
+    for e in all_entries:
+        f = BATCH_FILE.get(e['group']) or NEW_FILE.get(temp_ids.get(e['id'], ''))
+        if f is None:
+            unplaced.append(e['id'])
+            f = 'account-app'
+        e['file'] = f
+        by_file[f].append(e)
+
+    def link(e):
+        return f"[{e['id']}]({e['file']}.md#{github_slug(e['id'] + '. ' + e['title'])})"
+
+    def sort_key(e):
+        return (SEVERITY_ORDER.get(e['severity'], 9), int(e['id'][1:]))
+
+    titles = dict(NOWA_FILES)
+    for f, title in NOWA_FILES:
+        entries = sorted(by_file[f], key=sort_key)
+        body = '\n\n'.join(f"### {e['id']}. {e['title']}\n\n{e['body']}" for e in entries)
+        (out / f'{f}.md').write_text(
+            f"# {title}\n\nPart of [Nowa platform issues (3.13.0)](README.md): how to read an entry and the summary "
+            f"tables are there. Entries are sorted by severity.\n\n{body}\n")
+
+    fix_first = sorted([e for e in all_entries if e['severity'] in ('Critical', 'High') and e['status'] != 'Fixed'],
+                       key=sort_key)
+    rows = ['| Issue | What breaks | Area | Severity | Confidence |', '| --- | --- | --- | --- | --- |']
+    rows += [f"| {link(e)} | {cell(e['title'])} | {titles[e['file']]} | {e['severity']} | {e['confidence']} |"
+             for e in fix_first]
+    fix = '## Fix first\n\nEvery Critical and High issue, most severe first.\n\n' + '\n'.join(rows)
+    files = '## Files\n\n' + '\n'.join(
+        f"- [{title}]({f}.md): {len(by_file[f])} issues" for f, title in NOWA_FILES)
+    rows = ['| Issue | Title | Severity | Confidence | Status |', '| --- | --- | --- | --- | --- |']
+    rows += [f"| {link(e)} | {cell(e['title'])} | {e['severity']} | {e['confidence']} | {e['status']} |"
+             for e in sorted(all_entries, key=lambda e: int(e['id'][1:]))]
+    alli = '## All issues\n\n' + '\n'.join(rows)
+    rows = ['| Issue | Docs page and change after the fix |', '| --- | --- |']
+    rows += [f"| {link(e)} | {cell(e['docs'])} |" for e in sorted(all_entries, key=lambda e: int(e['id'][1:]))
+             if e['docs'] and not e['docs'].lower().startswith('none')]
+    docs = ('## Docs to update after each fix\n\nPaths are in the nowaproj/docs repo.\n\n' + '\n'.join(rows))
+    (out / 'README.md').write_text('\n\n'.join([header_text, files, fix, alli, docs]) + '\n')
+    return unplaced
+
 
 def main():
     groups, new_raw = load()
@@ -274,6 +354,10 @@ def main():
     (out / 'header.md').write_text(sections['header'] + '\n')
     order = ['header', 'fix-first', 'all-issues'] + [slug for _, slug, _ in AREAS] + ['newly-found', 'docs-impact']
     (HERE / 'report.md').write_text('\n\n'.join(sections[k] for k in order) + '\n')
+    temp_ids = {v: k for k, v in mapping.items() if k not in DUPLICATES}
+    unplaced = write_nowa(all_entries, sections['header'], sections, temp_ids)
+    if unplaced:
+        print('not placed in an area file (put in account-app):', unplaced)
     problems = check_refs(all_entries)
     problems += [f"{e['id']}: local path left: {m}" for e in all_entries
                  for m in re.findall(r'/home/user\S*|/tmp/\S*|scratchpad\S*', e['body'])]

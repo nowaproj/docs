@@ -483,29 +483,32 @@ Related: M20.
 ### P22. A top-level function or enum Nowa could not load is deleted when Nowa saves the file
 
 - **Area:** Code sync (`packages/core/lib/src/interpreter/visitors`, `packages/core/lib/src/file_system`)
-- **Severity:** Critical — work is lost: hand-written code is deleted when Nowa saves the file, Nowa can't bring it back, and nothing warns it will go (**Problems** only says it "could not be loaded"); the trigger is narrow (a top-level function or enum Nowa cannot read, in a file Nowa then saves).
+- **Severity:** Critical — work is lost: hand-written code is deleted when Nowa saves the file, Nowa can't bring it back (Undo and AI checkpoints don't hold it), and nothing warns it will go (**Problems** only says it "could not be loaded", and the docs say Nowa "skips" it). It needs a top-level declaration of the kinds listed under **Root cause** in a file that Nowa then rewrites, which a board edit, a rename or an AI edit does.
 - **Where:** both; both
 - **Status:** Present in 3.13.0 and dev
-- **Confidence:** Code reading only, not run — every step traced in code; no guard was found.
+- **Confidence:** Code reading only, not run — every step traced in code, then traced again independently (which kinds are dropped, and when); no guard was found.
 
 **What happens.** When a file holds a top-level function or enum that Nowa cannot read, Nowa loads the rest of the file and
 lists "'name' could not be loaded: ..." in **Problems**. The skipped declaration is not in Nowa's model. The next time Nowa saves
-that file from its model, the file is written without it. Auto-save is on by default and runs every 20 seconds.
+that file from its model, the file is written without it. Auto-save is on by default and runs every 20 seconds. Other top-level code goes the same way: every `extension type`, a top-level variable, mixin or extension with something unreadable in it and, with nothing listed in **Problems** at all, every `typedef` and `export` line.
 
 **Steps to reproduce**
 1. Open a project (the playground works). Click the `<>` button next to **Settings**, open `lib/pages/home_page.dart`, add at the end of the file this function and save with Ctrl/Cmd + S:
    `Stream<int> countDown() async* { yield 3; }`
-   **Problems** now lists "'countDown' could not be loaded: ..." (`yield` is not supported, `docs/code/limitations.md:40`).
+   **Problems** now lists `'countDown' could not be loaded: Exception: Missing implementation of visitYieldStatement` (by the code; `yield` is not supported, `docs/code/limitations.md:40`).
 2. Click `<>` again to leave code mode.
 3. Change the home screen on the board, for example draw a box with the **Shape** tool.
 4. Wait 20 seconds or press Ctrl/Cmd + S, then open `home_page.dart` in code mode.
 
 Expected: `countDown` is still in the file, as you wrote it.
-Actual (by the code): `countDown` is gone, and **Problems** no longer lists it.
+Actual (by the code): `countDown` is gone from the file. **Problems** still lists it until the file is read from disk again (a save keeps the unit's `loadFailures`), so the warning goes away, with the function, only after a reload. Undoing the board edit doesn't bring the function back: the unit never held it.
 
 **Root cause.**
 - Loading. `visitCompilationUnit` loads each top-level declaration in a `try`; with `continueOnException` (set by the importer and by `DartFile.fromSource` and `reparse`: `packages/core/lib/src/file_system/dart_importer.dart:20`, `packages/core/lib/src/file_system/dart_file.dart:46,101`) an exception only adds a `DeclarationLoadFailure`, and the declaration is left out of the unit (`packages/core/lib/src/interpreter/visitors/ast_to_block_visitor.dart:161-180`, `decls` at `:180`). The class is documented as "kept so the file can say what it lost instead of dropping it silently" (`:100-101`): the loss is expected, and **Problems** is the only report.
-- No fallback for functions or enums. Classes fall back to a custom class that keeps their text (`:688-691`), methods to `CustomMethodDecl` (`:1130-1136`). A top-level function keeps its text only with `@CustomFunction` (`:1171-1186`); otherwise its body is read with no `try` (`:1168-1223`, `visitBlock` has none: `:1499-1502`; `yield` has no visitor). Enums (`:621-669`), top-level variables (`:945-947`), mixins (`:586-618`) and extensions (`:2146-2162`) have none either.
+- What is dropped. `BlockUnit.source` writes only the declarations the visitor produced, so by kind (3.13.0):
+  - Dropped when loading fails, with no fallback: top-level functions (a function keeps its text only with `@CustomFunction`, `:1171-1186`; otherwise its body is read with no `try`, `:1168-1223`, and `visitBlock` has none, `:1499-1502`; a node with no visitor throws, as `yield` and pattern assignment do, and the visitor rejects list and map destructuring and `switch` `when` guards and list or map patterns: the table at `docs/code/limitations.md:38-45`); enums (`:621-669`: one unreadable constant argument, field initializer or constructor body fails the whole enum); top-level variables with an initializer it can't read (`:945-947`, `:1044-1056`); mixins (`:586-618`) and extensions (`:2146-2162`) with an unreadable field; every `extension type` (no visitor, so the analyzer's `ThrowingAstVisitor` throws "Missing implementation of visitExtensionTypeDeclaration").
+  - Kept: classes fall back to a custom class that keeps their text (`:688-691`; unless that fallback throws too, for example on a parameter default value the loader can't read, `:487`), methods to `CustomMethodDecl` (`:1130-1136`). The same unreadable code therefore survives inside a class and is dropped in a top-level function.
+  - Dropped although they load (found while verifying, code reading only): `typedef`s, which are registered in the project scope and return no declaration (`:528-551`, `:165-171`), and `export` directives, which are kept only to order loading (`:185-199`, `packages/core/lib/src/interpreter/block_tree.dart:7000-7002`; `source` does not write them). Nothing is listed in **Problems** for these.
 - Saving. `BlockUnit.source` is the loaded declarations only (`packages/core/lib/src/interpreter/block_tree.dart:7044-7062`); `loadFailures` is read only to list problems (`packages/core/lib/src/file_system/dart_file.dart:319`). `DartFile.text` returns the original text only when the parser reported syntax errors (`errors.isNotEmpty`), otherwise it regenerates from the unit (`packages/core/lib/src/file_system/dart_file.dart:116-122`). A dirty file is written from that text (`packages/core/lib/src/file_system/file_object.dart:546`, `packages/core/lib/src/file_system/nfile_impl.dart:329-343`).
 - Triggers. Any change to the unit marks the file dirty (`packages/core/lib/src/file_system/dart_file.dart:146-158`). A rename or move of a file marks every file that imports it dirty (`packages/core/lib/src/file_system/nfile_impl.dart:115-127`), as does `relinkProjectAndRegenerateImports` when imports change (`packages/core/lib/src/providers/project_provider.dart:884-902`). Auto-save: `packages/core/lib/src/project/saving_service.dart:8-9,15-16,66`.
 - Second path, the AI **edit** tool: it reads `content.text` (the regenerated text, without the function) and writes its edit over that (`packages/ai/lib/src/tools/edit_tool.dart:43-48,60,113`), so an AI edit anywhere in the file drops it as well.

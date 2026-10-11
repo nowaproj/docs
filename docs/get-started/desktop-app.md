@@ -24,7 +24,7 @@ When you sign in, the desktop app checks that your account has desktop access. I
 
 ## Install on Linux {#install-on-linux}
 
-The Linux download is a 64-bit archive named like `Nowa-v<version>-linux-x64.tar.gz`. It needs glibc 2.38 or newer, such as Ubuntu 24.04 (run `ldd --version` to see yours), plus GTK 3, GStreamer, and the OpenGL, EGL and OpenGL ES libraries.
+The Linux download is a 64-bit archive named like `Nowa-v<version>-linux-x64.tar.gz`. It needs glibc 2.38 or newer, such as Ubuntu 24.04 (run `ldd --version` to see yours). It also needs GTK 3, GStreamer, and the OpenGL, EGL and OpenGL ES libraries.
 
 1. Extract the archive. You get a folder named `nowa`.
 2. Open a terminal in that folder and run `./install.sh`.
@@ -66,11 +66,11 @@ On a Mac, Flutter needs Xcode, which also builds iOS apps. The setup dialog warn
 This is the quickest route.
 
 1. In **Local Setup**, under **Automatic setup**, click **Set up automatically**. The **Set up local environment** dialog opens. If Flutter is already installed and up to date, it starts on the **Verify** step: skip to step 6.
-2. On the **Flutter** step, check the **Install location**. Nowa installs about 10 GB of tools there, and the path must not contain spaces. The dialog puts the Flutter SDK download at about 1 GB, but it's bigger: about 1.6 GB on Linux, 1.9 GB on Windows and 2.3 GB on macOS.
+2. On the **Flutter** step, check the **Install location**. Nowa installs about 10 GB of tools there, and the path must not contain spaces. The dialog puts the Flutter SDK download at about 1 GB. With the current Flutter release, it's bigger: about 1.6 GB on Linux, 1.9 GB on Windows and 2.3 GB on macOS.
 3. Tick the box that accepts the licenses. Nowa downloads these tools from Google and the Eclipse Foundation.
 4. Click **Install** next to **Flutter**. Keep Nowa open while it downloads and unpacks Flutter. On Linux, Nowa may look frozen while it unpacks, which can take a while. If it takes too long, follow [Use a Flutter SDK you already have](#use-a-flutter-sdk-you-already-have) instead.
 5. When the row says **Ready**, click **Next**.
-6. On the **Verify** step, Nowa runs `flutter doctor` and lists the devices you can run on. Fix anything it reports, then click **Re-run checks**. If it can't find Chrome, you can leave that: you only need Chrome to run your app in Chrome, and Nowa's preview works without it.
+6. On the **Verify** step, Nowa runs `flutter doctor` and lists the devices you can run on. Fix anything it reports, then click **Re-run checks**. If it can't find Chrome, you can leave that. You only need Chrome to run your app in Chrome, and Nowa's preview works without it.
 7. To build for Android, click **Download** next to "Android isn't set up". On the next screen, tick the license box if it's empty, then click **Install** next to **Android toolchain**. **Android emulator** is optional, and its **Install** unlocks once the toolchain is installed. Click **Skip for now** if you only target web or desktop. You can add them later from **Local Setup** (its page is titled **Environment**).
 8. Click **Done**.
 

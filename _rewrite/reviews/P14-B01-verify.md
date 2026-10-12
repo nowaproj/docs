@@ -64,3 +64,39 @@ Two admonitions (tip, warning). Labels, steps and images unchanged.
 | Menu descriptions quoted and explained; the playground opens on **Starter app** | ok | `packages/core/lib/src/playground/playground_starter.dart:9-11`, `:22` (falls back to `starter`) | R3: UI text kept in quotes, "routing" explained. |
 | Nowa AI needs an account, not a saved app; other features return after saving | ok | unchanged facts reworded | |
 | Guest copy: "edit and play it as much as you like, nothing changes the owner's project" | ok | unchanged fact | |
+
+## get-started/mobile.md
+
+| Claim | Verdict | Source | Note |
+|---|---|---|---|
+| Tone additions (dictation is quicker, attach so Nowa AI knows which one, Supabase connector gloss, start or check a build from the **Build** tabs) | ok | `docs/ai/connectors.md`, `docs/publish/android.md`, `docs/publish/ios.md` | Labels, table and image unchanged. |
+
+## get-started/editor-tour.md
+
+| Claim | Verdict | Source | Note |
+|---|---|---|---|
+| New Circuit section: floating panel; opens from the button next to an event in **Details** (**+** or **Edit**), or from a function in **Variables** | ok | `packages/core/lib/src/fields/nowa_fields.dart:797-830` (label `+`, or bolt + **Edit** when a function is set), `docs/logic/circuit.md#open-circuit` | |
+| "Logic that Nowa AI builds in **Agent** mode lands in the same events and functions, so you can open them in Circuit" | fixed | `_rewrite/reviews/P14-B06-for-code.md` (`#variables-and-functions`: `for`, `switch`, `break` can't be drawn; `packages/code/lib/src/models/block_to_circuit_visitor.dart:24-89`), `docs/logic/circuit.md#loops` | Overgeneralized. Now "open most of it in Circuit ... A few kinds of steps, such as some loops, can't be shown there." |
+| Steps stack and run top to bottom | ok | `docs/logic/circuit.md#read-a-circuit-top-to-bottom` | |
+| **Variables** tabs in plain words (Params received from outside, Variables remembered while open, Functions as named sets of steps); **Globals** = attached global states | ok | `docs/logic/variables.md:25-32`, `docs/logic/global-state.md:50-58`, `packages/core/lib/src/state_management/global_state_widgets.dart:53` | R8. |
+| Status bar: "if the project uses Git, the branch ..." | fixed | `lib/status_bar.dart:73-77` (shown whenever `GitManager.isReady`), `packages/git_nowa/lib/src/git_manager.dart:175-191` (false only without a repo, while loading or on error), `docs/code/git.md` ("New projects start with a repository") | Implied Git is opt-in. Now "when the project has a Git repository (new projects start with one)". |
+| Package chip: "usually in an imported project" | fixed | `lib/project/owned_package_chip.dart:6-10` (a workspace holding more than one package) | "Usually" isn't backed by the code; now "as some imported projects have". |
+| Search: text with replace everywhere, **Symbols** finds names such as a screen's | ok | `lib/project/panels/search_panel.dart:10-12`, `:229-260` (**Replace all**), `docs/code/files.md:110-112` ("Class: HomePage") | |
+| Router: routes and the screen people start on | ok | `docs/logic/router.md` intro (**Initial Location**) | |
+| Gear: app name, icon and other project details | ok | `docs/account/project-settings.md:20`, `:64-72` | |
+| Safe mode gloss: dashboard option for a project that freezes when it opens | ok | `packages/nowa_ui/lib/dashboard/projects_grid.dart:303` (**Open in safe mode**), `docs/account/projects.md:96` | |
+| Other glosses (Library assets, Themes, Git, Outline, Api, Supabase sections, Problems first place to look, code mode optional) | ok | `docs/design/library.md`, `docs/integrations/supabase/connect.md`, `docs/test/problems.md` | |
+
+Anchors kept (`{#welcome-tour}`; the H2 auto anchors are unchanged, Circuit section is new). About 2,000 words: the writer's split proposal (tour + "Editor controls" reference) is in the notes; not needed yet.
+
+## get-started/cloud-and-local.md
+
+| Claim | Verdict | Source | Note |
+|---|---|---|---|
+| New section "Tell which kind you have": **On this device**, **LOCAL-ONLY**, the section text, **Cloud**/**Local** badge; no **Deploy** for local; **Hot Reload**/**Open in Browser** vs **Hot Restart**/**Open on Mobile** | ok | `packages/nowa_ui/lib/dashboard/projects_view.dart:504`, `:521`, `packages/nowa_ui/lib/dashboard/projects_grid.dart:253`, `lib/project/run/deploy_button.dart:21`, `lib/project/top_bar_mapper.dart:186-188` | |
+| Run rows: saving restarts a cloud run (**Hot Restart**) and updates a local run in place (**Hot Reload**) | ok | `packages/nowa_run/lib/src/nowa_run_plugin.dart:46`, `packages/nowa_run/lib/src/nowa_run_manager.dart:84`, `:150-157`, `packages/nowa_run/lib/src/services/local/nowa_run_service_local.dart:79` + `daemon_protocol.dart:115-122` (`fullRestart: false`), `docs/test/run.md:43` | |
+| Internet needed, also in the desktop app and for local projects | ok | `lib/router.dart:46-63` (version check and profile fetch on every signed-in route: `:176`, `:248`, `:280`, `:307`, `:317`), `:86-111` | Restores the correction of the old "work offline" claims. |
+| "What Nowa creates unless you ask for a local one" | ok | `docs/account/projects.md:39-41` | |
+| "Sync in the direction of the copy you changed" | ok | both buttons overwrite the other side (unchanged fact) | Advice that follows from it. |
+
+Removed: the dashboard-badge paragraph moved into the new section, unchanged. Auto anchors all kept.

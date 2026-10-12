@@ -33,9 +33,8 @@ Nowa drops hints in a few other places too:
 
 ## Tips that help
 
-- **Describe what people see and do.** "Clients pick a stylist, a service and a time slot" works better than "add a booking form". You don't need Flutter words.
-- **Start wide in Design, then go narrow.** Describe the whole app once in **Design** mode. After that, ask for one screen or one feature at a time.
-- **Ask for one job at a time.** "Add a search bar to the product list screen" is easier to review, and to undo, than "Build me a full shopping app with everything".
+- **Describe what people see and do.** "Clients pick a stylist, a service and a time slot" works better than "add a booking form".
+- **Start wide, then ask for one job at a time.** Describe the whole app once in **Design** mode. After that, ask for one screen or one feature at a time: "Add a search bar to the product list screen" is easier to review, and to undo, than "Build me a full shopping app with everything".
 - **Say what it's for.** Who uses the screen, how they move through it and what matters most on it help Nowa AI make fewer guesses.
 - **Plan big or unclear work first.** Use **Plan** mode and answer its questions. A choice marked **(Recommended)** is Nowa AI's suggestion, and **Other...** lets you type your own answer. See [Design, Plan and Agent modes](modes.md).
 
@@ -68,8 +67,8 @@ Treat the first result as a draft. Look at it on the board or [play the screen](
 - **Say what to change, and how.** "Make the prices bigger and green" gets you further than "fix the prices".
 - **Select, then ask.** Click a card on the board and type "Make this card's corners rounder", so Nowa AI knows which card you mean. See [Give Nowa AI context](context.md).
 - **Build on what's there.** "Add a Settings screen that looks like the Profile screen" works best with the Profile screen attached: type `@` and pick it, or use **+**.
-- **Let Nowa suggest the next step.** After a request, **Suggested next steps** offers up to three follow-ups. Click one to fill in its prompt, then edit it or send it.
-- **Ask questions.** Not sure how something works? Ask, for example: "What happens when someone taps Book without picking a time?" In an empty chat, the **Summarize** chip writes a prompt that asks for a short summary of your project.
+- **Let Nowa suggest the next step.** After a request, Nowa AI may offer up to three follow-ups under **Suggested next steps**. Click one to fill in its prompt, then edit it or send it.
+- **Ask questions.** Not sure how something works? Ask, for example: "What happens when someone taps Book without picking a time?" In an empty **Agent** or **Plan** chat, the **Summarize** chip writes a prompt that asks for a short summary of your project.
 - **Start a new session for a new topic.** Old context can carry over and muddle the next request, so click **+** (**New Session**) when you move to an unrelated feature. See [Undo AI changes and reopen chats](undo-and-history.md#start-a-new-session).
 
 | A clean start | Mixed topics |
@@ -80,16 +79,15 @@ Treat the first result as a draft. Look at it on the board or [play the screen](
 
 It happens: Nowa AI misread the request, or the result looks off. You can always get back on track, and your published app doesn't change until you publish again.
 
-- **Say what's wrong.** Describe what you see and what you expected: "The booking list is empty. It should show the sample bookings."
-- **Point at it.** Select the widget or screen on the board, then ask again.
-- **Undo and rephrase.** Click **Restore Checkpoint** above the reply to take your project back to how it was before that request, then send a clearer prompt. A restore also undoes the later requests in the same session. See [Undo AI changes and reopen chats](undo-and-history.md).
+- **Say what's wrong, and point at it.** Select the widget or screen on the board, then describe what you see and what you expected: "The booking list is empty. It should show the sample bookings."
+- **Undo and rephrase.** Hover the dotted line above the reply and click **Restore Checkpoint** to undo that request, then send a clearer prompt. A restore also undoes the later requests in the same session. See [Undo AI changes and reopen chats](undo-and-history.md).
 - **Fix small things by hand.** A color, a word or some spacing is often quickest in the **Details** panel. See [Change widget properties](../design/properties.md).
 - **Plan first.** If Nowa AI keeps guessing wrong, switch to **Plan** and answer its questions before anything is built.
-- **Start fresh.** If the conversation goes in circles, start a new session, describe the goal again in one message, and attach the screen.
+- **Start fresh.** If the conversation goes in circles, start a new session and describe the goal again in one message, with the screen attached.
 
 ## Fix errors
 
-Errors happen while you build, and Nowa AI can usually fix them for you. Nowa counts the problems it finds in the status bar at the bottom of the editor and lists them in **Problems**.
+Errors happen while you build, and Nowa AI can help you fix them. The red number in the status bar at the bottom of the editor counts the errors Nowa finds. Click it to see them in **Problems**.
 
 - **Use the buttons.** **Fix with AI** (on a preview that won't start or a failed web publish) and **Explain with AI** (on a failed build step) send the error to the chat for you. If Nowa AI is busy, the prompt waits in the chat field until you send it.
 - **Describe the problem.** "The checkout screen shows an error when the cart is empty. Find the cause and fix it." To pass on an exact message, click the problem in **Problems**, choose **Copy**, and paste it into your prompt.
@@ -137,7 +135,7 @@ Keep the design simple, with a dark background and clear, bold text. The layout 
 Create a clean and simple mobile stopwatch app interface. Display "Stopwatch" as the title at the top with a turquoise stopwatch icon. Show the time in large, clear digits as "00:00:00" in the center. Below that, place a blue "Start" button with rounded corners. Use a white background with modern, legible text. Focus only on the stopwatch functionality with high readability and mobile-friendly button sizing.
 ```
 
-Design mode builds the look with demo data, so the stopwatch's "Start" button doesn't count anything yet. Once you like the design, click **Make it real**, or ask in **Agent** mode: "Make the Start button start and stop the timer." [Get the best from Nowa AI](../guides/ai-tips.md) shows how to spell out behavior like this, case by case.
+Design mode builds the look without logic, so the stopwatch's "Start" button won't run the timer yet. Once you like the design, switch to **Agent** mode and ask: "Make the Start button start and stop the timer." [Get the best from Nowa AI](../guides/ai-tips.md) shows how to spell out behavior like this, case by case.
 
 :::tip
 These are starting points. Change the names and details to fit your app. Nowa AI decides how to build each request, so results vary: review them and ask for changes.
@@ -161,9 +159,8 @@ For example:
 
 A few things to know:
 
-- They apply to this project only.
+- They apply to this project only, and they're saved with it: they're still there when you come back, and anyone who works on the project gets them too. A [connected external agent](external-agent.md) receives them as well. Working in the code? See [What Nowa adds to your code](../code/generated-code.md#project-files).
 - The limit is 5,000 characters. The counter shows how much you've used, and **Save** is disabled above the limit.
-- They're saved with the project, so they're still there when you come back, and anyone who works on the project gets them too. A [connected external agent](external-agent.md) receives them as well. Working in the code? See [What Nowa adds to your code](../code/generated-code.md#project-files).
 
 ## Next steps
 

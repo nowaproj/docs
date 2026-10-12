@@ -54,3 +54,8 @@ Items a section agent or verifier found for a page outside its batch, and what h
 | 48 | B09 | `integrations/index.md` (B08) | Don't name `FirebaseService` in the comparison table. | sent to B08 verifier |
 | 49 | B09 | product team | Stripe webhook reads fields removed in Stripe API 2025-03-31; Apple Pay setup may drop a push entitlement (code reading). | for the report |
 | 50 | B09/B13/B14/B10 | pages (structure) | stripe.md ~2,470, rest-api/index.md ~2,350, wrappers ~2,550, shortcuts ~2,670, glossary ~4,400 words. | decide after verification |
+| 51 | B07 | `logic/functions.md`, `logic/circuit.md` (B06) | Link text "Wait, repeat and create objects"; PACKAGE: row in plain words. | sent to B06 verifier |
+| 52 | B07 | `reference/widgets/index.md` (B13) | Alert Dialog row: showDialog step, reuse your own design via a component. | sent to B13 verifier |
+| 53 | B07 | `integrations/supabase/storage.md` (B10) | Guard the upload when nothing was picked; test with gallery in Play on a computer. | sent to B10 verifier |
+| 54 | B07 | `test/run.md` (B12) | Optional: print messages show in the logs. | sent to B12 verifier |
+| 55 | B07 | product team | Show snackbar offers Width/Margin without Behavior (fails in debug); showMediaPicker defaults to the camera, which desktop Play can't open. | for product-issues.md and the report |

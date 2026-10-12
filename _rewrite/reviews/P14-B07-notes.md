@@ -320,6 +320,22 @@ card; double-click or Enter opens the editor, `lib/project/panels/library_panel/
 
 **Open questions**: none.
 
+## Routed checks
+
+- **Routed from B08**: the **PACKAGE:** category (with `AppConstants`) is only in Circuit's **+** menu and in
+  statement-level fields, not in a step's argument fields. Code: the link menu passes `showGlobals: field.parent is
+  BlockStatement` (`packages/core/lib/src/fields/field_link_menu.dart:341`), and `GeneralSuggestions` lists the library
+  categories only `inCircuit`, otherwise just Locals, Globals, Expressions and non-Circuit-only extras
+  (`packages/core/lib/src/interpreter/suggestion.dart:463-473`); `IfStatement`, `ReturnStatement`,
+  `ExpressionStatement` and `VariableStatement` are `BlockStatement`s (`packages/core/lib/src/interpreter/block_tree.dart:895,1028,1116,1742,2944`).
+  Result of the check: no page of mine told readers to pick a constant into a field from that category. To prevent the
+  reading, `logic/actions.md` "Find any other function" now says where these categories appear (the **+** menu, an
+  If's **Condition**, a **Return** value), and its **PACKAGE:** row says a step's fields (**Url**, **Msg**) don't list
+  it and links [Use a constant](../integrations/constants.md#use-a-constant) (B08's **Custom Expression...** steps).
+  The other pages only send readers to **LOCALS**, **GLOBALS**, **EXPRESSIONS**, **OPERATORS** in an If's
+  **Condition**, or **FIREBASE** in an If's **Condition**, which all match the code. `logic/expressions.md` already says
+  "a node's own fields ... show every category ... Elsewhere you get **LOCALS**, **GLOBALS** and **EXPRESSIONS**".
+
 ## For other pages
 
 Proposals for other batches' pages (I didn't edit them). Each with the text I'd use and its evidence.

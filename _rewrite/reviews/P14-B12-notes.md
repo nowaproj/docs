@@ -340,3 +340,17 @@ All headings kept (inbound anchors `#this-screen-failed-to-render`, `#update-pro
 | `get-started/desktop-app.md` (B01), "Let Nowa install Flutter" step 7 | Replace "You can add them later from **Local Setup** (its page is titled **Environment**)" with: "Install **Android emulator** in the same go if you want one: in Nowa 3.13 this screen only opens while the Android toolchain is missing." | `environment_setup_dialog.dart:525, 548, 580` (see devices notes) |
 | `integrations/firebase/firestore.md` (B09), "Use a query in your app", "In the Windows desktop app, run the app on a simulator instead." | "In the Windows desktop app, click **Run** (the embedded preview runs the web version of your app) or run it on an emulator or a phone instead." | Embedded preview uses an in-app web view on Windows (`packages/nowa_run/lib/src/ui/nowa_run_preview.dart:129-140`); Firebase options include web (`packages/data/lib/src/firebase/setup/fb_setup_manager.dart:122-136`) |
 | `code/local-projects.md` or `code/vs-code.md` (B15) | "Run on your own iPhone: open `ios/Runner.xcworkspace` in Xcode, sign in under **Xcode** → **Settings** → **Apple Accounts**, and pick your team under **Signing & Capabilities** for the Runner target. A free personal team works for your own devices." | https://developer.apple.com/documentation/xcode/running-your-app-on-simulated-or-physical-devices, https://docs.flutter.dev/platform-integration/ios/setup |
+
+## For the orchestrator
+
+- **New product issue** (for `_rewrite/product-issues.md`): the setup wizard's **Android emulator** row is
+  unreachable once the Android toolchain is installed (also when Android Studio's SDK is found), although the Android
+  step's caption says "You can add these later from Settings → Environment."
+  (`packages/core/lib/src/environment/environment_setup_dialog.dart:331, 525, 548, 580`;
+  `packages/core/lib/src/environment/environment_doctor.dart:51-93`). Documented as a 3.13 limit on
+  `test/devices.md`; B01's `desktop-app.md` still says you can add it later (see "For other pages").
+- **Open questions** (details under `test/devices.md`): (1) whether Xcode signing set on a cloud project's local copy
+  survives the next device run (the copy re-mirrors every project file on each run); (2) whether emulators made in
+  Android Studio are listed when Nowa's own Android SDK (without the `emulator` package) is the one Flutter uses.
+- Routed items handled: B02 (P50), B11 (P9, P17), B03 (New UX double-click) on `known-issues.md`; B01 (offline start)
+  on `troubleshooting/index.md`. All confirmed in code; refs in the page sections above.

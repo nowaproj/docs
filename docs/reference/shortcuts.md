@@ -235,7 +235,7 @@ Two exceptions in Nowa 3.13 go the other way: a `/` you type in a **Details** fi
 
 ## If you used an older version
 
-If you learned Nowa from older videos or tutorials, two shortcuts work differently now:
+If you learned Nowa from older videos, tutorials or an older Shortcuts sheet, two shortcuts may not do what you remember:
 
 | You may know | Now |
 |---|---|

@@ -86,7 +86,7 @@ Changed your mind about something Nowa AI did? Hover the dotted line above its r
 
 ## 6. Run the real app
 
-**Play** gave you a quick look. **Run** builds and starts the actual app, the same one your users will get, so it's the most accurate test.
+**Play** gave you a quick look. **Run** builds and starts your actual app, with nothing approximated, so you see how it really behaves before you publish.
 
 1. Click **Run** at the right of the top bar.
 2. Wait while Nowa starts your app. The first start can take a few minutes.
@@ -95,7 +95,7 @@ Changed your mind about something Nowa AI did? Hover the dotted line above its r
 
 **You should see:** your app running for real in a phone frame inside the editor.
 
-Errors happen, especially on a first run. If an error screen offers **Fix with AI**, click it: Nowa AI gets the error and tries to fix it.
+Errors can happen. If an error screen offers **Fix with AI**, click it: Nowa AI gets the error and tries to fix it.
 
 ## 7. Save and share
 

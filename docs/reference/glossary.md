@@ -5,7 +5,7 @@ sidebar_label: Glossary
 keywords: [glossary, terms, definitions, dictionary, what does it mean, jargon, board, screen, component, instance, widget, library, widgets panel, widget picker, Nowa AI, Circuit, Instant Play, Think mode, renamed, Flutter, Dart, group, row, column, stack, constraints, API, API key, backend, database, JSON, query, null, String, bool, Future, Stream, bundle ID, package name, signing key, keystore, SHA-1, emulator, simulator, APK, AAB, hot reload, Git, commit]
 ---
 
-New to building apps? This page explains the words you'll meet in Nowa and in these docs, in plain language. You don't need to learn them by heart: Nowa AI and the visual editor take care of the technical side, and each page explains the words it uses. Come back here whenever a word stops you.
+New to building apps? This page explains the words you'll meet in Nowa and in these docs, in plain language. You don't need to learn them by heart: Nowa AI and the visual editor take care of the technical side. Come back here whenever a word stops you.
 
 Labels in **bold** are exactly what the app shows. To find a word fast, use your browser's search (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>F</kbd>).
 
@@ -186,7 +186,7 @@ If you followed older tutorials, these names changed:
 | New Cloud Project | **New project** on the dashboard, or **What do you want to build?** |
 | Assets panel | The **Assets** chip in the **Library** |
 | Widgets panel | The **Library**, with **Page** and **Component** tiles now shown as rows |
-| Open widget picker (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>P</kbd>) | **Add a widget**: <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd>, which opens the Library. <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>P</kbd> now runs your app. |
+| Open widget picker (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>P</kbd>) | **Add a widget**: <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd>, which opens the Library. <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>P</kbd> runs your app. |
 | Board chip | The **Boards** chip, with a **Search boards** field |
 | Move Up, Move Down, Move To Top, Move To Bottom | **Move Up** is now **Send backward**, **Move Down** is **Bring forward**, **Move To Top** is **Send to back** and **Move To Bottom** is **Bring to front** |
 | Fractional Sized Box, Clip Radius, Default text style (wrappers) | **Fractionally Sized Box**, **Clip radius**, **Default Text Style** |

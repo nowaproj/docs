@@ -44,7 +44,7 @@ Now tell Nowa which methods to set up in your app.
 
 If adding **Google** shows the red message "Exception: Must Enable Google Authentication on Firebase", Google isn't switched on in the Firebase console yet. Turn it on there, then try again.
 
-If your iOS app offers **Google** sign-in, read [App Store Review Guideline 4.8 Login Services](https://developer.apple.com/app-store/review/guidelines/#login-services) before you submit it. It names Google Sign-In. And if people can create accounts in your iOS app, Apple also expects a way to delete the account inside the app. The functions Nowa adds don't include one: see [Follow Apple's rules](../../publish/ios.md#store-rules).
+If your iOS app offers **Google** sign-in, read [App Store Review Guideline 4.8 Login Services](https://developer.apple.com/app-store/review/guidelines/#login-services) before you submit it. It names Google Sign-In. And if people can create accounts in your iOS app, Apple also requires a way to delete the account inside the app. The functions Nowa adds don't include one: see [Follow Apple's rules](../../publish/ios.md#store-rules).
 
 ## Functions Nowa adds
 
@@ -100,7 +100,7 @@ A complete email sign-in is a handful of small screens and buttons. Here's how e
 
 For each screen, add the text fields first and keep what people type in [variables](../../logic/variables.md) (a variable is a value your screen remembers, such as the email someone typed). Then wire the button as in the steps above. In **onError**, show a short message, for example with a [snackbar](../../logic/popups.md), so people know when their password is wrong or the email is already taken.
 
-**Phone sign-in works in two steps.** First call `verifyPhoneNumber` with the number the person typed, including the country code (such as `+44 7123 123456`). Keep its result, the verification ID, in a variable. When they type the code they received, call `signInWithPhoneNumber` with that ID and the code. On some Android phones Firebase reads the code by itself and signs the person in at once; the result is then empty. Phone sign-in works on real devices and on the web. To try it on an emulator, or without sending real text messages, add test numbers in the Firebase console: open the **Phone** provider, use **Phone numbers for testing** and enter a number with a code of your choice.
+**Phone sign-in works in two steps.** First call `verifyPhoneNumber` with the number the person typed, including the country code (such as `+44 7123 123456`). Keep its result, the verification ID, in a variable. When they type the code they received, call `signInWithPhoneNumber` with that ID and the code. On some Android phones Firebase reads the code by itself and signs the person in at once; the result is then empty, because they're already signed in. Phone sign-in works on real devices and on the web. To try it on an emulator, or without sending real text messages, add test numbers in the Firebase console: open the **Phone** provider, use **Phone numbers for testing** and enter a number with a code of your choice.
 
 ## Test sign-in in Nowa
 

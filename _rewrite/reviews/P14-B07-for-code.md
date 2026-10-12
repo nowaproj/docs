@@ -12,6 +12,24 @@ Code-only facts for `docs/code/generated-code.md`, grouped by its anchors. Two k
   Task 2: `packages/data/lib/src/supabase/supabase_manager.dart:188-192,214-226`,
   `packages/core/lib/src/interpreter/packages/integrations/firebase_package_config.dart:13-18`.)
 
+## #models
+
+- Moved from `docs/logic/models.md` (intro): "Nowa keeps the model's constructor, `fromJson` and `toJson` up to date
+  for you."
+- Moved from `docs/logic/models.md` ("Create a model", step 2; the page keeps that Nowa fills in **Class name** and
+  **Path**): "Nowa fills in the **Class name** and the **Path** (the file name) for you: "task model" becomes the class
+  `TaskModel` in `task_model.dart`."
+- Moved from `docs/logic/models.md` ("Create a model", step 3): "Click **Submit**. Nowa creates the file in `lib/models`."
+- Moved from `docs/logic/models.md` ("Add fields"): "Each time you change the fields, Nowa rewrites the constructor,
+  `fromJson` and `toJson`. Click **View Code** to see the Dart code it produced." (Refs: `ClassDeclImpl.model` with an
+  auto constructor, `fromJson(Map<String, dynamic> json)` and `toJson()`, regenerated when fields change:
+  `packages/core/lib/src/interpreter/declaration_runtime.dart:285-309`, `packages/core/lib/src/interpreter/auto_blocks.dart:41-241`.)
+- Moved from `docs/logic/models.md` ("Generate models from JSON"): "All the generated classes go into one file named
+  after the main class, such as `root.dart`."
+- Old docs (dev-only), from `old-docs/vars-params-functions/data-models.md`: you can open a model's Dart file (Library →
+  right-click → **Show in code**, or **View Code** in the model editor) and add or edit fields in code; Nowa reads them
+  back into the model editor. Ref: `packages/core/lib/src/editors/dart_editor/dart_editor.dart:139-268`.
+
 ## #actions-and-popups
 
 - Moved from `docs/logic/actions.md` ("Find any other function" table, MATERIAL row; `showAboutDialog` stays on the

@@ -277,3 +277,42 @@ item is tapped" (about 480 words, explicit id `#open-a-detail-screen`, linked fr
   string interpolation, https://dart.dev/language/built-in-types#strings).
 
 **Open questions**: none.
+
+## logic/models.md
+
+**Changed for the reader**
+- Intro rewritten as the brief asks: a model is "the shape of your data", like the fields of a paper form, with an
+  examples table (old data-models.md "Why You Need Data Models": to-do, e-commerce, user management, water tracker).
+  "Define it once, use it everywhere" replaces the old page's "avoid repeating data structures".
+- R1/R2: "Nowa keeps the model's constructor, `fromJson` and `toJson` up to date for you" → "Nowa also keeps each model
+  ready to be saved, sent or loaded as JSON (the text format apps use to exchange data) as you change its fields". The
+  file location (`lib/models`), the file names (`task_model.dart`, `root.dart`) and the constructor mechanics moved to the
+  for-code file (`#models`). `toJson` and `fromJson` stay because the UI shows them: `toJson` in the editor's
+  **Functions** list (image `logic-models-1`) and after **+**; `fromJson` in **Pick a constructor**
+  (`packages/core/lib/src/interpreter/suggestion.dart:725-757`). Each got a plain meaning. **Class name** and **Path**
+  stay because the **New Model** dialog shows them (`packages/core/lib/src/file_system/widgets/create_file_dialog.dart:94`,
+  `file_name_text_field.dart:167-175`). **Path** in **Generated Models** stays ("Leave **Path** as it is: it starts as
+  `lib/models` and must stay inside `lib`"), because the dialog shows and checks it
+  (`packages/core/lib/src/model_generator/generate_models_provider.dart:13,129-131`).
+- "Root" default confirmed: the main name is `data.name`, default `'Root'` (`generate_models_provider.dart:13,55-58`).
+- `notifyListeners` explained (R3, the brief's own wording). JSON glossed (R4). One link to `../code/generated-code.md#models`.
+
+**Added from the old docs**
+- Examples with fields, including the water tracker's `WaterLogEntry` (`amount`, `date`) from the old page's full
+  example (old YouTube tutorial left out: media, old UI).
+- **Is Final**: keep it on for `id` or `createdAt` (old page tip "When to use final"); behavior: new model fields start
+  final (`packages/core/lib/src/widgets/code/declaration_list_widgets.dart:329,353`), tooltip "If true the variable
+  cannot be changed" (`packages/core/lib/src/widgets/code/variable_widgets.dart:327-331`).
+- A model function example, `markAsDone` (old page's `markAsComplete` example): **Functions** + opens Circuit with the
+  fields under **LOCALS** (existing verified sentence); setting `isDone` needs **Is Final** off (`Set` is offered only
+  for non-final variables: `packages/code/lib/src/fields/expression_statement_field.dart:17-23`, W6 notes).
+- Model types also work for a function's **Return Type** (old page "Function parameters and returns"):
+  `variable_widgets.dart:481-482` uses the same `TypeField`.
+- Link a **Create** input to what someone typed (old page "Dynamic Input" note, `titleTextFieldController` > `text`):
+  controller naming per `docs/reference/widgets/forms.md:13-15`.
+
+**Old items found obsolete** (in the coverage file): **Create new object** in the Files panel (now Library **Add** →
+**New Model...**, `lib/project/panels/files_panel/add_lib_menu.dart:60-66`); single click opening a popup (now a details
+card; double-click or Enter opens the editor, `lib/project/panels/library_panel/library_host.dart:147-154`).
+
+**Open questions**: none.

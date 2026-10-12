@@ -35,3 +35,8 @@ Items a section agent or verifier found for a page outside its batch, and what h
 | 29 | B10 | `troubleshooting/known-issues.md` (B12) | "Supabase tables don't load with Use Keys" (anon key no longer gets the schema since April 2026). Not seen live. | hold until B10 verifier confirms the source |
 | 30 | B10 | product team | Supabase is moving away from the anon key; Nowa 3.13 accepts only the anon key with Use Keys. Create/Update Record templates may send empty id/created_at (not seen live). | for the report |
 | 31 | B10 | `integrations/supabase/database.md` (structure) | ~2,300 words; split proposal in notes. | decide after B10 verification |
+| 32 | B13 | `design/fonts-icons.md` (B05) | Fill/weight/grade/optical size have no visible effect on the Material icons in the picker; Text Direction flips direction-aware icons. | sent to B05 verifier |
+| 33 | B13 | `design/properties.md` (B04) | Text Align has no Default (four buttons); use Overflow as the example. | sent to B04 verifier |
+| 34 | B13 | `logic/events.md` (B06) | Optional: what On Hover does. | sent to B06 verifier |
+| 35 | B13 | `reference/wrappers.md` (B14) | Optional: a Container wrapper's fill sits behind the widget, so it can't tint a picture; use the Image's Color and Blendmode. | sent to B14 |
+| 36 | B13 | `reference/widgets/*` (structure) | index ~2,650, media ~2,500, lists ~2,250 words. | decide after B13 verification |

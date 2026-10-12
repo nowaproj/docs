@@ -228,3 +228,48 @@ must shrink, move the "Container settings" and "Text settings" tables (and the p
 such as "Basic widgets" (`reference/widgets/basics.md`) and link to it from the rows. The catalog rows and their anchors must stay
 on index.md, since the app links to `/reference/widgets#<id>` (D13).
 
+## For other pages
+
+1. **`design/fonts-icons.md`** (B05), "Choose an icon", after the sentence listing the advanced options. Proposed: "Fill, weight,
+   grade and optical size only change icon fonts that support them. The Material icons in the picker don't, so these four have no
+   visible effect. **Text Direction** matters for icons that point somewhere, such as a back arrow, which flips in a right-to-left
+   language." Evidence: Flutter SDK `widgets/icon.dart:113-127` (fill needs the font's FILL axis "otherwise has no effect"; weight,
+   grade and optical size are documented the same way), `:227-239` (direction-aware icons); the picker offers `MaterialIcons` only
+   (`packages/core/lib/src/fields/icon_field.dart:128`), and `MaterialIcons-Regular.otf` (Flutter's bundled font,
+   `/home/user/flutter/bin/cache/artifacts/material_fonts/`) has no `fvar` table, so no variable axes. Source: old `icon.md`, which
+   described these four as if they always worked.
+2. **`design/properties.md`** (B04), "Edit a value", row "A choice". It says "When the property may be empty, such as **Text Align**
+   on a **Text**, the list starts with **Default**." **Text Align** is four toggle buttons with no **Default**
+   (`packages/core/lib/src/fields/text_fields.dart:336-363`; registered for every `TextAlign` at
+   `packages/core/lib/src/fields/block_field.dart:52`, and used by the Text editor at
+   `packages/designer/lib/src/details/widget_fields.dart:307`). Proposed: "When the property may be empty, such as **Overflow** on a
+   **Text**, the list starts with **Default**." (`TextOverflow?` goes through `BFEnum`, which adds **Default** for nullable enums:
+   `packages/core/lib/src/fields/basic_fields.dart:1540-1545`; field `widget_fields.dart:309`.)
+3. **`logic/events.md`** (B06), Button events. Optional: "**On Hover** runs when a mouse pointer moves onto the button (`value` is
+   true) or off it (`value` is false), so it matters on the web and desktop." Evidence: Flutter SDK
+   `material/button_style_button.dart:118-122`; parameter `void Function(bool value)? onHover`
+   (`packages/core/lib/src/interpreter/libraries/material_library.dart:14903+`). The catalog's Button row now says it briefly.
+4. **`reference/wrappers.md`** (B14), Container row. Optional, from old `container.md` (which said a Container wrapper can put a
+   color or gradient "on top of" an image): "Its fill sits behind the widget it wraps, so it doesn't tint a picture. To tint one, use
+   the Image's **Color** and **Blendmode** (see [Add an image](./widgets/media.md#image))." Evidence: Flutter SDK
+   `widgets/container.dart:334` ("The decoration to paint behind the [child]"); Nowa's Container editor doesn't list Foreground
+   Decoration unless it already has a value (`packages/designer/lib/src/details/widget_fields.dart:317-350`).
+
+## Summary
+
+- Pages changed: all five (`index`, `forms`, `lists`, `navigation`, `media`), R1-R9 applied; every old `{#id}`, `<Anchor id>`, image
+  and link kept (checked against `9f21e4c`, the PR #18 version); new IDs: forms `#checkbox-switch-slider`, `#popup-menu-button`;
+  lists `#scroll-settings`, `#example`, `#list-tile`, `#expansion-tile`; media `#background-image`, `#fit`.
+- Coverage: 235 old-doc items; 78 added, 131 already covered, 8 obsolete, 16 not useful, 1 dev-only, 1 for another page.
+- Moved to the code section: 18 facts from the pages (package names in 16 places, the `assets/` path, `nowa_runtime`), plus 1
+  dev-only fact from the old YouTube page.
+- Lengths by `wc` (body, with alt texts and link targets): index ~2,650, media ~2,500, lists ~2,250, forms ~2,030, navigation
+  ~1,950. Split proposals for the first three are in their sections above.
+
+## Open questions (all pages)
+
+1. Container background picture (media.md step 3): is the inner **Image** row empty after the first **+**? The step covers both.
+2. The brush next to the List View **Separator** selects the Divider (lists.md step 5): code says yes; not tried live.
+3. Html: the live check (P12) saw the error count go to 1 after adding Html; the exact Problems text and its **Fix** button come from
+   code (`package_service.dart:410-421`), not a screenshot.
+

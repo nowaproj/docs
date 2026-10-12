@@ -2,8 +2,8 @@
 
 Batch pages: `test/index.md`, `test/instant-play.md`, `test/run.md`, `test/devices.md`, `test/share.md`,
 `test/problems.md`, `troubleshooting/index.md`, `troubleshooting/known-issues.md`.
-Code refs are relative to `/home/user/nowa-master` (3.13.0, `3cb32031c`). Status "to add" = planned, updated to
-"added" when the page is saved.
+Code refs are relative to `/home/user/nowa-master` (3.13.0, `3cb32031c`). Every planned addition is on its page (no
+"to add" left).
 
 ## 1. `deployment/share.md` (Instant Preview Share) → `test/share.md`
 
@@ -88,7 +88,8 @@ Code refs are relative to `/home/user/nowa-master` (3.13.0, `3cb32031c`). Status
 | `data-connections/firebase/known-issues/firebase-windows.md` | 12 | 6 | 4 | 2 | 0 | 0 | 0 |
 | **Total** | **59** | **30** | **19** | **4** | **6** | **0** | **0** |
 
-Not counted above (not old-page items): the batch note's tool explanations and the iPhone section on
-`test/devices.md` (counted once, as the "(batch note)" and "Real device" rows), and four known-issues entries routed from
-other batches (B02 `#playground-ai-toolbar`, B11 `#code-download-spinner` and `#pending-custom-domain`, B03
-`#new-ux-double-click`) plus the B01 offline note on `troubleshooting/index.md`; see `P14-B12-notes.md`.
+Two counted rows go beyond the old pages' content: "(batch note)" (the plain-words explanation of Flutter, Xcode and
+Android Studio) and "Real device", whose iPhone part was rebuilt from Apple's and Flutter's docs. Not counted at all,
+because they don't come from these old pages: four known-issues entries routed from other batches (B02
+`#playground-ai-toolbar`, B11 `#code-download-spinner` and `#pending-custom-domain`, B03 `#new-ux-double-click`) and the
+B01 offline note on `troubleshooting/index.md`; see `P14-B12-notes.md`.

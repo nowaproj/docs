@@ -30,8 +30,8 @@ Your computer itself also shows up as a device, which runs your app as a desktop
 
 1. Install the [Nowa desktop app](../get-started/desktop-app.md) and sign in.
 2. On a Mac, install Xcode from the Mac App Store, then open it once so it can finish setting up. On that first launch, Xcode lists the simulators it comes with and the ones you can download. If iOS isn't built in, download it there, or later under **Xcode** → **Settings** → **Components** with **Get**. See [Install Xcode first](../get-started/desktop-app.md#macos-install-xcode).
-3. In Nowa, open **Local Setup**: in a project, click the arrow next to **Run**, then **Local environment settings**. Click **Set up automatically**, and Nowa downloads Flutter for you.
-4. To test on Android, click **Download** next to "Android isn't set up" on the **Verify** step, then install the **Android toolchain**. Want an emulator too? Install the **Android emulator** right after it, on the same screen: in Nowa 3.13 that screen doesn't come back once the toolchain is installed.
+3. In Nowa, open **Local Setup**: in a project, click the arrow next to **Run**, then **Local environment settings**. Click **Set up automatically**, tick the box that accepts the licenses, and click **Install** next to **Flutter**. Nowa downloads Flutter for you.
+4. Click **Next**. To test on Android, click **Download** next to "Android isn't set up" on the **Verify** step, then install the **Android toolchain**. Want an emulator too? Install the **Android emulator** right after it, on the same screen: in Nowa 3.13 that screen doesn't come back once the toolchain is installed.
 
 [Set up Flutter](../get-started/desktop-app.md#setting-up-flutter-sdk) walks you through every screen of the setup. You don't have to do it ahead of time, though: if Flutter isn't set up when you pick a device, Nowa opens **Local Setup** for you.
 

@@ -40,8 +40,10 @@ Apple delivers every notification to iPhones and iPads itself, through its Apple
 
 **Allow notifications for your app's ID.** In your [Apple Developer account](https://developer.apple.com/account/), open **Certificates, Identifiers & Profiles**:
 
-1. Click **Identifiers**, select your app's identifier (the one that matches your **Bundle Identifier**) and click **Edit**. If it isn't there yet, register it first, and tick **Push Notifications** while you do: see [Register your bundle ID](../../publish/ios.md#register-your-bundle-id).
+1. Click **Identifiers**, select your app's identifier (the one that matches your **Bundle Identifier**) and click **Edit**.
 2. Tick **Push Notifications** and click **Save**. If a warning appears, click **Confirm**.
+
+If your app's identifier isn't registered yet, register it as [Register your bundle ID](../../publish/ios.md#register-your-bundle-id) shows, and tick **Push Notifications** there.
 
 **Create a push key.**
 
@@ -58,7 +60,10 @@ Apple delivers every notification to iPhones and iPads itself, through its Apple
 2. Under **iOS app configuration**, find **APNs authentication key** and click **Upload**. Firebase has one slot for a development key and one for production, and needs at least one. If your key covers both environments, you can upload it to both.
 3. Choose your `.p8` file, enter the Key ID and your Team ID, and click **Save**.
 
-**Add the Push Notifications capability to your app.** Nowa reminds you of this last step under the switch: in Xcode, go to your iOS project → **Signing & Capabilities** → **Add Capability** → **Push Notifications**. Xcode is Apple's app for building iPhone apps and runs only on a Mac. In the macOS desktop app, the **Open Xcode Workspace** link under the switch opens your project in Xcode. It works for local projects, whose files are on your Mac. If you don't use Xcode, ask Nowa AI in **Agent** mode, for example: "Add the Push Notifications capability to my iOS app, the way Xcode's Signing & Capabilities does." Nowa can't check this part for you, so after your next iOS build, send a test notification to an iPhone to confirm it works. If something breaks, **Restore Checkpoint** undoes the AI's changes.
+**Add the Push Notifications capability to your app.** Your app itself also has to say that it uses notifications. Nowa reminds you of this under the switch: in Xcode, go to your iOS project → **Signing & Capabilities** → **Add Capability** → **Push Notifications**. Xcode is Apple's app for building iPhone apps, and it runs only on a Mac.
+
+- **In the macOS desktop app**, the **Open Xcode Workspace** link under the switch opens your project in Xcode. It works for local projects, whose files are on your Mac.
+- **If you don't use Xcode**, ask Nowa AI in **Agent** mode, for example: "Add the Push Notifications capability to my iOS app, the way Xcode's Signing & Capabilities does." Nowa can't check this part for you, so after your next iOS build, send a test notification to an iPhone to confirm it works. If something breaks, **Restore Checkpoint** undoes the AI's changes.
 
 The official guides have more detail: Firebase's [Upload your APNs authentication key](https://firebase.google.com/docs/cloud-messaging/flutter/client#upload-authentication-key), and Apple's [Create a private key](https://developer.apple.com/help/account/keys/create-a-private-key/) and [Enable app capabilities](https://developer.apple.com/help/account/identifiers/enable-app-capabilities/).
 

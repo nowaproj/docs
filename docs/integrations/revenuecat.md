@@ -44,7 +44,7 @@ Here's the short version of the setup in the RevenueCat dashboard. RevenueCat's 
 
 Your app picks the key for the platform it's running on, so add one for every platform you test or ship. The same keys show on the **Constants** page in a **RevenueCat** section, and a change in one place updates the other. They're public keys, made to ship inside an app, so that's expected (see [Keys and constants](./constants.md)).
 
-Turning RevenueCat on also means your app needs iOS 14 or later on iPhone and iPad.
+Once RevenueCat is on, your app needs iOS 14 or later on iPhone and iPad.
 
 ## Add the paywall
 
@@ -58,7 +58,7 @@ On the board, the paywall is a placeholder labeled "RevenueCat Paywall" with the
 
 ![The home screen on the board with the RevenueCat Paywall added below the Home Page title: a light purple placeholder card (highlighted) with a card icon, the label RevenueCat Paywall and the text Run to preview.](/img/docs/integrations/integrations-revenuecat-1.png)
 
-Out of the box, the paywall shows the paywall of your default offering, lets people pick a package and buy it, and includes a **Restore Purchases** button, so someone who reinstalls your app or gets a new phone can get their purchases back.
+Out of the box, the widget shows the paywall you published for your default offering, lets people pick a package and buy it, and includes a **Restore Purchases** button, so someone who reinstalls your app or gets a new phone can get their purchases back.
 
 When someone closes the paywall or finishes buying, your app decides what happens next, such as going back to the previous screen. Nowa adds the paywall without that step, so add it with Nowa AI (see the tip below).
 
@@ -101,7 +101,7 @@ Once Nowa AI is done, open **Problems** to make sure nothing is flagged, then te
 
 ### Build your own buy buttons
 
-Prefer to design your own offer screen instead of the paywall? Nowa's setup includes two RevenueCat steps for that. In Circuit, search for **RevenuecatService**, click it and pick a step under **Members**:
+Prefer to design your own offer screen instead of the paywall? Nowa's setup includes two RevenueCat steps for that, grouped under `RevenuecatService`. In Circuit, search for `RevenuecatService`, click it and pick a step under **Members**:
 
 - `fetchOfferings` loads the offerings you set up in RevenueCat.
 - `purchasePackage` buys one package from an offering.
@@ -117,7 +117,7 @@ Both work with RevenueCat's own data, such as the package someone picked, so the
 
 ## Turn RevenueCat off
 
-1. First remove your **RevenueCat Paywall** widgets and any Circuit steps that use **RevenuecatService**, so nothing in your app still points at RevenueCat.
+1. First remove your **RevenueCat Paywall** widgets and any Circuit steps that use `RevenuecatService`, so nothing in your app still points at RevenueCat.
 2. Turn **Enabled** off. Nowa takes RevenueCat out of your app.
 
 Your keys stay on the **Constants** page, now under **Custom Constants**, until you remove them there. Working in the code? See [What Nowa adds to your code](../code/generated-code.md#revenuecat).

@@ -14,7 +14,7 @@ What you see on the board is your real app, not a mockup. Behind it, Nowa writes
 Most projects follow the same loop. You can jump in at any step and go back whenever you like.
 
 1. **Describe.** Tell Nowa AI what you want in plain words, the way you'd explain it to a friend: "A booking app for my yoga studio, with this week's classes and a sign-up form." See [Build with Nowa AI](../ai/index.md).
-2. **Watch it build.** Nowa AI designs your screens right on the board while you follow each step in the chat. In **Agent** mode it also makes them work: buttons, data and moving between screens.
+2. **Watch it build.** Nowa AI designs your screens right on the board while you follow each step in the chat. In **Agent** mode it also makes them work, with real data and the logic behind every button.
 3. **Refine visually.** Click anything on a screen and change it in the **Details** panel, drag it into place, or restyle the whole app with a theme. See [Design your app](../design/index.md).
 4. **Add logic.** Decide what happens when someone taps a button, what your app remembers and which screen comes next. Nowa AI can build this for you in **Agent** mode, and you can see and change every step in **Circuit**, a visual editor where each step is a block instead of a line of code. See [Add logic](../logic/index.md).
 5. **Connect data and sign-in.** Keep your app's data in an online database and let people sign in, with Supabase or Firebase. You can also pull in data from a service you already use, through its REST API (the way most online services share data). See [Connect data and services](../integrations/index.md).

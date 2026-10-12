@@ -121,7 +121,7 @@ On the Windows desktop app, a message covers the **Test** section: "Testing Fire
 1. Select the widget, click **Add Wrapper** and choose **Data Builder**.
 2. In **Details**, set **Source** to **Firestore**.
 3. Next to **Query**, click the button and pick your query in **Select Firestore Query**. Fill in its parameters below, if it has any. If the list is empty after you reopen the project, click **Refresh/Update apps and config files** in **Settings** → **Integrations** → **Firebase**.
-4. Inside the Data Builder, `data` holds the result. For a list, `data.docs` has one entry per document, and each entry's `data()` holds your fields.
+4. Inside the Data Builder, `data` holds the result. For a list, `data.docs` has one entry per document, and each entry's `data()` holds your fields, such as `name` and `price`. To fill a **List View**, follow [Show a list](../show-data.md#show-a-list) and connect **List** to `data.docs`.
 
 On the board, Nowa doesn't call Firestore. A list shows three placeholder documents built from your collection's fields, and text reads like `[title]`, so you can design the layout before real data arrives. Click **Play** on the screen, or run the app, to see your real documents. In the Windows desktop app, run the app on a simulator instead.
 

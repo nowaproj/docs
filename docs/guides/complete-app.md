@@ -23,7 +23,7 @@ On the dashboard, keep the **Design** chip and describe the whole app in the box
 
 Click the send button (tooltip **Build it**). Nowa AI designs the screens on your board with demo data. Answer any **Questions** card, then wait for **Your app design is complete**.
 
-Design mode builds the look and flow only, so nothing works yet: no one can sign in and the recipes are made up. You'll make it work from step 3 on, one feature at a time, so you can check each piece. (**Make it real** on the design card hands the whole design to **Agent** mode at once instead.) Unsure what to ask at any point? Switch to **Plan** mode: Nowa AI writes a plan you can review and changes nothing until you click **Implement this plan**.
+Design mode builds the look and flow only, so nothing works yet: no one can sign in and the recipes are made up. You'll make it work from step 3 on, one feature at a time, so you can check each piece. (**Make it real** on the design card is the shortcut: Nowa switches to **Agent** mode and starts with the feature Nowa AI recommends.) Unsure what to ask at any point? Switch to **Plan** mode: Nowa AI writes a plan you can review and changes nothing until you click **Implement this plan**.
 
 ![The editor after the Recipe Box Design run: the board (highlighted) shows the recipe list home screen, the sign-in screen and the recipe detail screen side by side, and the AI Assistant panel shows the Your app design is complete card (highlighted) with the Make it real button.](/img/docs/guides/guides-complete-app-1.png)
 
@@ -33,10 +33,10 @@ Details: [Build your first app](../get-started/first-app.md), [Design, Plan and 
 
 1. Open **Themes**, set your colors and text styles, and link your widgets to them. From then on, changing a theme color restyles every screen. Details: [Create and edit themes](../design/themes.md), [Use theme colors and text styles](../design/theme-styles.md).
 2. Turn the recipe card into a component, so every card in the list is the same piece: select it, right-click and choose **Create component**. Name it `RecipeCard`. Add the params `id`, `title` and `description` (params are the values each copy receives, so every card shows its own recipe), and link the card's texts to them. Details: [Build reusable components](../design/components.md).
-3. Set text fields and cards to **Expand** so they fill the width, then try the **Size** presets to see the screens on other devices. Details: [Design for every screen size](../design/responsive.md).
+3. Set text fields and cards to **Expand** so they fill the width, then try the **Size** presets to see your screens at other device sizes. Details: [Design for every screen size](../design/responsive.md).
 4. Hover a screen's title and click **Play** to tap through it.
 
-Prefer to ask? Select the card and tell Nowa AI in **Agent** mode: "Turn this card into a component called RecipeCard with id, title and description params, and use it in the recipe list."
+Prefer to ask? Select the card and tell Nowa AI in **Agent** mode: "Turn this card into a component called RecipeCard with id, title and description params, and use it in the recipe list." To check it, look for `RecipeCard` among the components in the **Library**.
 
 ## 3. Connect Supabase
 
@@ -52,7 +52,7 @@ Nowa has no table editor, so ask Nowa AI to create the recipes table (or create 
 
 > Create a recipes table with a uuid id, a title, a description, ingredients and steps. Signed-in people can read it but not change it. Add three sample recipes.
 
-A uuid is a long unique ID that Supabase creates for each row. Read each action Nowa AI asks about, then approve it. "Signed-in people can read it but not change it" becomes Row Level Security (RLS): rules on the table that decide who can read and write each row.
+A uuid is a long unique ID for each row. Read each action Nowa AI asks about, then approve it. "Signed-in people can read it but not change it" asks for Row Level Security (RLS): rules on the table that decide who can read and write each row. To check the result, click ⋮ in the **Supabase** panel, then **Tables**, and look for your recipes table.
 
 Details: [Connect Supabase](../integrations/supabase/connect.md), [Connect Figma and Supabase to Nowa AI](../ai/connectors.md).
 
@@ -61,7 +61,7 @@ Details: [Connect Supabase](../integrations/supabase/connect.md), [Connect Figma
 First, create a test user so you have someone to sign in as:
 
 1. In the **Supabase** panel, click `signUp` under **Authentication**. Type an **Email** and a **Password** under **Testing values** and click **Run**.
-2. Run `signIn` with the same values, after you confirm the email if Supabase asks. The section now reads **Testing as:** and your email.
+2. Run `signIn` with the same values, after you confirm the email if Supabase asks. It asks by default, and its built-in email sender only writes to your Supabase team's addresses, so use your own email here. See [Decide whether new users confirm their email](../integrations/supabase/auth.md#confirm-email). The section now reads **Testing as:** and your email.
 
 Then ask Nowa AI in **Agent** mode, with the Supabase connector on:
 
@@ -144,7 +144,7 @@ Details: [Publish to the web](../publish/web.md), [Publish to Google Play](../pu
 
 ## Next steps
 
-That's the whole loop, and your app is live. Keep going:
+That's the whole loop, from the first prompt to a published app. Keep going:
 
 - Let people add and edit recipes with the **Create Record**, **Update Record** and **Delete Record** templates, once your table's rules allow it. See [Read and write Supabase data](../integrations/supabase/database.md).
 - Polish the result with the [Design tips](design-tips.md), and keep your data safe with the [Data and state tips](data-and-state-tips.md).

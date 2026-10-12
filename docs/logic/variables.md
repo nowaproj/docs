@@ -70,7 +70,7 @@ Linking a widget to a variable means the widget always shows the variable's curr
 2. Click the property's label. The **Link** menu opens.
 3. Under **LOCALS**, click your variable. The label now shows the variable's name, and the widget shows its value.
 
-The variable's type has to fit the property: a text property takes a `String`, a switch takes a `bool`. If you pick a value of another type, the menu shows what's inside it so you can reach one that fits. For example, to show a number as text, link the number, click the **+** after it and pick `toString`.
+The variable's type has to fit the property: a text property takes a `String`, a switch takes a `bool`. If you pick a value of another type, the menu shows what's inside it so you can reach one that fits. For example, to show a number as text, click your number variable, then pick `toString` in the list that follows. The **+** after a linked value shows what's inside it too (see [Reach deeper with +](./expressions.md#plus)).
 
 To mix a variable into text, type `$` in the text field and pick the variable. A text such as `Hello ${name}` shows "Hello" followed by the value of `name`. The [expressions page](./expressions.md) covers the Link menu in full.
 

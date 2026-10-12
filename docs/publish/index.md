@@ -19,7 +19,7 @@ Publishing needs a cloud project on a paid plan. If your plan doesn't include a 
 | **Android Release** | A signed, store-ready build that you upload to Google Play yourself. | [Publish to Google Play](./android.md) |
 | **iOS** | A signed build that Nowa sends to your App Store Connect account, ready for testing and review. | [Publish to the App Store](./ios.md) |
 
-The web needs nothing beyond your Nowa plan. The stores have their own accounts: Google Play needs a developer account with a one-time registration fee, and the App Store needs an Apple Developer Program membership with a yearly fee. Each guide shows how to set yours up.
+The web needs nothing beyond your Nowa plan. The stores have their own accounts: Google Play needs a developer account with a [one-time registration fee](https://support.google.com/googleplay/android-developer/answer/6112435), and the App Store needs an Apple Developer Program membership with a [yearly fee](https://developer.apple.com/programs/enroll/). Each guide shows how to set yours up.
 
 ## Check your app details {#app-details}
 
@@ -33,7 +33,7 @@ Stores and phones read these from your project, so set them before your first bu
 | **Build number** | A whole number the stores use to tell your uploads apart. Raise it before each new store upload. |
 | **App Icon** | Click **Change all** to set every platform at once, or pick **Android**, **iOS**, **Web** or **macOS**. Nowa accepts images up to 1024 x 1024 pixels. For the best result, use a square image of exactly 1024 x 1024 pixels, with square corners and a solid background (no transparent areas). That's the size Apple asks for, and iPhones round the corners for you. |
 
-**Package Name** on the same page is a technical name inside your project that your users never see. Don't use it as your store identifier.
+**Package Name** on the same page is a technical name inside your project that your users never see, and it can't be changed. Don't use it as your store identifier.
 
 If your app uses the camera, microphone, location or similar, switch those on under **Settings** → **Permissions**, so phones can ask your users for access. For iOS you can also edit the message people see when the app asks. [Project settings](../account/project-settings.md) lists everything on both pages.
 

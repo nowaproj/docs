@@ -134,3 +134,26 @@ Anchors kept: `{#install-on-linux}`, `{#setting-up-flutter-sdk}`, `{#macos-insta
 | **refresh** redraws the screen; **notifyListeners** tells every screen showing the data to update | ok | `docs/logic/variables.md:87-91`, `docs/logic/global-state.md:40-42` | R3. |
 | Future / **Future Options** / **onValue** / **onError** glosses | ok | `docs/logic/circuit.md:120-124` | |
 | JSON, base URL, header values, webhook secret, query, `isEmpty` glosses | ok | | R4. Webhook secret role per https://docs.stripe.com/webhooks (signature verification). |
+
+## guides/complete-app.md
+
+Flagged: every build step leads with an **Agent** prompt and a check. Result: steps 4, 5 and 6 had prompt + check + visual path; steps 2 and 3 had prompts without a check (added). No prompt promises an exact result. The visual steps match the verified pages (`integrations/supabase/auth.md#login-screen`, `integrations/supabase/database.md`, `logic/navigation.md`, `logic/circuit.md#future-options`).
+
+| Claim | Verdict | Source | Note |
+|---|---|---|---|
+| "**Make it real** on the design card hands the whole design to **Agent** mode at once" | fixed | `packages/ai/lib/src/ui/guided_inline_views.dart:37-44` (switches to Agent and sends "Make it real — start with what you recommend."), `docs/ai/modes.md` | It starts with one recommended feature. Now "is the shortcut: Nowa switches to **Agent** mode and starts with the feature Nowa AI recommends". |
+| Step 3: "'Signed-in people can read it but not change it' becomes Row Level Security" | fixed | | Promised the agent's output (R5). Now "asks for Row Level Security (RLS)". |
+| Step 3 prompt had no way to check | fixed | `packages/data/lib/src/supabase/ui/sb_outline.dart:286-301` (⋮ menu: **Open Supabase**, **Tables**), `docs/integrations/supabase/database.md:22` | Added "click ⋮ in the **Supabase** panel, then **Tables**, and look for your recipes table". |
+| Step 2 prompt had no way to check | fixed | `docs/design/library.md` (components listed in the Library) | Added "look for `RecipeCard` among the components in the **Library**". |
+| "A uuid is a long unique ID that Supabase creates for each row" | fixed | | Whether Supabase fills it depends on the column default the agent picks; now "a long unique ID for each row". |
+| Routed from B10: Supabase asks for email confirmation by default; the built-in sender only writes to your Supabase team; link `../integrations/supabase/auth.md#confirm-email` | applied | https://supabase.com/docs/guides/auth/passwords ("On hosted Supabase projects, this is true by default."), https://supabase.com/docs/guides/auth/auth-smtp ("Supabase Auth will refuse to deliver messages to addresses that are not part of the project's team"); anchor at `docs/integrations/supabase/auth.md:26` | Added to step 4.2 with "so use your own email here". |
+| **Size** presets "to see the screens on other devices" | fixed | `docs/design/responsive.md:56` (**Size** only changes the board size) | Now "at other device sizes". |
+| "That's the whole loop, and your app is live" | fixed | `docs/publish/ios.md:172` (App Store builds still go through review) | Now "from the first prompt to a published app". |
+| Supabase setup without the package/`SupabaseService` sentence: ready-made `signUp`, `signIn`, `signOut` under **Authentication** | ok | `packages/data/lib/src/supabase/ui/sb_outline.dart:93-105`, `docs/integrations/supabase/connect.md` | Original moved to the for-code file (`#supabase`), unchanged; one link to `../code/generated-code.md#supabase` at the end (allowed anchor). |
+| Sign-in visual steps (button next to **On Pressed**, dot → **+**, `SupabaseService` → `signIn`, **LOCALS** → controller → `text`, **Future Options** **+** next to **onValue**, **Edit** next to **onError**, **Show snackbar**, **Make home screen**) | ok | `docs/integrations/supabase/auth.md:58-75` (steps 3-9), `docs/logic/circuit.md:120-124` | |
+| `go` replaces the login screen; `push` opens on top so Back returns | ok | `docs/logic/navigation.md:51-54` | |
+| `:id` placeholder typed in the Router panel's **Path**; `$` inserts a value; type mismatch shows in **Problems** | ok | `docs/logic/navigation.md:49`, `:93-95` (the **Path** in **Details** drops `/` in 3.13, so the Router panel is the right place) | |
+| Checks for steps 4-6 go through the login screen (the table is readable only when signed in) | ok | step 3 prompt; `docs/test/instant-play.md` (Play makes real calls) | |
+| Publish glosses (`.apk`, signing key, `.aab`, Bundle Identifier example, submit for review) | ok | `docs/publish/android.md`, `docs/publish/ios.md:172` | |
+
+Length: about 2,350 words of visible text after these additions. Routing item #24 (split): not required for correctness; the writer's split (part 1: design and sign-in, steps 1-4; part 2: data, detail screen, publishing, steps 5-8) is reasonable if the orchestrator wants pages under ~2,200 words.

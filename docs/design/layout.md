@@ -11,7 +11,7 @@ It comes down to three choices: put widgets that belong together in a group, dec
 
 ## Pick the right arrangement {#pick-the-right-arrangement}
 
-Every group arranges its widgets in one of three ways, and so does the main group of every screen.
+Every group arranges its widgets in one of three ways, and so does a screen's main group, the one that holds its content.
 
 | Arrangement | What it does | Good for |
 |---|---|---|
@@ -41,14 +41,14 @@ To take a group apart, select it, right-click and choose **Ungroup**. The widget
 You can also start from an empty group in the [Library](library.md): press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd>, type `group`, select **Group** and press <kbd>Enter</kbd>.
 
 :::tip Give a group a background
-Draw a shape with the **Shape** tool behind the widgets. Select the shape first, then <kbd>Shift</kbd>-click the widgets on top of it and group them. Because the shape covers them all, Nowa turns it into the group's background instead of adding it as one more widget. The group keeps the shape's color, even after you switch it to a Row or Column.
+For widgets placed freely, such as on an **Empty Page** screen, draw a shape with the **Shape** tool that covers them all. If it hides them, right-click it and choose **Send to back**. Then click the shape first, <kbd>Shift</kbd>-click each widget, and group them. Because the shape is selected first and covers the others, Nowa turns it into the group's background instead of adding it as one more widget. The group keeps the shape's color, even after you switch it to a Row or Column.
 :::
 
 ### Switch between stack, row and column
 
 Select a group, or click a screen's title to change the screen's main group, and find the **Group** section in **Details**. Its header has three buttons: the first makes the group a **Stack**, the right arrow a **Row** and the down arrow a **Column**.
 
-When you turn a Stack into a Row or Column, Nowa lines the widgets up in the order they sit on the screen: top to bottom for a Column, left to right for a Row. The space between the first two becomes the **Gap**. It's safe to experiment, because <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Z</kbd> switches it back.
+When you turn a Stack into a Row or Column, Nowa lines the widgets up in the order they sit on the screen: top to bottom for a Column, left to right for a Row. The space between the first two becomes the **Gap**. If you don't like the result, <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Z</kbd> switches it back.
 
 ![The Group section of Details for the home screen after switching to a Row: the three layout buttons (Stack, Row, Column) are highlighted with the Row arrow on, and below them the Alignment grid, Main Axis Size (max), Spacing (Fixed), Gap, Children and Padding.](/img/docs/design/design-layout-1.png)
 
@@ -62,9 +62,9 @@ A Stack group also has these settings:
 
 | Setting | What it does |
 |---|---|
-| **Alignment** | Where widgets that aren't pinned to an edge sit. **X** goes from -1 (left) to 1 (right) and **Y** from -1 (top) to 1 (bottom). Stacks that Nowa creates start at 0 and 0, the middle. |
+| **Alignment** | Where widgets sit in any direction they aren't pinned in. **X** goes from -1 (left) to 1 (right) and **Y** from -1 (top) to 1 (bottom). A stack you make in the editor starts at 0 and 0, the middle, and so does a screen made from **Empty Page**. |
 | **Fit** | How big widgets with no pin and no fixed size get. `loose` lets them keep their own size, `expand` stretches them to fill the stack, and `passthrough` passes on the size limits the stack itself gets. Screens made from **Empty Page** use `expand`. |
-| **Text Direction** | Left to right (`ltr`) or right to left (`rtl`). Leave it on **Default** to follow your app's language. See [Languages and right-to-left text](localization.md). |
+| **Text Direction** | Left to right (`ltr`) or right to left (`rtl`). You rarely need it: on a stack it doesn't flip the widgets or the text inside, so leave it on **Default**. To mirror a section for a right-to-left language, use the **Text Direction** wrapper instead: see [Languages and right-to-left text](localization.md#show-text-right-to-left). |
 | **Clip Behavior** | Whether parts of widgets that stick out past the stack's edges are cut off. `none` lets them show. `hardEdge` (the default), `antiAlias` and `antiAliasWithSaveLayer` cut them off, the last two with smoother edges. |
 | **Children** | The widgets in the stack, in order. Later ones sit on top of earlier ones. |
 
@@ -108,14 +108,14 @@ Pick them in the two dropdowns, or click the bars in the constraints box: the ba
 
 Two things to know about **Center**:
 
-- Choosing **Center** in either dropdown unpins the widget both ways. To center a widget across but keep it near the top, choose **Center** first, then **Top**.
-- Dragging a centered widget pins it to the left and top again, so choose **Center** once the widget is where you want it.
+- Choosing **Center** in either dropdown unpins the widget both ways, so it moves to the stack's **Alignment**. To center a widget across but pin it to the top, choose **Center** first, then **Top**, and type the distance you want in **T**.
+- Dragging a centered widget pins it to the left and top again. Set **Center** last, once you're done dragging.
 
 To see your constraints at work, click the screen's title and change its **Size** in **Details**, or drag a corner of the screen. If a widget drifts somewhere you didn't expect, check its constraints first.
 
 ## Size widgets
 
-Every widget has a width and a height. Select it and open **Layout**: **W** and **H** each have a dropdown that decides how that size is set.
+Every widget has a width and a height. Select it and open **Layout**: **W** and **H** usually each have a dropdown that decides how that size is set.
 
 | Mode | What it does | Good for |
 |---|---|---|
@@ -137,7 +137,7 @@ The **Layout** section depends on where the widget sits:
 
 ## Scroll or wrap content
 
-- **Scroll View**: when a Column may grow taller than the screen, such as a long article or a settings page, select it, click **Add Wrapper** and choose **Scroll View**. Inside a Scroll View, **Expand** isn't offered in the scrolling direction, because a scrolling area has no end to fill.
+- **Scroll View**: when a Column may grow taller than the screen, such as a long article or a settings page, select it, click **Add Wrapper** and choose **Scroll View**. Inside a Scroll View, **Expand** isn't offered in the scrolling direction, because a scrolling area has no end to fill. For a Row that scrolls sideways, such as a strip of category cards, set **Scroll Direction** to `horizontal` in the wrapper's section (`vertical` is the default). [Wrappers](../reference/wrappers.md#scrollview) explains the other settings.
 - **Wrap**: add it from the [Library](library.md) (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd>). Its widgets sit side by side and continue on a new line when they run out of room, like tags or filter chips.
 - **List View**: add it from the Library for a scrolling list, such as your recipes or a shop's products. It starts with three placeholder items that repeat one item design. See [Lists and grids](../reference/widgets/lists.md).
 

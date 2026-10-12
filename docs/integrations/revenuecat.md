@@ -30,7 +30,7 @@ Here's the short version of the setup in the RevenueCat dashboard. RevenueCat's 
 5. **Design your paywall.** On the **Paywalls** page, click **Create paywall** for your offering. Start from scratch, from a template or with RevenueCat's AI. When it looks right, click **Publish Paywall** so your app can show it.
 6. **Copy your public keys.** You find them under **API keys** in your project, or by opening an app under **Apps**. Use only the public keys. A secret key starts with `sk_` and must never go into an app.
 
-## Turn on RevenueCat and add your keys
+## Turn on RevenueCat and add your keys {#turn-on-revenuecat}
 
 1. Click the gear (**Settings**) in the top bar, or press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>,</kbd>. Under **Integrations**, click **RevenueCat**.
 2. Turn on **Enabled**. Nowa sets up everything your app needs to talk to RevenueCat and starts it each time your app opens, so you can go straight to your keys.
@@ -81,7 +81,7 @@ You don't need to spend real money to test. Pick one of these:
 RevenueCat makes any release build that uses a Test Store key stop on purpose, so it can't reach the stores. That includes TestFlight and Google Play testing tracks. Paste your real public keys back in before you deploy.
 :::
 
-## Use purchases in your logic
+## Use purchases in your logic {#call-revenuecat-from-logic}
 
 ### Open the paywall from a button
 

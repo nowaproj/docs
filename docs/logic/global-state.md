@@ -22,9 +22,9 @@ Start local: keep a value on its screen until a second screen needs it. From the
 2. Type a name, such as `CartState`. Nowa fills in the **Class name** and the **Path** (the file name) for you. Click either one to change it.
 3. Click **Submit**. Nowa creates the global state in the `globals` folder and attaches it to your app, so every screen can use it right away.
 
-You can also open the **Variables** panel with nothing selected, find **Globals** and click **Create global state**. That one is attached right away too.
+You can also open the **Variables** panel with nothing selected, find **Globals** and click **Create global state**. That one is attached right away too, but it doesn't go in the `globals` folder: in the **Library**, it sits at the top level of your project, outside the folders.
 
-New projects already include a global state named **AppState**. It holds the app's theme and a `changeTheme` function that switches between your themes: see [Switch themes while the app runs](../design/theme-styles.md#switch-themes-while-the-app-runs). Working in the code? See [What Nowa adds to your code](../code/generated-code.md#global-state).
+New projects already include a global state named **AppState**, in the `globals` folder. It holds the app's theme and a `changeTheme` function that switches between your themes: see [Switch themes while the app runs](../design/theme-styles.md#switch-themes-while-the-app-runs). Working in the code? See [What Nowa adds to your code](../code/generated-code.md#global-state).
 
 ## Add variables and functions
 

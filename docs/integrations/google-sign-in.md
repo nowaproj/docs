@@ -24,7 +24,7 @@ A client ID tells Google which app is asking to sign someone in. You create one 
 
 Google's [Manage OAuth Clients](https://support.google.com/cloud/answer/6158849) help explains each client type, and Supabase's [Login with Google guide](https://supabase.com/docs/guides/auth/social-login/auth-google) covers the Supabase side, including the separate fingerprints for testing and publishing.
 
-## Add your client IDs in Nowa
+## Add your client IDs in Nowa {#add-your-client-ids}
 
 1. Click the gear in the top bar (**Settings**) or press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>,</kbd>. Under **Integrations**, click **Google Sign-In**.
 2. Turn on **Enabled**. Nowa adds what your app needs for Google sign-in.

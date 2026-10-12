@@ -61,7 +61,7 @@ If you've published this app before with another tool, use that same key, so Goo
 If you lose this key, you can't release new updates for your app. Download it, store it somewhere safe and keep a backup. **Remove** deletes the key from Nowa and can't be undone.
 :::
 
-Google Play adds a safety net. For a new app, Google turns on Play App Signing when you upload your first app bundle: Google keeps the key that signs the app people download, and the key you make in Nowa becomes your upload key. If you ever lose it, you can ask Google to reset it from Play Console. See [Use Play App Signing](https://support.google.com/googleplay/android-developer/answer/9842756).
+Google Play adds a safety net. For a new app, Google turns on Play App Signing when you upload your first app bundle: Google keeps the keys that sign the app people download, and the key you make in Nowa becomes your upload key. If you ever lose it, you can ask Google to reset it from Play Console. See [Use Play App Signing](https://support.google.com/googleplay/android-developer/answer/9842756).
 
 Once a key is saved, the icon turns into a check mark (hover to read **Signing key saved**), and the card shows these controls:
 
@@ -97,7 +97,7 @@ Google Play Console is Google's website for publishing Android apps. Nowa doesn'
 1. Go to [Google Play Console](https://play.google.com/console) and sign up for a developer account with your Google Account. You must be at least 18.
 2. Accept the Google Play Developer Distribution Agreement.
 3. Pay the one-time registration fee. [Get started with Play Console](https://support.google.com/googleplay/android-developer/answer/6112435) shows it and the cards Google accepts.
-4. Choose a **Personal** or an **Organization** account.
+4. Choose a **Personal** or an **Organization** account. An organization account needs a D-U-N-S Number (a business identification number).
 5. Verify your identity. Google may ask for a government ID and a card in your legal name.
 
 With a new personal account, Google also asks you to confirm you have an Android device, using the Play Console mobile app, and to test your app with testers before it can go live. See [Test with testers first](#test-with-testers-first).
@@ -134,7 +134,7 @@ Your app's **Dashboard** lists everything Google needs before you can publish, u
 
 ### Test with testers first
 
-If you created a **personal** developer account after November 13, 2023, Google wants you to test before you publish. Once your app setup is done, run a closed test (a test only people you invite can join) with at least 12 testers who stay opted in for 14 days in a row. Friends, family and colleagues make good first testers. Then open your **Dashboard**, click **Apply for production** and answer Google's questions about your test. Google usually replies within seven days. Organization accounts don't have this requirement.
+If you created a **personal** developer account after November 13, 2023, Google wants you to test before you publish. Once your app setup is done, run a closed test (a test only people you invite can join) with at least 12 testers who stay opted in for 14 days in a row. Friends, family and colleagues make good first testers. Then open your **Dashboard**, click **Apply for production** and answer Google's questions about your test. Google usually replies within seven days.
 
 Internal testing, for up to 100 people you choose, is optional and a good first step, but the requirement needs a closed test. [Set up an open, closed, or internal test](https://support.google.com/googleplay/android-developer/answer/9845334) shows how to invite testers, and [App testing requirements for new personal developer accounts](https://support.google.com/googleplay/android-developer/answer/14151465) has the details.
 

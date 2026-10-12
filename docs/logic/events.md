@@ -44,7 +44,7 @@ Each widget names its events after what they react to:
 |---|---|---|---|
 | **Button**, **Icon Button** | **On Pressed** | Someone taps or clicks it. | Save a form, or go to another screen. |
 | | **On Long Press** | Someone presses and holds it. | Show more options. |
-| | **On Hover** | A mouse pointer moves onto it or off it, on the web and desktop. | Show a hint. |
+| | **On Hover** | A mouse pointer moves onto it or off it, on the web and desktop. Its param `value` is true when the pointer arrives and false when it leaves. | Show a hint while the pointer is over it. |
 | Text fields | **On Changed** | The text changes, with every letter typed or deleted. | Filter a list as someone types. |
 | | **On Editing Complete** | Someone finishes editing, such as by pressing the keyboard's done button. | Check what was typed. |
 | | **On Submitted** (**On Field Submitted** in a form field) | Someone confirms the text, such as by pressing <kbd>Enter</kbd>. | Run a search. |

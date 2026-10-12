@@ -120,7 +120,7 @@ Removed facts: `boards` subfolders, `.board` file, board file: in the for-code f
 
 | Claim | Verdict | Source | Note |
 |---|---|---|---|
-| "Everything you design becomes part of a real app that you own" | fixed | the page's own table: boards and loose widgets aren't part of the app (`packages/core/lib/src/board/board_canvas.dart:169`) | Contradicted the table. Now "Your screens and components become part of a real app that you own." |
+| "Everything you design becomes part of a real app that you own" | fixed | the page's own table: boards and loose widgets aren't part of the app (a board's items are saved in the board file, `packages/core/lib/src/file_system/board_file.dart:136-148`; only screens and components are classes of the project, `packages/core/lib/src/board/board_canvas.dart:168-172`) | Contradicted the table. Now "Your screens and components become part of a real app that you own." |
 | "In your app" column (board, screen, component, loose widget, widget) | ok | boards.md#know-your-board-items | |
 | Outline: jump to any widget, even hidden or hard to click | ok | design/outline.md intro | |
 | **Variables** row: "values the screen remembers and the actions it can run (its variables and functions)" | fixed | panel lists **Params**, **Variables**, **Functions** (`packages/core/lib/src/widgets/code/declaration_list_widgets.dart:278`, `:392`); glossary | Params had dropped out. Now "receives and remembers ... (its params, variables and functions)". |

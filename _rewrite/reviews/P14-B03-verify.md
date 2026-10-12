@@ -7,7 +7,30 @@ Verifier P14-B03-V. Pages: `docs/account/` `index`, `projects`, `project-setting
 
 ## Summary
 
-(Filled in at the end.)
+- **Pages checked:** all 7, changed lines and unchanged text (audience rules R1-R9), plus links, anchors and structure.
+- **Claims checked:** about 80 rows below (many group several labels), plus all 12 entitlement keys traced to their checks.
+- **Fixed:** 13. Plans page 4 (top-up depends on the plan; table lead-in; where the buy-credits message shows; external
+  agent row now says where the item is hidden and that it's desktop only). Account settings 5 (privacy section rebuilt from
+  the legal pages: Terms quoted exactly, Policy only pointed to; code-copy sentence limited to cloud projects; description;
+  Google sign-in reason). Project settings 2 (**Git** row described a history the page doesn't show; **New UX**
+  double-click claim narrowed to widgets, since title renaming still works). Index 1 (desktop app row overclaimed; plan gate
+  added). Help 1 (lead-in).
+- **Removed:** 2 sentences from "Your data and privacy" that the legal pages don't state ("What you build in Nowa is yours";
+  "To see, correct or delete your personal information, email ...").
+- **Restored:** 1. The data-loss warning that went to the for-code file: changing a permission rebuilds the Android or iOS
+  settings file, so other edits to it are lost. Back on the page in plain words, extended to the **App Name** and
+  **Bundle Identifier** (same mechanism, verified), with a pointer from "Name and identify your app".
+- **Audience:** no code-only facts left on the 7 pages; the 6 moved facts match the live text exactly and the reader keeps
+  a plain-words version of each. One verifier fact added to the for-code file (`#project-files`).
+- **Plan table:** every row matches a real grant check; no row removed; no prices, credit amounts or plan limits.
+- **New UX:** both caveats confirmed in the code (toolbar hidden: `designer_board.dart:141`; double-click on a widget throws
+  `UnimplementedError`: `designer_board_controller.dart:414-419`).
+- **Links and structure:** script check of every relative link and anchor on the 7 pages, every inbound link from `docs/`,
+  and every `origin/main` anchor: 0 errors. Front matter valid, no H1, at most 2 admonitions per page, no em dashes,
+  emoji, hype words or `---` rules, images unchanged.
+- **Open issues:** 5 (see the end): "Enterprise" kept on D18 against the "code names only" rule; ownership claim on
+  `publish/download-code.md`; deep-links fix undone by permission or App Name changes; a Bundle ID product issue; two
+  carried-over product questions.
 
 ## plans-and-usage.md
 

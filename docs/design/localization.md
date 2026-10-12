@@ -19,7 +19,9 @@ Spotted a wrong word later? Tell Nowa AI which text to change, in which language
 
 Make sure your font has the letters your languages use. Many fonts cover only some alphabets, so check on [Google Fonts](https://fonts.google.com) before you pick one. See [Fonts and icons](fonts-icons.md).
 
-If your translations can't load on the board, the board still draws your screens. **Logs** shows "Could not load" followed by a name (the part of your app that loads the translations) and the error. Copy that message into the chat and ask Nowa AI to fix it. See [Read the logs](../test/run.md#read-the-logs). Working in the code? See [What Nowa adds to your code](../code/generated-code.md#localization).
+If your translations can't load on the board, the board still draws your screens. **Logs** shows "Could not load" followed by a name (the part of your app that loads the translations) and the error. Copy that message into the chat and ask Nowa AI to fix it. See [Read the logs](../test/run.md#read-the-logs).
+
+Working in the code? See [What Nowa adds to your code](../code/generated-code.md#localization).
 
 ## Show text right to left
 

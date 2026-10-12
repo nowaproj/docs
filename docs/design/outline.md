@@ -53,7 +53,7 @@ Some screens show different widgets in different situations, for example a loadi
 - **Click to show this branch**: the board shows another branch.
 - **Shown on click. Click again to let the condition decide**: you forced this branch.
 
-Click a branch row to make the board show it, so you can design every case, not only the one showing right now. Click it again to let the condition decide. This changes only what the board shows. It isn't saved and doesn't change your app, so it's safe to flip through every branch. To learn how conditions work, see [Expressions and conditions](../logic/expressions.md).
+Click a branch row to make the board show it, so you can design every case, not only the one showing right now. Click it again to let the condition decide. This changes only what the board shows: it isn't saved and doesn't change your app, so it's safe to flip through every branch. To learn how conditions work, see [Expressions and conditions](../logic/expressions.md).
 
 ## Next steps
 

@@ -83,7 +83,7 @@ Other new or changed claims
   do"). Not verified live that the result shows as a tab.
 
 Open questions
-- Length: ~2,120 words of prose (2,300 with image alt text and front matter). If it must shrink, split into "Create and
+- Length: ~2,130 words of prose (about 2,300 with image alt text and front matter). If it must shrink, split into "Create and
   manage themes" (open, create, apply, rename/delete, extensions, theme setup) and "Theme colors and text styles" (colors,
   roles table, brightness/mode/variants, text styles, widget styles, widgets that keep their own color). Not split.
 - The AI extension prompt was not tried (no prompts allowed). Does the agent's extension show up as a tab every time?
@@ -339,3 +339,28 @@ Other new or changed claims
   `.map(...).toList()` producing widgets (`model_node.dart:36-46`).
 - Branch eye tooltips unchanged (`outline_view.dart:304-310`).
 - Reorder "handy when the board is crowded": advice.
+
+## For other pages
+
+| Target page (batch) | Proposed text | Evidence |
+|---|---|---|
+| `docs/guides/design-tips.md` (B01), "Make layouts that adapt", last bullet | "**Need two layouts?** Build both and wrap each in **Visibility**, with a condition on the screen's width, or ask Nowa AI to set it up. See [Show different widgets on wide and narrow screens](../design/responsive.md#show-different-widgets-on-wide-and-narrow-screens)." (replaces "with a condition on `MediaQuery.of(context).size.width`") | R5/R2: the typed formula is code; responsive.md now leads with Nowa AI and a menu path (**Logical** + **Media Query**), see the responsive.md section above. |
+| `docs/guides/design-tips.md` (B01), "Set the theme first", "Plan for dark" bullet | Optional addition: "Your app starts in the **Active** theme each time it opens, so ask Nowa AI to remember people's choice if you add a switch." | `packages/core/lib/src/project/env_services/theme_service.dart:115-145` (applying a theme sets `AppState`'s starting theme), `packages/core/lib/src/file_system/templates/common/app_state_template.dart:28-35` (nothing is saved). Same fact is on theme-styles.md. |
+| `docs/integrations/firebase/auth.md` (B09) | FYI only: its link `notifications.md#set-up-notifications-for-iphone` has no matching heading in `notifications.md` right now (seen by my link check while B09 may still be editing). | Link check run over `docs/` on 2026-10-12. |
+
+## Summary
+
+- Pages edited: all 8 (`responsive`, `outline`, `themes`, `theme-styles`, `assets`, `fonts-icons`, `templates`,
+  `localization`). Inbound anchors kept (`#switch-themes-while-the-app-runs`, `#use-a-theme-text-style`,
+  `#connect-buttons-to-the-theme`, `#colors-from-theme-extensions`, `#style-text-fields-and-buttons`,
+  `#edit-theme-extensions`, `#add-themes-to-a-project-that-has-none`, `#choose-an-icon`,
+  `#show-different-widgets-on-wide-and-narrow-screens`, `#design-with-realistic-content`, `#show-text-right-to-left`).
+  Images, video, URLs and file names untouched. Link and anchor check: 0 problems on my pages.
+- Old-doc items added: 7 (plus one example restored on a covered item); see `P14-B05-coverage.md` (69 items).
+- Facts moved to the code section: 24 unique facts in `P14-B05-for-code.md` (`#themes` 8, `#assets` 6,
+  `#fonts-and-icons` 6, `#screens-and-routes` / `#components` 1, listed under both, `#localization` 3), plus 3 context notes.
+- Length (prose words, without front matter and image alt text): themes ~2,130 (split proposal above),
+  responsive ~1,620, theme-styles ~1,250, assets ~1,170, templates ~890, outline ~760, fonts-icons ~700,
+  localization ~450.
+- Live checks wanted: the **Logical** + **Media Query** width condition on responsive.md; the AI prompts (extension,
+  theme persistence, languages, RTL) were not tried, by the brief's rules.

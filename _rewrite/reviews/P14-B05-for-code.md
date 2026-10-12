@@ -3,6 +3,8 @@
 Each bullet is copied unchanged from the page named in brackets (the text was verified in earlier phases). Group
 headings are the anchors of `docs/code/generated-code.md`. Code refs for each fact are in `P14-B05-notes.md` and in
 `W4-writer-notes.md` / `W30b-writer-notes.md`.
+Relative links inside moved bullets are relative to `docs/design/` (where they came from): from
+`docs/code/generated-code.md`, `../code/packages.md#how-nowa-loads-your-packages` becomes `packages.md#how-nowa-loads-your-packages`.
 
 ## #themes
 

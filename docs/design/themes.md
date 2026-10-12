@@ -16,7 +16,9 @@ It pays to set your theme early, before you design many screens. [Set the theme 
 
 New projects start with two themes: `lightTheme` for a light look and `darkTheme` for a dark one. The board shows your app in the **Active** one, so you see every edit as you make it.
 
-If the board doesn't seem to show a change, click **Refresh** to redraw your app with the current theme. **Open in New Tab** opens your themes as code. Working in the code? See [What Nowa adds to your code](../code/generated-code.md#themes). While the panel has focus, <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Z</kbd> and <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Y</kbd> undo and redo your theme edits.
+If the board doesn't seem to show a change, click **Refresh** to redraw your app with the current theme. While the panel has focus, <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Z</kbd> and <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Y</kbd> undo and redo your theme edits.
+
+**Open in New Tab** opens your themes as code. Working in the code? See [What Nowa adds to your code](../code/generated-code.md#themes).
 
 ![The Themes panel with lightTheme active (the Active label and a menu arrow): the header with the Refresh and Open in New Tab buttons, the Colors tiles (Primary, Secondary, Tertiary and Surface, highlighted), Add Color, the Brightness (Light, Dark) and Mode (Fixed, Seed) switches, and the start of Typography with the Default Font button.](/img/docs/design/design-themes-1.png)
 
@@ -141,7 +143,9 @@ To bring a widget back, pick one of the theme's colors for it, or a theme text s
 
 ## Edit theme extensions
 
-A theme extension is an extra set of values your theme carries beyond the standard roles, such as your brand colors. If your themes have extensions, the editor shows one tab per extension, named after the set, such as `AppColors`. Click a tab to edit its values. Most themes also keep a **Default Theme** tab first, with the colors and text styles described above. A theme that your project's code builds in another way, for example from another theme, shows only its extension tabs.
+A theme extension is an extra set of values your theme carries beyond the standard roles, such as your brand colors. If your themes have extensions, the editor shows one tab per extension, named after the set, such as `AppColors`. Click a tab to edit its values.
+
+Most themes also keep a **Default Theme** tab first, with the colors and text styles described above. A theme that your project's code builds in another way, for example from another theme, shows only its extension tabs.
 
 There's no button to create an extension in the panel, because extensions come from your project's code. The no-code way is to ask Nowa AI in **Agent** mode, for example: "Add a theme extension with my brand colors, #0F766E and #F59E0B." Then open **Themes** and check that the new tab is there. Nowa supports up to 8 theme extensions in a project.
 

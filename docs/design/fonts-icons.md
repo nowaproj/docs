@@ -38,7 +38,9 @@ Click the filter button next to the search box.
 | **Default Fonts** | Google Fonts only. |
 | **Imported by you** | Fonts in your project's assets, including Google Fonts you've already picked. |
 
-Can't find a font in the web app? Search for it by name: the list starts with 100 Google Fonts, and a search shows up to 20 matches. The [desktop app](../get-started/desktop-app.md) lists them all. Working in the code, for example with font families made of several files? See [What Nowa adds to your code](../code/generated-code.md#fonts-and-icons).
+Can't find a font in the web app? Search for it by name: the list starts with 100 Google Fonts, and a search shows up to 20 matches. The [desktop app](../get-started/desktop-app.md) lists them all.
+
+Working in the code, for example with font families made of several files? See [What Nowa adds to your code](../code/generated-code.md#fonts-and-icons).
 
 ## Choose an icon
 

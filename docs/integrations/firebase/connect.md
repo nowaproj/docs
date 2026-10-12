@@ -27,7 +27,7 @@ Sign in with Google, pick your Firebase project and click **Connect Apps**. Nowa
 
 Nowa names the apps it creates after your **App Name**, such as "My App (Android)-nowa".
 
-In Nowa 3.13, reloading the page or closing Nowa soon after **Connect Apps** can lose the connection before it's saved. The Firebase files are gone, `lib/main.dart` points at a missing `firebase_options.dart` and the **Firebase** page asks for your project again. If that happens, connect again: Nowa reuses the apps it already created. See [Known issues](../../troubleshooting/known-issues.md#firebase-reload-after-connect).
+In Nowa 3.13, reloading the page or closing Nowa soon after **Connect Apps** can lose the connection before it's saved. Then the Firebase files are gone, `lib/main.dart` points at a missing `firebase_options.dart` and the **Firebase** page asks for your project again. If that happens, connect again: Nowa reuses the apps it already created. See [Known issues](../../troubleshooting/known-issues.md#firebase-reload-after-connect).
 
 ![The Firebase page in Settings after picking a Firebase project: under Apps, the lines Android App, iOS App and Web App will be automatically created and the Connect Apps button, all highlighted.](/img/docs/integrations/integrations-firebase-connect-1.png)
 

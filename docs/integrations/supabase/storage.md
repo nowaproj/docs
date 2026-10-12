@@ -35,16 +35,16 @@ The names are fixed, so you get one of each, and generating a template again rep
 1. Click `uploadFile` under **Storage**. The test panel opens at the bottom of the editor.
 2. Type a **Bucket Name** and a **File Name**. The file name can include folders, such as `images/photo.png`.
 3. Click **File Data** and pick an image from your device. The field then shows the file's name.
-4. Click **Run**.
+4. Click **Run**. When the upload works, the result reads `result null`.
 5. Click `downloadFile`.
 6. Type the same **Bucket Name**. For **File Path**, type the name you uploaded under.
 7. Click **Run**.
 
-{/* CAPTURE: id=integrations-supabase-storage-2 | state: same project, uploadFile run with a small PNG, then downloadFile run for it | show: the bottom test panel titled Testing downloadFile with the image preview, the download icon beside it, and Testing values, Run and Edit Code on the right | crop: bottom test panel */}
+![The bottom panel Testing downloadFile after Run. The downloaded PNG, a few colored shapes on a light background, shows as a preview with the download icon beside it and its tooltip Download image (preview and icon highlighted). On the right, Testing values reads Bucket Name files and File Path sample.png, above the Run and Edit Code buttons.](/img/docs/integrations/integrations-supabase-storage-2.png)
 
-A downloaded image (JPG, PNG, GIF or WebP) shows as a preview, with a download icon (tooltip **Download image**) to save it. Any other file shows **File downloaded successfully**, its type and size, and **Save File to Disk**.
+A downloaded image (JPG, PNG, GIF or WebP) shows as a preview, with a download icon (tooltip **Download image**) to save it. If the preview is cut off, drag the top edge of the test panel up. Any other file shows **File downloaded successfully**, its type and size, and **Save File to Disk**.
 
-The generated `uploadFile` doesn't replace existing files, so use a new **File Name** each time. To remove a file, click `deleteFile`, fill in **Bucket Name** and **File Name**, and click **Run**.
+The generated `uploadFile` doesn't replace existing files, so use a new **File Name** each time. If the name is taken, the result shows an **Error:** with "The resource already exists". To remove a file, click `deleteFile`, fill in **Bucket Name** and **File Name**, and click **Run**.
 
 If a test fails with **RLS Policy Error**, your bucket needs a Row Level Security policy that allows that action. Add one in Supabase, or ask Nowa AI. See [Read and write Supabase data](database.md#test-a-function).
 

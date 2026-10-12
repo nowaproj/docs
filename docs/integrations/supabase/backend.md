@@ -48,7 +48,7 @@ Some projects ship with a backend: a template, a copy of someone's project, or o
 
 ![The Set up Supabase backend dialog that opens right after connecting a project that has migration files. The message says Nowa will create the tables, edge functions and storage buckets on the Supabase project you just connected (2 migrations), and the Skip and Set up buttons are highlighted.](/img/docs/integrations/integrations-supabase-backend-1.png)
 
-To run it later, click ⋮, then **Set up Backend**. The item appears when Nowa finds migration files in the project, which it checks when you connect and after you pull. If nothing is left to apply, no dialog opens.
+To run it later, click ⋮, then **Set up Backend**. The item appears when Nowa finds migration files in the project, which it checks when you connect and after you pull. After you reopen the project it's missing until Nowa checks again: click ⋮ → **Change API Keys** → **Connect**, then **Select** the same Supabase project. If nothing is left to apply, no dialog opens.
 
 If you connected with **Use Keys**, Nowa asks you to authorize first. Afterward, click ⋮, then **Set up Backend** again.
 

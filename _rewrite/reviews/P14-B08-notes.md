@@ -385,6 +385,11 @@ Nothing added from old docs (no old page maps here).
   the warning (style guide: admonitions never stacked).
 - `rest-api/index.md` and `constants.md` now carry the single allowed pointer to `../code/generated-code.md`
   (`#rest-api`, `#constants`), like the five settings pages. `index.md`, `show-data.md` and `import.md` have none.
+- `rest-api/index.md` example, step 4: the Circuit **+** menu search matches top-level names only (a class's
+  `searchName` is its own name; members show after clicking the class), so the step says to search for the
+  collection's **Class name** and pick the request under **Members** (`packages/core/lib/src/interpreter/suggestion.dart:100-104`,
+  `packages/core/lib/src/fields/link_menu.dart:131-145`, `:176`). Same reason the RevenueCat page says to search for
+  `RevenuecatService`.
 - Checks run on all ten pages: every relative link and `#anchor` resolves (script tested with a broken anchor and a
   missing file, both flagged); all ten compile as MDX with `@mdx-js/mdx` + `remark-gfm` from the repo's
   `node_modules` (control file with a stray `{` fails); no banned words, no emoji, no `---` rules, at most two

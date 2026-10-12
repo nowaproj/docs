@@ -186,6 +186,10 @@ Added:
 - "field names must match the fields in your documents": `fromJson` reads `json['<field name>']`
   (`packages/core/lib/src/interpreter/generators/json_generator.dart:104`).
 
+Length: about 2,186 words of prose, just under the ~2,200 mark. If it grows, I'd split "Define your collections",
+"Build a query" and "Test a query" into a page "Firestore collections and queries" and keep this page for the database,
+the 3.13 path and using queries in the app.
+
 Open questions:
 - An AI-written collection class without the `fbCollectionType` metadata won't show in **Select Collection**
   (`lists_widgets.dart:61-63`). That only matters for the visual builder, which can't open a query in 3.13 anyway; the
@@ -411,7 +415,7 @@ Open questions:
 ## Summary
 
 - Pages: all five rewritten for the primary reader (R1-R9). Prose word counts: connect 1,572; auth 2,068; firestore
-  2,170; notifications 1,310; stripe 2,471 (split proposal under the Stripe page). Each page has at most two
+  2,186; notifications 1,310; stripe 2,471 (split proposal under the Stripe page). Each page has at most two
   admonitions; no H1, no `---` rules, no hype words, no em dashes.
 - Coverage: 74 old-page items; 36 covered, 24 added, 4 obsolete, 10 not useful (`P14-B09-coverage.md`).
 - Moved to the code section: 34 facts copied unchanged into `P14-B09-for-code.md` (`#firebase` 29, `#stripe` 5), plus 8

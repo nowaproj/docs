@@ -19,6 +19,8 @@ settle it. Pages are appended as they are finished.
   answer (`null`) when the popup is closed. It replaces the half-sentences that were repeated under dialogs, pickers and
   the media picker (old date-picker.md and time-picker.md explained both ways). Refs: circuit.md#future-options,
   `packages/code/lib/src/fields/future_options.dart:6-111`.
+  The section also explains, once, how to skip the next steps when there's no answer (an If with the custom expression
+  `var1 != null`); the date example and navigation.md's "Go back with a value" reuse it.
 - Each popup now opens with what it's for and when to use it (R3: the function names stay and get a plain meaning).
 - The page has one admonition (the AI tip). No code-only facts were on it, so nothing moved and there is no link to
   `generated-code.md`.
@@ -109,7 +111,7 @@ settle it. Pages are appended as they are finished.
   `image_picker_linux-0.2.2/lib/image_picker_linux.dart:90-98`); Nowa sets none (no `cameraDelegate` in `lib/` or
   `packages/`). In a desktop browser the camera input also ends in a file chooser. Not run live.
 
-**Length**: about 2,600 words (`wc -w`), over the ~2,200 the brief names. Proposed split if wanted: keep snackbars,
+**Length**: about 2,700 words (`wc -w`), over the ~2,200 the brief names. Proposed split if wanted: keep snackbars,
 "Use what the person chose", dialogs and bottom sheets here, and move "Pick a date or time" (with the format table) and
 "Pick photos or videos" to a new page "Pick dates, times and photos" (`logic/pickers.md`). Inbound anchors to keep:
 `#pick-photos-or-videos` (reference/widgets/media.md), `#show-a-dialog` (reference/widgets/index.md), `#show-a-snackbar`

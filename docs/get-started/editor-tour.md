@@ -103,7 +103,7 @@ From left to right, the status bar shows:
 - The Nowa version.
 - Counts of errors, warnings and info messages. Click them to open the **Console** on **Problems**.
 - The latest log line, or **Ready**. Click it to open the **Console** on **Logs**.
-- Loading progress while files load, and the Git branch with its ahead and behind counts when the project has a Git repository (new projects start with one).
+- Loading progress while files load, and the Git branch with its ahead and behind counts, for projects with Git version history (new projects have it from the start).
 - The Save button. Click it for **Save options**: **Auto save**, **Save every** (**10 seconds**, **20 seconds**, **30 seconds**, **1 minute** or **5 minutes**) and **Save now**.
 
 **Problems** lists issues Nowa finds in your project, with a **Fix** button for some, so it's the first place to look when something doesn't work. **Logs** shows messages from Nowa and from your running app. See [Find and fix problems](../test/problems.md).

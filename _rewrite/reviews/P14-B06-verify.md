@@ -155,7 +155,7 @@ Obsolete rows (all 4 checked):
 - 8.9 `onFocusChanged`/`onScroll`: confirmed no Focus, scroll-listener or MouseRegion wrapper (`packages/core/lib/src/wrappers_to_add.dart`).
 
 Covered rows sampled (12): 1.12, 1.13 (circuit.md: **Remove**, **Move up**, **Move down**, keys; `node_widgets.dart:85-95`), 2.2,
-2.3 (circuit.md#branch-with-if), 3.4 (**Error name**), 4.14 (variables.md Set + **refresh**), 5.8 (**Create Param...**), 5.11
+2.3 (conditions.md#branch-with-if), 3.4 (**Error name**), 4.14 (variables.md Set + **refresh**), 5.8 (**Create Param...**), 5.11
 (navigation.md#use-the-navigator, brush icon), 6.5 (global-state.md **Create global state**), 6.13 (lists.md: `element` for
 component items), 7.6 (events.md callback), 8.10 (events.md **Reset to default**/**Detach...**). All covered where cited.
 

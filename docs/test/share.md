@@ -52,7 +52,7 @@ The preview is [Instant Play](instant-play.md) in a browser tab: it opens at onc
 2. In the controls at the bottom of the board, click **Share preview**. The **Share Preview** popup opens.
 3. Pick who can open the link. **Public** means "Anyone with the link can view the preview." **Private** means "Only members that have access to the project". Only project owners and editors see this choice, and it shows the project's current setting.
 4. If you pick **Public**, Nowa asks "Make this project public?". Read the warning, tick "I checked, there are no secrets in this project", and click **Make public**.
-5. Copy the link with the copy button and send it. Or click the QR code button (**Qr code**) to show a code people can scan with their phone, or **Open in browser** to see exactly what others will see.
+5. Copy the link with the copy button and send it. Or click the QR code button (**Qr code**) to show a code people can scan with their phone, or **Open in browser** to see the preview the way others will.
 
 ![The Share Preview popup opened with Share preview in the play controls of a playing screen, with the QR code card open beside it (both highlighted). The popup offers Public (Anyone with the link can view the preview.) and Private (Only members that have access to the project, selected), then the preview link with its copy and open buttons. The QR code card covers the third button and its code is blurred here.](/img/docs/test/test-share-1.png)
 

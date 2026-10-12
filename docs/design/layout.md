@@ -41,7 +41,7 @@ To take a group apart, select it, right-click and choose **Ungroup**. The widget
 You can also start from an empty group in the [Library](library.md): press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd>, type `group`, select **Group** and press <kbd>Enter</kbd>.
 
 :::tip Give a group a background
-For widgets placed freely, such as on an **Empty Page** screen, draw a shape with the **Shape** tool that covers them all. If it hides them, right-click it and choose **Send to back**. Then click the shape first, <kbd>Shift</kbd>-click each widget, and group them. Because the shape is selected first and covers the others, Nowa turns it into the group's background instead of adding it as one more widget. The group keeps the shape's color, even after you switch it to a Row or Column.
+For widgets placed freely, such as on an **Empty Page** screen, draw a shape with the **Shape** tool that covers them all (if it hides them, right-click it and choose **Send to back**). Click the shape first, <kbd>Shift</kbd>-click each widget, and group them. Nowa turns the shape into the group's background instead of adding it as one more widget, and the group keeps that color even after you switch it to a Row or Column.
 :::
 
 ### Switch between stack, row and column
@@ -104,7 +104,7 @@ Constraints decide which edges a widget keeps its distance to when the stack cha
 | **Left and right** | **Top and bottom** | keeps both distances, so it stretches. Its **W** or **H** is greyed out, because the distances set it. | A search bar that spans the width |
 | **Center** | **Center** | sits at the stack's **Alignment**, the middle unless you changed it. | A logo that stays centered |
 
-Pick them in the two dropdowns, or click the bars in the constraints box: the bar on a side pins that side. <kbd>Shift</kbd>-click the opposite bar to pin both sides. The **+** in the middle removes every pin, so the widget centers both ways. Constraints work on several selected widgets at once.
+Pick them in the two dropdowns, or click the bars in the constraints box: the bar on a side pins that side. <kbd>Shift</kbd>-click the opposite bar to pin both sides. The **+** in the middle removes every pin, the same as **Center** both ways. Constraints work on several selected widgets at once.
 
 Two things to know about **Center**:
 

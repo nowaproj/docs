@@ -80,3 +80,130 @@ untouched image alt text (default badge, `usage_settings_page.dart:313`), "Enter
 | Removed facts | none | | All other `-` lines are still on the page. |
 
 Audience: no code-only facts on the page.
+
+## project-settings.md
+
+| Claim | Verdict | Source | Note |
+|---|---|---|---|
+| Page list, order, sandbox rule ("don't show yet, because they need a saved project"), **Project Sync** desktop only | ok | `packages/core/lib/src/settings/project_settings.dart:19-31` (`_isSandboxed` comment "only get once saved", `!kIsWeb`) | |
+| **Packages** row (pub.dev explained), **Constants** row | ok | | R4 explanations. |
+| **Git** row "your project's history of saved changes and its link to GitHub" | fixed | `git_settings.dart:66-77` (Identity, GitHub integration, credentials); history lives in the **Git** panel | The settings page has no history; "saved changes" also reads like Nowa's Save. Now: Git keeps a history of saved snapshots (as `code/git.md` defines a commit), and the page holds the name and email on them plus the GitHub connection and sign-in details. |
+| Field table: **Project Name**, **Package Name** (internal, can't be changed), **Build version**, **Build number** | ok | `project_detail_settings.dart:152-262,265-331` | |
+| **App Name** also sets the web version's browser tab title | ok | `packages/core/lib/src/project/rename.dart:29-46,263-272`; new projects use `MaterialApp.router` with no `title` (`createGoRouterBundle`, `projects_view_provider.dart:275`, `main_dart_template.dart:43-49`), and Flutter leaves the page `<title>` alone on the web when `title` is null (flutter/flutter stable `packages/flutter/lib/src/widgets/app.dart`, "widget.title == null && kIsWeb") | |
+| Bundle ID placeholder `com.example.`, rules, "Invalid package name", same ID on iOS, Android, macOS, Linux | ok | `packages/core/lib/src/file_system/naming.dart:242-247`, `project_detail_settings.dart:118-124`, `rename.dart:48-67` | Regex checked: last part needs 2+ characters. |
+| Reverse web address; Google Play treats a changed ID as a different app | ok | https://developer.apple.com/documentation/bundleresources/information-property-list/cfbundleidentifier (notes), https://developer.android.com/build/configure-app-module ("If you change the application ID, Google Play Store treats the upload as a completely different app", checked) | |
+| Version rules and messages; raise **Build number** per upload, Google Play refuses a used number; **Build version** is what people see | ok | `project_detail_settings.dart:293-331`; https://developer.android.com/studio/publish/versioning (versionName "shown to users"; "You can't upload an APK to the Play Store with a versionCode you have already used", checked) | |
+| Icon: every size from one image, tiles refresh, 1024 px limit and message, **Change all** adds Windows | ok | `packages/core/lib/src/settings/app_icon_manager.dart:94-171`, `app_icon_settings.dart:65-74` | |
+| Permissions: steps, takes effect right away, iOS message kept as you type, grey technical name, imported permissions show as on | ok | `permissions_provider.dart:20-31`, `permission_settings.dart:46-123`, `permissions_service.dart:16-26` (migration) | |
+| Permissions table (16 rows, descriptions) | ok | `permissions_service.dart:115-211` | Boot Completed example: https://developer.android.com/develop/background-work/services/alarms (notes). |
+| **Problems** names a missing permission, **Fix** turns it on | ok | `package_config_service.dart:411-433`, `block_problems.dart:343-351` | |
+| Tip: Apple 5.1.1 and Google Play permission rules | ok | Apple guidelines page, anchor `data-collection-and-storage` present, 5.1.1(ii) and (iii) wording checked; https://support.google.com/googleplay/android-developer/answer/16558241 ("You may only request permissions and APIs that access sensitive information that are necessary to implement current features or services in your app", checked) | |
+| Removed warning: Nowa rewrites the Android manifest and iOS `Info.plist` on every permission change, hand edits can be lost | restored | `permissions_service.dart:12-15,56-82`; `file_template.dart:19-23,87-89` (`files.set(path, generate(...))` replaces the file); `manifest_template.dart:8-24`, `info_plist_template.dart:8-12` | Moved to for-code unchanged (correct), but it is a data-loss warning the reader needs: the code comment says regeneration "wipes everything a brownfield project has", `projects.md` invites importing "an app a developer built for you", and `integrations/deep-links.md` asks Nowa AI to edit `Info.plist`. Restored as a plain-words `:::warning` (no file names, R2). |
+| (new) **App Name** and **Bundle Identifier** changes also rebuild platform files | added | `rename.dart:29-46` (App Name regenerates manifest and `Info.plist`), `:48-67,161-173` (Bundle ID regenerates `android/app/build.gradle.kts` and `MainActivity`) | Same mechanism, so the restored warning names all three triggers, and "Name and identify your app" has a one-line pointer to it. The exact files went to the for-code file (`#project-files`, marked as added by the verifier). |
+| Pointer to `../code/generated-code.md#project-files` | ok | allowed anchor | |
+| Constants: "key" explained, integration sections, two-way sync, Maps/AdMob keys on their own pages, custom constants labels, ship inside the app | ok | `packages/core/lib/src/settings/constants_settings.dart:55-120,158-276`; same words as `integrations/constants.md` | |
+| Sharing: cover, **Public project** (cloud), visitors edit their own copy, confirmation, hidden for View Only and sandboxed | ok | `packages/core/lib/src/settings/sharing_settings.dart:18-32,92-96,180-190,447-491`, `project_detail_settings.dart:88-94` | |
+| Experimental flags: per project, reversible, **Apply** saves and reopens, **Cancel** when unchanged | ok | `packages/core/lib/src/project/settings_service.dart:42-64`, `experimental_flags_dialog.dart:30-39,100-106` | |
+| **load packages** gates Nowa AI adding packages; on in new projects | ok | `packages/ai/lib/src/tools/packages_tool.dart:136-141`, `nowa_settings_template.dart:17` | |
+| **New UX**: panel icons in the top bar, **More panels**, **Debug** panel, **NEW UX** badge, off by default | ok | `lib/project/side_bar.dart:91-96,149,252`, `lib/project/project_page.dart:612`, `lib/project/top_bar_mapper.dart:43-46`, `lib/project/panels/testing_panel.dart:16-36`, `settings_service.dart:54-57` (default false) | |
+| **New UX** hides the board toolbar | ok (confirmed) | `packages/designer/lib/src/panels/designer_board.dart:138-149` (`if (!playing && isNewUx) return const SizedBox.shrink()` replaces `DesignerToolsBuilder`); `isNewUx` = the flag, `packages/core/lib/src/providers/editor_provider.dart:348` | The toolbar comes back while a board item is playing (`PlayingToolbar`). |
+| **New UX** "Double-clicking on the board doesn't work" | fixed (confirmed, narrowed) | `packages/designer/lib/src/design_experience/designer_board_controller.dart:103-108,361-366,414-419` | Confirmed: with the flag on, any double-click that hits a widget calls `_tryDrillIntoComponent`, which throws `UnimplementedError` before the normal handling (go one level deeper, or edit a **Text**), and no global handler shows it, so nothing happens. Not every double-click breaks: renaming a screen by double-clicking its title has its own handler (`packages/designer/lib/src/panels/canvas_titles.dart:282`). Row now says "Double-clicking a widget on the board does nothing ..., so you can't go one level deeper or start editing a text that way" (same words as `design/select-and-edit.md`). |
+| Shared Preferences: **Play** values kept per project, **Clear** erases them and the REST API **Auth token value**, phones keep their own | ok | `shared_preferences_library.dart:145-165`, `project_detail_settings.dart:45-66`, `packages/data/lib/src/api/model/test_api_func_provider.dart:136-143`, `api_test_values_panel.dart:138-169` | |
+| Project ID popup, "Copied" | ok | kept | |
+| Removed facts | ok | | `pubspec.yaml` `1.3.4+7`, `lib/globals/app_constants.dart` and "Keys that Nowa writes into your Android, iOS or web files" are code-only and moved unchanged (plain-words versions stay: "ship inside your app"; Maps and AdMob keys "live on their own pages"). "Two rules to know" and "Set the Bundle Identifier before you publish" survive in the two new sub-sections. The manifest / `Info.plist` warning: restored (above). |
+
+Audience: the grey technical names (`NSCameraUsageDescription`, `android.permission.CAMERA`) are on-screen text, kept and
+explained (R3). Length: 2,139 words of prose, under the ~2,200 limit; if it must shrink, "Set permissions" can become
+its own page, as the batch notes suggest. Admonitions: 2 (warning and tip in "Set permissions", separated by the
+permission table and a paragraph).
+
+## projects.md
+
+| Claim | Verdict | Source | Note |
+|---|---|---|---|
+| **Design** marked **Start here**, **Thinking** as the starting level; keep both if unsure | ok | `lib/dashboard/dashboard_page.dart:50-51,219-226`, `packages/nowa_ui/lib/src/components/option_chip.dart:158,185`, `packages/ai/lib/src/agent/agent.dart:52` | **Start here** shows next to Design in the mode menu. |
+| Prompt sent on open, so Nowa AI starts right away; tooltip **Build it** | ok | `packages/nowa_ui/lib/dashboard/describe_app_panel.dart:469`; walkthrough in `get-started/first-app.md` | |
+| Starter app with a home page, a theme and a board; "routing" dropped | ok | `createGoRouterBundle` (`default_bundles.dart:43-70`) | Routing isn't something the reader acts on here (d). |
+| New project starts in **Personal** (no workspace); opens on any device | ok | `lib/dashboard/create_new_project/new_project_dialog.dart:83-84` (no workspace passed); `get-started/cloud-and-local.md` | |
+| Flutter, GitHub, repository explained; monorepo wording | ok | R4 | |
+| Reserved words in plain words; messages verbatim | ok | kept | |
+| **Package Name** row (internal name, `my_app` example), **Bundle Identifier** placeholder "a short code from the project ID" | ok | `naming.dart:242-247` (first 6 alphanumeric characters of the ID) | Simplified, not lost. |
+| Card line: internal name when it differs, else the edit time; RECENTS edit times | ok | `packages/nowa_ui/lib/dashboard/projects_grid.dart:76-78`, `lib/dashboard/dashboard_mapper.dart:55-62` | |
+| "Project not found": wrong folder shows "Exception: Chosen folder is not a nowa project or a flutter project"; **Use my_app**; relocation keeps the project | ok | `packages/core/lib/src/services/local_project_service.dart:103-108,145-147`, `lib/project/missing_project_folder.dart:53-126` | |
+| Removed facts | ok | | Package Name derivation and "(it must contain a `pubspec.yaml`)" moved unchanged to for-code; the reader keeps the plain-words version and the on-screen error. |
+
+## index.md
+
+| Claim | Verdict | Source | Note |
+|---|---|---|---|
+| Desktop app row: "You need the desktop app for projects stored on your computer and to run your real app on your phone or an emulator" | fixed | `get-started/cloud-and-local.md`, `test/devices.md`; `lib/router.dart:75-81` (`desktop` grant) | Too broad: from the web app a paid plan can still put the real app on a phone through an Android or iOS build. Now "to run your app on your phone or an emulator straight from Nowa", plus "Your plan must include it" (the desktop app is plan-gated, as the plans table says). |
+| Dashboard dialogs don't change projects | ok | update prompt, survey, rating, upgrade offer (`lib/dashboard/dashboard_provider.dart:125-127` for the offer) | |
+| Other changes (local projects explained, "In this section" lines) | ok | tone | |
+
+## workspaces.md and help.md
+
+All changed sentences are tone and examples; every label and fact is unchanged (spot-checked: `member_settings.dart:274,406`,
+`sharing_settings.dart`, `packages/core/lib/src/dialogs/content_dialogs.dart:33-36`). One fix in `help.md`: the lead-in
+"Want to swap ideas and tips with other builders? Join them here:" introduced a list that also holds the team's email;
+now "Want to swap ideas and tips with other builders, or write to the team directly?". No removed facts on either page.
+
+## Moved facts (for-code file)
+
+All 6 bullets in `P14-B03-for-code.md` match the `origin/main` text exactly (checked with `grep -F` against
+`git show origin/main:docs/account/...`), and each sits under an allowed anchor (`#project-files`, `#constants`). For each, the
+reader keeps what they need:
+
+| Moved fact | What the reader keeps |
+|---|---|
+| `pubspec.yaml` `1.3.4+7` | nothing needed (how the two fields are stored) |
+| Manifest / `Info.plist` rewrite warning | **restored on the page in plain words** (see project-settings.md); the exact files stay in for-code |
+| `lib/globals/app_constants.dart` | "Constants ship inside your app, so anyone who has the app can read them" |
+| Keys written into Android, iOS or web files | "Some keys, such as the Google Maps and AdMob keys, live on their own pages under **Integrations** instead" |
+| Package Name derivation | "An internal name for your project's code, such as `my_app` ... Your users never see it" |
+| "(it must contain a `pubspec.yaml`)" | the on-screen error for a folder that isn't a Flutter project |
+
+I added one bullet to the for-code file under `#project-files`, marked as added by the verifier: the exact files that
+changing the **App Name** or **Bundle Identifier** regenerates (the facts behind the restored warning).
+
+## Coverage spot checks
+
+- **Obsolete rows:** none in `P14-B03-coverage.md` (0 of 12), so nothing to re-open.
+- **Covered rows:** the file has only 8, so I checked all 8 instead of 10. All confirmed: item 1 (`ai/index.md` "Usage and
+  credits", line 94, and the plans intro), 2 (`#usage`, "Resets in"), 3 (`#out-of-credits`, `#buy-credits`), 6
+  (`publish/web.md#use-your-own-domain`, line 59), 7 (`publish/index.md` line 11 Premium rows, `publish/builds.md` line 33
+  build allowance), 8 (`code/git.md` line 26, `code/import.md` lines 22 and 52, the Git rows on both settings pages,
+  `projects.md` "Clone or import"), 9 (`#buy-credits`), 12 (pricing links).
+- **Not useful rows:** 4 (prices, D3), 5 (plan marketing; plan cards come from the server, `adjust_plan_page.dart`) and 10
+  (SSO, audit logs, on-premise: `grep -rni "\bSSO\b\|single sign-on\|audit log\|on-premise"` over `lib`, `packages` has no
+  hits outside interpreter libraries) confirmed.
+- **Added row 11** (privacy): still covered on `account-settings.md#your-data-and-privacy`, but the text is now the reduced,
+  quote-based version, so the row's note in the coverage file describes the earlier paraphrase. I didn't edit the
+  coverage file (outside my boundaries).
+- The batch's three "For other pages" proposals were read against the code and are accurate (the known-issues text uses
+  the same narrowed double-click wording as the page now does).
+
+## Open issues
+
+1. **"Enterprise" in the plans table** (`plans-and-usage.md`, external agent row). My brief says plan names appear only as
+   the code names them. The code never names this plan: the gate is the `external_agent` grant, with the comment "Granted
+   by the beta plan, which stacks on top of whatever plan the user is on" (`ai_chat_panel.dart:38`). I kept "Enterprise
+   only for now" because D18 records the user's own answer (open question Q2: "yes, Enterprise only") and
+   `ai/external-agent.md` carries the badge. If the orchestrator reads the rule as overriding D18, cut the sentence "It's
+   Enterprise only for now." from that row. The link to the external agent page still carries the badge.
+2. **Same ownership claim on another batch's page** (`publish/download-code.md` intro, P14-B11): "that code belongs to
+   you". The Terms say only "You retain ownership over all content created using our Service, subject to the terms and
+   conditions laid out in these Terms." Suggest dropping the clause or pointing to
+   `../account/account-settings.md#your-data-and-privacy`.
+3. **Deep links + Google Sign-In fix gets undone by more than the page says** (`integrations/deep-links.md#with-google-sign-in`,
+   P14-B08). The page has Nowa AI merge two entries in the iOS settings file and warns that changing the **URL Scheme** or
+   **iOS Client ID** rewrites them. Changing any iOS permission or the **App Name** also regenerates that whole file
+   (`permissions_service.dart:81-82`, `rename.dart:37`), which brings the duplicate back. Suggest adding "an iOS
+   permission or the **App Name**" to that sentence.
+4. **Product issue (for `product-issues.md`, not documented on the page):** changing the **Bundle Identifier** sets every
+   `PRODUCT_BUNDLE_IDENTIFIER` line of the iOS project to the same ID (`rename.dart:117-125`), test and app-extension
+   targets included, and regenerates the Android build file and `MainActivity` (`rename.dart:58-61,161-173`). Imported
+   projects with extensions or custom Android build settings can break. The page's warning covers the data-loss side in
+   plain words.
+5. Carried over from the batch notes, still open: the **load packages** dialog text is out of date
+   (`experimental_flags_dialog.dart:55-58`); whether to keep documenting **New UX** at all (`left-out.md:75`). The notes'
+   privacy question is resolved: the section now quotes the Terms and only points to the Policy.

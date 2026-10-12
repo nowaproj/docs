@@ -59,3 +59,33 @@ project files onto the copy (`cloud_local_run_service.dart:123-147, 286-308`), a
 `ios/Runner.xcodeproj/project.pbxproj` (rename edits it, `packages/core/lib/src/project/rename.dart:87`), so a team set in
 Xcode on the copy is likely overwritten; Flutter may still pick a signing identity on its own. Needs a live check.
 Page length ~2,300 words; split plan in the notes still applies.
+
+## test/share.md
+
+| claim | verdict | source | note |
+|---|---|---|---|
+| "When to share a preview": open on a computer or phone in the browser; feedback, client/investor demo, review without installing, other device sizes | ok | `packages/designer/lib/src/play_mode/play_mode.dart:132-170` (preview page, phone frame, narrow-window mode); `play_mode_permissions.dart:12-16` (share, full screen, device settings for everyone) | |
+| Preview limits = Instant Play: maps and paywalls show a placeholder, Firebase sign-in simulated | ok | `packages/core/lib/src/interpreter/packages/integrations/integration_preview_view.dart:69` (used by `google_maps_package_config.dart`, `revenuecat_package_config.dart`); `packages/data/lib/src/firebase/auth/fb_auth_blocks.dart:132-168` (no preview-page exception) | |
+| **Device Size**: iPhones and iPads, Android phones and tablets, laptop and monitor sizes for macOS, Windows, Linux; one tab per platform plus **Custom** | ok | `packages/device_frame/lib/src/devices/devices.dart:27-33`; `ios/devices.dart:73-91`; `android/devices.dart:152-167`; `windows/devices.dart:41-45`; `macos/devices.dart:28-31`; `linux/devices.dart:41-45`; `packages/device_preview/lib/src/state/store.dart:84` (no list passed by `play_mode.dart:167-170`, so `Devices.all`); `play_mode_settings.dart:113-150` | old page's "Web" device is gone |
+| **Play Settings** open to anyone viewing (**Device Settings**) | ok | `play_mode_permissions.dart:14`; `board_play_controller.dart:164-174` | |
+| Popup labels **Share Preview**, **Public**/**Private** subtitles, **Qr code**, **Open in browser**; link format; `?screen=` | ok | `play_mode.dart:516, 600-608, 672-753` | |
+| "**Open in browser** to see exactly what others will see" | fixed | `play_mode_warning.dart:88` (owners and editors also get the warning cards), `play_mode_permissions.dart:8-10` (only they get **Stop**/**Restart**) | → "to see the preview the way others will" |
+| Global state explained in a clause; public-project intro; cover "stays up to date" | ok | glossary; `test/share.md` cover paragraph unchanged in fact | |
+| Removed facts | ok | | "not the compiled app" → "isn't the real, built app"; nothing dropped |
+
+Known product issues on this page (unchanged, pre-existing decisions): P44 (Single Screen Preview card on every
+`?screen=` link) is described as shipped; P45 (**Attach all** throws after attaching, in the preview page) is code reading
+only and not documented.
+
+## test/run.md
+
+| claim | verdict | source | note |
+|---|---|---|---|
+| Intro: builds the real app, runs as a web app, nothing approximated | ok | `packages/core/lib/src/runner/run_preflight.dart:5-10, 86-89` | |
+| Session boots on project load ("often ready by the time you click"); keeps running when hidden | ok | `lib/project/run/run_button.dart:183-185`, `:147-160` | |
+| **Web support is missing** / **Nothing to run** texts, **Close**, **Add web support**, "Could not generate the missing files. Check the logs for details." | ok | `run_preflight.dart:69, 84-119` | |
+| "Nothing to run" no-code fix: **Fix** on "Main file is not found", then **Run** | ok | `packages/core/lib/src/project/env_services/main_problems_finder.dart:14-48` (**Reset main file**, **Reset**) | |
+| **Phone**/**Tablet**, **Open in Browser** (local), **Open on Mobile** (cloud), **Hot Reload**/**Hot Restart** | ok | `lib/project/top_bar_mapper.dart:171-190`; `packages/nowa_ui/lib/top_bar/top_bar_view.dart:589-613` | |
+| Error screens, restart card, **Fix with AI** behaviour (H3 "Let Nowa AI fix it") | ok | unchanged facts (wording only) | |
+| **Routed from B07**: "Messages from a `print` step … show up here too, both when you run your app and when you test with **Play**." | added | Play: the interpreter's `print` calls `logInfo` (`packages/core/lib/src/interpreter/libraries/dart_core_library_custom.dart:3-8`), which writes to the project's `LoggerProvider`, the **Logs** list (`packages/core/lib/src/utils.dart:19-21`). Run: embedded preview app logs and web console lines are forwarded to the same `LoggerProvider` (`packages/nowa_run/lib/src/nowa_run_manager.dart:309-340`); device runs log `flutter run` output with `logInfo` (`packages/core/lib/src/io_utils.dart:128-142`) | `print` explained in a clause (R3), linked to `logic/actions.md#write-to-the-logs` |
+| Removed facts | ok | | `lib/main.dart` / `web/` sentence moved to for-code (`#project-files`, present) and the dialogs now quote those names themselves |

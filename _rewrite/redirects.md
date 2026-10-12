@@ -29,7 +29,7 @@ Sorted like `old-urls.txt`. "Why" says how the old page maps to the new one: **s
 | `/category/api` | `/integrations/rest-api` | category index | no |
 | `/category/common-functionalities` | `/logic` | category index | no |
 | `/category/common-issues` | `/troubleshooting/known-issues` | category index | no |
-| `/category/control-flow` | `/logic/circuit` | category index | no |
+| `/category/control-flow` | `/logic/conditions` | category index (phase 14: If, Try and loops page) | no |
 | `/category/design-courses` | `/legacy` | legacy move | no |
 | `/category/firebase` | `/integrations/firebase/connect` | category index | no |
 | `/category/functions-and-events` | `/logic` | category index | no |
@@ -89,8 +89,8 @@ Sorted like `old-urls.txt`. "Why" says how the old page maps to the new one: **s
 | `/logic/common-functionalities/open-url` | `/logic/actions` | folded into | no |
 | `/logic/common-functionalities/platform-checking` | `/logic/actions` | folded into | no |
 | `/logic/common-functionalities/print` | `/logic/actions` | folded into | no |
-| `/logic/control-flow/if-statement` | `/logic/circuit` | folded into | no |
-| `/logic/control-flow/try-catch` | `/logic/circuit` | folded into | no |
+| `/logic/control-flow/if-statement` | `/logic/conditions` | same topic (phase 14 split) | no |
+| `/logic/control-flow/try-catch` | `/logic/conditions` | same topic (phase 14 split) | no |
 | `/logic/intro-circuit` | `/logic/circuit` | same topic | no |
 | `/logic/ui-popups/date-picker` | `/logic/popups` | folded into | no |
 | `/logic/ui-popups/dialog` | `/logic/popups` | folded into | no |
@@ -284,8 +284,8 @@ D11: only the target inside `](...)` changed; wording, line count and everything
 | 975 | Intro to Hybrid Approach | `../hybrid-approach/intro-hybrid-approach.md` | `../code/vs-code.md` |
 | 976 | Using Custom Code | `../hybrid-approach/custom-code` | `../code/custom-code.md` |
 | 979 | Circuit Intro | `../logic/intro-circuit.md` | `../logic/circuit.md` |
-| 980 | If Statement | `../logic/control-flow/if-statement` | `../logic/circuit.md` |
-| 981 | Try Catch | `../logic/control-flow/try-catch` | `../logic/circuit.md` |
+| 980 | If Statement | `../logic/control-flow/if-statement` | `../logic/conditions.md` |
+| 981 | Try Catch | `../logic/control-flow/try-catch` | `../logic/conditions.md` |
 | 984 | Navigation | `../logic/common-functionalities/navigation` | `../logic/navigation.md` |
 | 985 | Media Picker | `../logic/common-functionalities/media-picker` | `../logic/popups.md` |
 | 986 | Check Platform | `../logic/common-functionalities/platform-checking` | `../logic/actions.md` |

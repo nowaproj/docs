@@ -63,7 +63,7 @@ Make sure the repository is the right one for this project. Nowa warns that conn
 
 ### Check or remove the connection
 
-Once a repository is connected, **Connected Remote Repository** shows its address. The icon beside it (tooltip **View Repository in Browser**) opens it on GitHub, and **Disconnect** removes the remote from the project. The repository on GitHub stays.
+Once a repository is connected, **Connected Remote Repository** shows its address. The icon beside it (tooltip **View Repository in Browser**) opens it in your browser, and **Disconnect** removes the remote from the project. The repository on GitHub stays.
 
 If GitHub isn't connected yet, **Create GitHub Repository** shows **Connect GitHub** instead of the form, and its info icon explains "You need to connect your GitHub account to create a repository." If GitHub didn't give Nowa permission to create repositories, you see "No permission to create repository. Try again" and **Grant Permission**.
 
@@ -100,7 +100,7 @@ GitHub recommends fine-grained tokens, which you can limit to the repositories N
 Two cases need a little more:
 
 - **A repository you're a collaborator on.** Fine-grained tokens can't yet push to a repository you were invited to as a collaborator, such as a teammate's personal repository, or an organization's repository when you aren't a member of that organization. Create a classic token instead: under **Personal access tokens**, click **Tokens (classic)**, then **Generate new token** → **Generate new token (classic)**. Give it a **Note** and an **Expiration**, tick the **repo** scope and click **Generate token**. A classic token reaches every repository you can access, so keep it extra safe.
-- **An organization's repository.** Some organizations approve fine-grained tokens before they work. You can explain what the token is for in the box under **Resource owner**. Until an organization administrator approves it, the token can only read public resources, so Nowa can't push with it yet. If you own the organization, it's approved automatically.
+- **An organization's repository.** Some organizations require approval for fine-grained tokens. You can explain what the token is for in the box under **Resource owner**. Until an organization administrator approves it, the token can only read public resources, so Nowa can't push with it yet. If you own the organization, it's approved automatically.
 
 For every detail, see [GitHub's guide to personal access tokens](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
 

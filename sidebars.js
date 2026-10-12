@@ -82,6 +82,7 @@ const sidebars = {
         'logic/events',
         'logic/variables',
         'logic/circuit',
+        'logic/conditions',
         'logic/parameters',
         'logic/global-state',
         'logic/functions',

@@ -120,7 +120,7 @@ What changed for the reader
   the "is in use" dialog is for).
 
 Added from the old docs
-- 4.3 variables can steer logic only (an If): conceptual; links circuit.md#branch-with-if.
+- 4.3 variables can steer logic only (an If): conceptual; links conditions.md#branch-with-if.
 - 4.4 a variable belongs to its screen or component: screen variables appear under LOCALS of that class only
   (`packages/core/lib/src/interpreter/suggestion.dart:588-633`); GLOBALS shows global states, not other screens'
   variables (`packages/core/lib/src/state_management/global_state_suggestions.dart:23-74`).
@@ -283,8 +283,8 @@ What changed for the reader
 - The example is now a shop's quantity **+** button (same verified flow as before: **On Pressed**, Set + **refresh**, a text
   linked to the variable).
 - "The pieces" table: plain-words definitions with everyday examples, and two new rows the brief asks every reader to
-  understand: **Condition (If)** and **Error handling (Try)**, linking circuit.md#branch-with-if and
-  circuit.md#handle-errors-with-try.
+  understand: **Condition (If)** and **Error handling (Try)**, linking conditions.md#branch-with-if and
+  conditions.md#handle-errors-with-try.
 - New **Which one do I need?** table (when to use a variable, param, global state, function, If, Try, Shared Preferences),
   consistent with `docs/guides/data-and-state-tips.md` "Pick where each value lives" (B01's page) and linking it.
 - "Everything you build is real Dart code in your project, which you can read in code mode" became "real app code that you

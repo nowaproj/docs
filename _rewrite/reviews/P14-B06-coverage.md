@@ -38,22 +38,22 @@ row's target section exists (anchors checked with a script).
 
 | # | Item | Status | Where / evidence | Note |
 |---|---|---|---|---|
-| 2.1 | What an If is: branch in two directions on a true/false condition; e.g. is the user logged in, is a value empty | added | circuit.md#branch-with-if; index.md#the-pieces | Plain-words explanation and examples (R8). |
-| 2.2 | Add it: **+** under a node → If Statement | covered | circuit.md#branch-with-if | 3.13 label **Add If statement** (`packages/code/lib/src/widgets/add_statement_menu.dart:70`). |
-| 2.3 | Nested Ifs: add another If inside a True or False branch | covered | circuit.md#branch-with-if | |
-| 2.4 | Parts: Condition (must be true/false), True branch, False branch | covered | circuit.md#branch-with-if | `statement_fields.dart:41-49`, `if_node.dart:56-68`. |
-| 2.5 | Nodes after the If continue the flow (end of the If) | covered | circuit.md#branch-with-if | Added "unless that branch ends with a Return" (`if_node.dart:114`). |
-| 2.6 | Default condition is a switch: on = True branch always runs, off = False branch | added | circuit.md#branch-with-if | `add_statement_menu.dart:72` (`SimpleBlock(true)`). |
-| 2.7 | Link the condition to a true/false variable or param of the screen (e.g. `isLoading`) | covered | circuit.md#branch-with-if | LOCALS. |
-| 2.8 | Link to a true/false global state value under GLOBALS | added | circuit.md#branch-with-if | Global states are listed in GLOBALS inside screens/components (`packages/core/lib/src/state_management/global_state_suggestions.dart:70-74`). |
-| 2.9 | Warning: the condition must give true or false | covered | circuit.md#branch-with-if | |
-| 2.10 | Link to a function that returns true/false (local under LOCALS; global: GLOBALS → state → **+** → function); it runs when the flow reaches the If | added | circuit.md#branch-with-if | Statement-level fields get every category (`packages/core/lib/src/fields/field_link_menu.dart:341`); a function pick becomes a call (`field_link_menu.dart:138-157`). |
-| 2.11 | Custom Expression, e.g. `isLoading == true && user != null` | covered | circuit.md#branch-with-if (link), expressions.md#custom-expression | Example `dailyGoal >= 1400` added on circuit.md. |
-| 2.12 | Operators (greaterThan, equal, logicalAnd...): set Type, then Left and Right side; example dailyGoal ≥ 1400 | added | circuit.md#branch-with-if (example) | Operator fields in expressions.md#operators (B07); example uses `greaterThanOrEqual` (`packages/core/lib/src/interpreter/suggestion.dart`, OPERATORS). |
+| 2.1 | What an If is: branch in two directions on a true/false condition; e.g. is the user logged in, is a value empty | added | conditions.md#branch-with-if; index.md#the-pieces | Plain-words explanation and examples (R8). |
+| 2.2 | Add it: **+** under a node → If Statement | covered | conditions.md#branch-with-if | 3.13 label **Add If statement** (`packages/code/lib/src/widgets/add_statement_menu.dart:70`). |
+| 2.3 | Nested Ifs: add another If inside a True or False branch | covered | conditions.md#branch-with-if | |
+| 2.4 | Parts: Condition (must be true/false), True branch, False branch | covered | conditions.md#branch-with-if | `statement_fields.dart:41-49`, `if_node.dart:56-68`. |
+| 2.5 | Nodes after the If continue the flow (end of the If) | covered | conditions.md#branch-with-if | Added "unless that branch ends with a Return" (`if_node.dart:114`). |
+| 2.6 | Default condition is a switch: on = True branch always runs, off = False branch | added | conditions.md#branch-with-if | `add_statement_menu.dart:72` (`SimpleBlock(true)`). |
+| 2.7 | Link the condition to a true/false variable or param of the screen (e.g. `isLoading`) | covered | conditions.md#branch-with-if | LOCALS. |
+| 2.8 | Link to a true/false global state value under GLOBALS | added | conditions.md#branch-with-if | Global states are listed in GLOBALS inside screens/components (`packages/core/lib/src/state_management/global_state_suggestions.dart:70-74`). |
+| 2.9 | Warning: the condition must give true or false | covered | conditions.md#branch-with-if | |
+| 2.10 | Link to a function that returns true/false (local under LOCALS; global: GLOBALS → state → **+** → function); it runs when the flow reaches the If | added | conditions.md#branch-with-if | Statement-level fields get every category (`packages/core/lib/src/fields/field_link_menu.dart:341`); a function pick becomes a call (`field_link_menu.dart:138-157`). |
+| 2.11 | Custom Expression, e.g. `isLoading == true && user != null` | covered | conditions.md#branch-with-if (link), expressions.md#custom-expression | Example `dailyGoal >= 1400` added on circuit.md. |
+| 2.12 | Operators (greaterThan, equal, logicalAnd...): set Type, then Left and Right side; example dailyGoal ≥ 1400 | added | conditions.md#branch-with-if (example) | Operator fields in expressions.md#operators (B07); example uses `greaterThanOrEqual` (`packages/core/lib/src/interpreter/suggestion.dart`, OPERATORS). |
 | 2.13 | Tip: reopen an operator as a Custom Expression to see and edit the formula | covered | expressions.md#custom-expression | "A dialog opens in text mode, showing the current expression." |
-| 2.14 | Compute: Nowa creates a true/false function, links it, open it with **Open in Circuit**; add params and pass data | covered | expressions.md#compute; circuit.md#branch-with-if (one line) | `field_link_menu.dart:268-279`. The "add params and pass them from the If" detail is advanced and left to expressions.md (not re-verified in the UI). |
+| 2.14 | Compute: Nowa creates a true/false function, links it, open it with **Open in Circuit**; add params and pass data | covered | expressions.md#compute; conditions.md#branch-with-if (one line) | `field_link_menu.dart:268-279`. The "add params and pass them from the If" detail is advanced and left to expressions.md (not re-verified in the UI). |
 | 2.15 | Detach a condition | covered | expressions.md#link-menu (**Detach...**) | |
-| 2.16 | **Create Variable** in the link menu makes a new true/false variable and links it | added | circuit.md#branch-with-if | `field_link_menu.dart:241-266,366-377` (variable on the screen, starts with the switch's value). |
+| 2.16 | **Create Variable** in the link menu makes a new true/false variable and links it | added | conditions.md#branch-with-if | `field_link_menu.dart:241-266,366-377` (variable on the screen, starts with the switch's value). |
 | 2.17 | YouTube Water Tracker tutorial from 18:56 | not useful | | Pure media, pre-3.x UI. |
 | 2.18 | Closing sentence | not useful | | Filler. |
 
@@ -61,15 +61,15 @@ row's target section exists (anchors checked with a script).
 
 | # | Item | Status | Where / evidence | Note |
 |---|---|---|---|---|
-| 3.1 | What the Try node is: handles steps that might go wrong so the app doesn't crash and shows feedback | added | circuit.md#handle-errors-with-try | |
-| 3.2 | What an exception is (a problem while the app runs, e.g. no internet); "try this, and if it goes wrong, do this instead" | added | circuit.md#handle-errors-with-try | Plain words (R8). |
-| 3.3 | When to use it: API requests, reading/writing saved data, custom calculations on user input | added | circuit.md#handle-errors-with-try | |
-| 3.4 | **Error name** field: names the variable holding the error; find it under Locals in On Error | covered | circuit.md#handle-errors-with-try | Default `error` (`packages/core/lib/src/interpreter/block_tree.dart:1918-1923`), label `statement_fields.dart:62`. |
-| 3.5 | Main branch: the risky steps; if one fails, the flow jumps to On Error | covered | circuit.md#handle-errors-with-try | Main line straight down (`try_node.dart:39`). |
-| 3.6 | On Error branch runs only when something failed | covered | circuit.md#handle-errors-with-try | |
-| 3.7 | Add it: **+** → Try; main line, On Error on the left | covered | circuit.md#handle-errors-with-try | **Add Try statement** (`add_statement_menu.dart:78`); On Error label left (`try_node.dart:61-66`). |
-| 3.8 | Example: API request in the main line, store the response; Snackbar from Globals with `error` in On Error | added | circuit.md#handle-errors-with-try (example) | Adds the 3.13 must-know: turn on **await** for the request, or the Try can't catch its failure (Flutter SDK `bin/cache/dart-sdk/lib/async/future.dart:92-113`; `packages/code/lib/src/fields/future_options.dart:10-31`). |
-| 3.9 | What to put in On Error: Snackbar (Globals), Bottom Sheet or Dialog ("Nowa" category), reset variables or redirect, logs | added | circuit.md#handle-errors-with-try | 3.13 categories: **Show snackbar** in GLOBALS (`global_state_suggestions.dart:65`); `showDialog` / `showModalBottomSheet` in **MATERIAL** (popups.md); `print` in **DART:CORE** (actions.md). The old "Nowa" category is gone. |
+| 3.1 | What the Try node is: handles steps that might go wrong so the app doesn't crash and shows feedback | added | conditions.md#handle-errors-with-try | |
+| 3.2 | What an exception is (a problem while the app runs, e.g. no internet); "try this, and if it goes wrong, do this instead" | added | conditions.md#handle-errors-with-try | Plain words (R8). |
+| 3.3 | When to use it: API requests, reading/writing saved data, custom calculations on user input | added | conditions.md#handle-errors-with-try | |
+| 3.4 | **Error name** field: names the variable holding the error; find it under Locals in On Error | covered | conditions.md#handle-errors-with-try | Default `error` (`packages/core/lib/src/interpreter/block_tree.dart:1918-1923`), label `statement_fields.dart:62`. |
+| 3.5 | Main branch: the risky steps; if one fails, the flow jumps to On Error | covered | conditions.md#handle-errors-with-try | Main line straight down (`try_node.dart:39`). |
+| 3.6 | On Error branch runs only when something failed | covered | conditions.md#handle-errors-with-try | |
+| 3.7 | Add it: **+** → Try; main line, On Error on the left | covered | conditions.md#handle-errors-with-try | **Add Try statement** (`add_statement_menu.dart:78`); On Error label left (`try_node.dart:61-66`). |
+| 3.8 | Example: API request in the main line, store the response; Snackbar from Globals with `error` in On Error | added | conditions.md#handle-errors-with-try (example) | Adds the 3.13 must-know: turn on **await** for the request, or the Try can't catch its failure (Flutter SDK `bin/cache/dart-sdk/lib/async/future.dart:92-113`; `packages/code/lib/src/fields/future_options.dart:10-31`). |
+| 3.9 | What to put in On Error: Snackbar (Globals), Bottom Sheet or Dialog ("Nowa" category), reset variables or redirect, logs | added | conditions.md#handle-errors-with-try | 3.13 categories: **Show snackbar** in GLOBALS (`global_state_suggestions.dart:65`); `showDialog` / `showModalBottomSheet` in **MATERIAL** (popups.md); `print` in **DART:CORE** (actions.md). The old "Nowa" category is gone. |
 | 3.10 | Closing sentence | not useful | | Filler. |
 
 ## 4. `vars-params-functions/create-variable.mdx` (Local variables)

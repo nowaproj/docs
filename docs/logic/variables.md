@@ -7,7 +7,7 @@ keywords: [variable, variables, local variable, state, Variables panel, default 
 
 A variable is a value your screen or component remembers while it's open: the number in a counter, the name someone typed, the products in a list, whether something is still loading. Widgets can show it and your logic can change it, which is how a screen reacts to what people do.
 
-Some variables never show up on screen at all. A true/false value such as `isFirstVisit` can decide which branch of an [If](./circuit.md#branch-with-if) runs.
+Some variables never show up on screen at all. A true/false value such as `isFirstVisit` can decide which branch of an [If](./conditions.md#branch-with-if) runs.
 
 Each variable belongs to its screen or component, and other screens can't see it. When several screens need the same value, such as a shopping cart, keep it in a [global state](./global-state.md) instead.
 

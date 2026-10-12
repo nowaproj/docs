@@ -38,10 +38,11 @@ source `/home/user/flutter`. Work in progress: sections are appended page by pag
 | **Children**: hover a row for the drag handle; hover **Children** and **+** adds a copy of the last widget | ok | `packages/core/lib/src/fields/list_field.dart:33-53`, `:183-188`, `:209-235` | |
 | Arrow key along a Row/Column moves the widget one place | ok | `packages/designer/lib/src/design/order_design.dart:99-113`; `designer_setup.dart:26-49` | |
 | L/T/R/B greyed when not pinned; W/H with Fixed/Auto only when the widget has a natural size | ok | `packages/designer/lib/src/details/positioned_details.dart:26-63`; `packages/designer/lib/src/details/size_fields.dart:65-128`, `:161` (no dropdown with one option) | |
-| Constraint dropdown labels; table of what each does; **W**/**H** greyed with both sides | ok | `positioned_details.dart:93-193`; `positioned_helper.dart:322-332` (both sides clear width/height) | |
+| Constraint dropdown labels; table of what each does; **W**/**H** greyed with both sides | ok | `positioned_details.dart:93-193`; `positioned_helper.dart:330-340` (both sides clear width/height) | |
 | Bars pin a side, Shift-click the opposite bar pins both, **+** clears every pin, works on several widgets | ok | `positioned_details.dart:197-279` | |
-| "To center a widget across but keep it near the top, choose **Center** first, then **Top**" | fixed | `positioned_details.dart:127-129` (**Center** clears both axes), `positioned_helper.dart:300-304`, `:166-176` (**Top** pins at the widget's current, now centered, distance) | After **Center** the widget sits in the middle, so **Top** pins it there, not near the top. Now: choose **Center**, then **Top**, then type the distance in **T**. Also added that **Center** moves the widget to the stack's Alignment. |
-| Dragging a centered widget pins it to the left and top again | ok (wording tightened) | `drag_rule.dart:244-263` (`layout.moveTo`), `packages/core/lib/src/layout/layout.dart:93`, `:139-153` (`setOnly` → `setX`/`setY`), `positioned_helper.dart:116-148` (an unpinned direction pins left/top) | Code-derived, not run live. "Choose Center once the widget is where you want it" was misleading (Center moves it to the middle anyway); now "Set **Center** last, once you're done dragging." |
+| "The **+** ... removes every pin, so the widget centers both ways" | fixed (wording) | `positioned_details.dart:255-261` (`setCenterConstraints`) | It goes to the stack's Alignment, which is only the middle by default. Now "the same as **Center** both ways". |
+| "To center a widget across but keep it near the top, choose **Center** first, then **Top**" | fixed | `positioned_details.dart:128`, `:179` (**Center** clears both axes, `positioned_helper.dart:352-355`), `positioned_helper.dart:306-310`, `:173-183` (**Top** pins at the widget's current, now centered, distance) | After **Center** the widget sits in the middle, so **Top** pins it there, not near the top. Now: choose **Center**, then **Top**, then type the distance in **T**. Also added that **Center** moves the widget to the stack's Alignment. |
+| Dragging a centered widget pins it to the left and top again | ok (wording tightened) | `drag_rule.dart:244-263` (`layout.moveTo`), `packages/core/lib/src/layout/layout.dart:93`, `:139-153` (`setOnly` → `setX`/`setY`), `positioned_helper.dart:114-148` (an unpinned direction pins left/top) | Code-derived, not run live. "Choose Center once the widget is where you want it" was misleading (Center moves it to the middle anyway); now "Set **Center** last, once you're done dragging." |
 | Check constraints by changing the screen's **Size** or dragging a corner | ok | `packages/designer/lib/src/details/widget_fields.dart:226-245`; responsive.md (live-checked in P12) | |
 | "**W** and **H** each have a dropdown" | fixed | `size_fields.dart:161` (hidden when only **Fixed** is possible) | Now "usually each have a dropdown". |
 | **Fixed** fills in the current size; **Auto** only with a natural size, includes padding; **Expand** shares the space left equally, fills across; "Good for" uses | ok | `size_fields.dart:236-283`; `packages/designer/lib/src/details/flex_size_field.dart:46-67`, `:99-120`; `packages/nowa_runtime/lib/src/widgets/widgets.dart:72-89` (Flexible, tight, flex 1); padding is a wrapper inside the size box (`packages/core/lib/src/interpreter/widget/widget_instance_impl.dart:88-92`) | Uses are advice. |
@@ -52,5 +53,131 @@ source `/home/user/flutter`. Work in progress: sections are appended page by pag
 
 Removed facts: none lost. The old sentences were reworded or expanded (groups, padding, Stack settings, constraints,
 size modes, per-parent list, scroll/wrap/list). Audience: no code-only facts on the page; enum values shown in
-dropdowns (`loose`, `ltr`, `hardEdge`, `max`...) are UI text, each explained (R3). Word count ~2,130 of prose, under
-the ~2,200 limit; the writer's split plan stays valid.
+dropdowns (`loose`, `ltr`, `hardEdge`, `max`...) are UI text, each explained (R3). Word count after the fixes and the
+routed B14 sentence: ~2,180 words of prose (stripped of markup), just under the ~2,200 limit (the writer's version was
+~2,080). If anything more is added here, use the writer's split plan: "Place widgets in a stack" plus "Stack settings"
+as their own page, linked from "Pick the right arrangement".
+
+## screens.md
+
+| Claim | Verdict | Source | Note |
+|---|---|---|---|
+| **Components** chip lists component templates; **Empty Page** is a blank screen; dialog titled after the template | ok | `packages/core/lib/src/services/templates/built_in/empty_page.dart:3-10`; template picker (unchanged facts) | |
+| **Class name** and **Path** lines show how it's named and stored; can be left as they are | ok | `packages/core/lib/src/file_system/widgets/file_name_text_field.dart:172-215` (pre-filled from the name, editable on hover) | |
+| GoRouter projects get a route; Route Settings only in GoRouter projects, which new projects are | ok, explained | `packages/designer/lib/src/details/route_details.dart:18`, `:107`, `:116-117` ("only available in projects using go_router"); `packages/core/lib/src/plugin.dart:124-128`; logic/router.md | R4: "GoRouter" was never explained. Now "the navigation system new projects start with", plus a link for older projects to `../logic/router.md#switch-an-older-project-to-gorouter` (gating note with its fix). |
+| 393 × 808 is the **Pixel 3a** preset | ok | `packages/core/lib/src/screen_sizes.dart:12-13` | |
+| Slot rows, **null** (empty), drag-onto-Stack caveat, **Size** presets | ok | `packages/designer/lib/src/details/widget_fields.dart:202-259` | Wording only. |
+| "Your content lives in the screen's main group" | fixed (wording) | Templates differ (see layout.md row) | Now "usually lives". |
+| "Other sections, such as **Safe Area** ..., are covered in [Change widget properties]" | fixed | `packages/core/lib/src/wrappers_to_add.dart:100` (Safe Area is a wrapper); properties.md doesn't mention Safe Area | Link now goes to `properties.md#add-a-wrapper` and `../reference/wrappers.md#safe-area`, where Safe Area is described. |
+| Route = the screen's address; other screens open it; part of the web link; route-parameter example | ok | logic/router.md; `route_details.dart:113-150` | |
+| Home screen, home icon | ok | unchanged facts | |
+| Rename updates every place; description is a note for teammates and Nowa AI | ok | `docs/new/whats-new.md:168-169` | |
+| **Copy as new widget** gives a separate screen placed on the board | ok | `packages/designer/lib/src/design/common_design.dart:217-259` (new class, new file, `placeBlock` at the pointer, which is over the board when you right-click a title) | |
+| One screen on several boards or twice; copy/paste adds another item for the same screen | ok | `packages/designer/lib/src/design/copy_paste.dart` (research "Copy / Cut / Paste"); `widget_fields.dart:235-240` (each board item has its own **Size**); responsive.md (live-checked) | |
+| **Detach** on a screen's board item makes a loose copy that isn't part of the app | ok, wording tightened | `packages/designer/lib/src/menus/widget_context_menu.dart:50-51` (shown whenever the item has a component, which a screen's board item has); `common_design.dart:183-193` (`detach` swaps the board item for a copy of the screen's widgets); `packages/designer/lib/src/actions/designer_actions.dart:180-201` (undoable, deletes nothing) | Code-derived, not run live. Now "swaps that board item for a loose copy of the screen's widgets, which isn't part of your app. The screen itself stays in your project, and Ctrl/Cmd+Z undoes the swap", so the reader doesn't fear losing the screen. Old docs' "Detach separates a screen instance" stays corrected. |
+| Removing keeps the screen; drag it back from the Library | ok | boards.md, `library_host.dart` | |
+
+Removed facts: file mechanics (`lib/pages/`, file renamed, note saved in code, copy in a new file, "its file stays")
+are in the for-code file (#screens-and-routes); the page keeps every step and result in plain words.
+
+## components.md
+
+| Claim | Verdict | Source | Note |
+|---|---|---|---|
+| Recipe-card example; "instance" defined | ok | old `ui/components.md`; instances share the component's widgets | |
+| Unique name: no screen, component or built-in widget may use it; Nowa suggests a free one with a number (`Container1`) | ok | `packages/core/lib/src/file_system/naming.dart:35-37` (`lookup` covers the project and libraries, so `Container` is taken), `:126-151`; `common_design.dart:132-146` | |
+| Swaps the widget for an instance at the same size and position | ok | `common_design.dart:148-181` (`LayoutSnapshot`) | |
+| **Class name** / **Path** lines | ok | `file_name_text_field.dart:172-215` | |
+| Shows up in the Library under **Project**; one link to `../code/generated-code.md#components` | ok | allowed anchor | |
+| A wrapper added while the component's board item is selected becomes part of the component; on one instance it wraps only that instance | ok, wording tightened | `packages/designer/lib/src/details/widget_details.dart:54-63` (a selected root instance of a component maps to the component's own top widget), `:66-90` (**Add Wrapper** wraps the mapped widget); a component opened on its own is a root instance too (`packages/designer/lib/src/widgets/widget_designer.dart:54-63`) | Code-derived, not run live. "While the component itself is selected" was ambiguous (an instance on a screen is also "the component"). Now "while the component's own board item is selected (or while it's open on its own)". |
+| Edit inside an instance; first crumb selects the whole instance | ok | `widget_details.dart:314-334` | |
+| **Copy as new widget**: a new component you can change on its own | ok, completed | `common_design.dart:217-259` | Added where the copy appears ("where your pointer last was", `placeBlock` uses `board.pointerLocation`) and that the right-clicked instance stays linked to the original; a reader would otherwise expect the instance to be replaced. |
+| **Detach** loses param values (known issue) | ok | unchanged, `docs/troubleshooting/known-issues.md#detach` | |
+| Params: `title` / **String** example; link by clicking the property's name and picking the param | ok | `packages/core/lib/src/fields/block_field.dart:1025-1027` (tap on the name opens the link menu) | |
+| Adding a variable sets up what the component needs | ok | stateful conversion (research features-designer-core "Variables box") | |
+| Manage: folders such as `pages`; Delete flow; undo while the Library has focus; **Show in code** | ok | `lib/project/panels/library_panel/library_host.dart:156-235`; screenshot `design-components-2` | |
+
+Removed facts: Dart file in `lib/`, file renamed or deleted with the widget, "in its own file", "stateful": in the
+for-code file (#components). Nothing the reader needs was lost.
+
+## boards.md
+
+| Claim | Verdict | Source | Note |
+|---|---|---|---|
+| Names show as lowercase with underscores (`login_flow`) in the list and on the chip | ok | `packages/designer/lib/src/actions/file_actions.dart:61-66`; `packages/core/lib/src/file_system/naming.dart:158-163` (snake case); `lib/project/top_bar_mapper.dart:92`, `:103` (labels = file name without extension) | |
+| Deleting keeps screens and components, only loose widgets go | ok | unchanged fact | |
+| Organize with boards (advice); a screen can sit on several boards | ok | old `ui/boards.mdx`; see screens.md row | |
+| Board color and grid saved with the board | ok | `packages/designer/lib/src/details/board_details.dart:36-73`; `packages/core/lib/src/file_system/board_file.dart:78-100`, `:147-148` (written to the board file) | |
+| Zoom and position remembered on your device | ok | unchanged fact | |
+| Loose widgets live only on the board; good for sketching | ok | unchanged fact plus advice | |
+| Frame clips spills | ok | unchanged fact | |
+| **Shape** draws a gray box (a **Container**) | ok | `packages/designer/lib/src/widgets/designer_tools.dart:90-91`, `:140-149`; `default_blocks.dart:8-13` | |
+| Board error: **This screen failed to render**, **Reload screen**; no-code fix with Nowa AI in **Agent** mode first, check **Problems** | ok | `packages/designer/lib/src/error_boundary.dart:243-256`; ai/context.md | R5 order is right. |
+
+Removed facts: `boards` subfolders, `.board` file, board file: in the for-code file (#project-files). Nothing lost.
+
+## index.md
+
+| Claim | Verdict | Source | Note |
+|---|---|---|---|
+| "Everything you design becomes part of a real app that you own" | fixed | the page's own table: boards and loose widgets aren't part of the app (`packages/core/lib/src/board/board_canvas.dart:169`) | Contradicted the table. Now "Your screens and components become part of a real app that you own." |
+| "In your app" column (board, screen, component, loose widget, widget) | ok | boards.md#know-your-board-items | |
+| Outline: jump to any widget, even hidden or hard to click | ok | design/outline.md intro | |
+| **Variables** row: "values the screen remembers and the actions it can run (its variables and functions)" | fixed | panel lists **Params**, **Variables**, **Functions** (`packages/core/lib/src/widgets/code/declaration_list_widgets.dart:278`, `:392`); glossary | Params had dropped out. Now "receives and remembers ... (its params, variables and functions)". |
+| "Design for every screen size: screen sizes without breakpoints" | fixed (R4) | unchanged line, audience rule applies to the whole page | "Breakpoints" is jargon here; now "one layout that fits phones, tablets and browsers" (responsive.md explains breakpoints). |
+| AI places new screens on the board; selection attached to the next message; Play | ok | unchanged facts | |
+
+Removed facts: the "Where it is saved" column and "saved as real Flutter code": in the for-code file (#project-files,
+#screens-and-routes, #components).
+
+## library.md
+
+| Claim | Verdict | Source | Note |
+|---|---|---|---|
+| Intro: also where you rename, organize and delete | ok | `library_host.dart:156-172` | |
+| **Project**: screens and components in folders such as `pages`; red error count; named versions set up in code under a component | ok | `packages/core/lib/src/library/library_service.dart:225-293`; `packages/core/lib/src/interpreter/services/variant_service.dart:7-30` | |
+| **Packages** = add-ons, with versions; **Material** = Google's design style, **Cupertino** = Apple's iOS style; **Assets** | ok | `library_service.dart:370-386`; Flutter library docs | |
+| **Filter** kinds explained; **Private** = names starting with `_` | ok | unchanged labels | The **Classs** typo note stays (product issue P5). |
+| `button` lists **CustomButton** (from a package every new project includes) before **Button** | ok | `packages/nowa_runtime/lib/src/widgets/widgets.dart:3`; code/packages.md | |
+| **Recent**: "so the widgets you use most are always a click away" | fixed | **Recent** = last eight added, not most used | Now "so the things you used last are a click away". |
+| **Open** on a screen/component/asset; nothing to open for built-in widgets | ok | `library_host.dart:147-171` | |
+| **Rename**: for a screen or component, every place updates | ok | `library_host.dart:199-214` (`DeclGen().rename` for declarations) | |
+| Moving: screens and components between project folders, assets between `assets` folders | ok | `library_host.dart:245-254` (`_canMove`) | |
+| **New Widget...** opens the new one on its own | ok | `lib/project/panels/files_panel/add_lib_menu.dart:38-49` (`openFile`) | |
+| **New Folder...** in the highlighted row's folder or at the top of **Project** | ok | `library_host.dart:176-186` | |
+| Model, global state, JSON, API collection, **Import Dart code...** explained | ok | `add_lib_menu.dart:50-101`; logic/models.md, logic/global-state.md, integrations/rest-api/index.md | |
+
+Removed facts: `lib/`, `@Preview`, `pubspec.yaml`, **workspace** version label, `nowa_runtime`, file mechanics of
+Open/Rename/Delete/move, `lib/models`, `lib/globals`: in the for-code file (#project-files, #packages, #models,
+#global-state). Nothing the reader needs was lost.
+
+## add-widgets.md
+
+| Claim | Verdict | Source | Note |
+|---|---|---|---|
+| "Package" explained; **Add Missing Dependencies** flow; drag doesn't ask and the package stays missing; **Problems** message explained; **Hot Fix** | ok | unchanged facts (P12 live checks); R3 explanation added | |
+| Shape = gray box (a **Container**); tools switch back to **Select tool** after one use | ok | `designer_tools.dart:90-91`; `packages/designer/lib/src/design_experience/place_board.dart:171-177` | |
+| Assets: SVG explained; Nowa creates the matching widget | ok | unchanged facts | |
+| Pasted image saved in the `assets` folder, shown under **Assets** | ok | `copy_paste.dart:110-139` (`importInDir` into `assetsDir`); `library_service.dart:315-343` | |
+| Dropping onto a container doesn't put it inside; use **+** | ok | `packages/designer/lib/src/design_experience/move_tool.dart:308`, `:371` (widgets with no base widget, such as an empty Container, never host a drop) | |
+| **Request a Widget** goes to the Nowa team | ok | `packages/core/lib/src/dialogs/feedback_dialogs.dart:75-91` ("Is there a widget you want that is missing from our library? Let us know!") | |
+
+Removed facts: `nowa_runtime` as the source of **CustomButton**: in the for-code file (#packages). No fixes needed.
+
+## select-and-edit.md
+
+Tone and plain-word changes only (siblings, parent, rich text, reasons). Checked: no-handles reason (`packages/core/lib/src/layout/layout.dart`, `DefaultLayout.canResize` false), drop table (`drag_rule.dart:9-29`, `:217-280`, `move_tool.dart:297-337`), right-click entries (`widget_context_menu.dart:21-58`), **Export as image...** limits (unchanged). All ok, no fixes. No facts removed.
+
+## properties.md
+
+| Claim | Verdict | Source | Note |
+|---|---|---|---|
+| Intro and Details sections; **Widget x N**, **Mixed** | ok | unchanged facts | |
+| **Kept as code**: the app still includes the widget, **Run** shows it; ask Nowa AI in **Agent** mode to rebuild it | ok | `packages/designer/lib/src/details/widget_details.dart:552`; code/limitations.md; features-ai.md (agent edits any file) | R5: phrased as an option, with a check. |
+| Routed from B13: "A choice ... such as **Text Align** on a **Text**, the list starts with **Default**" | fixed | **Text Align** is four toggle buttons with no **Default** (`packages/core/lib/src/fields/text_fields.dart:336-363`, registered at `block_field.dart:52`, used at `packages/designer/lib/src/details/widget_fields.dart:307`); **Overflow** is `TextOverflow?` (`material_library.dart:112097`) shown by `BFEnum`, which adds **Default** for nullable enums (`basic_fields.dart:1540-1545`; field at `widget_fields.dart:309`) | Now "such as **Overflow** on a **Text**". |
+| "A group of settings, such as **Border** or **Radius**" | fixed (wording) | — | "Group" is a layout term in this section of the docs; now "A set of settings". |
+| Color picker **Solid** and the gradients **Linear**, **Radial**, **Sweep** | ok | unchanged labels | |
+| Wrapper intro: **Padding**, **Container** (background color, border, rounded corners), **Gesture Detector**, **Scroll View**; order as layers | ok | `wrappers_to_add.dart:13-60`; reference/wrappers.md#container; `widget_details.dart:66-90` | |
+| "Nowa has 32 wrappers" (unchanged) | ok | `wrappers_to_add.dart:12-184` (32 entries) | |
+
+Removed facts: none (the page had no code-only facts).

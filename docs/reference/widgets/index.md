@@ -122,7 +122,7 @@ A new text grows with its words: its size in **Layout** is **Auto**. To draw a b
 | <Anchor id="drawer" />[**Drawer**](./navigation.md) | A side menu that slides in over a screen. | Set it in the screen's **Drawer** slot: see [Add a screen part](./navigation.md#screen-parts). Also a [wrapper](../wrappers.md#drawer). |
 | <Anchor id="listtile" />**List Tile** | One row with a title and optional leading, subtitle and trailing widgets. | Typically the item of a **List View** or a row in a drawer. **On Tap** makes the row tappable. See [Build rows with List Tile](./lists.md#list-tile). |
 | <Anchor id="expansion-tile" />**Expansion Tile** | A tile that expands to show more widgets, like a FAQ question that reveals its answer. | Put the hidden widgets in **Children**. **Initially Expanded** opens it from the start. See [Show more on tap with Expansion Tile](./lists.md#expansion-tile). |
-| <Anchor id="alert-dialog" />**Alert Dialog** | A pop-up box with a title, content and action buttons, to confirm an action ("Delete this photo?") or share something important. | To show it in a running app, add a `showDialog` step in logic: see [Show dialogs, sheets, snackbars and pickers](../../logic/popups.md#show-a-dialog). |
+| <Anchor id="alert-dialog" />**Alert Dialog** | A pop-up box with a title, content and action buttons, to confirm an action ("Delete this photo?") or share something important. | To show it in a running app, add a `showDialog` step, the logic step that opens a dialog: see [Show dialogs, sheets, snackbars and pickers](../../logic/popups.md#show-a-dialog). To reuse your own design, make it a component and pick it as the dialog's content: see [Use your own design](../../logic/popups.md#use-your-own-design). |
 
 ## Integrations
 

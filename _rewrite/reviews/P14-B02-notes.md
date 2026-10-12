@@ -251,7 +251,6 @@ Added:
 - "unless you turn on **Auto-approve tools**" on the approval bullet in "How connectors work" (same fact as the
   Auto-approve section).
 - One pointer to `../code/generated-code.md#supabase` at the end of "Connect Supabase".
-
 - Old S9 (Storage: buckets, access and policies), as one bullet in the capability list, linked to
   `integrations/supabase/storage.md` (which already says "ask Nowa AI to create it with the Supabase connector",
   `:13`, with an example prompt at `:76`). Evidence: Nowa's connector URL is
@@ -313,3 +312,34 @@ Open questions:
   steps were added (also open question 5 in `research/features-ai.md`).
 - Credits: whether a connected agent's work uses Nowa AI credits is still unconfirmed (research open question 4); the
   page says nothing about it.
+
+## For other pages
+
+1. **`docs/guides/ship-tips.md` (B01), line 37.** Current: "- **Checkpoints** undo Nowa AI requests. They aren't a
+   backup: they live in `.nowa/temp/`, which Git ignores." The folder is code-only (R2). Proposed: "- **Checkpoints**
+   undo Nowa AI requests. They aren't a backup: Git doesn't save them, so keep a Git commit or a downloaded copy of any
+   version you want to return to." (same wording as `guides/ai-tips.md` today). Evidence:
+   `packages/core/lib/src/project/settings_service.dart:34-38`, `packages/core/lib/src/file_system/templates/common/gitignore_template.dart:13-16`.
+   The moved fact is already in `P14-B02-for-code.md` (`#project-files`, from `ai/undo-and-history.md`).
+2. **`docs/troubleshooting/known-issues.md` (B12) and `docs/get-started/playground.md` (B01): P50.** Not documented
+   anywhere. Proposed known-issues entry, heading "The AI chat shows a grey box in the playground", text: "In the playground, before
+   you sign in, the toolbar under the chat field can show as a grey box, and the mode menu and **Add context** don't
+   open. Sign in to use Nowa AI." Evidence: `_rewrite/product-issues.md` P50 (seen live by capture agents, waves 1 and
+   2a); `packages/ai/lib/src/ui/chat_field/ai_chat_field.dart:1028` watches `BillingProvider`, which the playground
+   never initializes. To check first: whether pressing Enter in that state still opens the sign-in request
+   (`packages/ai/lib/src/chat_session.dart:263-264`); `ai/index.md` and `playground.md` both say the first message asks
+   you to sign in.
+3. **`docs/troubleshooting/known-issues.md` (B12): P10, only if confirmed live.** **Attach text file** probably does
+   nothing in the web app (`packages/ai/lib/src/prompt_controller.dart:218-236` keeps only picked files with a path, and
+   `packages/core/lib/src/utils.dart:358-362` reads them with `dart:io`; browsers give no path). Workaround to give:
+   paste the text into your message (now on `ai/context.md`).
+4. **`docs/guides/ai-tips.md` (B01), optional cross-link.** "Work in small steps" or "Review what the agent did" could
+   point to the new recovery section: "If a result isn't right, see
+   [When the result isn't right](../ai/prompting.md#when-the-result-isnt-right)." `ai/prompting.md` links back to
+   `guides/ai-tips.md` for spelling out behavior (its stopwatch example).
+5. **No action, for information (B10).** `integrations/supabase/storage.md:13,76` says Nowa AI can create buckets with
+   the Supabase connector. That holds through SQL (the connector has Supabase's Database tools but not its Storage
+   tools; sources in the `ai/connectors.md` notes above). `ai/connectors.md` now lists it and links there.
+6. **Orchestrator: `docs/code/generated-code.md`.** Seven facts in `P14-B02-for-code.md` (`#project-files` 4,
+   `#themes` 1, `#supabase` 1, `#assets` 1). Pages link to `#project-files` (prompting, undo-and-history,
+   external-agent) and `#supabase` (connectors).

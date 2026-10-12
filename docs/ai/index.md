@@ -5,7 +5,7 @@ sidebar_label: How it works
 keywords: [Nowa AI, AI assistant, AI agent, AI chat, how to use Nowa AI, prompt, vibe coding, build an app with AI, design mode, plan mode, agent mode, think mode, AI credits, AI usage, tokens]
 ---
 
-Tell Nowa AI what you want in plain words, and it builds it right in your project: screens, logic, data, images and fixes. You watch every step happen on the board, and you stay in charge the whole time. Change anything it makes by hand, ask for more, or undo a whole request. What it builds is your real app, the same one you edit visually, test and publish.
+Tell Nowa AI what you want in plain words, and it builds it right in your project: screens, logic, data, images and fixes. You watch every step happen on the board, and you stay in charge the whole time. Change anything it makes by hand, ask for more, or undo a whole request. What it builds is your real app, and it belongs to you: the same app you edit visually, test and publish.
 
 ## Open the AI Assistant
 
@@ -27,9 +27,9 @@ You can try the editor in the [playground](../get-started/playground.md) without
 
 Most requests follow the same rhythm, whether you're starting a new app or polishing one screen.
 
-1. **Pick a mode.** **Design** shapes the look of a new app, **Agent** does everything else, and **Plan** helps you think a big change through first. More on modes below.
+1. **Pick a mode.** **Design** shapes how your app looks and flows, **Agent** can do everything, from design to working features, and **Plan** helps you think a big change through first. More on modes below.
 2. **Describe what you want** and press <kbd>Enter</kbd>. To change one part of a screen, click it on the board first, so Nowa AI knows exactly what you mean.
-3. **Watch the steps.** If Nowa AI asks you something in a **Questions** card, or wants your OK in an **Approval Required** card, answer it so it can carry on.
+3. **Watch the steps.** If Nowa AI asks you something in a **Questions** card, or wants your OK for a connector action in an **Approval Required** card, answer it so it can carry on.
 4. **Check the result** on the board, or click **Play** on a screen to tap through it.
 5. **Keep going.** Ask for the next change, fix small things by hand, or click **Restore Checkpoint** to undo the whole request and try again.
 
@@ -73,7 +73,7 @@ Nowa AI and your own hands work on the same app, so mix them freely.
 - **Select to point.** Click a widget or screen on the board and it's attached to your next message, so "make this button rounder" lands in the right place. See [Give Nowa AI context](context.md).
 - **Watch it happen.** Changes appear on the board while Nowa AI works, so you can see the result take shape.
 - **Edit by hand any time.** What Nowa AI builds is normal Nowa content. Tweak it in the **Details** panel, the **Outline** or code mode, then ask for more. Nowa AI works from your latest version.
-- **Undo a whole request.** If you don't like a result, use **Restore Checkpoint** and your project goes back to how it was. See [Undo AI changes and reopen chats](undo-and-history.md).
+- **Undo a whole request.** If you don't like a result, use **Restore Checkpoint** to undo that request's changes. See [Undo AI changes and reopen chats](undo-and-history.md).
 
 <video controls playsInline preload="metadata" width="100%">
   <source src="/videos/docs/ai/ai-index-video.mp4" type="video/mp4" />
@@ -93,7 +93,7 @@ You'll also meet Nowa AI outside the panel, usually right where you need a hand.
 
 Nowa AI runs on your plan's AI credits. When you start to run low, a **% used** indicator appears under the panel header, so it doesn't catch you by surprise. After a request finishes, the session's token counts appear there too (tokens are the small pieces of text Nowa AI reads and writes), next to a **Session Details** info icon. Its popup shows what the session used, and **Global Usage** opens your account's usage page. If you run out, the chat tells you and offers ways to continue.
 
-For plans, extra credits and billing, see [Plans, billing and AI usage](../account/plans-and-usage.md). For what each plan includes, see [nowa.dev/pricing](https://nowa.dev/pricing).
+For plans, extra credits and billing, see [Plans, billing and AI usage](../account/plans-and-usage.md). For what each plan includes, see [nowa.dev/pricing](https://nowa.dev/pricing). To see which features depend on your plan, see [What your plan includes](../account/plans-and-usage.md#what-your-plan-includes).
 
 ## Next steps
 

@@ -86,7 +86,7 @@ A **Video Player** plays a video file inside your app, such as a lesson in a cou
    On **Asset**, click **Pick Video** or **Upload Video** to use a file from your project. A video in your assets ships inside your app, so a large file makes your app bigger to download. For long videos, a **Network** link is usually the better choice.
 3. **Auto Play** starts the video when the screen opens. **Show Controls Bar** shows the play, pause and seek controls. With both off, the video neither starts by itself nor shows a play button, so keep at least one on.
 
-Instant Play doesn't play videos everywhere. In the desktop app, and for any video on the **Asset** tab, it shows "Platform not supported, only available on iOS and Android". To watch the video for real, run your app on a phone or an emulator from the desktop app. See [Run on a device or emulator](../../test/devices.md).
+Instant Play doesn't play videos everywhere. In the desktop app, and for any video on the **Asset** tab, it shows "Platform not supported, only available on iOS and Android". To watch the video for real, run your app on a phone or an emulator (a virtual phone on your computer) from the desktop app. See [Run on a device or emulator](../../test/devices.md).
 
 ## Embed a YouTube video {#youtube-player}
 

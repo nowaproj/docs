@@ -417,3 +417,14 @@ Open questions:
 - Moved to the code section: 34 facts copied unchanged into `P14-B09-for-code.md` (`#firebase` 29, `#stripe` 5), plus 8
   new code-level facts marked "Added (new, verified)".
 - Images and explicit heading IDs untouched; each image stayed with its paragraph.
+
+## Routed from B12 (added after the summary)
+
+- `firestore.md`, "Use a query in your app": "In the Windows desktop app, run the app on a simulator instead" became
+  "In the Windows desktop app, click **Run** instead: the **Embedded preview** runs the web version of your app. Or run
+  it on an Android emulator or a phone." Checked in the code: the embedded preview is an in-app web view on every desktop
+  platform except Linux (`packages/nowa_run/lib/src/ui/nowa_run_preview.dart:129-140`), the local Nowa Run service runs
+  `flutter run -d web-server` (`packages/nowa_run/lib/src/services/local/nowa_run_service_local.dart:54`), and the
+  Firebase options cover web (`packages/data/lib/src/firebase/setup/fb_setup_manager.dart:122-134`). Same wording as
+  `troubleshooting/known-issues.md#firebase-on-windows` (B12), which also says to skip **Windows** in **Run on**.
+  "Simulator" was dropped because Windows has no iOS Simulator.

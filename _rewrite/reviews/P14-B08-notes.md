@@ -378,3 +378,39 @@ Nothing added from old docs (no old page maps here).
 - `google-sign-in.md` "Before you start", Supabase bullet: now says to turn on Google as a sign-in provider in your
   Supabase project, linking [Sign users in with Supabase](./supabase/auth.md#google) (heading `### Google` checked at
   `docs/integrations/supabase/auth.md:85`). Source: https://supabase.com/docs/guides/auth/social-login/auth-google.
+
+## Late edits (all pages)
+
+- `constants.md`: the **Or ask Nowa AI** tip moved up into "Add your own constant" so it no longer sits right after
+  the warning (style guide: admonitions never stacked).
+- `rest-api/index.md` and `constants.md` now carry the single allowed pointer to `../code/generated-code.md`
+  (`#rest-api`, `#constants`), like the five settings pages. `index.md`, `show-data.md` and `import.md` have none.
+- Checks run on all ten pages: every relative link and `#anchor` resolves (script tested with a broken anchor and a
+  missing file, both flagged); all ten compile as MDX with `@mdx-js/mdx` + `remark-gfm` from the repo's
+  `node_modules` (control file with a stray `{` fails); no banned words, no emoji, no `---` rules, at most two
+  admonitions per page and none stacked. Every external URL cited returned 200 on 2026-10-12. No `yarn build`.
+
+## Page lengths (prose words, front matter, image alt text and markup excluded)
+
+`index.md` 1,046 · `show-data.md` 881 · `constants.md` 626 · `deep-links.md` 746 · `google-maps.md` 802 ·
+`google-sign-in.md` 774 · `admob.md` 1,043 · `revenuecat.md` 1,594 · `rest-api/index.md` 2,354 (split proposal in its
+section) · `rest-api/import.md` 1,109. Only `rest-api/index.md` passes ~2,200.
+
+## For other pages (summary)
+
+1. `integrations/supabase/auth.md#google` (B10): consider adding the Web client's **Client Secret** for web sign-in
+   (Supabase guide, Web section). Details under `google-sign-in.md` above.
+2. `logic/circuit.md` (B06) / `logic/actions.md` (B07): the **PACKAGE:** category with `AppConstants` exists in the
+   **+** node menu, not in a step's argument field link menu (`packages/core/lib/src/fields/field_link_menu.dart:341`).
+   Check that neither page tells readers to pick a constant into a field from that category. Details under
+   `constants.md` above.
+
+## Open questions (summary)
+
+- RevenueCat: P51 (paywall insert hangs in the playground) still unconfirmed on a normal account; whether **Details**
+  shows paywall fields such as an `onDismiss` event in 3.13; Apple's In-App Purchase capability for cloud iOS builds.
+- REST API example: linking `var1` inside the dialog's builder is derived from code, not live-checked.
+- Xano: does a group with **Private** documentation import (Nowa ignores the group's doc token)?
+- Google Maps: an Android key restricted to the release SHA-1 won't load maps in debug runs; maybe say so.
+- Deep links: does a Nowa AI merge of the two iOS URL entries survive the next settings save?
+- AdMob: whether to point to ad tracking rules (Apple 5.1.2(i), **User Tracking** permission).

@@ -74,7 +74,7 @@ The property now shows **Edit condition**. Click it to reopen the popup.
 | `greaterThanOrEqual`, `smallerThanOrEqual` | Is at least, is at most. | `total` greaterThanOrEqual 50 |
 | `equal`, `notEqual` | Is the same as, is different from. | `status` equal "paid" |
 | `logicalAnd`, `logicalOr` | Both are true, at least one is true. | signed in logicalAnd has a plan |
-| `ifNull` | Use the right side when the left side is empty. | `nickname` ifNull "Guest" |
+| `ifNull` | Use **If null** when **Value** is empty. | **Value** `nickname`, **If null** "Guest" |
 
 The **Math** popup offers the first four rows, **Logical** the next four, and **ifNull** is an item of its own. In Circuit, the same operators are in the **OPERATORS** category, so you can use them in an If's **Condition**. Where a menu has no **OPERATORS**, use **EXPRESSIONS** instead.
 

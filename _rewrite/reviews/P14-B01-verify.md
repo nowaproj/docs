@@ -46,3 +46,21 @@ Removed facts: "Developers and teams" bullet split into "Teams" and "People who 
 | Questions card, attached widget, backend, API key glosses | ok | | R4 glosses, no new product claim. |
 
 Two admonitions (tip, warning). Labels, steps and images unchanged.
+
+## get-started/create-account.md
+
+| Claim | Verdict | Source | Note |
+|---|---|---|---|
+| Routed from B03 (optional): Terms and Conditions and Privacy Policy links after the terms checkbox, plus `../account/account-settings.md#your-data-and-privacy` | applied | `lib/auth/auth_view.dart:496-512`, `lib/auth/google_signup.dart:105` (the label opens `https://www.nowa.dev/terms-and-conditions`); `https://nowa.dev/terms-and-conditions/` → 200, title "Terms & Conditions \| Nowa"; `https://nowa.dev/privacy-policy/` → 200, title "Privacy Policy \| Nowa" (the `www` forms redirect there); anchor at `docs/account/account-settings.md:75` | Added as an indented paragraph under step 3. The app itself links only the terms; the privacy link is a docs addition. |
+| Apple: web app incl. a phone's browser, not the desktop app; use email or Google there | ok | `lib/auth/auth_widgets.dart:500` (`NPlatform.isIOS \|\| NPlatform.isWeb`), `lib/auth/auth_view.dart:316-331`, `:524-539` (Google button always shown, `useGoogle` defaults to true) | |
+| **Invalid link**: "incomplete or has expired" | ok | `lib/auth/reset_password_page.dart:60-66` (shown when the link carries no token; app text "missing or has expired") | Plain-words rephrase of "missing". |
+| Playground work can be saved after signing up | ok | `docs/get-started/playground.md#keep-your-work` | |
+| Code confirms the address; check spam; "most take a single click"; projects stay after logout | ok | | Tone (R9); no new label. |
+
+## get-started/playground.md
+
+| Claim | Verdict | Source | Note |
+|---|---|---|---|
+| Menu descriptions quoted and explained; the playground opens on **Starter app** | ok | `packages/core/lib/src/playground/playground_starter.dart:9-11`, `:22` (falls back to `starter`) | R3: UI text kept in quotes, "routing" explained. |
+| Nowa AI needs an account, not a saved app; other features return after saving | ok | unchanged facts reworded | |
+| Guest copy: "edit and play it as much as you like, nothing changes the owner's project" | ok | unchanged fact | |

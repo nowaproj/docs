@@ -173,3 +173,36 @@ Open question 3. **Create Record and Update Record may send empty columns.** The
 instead of using the column's default, so a test that leaves `id` or `created_at` empty would likely be refused (for example "null value
 in column "id" ... violates not-null constraint"). Not seen live, so the page doesn't say it; it steers row-adding to Nowa AI prompts
 with simple inputs (like the old page's `addTask`). One live check: run `createTodos` with only a title.
+
+## storage.md
+
+What changed for the reader:
+- Intro explains buckets (top-level folders with their own access rules) with everyday examples (R4, R9).
+- "Before you start" now points to two new task sections instead of a link-out; the P13 bullet about policies in public buckets moved,
+  unchanged in substance, to the start of "Let your app use the bucket".
+- Circuit names explained where they first appear: `showMediaPicker` (opens the camera or photo library), **await** (wait until the
+  person has picked), `first` (the first picked file), `readAsBytes` (its content), `result null` (nothing to send back) (R3).
+- No code-only facts were on this page, so nothing moved to the for-code file.
+- Keywords: create bucket, New Bucket, public bucket, private bucket, storage policies, public URL.
+
+Added, with evidence:
+- "Create a bucket" (`{#create-a-bucket}`, old page "Create Bucket"): **Storage** page, **New Bucket**, name, **Create Bucket**
+  (https://supabase.com/docs/guides/storage/buckets/creating-buckets, "Dashboard" steps). Public vs private and "Buckets are private by
+  default", use cases (profile pictures, public media, blog content; sensitive documents) and "Access control is still enforced for ...
+  uploading, deleting" (https://supabase.com/docs/guides/storage/buckets/fundamentals). The docs don't name the public switch, so step 4
+  describes it without a label. Opening the dashboard: ⋮ → **Open Supabase** (`ui/sb_outline.dart:286-291`).
+- "Let your app use the bucket" (`{#policies}`, brief: storage policies step by step):
+  - "Storage does not allow any uploads to buckets without RLS policies"; upload needs `INSERT` on `storage.objects`; example policy
+    `on storage.objects for insert to authenticated with check ( bucket_id = 'my_bucket_id' )`
+    (https://supabase.com/docs/guides/storage/security/access-control).
+  - Permissions per function: upload "objects permissions: insert", download "select", remove "delete and select"
+    (https://supabase.com/docs/reference/dart/storage-from-upload, `storage-from-download`, `storage-from-remove`); the templates use
+    `uploadBinary`, `download` and `remove` (`templates/template_source_generator.dart:105-137`).
+  - SQL Editor and **Run**: as in database.md. The select and delete policies use the same `bucket_id` check in a `using` clause.
+- "No template covers public links ...: ask Nowa AI": template list `templates/supabase_template_definitions.dart:74-110`; a public link
+  needs a public bucket (https://supabase.com/docs/reference/dart/storage-from-getpublicurl). Old use cases (Get Public URL, List Files,
+  Move/Copy) come back as things to ask Nowa AI for.
+
+Kept facts (P13-verified): template names, inputs and returns, "generated successfully" message, every test step, `result null`, the
+preview and its cut-off fix, "The resource already exists", the two Circuit flows, the Network-tab tip, the AI tip. Preview image types
+re-checked: `ui/func_test_section.dart:253-266`.

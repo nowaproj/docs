@@ -133,6 +133,78 @@ Claims added or changed, with evidence:
 - Hot reload keeps the app's state: FLUTTER-HOTRELOAD. Saving hot reloads a local device run: `docs/test/run.md`, `docs/test/devices.md` (verified pages).
 - Other Git tools on the same repository: a local project's Git panel opens the repository in the folder (`packages/git_nowa/lib/src/local/local_git_service.dart`), and reloads on outside changes (`packages/git_nowa/lib/src/git_manager.dart:314` `onFilesChangedFromOutside`).
 
+### custom-code.md (Write your own code)
+
+For the reader:
+- Intro explains widget, function and class in a clause each, and sets expectations (the board draws most code, **Run** runs all of it), replacing the old "without a limitation".
+- `lib/` explained; code can live in its own file or next to Nowa's code (old `hybrid-approach/custom-code.md`).
+- Functions table row: **PACKAGE:** category for top-level functions, **LOCALS** for functions inside a screen or component (old custom-code "Locals"), fill in parameters.
+- Classes table row: types for variables, parameters and return values; objects via **GENERAL** → **Create...** (old custom-code "Create" node).
+- New section "Ideas for your own code" (old `hybrid-approach/intro-hybrid-approach.md` practical examples: map widget, geolocator distance function, `Product` class with `formattedPrice`), with what the board shows for each.
+- `@CustomFunction` on methods inside classes, including Nowa's screens (3.13 version of the old "use @CustomFunction inside a Nowa-generated class").
+- Next steps carry a reason each.
+
+Claims added or changed, with evidence:
+- Circuit categories: **PACKAGE:**/library categories first, **LOCALS** for the enclosing widget class's members, **GENERAL** with **Create...**: `packages/core/lib/src/interpreter/suggestion.dart:462-516` (`libraryCategories`, `Locals`, `General` with `ConstructorSuggestion`), `:168-179` (`Create...`), `:588-600` (`LocalSuggestionsFinder` → `widgetSuggestions(klass)`); names shown upper-case (`packages/core/lib/src/fields/link_menu.dart:331`); `docs/logic/circuit.md` table (**PACKAGE:**, **LOCALS**, **GENERAL**), `docs/logic/actions.md` "Create objects".
+- **Create...** lists your classes (non-widget classes with constructors): `suggestion.dart:725-737` (`ConstructorSuggestions.typeFilter`); the node reads "Create <Class>": `packages/code/lib/src/providers/expr_helper.dart:13-16`.
+- Package widgets and functions without built-in support: placeholder / stand-in on the board, real in **Run**: `docs/code/packages.md#how-nowa-loads-your-packages`, `docs/code/limitations.md` (verified pages); no `flutter_map` or `geolocator` library in `packages/core/lib/src/interpreter/libraries/`.
+- `@CustomFunction` on a method: `packages/core/lib/src/interpreter/visitors/ast_to_block_visitor.dart:1099-1101` (method with the annotation → `CustomMemberVisitor`), `:2171-2178` (`CustomMethodDecl` built without `preview`), `packages/core/lib/src/interpreter/declaration_hybrid.dart:28-50` (`customInvoke`: logs "calling: <name>", returns a mock), `:124-140`. Methods without the annotation are read normally (`ast_to_block_visitor.dart:1104-1129`).
+- `Product` example: plain Dart (string interpolation, `toStringAsFixed`); classes and methods run on the board (`docs/code/limitations.md` lists what doesn't).
+
+### index.md (Nowa and your Flutter code)
+
+For the reader:
+- Intro explains Flutter and Dart in a clause each and says up front that touching the code is optional.
+- "What's in your project": framed as the map of a Flutter project; `pubspec.yaml` (settings file, packages from pub.dev, assets, fonts) and platform folders explained; `@NowaGenerated` described as a tag on the declaration.
+- "In this section" table: new row for [What Nowa adds to your code](generated-code.md), the one edit allowed about that page.
+
+Claims added or changed, with evidence:
+- Flutter and Dart: https://flutter.dev ("an open source framework by Google for building ... multi-platform applications from a single codebase"); https://dart.dev.
+- `pubspec.yaml` holds the name, packages, assets and fonts: `docs/code/packages.md`, `docs/design/assets.md` (verified pages); DART-GET.
+- Platform folders are what Flutter builds each platform from: FLUTTER-DEPLOY (per-platform build and release).
+
+### packages.md (Add packages)
+
+For the reader:
+- Intro says why packages help and explains `pubspec.yaml` in a clause.
+- The five starter packages each get a few words on what they're for.
+- One-clause explanations: caret versions, `flutter pub get`, Git and path packages, `sdk:` packages, `dev_dependencies`.
+- Next steps carry a reason each.
+
+Claims added or changed, with evidence:
+- What the starter packages do in a Nowa project: `provider` for global state (`packages/core/lib/src/project/env_services/global_state_service.dart:22-35`), `shared_preferences` for the Circuit **SHARED PREFERENCES** actions (`packages/core/lib/src/interpreter/suggestion.dart:480-505`), `dio` for REST APIs (`packages/core/lib/src/interpreter/libraries/dio_library.dart`; `docs/integrations/rest-api/index.md`), `go_router` for routes (`packages/core/lib/src/interpreter/libraries/go_router_library.dart`; `docs/logic/router.md`), `nowa_runtime` imported by generated code (existing sentence).
+- Caret meaning: DART-DEPS ("the range of all versions guaranteed to be backwards compatible with the given version").
+- `pub get` downloads the packages in `pubspec.yaml`: DART-GET.
+- Dev dependencies are for tests and tools, not `lib`: DART-DEPS.
+- `sdk:` packages ship with the Flutter SDK (`flutter_localizations`): https://docs.flutter.dev/ui/internationalization (adds `flutter_localizations: sdk: flutter`); Nowa's handling is the existing verified sentence.
+
+### code-mode.md (Edit code in Nowa)
+
+For the reader:
+- Intro says what language you'll see (Dart) and why you'd open code mode (check what Nowa AI wrote, quick fixes).
+- The Files tree sentence explains `lib/` and `pubspec.yaml` and links to the project map in `index.md#whats-in-your-project`.
+- Next steps carry a reason each. No facts changed.
+
+Evidence: unchanged facts from the verified page; Dart as Flutter's language (https://dart.dev, https://flutter.dev).
+
+### files.md (Manage project files)
+
+For the reader:
+- Intro says when to use which panel (Library most days, **Files** to see everything).
+- `lib/`, `pubspec.yaml` and platform folders explained in a clause where they first appear.
+- Next steps carry a reason each. No facts changed.
+
+Evidence: unchanged facts from the verified page; platform folders per FLUTTER-DEPLOY.
+
+### limitations.md (What Nowa can show on the board)
+
+For the reader:
+- Intro reassures that board limits don't change the real app: **Run** (and the published app) runs everything. This is the 3.13 replacement for the old `hybrid-approach/custom-code.md` "Preview limitations" (which said the board never runs custom code: obsolete).
+- "sliver" and `sdk:` packages explained in a clause.
+- Next steps carry a reason each. No facts changed.
+
+Evidence: the page's own verified "Check the real result" section (Run compiles your code and packages "as in the app you publish"); `docs/test/run.md`.
+
 ## Open questions
 
 (Collected at the end.)

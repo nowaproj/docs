@@ -115,7 +115,7 @@ part of it and this pass added the rest.
 |---|---|---|
 | Google Play developer account: Personal / Organization, identity checks, one-time fee, device check | added | android.md#create-your-developer-account (answer/6112435) |
 | New personal accounts: closed test, 12 testers, 14 days, **Apply for production** | added | android.md#test-with-testers-first (answer/14151465) |
-| Store listing fields and graphics sizes | added | android.md#set-up-your-store-listing (answer/9859152, answer/9866151) |
+| Store listing fields and graphics sizes | added | android.md#set-up-your-app (answer/9859152, answer/9866151) |
 | Export compliance after upload (**Missing Compliance**) | added | ios.md#after-the-upload (https://developer.apple.com/help/app-store-connect/test-a-beta-version/provide-export-compliance-information-for-beta-builds/) |
 | A pending custom domain can't be removed in Nowa (P17 still in 3.13) | added | web.md#use-your-own-domain (`custom_domain_section.dart:87-101`, `web_environment_manager.dart:64-66`) |
 

@@ -14,7 +14,7 @@ A board is your design space: a large, free-form area where your screens, compon
 3. To make a new one, click **Create new board**, type a name and click **Submit**. The new board opens, empty and ready.
 4. To rename or delete a board, hover its row and click the **Rename** or **Delete** icon.
 
-Nowa writes board names in lowercase with underscores, so **Login flow** shows up as `login_flow` in the list and on the chip.
+When you create a board, Nowa writes its name in lowercase with underscores, so **Login flow** shows up as `login_flow` in the list and on the chip.
 
 Deleting asks **Are you sure you want to delete "…"?** Click **Yes**. The screens and components that were on the board stay in your project, so you only lose the loose widgets on it.
 

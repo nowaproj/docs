@@ -67,15 +67,16 @@ Then ask Nowa AI in **Agent** mode, with the Supabase connector on:
 
 > Make the sign-in screen work with Supabase: sign people in with their email and password, open the recipe list when it works, and show a message when it fails. Make the sign-in screen the first screen of the app.
 
-To check it, hover the login screen's title, click **Play**, and sign in with your test user. Try a wrong password too: you should see a message, not nothing.
+To check it, hover the login screen's title, click **Play**, and sign in with your test user. Try a wrong password too: you should see a message that says what went wrong.
 
 **Or do it yourself:**
 
 1. Use the login screen Nowa AI designed, or add the **Authentication Template** with the **Screen** tool. Its two screens, login and register, come without routes (the addresses that open screens in your app), so give each screen you use a route in the **Router** panel: see [Give a screen a path](../logic/navigation.md#give-a-screen-a-path).
 2. Select the login button and click the button next to **On Pressed** in **Details**. Circuit opens. Hover the dot under the top node, click **+**, search for `SupabaseService` (the group that holds your Supabase actions) and pick `signIn`.
 3. Link **Email** and **Password** to what people type: click each label, open **LOCALS**, pick the matching text field's controller (it holds what the user typed), then choose `text`.
-4. Signing in takes a moment, so the `signIn` node has **Future Options** (a Future is something that finishes later). Select the node. In **onValue**, which runs when sign-in works, open the recipe list with a **GoRouter** node of type `go` and the list screen's path in **Location**. `go` replaces the login screen, so Back doesn't lead back to it. In **onError**, add **Show snackbar** so people see what went wrong.
-5. Select the login screen and click **Make home screen**, so your app opens on it.
+4. Signing in takes a moment, so the `signIn` node has **Future Options** (a Future is something that finishes later). Select the node, find **Future Options** in **Details** and click **+** next to **onValue**, which runs when sign-in works. In the Circuit that opens, add a **GoRouter** node of type `go` with the list screen's path in **Location**. `go` replaces the login screen, so Back doesn't lead back to it.
+5. Select the `signIn` node again and click **Edit** next to **onError**, which runs when sign-in fails. Add **Show snackbar** so people see what went wrong.
+6. Select the login screen and click **Make home screen**, so your app opens on it.
 
 Want signed-in people to skip the login screen? Make the recipe list your home screen instead, then give its route **Redirect Logic** that sends everyone else to the login screen. See [Start on the login screen or the home screen](../logic/router.md#start-on-login-or-home).
 
@@ -89,7 +90,7 @@ Now replace the made-up recipes with the real ones from your table. Ask Nowa AI 
 
 > Show the recipes from my Supabase recipes table in the home screen's list, one RecipeCard per recipe. Show a loading indicator while they load.
 
-To check it, click **Play** on the home screen: your three sample recipes should appear.
+To check it, play the login screen, sign in with your test user, and look for your three sample recipes in the list.
 
 **Or do it yourself:**
 
@@ -109,14 +110,14 @@ The last piece: tapping a card opens that recipe. Ask Nowa AI in **Agent** mode:
 
 > When someone taps a recipe card, open the detail screen for that recipe and load its ingredients and steps from Supabase.
 
-To check it, play the home screen and tap a card. If something's off, the **Problems** count in the status bar is the first place to look.
+To check it, play the login screen, sign in and tap a recipe card: the detail screen should show that recipe. If something's off, the **Problems** count in the status bar is the first place to look.
 
 **Or do it yourself:**
 
 1. Give the detail screen an `id` param, so it knows which recipe to load. Its **Type** must match the `id` that `getByIdRecipes` takes: keep **String** (text), the default, because the table's `id` is a uuid. If the types differ, **Problems** shows an error.
 2. Open the **Router** panel and select the detail screen's route (if it has none, see [Give a screen a path](../logic/navigation.md#give-a-screen-a-path)). Type `/recipe/:id` in **Path** and press <kbd>Enter</kbd>. The `:id` part is a placeholder, so every recipe gets its own address. Then drag the `id` chip onto the screen's `id` param under **Screen Parameters**.
 3. Open `RecipeCard` on its own: in the [Library](../design/library.md), double-click it, or select it and press <kbd>Enter</kbd>. Select its main widget, click **Add Wrapper** and choose **Gesture Detector**, which makes any widget react to a tap.
-4. Click the button next to **On Tap** and add a **GoRouter** node of type `push`. `push` opens the detail screen on top of the list, so Back returns to it. Type `/recipe/` in **Location**, then `$` and pick the `id` param, so each card opens its own recipe.
+4. Click the button next to **On Tap** and add a **GoRouter** node of type `push`. `push` opens the detail screen on top of the list, so Back returns to it. Type `/recipe/` in **Location**, then type `$` (it lets you insert a value) and pick the `id` param, so each card opens its own recipe.
 5. On the detail screen, wrap the content in a **Data Builder** with **Source** set to **Supabase** and **Query** set to `getByIdRecipes`. Link its `id` input to the screen's `id` param, then show the fields of `data`.
 
 Details: [Open a detail screen when a list item is tapped](../logic/navigation.md#open-a-detail-screen).

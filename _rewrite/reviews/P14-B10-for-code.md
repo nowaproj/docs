@@ -18,6 +18,19 @@ orchestrator moves them into `docs/code/generated-code.md`.
    }
    ```"
 
+- (from `integrations/supabase/backend.md`, "Save your backend into the project") Table:
+
+  | Path | What it holds |
+  |---|---|
+  | `supabase/migrations/` | One `.sql` file for each migration in your project's history. |
+  | `supabase/functions/<function name>/index.ts` | The code of each deployed edge function. |
+  | `supabase/nowa_setup.json` | The list of your storage buckets, plus a note. |
+- (from `integrations/supabase/backend.md`, "Save your backend into the project") "It replaces what's already in `supabase/migrations`, `supabase/functions` and `supabase/nowa_setup.json`. Other files in `supabase/` stay."
+- (from `integrations/supabase/backend.md`, "Save your backend into the project") "The folder follows the layout of the Supabase CLI, so the files also work with it."
+- (from `integrations/supabase/backend.md`, "Set up a backend that came with a project") "It also shows the setup note stored in `supabase/nowa_setup.json`."
+- (from `integrations/supabase/backend.md`, "Disconnect Supabase") "Nowa deletes `lib/integrations/supabase_service.dart`, removes the `supabase_flutter` package and takes the startup line out of `main.dart`. Your Supabase project, your models in `lib/models/`, the `supabaseUrl` and `supabaseAnonKey` constants and the `supabase/` folder stay as they are."
+- (from `integrations/supabase/backend.md`, "Disconnect Supabase", warning) "Disconnecting removes every function in `SupabaseService`, including ones you edited or wrote. Screens and events that call them stop working. Connecting again creates a fresh `SupabaseService`."
+
 ## #models
 
 - (from `integrations/supabase/database.md`, "Add a query from a template") "A model is a class with one field per column, so your screens can use `title` or `done` directly. A new model is saved in `lib/models/`, for example `lib/models/todos_model.dart`."

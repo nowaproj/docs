@@ -83,7 +83,7 @@ See [Add widgets](../design/add-widgets.md) and [Select, move and resize](../des
 - **Variables**: values it remembers while it's open, such as the number of items in a cart.
 - **Functions**: named sets of steps it can run, such as "add to cart".
 
-With nothing selected, it shows **Globals**: values and functions every screen can use. See [Store data in variables](../logic/variables.md).
+With nothing selected, it shows **Globals**: your app's global states, the data every screen can use. See [Store data in variables](../logic/variables.md) and [Share data across your app](../logic/global-state.md).
 
 Both panels hide when the board area is narrower than 600 px. Widen the window or close the side panel to bring them back.
 

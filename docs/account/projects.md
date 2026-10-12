@@ -45,13 +45,13 @@ If you'd rather keep the files on your own computer, the desktop app can make a 
 Every Nowa app is a Flutter app (Flutter is the technology that runs it on iOS, Android and the web), so you can also bring in Flutter code you already have. GitHub is a website where people store and share code, and each project there is called a repository.
 
 - **Clone from GitHub** copies one of your repositories into a new Nowa project. Pick the repository, check the **Project name**, then click **Clone project**. You need [GitHub connected](../code/github.md) first, and a plan that includes it. Without the plan, **Time to level up** appears.
-- **Import project** brings in a Flutter project from your computer, for example an app a developer built for you (desktop app only). Click **Browse**, pick the folder, then click **Import project**. It uploads to your account unless you choose **Local-only project** under **Advanced**.
+- **Import project** (desktop app only) brings in a Flutter project from your computer, for example an app a developer built for you. Click **Browse**, pick the folder, then click **Import project**. It uploads to your account unless you choose **Local-only project** under **Advanced**.
 
 Both dialogs have a workspace chip, so you can choose which workspace a cloud copy goes to. [Import an existing Flutter project](../code/import.md) has the details, including folders that hold several apps or packages.
 
 ## Name your project {#name-your-project}
 
-Pick a name that helps you find the project later. A project name can use letters (A to Z, no accents), numbers, spaces, underscores and hyphens. It can't be empty, and it can't be just a word with a special meaning in code, such as `class` or `import`. The **New project** dialog shows one of these messages when a name breaks a rule:
+Pick a name that helps you find the project later. A project name can use letters (A to Z, no accents), numbers, spaces, underscores and hyphens. It can't be empty, and it can't be only a word with a special meaning in code, such as `class` or `import`. The **New project** dialog shows one of these messages when a name breaks a rule:
 
 - "App name cannot be empty"
 - "App name should only contain letters, numbers, underscores, hyphens, and spaces"

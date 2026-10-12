@@ -154,7 +154,7 @@ Say your app has an "Ask a question" screen that sends what someone types to an 
 1. Set up the request first: method **POST**, the endpoint, the API key header, and a parameter named `question` placed in the JSON body where the text goes, such as `"content": "${question}"`. Test it with a sample question, then generate a model from the answer.
 2. On your screen, add a **Text Field** for typing and a **Button** to send. Nowa links the text field to a variable named `text` that holds what's typed. See [Text fields and forms](../../reference/widgets/forms.md#text-field).
 3. Select the button. In **Details**, click the button next to **On Pressed** to open Circuit.
-4. Hover the dot under the top node, click **+**, search for your request's name and click it.
+4. Hover the dot under the top node and click **+**. Search for your collection's **Class name**, click it, and pick your request under **Members**.
 5. In **Details**, each parameter of the request has a field named after it. Click the **Question** label, open **LOCALS**, pick `text`, then pick `text` again. The request now sends whatever was typed.
 6. Still on the request step, turn on **await** and set **Store result** to **New Variable**. The answer lands in `var1` as soon as it arrives. See [Wait for a result](../../logic/circuit.md#future-options).
 7. Add a `showDialog` step below it and edit its content (see [Show a dialog](../../logic/popups.md#show-a-dialog)). Link the content's text to `var1`, and click **+** to reach the field that holds the reply (see [Reach deeper with +](../../logic/expressions.md#plus)).

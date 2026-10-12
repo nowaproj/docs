@@ -2,10 +2,10 @@
 title: Keys and constants
 description: Keep your keys, IDs and fixed values in one place, and use them anywhere in your app.
 sidebar_label: Keys and constants
-keywords: [constants, custom constants, API key, keys, secrets, AppConstants, app_constants.dart, publishable key, client ID, settings]
+keywords: [constants, custom constants, API key, keys, secrets, AppConstants, publishable key, client ID, settings]
 ---
 
-Constants are the fixed values your app needs, such as a publishable key, a client ID or an address you reuse. Nowa keeps them in one place, so you can see and change them without opening code.
+Constants are the fixed values your app needs, such as a publishable key, a client ID or a web address you use in several places. Nowa keeps them together on one page, so you can see and change them without hunting through your project. Change one there, and every place that uses it picks up the new value.
 
 Constants ship inside your app, so anyone who has the app can read them. See [Keep secrets out of your app](../guides/data-and-state-tips.md#keep-secrets-out-of-your-app).
 
@@ -19,9 +19,7 @@ Constants ship inside your app, so anyone who has the app can read them. See [Ke
 - **Integration sections.** Some integrations keep their values here, in a section named after the integration: **Stripe** (**Publishable Key**, **Merchant Name**, **Country Code**), **RevenueCat** (**Apple API Key**, **Android API Key**, **Web API Key**) and **Google Sign-In** (**Web Client ID**). A section appears once you turn the integration on. Changing a value here also changes it on the integration's own page, and the other way round.
 - **Custom Constants.** Your own constants, plus values Nowa adds for you. Connecting Supabase, for example, adds `supabaseUrl` and `supabaseAnonKey`.
 
-Keys that Nowa writes into your Android, iOS or web project files aren't listed here. Google Maps, AdMob, Deep Links and the Google Sign-In **iOS Client ID** live on their own pages under **Settings** → **Integrations**. See [Connect data and services](./index.md).
-
-Behind the scenes, every constant is a text value in the `AppConstants` class in `lib/globals/app_constants.dart`.
+Every constant holds text. Keys that only your Android, iOS or web app settings need aren't listed here: Google Maps, AdMob, Deep Links and the Google Sign-In **iOS Client ID** keep theirs on their own pages under **Settings** → **Integrations**. See [Connect data and services](./index.md).
 
 ## Change a value
 
@@ -42,16 +40,16 @@ If you type a name that already exists, its value is replaced. Nowa shows an err
 
 ## Use a constant
 
-Stripe and RevenueCat read their keys from here by themselves. To use one of your own constants, write it as an expression:
+Stripe and RevenueCat read their keys from here by themselves, so there's nothing to connect. To use one of your own constants, write a short expression with its name. Nowa groups all your constants under the name `AppConstants`:
 
-1. Click the label of a property, or of a field in a Circuit node, and choose **Custom Expression...**. In Circuit, **Add Custom Expression** does the same for a new step.
-2. Type `AppConstants.weatherApiKey` and click **Eval**.
-3. Click the back arrow to close the dialog.
+1. Click the label of a widget's property in **Details**, or of a field in a Circuit step, and choose **Custom Expression...**. In Circuit, **Add Custom Expression** does the same for a new step.
+2. Type `AppConstants.` followed by the constant's name, such as `AppConstants.weatherApiKey`, and click **Eval**.
+3. Click the back arrow to close the dialog. The property or field now uses your constant's value.
 
-See [Build logic in Circuit](../logic/circuit.md) and [Expressions and conditions](../logic/expressions.md).
+See [Build logic in Circuit](../logic/circuit.md) and [Write your own expression](../logic/expressions.md#custom-expression).
 
 :::warning
-Constants are compiled into your app, so anyone who has the app can find them. The page describes itself as a place for "Secret keys", but everything on it ships with your app. Use it for values meant to be in an app, like a publishable key. Never put server secrets here, such as a Stripe secret key or a database password. The Stripe integration keeps its secret key in Supabase instead.
+Constants are built into your app, so anyone who has the app can find them. The page describes itself as a place for "Secret keys", but everything on it ships with your app. Use it for values meant to be in an app, like a publishable key. Never put server secrets here, such as a Stripe secret key or a database password. The Stripe integration keeps its secret key in Supabase instead.
 :::
 
 :::tip[Or ask Nowa AI]

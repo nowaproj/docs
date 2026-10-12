@@ -40,7 +40,7 @@ You can also click **Deploy** in the top bar, then **Deploy** on the **Android D
 
 ## Create a signing key
 
-Android requires every app to be digitally signed before it can be installed, and Google Play uses your key to check that each upload really comes from you. Nowa keeps the key in a keystore, a password-protected file (`.jks` or `.keystore`) that holds it.
+Google Play only accepts apps signed with your own key: a digital key that proves each upload really comes from you. Nowa keeps it in a keystore, a password-protected file (`.jks` or `.keystore`) that holds the key.
 
 Turn **Debug mode** off to see the **Signing Key** card. A warning icon on it means no key is saved yet. Hover over the icon to read **Missing signing key**.
 
@@ -113,7 +113,7 @@ With a new personal account, Google also asks you to confirm you have an Android
 
 Google's guide: [Create and set up your app](https://support.google.com/googleplay/android-developer/answer/9859152).
 
-### Set up your store listing
+### Set up your app
 
 Your app's **Dashboard** lists everything Google needs before you can publish, under **Set up your app**. Work through it from top to bottom. The main parts:
 

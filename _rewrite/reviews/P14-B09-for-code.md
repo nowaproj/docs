@@ -46,3 +46,16 @@ Added (new, verified; not moved text):
 - Every class in `lib/firebase/collections.dart` is a collection; a main collection carries `@NowaGenerated({'fbCollectionType': 'fbMainCollection'})` and a sub collection `fbSubCollection` plus `fbParent` (`packages/data/lib/src/firebase/firestore/collections_manager.dart:16-26,70-79`, `packages/data/lib/src/firebase/models/firestore_collection.dart:14-16`). **Select Collection** in the query builder lists main collections only (`packages/data/lib/src/firebase/firestore/queries_builder/ui/lists_widgets.dart:61-63`), so a collection class written by hand (or by Nowa AI) without that metadata doesn't show there.
 - **Select Firestore Query** and the Circuit **FIREBASE** category list every function of `FirestoreService` except constructors (`packages/data/lib/src/firebase/firestore/queries_builder/provider/query_builder_manager.dart:24-33`, `packages/data/lib/src/firebase/firebase_field.dart:70-76`, `packages/data/lib/src/firebase/firebase_plugin.dart:133-144`), after **Refresh/Update apps and config files** (P49).
 - A collection model's `fromJson`/`toJson` use each field's name as the document key (`packages/core/lib/src/interpreter/generators/json_generator.dart:104`), and a `DateTime` field is read with `DateTime.tryParse` (`:152-157`) and written with `toIso8601String()` (`:230-231`), so it expects text dates, not Firestore `Timestamp` values (code reading, not run).
+
+From `integrations/firebase/notifications.md`:
+
+- Turn on push notifications: "Nowa shows the Xcode reminder under the switch. In the macOS desktop app it also has an **Open Xcode Workspace** link. It opens `ios/Runner.xcworkspace` from the project's folder, so it works for [local projects](../../code/local-projects.md)."
+- What Nowa adds: "The `firebase_messaging` and `flutter_local_notifications` packages."
+- What Nowa adds: "`lib/firebase/notification_service.dart`, a `NotificationService` that `main()` starts when the app launches."
+- Platform table, iOS row: "Add the Push Notifications capability in Xcode, as above. Nowa adds the `fetch` and `remote-notification` background modes. Firebase also needs your Apple push (APNs) credentials, which the [Firebase documentation](https://firebase.google.com/docs/cloud-messaging) explains."
+- Platform table, Android row: "Nowa turns on the Android build setting (desugaring) that the notification libraries need."
+- Turn push notifications off: "Turn off **Push Notifications (FCM)** to remove `lib/firebase/notification_service.dart` and the two packages."
+
+Added (new, verified; not moved text):
+
+- Nowa writes no `aps-environment` entitlement for push (no match for `aps-environment` in `lib/` or `packages/`); the Push Notifications capability has to be added to the Runner target (Xcode's **Signing & Capabilities**, as the in-app note says, `packages/data/lib/src/firebase/setup/views/notification_settings.dart:98`).

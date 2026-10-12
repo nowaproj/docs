@@ -208,3 +208,36 @@ back several steps). No code-only facts on this page (nothing moved), no new pro
 | No handles inside a Container or Padding because the widget around it decides the size | research features-designer-core "Resizing" ("widgets whose parent sets their size (e.g. inside a Padding or Container)"); `packages/core/lib/src/layout/layout.dart` (`DefaultLayout.canResize` is false) |
 | Drop targets are outlined (purple Stack, orange box in a Row/Column) | existing table on this page (`packages/designer/lib/src/design_experience/drag_rule.dart:258-280`) |
 
+## Tone pass (R9), all nine pages
+
+Each page was re-read as the primary reader after the coordinator's tone note: intros say what the reader can
+do and why; steps keep one action and gain a short result or reason where it helps ("so your screen looks the same
+as before", "so you can spot it at a glance"); everyday examples (recipe app, shop products, sign-up and checkout
+flows); reassurance only where true (undo after switching a group, undo a Library delete, nothing replaced
+without asking). Filler removed (layout.md's "This page walks you through..."), banned words checked ("just" twice
+replaced). Word counts of prose: index ~850, boards ~1,230, screens ~1,370, components ~1,290, library ~1,670,
+add-widgets ~1,290, select-and-edit ~1,480, properties ~1,320, layout ~2,080 (split plan in its section).
+Admonitions: at most 2 per page. All relative links and anchors resolve (checked with a script, including inbound
+links from other pages). Images, the three videos and every explicit `{#id}` are unchanged against `9f21e4c`; one
+new ID `{#pick-the-right-arrangement}` on layout.md; no baseline heading was removed.
+
+Links to `docs/code/generated-code.md`: components.md → `#components`, library.md → `#project-files` (one each).
+
+## For other pages
+
+| Target page (batch) | Proposed text | Evidence |
+|---|---|---|
+| `docs/guides/design-tips.md` (B01), "Name things clearly", **Boards** bullet | Replace "Nowa writes the name in snake_case, so **Login flow** becomes `login_flow`." with "Nowa writes the name in lowercase with underscores, so **Login flow** becomes `login_flow`." (R4: "snake_case" is developer jargon) | `packages/designer/lib/src/actions/file_actions.dart:7-26`, `:61-66`; `packages/core/lib/src/file_system/naming.dart:158-163` |
+| `docs/reference/glossary.md` (B14) | Add rows: **Constraints**: "Which edges a widget in a Stack keeps its distance to when the screen size changes: **Left**, **Right**, **Left and right** or **Center** across, and **Top**, **Bottom**, **Top and bottom** or **Center** down. Set them under **Layout** in **Details**. See [Lay out widgets](../design/layout.md#place-widgets-in-a-stack)." **Group**: "Widgets held together so they move and resize as one. A group is a **Stack**, a **Row** or a **Column**. See [Lay out widgets](../design/layout.md#groups)." **Instance**: "One use of a component. Every instance follows the component's design, and params give each one its own content. See [Build reusable components](../design/components.md)." **Row, Column, Stack**: "The three ways a group arranges widgets: side by side, one below the other, or layered on top of each other. See [Lay out widgets](../design/layout.md#pick-the-right-arrangement)." **Fixed, Auto, Expand**: "How a widget's width or height is set under **Layout**: the size you type, the size of its content, or the space left in a row or column. See [Lay out widgets](../design/layout.md#size-widgets)." | `packages/designer/lib/src/details/positioned_details.dart:93-193`; `packages/designer/lib/src/details/group_details.dart:101-120`; `packages/designer/lib/src/details/size_fields.dart:236-283`, `packages/designer/lib/src/details/flex_size_field.dart:52-67`; components.md |
+
+## Open questions
+
+1. **Expand inside a Wrap** (layout.md, product issue P14): the page now says Expand only works in a Row or Column
+   and to use Fixed or Auto in a Wrap, from code plus Flutter's rule for `Flexible`. A live check (Expand a child of
+   a Wrap, then **Run**) would confirm whether it's worth a known-issues entry (B12).
+2. **Code-derived, not run live** (worth a 1-minute check each): the background tip when grouping (layout.md),
+   dragging a centered widget re-pins it to the left and top (layout.md), **Detach** on a screen's board item makes
+   a loose copy (screens.md), a wrapper added while a component's board item is selected becomes part of the
+   component (components.md).
+3. layout.md is ~2,080 words. If the orchestrator wants it shorter, split "Place widgets in a stack" and "Stack
+   settings" into a page of their own (see the layout.md section).

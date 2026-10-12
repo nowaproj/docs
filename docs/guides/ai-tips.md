@@ -41,7 +41,7 @@ A description like this leaves Nowa AI nothing to guess, and it doubles as your 
 - **Ask for one job per request.** "Add a search bar to the product list" is easier to review, and to undo, than "build everything".
 - **Check each result** on the board or with **Play**, then ask for the next change. **Suggested next steps** can write the next prompt for you, and nothing is sent until you press **Send**.
 - **Start a new session.** Click **+** (**New Session**) in the panel header when you move to an unrelated topic, or when Nowa says the session is getting long.
-- **Edit by hand in between.** Nowa AI always works from your latest version, including the changes you just made by hand.
+- **Edit by hand in between.** Nowa AI always works from your latest version, including the changes you've made by hand.
 
 [Write prompts that work](../ai/prompting.md) has a shape that suits bigger requests.
 
@@ -82,6 +82,7 @@ See [Connect Figma and Supabase to Nowa AI](../ai/connectors.md).
 - Check the board, click **Play**, and open the logic in **Circuit** if the request touched behavior.
 - When **Constants updated** appears, click **Open Constants** and check the values. See [Keep secrets out of your app](data-and-state-tips.md#keep-secrets-out-of-your-app).
 - Ask in **Agent** mode: "Check my project for problems and fix them." For a bug in the running app, **Run** it first, so Nowa AI has logs (the messages your app writes as it runs) to read.
+- If a result isn't right, see [When the result isn't right](../ai/prompting.md#when-the-result-isnt-right).
 
 ## Switch to visual editing when it's faster
 

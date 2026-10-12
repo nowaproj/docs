@@ -117,3 +117,61 @@ settle it. Pages are appended as they are finished.
 
 **Open questions**: the three "Not run live" examples above; whether **Width** and **Margin** should be hidden in the
 product (see below).
+
+## logic/actions.md
+
+**Changed for the reader**
+- Intro and every section now say what the step is for and when to use it (R3, R9). Section ids kept: `#open-a-link`,
+  `#write-to-the-logs`, `#check-the-platform`, `#read-the-screen-size`, `#save-values-on-the-device` (all linked from
+  other pages). Renamed without inbound links: "Create objects" → "Wait, repeat and create objects", "Copy text and
+  vibrate" → "Copy text, vibrate and play sounds" (grep of `docs/` found no links to either anchor).
+- Platform checks are now a table with a plain meaning per check (old platform-checking.md listed them in a code
+  block). `logicalOr` gets a plain gloss.
+- Shared Preferences: added what **Key** and **Type** mean, and turned "Nowa has no secure (encrypted) storage option"
+  into the consequence for the reader (don't keep passwords or secret keys there). Same fact, `packages/core/lib/src/interpreter/suggestion.dart:480-507`
+  (only these four steps exist).
+- **Create...**: "constructor" (the UI says **Pick a constructor**) and "Future" explained in a clause each (R4).
+- SERVICES: each class now has its functions in plain words and a "use it to" (the brief names `HapticFeedback`).
+- "Find any other function": Dart-only items moved to the for-code file (`unawaited`, `scheduleMicrotask`, `showMenu`,
+  `showSearch`, and the rule that library categories list "functions and classes that have static members"); the
+  remaining items got a meaning. One pointer to `../code/generated-code.md#actions-and-popups`, at the end of that
+  section.
+
+**Added from the old docs**
+- Open a link: uses (old open-url.md); "type the full address, starting with `https://`" (the step passes the text to
+  `Uri.parse` as is: `packages/nowa_runtime/lib/src/functions.dart:1-5`); where the page opens: `launchUrl` with the
+  default mode opens web links in an in-app browser view on Android and iOS
+  (`url_launcher_android-6.3.29/lib/url_launcher_android.dart:90-111`, `url_launcher_ios-6.4.1/lib/url_launcher_ios.dart:83-100`)
+  and calls `window.open` with an empty target on the web, which opens a new tab (`url_launcher_web-2.4.2/lib/url_launcher_web.dart:71-89`).
+  Web View pointer (old open-url.md; widget `packages/core/lib/src/widgets_to_add/widgets_to_add.dart:879-891`, page
+  `docs/reference/widgets/media.md#web-view`).
+- New, not in the old docs: `mailto:`, `tel:` and `sms:` links open the matching app if the device has one:
+  https://pub.dev/packages/url_launcher ("Supported URL schemes"; "URL schemes are only supported if there are apps
+  installed on the device that can support them"); non-web links skip the in-app view (`url_launcher_android.dart:96`).
+- Write to the logs: uses (old print.md: debugging values, user input, checking a step ran); "click the **Msg** label
+  to link a value" (old print.md; any field label opens the link menu); **Play** writes to **Logs** too (interpreted
+  `print` calls `logInfo`, which adds to the Logs list: `packages/core/lib/src/interpreter/libraries/dart_core_library_custom.dart:3-8`,
+  `packages/core/lib/src/utils.dart:19-21`); how to open **Logs** follows `docs/test/run.md:78`; the Text Field example
+  follows `docs/reference/widgets/forms.md:13-15` (controller named `text`, pick it then `text`). "People who use your
+  app never see them": `print` output goes to the developer console / device log only.
+- Check the platform: why and two examples (old platform-checking.md "Why it's useful"; the examples are mine, both
+  buildable with a Visibility wrapper); "Play answers for the device you're working on": the interpreter reads the real
+  `NPlatform` getters (`packages/core/lib/src/interpreter/libraries/nowa_runtime_library.dart:460-470`,
+  `packages/nowa_runtime/lib/src/nowa_platform.dart:15-21`) and nothing overrides the platform in Play (no
+  `debugDefaultTargetPlatformOverride` in `lib/` or `packages/`).
+- Media Query: what it holds in plain words (MediaQueryData `size`, `padding` = areas covered by notches and system
+  bars, `orientation`; https://api.flutter.dev/flutter/widgets/MediaQueryData-class.html) and a link to the full
+  responsive example on `design/responsive.md`.
+- SERVICES meanings: https://api.flutter.dev/flutter/services/HapticFeedback-class.html (each method's one-liner; the
+  three notification methods "have no effects on Android API levels below 30", i.e. Android 11:
+  https://api.flutter.dev/flutter/services/HapticFeedback/successNotification.html, `.../errorNotification.html`);
+  https://api.flutter.dev/flutter/services/SystemSound/play.html ("The web platform currently does not support playing
+  sounds") and https://api.flutter.dev/flutter/services/SystemSoundType.html (`click`, `tick`, `alert`);
+  https://api.flutter.dev/flutter/services/SystemNavigator/pop.html ("On Android, removes this activity from the stack
+  and returns to the previous activity"). Members exist in Nowa: `packages/core/lib/src/interpreter/libraries/services_library.dart:1217-1240`
+  (Clipboard), `:1315-1360` (HapticFeedback), `:6390-6460` (SystemNavigator, SystemSoundType, SystemSound).
+- `showAboutDialog`: https://api.flutter.dev/flutter/material/showAboutDialog.html ("describes the application and
+  provides a button to show licenses for software used by the application").
+
+**Open questions**: none new. The iOS behavior of `SystemNavigator.pop` isn't stated (the Flutter page describes a view
+controller pop, which a plain app doesn't use), so the row says Android only.

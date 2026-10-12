@@ -184,3 +184,52 @@ Added (old docs, still valid) with sources:
 Open questions:
 - Does a Xano group with **Private** documentation import? Its link may need the token Nowa ignores. If not, the
   page should say "set it to Public while you import". Needs a live test with a Xano account.
+
+## show-data.md
+
+What changed for the reader:
+- R9: intro names everyday data ("the products in your shop or today's bookings"); short reasons after steps ("so
+  it can use what the Data Builder loads", "exactly one row per item", "design the layout before any real data
+  arrives", a friendly error message as an example). "Pick the source first: `data` takes its type from it" became
+  "Pick the source first, so Nowa knows what `data` holds" (R4: no "type").
+- No code-only facts on this page; nothing moved.
+
+Added (old docs, still valid):
+- Image example (old createapi.md step 6, binding an image's address to the response): **Image** → **Network** tab →
+  **Url** (`docs/reference/widgets/media.md`, verified there), linked like any property.
+- "To load the data again, click **Stop**, then **Play** again" (old createapi.md step 7, "Refresh for a new
+  image"). The 3.13 on-board Play toolbar has **Share preview**, **Reset zoom** and **Stop**, no restart
+  (`packages/designer/lib/src/play_mode/play_mode.dart:489-561`); playing again builds a fresh copy of the screen in
+  simulate mode, so the Data Builder calls its source again (`play_mode.dart:434-487`).
+- Keyword "connect query to UI" (old supabase/ui.md title).
+
+Unchanged and still verified: everything else (W14 notes; P10 live checks for **Custom**, the `none` button and
+the row labels; P58 for **None** not shown).
+
+## constants.md
+
+What changed for the reader:
+- Moved to for-code (#constants): "every constant is a text value in the `AppConstants` class in
+  `lib/globals/app_constants.dart`" and the "project files" wording. Kept in plain words: "Every constant holds
+  text" (`static const String`, `packages/core/lib/src/interpreter/packages/package_config/app_constants_service.dart:13-33`)
+  and "Nowa groups all your constants under the name `AppConstants`", which the reader types (R3). Keyword
+  `app_constants.dart` dropped from the front matter (a file name).
+- "Keys that only your Android, iOS or web app settings need aren't listed here" replaces "Keys that Nowa writes into
+  your Android, iOS or web project files" (same fact: platform tokens live in `settings.json`, W14 notes).
+- "Change one there, and every place that uses it picks up the new value": every use reads `AppConstants.<name>`
+  (same file, W14 notes).
+- "Use a constant" now covers widget properties and Circuit fields in one list. I checked a no-typing route through
+  the app's category: field link menus show library categories only when the field's parent is a statement
+  (`packages/core/lib/src/fields/field_link_menu.dart:341`, `packages/core/lib/src/interpreter/suggestion.dart:465-473`),
+  so a step's argument field doesn't offer `AppConstants`; the custom expression stays the documented way (W14:
+  `expression_builder_provider.dart:82-100` resolves typed names, `Eval`).
+- R9: intro says why one page helps; small result sentences after steps.
+
+Nothing added from old docs (no old page maps here).
+
+For other pages:
+- `docs/logic/circuit.md` (B06) category table says the **PACKAGE:** category holds "your keys and constants", and
+  `docs/logic/actions.md` (B07) lists `AppConstants` there. True for the **+** node menu (`suggestion.dart:474-476`),
+  not for a step's argument field (link menu without library categories, `field_link_menu.dart:341`). If those
+  pages suggest picking a constant into a field from that category, they should say **Custom Expression...**
+  instead. No change proposed beyond a check.

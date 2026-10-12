@@ -5,7 +5,7 @@ sidebar_label: Overview
 keywords: [code, Dart, Flutter, source code, own your code, sync, NowaGenerated, hybrid approach, custom code, code and design, pubspec]
 ---
 
-Every screen you design and every change Nowa AI makes ends up as ordinary Dart in an ordinary Flutter project, and the project is yours. Read the code, edit it by hand, add code of your own, and keep using the board and Nowa AI on the same files.
+Every screen you design and every change Nowa AI makes ends up as real code in a standard Flutter project, and the project is yours. Flutter is Google's toolkit for building iOS, Android, web and desktop apps from one code base, and its apps are written in a language called Dart. You never have to touch the code, but you can: read it, edit it by hand, add code of your own, and keep using the board and Nowa AI on the same files.
 
 :::tip[Already a Flutter developer?]
 Install the [desktop app](../get-started/desktop-app.md) and [set up Flutter](../get-started/desktop-app.md#setting-up-flutter-sdk). Then [import your folder](import.md) as a local-only project, [open it in VS Code](vs-code.md) and keep its history with [Git](git.md).
@@ -13,7 +13,7 @@ Install the [desktop app](../get-started/desktop-app.md) and [set up Flutter](..
 
 ## What's in your project
 
-Open [code mode](code-mode.md) to browse the whole project. Nowa creates new files in these places:
+Open [code mode](code-mode.md) to browse the whole project. If you've never seen a Flutter project before, this is the map. Nowa creates new files in these places:
 
 | File or folder | What's in it |
 |---|---|
@@ -24,9 +24,9 @@ Open [code mode](code-mode.md) to browse the whole project. Nowa creates new fil
 | `lib/globals/` | App-wide files: global state, themes, routes and constants. |
 | `boards/` | Your boards, saved as `.board` files for Nowa. They aren't part of your app's code. |
 | `assets/` | Images, fonts and other files. |
-| `pubspec.yaml` | Your packages, assets and fonts. |
+| `pubspec.yaml` | The project's settings file: its name, its packages (ready-made add-ons from [pub.dev](https://pub.dev)), assets and fonts. |
 
-Integrations add their own folders under `lib/`, such as `lib/api/` for REST API collections. The project also holds the usual platform folders, such as `android/`.
+Integrations add their own folders under `lib/`, such as `lib/api/` for REST API collections. The project also holds the usual platform folders, such as `android/`, which Flutter uses to build your app for each platform.
 
 ## How code and design stay in sync
 
@@ -34,7 +34,7 @@ The board, Nowa AI and your own edits all change the same files, so Nowa keeps t
 
 | When you | What happens |
 |---|---|
-| Change something on the board or in **Details**, or Nowa AI builds it | Nowa rewrites the code it owns. Code that belongs to Nowa is marked `@NowaGenerated`. |
+| Change something on the board or in **Details**, or Nowa AI builds it | Nowa rewrites the code it owns. Code that belongs to Nowa is marked `@NowaGenerated`, a tag on the declaration. |
 | Edit code in [code mode](code-mode.md) | Nowa reads your edits back when you save with <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>S</kbd>, or when auto save runs. The board updates. |
 | Write code of your own | Nowa reads it so it can draw it, and writes it back exactly as you wrote it, until you change that part visually. |
 
@@ -59,6 +59,7 @@ Nowa reads your code to draw it on the board. It doesn't run it there the way a 
 | [Manage project files](files.md) | Add, move and delete files with the Library, browse the whole project in code mode's **Files** tree, and search it. |
 | [Add packages](packages.md) | Add, update and remove pub.dev packages. |
 | [Write your own code](custom-code.md) | Use your own widgets, functions and classes on the board, and import Dart code. |
+| [What Nowa adds to your code](generated-code.md) | See the files, classes, packages and platform settings Nowa adds for each feature, such as an integration. |
 | [What Nowa can show on the board](limitations.md) | See what the board can't draw yet, and check the real result with **Run**. |
 | [Import an existing Flutter project](import.md) | Bring in an app you already have, from a folder or from GitHub. |
 | [Work with local projects](local-projects.md) | Keep your app in a Flutter folder on your computer, link it to the cloud and find it again if it goes missing. |

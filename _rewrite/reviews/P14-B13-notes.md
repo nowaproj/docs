@@ -120,3 +120,63 @@ Open questions:
 - Not checked live: the brush next to **Separator** selects the Divider (code: `nowa_fields.dart:458-472` shows it whenever the
   separator has a drawn instance).
 
+## forms.md
+
+Changed for the reader:
+- Intro (R9) with form examples; the page now also covers checkboxes, switches, sliders and popup menus (description and keywords
+  updated).
+- Controller explained in plain words (R4): it holds what the user typed so the screen and logic can read it.
+- Small whys and results (R9): **Keyboard Type** gives the right keys, **Max Lines** for a review, validators show the message
+  "so people can fix it", **Form** for a Sign up tap, the True branch example, **On Completed** saves a Verify button. No new claims.
+- `formKey` and `validate` explained (R3): "lets your logic reach the form"; "checks every field and answers true when they all
+  pass" (same fact as before).
+- Pin Code Field: `pin_code_fields` moved to for-code `#packages` (R2).
+- Min/Max length workaround (R5): moved into its own H3 "Length rules in Nowa 3.13" and led with the no-code path: ask Nowa AI in
+  **Agent** mode, then check in **Play**; the code-mode step is kept, labelled "If you edit code yourself". Facts unchanged (product
+  issue P47, still in 3.13: `packages/core/lib/src/fields/form_validator.dart:213,246` write `<` / `>`, `:315-329` read back only
+  `>=` / `<=`).
+- **Regex** explained (R4) as a pattern (a regular expression); "Nowa AI can write the pattern for you". The rule fails when the
+  text has no match (`form_validator.dart:146-151`, `!RegExp(...).hasMatch(value)`); no syntax given.
+- Older Text Field / dropdown: says the old widgets "can't use validators" (the warning text itself says so: `packages/core/lib/src/fields/form_fields.dart:112`).
+
+Added (from old docs, verified):
+- New section "Use checkboxes, switches and sliders {#checkbox-switch-slider}" with a settings table (old `checkbox.md`; old `slider.md`
+  was a stub): Checkbox parameters `packages/core/lib/src/interpreter/libraries/material_library.dart:9016-9041` (default editor);
+  starts checked (`packages/core/lib/src/widgets_to_add/widgets_to_add.dart:621`); Tristate dash and tap cycle Flutter SDK
+  `material/checkbox.dart:254-263`; Is Error `checkbox.dart:385-392`. Switch parameters `material_library.dart:67122+`, starts on
+  (`widgets_to_add.dart:642`), colors Flutter SDK `material/switch.dart:252-282`. Slider is Nowa's own (`packages/nowa_runtime/lib/src/widgets/slider.dart:4-18`:
+  Min 0, Max 1, Slider Height, Thumb Radius, Overlay Radius, Label, Divisions, colors; library `packages/core/lib/src/interpreter/libraries/nowa_runtime_library.dart:516+`),
+  starts at 0.5 (`widgets_to_add.dart:721`); Label shows only with Divisions, while dragging: Flutter SDK `material/slider.dart:402-428`,
+  `material/slider_theme.dart:576-578`. `$` in a text field inserts a variable (design/properties.md). Left out: Splash Radius, Autofocus,
+  Stroke-style details (coverage).
+- New section "Add a popup menu {#popup-menu-button}" (catalog row only before): starts as the text "Popup Menu" with "Item 1"
+  (`widgets_to_add.dart:659-682`); parameters `packages/core/lib/src/interpreter/libraries/material_library_custom.dart:1322+`; Item Builder is
+  a function field with **Edit** that opens Circuit (`packages/core/lib/src/fields/basic_fields.dart:533-559`); On Selected / On Opened /
+  On Canceled meanings Flutter SDK `material/popup_menu.dart:1366-1381`; Color and Shape style the menu (`popup_menu.dart:1473,1481`); Child and
+  Icon can't both be set (`popup_menu.dart:1361`), so the page points at **Child** for the button's look, not **Icon**. The AI prompt is the
+  no-code path for changing items (R5).
+
+## navigation.md
+
+Changed for the reader:
+- Intro (R9): what the standard frame of an app is, before the four slots.
+- "lets Flutter add a back arrow or a menu button" → "lets your app add the start button for you when **Leading** is empty: a
+  menu button when the screen has a drawer, or a back arrow when there's a screen to go back to" (R1, R4). Flutter SDK
+  `material/app_bar.dart:255-260`.
+- "Flutter shows an error when they differ" → "your app shows an error"; plus "Nowa doesn't keep them in step for you" (no custom
+  TabView editor: `DefaultTabController` isn't in `packages/core/lib/src/fields/block_field.dart:26-85` or
+  `packages/designer/lib/src/designer_plugin.dart:45-72`).
+- Page View package paragraph (R2, R5): dropped "which `nowa_runtime` no longer includes" (moved to `#packages`); the Problems
+  message stays (R3) with a plain explanation, and the no-code fixes come first: **Fix** in **Problems**
+  (`packages/core/lib/src/interpreter/packages/package_service.dart:410-421`, label `packages/core/lib/src/panels/errors_panel.dart:192`)
+  or **Hot Fix** in **Details** (already on the page). Migration link kept: it's a dialog the reader sees.
+- Short "what it's for" lines (R9) on the drawer, floating button (old `widgets-ref.md`: "highlighting a main app action"),
+  bottom navigation bar (old: "switch between primary app areas"), Page View, TabView and Cross Fade; "stays put while the content
+  scrolls" for slot parts (they sit outside the body); **refresh** explained once; Duration = how long the fade takes.
+- "To show a different page for each tab" now points at the Indexed Stack section, then the navigation alternative (same facts).
+
+Added (from old docs, verified):
+- Indexed Stack keeps each hidden page's state (old `widgets-ref.md`: "keeps the states of other children unchanged"): Flutter SDK
+  `widgets/basic.dart:4815-4826` (one child shown; the example keeps each card's state).
+- Drawer rows link to the new List Tile section on lists.md.
+

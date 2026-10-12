@@ -36,8 +36,8 @@ If you share an Apple team with other people, some of these steps need the Accou
 
 Publishing on the App Store needs a membership in the Apple Developer Program. It has a yearly fee, shown on [Apple's enrollment page](https://developer.apple.com/programs/enroll/).
 
-1. Sign in with your Apple Account, or create one. Turn on two-factor authentication, and use your legal first and last name: a nickname or company name delays Apple's approval.
-2. On the enrollment page, click **Start your enrollment** and enroll as an individual or as an organization. An organization also needs a D-U-N-S Number (a business identification number) and a public website on its own domain.
+1. Get your Apple Account ready, or create one. Turn on two-factor authentication, and use your legal first and last name: a nickname or company name delays Apple's approval.
+2. On the enrollment page, click **Start your enrollment**, sign in, and enroll as an individual or as an organization. An organization also needs a D-U-N-S Number (a business identification number) and a public website on its own domain.
 3. Once Apple has verified your details, agree to the Apple Developer Program License Agreement and complete the purchase.
 
 ### Register your bundle ID
@@ -131,13 +131,13 @@ The easiest key to reuse is one Nowa gave you for another app: the `ios_distribu
 1. Click **Browse** next to **Certificate Private Key** and pick the key file. The file picker lists `.p12` files.
 2. Click **Save**.
 
-Nowa reads the key as text, in the same format as its own download. A `.p12` file exported from Keychain Access on a Mac is a different, binary format: Nowa can't read it, and the card shows **Failed to load or save certificate info**. If you have a certificate from a Mac and are comfortable with code, [What Nowa adds to your code](../code/generated-code.md#publishing) explains how to export its key as text. Otherwise, let Nowa generate a key.
+Nowa reads the key as text, in the same format as its own download. A `.p12` file exported from Keychain Access on a Mac is a different kind of file, even though its name ends the same way: Nowa can't read it, and the card shows **Failed to load or save certificate info**. If you have a certificate from a Mac and are comfortable with code, [What Nowa adds to your code](../code/generated-code.md#publishing) explains how to export its key as text. Otherwise, let Nowa generate a key.
 
 ### Manage the saved key
 
 Once a key is saved, the card shows a check mark (hover to read **Distribution certificate saved**). The download icon (**Download Certificate**) saves the key file again, which is handy when you set up your next app. **Remove** asks "Are you sure?" and then deletes Nowa's copy of the key. The certificate itself stays in your Apple account.
 
-To remove the certificate itself, revoke it in your Apple Developer account. This needs the Account Holder or Admin role.
+To get rid of the certificate too, revoke it in your Apple Developer account. This needs the Account Holder or Admin role.
 
 1. In **Certificates, Identifiers & Profiles**, click **Certificates** in the sidebar.
 2. Select the certificate and click **Revoke**, then click **Revoke** again in the dialog.

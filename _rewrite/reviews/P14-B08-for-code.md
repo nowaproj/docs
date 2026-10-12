@@ -30,3 +30,8 @@ code refs in the earlier writer notes W14 and W17). Relative links in the copied
 - [rest-api/index.md] If the body has a file field (**MultipartFile**), the right panel also shows **Upload File**. Pick the file to test with. For the test only, Nowa puts its bytes into the request's `Uint8List` or `List<int>` parameters.
 - [rest-api/index.md] In **Generated Models**, check the **Name** and the **Path**. Models go in `lib/models` by default. Click **Save**.
 - [rest-api/import.md] **Invalid Postman collection format**: Export the collection again as a JSON file. It needs both an `info` and an `item` section.
+
+## #constants
+
+- [constants.md] Behind the scenes, every constant is a text value in the `AppConstants` class in `lib/globals/app_constants.dart`.
+- [constants.md] Keys that Nowa writes into your Android, iOS or web project files aren't listed here. Google Maps, AdMob, Deep Links and the Google Sign-In **iOS Client ID** live on their own pages under **Settings** → **Integrations**.

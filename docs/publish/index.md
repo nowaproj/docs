@@ -31,7 +31,7 @@ Stores and phones read these from your project, so set them before your first bu
 | **Bundle Identifier** | Your app's unique ID on iOS and Android, such as `com.yourcompany.yourapp`. Use letters and digits separated by dots, starting with a letter, or Nowa shows **Invalid package name**. New projects start with a placeholder that begins with `com.example`, so replace it. Settle on it before your first store upload: Apple locks it once you upload a build, and on Google Play it can never change. |
 | **Build version** | The version people see in the stores: three numbers separated by dots, such as `1.0.0`. |
 | **Build number** | A whole number the stores use to tell your uploads apart. Raise it before each new store upload. |
-| **App Icon** | Click **Change all** to set every platform at once, or pick **Android**, **iOS**, **Web** or **macOS**. Nowa accepts images up to 1024 x 1024 pixels. For the best result, use a square image of exactly 1024 x 1024 with square corners and a solid background, no transparent areas: that's the size Apple asks for, and iPhones round the corners for you. |
+| **App Icon** | Click **Change all** to set every platform at once, or pick **Android**, **iOS**, **Web** or **macOS**. Nowa accepts images up to 1024 x 1024 pixels. For the best result, use a square image of exactly 1024 x 1024 pixels, with square corners and a solid background (no transparent areas). That's the size Apple asks for, and iPhones round the corners for you. |
 
 **Package Name** on the same page is a technical name inside your project that your users never see. Don't use it as your store identifier.
 

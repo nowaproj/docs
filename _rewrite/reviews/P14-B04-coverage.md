@@ -32,8 +32,8 @@ Code refs are `path:line` in `/home/user/nowa-master` (3.13.0, `3cb32031c`). "Pa
 | Rename by double-clicking the name on the board | covered | screens.md#rename-describe-copy-and-open | |
 | Rename with the rename button at the top of Details | covered | screens.md#rename-describe-copy-and-open | |
 | Screens are kept in the Files panel; drag one onto the board | covered | add-widgets.md#drag-screens-components-and-files, library.md, components.md#manage-screens-and-components | 3.13: the **Library** (Files is code mode only, library.md#open-the-library). |
-| A screen works like a component: the same screen can sit on several boards; it's one screen, so an edit shows everywhere | added | screens.md#rename-describe-copy-and-open ("One screen, many places") | Partly covered before (copy/paste note). Research features-designer-core "Adding things to a board" (`designer_board_controller.dart`), responsive.md compare-two-sizes. |
-| Separate a screen instance with right-click → **Detach** | added (corrected) | screens.md | 3.13: **Detach** shows for a screen's board item too (`packages/designer/lib/src/menus/widget_context_menu.dart:50-51`), but it swaps the item for a loose copy (`packages/designer/lib/src/design/common_design.dart:185-195`), which isn't part of the app. A separate screen = **Copy as new widget** (already covered). |
+| A screen works like a component: the same screen can sit on several boards; it's one screen, so an edit shows everywhere | added | screens.md#one-screen-many-places | Partly covered before (copy/paste note). Research features-designer-core "Adding things to a board" (`designer_board_controller.dart`), responsive.md compare-two-sizes. |
+| Separate a screen instance with right-click → **Detach** | added (corrected) | screens.md#one-screen-many-places | 3.13: **Detach** shows for a screen's board item too (`packages/designer/lib/src/menus/widget_context_menu.dart:50-51`), but it swaps the item for a loose copy (`packages/designer/lib/src/design/common_design.dart:185-195`), which isn't part of the app. A separate screen = **Copy as new widget** (already covered). |
 | Remove from the board: right-click → **Remove** | covered | screens.md#delete-a-screen, boards.md#remove-an-item-or-delete-it | |
 | Warning: removing doesn't delete the screen; delete it from the files library | covered | screens.md#delete-a-screen | 3.13: Library → **Delete**. |
 | Details: **Name** with rename | covered | screens.md, properties.md#open-the-details-panel | |
@@ -83,7 +83,7 @@ Code refs are `path:line` in `/home/user/nowa-master` (3.13.0, `3cb32031c`). "Pa
 
 | item | status | where / evidence | note |
 |---|---|---|---|
-| Rows and columns line widgets up across or down, so the design adapts by itself | added | layout.md (new "Pick the right layout" section, #rows-and-columns) | Plain explanation of why: children move to make room. |
+| Rows and columns line widgets up across or down, so the design adapts by itself | added | layout.md#pick-the-right-arrangement | Plain explanation of why: children move to make room. |
 | Spacing, alignment, sizing and order are set in Details | covered | layout.md#rows-and-columns | |
 | Tip: a shape under the selected widgets becomes the group's background when you group them | added | layout.md#groups | `packages/designer/lib/src/design/common_design.dart:66-77` (`_firstIsBg`: first selected widget has no content of its own and contains the others), `:92-95`. |
 | **Alignment**: a grid of nine positions | covered | layout.md#rows-and-columns | |
@@ -100,14 +100,14 @@ Code refs are `path:line` in `/home/user/nowa-master` (3.13.0, `3cb32031c`). "Pa
 | item | status | where / evidence | note |
 |---|---|---|---|
 | Groups let you move, align and resize several widgets at once | covered | layout.md#groups | |
-| Example: a card with an image, a title and a button that moves as one piece | added | layout.md#groups | Example only. |
+| Example: a card with an image, a title and a button that moves as one piece | added | layout.md#groups | Example only (a product card). |
 | Group: select on the board or in the Outline, right-click **Group** or Ctrl/Cmd + G | covered | layout.md#groups | |
 | Ungroup: select the group, right-click **Ungroup** | covered | layout.md#groups | |
 | Ungroup with Ctrl/Cmd + G again | obsolete | `packages/designer/lib/src/designer_setup.dart:20`, `packages/designer/lib/src/actions/designer_actions.dart:52-55` | The key always groups (nests a group). Covered with the correction. |
-| Group property **Alignment** | added | layout.md#groups (Stack settings table) | Explained: where unpinned widgets sit (`packages/core/lib/src/layout/positioned_helper.dart:352-355`; Flutter Stack docs). |
-| Group property **Text Direction** | added | layout.md#groups | Explained in plain words (Flutter Stack docs). |
-| Group property **Fit** | added | layout.md#groups | Values `loose`, `expand`, `passthrough` (`packages/core/lib/src/fields/basic_fields.dart:1511-1548` shows enum names). |
-| Group property **Children**: lists the widgets; add new ones there | added | layout.md#groups, #rows-and-columns | **+** adds a copy of the last child (`packages/core/lib/src/fields/list_field.dart:33-53`). |
+| Group property **Alignment** | added | layout.md#stack-settings | Explained: where unpinned widgets sit (`packages/core/lib/src/layout/positioned_helper.dart:352-355`; Flutter Stack docs). |
+| Group property **Text Direction** | added | layout.md#stack-settings | Explained in plain words (Flutter Stack docs). |
+| Group property **Fit** | added | layout.md#stack-settings | Values `loose`, `expand`, `passthrough` (`packages/core/lib/src/fields/basic_fields.dart:1511-1548` shows enum names). |
+| Group property **Children**: lists the widgets; add new ones there | added | layout.md#stack-settings, #rows-and-columns | **+** adds a copy of the last child (`packages/core/lib/src/fields/list_field.dart:33-53`). |
 | Turn a group into a column or row to make it adapt | covered | layout.md#groups | |
 
 ## `ui/layout/constrains.md` (→ `design/layout.md`)
@@ -120,8 +120,8 @@ Code refs are `path:line` in `/home/user/nowa-master` (3.13.0, `3cb32031c`). "Pa
 | **Right** | covered | layout.md#place-widgets-in-a-stack | |
 | **Left and right**: pinned to both sides, stretches with the width | covered | layout.md#place-widgets-in-a-stack | |
 | **Top**, **Bottom**, **Top and bottom** | covered | layout.md#place-widgets-in-a-stack | |
-| **Center**: stays centered; good for logos, icons, dialogs | added | layout.md#place-widgets-in-a-stack | Example added. Behavior already covered. |
-| Tip: if the layout looks off when the size changes, check the constraints | added | layout.md#place-widgets-in-a-stack | Check by changing the screen's **Size** (`packages/core/lib/src/screen_sizes.dart:12-21`). |
+| **Center**: stays centered; good for logos, icons, dialogs | added | layout.md#choose-what-each-widget-sticks-to | Example added. Behavior already covered. |
+| Tip: if the layout looks off when the size changes, check the constraints | added | layout.md#choose-what-each-widget-sticks-to | Check by changing the screen's **Size** (`packages/core/lib/src/screen_sizes.dart:12-21`). |
 | Don't mix conflicting constraints such as "Left and Right" with "Center" | obsolete | `packages/designer/lib/src/details/positioned_details.dart:97-130` | One choice per direction; and **Center** in either list clears the pins in both directions (`packages/core/lib/src/layout/positioned_helper.dart:352-355`), which is added as a caution. |
 
 ## `ui/wrappers/wrappers-intro.md` (→ `design/properties.md#add-a-wrapper`)
@@ -140,14 +140,14 @@ Code refs are `path:line` in `/home/user/nowa-master` (3.13.0, `3cb32031c`). "Pa
 
 | Old page | Items | covered | added | obsolete | not useful | dev-only | for other page |
 |---|---|---|---|---|---|---|---|
-| ui/boards.mdx | 12 | 6 | 1 | 4 | 1 | 0 | 0 |
+| ui/boards.mdx | 12 | 7 | 1 | 3 | 1 | 0 | 0 |
 | ui/screens.md | 21 | 18 | 3 | 0 | 0 | 0 | 0 |
 | ui/components.md | 17 | 12 | 3 | 2 | 0 | 0 | 0 |
 | ui/layout/intro-layout.md | 5 | 4 | 0 | 0 | 1 | 0 | 0 |
 | ui/layout/rows-and-columns.md | 11 | 8 | 3 | 0 | 0 | 0 | 0 |
-| ui/layout/groups.mdx | 10 | 5 | 5 | 1 | 0 | 0 | 0 |
+| ui/layout/groups.mdx | 10 | 4 | 5 | 1 | 0 | 0 | 0 |
 | ui/layout/constrains.md | 9 | 6 | 2 | 1 | 0 | 0 | 0 |
 | ui/wrappers/wrappers-intro.md | 7 | 5 | 1 | 0 | 1 | 0 | 0 |
-| **All** | **92** | **64** | **18** | **8** | **3** | **0** | **0** |
+| **All** | **92** | **64** | **18** | **7** | **3** | **0** | **0** |
 
 "covered (corrected)" rows count as covered; "added (corrected)" as added.

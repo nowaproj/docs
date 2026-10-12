@@ -15,9 +15,23 @@ create a new iOS Distribution certificate in your Apple Developer Program accoun
 matches this private key" and "Codemagic will fetch or create the relevant provisioning profile and certificate to
 code sign the build" (https://docs.codemagic.io/yaml-code-signing/alternative-code-signing-methods/).
 
+## Summary
+
+- All six pages edited in place for the primary reader (R1-R9): plain words for every technical term the reader meets
+  (bundle ID, signing, keystore, upload key, `.p8`, `.p12`, `.aab`, `.apk`, `.ipa`, DNS records, branch, commit, log),
+  a why or a what-happens-next on steps where it helps, and the journey laid out before the details on the two store
+  pages. No headings removed or renamed against the pre-phase-14 commit `7fdb655`; images, explicit IDs
+  (`#app-details`, `#apple-distribution-certificate`, both `#store-rules`) and the capture placeholder unchanged;
+  all 74 inbound links into `docs/publish/` and every link on the six pages resolve (script check).
+- Coverage: 82 old items audited (`P14-B11-coverage.md`); 35 brought information back, plus 5 items the brief asked
+  for (Google Play account, testing rule, listing graphics, export compliance, pending custom domain).
+- Moved to the code section: 1 fact (`flutter analyze`, web.md). Six new developer facts proposed for `#publishing`.
+- Fees: only "one-time registration fee" (Google) and "yearly fee" (Apple), each with a link. No amounts.
+- No em dashes, no hype words, at most two admonitions per page.
+
 ## ios.md
 
-Status: done. 2,686 words (URLs excluded): over the ~2,200 guide, see "Split proposal" below. One admonition.
+Status: done. About 2,700 words (URLs excluded): over the ~2,200 guide, see the split proposal (open question 4). One admonition.
 
 ### What changed for the reader
 
@@ -91,14 +105,14 @@ Status: done. 2,686 words (URLs excluded): over the ~2,200 guide, see "Split pro
 3. Stripe's Apple Pay option writes an entitlement (`packages/core/lib/src/integrations/stripe/stripe_manager.dart:102-116`),
    which would need the Apple Pay capability on the App ID. Whether the iOS project (a server-side template) references
    that entitlements file couldn't be checked, so the page only gives Apple Pay as an example capability.
-4. Split proposal (the page is ~2,690 words): move **Set up your Apple account** (its four walk-throughs, ~880 words)
+4. Split proposal (the page is ~2,700 words): move **Set up your Apple account** (its four walk-throughs, ~880 words)
    to a new page `publish/apple-account.md` ("Set up your Apple account", sidebar "Apple account setup") placed
    before `publish/ios.md`, keep the journey list and a link on `ios.md`, and redirect nothing (new URL). `ios.md`
    would drop to ~1,800 words. Not done here (brief: propose, don't split).
 
 ## android.md
 
-Status: done. About 2,090 words (URLs excluded). One admonition (the existing signing-key warning).
+Status: done. About 2,080 words (URLs excluded). One admonition (the existing signing-key warning).
 
 ### What changed for the reader
 
@@ -113,7 +127,7 @@ Status: done. About 2,090 words (URLs excluded). One admonition (the existing si
   sentence made concrete.
 - **Build a release** / **Download your files**: said why release builds matter and what `.aab` vs `.apk` are.
 - New **Set up Google Play Console** H2 with four walk-throughs: developer account, create the app, store listing
-  (Dashboard, App content, Main store listing, Store settings, graphics table), testing rule for new personal accounts.
+  (**Set up your app**: Dashboard, App content, Main store listing, Store settings, graphics table), testing rule for new personal accounts.
 - **Upload to Google Play**: replaced the three-line summary with Google's release steps.
 - **Release an update**: why the build number goes up; "create a new release on the same track".
 - **Follow Google Play's rules** `{#store-rules}`: unchanged.
@@ -126,7 +140,7 @@ Status: done. About 2,090 words (URLs excluded). One admonition (the existing si
 | Debug build = only an `.apk` | debug workflow artifacts `build/**/outputs/flutter-apk/*.apk` only (`packages/core/lib/src/file_system/codemagic_file.dart:13-32`) |
 | Debug build not optimized, can feel slower or jumpier | "optimized for fast development and run cycles (but not for execution speed, binary size, or deployment)", "Application performance can be janky in debug mode" (https://docs.flutter.dev/testing/build-modes) |
 | Google Play doesn't accept it | new apps release Android App Bundles: "Releases allow Android developers to manage Android App Bundles (or APKs for apps created before August 2021)" (https://support.google.com/googleplay/android-developer/answer/9859348); the debug build is unsigned (Nowa's note, `packages/core/lib/src/settings/deployment_settings.dart:238-241`) |
-| Android requires signing before install; Google uses the upload key to verify you; keystore `.jks` / `.keystore` | answer/9859152 ("Android requires that all apps be digitally signed with a certificate before they can be installed"); https://support.google.com/googleplay/android-developer/answer/9842756 (upload key table) |
+| Google Play only accepts apps signed with your own key, which proves each upload comes from you; keystore `.jks` / `.keystore` | https://support.google.com/googleplay/android-developer/answer/9842756 (upload key: "You use this key to sign your app bundle before uploading it to the Play Console. Google uses it to verify your identity"; "Stored in a Java keystore (.jks or .keystore)"). Worded around Google Play rather than "Android requires signing" so it doesn't clash with Nowa's "Unsigned builds" note for debug builds. |
 | Reuse the key you published with before | answer/9842756 (the upload key signs every bundle you upload) |
 | Play App Signing turns on by default for new apps when you upload the first bundle; Google keeps the app signing key; Nowa's key becomes the upload key; Google can reset a lost upload key from Play Console | answer/9842756 ("By default, when you upload your app bundle, your app is automatically enrolled", "If compromised or lost, Google can reset this key for you", "Request an upload key reset") |
 | Add Google's app signing key fingerprints too | answer/9842756 ("you must register the Google-held app signing key fingerprint with your API providers, not just your local upload key") |

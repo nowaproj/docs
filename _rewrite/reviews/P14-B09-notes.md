@@ -187,3 +187,76 @@ Open questions:
   page doesn't mention it (noted in the for-code file).
 - `DateTime` fields expect text dates (`json_generator.dart:152-157`), so documents with Firestore timestamps may fail to
   load (code reading). Worth a product check; not on the page.
+
+## Page: `docs/integrations/firebase/notifications.md`
+
+Changed for the reader:
+- Intro rewritten (R9) with everyday examples; FCM spelled out once (R4).
+- Step 2: `RECEIVE_BOOT_COMPLETED` kept (it's in the dialog, R3) and explained: Nowa's own description is "Receive boot
+  completed notifications" (`packages/core/lib/src/services/permissions_service.dart:136-140`); the permission is the
+  Android broadcast sent after the device finishes booting.
+- Step 3 now points to the new iPhone section; the Xcode reminder moved into that section, with the **Open Xcode
+  Workspace** link described in plain words (the link opens `ios/Runner.xcworkspace` under the project's path,
+  `notification_settings.dart:101-110`, so it works for local projects; W16 review). File path moved.
+- "What Nowa adds" became "What your app does with notifications": the behavior kept (permission request at start,
+  topic `all`, foreground display, background handling, no screen on tap; `notification_service_template.dart:30-64,151`),
+  topic explained (R4). Package names, the service file and the `main()` line moved to the for-code file. Platform
+  table in plain words: background modes → "the background settings iOS needs", desugaring → "an Android build setting
+  that the notification tools need". One link to `generated-code.md#firebase`.
+- Test section: a short reason, an example title, and who receives it (devices that run the new version and allowed
+  notifications). "your own code has subscribed" became "your app has subscribed ... in some other way, for example with
+  logic you or Nowa AI added".
+- "Turn push notifications off": plain words; added that the Android permission stays, which is why the dialog only
+  appears the first time (P13 verify: the dialog opens only while the permission is missing,
+  `packages/core/lib/src/interpreter/packages/package_service.dart:276`, and `removePackage` doesn't remove permissions,
+  `:345-350`).
+- The P34 warning is unchanged.
+
+Added:
+- "Set up notifications for iPhone" (old page: "enable the Push Notifications capability in Xcode"; brief: Apple Push
+  Notification setup step by step).
+  - Why: APNs delivers to Apple devices; Firebase needs your APNs key (Firebase, "Before you use FCM, upload your APNs
+    authentication key to Firebase", https://firebase.google.com/docs/cloud-messaging/flutter/client#upload-authentication-key).
+  - App ID capability: Apple, "In Certificates, Identifiers & Profiles, click Identifiers in the sidebar. Select the App ID
+    you want to update, then click Edit. Select the corresponding checkboxes to enable the app capabilities you want to
+    allow. Click Save. If a warning dialog appears, click Confirm"; push notifications is one of the capabilities that
+    "require additional steps", and "In order to configure the capabilities an app uses, you need to add them to a target
+    in the Xcode project" (https://developer.apple.com/help/account/identifiers/enable-app-capabilities/). The checkbox
+    label **Push Notifications** is the capability's name in the portal; the help page doesn't print the label.
+  - Key: Apple, "In Certificates, Identifiers & Profiles, click Keys in the sidebar, then click the add button (+) ...
+    Under Key Name, enter a unique name ... Select the checkbox next to the services you want to enable ... Click
+    Configure next to "Apple Push Notification service." On the next page, choose the environment configuration and type
+    of key (Team Scoped or Topic Specific) ... Review the key configuration, then click Confirm ... click Download ... a
+    .p8 file extension ... Click Done", "you won't be able to download it again", "Required role: Account Holder or Admin"
+    (https://developer.apple.com/help/account/keys/create-a-private-key/). The environment option names aren't on Apple's
+    help page, so the page describes them ("both the sandbox (test) and production environments") without labels.
+    Apple also says "The signing key works for both the development and production environments"
+    (https://developer.apple.com/help/account/capabilities/communicate-with-apns-using-authentication-tokens/).
+  - Key ID: "click Keys in the sidebar ... select the private key to view details. The key identifier appears below the
+    key name" (https://developer.apple.com/help/account/keys/get-a-key-identifier/). Team ID: "To find your Team ID, sign
+    in to your developer account and click "Membership details."" (https://developer.apple.com/help/glossary/team-id/).
+  - Firebase upload: "In the Firebase console, go to Settings > General. Then, click the Cloud Messaging tab. In APNs
+    authentication key under iOS app configuration, click Upload to upload your development authentication key, or
+    production authentication key, or both. At least one is required. For each authentication key, select the .p8 file,
+    and provide the key ID and your Apple team ID. Click Save." (same Firebase page). The same page also lists "Enable
+    push notifications" and the Background fetch / Remote notifications modes in Xcode; Nowa adds the background modes
+    itself (`packages/core/lib/src/interpreter/packages/integrations/firebase_package_config.dart:54`), so only the
+    capability is left.
+  - Capability: the in-app note, "Important: You must enable Push Notifications capability in Xcode. Go to your iOS
+    project → Signing & Capabilities → Add Capability → Push Notifications." (`notification_settings.dart:98`). Nowa
+    writes no `aps-environment` anywhere (grep), so the capability isn't added for you. No-code path: Nowa AI in Agent mode
+    can create and edit non-Dart files such as entitlements and platform files (`research/features-ai.md`, `edit` and
+    `write` tools); the page doesn't promise the result, says it can't be checked in Nowa and how to check it (a test
+    notification on an iPhone after the next iOS build), and that **Restore Checkpoint** undoes AI file changes
+    (`research/features-ai.md`, Restore Checkpoint).
+
+Open questions:
+- Apple: changing an App ID's capabilities invalidates the provisioning profiles that use it ("You'll need to regenerate
+  the provisioning profiles that use that App ID", enable-app-capabilities page). Whether Nowa's iOS cloud build makes new
+  profiles by itself wasn't checked, so the page doesn't mention it.
+- Possible product issue: Stripe's Apple Pay setup writes `ios/Runner/Runner.entitlements` as a whole new file
+  (`packages/core/lib/src/integrations/stripe/stripe_manager.dart:102-118`), and removing Apple Pay deletes the file when no
+  other key is left (`:79-100`). An `aps-environment` entitlement added for push (by Xcode or Nowa AI) would be dropped
+  when Apple Pay is turned on afterwards (code reading).
+- Android 13 and later need the `POST_NOTIFICATIONS` permission for notifications; nothing in Nowa adds it (W16 notes).
+  Whether the `firebase_messaging` plugin declares it was not checked. Not on the page.

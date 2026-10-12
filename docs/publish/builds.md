@@ -65,7 +65,7 @@ A failed build doesn't break anything in your project. Find the cause, fix it an
 
 ## What runs behind the scenes
 
-Builds run in Nowa's cloud. When you start one, Nowa commits your changes to the branch you pick, and the build starts from that branch. The build steps themselves are written in a settings file in your project, `codemagic.yaml`. Nowa takes care of it, so you can leave it as it is.
+Builds run in Nowa's cloud. When you start one, Nowa commits your changes (saves them as a new version) to the branch you pick, and the build starts from that branch. The build steps themselves are written in a settings file in your project, `codemagic.yaml`. Nowa takes care of it, so you can leave it as it is.
 
 If that file ever gets broken, for example after an edit in code mode, Nowa shows a red error bar when you open it in code mode. Click **Reset to default** on the bar to put the default build steps back.
 

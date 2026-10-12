@@ -5,7 +5,7 @@ sidebar_label: Plans and usage
 keywords: [plan, plans, billing, subscription, invoices, upgrade, credits, AI credits, usage, AI usage, extra AI usage, buy credits, out of credits, limits, credits and limits, pricing, premium, paid plan, Time to level up, invite a friend, referral, Adjust Plan, tokens]
 ---
 
-Your plan decides which Nowa features you can use and how much Nowa AI you get. Your requests to Nowa AI use your plan's AI allowance, which resets on a schedule, and you can top up with extra credits if you need more before then. This page shows where to check all of that, how to upgrade or top up, and what to do if you run out in the middle of a project. For what each plan includes and what it costs, see [Nowa pricing](https://nowa.dev/pricing).
+Your plan decides which Nowa features you can use and how much Nowa AI you get. Each request to Nowa AI uses part of your plan's AI allowance, which resets on a schedule. If you need more before then, you can top up with extra credits. This page shows where to check all of that, how to upgrade or top up, and what to do if you run out in the middle of a project. For what each plan includes and what it costs, see [Nowa pricing](https://nowa.dev/pricing).
 
 ## What your plan includes {#what-your-plan-includes}
 
@@ -13,16 +13,16 @@ These features depend on your plan. If yours doesn't include one, Nowa tells you
 
 | Feature | If your plan doesn't include it | Learn more |
 |---|---|---|
-| Nowa AI usage | Your plan sets an AI allowance. Once it's used up, extra credits keep you going, or you wait for the reset. | [Check your usage](#usage) |
 | Buying extra credits | **Buy credits** says your plan doesn't support it and offers **Upgrade Plan**. | [Buy extra AI credits](#buy-credits) |
 | The desktop app | After you sign in, the app says "Upgrade to unlock desktop version, or use on web at app.nowa.dev". | [Install the desktop app](../get-started/desktop-app.md) |
 | Git and GitHub, including **Clone from GitHub** | The **Git** panel and settings say "Your plan does not support git integration", and **Clone from GitHub** opens **Time to level up**. | [Use Git](../code/git.md) |
 | Publishing to the web | The **Web** row of the **Deploy** menu shows **Premium**. | [Publish to the web](../publish/web.md) |
 | Your own domain for the web version | **Custom Domain** shows **Premium**. | [Publish to the web](../publish/web.md) |
-| Android and iOS builds | Their rows in the **Deploy** menu show **Premium**. Builds also count against an allowance. | [Get ready to publish](../publish/index.md) |
-| Downloading your code | Code downloads count against an allowance. | [Download your code](../publish/download-code.md) |
+| Android and iOS builds | Their rows in the **Deploy** menu show **Premium**. | [Get ready to publish](../publish/index.md) |
 | Premium templates | Adding a template marked **Premium** opens **Time to level up**. | [Start from a template](../design/templates.md) |
 | Connecting your own AI agent | It's for Enterprise accounts: **Connect External Agent** doesn't show. | [Connect your own AI agent](../ai/external-agent.md) |
+
+Nowa AI, Android and iOS builds, and code downloads also come with an allowance that your plan sets. When one runs out, Nowa tells you and offers an upgrade or, for Nowa AI, extra credits. See [Check your usage](#usage), [When you run out of AI credits](#out-of-credits) and [Download your code](../publish/download-code.md).
 
 ## See your plan and invoices
 

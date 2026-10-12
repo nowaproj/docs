@@ -32,7 +32,7 @@ Status key: `covered` (page#section) / `added` (page#section) / `to add` (planne
 | Drawer: side panel with navigation options | covered | index#drawer, navigation#drawer | |
 | List Tile: one row made for lists | covered | index#listtile; details added in lists (see listtile.md) | |
 | Page View: one page at a time, sideways | covered | index#pageview, navigation#page-view | |
-| Index Stack: shows one child by index and keeps the others' state | added | navigation#indexed-stack, index#index-stack | Flutter SDK `widgets/basic.dart:4815-4826` ("each keeping their respective states"; "as big as the largest child") |
+| Index Stack: shows one child by index and keeps the others' state | added | navigation#indexed-stack (index#index-stack to add) | Flutter SDK `widgets/basic.dart:4815-4826` ("each keeping their respective states"; "as big as the largest child") |
 | Dropdown Menu: pick one of several options in a form | covered | index#dropdown-menu, forms#dropdown-menu | |
 | Admob Banner: show ads to earn money | covered | index#admob-banner, integrations/admob.md | |
 | Video Player: "supports a range of video formats" | not useful | | vague; formats depend on the device |
@@ -128,16 +128,16 @@ Status key: `covered` (page#section) / `added` (page#section) / `to add` (planne
 
 | item | status | where / evidence | note |
 |---|---|---|---|
-| **Value**: checked, unchecked or (with Tristate) a dash | to add | forms (Checkbox, Switch and Slider settings) | params `material_library.dart:9016-9041`; dash for null: Flutter SDK `material/checkbox.dart:254-263` |
-| **Tristate** | to add | forms | same |
+| **Value**: checked, unchecked or (with Tristate) a dash | added | forms#checkbox-switch-slider | params `material_library.dart:9016-9041`; dash for null: Flutter SDK `material/checkbox.dart:254-263` |
+| **Tristate** | added | forms#checkbox-switch-slider | same |
 | **On Changed** | covered | forms (checkboxes section), index#checkbox | |
-| **Active Color**, **Check Color** | to add | forms | |
-| **Focus Color**, **Hover Color** | to add | forms (one row) | |
+| **Active Color**, **Check Color** | added | forms#checkbox-switch-slider | |
+| **Focus Color**, **Hover Color** | added | forms#checkbox-switch-slider | |
 | **Splash Radius** | not useful | | minor cosmetic setting, visible in Details |
 | **Autofocus** | not useful | | keyboard focus when the screen opens; rarely needed |
-| **Side** (the box's border) | to add | forms | |
-| **Is Error** | to add | forms | |
-| **Semantic Label** | to add | forms | |
+| **Side** (the box's border) | added | forms#checkbox-switch-slider | |
+| **Is Error** | added | forms#checkbox-switch-slider | |
+| **Semantic Label** | added | forms#checkbox-switch-slider | |
 
 ## widget-desc/loading-circular.md
 

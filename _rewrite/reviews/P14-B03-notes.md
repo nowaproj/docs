@@ -209,3 +209,18 @@ from certified Nowa experts., Book a Free Consultation, Become an expert, Learni
 announcement, How much would you rate Nowa?, Submit Feedback, In Progress, Resolving, Resolved. "Tell us more about it
 (optional)" is two spans: `packages/core/lib/src/dialogs/content_dialogs.dart:33-36`. Conversations stay under **Your
 tickets** (kept fact; basis for "come back to the answer later").
+
+## index.md
+
+**For the reader (R4, R9).** Warmer intro and dashboard paragraph; "Local projects" explained as projects stored on
+your computer; the **Download Desktop App** row says why you'd want it; the dialogs list says none of them change your
+projects; "In this section" now mentions privacy (account settings) and what your plan includes (plans page). All
+facts, labels, links and anchors kept.
+
+**Moved to for-code:** none.
+
+**New or changed claims and their evidence.**
+| Claim | Evidence |
+|---|---|
+| The desktop app is needed for local projects and to run the real app on a phone or emulator | `get-started/cloud-and-local.md` table (local projects: desktop app only; "Run on devices and emulators: Yes, with the desktop app"), `test/devices.md` ("The web app can't reach the devices on your computer."); `packages/core/lib/src/settings/project_settings.dart:29`, `lib/dashboard/create_new_project/new_project_dialog.dart` (local option disabled on the web) |
+| The automatic dashboard dialogs don't change projects | the four dialogs are an update prompt, the onboarding survey, the rating dialog and an upgrade offer (kept list; `_rewrite/research/features-account-projects.md` "Dashboard pop-ups"); none writes project files |

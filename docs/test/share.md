@@ -42,7 +42,7 @@ Pick what your client needs to see.
 
 - **A quick look.** Send the preview link set to **Public**. Read the warning above first, because **Public** opens your whole project.
 - **A look without making the project public.** Keep the preview **Private** and give your client access. Put the project in a [workspace](../account/workspaces.md) and [invite your client](../account/workspaces.md#invite-people) as a member. Choose **View Only** if they should look but not change anything. They sign in to Nowa to open the link.
-- **The finished app.** The preview isn't the compiled app. To hand over the real thing at its own web address, [publish your app to the web](../publish/web.md). Publishing needs a paid plan.
+- **The finished app.** The preview isn't the real, built app. To hand over the real thing at its own web address, [publish your app to the web](../publish/web.md). Publishing needs a paid plan.
 
 ## Share a preview
 

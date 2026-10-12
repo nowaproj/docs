@@ -7,6 +7,18 @@ Code-only facts for `docs/code/generated-code.md`, grouped by its anchors. Two k
 
 ## #actions-and-popups
 
+- Moved from `docs/logic/actions.md` ("Find any other function" table, MATERIAL row; `showAboutDialog` stays on the
+  page): "| **MATERIAL** | Dialogs, sheets and pickers, plus `showMenu`, `showSearch` and `showAboutDialog`. |"
+  (`showSearch` needs a `SearchDelegate` written in code.)
+- Moved from `docs/logic/actions.md` (same table, DART:ASYNC row; `Timer` stays on the page):
+  "| **DART:ASYNC** | `Timer`, `unawaited` and `scheduleMicrotask`. |"
+- Moved from `docs/logic/actions.md` (same table, PACKAGE row; rewritten on the page as "Functions from your own
+  project, and your keys and constants under `AppConstants`"): "| **PACKAGE:** and your package name, such as
+  `PACKAGE:MY_APP` | Functions you wrote and classes with static members, such as `AppConstants`. See [Keys and
+  constants](../integrations/constants.md). |"
+- Moved from `docs/logic/actions.md` (paragraph under the table): "A package you add brings its own category. The
+  library categories list functions and classes that have static members. To make an object from any other class, use
+  **Create...**."
 - Old docs (dev-only), from `old-docs/logic/common-functionalities/media-picker.md`: `showMediaPicker` returns a
   `Future<List<XFile>>`. `XFile` is the cross-platform file type of the `image_picker` package (it has the file's path
   and name, and `readAsBytes()` for its data). Nothing picked gives an empty list. Refs:

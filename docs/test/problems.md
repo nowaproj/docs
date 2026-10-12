@@ -27,7 +27,7 @@ Click **Fix**. Nowa applies the fix and checks again, so the row disappears once
 
 | Problem | What Fix does |
 |---|---|
-| `'<package>' is imported but is not in the pubspec.` | Adds the missing package (a ready-made add-on your app uses), at its latest version. |
+| `'<package>' is imported but is not in the pubspec.` | Adds the missing package (a ready-made add-on your app uses) to your project's list of packages, the pubspec, at its latest version. |
 | `The function '<name>' isn't defined.` | Adds the package that provides it, when it's one Nowa knows. |
 | `Setup statement in main.dart for "<key>" is required but not found.` | Adds the missing setup to `main.dart`, the file your app starts from. |
 | `Android permission "<name>" is required by <package> but not enabled.` (or iOS) | Turns the permission on, so your app can ask the phone for it (for example, the camera). |

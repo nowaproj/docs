@@ -110,7 +110,7 @@ For the reader:
   no mention of it). Explains what it's for, how it opens from an event, and that Nowa AI's logic can be checked there.
 - **Variables** panel: each tab now has a plain-words meaning and an everyday example (R8): Params (values it
   receives), Variables (values it remembers, such as the number of items in a cart), Functions (named sets of steps),
-  Globals (values and functions every screen can use).
+  Globals (your global states, the data every screen can use).
 - Plain words for jargon in the tables: package chip ("separate parts of the code, usually in an imported project;
   most projects never show it"), Search ("find text ... and replace it everywhere"; **Symbols** finds names), Git
   ("version history ... for people who use it"), Outline ("every widget ... nested the way they sit inside each
@@ -132,6 +132,8 @@ Added / changed claims and evidence:
 - Library assets = "the folders and files in your `assets/` folder": `docs/design/library.md` (sources table).
 - Router: lists routes and chooses the first screen: `docs/logic/router.md` intro.
 - Safe mode from the dashboard ⋮ menu for a project that freezes: `docs/guides/ship-tips.md#keep-big-boards-fast`.
+- **Globals** lists your attached global states, the data every screen can use: `docs/logic/global-state.md:57`,
+  `docs/design/index.md:33`. Variables-panel tabs: `docs/logic/variables.md:30`.
 
 Length: about 1,990 words of visible text (2,219 with markup). If it grows further, split it into "Tour the editor"
 (layout at a glance, board, Details/Variables, Circuit, help) and an "Editor controls" reference page (the Top bar
@@ -280,10 +282,15 @@ Added / changed claims and evidence:
   (`docs/guides/ship-tips.md#keep-a-way-back`, `docs/publish/android.md`).
 - App Store Connect is where you submit the build for review: `docs/publish/ios.md:172` (choose the build and submit it
   for review), citing Apple's https://developer.apple.com/help/app-store-connect/manage-submissions-to-app-review/submit-an-app.
-- Prompts are suggestions to the agent, not product claims; each comes with a way to check the result.
+- Prompts are suggestions to the agent, not product claims; each comes with a way to check the result. The checks
+  for steps 5 and 6 go through the login screen, because the table is readable only by signed-in people (the RLS rule
+  the step 3 prompt asks for).
+- Future Options sub-steps (click **+** next to **onValue**, a new Circuit opens; **Edit** next to **onError**):
+  `docs/integrations/supabase/auth.md#login-screen` steps 8-9.
+- `$` in **Location** inserts a value (here the card's `id` param): `docs/logic/navigation.md:91`.
 
-Length: about 2,230 words of visible text (2,290 with markup), slightly over the ~2,200 mark because every build
-step now has a prompt path and a visual path. If it needs to shrink, split it in two: "Build a complete app, part 1:
+Length: about 2,300 words of visible text, slightly over the ~2,200 mark because every build step now has a prompt
+path, a check and a visual path. If it needs to shrink, split it in two: "Build a complete app, part 1:
 design and sign-in" (steps 1-4) and "part 2: data, detail screen and publishing" (steps 5-8), with the Before you
 start list on part 1 and a link between them.
 
@@ -388,3 +395,27 @@ Added / changed claims and evidence:
   store's review (`docs/publish/ios.md:172`, `docs/publish/android.md`); worded "can mean" because the web has none.
 
 Open questions: none.
+
+## Routed from B02 (applied)
+
+1. `guides/ship-tips.md`, Keep a way back, checkpoints bullet: now "They aren't a backup, though: Git doesn't save
+   them, so keep a Git commit or a downloaded copy of any version you want to return to." (The `.nowa/temp/` folder had
+   already been moved to the for-code file in this batch.) Evidence: `packages/core/lib/src/project/settings_service.dart:34-38`
+   (writes a nested ignore file for `.nowa/temp` in every non-sandboxed project) and
+   `packages/core/lib/src/file_system/templates/common/gitignore_template.dart:13-16` (ignores `temp/` and
+   `thumbnail.png`).
+2. `guides/ai-tips.md`, Review what the agent did: added "If a result isn't right, see [When the result isn't
+   right](../ai/prompting.md#when-the-result-isnt-right)." Anchor checked: heading at `docs/ai/prompting.md:79`.
+
+## Routed from B05 (applied)
+
+1. `guides/design-tips.md`, Make layouts that adapt, "Need two layouts?": already rewritten in this batch without the
+   typed `MediaQuery.of(context).size.width` formula: prompt first ("Show a side menu on wide screens and a bottom bar
+   on phones"), then **Visibility** with a condition on the screen's width, linked to
+   `../design/responsive.md#show-different-widgets-on-wide-and-narrow-screens` (anchor checked).
+2. `guides/design-tips.md`, Set the theme first, "Plan for dark": added "Your app starts in the **Active** theme each
+   time it opens, so when you add a switch, ask Nowa AI to remember each person's choice too." Evidence: the new
+   project's `AppState` starts `_theme` at `lightTheme` and `changeTheme` only changes it in memory
+   (`packages/core/lib/src/file_system/templates/common/app_state_template.dart:28-35`); applying a theme sets that
+   starting value (`packages/core/lib/src/project/env_services/theme_service.dart:114-140`, `_applyThemeToGetterDefault`).
+   Same fact on `docs/design/theme-styles.md`.

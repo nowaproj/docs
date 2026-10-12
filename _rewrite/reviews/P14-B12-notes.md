@@ -262,6 +262,37 @@ Facts, anchors and workarounds of every entry kept (3.13.0 as shipped). Changes:
 
 **Evidence**: unchanged facts from the earlier verified page; new page contents are cited under their own pages.
 
+## troubleshooting/index.md
+
+All headings kept (inbound anchors `#this-screen-failed-to-render`, `#update-prompts`, and the in-page ones).
+
+**What changed for the reader**
+- Intro: tells the reader they can search the page for the words on screen (messages are quoted exactly).
+- No-code first (R5): "This screen failed to render" step 2 now leads with Nowa AI ("tell it which screen shows the
+  error and what the card says"; the card text isn't selectable); placeholder section gets an Agent prompt; the
+  dev-dependency fix leads with Nowa AI, hand edit labelled "If you edit code yourself"; safe mode step 3 leads with
+  Nowa AI.
+- "Nothing to run" now quotes the dialog ("Cannot find lib/main.dart, so there is no app to launch.") and says in plain
+  words that the main file is missing.
+- Explained in a clause: packages, Flutter ("Google's free toolkit that builds your app"), the `pubspec.yaml` folder
+  hint in "Project not found" (kept: Nowa validates the folder).
+- "No devices in the Run on menu": the second "No devices connected" variant ("... set up an emulator.") and the
+  Android **USB debugging** requirement, with links to the new devices sections.
+- Small reassurances (R9): "Your project isn't lost if the folder still exists somewhere", "Safe mode breaks that
+  loop", "That information helps the team find the cause quickly", "You're not on your own."
+
+**Evidence for new or changed claims**
+- Render error card: plain `Text` (max 4 lines, not selectable) and **Reload screen** (`packages/designer/lib/src/error_boundary.dart:226-268`).
+- "Nothing to run" text: `packages/core/lib/src/runner/run_preflight.dart:84-95`; "Main file is not found" → **Fix**
+  (`packages/core/lib/src/project/env_services/main_problems_finder.dart:44-48`).
+- Locate folder validates the chosen folder (`packages/core/lib/src/services/local_project_service.dart:146-148`,
+  `checkIfValidProject`); buttons **Use …**, **Locate folder**, **Remove from projects**, **Try again**
+  (`lib/project/missing_project_folder.dart:84-124`).
+- Both "No devices connected" variants: `lib/local_export.dart:108-109`. USB debugging: https://developer.android.com/studio/run/device.
+- Local Setup can download Flutter: `packages/core/lib/src/settings/editor_settings/local_setup.dart:119-160`.
+
+**Open questions**: none.
+
 ## For other pages
 
 | Target page (batch) | Proposed text | Evidence |

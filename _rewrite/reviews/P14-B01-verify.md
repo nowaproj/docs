@@ -192,3 +192,63 @@ Length: about 2,350 words of visible text after these additions. Routing item #2
 | "Each row takes a minute to check" | fixed | | Not verifiable (reading the store rules takes longer). Removed; the reason that stays is "fixing something after release can mean another store review". |
 | "So launch day holds no surprises" | fixed | | Overpromise. Now "so you don't forget a step". |
 | Play starts the app's navigation at a played screen with a route; paywall, logs, commit, migrations, edge functions, Bundle Identifier, `.aab` glosses; bundle ID registered in your Apple Developer account | ok | `docs/test/instant-play.md`, `docs/publish/ios.md` (register a bundle ID) | |
+
+## Removed facts (all pages)
+
+Every `-` line of the diff was traced. Nothing the reader needs was dropped:
+- Moved unchanged to `P14-B01-for-code.md` (checked word for word against `origin/main`): the `SupabaseService`/package sentence (complete-app), `.nowa/temp/` (ai-tips, ship-tips), the `supabase/` folder (ship-tips), Google Pay's `testEnv: true` (ship-tips), `flutter analyze` (ship-tips), the model constructor/`fromJson`/`toJson` sentence (data-and-state-tips). Each page keeps the consequence in plain words.
+- Still on the page in simpler words: old complete-app tip (Make it real, Agent + connector, Plan) now in step 1; design-tips' `MediaQuery` formula replaced by "a condition on the screen's width" with the link to `design/responsive.md`, which keeps the formula and menu path; "Nowa applies your code edits before it sends a request" now "always works from your latest version, including the changes you've made by hand".
+- Dropped on purpose: "on iOS" for Apple sign-in (native iOS is Nowa GO, not documented, D15). Fine.
+
+Facts restored from removed lines: 0 needed.
+
+## Links and structure
+
+- Relative links and anchors on all 15 pages: checked with a script (resolves files and explicit or auto heading anchors; sanity-tested on a scratch file with a bad anchor and a missing file, both caught, scratch file deleted). 0 problems, also after the orchestrator's If/Try/loops split of `logic/circuit.md` (`#future-options` still there).
+- `../code/generated-code.md#supabase` (complete-app) is in the allowed anchor list; no other generated-code links.
+- All `{#id}` anchors present on `origin/main` still exist (`#welcome-tour`, `#install-on-linux`, `#setting-up-flutter-sdk`, `#macos-install-xcode`, `#future-options` targets, etc.). Only auto anchor that changed: complete-app `#2-refine-it-by-hand` (heading renamed "2. Make it look like yours"); no inbound link in `docs/`, the product code or the redirect list (only a stale `build/` bundle).
+- Front matter valid on all pages; no H1 in the body (index.md's hero `<h1>` predates this pass, `hide_title: true`); admonitions: first-app 2, cloud-and-local 1, desktop-app 1, others 0; no `---` rules besides front matter; no hype words from the style guide list; no emoji; image paths identical to `origin/main`.
+- R2 sweep of every inline code span: what's left is UI text the reader sees (function names in the Supabase panel and Circuit, params, routes, theme names, `?screen=`, the `xcode-select` error text, `flutter doctor`) or Linux install facts (archive name, `install.sh`, install folder), each explained where it first appears. No file paths, class names or code lines left outside the for-code file.
+
+## Coverage spot checks
+
+Obsolete rows (all 11 checked in code, all hold):
+
+| Old item | Result | Code |
+|---|---|---|
+| "No metadata, no hidden files" (introduction) | still obsolete | `packages/core/lib/src/project/settings_service.dart:34-38` (`.nowa/temp` + nested ignore), `packages/designer/lib/src/actions/file_actions.dart:61-66` (`.board` files in `boardsDir`) |
+| Nowa Marketplace (introduction) | still obsolete | `lib/dashboard/market_place/marketplace_view.dart:11` (`MarketplaceView` is never used elsewhere) |
+| Confirm by clicking the email link (install) | still obsolete | `lib/auth/auth_view.dart:745`, `:793`, `:797` (6-digit code, **Verify**, **Resend the code**) |
+| Welcome screen with **Let's Get Started** (install) | still obsolete | no such string in `lib/` or `packages/` |
+| Local: work offline (install) | still obsolete | `lib/router.dart:46-63`, `:86-111` |
+| Toolbar at the top of the board (toolbar) | still obsolete | `packages/designer/lib/src/panels/designer_board.dart:142-146` (`Alignment.bottomCenter`) |
+| **Play** tool in the toolbar (toolbar) | still obsolete | `packages/designer/lib/src/widgets/designer_tools.dart:135-174` (Select tool, Shape, Screen, Text, Widget) |
+| **Pages** / **Components** tabs (widget-panel) | still obsolete | `packages/nowa_ui/lib/library/library_panel.dart:432-437` (sections **Project**, **Packages**, **Assets**, **Built-in**; the coverage note omits **Assets**, harmless) |
+| Offline mode (createlocalproject) | still obsolete | `lib/router.dart:46-63` |
+| "Desktop available for all users, no premium plan" (createlocalproject) | still obsolete | `lib/router.dart:76-82` (desktop grant, else `/upgrade`); covered by the note on `desktop-app.md` |
+| Cloud testing needs a download or rebuild each time (whylocalproject) | still obsolete | `lib/project/run/run_button.dart:695` ("Cached on disk · re-synced on save"), `:744` (**Local cache**) |
+
+Also confirmed inside covered rows: no **Templates** entry in the dashboard sidebar (`packages/nowa_ui/lib/dashboard/dashboard_side_bar.dart:185-215`: **Download Desktop App**, **Hire an Expert**, **Learning Resources**, **Settings**); Airtable only as an internal endpoint (`packages/core/lib/src/dialogs/dialog_data_sender.dart:10`).
+
+Covered rows sampled (11, all confirmed on the cited page): Play with no build step (`first-app.md#4-play-a-screen`); custom domains (`publish/web.md:59`); change a color from the theme (`first-app.md` step 3, `design-tips.md` "Link, don't type"); email sign-up labels (`create-account.md`); create a workspace (`account/workspaces.md#create-a-workspace`, switcher → **Create workspace**); API collections (`editor-tour.md`, **Api** row); Shape draws a Container (`editor-tour.md` toolbar table); right-click to rename or delete (`design/library.md#open-rename-delete-and-move`); install location, licenses, 1 GB / 10 GB (`desktop-app.md`); first local project with current labels (`code/local-projects.md#create-a-local-project`); IDE and Nowa in sync (`code/vs-code.md:78`).
+
+## Routed items
+
+| From | Page | Status |
+|---|---|---|
+| B02 (1) checkpoints without `.nowa/temp/` | `guides/ship-tips.md` | verified as applied |
+| B02 (2) link to `ai/prompting.md#when-the-result-isnt-right` | `guides/ai-tips.md` | verified as applied |
+| B04 "lowercase with underscores" | `guides/design-tips.md` | verified as applied |
+| B05 (1) two layouts without the formula | `guides/design-tips.md` | verified; added Agent mode and a check |
+| B05 (2) app starts in the **Active** theme | `guides/design-tips.md` | verified as applied |
+| B03 (optional) Terms / Privacy links | `get-started/create-account.md` | applied (URLs load) |
+| B10 (1) email confirmation default + team-only sender | `guides/complete-app.md` | applied |
+| B10 (2) link to `supabase/database.md#create-a-table` | `guides/data-and-state-tips.md` | applied |
+| B12 emulator row unreachable after the toolchain | `get-started/desktop-app.md` | applied |
+| B09 Google Pay test setting returns after **Deploy Configuration**; live-mode webhook | `guides/ship-tips.md` | applied |
+
+## Open issues
+
+1. **Product copy (for the report):** the Android step's caption says "You can add these later from Settings → Environment." (`packages/core/lib/src/environment/environment_setup_dialog.dart:548`), but in 3.13 that step only opens while the Android toolchain is missing, so the emulator can't be added later from there. The docs now say so (`desktop-app.md`, `test/devices.md`); the caption or the flow should change.
+2. **Length (routing #24):** `guides/complete-app.md` is about 2,350 words of visible text. It's correct and scannable; splitting into part 1 (steps 1-4) and part 2 (steps 5-8) as the writer proposes is an orchestrator call. `get-started/editor-tour.md` is about 2,000 words (split proposal in the notes).
+3. **Offline start (writer's open question, routed to B12):** by the code, starting the desktop app offline likely lands on sign-in rather than **No Internet Connection**; not tried live. B01 pages don't name either screen, so nothing to change here.

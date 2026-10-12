@@ -61,8 +61,10 @@ Most APIs want to know who's calling. Their documentation tells you what to send
 - **A token for each signed-in user**: use **Auth Key** (see above).
 
 :::warning
-The **Base URL** and every header value you type, on the collection or a single request, are saved in your app's code and ship inside your app, where anyone who has it could dig them out. That's fine for keys meant to be public. A secret key, such as one that's billed per use, belongs on a server instead. If you use Supabase, ask Nowa AI in **Agent** mode with the Supabase connector on: "Move this API call into a Supabase edge function that keeps the API key on the server, and call that function from my app." **Auth Key** is only a name, so it puts no token in your app.
+The **Base URL** and every header value you type, on the collection or a single request, are saved in your app's code and ship inside your app, where anyone who has it could dig them out. That's fine for keys meant to be public, but a secret key, such as one that's billed per use, belongs on a server. **Auth Key** is only a name, so it puts no token in your app.
 :::
+
+To keep a secret key on a server with Supabase, ask Nowa AI in **Agent** mode with the Supabase connector on: "Move this API call into a Supabase edge function that keeps the API key on the server, and call that function from my app." The key then goes on your Supabase project's **Edge Function Secrets** page instead of into your app (see [Manage your Supabase backend](../supabase/backend.md)). Try the screen with **Play** afterwards to check that the answers still arrive.
 
 ## Add a request
 
@@ -116,7 +118,7 @@ Testing sends the request for real, right from the editor, so you can check the 
 3. Click **Run Test**.
 4. Check the result. The header shows the full address and the status. Under **Body**, switch between **Json** (the raw answer) and **Object** (what the request hands to your app, such as your model with its fields). **Headers** lists the response headers.
 
-The status tells you how it went: `200` means it worked, `401` or `403` means the API didn't accept your key or token, `404` means the address doesn't exist, and a `500` means the API's server ran into a problem.
+The status tells you how it went: `200` means it worked, `401` means the API doesn't know who's asking (the key or token is missing or wrong), `403` means your key isn't allowed to do this, `404` means the API found nothing at that address, and `500` means the API's server ran into a problem.
 
 If the body has a file field (**MultipartFile**), the right panel also shows **Upload File**. Pick the file to test with. Nowa uses it for this test only.
 
@@ -145,7 +147,7 @@ Click the button next to **Model** for more choices:
 ## Use a request in your app
 
 - **Show it on a screen:** wrap a widget in a **Data Builder** and choose the source **API Request**. See [Show data in your UI](../show-data.md).
-- **Call it from logic:** in **Details**, click the button next to an event such as **On Pressed**. Circuit opens. Hover the dot under the top node and click the **+** that appears. Open your app's own category (named after your package, for example **PACKAGE:MY_APP**), click your collection, and pick the request under **Members**. See [Respond to taps and other events](../../logic/events.md) and [Build logic in Circuit](../../logic/circuit.md).
+- **Call it from logic:** add it as a step in Circuit, for example when someone taps a button. Circuit lists your collections in your app's own category, named after your package (for example **PACKAGE:MY_APP**). The example below walks through it. See also [Respond to taps and other events](../../logic/events.md) and [Build logic in Circuit](../../logic/circuit.md).
 
 ## Example: send what someone types and show the answer {#example-send-what-someone-types}
 
@@ -154,10 +156,10 @@ Say your app has an "Ask a question" screen that sends what someone types to an 
 1. Set up the request first: method **POST**, the endpoint, the API key header, and a parameter named `question` placed in the JSON body where the text goes, such as `"content": "${question}"`. Test it with a sample question, then generate a model from the answer.
 2. On your screen, add a **Text Field** for typing and a **Button** to send. Nowa links the text field to a variable named `text` that holds what's typed. See [Text fields and forms](../../reference/widgets/forms.md#text-field).
 3. Select the button. In **Details**, click the button next to **On Pressed** to open Circuit.
-4. Hover the dot under the top node and click **+**. Search for your collection's **Class name**, click it, and pick your request under **Members**.
-5. In **Details**, each parameter of the request has a field named after it. Click the **Question** label, open **LOCALS**, pick `text`, then pick `text` again. The request now sends whatever was typed.
+4. Hover the dot under the top node and click **+**. Search for your collection's **Class name** and click it. Its requests are listed: pick yours.
+5. In **Details**, each parameter of the request has a field named after it. Click the **Question** label, open **LOCALS** and pick `text` (your text field's variable), then `text` again (what's typed in it). The request now sends whatever was typed.
 6. Still on the request step, turn on **await** and set **Store result** to **New Variable**. The answer lands in `var1` as soon as it arrives. See [Wait for a result](../../logic/circuit.md#future-options).
-7. Add a `showDialog` step below it and edit its content (see [Show a dialog](../../logic/popups.md#show-a-dialog)). Link the content's text to `var1`, and click **+** to reach the field that holds the reply (see [Reach deeper with +](../../logic/expressions.md#plus)).
+7. Add a `showDialog` step below it. Click the brush next to it (tooltip **Edit AlertDialog**), then the brush next to **Title**, the dialog's "Hello World" text (see [Show a dialog](../../logic/popups.md#show-a-dialog)). Click its **Text** label, open **LOCALS** and click `var1`. Your model's fields open next: pick the one that holds the reply, and click **+** to go deeper if it sits inside another field (see [Reach deeper with +](../../logic/expressions.md#plus)).
 8. Click **Play** on the screen, type a question and tap the button. The reply opens in a dialog.
 
 :::tip[Or ask Nowa AI]

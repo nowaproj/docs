@@ -7,7 +7,29 @@ source `/home/user/flutter`. Work in progress: sections are appended page by pag
 
 ## Summary
 
-(filled in at the end)
+- **Pages checked:** all nine, every `+` and `-` line of the diff, plus the unchanged text for the audience rules.
+- **Claims checked:** about 110 (table rows below; trivial "ok" claims grouped). Every flagged item from the writer
+  was checked in the code: the "Pick the right arrangement" section, the Stack settings, the constraints table, the
+  "good for" uses, the three corrections of the old docs (alignment axes with **Between**/**Around**/**Evenly**,
+  Ctrl/Cmd+G never ungroups, **Detach** on a screen versus **Copy as new widget**), the four code-derived claims and
+  "avoid Expand inside a Wrap". All three corrections of the old docs hold.
+- **Fixed:** 18 accuracy fixes (layout.md 9, screens.md 3, components.md 2, index.md 2, library.md 1, properties.md 1).
+  The most serious: (1) layout.md told readers that **Center** then **Top** keeps a widget near the top, but **Top**
+  pins it at its new, centered distance, so the page now adds "type the distance in **T**"; (2) the Stack's **Text
+  Direction** row suggested it sets right-to-left layout, but on a Stack it only affects a start/end alignment and
+  never flips widgets or text, so it now points to the **Text Direction** wrapper; (3) properties.md said **Text
+  Align** starts with **Default**, but it's four toggle buttons (routed from B13; now **Overflow**); (4) the
+  group-background tip said to draw the shape "behind the widgets", but a new shape lands on top, and the trick only
+  works for freely placed widgets with the shape selected first; (5) index.md's intro said everything you design
+  becomes part of your app, contradicting its own table (boards and loose widgets don't).
+- **Removed:** 0 claims. **Restored/added:** 1 (Scroll View **Scroll Direction** for a sideways Row, routed from
+  B14), plus a link for older projects to switch to GoRouter where **Route Settings** is gated.
+- **Audience fixes:** 3 (GoRouter explained on screens.md, "breakpoints" replaced on index.md, "a group of settings"
+  renamed so it doesn't clash with layout groups).
+- **Moved facts:** all 32 in the for-code file are verbatim and none was needed on the pages. No new moves.
+- **Coverage:** 7 of 7 obsolete rows confirmed, 10 covered rows sampled, all correct.
+- **Open issues:** 5 (see the end), none blocking: five code-derived claims not run live, Expand in a Wrap, layout.md
+  at ~2,180 words, an undo nuance after switching a Stack to a Row/Column, and P21 not re-checked.
 
 ## layout.md
 

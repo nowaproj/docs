@@ -89,3 +89,42 @@ only and not documented.
 | Error screens, restart card, **Fix with AI** behaviour (H3 "Let Nowa AI fix it") | ok | unchanged facts (wording only) | |
 | **Routed from B07**: "Messages from a `print` step … show up here too, both when you run your app and when you test with **Play**." | added | Play: the interpreter's `print` calls `logInfo` (`packages/core/lib/src/interpreter/libraries/dart_core_library_custom.dart:3-8`), which writes to the project's `LoggerProvider`, the **Logs** list (`packages/core/lib/src/utils.dart:19-21`). Run: embedded preview app logs and web console lines are forwarded to the same `LoggerProvider` (`packages/nowa_run/lib/src/nowa_run_manager.dart:309-340`); device runs log `flutter run` output with `logInfo` (`packages/core/lib/src/io_utils.dart:128-142`) | `print` explained in a clause (R3), linked to `logic/actions.md#write-to-the-logs` |
 | Removed facts | ok | | `lib/main.dart` / `web/` sentence moved to for-code (`#project-files`, present) and the dialogs now quote those names themselves |
+
+## test/problems.md
+
+Every quoted message checked against the code (exact text, quotes, final period or none):
+
+| message | verdict | source |
+|---|---|---|
+| `'<package>' is imported but is not in the pubspec.` (Fix adds it by name) | ok | `packages/core/lib/src/interpreter/packages/package_service.dart:415-423` |
+| `The function '<name>' isn't defined.` (Fix only when a known package defines it) | ok | `packages/core/lib/src/interpreter/block_problems.dart:255-271` |
+| `Setup statement in main.dart for "<key>" is required but not found.` | ok | `packages/core/lib/src/interpreter/packages/package_config/package_config_service.dart:398-402` |
+| `Android permission "<name>" is required by <package> but not enabled.` (or iOS) | ok | same file `:419-427` (`'Android' : 'iOS'`) |
+| `The name '<name>' is defined in <packages>. Try removing one of the imports.`, **Fix Ambiguous Import**, **Apply Fix** | ok | `block_problems.dart:377-397`; `packages/core/lib/src/dialogs/fix_ambiguous_import_problem_dialog.dart:30-45, 102` |
+| `Main file is not found` / `Main function is not found`, **Reset main file**, **Reset** | ok | `packages/core/lib/src/project/env_services/main_problems_finder.dart:14-53` |
+| `'<package>' is a dev dependency, so Nowa does not load it. Move it to dependencies to use it in lib/.` (no Fix) | ok | `package_service.dart:416-422` |
+| `'<package>' is installed but failed to load, so nothing it defines is available: <reason>` | ok | `package_service.dart:402-407` |
+| `No Home screen Selected, select one of screens as Home Screen`, **Make home screen** | ok | `main_problems_finder.dart:55-58`; `packages/designer/lib/src/details/route_details.dart:281` |
+| `Duplicate route path found: "/home".`, group **Router problems** | ok | `packages/core/lib/src/editors/router_editor/router_problems.dart:27, 41` |
+| `Firebase package name '…' does not match the app package name '…'. Try refreshing the config files`, **Navigate** → Firebase settings | ok | `packages/data/lib/src/firebase/firebase_plugin.dart:101-117` |
+| `Undefined name 'total'.` | ok | `block_problems.dart:276-277` |
+| `'<name>' could not be loaded: <reason>` | ok | `packages/core/lib/src/interpreter/visitors/ast_to_block_visitor.dart:109` |
+
+| claim | verdict | source | note |
+|---|---|---|---|
+| Panel labels: **From Nowa**/Instant, **From Code Analysis**/Accurate, **Refresh**, **Run Code Check**, **Run code check (flutter analyze)**, "Checking...", "Checked at", "n files changed since last check", "Code check failed", **Filter code check results**, **Which code Nowa checks**, **All files**, **Only @NowaGenerated**, "Including code Nowa did not generate", **Navigate**, **Copy**, **Open File**, "Loading packages...", **Kept as code** | ok | `packages/core/lib/src/panels/problems_panel.dart:46-47, 152-158, 171-177, 263, 311, 348, 357, 419, 453-468, 488, 501, 523`; `errors_panel.dart:106-109`; `packages/designer/lib/src/details/widget_details.dart:552` | |
+| "A problem inside a file sits under the file's name" | fixed | group title is the file's project path (`packages/core/lib/src/interpreter/services/problem_service.dart:165-175`; `problems_panel.dart:122-136`) | → "is listed under that file" (no false "name", no path jargon) |
+| No-code first (R5): Agent prompts first; dev-dependency hand edit labelled "If you edit code yourself"; "Anything else" → Nowa AI first, **Navigate** for code users; AI check via **Problems** and **Run** | ok | agent tools `packages/ai/lib/src/tools/analyze_tool.dart:6-30`, `packages/ai/lib/src/agent/agent.dart:123-158` | |
+| R3 explanations: pubspec, `main.dart`, `@NowaGenerated`, `flutter analyze`, Dart | ok | | |
+| Build blocker `<name>` (line 53) | fixed | see "Build blocker fixed" above | |
+| Removed facts | ok | | `sdk:`/`git:`/`path:` exception and `lib/main.dart` wording moved unchanged to for-code (`#packages`, `#project-files`) |
+
+## test/instant-play.md and test/index.md
+
+| claim | verdict | source | note |
+|---|---|---|---|
+| A screen plays at its board size; resize it to try another size | ok | `packages/designer/lib/src/play_mode/board_play_controller.dart:65-97`; `design/responsive.md#check-your-layout-at-other-sizes` | |
+| Interprets explained ("reads it and acts it out on the spot"); hand-written code and packages | ok | | wording only |
+| Maps/paywall note text, simulated Firebase sign-in (test user or test error) | ok | `integration_preview_view.dart:69`; `fb_auth_blocks.dart:132-168` | |
+| Shortcuts off while playing; placeholders vs Play values | ok | unchanged facts | |
+| index: Play/Run/Share preview table, "fully built", Run on "a phone or emulator in the desktop app" | ok | `lib/project/run/run_button.dart:540-575` | wording only |

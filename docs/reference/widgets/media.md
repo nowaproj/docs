@@ -16,10 +16,10 @@ Pictures, videos and animations make an app feel alive: a photo on every recipe,
 | **Lottie** | An animation (`.json`) | **Network** or **Asset** | Yes |
 | **Rive** | An animation (`.riv`) | **Network** or **Asset** | Yes |
 | **Web View** | A web page | An address | No |
-| **Html** | Text written in HTML | What you type | Yes, and you add it yourself |
+| **Html** | Text written in HTML | What you type | Yes, added from **Problems** |
 | **Markdown** | Text written in Markdown | What you type | No |
 
-A package is a ready-made add-on that gives your app an extra ability, such as playing YouTube videos. When you add a widget that needs one with <kbd>Enter</kbd> or **Insert**, Nowa opens **Add Missing Dependencies**: click **Add**, and Nowa installs the package and places the widget. If you drag the widget in instead, nothing asks, so click **Hot Fix** in **Details** to add the package. See [Add a widget that needs a package](../../design/add-widgets.md#add-a-widget-that-needs-a-package).
+A package is a ready-made add-on that gives your app an extra ability, such as playing YouTube videos. When you add a widget that needs one with <kbd>Enter</kbd> or **Insert**, Nowa opens **Add Missing Dependencies**: click **Add**, and Nowa installs the package and places the widget. If you drag the widget in instead, nothing asks: **Problems** lists the missing package, and **Hot Fix** in **Details** adds it. See [Add a widget that needs a package](../../design/add-widgets.md#add-a-widget-that-needs-a-package).
 
 ## Add an image {#image}
 
@@ -30,7 +30,7 @@ An **Image** shows a photo, an illustration or a logo. It starts with a sample p
    - **Network**: paste a web address in **Url**. It must open the image itself, not a web page that contains it.
    - **Asset**: click **Pick Image**, then choose a file from your project, or click **Upload Image** to add one from your computer. Nowa adds it to your project's assets and picks it. A picture in your assets ships inside your app, so it shows even without an internet connection. See [Images, videos and other files](../../design/assets.md).
    - **Bytes**: a picture held in memory, such as a photo the user picked in your app. Link it to a variable: see [Pick photos or videos](../../logic/popups.md#pick-photos-or-videos).
-3. Set **Fit** to choose how the picture fills its box. [Choose how a picture fits its box](#fit) compares the options.
+3. Set **Fit** to choose how the picture fills its box. It starts at `cover`; [Choose how a picture fits its box](#fit) compares the options.
 
 ![The Pick Image popup (highlighted) opened from a selected Image on the Asset tab: the Upload Image button, the Search box and the project images dusk.png, lake.png and sunrise.png with thumbnails. Next to it, Details for the Image with the Source tabs (Network, Asset) and the Pick Image button highlighted.](/img/docs/reference/reference-media-1.png)
 

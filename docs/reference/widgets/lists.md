@@ -22,7 +22,7 @@ Both widgets have a **Type** switch in **Details**.
 2. Click the **Item Builder** button and choose **Pick Widget**. Pick a built-in widget or one of your own [components](../../design/components.md).
 3. Select the item on the board or in the [Outline](../../design/outline.md) and design it like any widget.
 4. Type a number in **Item Count** to preview the list with more or fewer items. Once you connect a list, its length takes over.
-5. Choose a **Separator**: **None**, **Fixed Spacing** (then set **Spacing**, which starts at 20) or **Widget**, which adds a thin gray **Divider** between items. To restyle it, click the brush next to **Separator** to select the Divider, then change its **Color**, **Thickness** or **Indent**.
+5. Choose a **Separator**: **None**, **Fixed Spacing** (then set **Spacing**, which starts at 20) or **Widget**, which adds a thin gray **Divider** between items. To restyle it, select the Divider with the brush next to **Separator** (the brush shows while the board draws a divider). Then change its **Color**, **Thickness**, **Height** (the space it takes between items) or **Indent**.
 
 ![Details for a List View placed on the home screen: the Layout section (L, T, R, B, W, H and the alignment grid), then the List View settings. The Type switch (Normal, Builder), the List button reading Connect, Item Count, Item Builder and Separator are highlighted, with the scroll settings (Scroll Direction, Reverse, Shrink Wrap, Padding, Physics) below.](/img/docs/reference/reference-lists-1.png)
 
@@ -37,7 +37,7 @@ Below the item settings, a List View and a Grid View share these scroll settings
 | **Scroll Direction** | `vertical`, the default, or `horizontal` for a row of cards that people swipe sideways. |
 | **Reverse** | Starts from the other end, such as the bottom of a chat. |
 | **Shrink Wrap** | Makes the list only as long as its items instead of filling the space. Handy for a short list inside a screen that already scrolls. |
-| **Padding** | Space around the items, inside the scrolling area. **Individual padding** sets each side. |
+| **Padding** | Space around the items, inside the scrolling area. Hover the row and click **+** to add it; the **Individual padding** button then sets each side. |
 | **Physics** | How scrolling feels. `BouncingScrollPhysics` bounces at the ends, as on iPhone. `ClampingScrollPhysics` stops at the ends, as on Android. `NeverScrollableScrollPhysics` turns scrolling off, for example for a short list inside a scrolling screen. `AlwaysScrollableScrollPhysics` lets people scroll even when everything fits. `PageScrollPhysics` snaps one page at a time. |
 
 ## Fill a list from your data {#connect-a-list}
@@ -82,7 +82,7 @@ Press **Play** to see every item at full strength with your real data. A list th
 
 Switching from **Normal** to **Builder** keeps only the first widget, as the item design. If there is more than one widget, Nowa asks first: **First Widget as Placeholder, Others will be Removed**. Click **Continue** to go on or **Cancel** to rearrange. To keep another widget, drag it to the top of **Children** before you switch. Switching from **Builder** to **Normal** turns the item into the only child.
 
-Got a list to show after all? Click the **Children** label and pick the list. Nowa switches to **Builder** and connects it in one go, keeping the first widget as the item design (with the same question when there are several).
+Got a list to show after all? Click the **Children** label and pick the list. Nowa switches to **Builder** and connects it in one go. Only the first widget stays, as the item design, so drag the one you want to the top first.
 
 ## Add a Grid View {#grid-view}
 

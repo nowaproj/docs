@@ -31,7 +31,7 @@ Reader: secondary (`docs/code/`), so code, paths and package names may stay; R1-
 - **Audience and tone:** no R3-R9 problems left; Git and GitHub terms are each explained once, Flutter terms in a clause.
 - **Open issues:** Q1 (GitHub's approval and Manage pages, needs a live check), Q2 (tokens from other Git hosts,
   server untested), Q3 (whether teammates see repositories from another account in **Clone from GitHub**, server-side),
-  a minor panel-refresh note, and git.md at about 2,320 words.
+  a minor panel-refresh note, and git.md at about 2,360 words.
 
 ## github.md
 
@@ -76,7 +76,7 @@ Reader: secondary (`docs/code/`), so code, paths and package names may stay; R1-
 | Other rows' messages | ok | `lib/project/panels/git_panel/git_details.dart:1374,1400`; `packages/git_nowa/lib/src/git_service.dart:111,123`; `auth_dialog.dart:49-53` | |
 
 Audience and tone (R3-R9): reads well for someone new to Git (GitHub, repository, remote, push, pull and token each
-explained once). The fixes above keep the warm wording. Words: about 2,170.
+explained once). The fixes above keep the warm wording. Words: about 2,190.
 
 ## git.md
 
@@ -106,7 +106,7 @@ explained once). The fixes above keep the warm wording. Words: about 2,170.
 | Three-copy setup (cloud for **Deploy**, local for VS Code and simulators, GitHub in the middle) | ok | old `git/intro-git.md` best practice; steps unchanged | |
 
 Audience and tone: the page now teaches Git from zero (table, why commit, why stage, when to branch) and stays
-concrete. Length: about 2,320 words with the image alt texts (over the ~2,200 mark). The writer's split proposal in
+concrete. Length: about 2,360 words with the image alt texts (over the ~2,200 mark). The writer's split proposal in
 `P14-B15-notes.md` (move "Work with a team" and "Move work between a cloud and a local project" to a new "Git
 workflows" page) still fits; not split here.
 
@@ -229,4 +229,4 @@ Covered rows sampled (10): intro-git #3 and #7, git-local #6 (`code-mode.md#save
 - **Panel refresh after an outside commit (minor).** The local Git panel ignores changes inside `.git/`
   (`git_manager.dart:314-318`), so a commit made in GitHub Desktop may show only after the next save or refresh. Not
   documented; worth a product check.
-- **git.md length.** About 2,320 words; split proposal in the writer's notes.
+- **git.md length.** About 2,360 words; split proposal in the writer's notes.

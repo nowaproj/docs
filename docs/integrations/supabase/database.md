@@ -40,8 +40,8 @@ create table todos (
   done boolean not null default false
 );
 
--- Let signed-in users reach the table
-grant select, insert, update, delete on table todos to authenticated;
+-- Let signed-in users and the full-access key reach the table
+grant select, insert, update, delete on table todos to authenticated, service_role;
 
 -- Turn row-level security on, then add one policy per action
 alter table todos enable row level security;
@@ -59,7 +59,7 @@ create policy "Users can delete their own todos" on todos
   for delete to authenticated using ((select auth.uid()) = user_id);
 ```
 
-In plain words: it creates the table with an automatic ID, the time each row was created and the user it belongs to (filled in for you), lets signed-in users reach it, turns RLS on, and adds one policy each for reading, adding, changing and deleting, all limited to the user's own rows.
+In plain words: it creates the table with an automatic ID, the time each row was created and the user it belongs to (filled in for you), lets signed-in users reach it (and the full-access key, which Nowa uses when it lists your tables), turns RLS on, and adds one policy each for reading, adding, changing and deleting, all limited to the user's own rows.
 
 Prefer clicking? In the **Table Editor**, click **New table**, enter a **Name** (lowercase, with underscores instead of spaces, such as `shop_items`), add your columns with **Add column**, and click **Save**. Supabase turns RLS on for you and adds `id` and `created_at` columns. Then ask Nowa AI for the policies, for example: "Add policies to the shop_items table so anyone can read it and only signed-in users can add rows."
 

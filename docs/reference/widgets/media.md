@@ -150,7 +150,7 @@ Add a **Web View** and set the address in **Url**. It starts at `https://nowa.de
 
 Add an **Html** widget and type or paste your HTML in **Data**. It starts as `<h1>Hello World</h1>`. **Shrink Wrap**, on at first, makes the widget only as wide as its content.
 
-Html needs the `flutter_html` package, and Nowa doesn't add it or show **Add Missing Dependencies** for it. After you add the widget, **Problems** shows `'flutter_html' is imported but is not in the pubspec.`, which means the package isn't in your project yet. Click **Fix** next to that message and Nowa adds it. You can also add it on the **Packages** page: see [Add packages](../../code/packages.md).
+Html needs the `flutter_html` package, and Nowa doesn't ask about it: no **Add Missing Dependencies**, no **Hot Fix**. After you add the widget, **Problems** shows `'flutter_html' is imported but is not in the pubspec.`, which means the package isn't in your project yet. Click **Fix** next to that message and Nowa adds it. You can also add it on the **Packages** page: see [Add packages](../../code/packages.md).
 
 ## Show Markdown {#markdown}
 

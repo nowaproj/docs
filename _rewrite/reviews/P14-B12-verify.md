@@ -128,3 +128,19 @@ Every quoted message checked against the code (exact text, quotes, final period 
 | Maps/paywall note text, simulated Firebase sign-in (test user or test error) | ok | `integration_preview_view.dart:69`; `fb_auth_blocks.dart:132-168` | |
 | Shortcuts off while playing; placeholders vs Play values | ok | unchanged facts | |
 | index: Play/Run/Share preview table, "fully built", Run on "a phone or emulator in the desktop app" | ok | `lib/project/run/run_button.dart:540-575` | wording only |
+
+## troubleshooting/index.md
+
+| claim | verdict | source | note |
+|---|---|---|---|
+| Intro: messages quoted exactly, search the page | ok | | |
+| "This screen failed to render": Nowa AI first, **Reload screen** | ok | `packages/designer/lib/src/error_boundary.dart:223-268` | |
+| Placeholder: **Kept as code**, `could not be loaded`, Agent prompt | ok | `widget_details.dart:552`; `ast_to_block_visitor.dart:109` | |
+| Package messages; dev-dependency fix leads with Nowa AI, hand edit labelled | ok | `package_service.dart:402-423` | |
+| "Nothing to run" quote, **Fix** on "Main file is not found" | ok | `run_preflight.dart:84-95`; `main_problems_finder.dart:44-48` | |
+| **Use …**, **Locate folder**, **Remove from projects**, **Try again**; folder validation keeps `pubspec.yaml` | ok | `lib/project/missing_project_folder.dart:93-124`; `packages/core/lib/src/services/local_project_service.dart:146-148` | |
+| Safe mode labels | ok | `packages/nowa_ui/lib/dashboard/projects_grid.dart:303`; `lib/project/panels/empty_workspace.dart:25-47` | |
+| Flutter explained; Local Setup can download it | ok | `local_setup.dart:119-160` | |
+| No devices: both "No devices connected…" texts, **USB debugging**, links to the new device sections | fixed | `lib/local_export.dart:104-110`; developer.android.com/studio/run/device | "you have no emulator yet" → "Nowa found no emulator it can start" (also true when Android Studio emulators aren't visible to Nowa's Flutter, see devices) |
+| **Routed from B01**: offline start may open the sign-in page | ok | `lib/router.dart:46-55` (`ensureValidVersion()` first), `packages/core/lib/src/services/version_service.dart:4, 98-99` + `packages/core/lib/src/services/http.dart:8-16` (package:http, not Dio), `lib/router.dart:108-111` (generic `catch` → `/signin`); `/no-internet` only from the `DioException` branch (`:86-91`) | wording hedged ("may"), as it should be: code reading, not tried live |
+| Removed facts | ok | | `lib/main.dart` sentence moved to for-code (`#project-files`); nothing else dropped |

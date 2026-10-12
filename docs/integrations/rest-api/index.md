@@ -40,7 +40,7 @@ You can also use **API Collection...** in the **Add** (+) menu of the [Library](
 
 ## Set the base URL, headers and sign-in
 
-Hover the collection and click the gear icon. Whatever you set here applies to every request in the collection, so you type it once instead of in every request, with less room for typos.
+Hover the collection and click the gear icon. Whatever you set here applies to every request in the collection, so you only type it once.
 
 | Setting | What it does |
 |---|---|
@@ -51,7 +51,7 @@ Hover the collection and click the gear icon. Whatever you set here applies to e
 
 For example, many APIs answer in JSON when you add the header `Accept` with the value `application/json`. Changes save when you leave a field. Click **Close** when you're done.
 
-Use **Auth Key** when each person who signs in to your app gets their own token, for example from your login request. Your app saves that token on the device once, right after sign-in. From then on, every request in the collection sends it as `Authorization: Bearer` followed by the token, which is the format most APIs expect. To save the token, add the **SHARED PREFERENCES** → **set** step in Circuit with the same **Key** and the **Type** `string`. See [Save values on the device](../../logic/actions.md#save-values-on-the-device).
+Use **Auth Key** when each person who signs in to your app gets their own token, for example from your login request. Save that token on the device right after sign-in with the **SHARED PREFERENCES** → **set** step in Circuit, using the same **Key** and the **Type** `string` (see [Save values on the device](../../logic/actions.md#save-values-on-the-device)). From then on, every request in the collection sends it as `Authorization: Bearer` followed by the token, the format most APIs expect.
 
 ## Add an API key or token
 
@@ -159,7 +159,7 @@ Say your app has an "Ask a question" screen that sends what someone types to an 
 4. Hover the dot under the top node and click **+**. Search for your collection's **Class name** and click it. Its requests are listed: pick yours.
 5. In **Details**, each parameter of the request has a field named after it. Click the **Question** label, open **LOCALS** and pick `text` (your text field's variable), then `text` again (what's typed in it). The request now sends whatever was typed.
 6. Still on the request step, turn on **await** and set **Store result** to **New Variable**. The answer lands in `var1` as soon as it arrives. See [Wait for a result](../../logic/circuit.md#future-options).
-7. Add a `showDialog` step below it. Click the brush next to it (tooltip **Edit AlertDialog**), then the brush next to **Title**, the dialog's "Hello World" text (see [Show a dialog](../../logic/popups.md#show-a-dialog)). Click its **Text** label, open **LOCALS** and click `var1`. Your model's fields open next: pick the one that holds the reply, and click **+** to go deeper if it sits inside another field (see [Reach deeper with +](../../logic/expressions.md#plus)).
+7. Add a `showDialog` step below it. In its **Builder** row, click the brush next to **AlertDialog** (tooltip **Edit AlertDialog**), then the brush next to **Title**, the dialog's "Hello World" text (see [Show a dialog](../../logic/popups.md#show-a-dialog)). Click its **Text** label, open **LOCALS** and click `var1`. Your model's fields open next: pick the one that holds the reply, and click **+** to go deeper if it sits inside another field (see [Reach deeper with +](../../logic/expressions.md#plus)).
 8. Click **Play** on the screen, type a question and tap the button. The reply opens in a dialog.
 
 :::tip[Or ask Nowa AI]

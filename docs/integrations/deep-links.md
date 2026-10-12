@@ -47,9 +47,11 @@ Things to know:
 
 ## Use deep links with Google Sign-In {#with-google-sign-in}
 
-[Google Sign-In](./google-sign-in.md) adds its own link entry to your iPhone app once you save its **iOS Client ID**. With both saved, Nowa currently writes two separate entries where iOS expects one, so iOS may ignore one of them: either your links or Google sign-in may not work on iPhone.
+Google sign-in adds its own link entry to your iPhone app: once you save the **iOS Client ID** on the [Google Sign-In](./google-sign-in.md) page, or when Firebase handles Google sign-in for you. Together with a **URL Scheme**, Nowa currently writes two separate entries where iOS expects one, so iOS may ignore one of them: either your links or Google sign-in may not work on iPhone.
 
-To fix it, ask Nowa AI in **Agent** mode: "In ios/Runner/Info.plist, merge the two CFBundleURLTypes entries into one, so both my deep link scheme and Google Sign-In keep working." Then try both on an iPhone or the iOS simulator. If you change the **URL Scheme** or the **iOS Client ID** later, Nowa writes the entries again, so check once more.
+You can ask Nowa AI in **Agent** mode to combine them, for example: "In ios/Runner/Info.plist, merge the two CFBundleURLTypes entries into one, so both my deep link scheme and Google Sign-In keep working." Nowa can't check the result for you, so afterwards try both a link and Google sign-in on an iPhone or the iOS simulator. If something goes wrong, **Restore Checkpoint** in the chat undoes Nowa AI's changes.
+
+Nowa can undo the merge later. It rebuilds your iPhone app's settings file from your project settings each time you change something that goes into it, such as the **URL Scheme**, the **iOS Client ID**, the AdMob **iOS App ID**, an iOS permission or the **App Name** (see the warning in [Set permissions](../account/project-settings.md#set-permissions)). That brings the two entries back, so after such a change, merge them again and test once more.
 
 ## Handle the link in your app
 

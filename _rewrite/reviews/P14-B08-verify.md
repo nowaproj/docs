@@ -66,3 +66,60 @@ plain words (starts with the app, iOS 14, keys on **Constants**). Nothing the re
 Open: whether **Details** shows paywall events such as an `onDismiss` field in 3.13 (the widget is inserted as a bare
 `PaywallView` reference; needs a live check). P51 (paywall insert hangs in the playground) still unconfirmed.
 
+## Routed from B03-V: deep links fix undone by settings changes
+
+Holds, with one correction. `deep-links.md#with-google-sign-in` now says Nowa rebuilds the iPhone app's settings file
+whenever something that goes into it changes, which undoes a Nowa AI merge and brings the duplicate entries back, and
+links the warning in `account/project-settings.md#set-permissions` (wording kept consistent: "rebuilds ... settings
+file from your project settings").
+
+| Trigger | Rewrites the iOS settings file? | Source |
+|---|---|---|
+| An iOS permission | yes | `packages/core/lib/src/services/permissions_service.dart:56-82` (`writeTemplate(... infoPlist)` at `:81`) |
+| **App Name** | yes | `packages/core/lib/src/project/rename.dart:29-46` (`:37`) |
+| **Bundle Identifier** | no (edits the Xcode project's bundle ID lines, the Android build file and `MainActivity`) | `rename.dart:48-67` (`changeIosBundleId`) |
+| **URL Scheme**, **iOS Client ID**, AdMob **iOS App ID** | yes, the whole file from the template | `package_config_service.dart:66-92` (`writeTemplate(token.applyTo!.templatePath)`), `app_links_package_config.dart:29-36`, `google_sign_in_package_config.dart:20-35`, `admob_package_config.dart:38-46` |
+| The template re-adds both link entries | yes | `packages/core/lib/src/file_system/templates/ios/info_plist_template.dart:8-12,58` (`gatherSection(PlatformSection.iosInfoPlist)`) |
+
+So the page names the **URL Scheme**, the **iOS Client ID**, the AdMob **iOS App ID**, an iOS permission and the
+**App Name**, not the **Bundle Identifier**. Also added: Firebase-managed Google sign-in writes the same entry
+(`packages/data/lib/src/firebase/auth/fb_auth_manager.dart:66-69`, "GIDClientID and CFBundleURLTypes are computed from
+firebase.clientId"; `google_sign_in_package_config.dart:49-79` reads `firebase.clientId`), so Firebase users with a URL
+scheme hit the same clash.
+
+## rest-api/index.md
+
+| Claim | Verdict | Source | Note |
+|---|---|---|---|
+| "How an API request works" table: request, base URL and endpoint, method, header, API key or token, body, JSON, response, parameter | ok | https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods, `.../Reference/Status`; methods offered: `packages/data/lib/src/api/utils/api_util.dart:11` | Plain words, examples from the reader's world. |
+| Status codes: "`401` or `403` means the API didn't accept your key", "`404` means the address doesn't exist" | fixed | https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status (401 = unauthenticated, 403 = no access rights, identity known; 404 = server can't find the resource) | Now 401 "doesn't know who's asking (key or token missing or wrong)", 403 "your key isn't allowed to do this", 404 "found nothing at that address". |
+| **Create New Collection**, **Class name**, **Path**, **Submit** | ok | `create_collection_dialog.dart:60-88`; `packages/core/lib/src/file_system/widgets/file_name_text_field.dart:175,202` | **Class name** = the name picked in Circuit: the collection class is a singleton listed in the app's category (`api_collection.dart:40-52`, `suggestion.dart:661-693`). |
+| Collection settings **Name**, **Base URL**, **Auth Key**, **Headers**, **Add header**, **KEY** / **VALUE**, **Close** | ok | `api_edit_collection_dialog.dart:126,139,163,181,222-246`; `headers_field.dart:33,52` | |
+| Auth Key: every request sends `Authorization: Bearer <token>` from the saved value; save it with **SHARED PREFERENCES** → **set**, same **Key**, **Type** `string` | ok | `packages/data/lib/src/api/interceptors/generate_auth_interceptor.dart:4-23`; `docs/logic/actions.md` "Save values on the device" (set: **Type**, **Key**, **Value**) | Paragraph tightened. |
+| Header and request-header ways to send one app-wide key | ok | `headers_field.dart:33-69`; request **Headers** tab `api_request_form.dart:39-58` | |
+| Warning: Base URL and header values ship inside the app; **Auth Key** is only a name | ok | `api_collection.dart:20-27,55-63` (base URL and headers written into the class), `:66-98` (interceptor reads the token on the device) | Warning shortened to the risk; the safe path moved to a paragraph after it. |
+| Safe path for secret keys: Nowa AI with the Supabase connector moves the call into an edge function | ok, expanded | `docs/ai/connectors.md:43` ("Deploy and manage Edge Functions"), `research/features-ai.md:443`; `docs/integrations/supabase/backend.md:51` (**Edge Function Secrets** page with **Key** / **Value** / **Save**) | Added where the key then goes (the **Edge Function Secrets** page, not the app) and how to check (**Play**), per R5. The prompt is an example; no result promised. |
+| "Nowa shows the function name it makes from it, such as `getCats`" | ok | `api_request_dialogs.dart:61-66` ("Function name: …") | |
+| Body type explanations (**String** text, **int** whole number, **double** decimal number, **bool** yes or no; content type explained) | ok | labels unchanged from the verified page; R3 explanations | |
+| Remove-collection prompt names the file | ok | prompt text quoted as the UI shows it (R2 allows what a dialog shows) | |
+| Test view: **Test**, **Testing values**, **Auth token value**, **Run Test**, **Back to Request**, **Run Query**, "Status:" | ok | `url_field.dart:84`; `api_test_values_panel.dart:33,50,169`; `api_request_overlay.dart:122`; `packages/data/lib/src/common/data_request_tile.dart:89`; `api_overlay_header.dart:64` | |
+| Model wizard **Content** / **Select Data** / **Generated Models**, **Name**, **Path** | ok | `packages/core/lib/src/model_generator/generate_models_dialog.dart:160-164`; `generated_models_section.dart:65,72` | |
+| "Call it from logic … pick the request under **Members**" | fixed | `link_menu.dart:129-141,177,197`; `suggestion.dart:695-721` | No **Members** heading appears (single category shows as a flat list). The bullet now says where collections are listed (**PACKAGE:MY_APP**: category names are upper-cased, `link_menu.dart:331`) and points to the example, which carries the steps; less repetition. |
+| Example step 2: a Text Field gets a variable named `text` | ok | `packages/core/lib/src/interpreter/widget/text_field_info.dart:14-26` (default name `text`) | |
+| Example step 4: search the **Class name**, click it, pick the request "under **Members**" | fixed | as above; search matches the class's own name (`suggestion.dart:100-104`, `link_menu.dart:85-88`) | Now "Its requests are listed: pick yours." |
+| Example step 5: the parameter shows as a field named after it (**Question**); **LOCALS** → `text` → `text` | ok | `block_field.dart:212-218` + `utils.dart:77-79` (`camelCaseToSpaces`, capitalized); picking the controller where text is expected opens its members (type mismatch, `field_link_menu.dart:175-179`, as on `show-data.md`) | Added what each `text` is. |
+| Example step 6: **await**, **Store result** → **New Variable**, `var1` | ok | `docs/logic/circuit.md#future-options`, `#store-result` (B06-verified) | |
+| Example step 7: "edit its content … Link the content's text to `var1`" | fixed | `packages/core/lib/src/interpreter/block_utils.dart:244-254`: a new `showDialog` holds an AlertDialog with only a **title** Text ("Hello World") and no content | There was no content to link. Now: **Builder** row → brush next to **AlertDialog** (**Edit AlertDialog**) → brush next to **Title** → **Text** label → **LOCALS** → `var1` → pick the field, **+** to go deeper (labels as on `logic/popups.md#show-a-dialog`). |
+| `var1` is offered inside the dialog | ok (derived from code, not run) | `block_tree.dart:4894-4900` (an ExecBlock offers the variables declared before the calling statement), `:2988-2992` (scopes walk up through the dialog's builder function), `suggestion.dart:588-632` (LOCALS inside a screen) | Same as the writer's derivation; still worth a live check. |
+| Example step 8: **Play** sends the real request and shows the reply | ok | Play runs requests for real (W14 notes; `show-data.md` "Press **Play** … to load real data") | |
+
+Removed facts: the collection's Dart file name, "and its file", "written into the collection's Dart file", the test bytes
+detail and the `lib/models` default are in the for-code file under `#rest-api`, unchanged; plain-words versions stay
+(**Path**, "saved in your app's code and ship inside your app", "for this test only", "the folder where the model is
+saved"). Nothing the reader needs was lost.
+
+Length: about 2,440 words by my count (the writer counted 2,354 with another method; my net change is about +30:
+status codes, safe path and two clearer walk-through steps, offset by a shorter settings intro, a merged **Auth Key**
+paragraph and a "Call it from logic" bullet that no longer repeats the example's steps). Not split, as instructed. The
+writer's split proposal (basics and requests / testing, models and the example) still stands.
+

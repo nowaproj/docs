@@ -105,10 +105,11 @@ Both flows below run from an event, such as a button's **On Pressed**. See [Buil
 
 ### Upload a picked image
 
-1. Add `showMediaPicker`, which opens the camera or the photo library. **Source Type** starts as `camera`: choose `gallery` to pick from the photo library. If Nowa lists missing packages or permissions under **Dependencies**, click **Hot Fix**. See [Show dialogs, sheets, snackbars and pickers](../../logic/popups.md).
-2. Turn on **await**, so the next steps wait until the person has picked, then use **Store result** → **New Variable**. The variable holds a list of the files the person picked.
-3. Add a node and pick that variable from **LOCALS**. Click **+**, choose `first` (the first picked file), then `readAsBytes` (its content). Turn on **await** and store the result in a new variable. This is the file's data.
-4. Add `SupabaseService` → `uploadFile`. Type the **Bucket Name** and **File Name** (a name that isn't taken yet), and link **File Data** to the variable from step 3.
+1. Add `showMediaPicker`, which opens the camera or the photo library. **Source Type** starts as `camera`: choose `gallery` to pick from the photo library. With **Play** on a computer, the camera can't open, so use `gallery` to test there. If Nowa lists missing packages or permissions under **Dependencies**, click **Hot Fix**. See [Show dialogs, sheets, snackbars and pickers](../../logic/popups.md).
+2. Turn on **await**, so the next steps wait until the person has picked, then use **Store result** → **New Variable**. The variable holds a list of the files the person picked. The list is empty if they cancel without picking.
+3. Below it, click **+** and choose **Add If statement**. Click its **Condition** label, open **LOCALS**, pick that variable and choose `isNotEmpty`, so the next steps only run when a picture was picked. Add steps 4 and 5 in its **True** branch.
+4. Add a node and pick that variable from **LOCALS**. Click **+**, choose `first` (the first picked file), then `readAsBytes` (its content). Turn on **await** and store the result in a new variable. This is the file's data.
+5. Add `SupabaseService` → `uploadFile`. Type the **Bucket Name** and **File Name** (a name that isn't taken yet), and link **File Data** to the variable from step 4.
 
 ### Show a downloaded image
 

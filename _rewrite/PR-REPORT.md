@@ -86,7 +86,7 @@ design, logic, data, testing and publishing, with code, account and reference af
 3. **Simple, clear, concise, warm, confident**: a wording pass over every page; a script compared each page before and
    after and confirmed no label, link, number, step or heading changed.
 4. **Easy to follow**: a fresh-eyes agent walked six real goals through the docs; its fixes are in.
-5. **A highlighted screenshot where it helps**: 83 pages have one now (29 before the pass).
+5. **A highlighted screenshot where it helps**: 94 pages have one now (29 before the pass).
 6. **Tips for quality apps**: design, AI, data and state, and test-and-ship guides, linked from the feature pages.
 
 ## Decisions made for you
@@ -129,7 +129,7 @@ Full log with reasons: `_rewrite/decisions.md`. The main ones:
 
 158 product issues were written up for the engineering team, each with steps to reproduce, the root cause with code
 references and a suggested fix (fix PRs for most of them are open; see `PROGRESS.md` next to the report). The last
-cloud round found 5 more, not in the report yet (B-1 to B-5 in `_rewrite/captures/phase13/b.md`). Some describe security problems, so the full report lives in the private product repo
+cloud round found 6 more, not in the report yet (B-1 to B-6 in `_rewrite/captures/phase13/b.md`). Some describe security problems, so the full report lives in the private product repo
 (`nowaproj/nowa`, `docs/platform_issues/`, branch `claude/tender-pascal-quit5k`); `_rewrite/product-issues.md` keeps
 the first 58 as short notes. A few that affect the docs:
 - Firestore (3.13): no designer entry point to add collections or queries.
@@ -154,9 +154,9 @@ the first 58 as short notes. A few that affect the docs:
 
 - **2 screenshots wait for something outside the docs**: the Figma connector menu, once connecting Figma works again
   (product issue P117), and the DNS records page of a custom domain, which needs a domain you control. Both stay as
-  hidden placeholders. `_rewrite/MISSING-MEDIA.md` lists them with three more to take later (two Firestore re-takes
-  after the P48 fix, a Xano import and the Windows Firestore message), and the page notes to update when each fix
-  ships.
+  hidden placeholders. `_rewrite/MISSING-MEDIA.md` lists them with five more to take later (two Firestore re-takes
+  after the P48 fix, a Supabase backend re-take after the migration fix, a Xano import and the Windows Firestore
+  message), and the page notes to update when each fix ships.
 - **Clean-up**: the "Docs capture ..." projects (services, firebase, fresh, share, local, paid) and the "Docs capture"
   workspace can be deleted, and so can the throwaway Supabase projects (`docs-capture` has a test user
   `docs.tester@example.com`; `docs-capture-empty` has a `products` table and a `files` bucket that anyone with its key can

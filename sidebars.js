@@ -82,6 +82,7 @@ const sidebars = {
         'logic/events',
         'logic/variables',
         'logic/circuit',
+        'logic/conditions',
         'logic/parameters',
         'logic/global-state',
         'logic/functions',
@@ -155,7 +156,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Code in Nowa',
-          items: ['code/code-mode', 'code/files', 'code/packages', 'code/custom-code', 'code/limitations'],
+          items: ['code/code-mode', 'code/files', 'code/packages', 'code/custom-code', 'code/generated-code', 'code/limitations'],
         },
         {
           type: 'category',

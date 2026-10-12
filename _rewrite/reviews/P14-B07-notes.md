@@ -1,0 +1,380 @@
+# P14-B07 notes (logic: expressions, navigation, router, popups, actions, models)
+
+Batch P14-B07, phase 14 (D22 audience pass, D24 coverage, D25 tone). Source of truth `/home/user/nowa-master` at
+`3cb32031c` (3.13.0); code refs are `path:line` there unless marked otherwise. Package sources quoted below come from the
+pub cache that built Nowa (`/root/.pub-cache/hosted/pub.dev/<package>-<version>/`) and the local Flutter SDK
+(`/home/user/flutter`, `058e0af2c`, Jul 2026). Official pages were read on 2026-10-12 with curl through the proxy
+(`api.flutter.dev`, `pub.dev`). Coverage table: `P14-B07-coverage.md`. Moved facts: `P14-B07-for-code.md`.
+
+"Not run live" marks a claim built from verified pieces that nobody has clicked through in the app; a live check would
+settle it. Pages are appended as they are finished.
+
+## logic/popups.md
+
+**Changed for the reader**
+- Intro rewritten (R9). **Context** explained in plain words ("tells the popup which screen to appear on") instead of
+  left as a bare label; Nowa fills it because a `BuildContext` input defaults to `context`
+  (`packages/core/lib/src/interpreter/block_utils.dart:118-119`).
+- New section "Use what the person chose": explains **await** + **Store result** versus **onValue** once, and the empty
+  answer (`null`) when the popup is closed. It replaces the half-sentences that were repeated under dialogs, pickers and
+  the media picker (old date-picker.md and time-picker.md explained both ways). Refs: circuit.md#future-options,
+  `packages/code/lib/src/fields/future_options.dart:6-111`.
+  The section also explains, once, how to skip the next steps when there's no answer (an If with the custom expression
+  `var1 != null`); the date example and navigation.md's "Go back with a value" reuse it.
+- Each popup now opens with what it's for and when to use it (R3: the function names stay and get a plain meaning).
+- The page has one admonition (the AI tip). No code-only facts were on it, so nothing moved and there is no link to
+  `generated-code.md`.
+
+**Added from the old docs (and why it's still valid)**
+- Snackbar uses (old snackbar.md) and "Click **Play**": a snackbar shows in Play (`_rewrite/PLAN.md`, phase 9 backlog:
+  "Settled: a snackbar shows in Play (seen in `test-instant-play-video.mp4`)").
+- Snackbar options with plain meanings. Fields shown: `packages/core/lib/src/fields/expression_builder/expression_details.dart:158-183`;
+  **Show advanced options** label: `packages/core/lib/src/fields/block_field.dart:1331-1365` ("Show " + "advanced options").
+  **Duration** 4 s: https://api.flutter.dev/flutter/material/SnackBar/duration.html ("Defaults to 4.0s").
+  **Action** (one button, for example undo): https://api.flutter.dev/flutter/material/SnackBar/action.html.
+  **Elevation** (shadow): https://api.flutter.dev/flutter/material/SnackBar/elevation.html. **On Visible**:
+  https://api.flutter.dev/flutter/material/SnackBar/onVisible.html.
+- New row "Leave **Width** and **Margin** empty": Flutter uses them only for a floating snackbar
+  (https://api.flutter.dev/flutter/material/SnackBar/width.html) and asserts otherwise
+  (`/home/user/flutter/packages/flutter/lib/src/material/snack_bar.dart:661-680`, "Width can only be used with floating
+  behavior. SnackBarBehavior.fixed was set by default."). Nowa's step shows no **Behavior** field (`expression_details.dart:158-183`)
+  and Nowa's themes set no snackbar theme (no `snackBarTheme` / `SnackBarThemeData` in `packages/core/lib/src/themes`,
+  the theme panel or the templates). The assert fires in debug builds (Run); release builds ignore the width. See
+  "Product issue candidates".
+- Dialog uses (old dialog.md), the title-brush example, "Click **Play**". **Barrier Label** = what screen readers say for
+  the dimmed area: https://api.flutter.dev/flutter/widgets/ModalRoute/barrierLabel.html. The old page's **Anchor Point**
+  explanation ("where the dialog animates from") was wrong (it picks a sub-screen on foldables:
+  https://api.flutter.dev/flutter/material/showDialog.html), so the page keeps it under "advanced" only.
+- "Use your own design" (old dialog.md "Designing Your Own Custom AlertDialog"): **Alert Dialog** is a Nowa pick in the
+  Library (`packages/core/lib/src/widgets_to_add/widgets_to_add.dart:846-859`); **Create component** as on
+  `docs/design/components.md:15`; **Builder** → **Pick Widget** / **Edit in circuit** (`packages/core/lib/src/fields/basic_fields.dart:450-473`).
+- "Example: confirm before deleting" (old dialog.md use case "Are you sure you want to delete this item?"). Pieces:
+  Navigator `pop` with **result type** / **result** (`packages/code/lib/src/customizations/navigator_field.dart:89-103`);
+  If **Condition** (`packages/code/lib/src/fields/statement_fields.dart:41-49`); an operator in a field shows as a
+  button with its formula that opens the editor (`packages/core/lib/src/fields/expression_builder/expression_field.dart:86-103`);
+  the editor has **Operator**, **Type**, **Left side**, **Right side**, and changing **Type** resets both sides to the
+  type's default, `false` for `bool` (`expression_details.dart:251-326`, `block_utils.dart:94-95`). `equal` is a logic
+  operator (`packages/core/lib/src/interpreter/block_tree.dart:2383-2433`). Comparing with `true` also covers a dismissed
+  dialog (`null`). Not run live. Adding buttons through the AlertDialog's **Actions** is the existing (W5) instruction,
+  also not run live.
+- Bottom sheets: modal versus persistent, with a use for each: https://api.flutter.dev/flutter/material/showModalBottomSheet.html
+  ("A modal bottom sheet is an alternative to a menu or a dialog and prevents the user from interacting with the rest of
+  the app"; a persistent sheet "shows information that supplements the primary content of the app without preventing the
+  user from interacting with the app").
+- Date picker uses (old date-picker.md). "All three start as today, so until you change them, people can only pick
+  today": defaults `block_utils.dart:256-263` (`DateTime.now()` for initial, first and last date); the picker only offers
+  days between **First Date** and **Last Date** (old page's warning "You have to choose firstDate and lastDate").
+- **Help Text**, **Cancel Text**, **Confirm Text** (old time-picker.md option list; also on the date picker): parameters of
+  `showDatePicker` / `showTimePicker` in `packages/core/lib/src/interpreter/libraries/material_library.dart`
+  (`helpText`, `cancelText`, `confirmText`); labels follow the camel-case split rule (research `features-logic.md`, header).
+- "Example: pick a date and show it" (old date-picker.md full example, re-derived): **Create Variable...**
+  (`packages/core/lib/src/fields/field_link_menu.dart:374`, behavior as on variables.md:77), `.format` dropdown
+  (`packages/code/lib/src/customizations/date_format_field.dart:6-48`), **Store result** → **Pick Variable**, **refresh**.
+  The closing `pickedDate != null` guard: the designer writes `!` after a value that can be empty when the target can't be
+  empty (`block_tree.dart:3345-3385`), so a closed picker would stop the steps with an error; a custom expression in an
+  If's **Condition** is supported (circuit.md "Branch with If"). Not run live.
+- "Show a date as text" table: all 37 dropdown names (`date_format_field.dart:51-89`); each name is an intl skeleton used
+  as `DateFormat(skeleton)` with no locale (`packages/nowa_runtime/lib/src/extensions/date_time_format.dart:3-5`).
+  Examples computed from intl 0.20.2 `lib/src/data/dates/patterns/en_US.json` (for example `yMMMMd` = `MMMM d, y`,
+  `yMd` = `M/d/y`, `jm` = `h:mm a`) and the en_US symbols in `lib/date_symbol_data_local.dart` (`Q2`, `2nd quarter`,
+  `AM`/`PM`). Reference moment: Thursday, April 10, 2025, 17:30:15 (2025-04-10 is a Thursday). The page says "in US
+  English" and makes no claim about other languages. The old table missed five names and had wrong examples (for
+  example `YEAR_MONTH_DAY` shown as "2025 April 10").
+- Time picker: **Initial Time** starts at 0:00 (`showTimePicker` has no Nowa default, so the required `initialTime` gets
+  `defaultBlockForType`, which builds `TimeOfDay(hour: 0, minute: 0)`: `block_utils.dart:72-96,163-179,225-233`,
+  constructor `material_library.dart:70198-70212`); its **Hour** and **Minute** come from the class field
+  (`packages/core/lib/src/fields/class_field.dart:9-60,95-121`). **Hour Label Text**, **Minute Label Text**,
+  **Error Invalid Text**: `showTimePicker` parameters in `material_library.dart`. Members `hour`, `minute`, `period`,
+  `hourOfPeriod`, `format`, `isBefore`, `isAfter`, `isAtSameTimeAs`: `material_library.dart:70219-70262` (old
+  time-picker.md listed them). `format` gets **Context** filled: member picks call `generateDefaultBlocks`
+  (`packages/core/lib/src/interpreter/suggestion.dart:120-133`) and `BuildContext` defaults to `context`. 24-hour output
+  follows the phone's setting: `/home/user/flutter/packages/flutter/lib/src/material/time.dart:105-113`
+  (`alwaysUse24HourFormat: MediaQuery.alwaysUse24HourFormatOf(context)`), https://api.flutter.dev/flutter/material/TimeOfDay/format.html.
+- Date range: "Nowa fills **First Date** and **Last Date** with a placeholder date": `showDateRangePicker` has no Nowa
+  default, so both required dates get `defaultBlockForType(DateTime)`, the default constructor with year 0
+  (`block_utils.dart:163-179`, `packages/core/lib/src/interpreter/libraries/dart_core_library_custom.dart:76-99`).
+  Not run live.
+- Media picker uses; **Hot Fix** in plain words (permissions for camera, photo library, microphone and Android storage:
+  `packages/core/lib/src/interpreter/declaration_info/function_info.dart:61-70`); "a list even when there's only one"
+  (`packages/nowa_runtime/lib/src/media_picker/media_picker.dart:35`).
+- "Example: show a photo the person picks" (old media-picker.md walk-through, re-derived): **Bytes** tab and **Bytes**
+  field (`basic_fields.dart:913-948`), type `Uint8List` (`basic_fields.dart:942`), `isNotEmpty`
+  (`packages/core/lib/src/interpreter/libraries/dart_core_library.dart:1736-1737`), `first`, `readAsBytes`
+  (`packages/core/lib/src/interpreter/libraries/nowa_runtime_library_custom.dart:60`). Play calls the real
+  `showMediaPicker` (`packages/core/lib/src/interpreter/libraries/nowa_runtime_library.dart:627-639`;
+  `function_info.dart:73` declares a `customCall` that nothing reads, grep). The `isNotEmpty` guard avoids `first` on an
+  empty list. Not run live.
+- "On your computer, the gallery opens a file picker" and "Play on a computer can't use a camera": the web plugin uses a
+  file input (`image_picker_for_web-3.1.1/lib/image_picker_for_web.dart:53-77`); the macOS, Windows and Linux plugins
+  open a file chooser for the gallery and throw a `StateError` for the camera unless a `cameraDelegate` is set
+  (`image_picker_macos-0.2.2+1/lib/image_picker_macos.dart:93-110`, `image_picker_windows-0.2.2/lib/image_picker_windows.dart:119-127`,
+  `image_picker_linux-0.2.2/lib/image_picker_linux.dart:90-98`); Nowa sets none (no `cameraDelegate` in `lib/` or
+  `packages/`). In a desktop browser the camera input also ends in a file chooser. Not run live.
+
+**Length**: about 2,700 words (`wc -w`), over the ~2,200 the brief names. Proposed split if wanted: keep snackbars,
+"Use what the person chose", dialogs and bottom sheets here, and move "Pick a date or time" (with the format table) and
+"Pick photos or videos" to a new page "Pick dates, times and photos" (`logic/pickers.md`). Inbound anchors to keep:
+`#pick-photos-or-videos` (reference/widgets/media.md), `#show-a-dialog` (reference/widgets/index.md), `#show-a-snackbar`
+(logic/circuit.md).
+
+**Open questions**: the three "Not run live" examples above; whether **Width** and **Margin** should be hidden in the
+product (see below).
+
+## logic/actions.md
+
+**Changed for the reader**
+- Intro and every section now say what the step is for and when to use it (R3, R9). Section ids kept: `#open-a-link`,
+  `#write-to-the-logs`, `#check-the-platform`, `#read-the-screen-size`, `#save-values-on-the-device` (all linked from
+  other pages). Renamed: "Create objects" → "Wait, repeat and create objects" `{#create-objects}` (kept with an explicit
+  id because `docs/logic/functions.md:58` links `actions.md#create-objects`), "Copy text and vibrate" → "Copy text,
+  vibrate and play sounds" `{#copy-text-and-vibrate}` (no inbound link today; id kept for live deep links).
+- Platform checks are now a table with a plain meaning per check (old platform-checking.md listed them in a code
+  block). `logicalOr` gets a plain gloss.
+- Shared Preferences: added what **Key** and **Type** mean, and turned "Nowa has no secure (encrypted) storage option"
+  into the consequence for the reader (don't keep passwords or secret keys there). Same fact, `packages/core/lib/src/interpreter/suggestion.dart:480-507`
+  (only these four steps exist).
+- **Create...**: "constructor" (the UI says **Pick a constructor**) and "Future" explained in a clause each (R4).
+- SERVICES: each class now has its functions in plain words and a "use it to" (the brief names `HapticFeedback`).
+- "Find any other function": Dart-only items moved to the for-code file (`unawaited`, `scheduleMicrotask`, `showMenu`,
+  `showSearch`, and the rule that library categories list "functions and classes that have static members"); the
+  remaining items got a meaning. One pointer to `../code/generated-code.md#actions-and-popups`, at the end of that
+  section.
+
+**Added from the old docs**
+- Open a link: uses (old open-url.md); "type the full address, starting with `https://`" (the step passes the text to
+  `Uri.parse` as is: `packages/nowa_runtime/lib/src/functions.dart:1-5`); where the page opens: `launchUrl` with the
+  default mode opens web links in an in-app browser view on Android and iOS
+  (`url_launcher_android-6.3.29/lib/url_launcher_android.dart:90-111`, `url_launcher_ios-6.4.1/lib/url_launcher_ios.dart:83-100`)
+  and calls `window.open` with an empty target on the web, which opens a new tab (`url_launcher_web-2.4.2/lib/url_launcher_web.dart:71-89`).
+  Web View pointer (old open-url.md; widget `packages/core/lib/src/widgets_to_add/widgets_to_add.dart:879-891`, page
+  `docs/reference/widgets/media.md#web-view`).
+- New, not in the old docs: `mailto:`, `tel:` and `sms:` links open the matching app if the device has one:
+  https://pub.dev/packages/url_launcher ("Supported URL schemes"; "URL schemes are only supported if there are apps
+  installed on the device that can support them"); non-web links skip the in-app view (`url_launcher_android.dart:96`).
+- Write to the logs: uses (old print.md: debugging values, user input, checking a step ran); "click the **Msg** label
+  to link a value" (old print.md; any field label opens the link menu); **Play** writes to **Logs** too (interpreted
+  `print` calls `logInfo`, which adds to the Logs list: `packages/core/lib/src/interpreter/libraries/dart_core_library_custom.dart:3-8`,
+  `packages/core/lib/src/utils.dart:19-21`); how to open **Logs** follows `docs/test/run.md:78`; the Text Field example
+  follows `docs/reference/widgets/forms.md:13-15` (controller named `text`, pick it then `text`). "People who use your
+  app never see them": `print` output goes to the developer console / device log only.
+- Check the platform: why and two examples (old platform-checking.md "Why it's useful"; the examples are mine, both
+  buildable with a Visibility wrapper); "Play answers for the device you're working on": the interpreter reads the real
+  `NPlatform` getters (`packages/core/lib/src/interpreter/libraries/nowa_runtime_library.dart:460-470`,
+  `packages/nowa_runtime/lib/src/nowa_platform.dart:15-21`) and nothing overrides the platform in Play (no
+  `debugDefaultTargetPlatformOverride` in `lib/` or `packages/`).
+- Media Query: what it holds in plain words (MediaQueryData `size`, `padding` = areas covered by notches and system
+  bars, `orientation`; https://api.flutter.dev/flutter/widgets/MediaQueryData-class.html) and a link to the full
+  responsive example on `design/responsive.md`.
+- SERVICES meanings: https://api.flutter.dev/flutter/services/HapticFeedback-class.html (each method's one-liner; the
+  three notification methods "have no effects on Android API levels below 30", i.e. Android 11:
+  https://api.flutter.dev/flutter/services/HapticFeedback/successNotification.html, `.../errorNotification.html`);
+  https://api.flutter.dev/flutter/services/SystemSound/play.html ("The web platform currently does not support playing
+  sounds") and https://api.flutter.dev/flutter/services/SystemSoundType.html (`click`, `tick`, `alert`);
+  https://api.flutter.dev/flutter/services/SystemNavigator/pop.html ("On Android, removes this activity from the stack
+  and returns to the previous activity"). Members exist in Nowa: `packages/core/lib/src/interpreter/libraries/services_library.dart:1217-1240`
+  (Clipboard), `:1315-1360` (HapticFeedback), `:6390-6460` (SystemNavigator, SystemSoundType, SystemSound).
+- `showAboutDialog`: https://api.flutter.dev/flutter/material/showAboutDialog.html ("describes the application and
+  provides a button to show licenses for software used by the application").
+
+**Open questions**: none new. The iOS behavior of `SystemNavigator.pop` isn't stated (the Flutter page describes a view
+controller pop, which a plain app doesn't use), so the row says Android only.
+
+## logic/navigation.md
+
+**Changed for the reader**
+- Intro (R9): what navigation is with an everyday example; GoRouter explained as "every screen has a path, like a web
+  address". Keywords: "go back", "back button", "return value", "result", "screen stack", "open screen".
+- New "How screens stack" (old navigation.md "The Stack Concept"): push adds a card on top, Back/pop removes it,
+  replacing swaps the top card. The app bar's back arrow is Flutter's automatic leading button; go_router calls it the
+  "page stack" (https://pub.dev/documentation/go_router/latest/topics/Navigation-topic.html).
+- Both type tables have a "Use it when" column (old navigation.md types table with use cases; the brief asks for it).
+  Refs: `go` "will replace the current stack of screens with the screens configured to be displayed for the destination
+  route" and "imperative navigation is known to cause issues with the browser history" (go_router Navigation topic,
+  above); `replace` "treats it as the same page ... will preserve the state and not run any page animation"
+  (`go_router-17.1.0/lib/src/router.dart:450-458`); `pushAndRemoveUntil` removes every screen below
+  (`packages/code/lib/src/customizations/navigator_field.dart:144-149`, predicate returns `false`). Named types row:
+  unchanged fact, plainer words.
+- **Extra** reworded (same fact as the detail-screen paragraph: the Router panel can't connect it to a param).
+- "uuid" glossed (R4). "Keep **Type** on `push`, so people can come back to the list" (reason added).
+- "Navigator and GoRouter nodes need a screen's `context`" reworded without `context`: both nodes insert
+  `Navigator.of(context)` / `GoRouter.of(context)` (`packages/core/lib/src/state_management/global_state_suggestions.dart:31-54`),
+  and only screens and components have a `context` to look up (`packages/core/lib/src/fields/block_field.dart:723-735`).
+- The Navigator "To return a result" paragraph now points to the new section and keeps its facts (**result type**,
+  **result**: `navigator_field.dart:89-103`).
+- Nothing code-only was on the page; no link to `generated-code.md`.
+
+**Added from the old docs**
+- "Go back with a value" (old navigation.md "Returning Data with Pop", name example), re-derived for GoRouter projects,
+  with the Navigator differences after it. Pieces: GoRouter `pop` shows a **result** field
+  (`packages/code/lib/src/customizations/go_router_field.dart:64-66,107,123-125`); the Text Field controller and `text`
+  (`docs/reference/widgets/forms.md:13-15`); **await** and **Store result** on the `push` node (circuit.md
+  #future-options); the guard `var1 != null`, because a push comes back empty when people go back without a value
+  (go_router docs "Returning values": `final bool? result = await context.push<bool>('/page2'); if(result ?? false)`);
+  the **Set** button named after the variable (`docs/logic/variables.md:79-91`); **refresh**; **onValue** alternative
+  (old page's tip). The guard replaces the old page's direct "set `name` = result", which would fail on an empty result
+  when `name` can't be empty (**Create Variable...** keeps the field's type: `packages/core/lib/src/fields/field_link_menu.dart:246-247`).
+  Not run live.
+
+**Length**: about 2,400 words (`wc -w`), over ~2,200. Proposed split if wanted: move "Open a detail screen when a list
+item is tapped" (about 480 words, explicit id `#open-a-detail-screen`, linked from six pages) to its own page, or move
+"Use the Navigator" (older projects only) next to "Switch an older project to GoRouter" on router.md.
+
+**Open questions**: the "Go back with a value" steps as a whole (not run live).
+
+## logic/router.md
+
+**Changed for the reader**
+- Intro (R9): "the map of your app". Keywords added: "stay signed in", "protect a screen", "login redirect".
+- **Remove # in URLs** now says what changes (the `#` leaves the web address, `/settings` instead of `/#/settings`):
+  the product's own help text "Removes the hash (#) symbol from the URLs in web applications for cleaner URLs."
+  (`packages/core/lib/src/editors/router_editor/router_block_view.dart:618-622`, toggles `usePathUrlStrategy();` at `:559-560`).
+- Sub-route example in words (a recipe's detail route inside the list's route) instead of a path, because a sub-route's
+  own **Path** is relative and **Full Path** shows the joined one.
+- **Screen** row: "opens the route's builder in Circuit" → "opens, in Circuit, the logic that builds the screen" (same
+  button, plain words). Route problems: "a route without a builder" → "a route without a screen to show" (same
+  problem, `packages/core/lib/src/editors/router_editor/router_problems.dart`).
+- **Redirect Logic** explained as "runs before the screen opens and answers one question"; `context` and `state` stay
+  because the top node shows them (closure params: `router_block_view.dart:460-468`), with `state` glossed.
+- Supabase step: kept the custom expression (typed inside the visual editor, no code file edited), explained it, and
+  pointed to the Nowa AI tip as the no-code option (R5). The tip no longer names `SupabaseService` (moved).
+- "Stay signed in between launches": dropped `lib/main.dart` (moved); the reader-facing fact stays ("Nowa starts
+  Supabase and Firebase for you as your app opens, before the first screen shows, with their standard settings").
+  Facts and refs unchanged from W20 (`reviews/W20-writer-notes.md`, Task 2).
+- "Switch an older project to GoRouter" opens with what switching brings, from the product's comparison page
+  (`packages/core/lib/src/editors/router_editor/router_migration_editor.dart:101-126`: deep linking, full URL support
+  with browser navigation, URL parameters and query strings, built-in redirect and guard support).
+- "That's it:" added before the result paragraph (R9). Steps, labels, the 3.13 workaround and both images unchanged.
+
+**Added from the old docs**: none (no old page maps here; the router content is new in the rewrite).
+
+**Open questions** (carried, not new): the Supabase custom expression in Redirect Logic has still not been run live
+(`reviews/W20-writer-notes.md`, `reviews/W22-writer-notes.md`).
+
+## logic/expressions.md
+
+**Changed for the reader**
+- Intro (R8, R9): an expression is "a bit like a formula in a spreadsheet cell", with everyday examples.
+- Link menu: "params" glossed; "If you pick a value of another type, the menu shows its members" → "shows what's inside
+  it, so you can reach a part that fits" (same fact: `packages/core/lib/src/fields/link_menu.dart:10-16,138-157`,
+  `packages/core/lib/src/fields/field_link_menu.dart:161-186`).
+- `$`: result shown in words ("Hello Sara"); `+`: `length` glossed.
+- Conditional, Math, Logical, ifNull: one everyday example each; `bool` and `int` glossed (R3/R4).
+- Operators table rebuilt as "Operator | Means | Example" so a non-coder can pick one (the brief asks for a plain meaning
+  for each name). Same operator list (`packages/core/lib/src/interpreter/block_tree.dart:2383-2404`), grouping kept in
+  a sentence (Math = the math group, Logical = compare and combine, ifNull alone: `block_tree.dart:2406-2460`,
+  `packages/core/lib/src/fields/expression_builder/expression_details.dart:289-302`). Meanings and examples follow
+  Dart's operators (https://dart.dev/language/operators: `/` "Divide" with a double result, `~/` "Divide, returning an
+  integer result", `%` "Get the remainder of an integer division (modulo)", `??` if-null with the doc's own "Guest"
+  example).
+- Custom expression: "It must be one expression, not a statement such as `if`" → "a single formula that gives back a
+  value. Steps such as `if` belong in Circuit" (same rule, `packages/core/lib/src/fields/expression_builder/expression_builder_provider.dart:195-217`).
+  "so you can fix it before anything changes": **Eval** applies only a valid expression (W5 notes, same file).
+- Small R9 touches: "Changed your mind?" on Reset; reasons after **refresh** and the Visibility example.
+- Nothing code-only on the page; no link to `generated-code.md`.
+
+**Added from the old docs**
+- No quotes when typing in a text field, while a custom expression needs them (old print.md note "The String in a
+  custom expression should be with double quotes ... when typing directly inside the Msg field, Nowa automatically wraps
+  your input"). Text fields hold the typed text as a text value and insert picks as `${...}`
+  (`packages/core/lib/src/fields/interpolated_text_field.dart:41-90`); a number inside `${...}` shows as text (Dart
+  string interpolation, https://dart.dev/language/built-in-types#strings).
+
+**Open questions**: none.
+
+## logic/models.md
+
+**Changed for the reader**
+- Intro rewritten as the brief asks: a model is "the shape of your data", like the fields of a paper form, with an
+  examples table (old data-models.md "Why You Need Data Models": to-do, e-commerce, user management, water tracker).
+  "Define it once, use it everywhere" replaces the old page's "avoid repeating data structures".
+- R1/R2: "Nowa keeps the model's constructor, `fromJson` and `toJson` up to date for you" → "Nowa also keeps each model
+  ready to be saved, sent or loaded as JSON (the text format apps use to exchange data) as you change its fields". The
+  file location (`lib/models`), the file names (`task_model.dart`, `root.dart`) and the constructor mechanics moved to the
+  for-code file (`#models`). `toJson` and `fromJson` stay because the UI shows them: `toJson` in the editor's
+  **Functions** list (image `logic-models-1`) and after **+**; `fromJson` in **Pick a constructor**
+  (`packages/core/lib/src/interpreter/suggestion.dart:725-757`). Each got a plain meaning. **Class name** and **Path**
+  stay because the **New Model** dialog shows them (`packages/core/lib/src/file_system/widgets/create_file_dialog.dart:94`,
+  `file_name_text_field.dart:167-175`). **Path** in **Generated Models** stays ("Leave **Path** as it is: it starts as
+  `lib/models` and must stay inside `lib`"), because the dialog shows and checks it
+  (`packages/core/lib/src/model_generator/generate_models_provider.dart:13,129-131`).
+- "Root" default confirmed: the main name is `data.name`, default `'Root'` (`generate_models_provider.dart:13,55-58`).
+- `notifyListeners` explained (R3, the brief's own wording). JSON glossed (R4). One link to `../code/generated-code.md#models`.
+
+**Added from the old docs**
+- Examples with fields, including the water tracker's `WaterLogEntry` (`amount`, `date`) from the old page's full
+  example (old YouTube tutorial left out: media, old UI).
+- **Is Final**: keep it on for `id` or `createdAt` (old page tip "When to use final"); behavior: new model fields start
+  final (`packages/core/lib/src/widgets/code/declaration_list_widgets.dart:329,353`), tooltip "If true the variable
+  cannot be changed" (`packages/core/lib/src/widgets/code/variable_widgets.dart:327-331`).
+- A model function example, `markAsDone` (old page's `markAsComplete` example): **Functions** + opens Circuit with the
+  fields under **LOCALS** (existing verified sentence); setting `isDone` needs **Is Final** off (`Set` is offered only
+  for non-final variables: `packages/code/lib/src/fields/expression_statement_field.dart:17-23`, W6 notes).
+- Model types also work for a function's **Return Type** (old page "Function parameters and returns"):
+  `variable_widgets.dart:481-482` uses the same `TypeField`.
+- Link a **Create** input to what someone typed (old page "Dynamic Input" note, `titleTextFieldController` > `text`):
+  controller naming per `docs/reference/widgets/forms.md:13-15`.
+
+**Old items found obsolete** (in the coverage file): **Create new object** in the Files panel (now Library **Add** →
+**New Model...**, `lib/project/panels/files_panel/add_lib_menu.dart:60-66`); single click opening a popup (now a details
+card; double-click or Enter opens the editor, `lib/project/panels/library_panel/library_host.dart:147-154`).
+
+**Open questions**: none.
+
+## Routed checks
+
+- **Routed from B08**: the **PACKAGE:** category (with `AppConstants`) is only in Circuit's **+** menu and in
+  statement-level fields, not in a step's argument fields. Code: the link menu passes `showGlobals: field.parent is
+  BlockStatement` (`packages/core/lib/src/fields/field_link_menu.dart:341`), and `GeneralSuggestions` lists the library
+  categories only `inCircuit`, otherwise just Locals, Globals, Expressions and non-Circuit-only extras
+  (`packages/core/lib/src/interpreter/suggestion.dart:463-473`); `IfStatement`, `ReturnStatement`,
+  `ExpressionStatement` and `VariableStatement` are `BlockStatement`s (`packages/core/lib/src/interpreter/block_tree.dart:895,1028,1116,1742,2944`).
+  Result of the check: no page of mine told readers to pick a constant into a field from that category. To prevent the
+  reading, `logic/actions.md` "Find any other function" now says where these categories appear (the **+** menu, an
+  If's **Condition**, a **Return** value), and its **PACKAGE:** row says a step's fields (**Url**, **Msg**) don't list
+  it and links [Use a constant](../integrations/constants.md#use-a-constant) (B08's **Custom Expression...** steps).
+  The other pages only send readers to **LOCALS**, **GLOBALS**, **EXPRESSIONS**, **OPERATORS** in an If's
+  **Condition**, or **FIREBASE** in an If's **Condition**, which all match the code. `logic/expressions.md` already says
+  "a node's own fields ... show every category ... Elsewhere you get **LOCALS**, **GLOBALS** and **EXPRESSIONS**".
+
+## For other pages
+
+Proposals for other batches' pages (I didn't edit them). Each with the text I'd use and its evidence.
+
+1. `docs/logic/functions.md` (P14-B06), line 58: the link text "[Create objects](actions.md#create-objects)" still
+   works (the anchor is kept), but the heading is now "Wait, repeat and create objects". Optional new text:
+   "see [Wait, repeat and create objects](actions.md#create-objects)".
+2. `docs/logic/circuit.md` (P14-B06), category table, **PACKAGE:** row: "Functions and static class members from your
+   own code, if you have any." uses code words. Proposed, matching actions.md: "Functions from your own project, and
+   your keys and constants under `AppConstants`." Evidence: library categories list top-level functions and classes
+   with static members (`packages/core/lib/src/interpreter/suggestion.dart:636-669`); `AppConstants` holds the
+   constants (`docs/integrations/constants.md`).
+3. `docs/reference/widgets/index.md` (P14-B13), **Alert Dialog** row: add the reusable way. Proposed: "To show it in a
+   running app, add a `showDialog` step in logic. To reuse your own design, make it a component and pick it as the
+   dialog's content: see [Use your own design](../../logic/popups.md#use-your-own-design)." Evidence: popups.md section
+   (**Builder** → **Pick Widget**: `packages/core/lib/src/fields/basic_fields.dart:450-473`; **Create component**:
+   `docs/design/components.md:15`).
+4. `docs/integrations/supabase/storage.md` (P14-B10), "Upload a picked image": two optional safety lines. After step 2:
+   "If nothing was picked, the list is empty, so put the next steps in an If whose **Condition** is the list's
+   `isNotEmpty`." And: "With **Play** on a computer, the camera can't open: use `gallery` to test there." Evidence:
+   empty list when nothing is picked (`packages/nowa_runtime/lib/src/media_picker/media_picker.dart:35`), `first` on an
+   empty list fails (Dart `Iterable.first` throws `StateError`), desktop image_picker plugins throw for the camera
+   without a `cameraDelegate` (refs in the popups.md notes).
+5. `docs/test/run.md` (P14-B12), "Read the logs": optional sentence "Messages from a `print` step show here too, both
+   when you run your app and when you test with **Play**." Evidence: `packages/core/lib/src/interpreter/libraries/dart_core_library_custom.dart:3-8`,
+   `packages/core/lib/src/utils.dart:19-21`.
+
+## Product issue candidates (for `_rewrite/product-issues.md`, orchestrator)
+
+1. **Show snackbar offers Width and Margin but no Behavior.** Flutter only honors `width` and `margin` on a floating
+   snackbar and asserts otherwise ("Width can only be used with floating behavior. SnackBarBehavior.fixed was set by
+   default.": `/home/user/flutter/packages/flutter/lib/src/material/snack_bar.dart:661-680`). Nowa's details list
+   `content`, `backgroundColor`, `width`, `elevation`, `shape` and, under advanced, `action`, `duration`, `padding`,
+   `margin`, `onVisible` (`packages/core/lib/src/fields/expression_builder/expression_details.dart:158-183`), and no Nowa
+   theme sets a snackbar behavior. Result: a value in **Width** or **Margin** fails in debug runs and does nothing in
+   release builds. The docs now say to leave both empty. Fix idea: show **Behavior**, or hide the two fields. Not tried
+   live.
+2. **`showMediaPicker` defaults to the camera, which Play in the desktop app can't open.** The default **Source Type**
+   is `camera` (`packages/core/lib/src/interpreter/libraries/nowa_runtime_library.dart:588-597`); the macOS, Windows
+   and Linux image_picker plugins throw a `StateError` for the camera unless a `cameraDelegate` is set, and Nowa sets
+   none (refs in the popups.md notes). The docs tell readers to test with `gallery`. Fix idea: a camera delegate for
+   the desktop app, or a clearer message. Not tried live.

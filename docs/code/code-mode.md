@@ -5,7 +5,7 @@ sidebar_label: Code mode
 keywords: [code mode, code editor, edit code, Dart, tabs, New Tab, Recent Files, find and replace, autocomplete, go to definition, code preview, View Code, Open code mode, code chip, "<>"]
 ---
 
-Code mode shows the Dart behind your app in a full code editor. Select a widget, click the `<>` button, and you land on its code.
+Code mode shows the code behind your app in a full code editor. Flutter apps are written in Dart, so that's mostly what you'll see. Select a widget, click the `<>` button, and you land on its code: handy for checking what Nowa AI wrote, or for a quick fix by hand.
 
 ## Open code mode
 
@@ -13,7 +13,7 @@ Code mode shows the Dart behind your app in a full code editor. Select a widget,
 2. Click the `<>` button in the top bar, next to **Settings** (the gear). The button has no label, and it stays highlighted while code mode is on. Nowa saves your project first.
 3. The editor opens the file that defines your selection and scrolls to the widget's code. With nothing selected, it opens your home screen's file, or `lib/main.dart` if there is none.
 
-The **Files** icon takes the Library's place, second in the left sidebar (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>2</kbd>), and the panel opens on it. It shows the whole project as a tree: `lib/`, `boards/`, `assets/`, `pubspec.yaml` and the platform folders. When you leave code mode, the panel you were using comes back.
+The **Files** icon takes the Library's place, second in the left sidebar (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>2</kbd>), and the panel opens on it. It shows the whole project as a tree: `lib/` (your app's code), `boards/`, `assets/`, `pubspec.yaml` (the project's settings file) and the platform folders. [What's in your project](index.md#whats-in-your-project) explains each one. When you leave code mode, the panel you were using comes back.
 
 ![Code mode: the Files tree on the left (android, assets, boards, lib with globals, main.dart and pages, macos and pubspec.yaml) with home_page.dart selected, home_page.dart open in a tab with its Dart code, the download and Show preview buttons (highlighted) at the right end of the tab bar, and the preview pane (Play · App) beside the code showing the Home Page.](/img/docs/code/code-code-mode-1.png)
 
@@ -101,7 +101,7 @@ Or ask Nowa AI: "Add a function that formats a price with two decimals." It edit
 
 ## Next steps
 
-- [Manage project files](files.md)
-- [Add packages](packages.md)
-- [Write your own code](custom-code.md)
-- [What Nowa can show on the board](limitations.md)
+- [Manage project files](files.md): add, move and search files.
+- [Add packages](packages.md): bring in ready-made building blocks from pub.dev.
+- [Write your own code](custom-code.md): use your own widgets and functions on the board.
+- [What Nowa can show on the board](limitations.md): see which code the board draws, and check the rest with **Run**.

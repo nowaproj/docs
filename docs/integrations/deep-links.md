@@ -1,63 +1,71 @@
 ---
 title: Deep links
-description: Let links open your app, from a custom URL scheme such as myapp:// or from https links on your own domain.
+description: Let links open your app, from a custom URL scheme such as myapp:// or from https links on your own domain, and send people straight to the right screen.
 sidebar_label: Deep links
-keywords: [deep links, deep linking, app links, universal links, url scheme, custom scheme, host, intent filter, open app from link, gorouter, app_links]
+keywords: [deep links, deep linking, app links, universal links, url scheme, custom scheme, host, open app from link, assetlinks.json, route path]
 ---
 
-A deep link opens your app from outside it, for example from a message, a web page or a QR code. Nowa registers your URL scheme with iOS and Android, and your web domain with Android, so the phone knows your app handles those links.
+A deep link opens your app from outside it, ideally right where the person needs to be: a link in a message, a button on your website or a QR code on a flyer that opens a product's page. Nowa registers your links with iOS and Android, so the phone knows your app handles them.
 
 ## Before you start
 
 Decide which links you need:
 
-- A **custom URL scheme**, such as `myapp://...`, for links you create yourself.
-- **Web links** on a domain you control, such as `https://example.com/...`.
+- A **custom URL scheme**, such as `myapp://...`, for links you create yourself. It works on iOS and Android.
+- **Web links** on a domain you control, such as `https://example.com/...`. In Nowa, these open your app on Android.
 
 ## Turn on deep links
 
 1. Click the gear in the top bar (**Settings**) or press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>,</kbd>. Under **Integrations**, click **Deep Links**.
-2. Turn on **Enabled**. Nowa adds the `app_links` package.
+2. Turn on **Enabled**.
 3. Under **Configuration**, fill in **URL Scheme**, **Host** or both.
 4. Press <kbd>Enter</kbd> or click the send icon (**Submit**) after each one. A check mark confirms the save.
 
-Type the values without the `://`, in lowercase letters (Android matches them case-sensitively):
+Type the values without the `://`, in lowercase letters (Android treats capitals as different letters):
 
 - **URL Scheme**: only the scheme, such as `myapp`.
 - **Host**: only the domain, such as `example.com`, not `https://example.com`. Add a path after it to match only links that start with it, such as `example.com/app`.
 
-Nowa writes your settings into the iOS and Android project files, and switches off Flutter's built-in deep link handling in them. They take effect in a built app. To try a link, run the app on a device or emulator with the desktop app. See [Run on a device or emulator](../test/devices.md).
+From now on, your app handles these links itself, so the next step is the logic that opens the right screen (see [Handle the link in your app](#handle-the-link-in-your-app)). The settings take effect in a built app. To try a link, run the app on a device or emulator with the desktop app. See [Run on a device or emulator](../test/devices.md).
 
 ## What each field sets up
 
-| Field | Opens your app from | Where Nowa writes it |
+| Field | Opens your app from | Works on |
 |---|---|---|
-| **URL Scheme** | Links like `myapp://...` | The iOS `Info.plist` (a URL type), as soon as you save it. The Android manifest (an intent filter for the scheme, with the host `open.my.app`) the next time Nowa rewrites it. |
-| **Host** | Links like `https://example.com/...` | The Android manifest only, as an App Links intent filter with `autoVerify`. |
+| **URL Scheme** | Links like `myapp://open.my.app/products/12` | iOS and Android |
+| **Host** | Links like `https://example.com/products/12` | Android only |
 
-:::note[Check the Android manifest]
-Currently, saving **URL Scheme** rewrites only the iOS `Info.plist`. The Android manifest gets your scheme the next time Nowa rewrites it, for example when you save **Host**. To add a scheme without a host, save any **Host** and clear it again. Before you test on Android, open `android/app/src/main/AndroidManifest.xml` in code mode and look for your scheme.
+:::note[Save Host too, so Android gets your scheme]
+Currently, saving **URL Scheme** updates only your iOS app right away. Android gets your scheme the next time Nowa updates its Android settings, for example when you save **Host**. To add a scheme without a host, save any **Host**, then clear it again. Before you rely on it, open a link on an Android device or emulator.
 :::
 
 Things to know:
 
-- On Android, Nowa registers the scheme together with the host `open.my.app`, so an Android link looks like `myapp://open.my.app/products/12`. The same link works on iOS, which matches on the scheme alone.
-- **Host** doesn't set up iOS Universal Links. Nowa doesn't add the iOS associated-domains entitlement, so web links open your app on Android only until you set up Universal Links yourself ([Apple's guide](https://developer.apple.com/documentation/xcode/supporting-universal-links-in-your-app)). On Android, `autoVerify` makes the system check that you own the domain, so your site must serve the verification file ([Android's guide](https://developer.android.com/training/app-links)).
-- [Google Sign-In](./google-sign-in.md) also writes a URL type to `Info.plist`, once you save its **iOS Client ID**. With both saved, Nowa writes two separate `CFBundleURLTypes` entries. A property list should hold that key once, so one of the two may not take effect on iOS. Open `ios/Runner/Info.plist` in code mode to check.
+- **Write your links with `open.my.app`.** On Android, Nowa registers your scheme together with the host `open.my.app`, so a link looks like `myapp://open.my.app/products/12`. The same link works on iOS, which only looks at the scheme.
+- **Web links open your app on Android only.** On iPhone, web links need Apple's Universal Links, which Nowa doesn't set up. Apple's guide explains them: [Supporting universal links in your app](https://developer.apple.com/documentation/xcode/supporting-universal-links-in-your-app).
+- **For web links, Android checks that the domain is yours.** Your website must publish a small verification file, `https://example.com/.well-known/assetlinks.json` for the domain `example.com`. Android's [App Links guide](https://developer.android.com/training/app-links) shows what goes in it.
+
+## Use deep links with Google Sign-In {#with-google-sign-in}
+
+Google sign-in adds its own link entry to your iPhone app: once you save the **iOS Client ID** on the [Google Sign-In](./google-sign-in.md) page, or when Firebase handles Google sign-in for you. Together with a **URL Scheme**, Nowa currently writes two separate entries where iOS expects one, so iOS may ignore one of them: either your links or Google sign-in may not work on iPhone.
+
+You can ask Nowa AI in **Agent** mode to combine them, for example: "In ios/Runner/Info.plist, merge the two CFBundleURLTypes entries into one, so both my deep link scheme and Google Sign-In keep working." Nowa can't check the result for you, so afterwards try both a link and Google sign-in on an iPhone or the iOS simulator. If something goes wrong, **Restore Checkpoint** in the chat undoes Nowa AI's changes.
+
+Nowa can undo the merge later. It rebuilds your iPhone app's settings file from your project settings each time you change something that goes into it, such as the **URL Scheme**, the **iOS Client ID**, the AdMob **iOS App ID**, an iOS permission or the **App Name** (see the warning in [Set permissions](../account/project-settings.md#set-permissions)). That brings the two entries back, so after such a change, merge them again and test once more.
 
 ## Handle the link in your app
 
-Nowa registers the links and adds `app_links`, but it doesn't generate code that reads an incoming link. Your app's logic has to read the link and open the right screen.
+Nowa registers your links, but it doesn't add the logic that opens the right screen when a link arrives. Nowa AI can add that part for you.
 
-New projects use GoRouter, where each screen has a route **Path** (**Route Settings** in **Details**) that a link can point to. See [Navigate between screens](../logic/navigation.md). An older project that uses Navigator shows **Enable GoRouter** in the **Router** panel, which lists deep linking as built in for GoRouter and "Not supported out of the box" for Navigator. See [Switch an older project to GoRouter](../logic/router.md#switch-an-older-project-to-gorouter).
+New projects use GoRouter, where each screen has a route **Path** (**Route Settings** in **Details**), such as `/products`, that a link can point to. See [Navigate between screens](../logic/navigation.md). An older project that uses Navigator shows **Enable GoRouter** in the **Router** panel, which lists deep linking as built in for GoRouter and "Not supported out of the box" for Navigator. See [Switch an older project to GoRouter](../logic/router.md#switch-an-older-project-to-gorouter).
 
 :::tip[Or ask Nowa AI]
-Try: "Handle incoming deep links with the app_links package and open the screen whose route path matches the link."
+In **Agent** mode, try: "Handle incoming deep links (the app_links package is already added) and open the screen whose route path matches the link." Then open a link on a device to check that the right screen appears.
 :::
 
 ## Turn deep links off
 
-Turn **Enabled** off to remove the package and the entries Nowa added to the Android and iOS files.
+Turn **Enabled** off. Nowa removes the link settings from your iOS and Android app. Working in the code? See [What Nowa adds to your code](../code/generated-code.md#deep-links).
 
 ## Next steps
 

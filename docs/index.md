@@ -1,9 +1,9 @@
 ---
 title: Nowa docs
-description: Build the exact app you imagine. Nowa AI builds it, you refine every detail visually, and the Flutter code is yours.
+description: Build the exact app you imagine, without code. Describe it and Nowa AI builds it, refine every detail visually, and publish to iOS, Android and the web.
 hide_title: true
 hide_table_of_contents: true
-keywords: [Nowa, documentation, docs, Flutter app builder, AI app builder, visual editor, get started, help]
+keywords: [Nowa, documentation, docs, Flutter app builder, AI app builder, visual editor, no code, build an app without code, get started, help]
 ---
 
 import Link from '@docusaurus/Link';
@@ -12,7 +12,7 @@ import styles from './cards.module.css';
 <div className={styles.hero}>
   <p className={styles.eyebrow}>Nowa documentation</p>
   <h1 className={styles.heroTitle}>Build the exact app you imagine.</h1>
-  <p className={styles.heroLead}>Nowa AI builds it, you refine every detail visually, and the Flutter code is yours.</p>
+  <p className={styles.heroLead}>Describe it and Nowa AI builds it. Refine every detail visually, no code needed, and the app is yours.</p>
 </div>
 
 ## Start here
@@ -20,19 +20,19 @@ import styles from './cards.module.css';
 <div className={styles.startGrid}>
   <Link to="/get-started/first-app" className={styles.startCard}>
     <h3>Build your first app</h3>
-    <p>Describe an app in plain words, watch Nowa AI build it on your board, then play it and run it.</p>
+    <p>Describe an app in plain words, watch Nowa AI build it on your board, then play it and run it. It takes about 15 minutes.</p>
     <span className={styles.cta}>Start the walkthrough</span>
   </Link>
 
   <Link to="/ai" className={styles.startCard}>
     <h3>Build with Nowa AI</h3>
-    <p>Pick a mode, give the agent context, and restore a checkpoint to undo a request.</p>
+    <p>Tell the agent what you want, give it context, and undo a request you don't like.</p>
     <span className={styles.cta}>Explore Nowa AI</span>
   </Link>
 
   <Link to="/design" className={styles.startCard}>
     <h3>Design your app</h3>
-    <p>Arrange screens on the board and shape every widget, layout and theme by hand.</p>
+    <p>Arrange your screens on the board and fine-tune every widget, layout and color by hand.</p>
     <span className={styles.cta}>Explore design</span>
   </Link>
 </div>
@@ -62,7 +62,7 @@ import styles from './cards.module.css';
 
   <Link to="/logic" className={styles.sectionCard}>
     <h3>Add logic</h3>
-    <p>Respond to taps, build functions in Circuit, and share data across your app.</p>
+    <p>Decide what happens on a tap, build logic visually in Circuit, and share data across screens.</p>
   </Link>
 
   <Link to="/integrations" className={styles.sectionCard}>
@@ -82,7 +82,7 @@ import styles from './cards.module.css';
 
   <Link to="/code" className={styles.sectionCard}>
     <h3>Work with code</h3>
-    <p>Code mode, packages, Git, VS Code and local projects.</p>
+    <p>Optional, for people who code: code mode, packages, Git, VS Code and local projects.</p>
   </Link>
 
   <Link to="/account" className={styles.sectionCard}>

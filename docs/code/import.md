@@ -5,12 +5,12 @@ sidebar_label: Import a project
 keywords: [import project, Clone from GitHub, existing Flutter project, FlutterFlow export, monorepo, workspace, Package to open, pubspec, open existing project, bring your own code, migrate]
 ---
 
-Already have a Flutter app? Bring it into Nowa and keep going with Nowa AI and visual editing, on the code you already wrote. Import a folder from your computer, or clone a repository from GitHub.
+Already have a Flutter app? Bring it into Nowa and keep going with Nowa AI and visual editing, on top of the code you already wrote. Import a folder from your computer, or clone a repository from GitHub. Either way, your code stays yours: Nowa reads it and draws your screens, and only rewrites the parts you change visually.
 
 ## Before you start
 
 - To import a folder, install the [desktop app](../get-started/desktop-app.md). **Import project** isn't in the web app.
-- To keep the project on your computer, set up Flutter first. Local projects need the Flutter SDK, for example to run your app. See [Set up Flutter](../get-started/desktop-app.md#setting-up-flutter-sdk).
+- To keep the project on your computer, set up Flutter first. Local projects use the Flutter SDK (the toolkit that builds and runs Flutter apps) on your computer, for example to run your app. See [Set up Flutter](../get-started/desktop-app.md#setting-up-flutter-sdk).
 
 ## Choose how to bring it in
 
@@ -19,9 +19,9 @@ Already have a Flutter app? Bring it into Nowa and keep going with Nowa AI and v
 | Where it works | Desktop app only | Web and desktop app |
 | What you bring | A Flutter folder on your computer | A repository from your connected GitHub account |
 | What you get | A cloud project (an uploaded copy), or a local-only project (your folder, opened in place) | A cloud project, or with **Local-only** (desktop app) a local project cloned to your computer |
-| What it needs | A `pubspec.yaml` in the folder | A plan with Git integration and a connected GitHub account |
+| What it needs | A `pubspec.yaml` in the folder (the settings file every Flutter project has) | A plan with Git integration and a connected GitHub account |
 
-Both start from the arrow next to **New project** on the dashboard.
+Both start from the arrow next to **New project** on the dashboard. Not sure which to pick? Use **Import project** for a folder that's already on your computer, and **Clone from GitHub** when the code lives in a GitHub repository.
 
 ## Import a project from a folder
 
@@ -33,13 +33,13 @@ Both start from the arrow next to **New project** on the dashboard.
 4. Choose where the project lives:
    - To upload a copy to your Nowa account, keep the default. The footer reads "Imported to the cloud — run, share and build from anywhere." The workspace chip at the top of the dialog picks which workspace gets the copy.
    - To keep your folder where it is, expand **Advanced** and click **Local-only project**. The footer reads "Imported locally — stays on this device, no cloud features."
-5. Click **Import project**. The project opens.
+5. Click **Import project**. The project opens, ready for you to design and prompt.
 
 ![The Import project dialog for a pub workspace folder: the Project folder path with Browse and the open Package to open menu (highlighted) listing the workspace root as Workspace root, admin_app as App, shop_app as Has boards (selected) and ui_kit as Library. The menu covers most of the locked Local-only project card under Advanced, and the footer reads Imported locally — git and the other packages stay reachable.](/img/docs/code/code-import-1.png)
 
 What to know before you click **Import project**:
 
-- The folder needs a `pubspec.yaml`. Without one, the dialog warns "No pubspec.yaml here — Nowa can browse and edit the files, but not design them." and **Import project** still stops with "Exception: Chosen folder is not a nowa project or a flutter project."
+- The folder needs a `pubspec.yaml`, which is how Nowa knows it's a Flutter project. Without one, the dialog warns "No pubspec.yaml here — Nowa can browse and edit the files, but not design them." and **Import project** still stops with "Exception: Chosen folder is not a nowa project or a flutter project."
 - A cloud import uploads a copy and leaves your folder alone. It skips `.git/`, `build/`, `.dart_tool/` and `.idea/`, so the copy starts without Git history. To keep history, import as local-only.
 - A local-only import opens your folder in place. Nowa doesn't copy it, so you can keep editing the same folder in [VS Code](vs-code.md). The project is listed under **On this device**.
 - Monorepos, and projects inside a bigger Git repository, are always local-only. The **Local-only project** card is locked and the footer reads "Imported locally — git and the other packages stay reachable."
@@ -59,6 +59,8 @@ Then:
 4. Choose where the clone goes. The chip at the top picks the workspace for a cloud project. In the desktop app, tick **Local-only** to clone to your computer instead. Nowa puts the clone in a folder named after the repository, inside your **Default Projects Path** from **Local Setup**.
 5. Click **Clone project**. It turns on once a repository is selected. A timer shows how long the clone has run. The project opens when it finishes.
 
+The new project stays connected to the repository, with its history and branches, so you can commit and click **Sync** in the [Git](git.md) panel right away.
+
 ![The Clone from GitHub dialog in the web app, with the Personal workspace chip at the top: the repository list (highlighted) with Search repositories, one private repository selected (owner name blurred, then /docs-capture-repo) and the Manage your connected repositories link, then Project name filled in as docs-capture-repo, and Cancel and Clone project (highlighted).](/img/docs/code/code-import-2.png)
 
 If the clone fails, the dialog shows the reason with a **Fix** button:
@@ -68,7 +70,7 @@ If the clone fails, the dialog shows the reason with a **Fix** button:
 
 ## Work with a monorepo
 
-Nowa treats a folder as a monorepo when its `pubspec.yaml` lists `workspace:` members, or when it keeps packages in `packages/` or `apps/`. You then choose which package to edit, either in **Package to open** while importing or in the **Open** prompt after a local clone ("This workspace holds several packages. You can switch later.").
+A monorepo is one repository that holds several Flutter packages, for example a customer app, an admin app and a shared library. Nowa treats a folder as a monorepo when its `pubspec.yaml` lists `workspace:` members, or when it keeps packages in `packages/` or `apps/`. You then choose which package to edit, either in **Package to open** while importing or in the **Open** prompt after a local clone ("This workspace holds several packages. You can switch later.").
 
 - Each package carries a hint: **Has boards** (it already has board files), **Workspace root**, **App** (it has a `lib/main.dart`) or **Library**.
 - Nowa preselects the package you picked, then one that has boards, then the workspace root. If you pick a package folder inside a workspace, Nowa still opens the whole workspace.
@@ -79,6 +81,8 @@ Nowa treats a folder as a monorepo when its `pubspec.yaml` lists `workspace:` me
 
 - **The first time, Nowa opens a board called `first`.** If your project has no `first.board` file, Nowa creates an empty one, even when the project has other boards. Open your boards from the **Boards** chip in the top bar. Your screens and components are in the [Library](../design/library.md) (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>2</kbd>) under **Project**. Drag one onto the board to see it, or double-click it to open it on its own.
 - **Nowa draws your code by interpreting it, not compiling it.** Parts it can't draw show as placeholders, and anything it skips is reported in the **Problems** tab. Click **Run** to compile the whole app and see the real output. See [What Nowa can show on the board](limitations.md) and [Write your own code](custom-code.md).
+- **Packages decide a lot.** Popular packages have built-in support on the board. Others still work when you **Run**, but their widgets show as placeholders on the board. See [Add packages](packages.md#how-nowa-loads-your-packages).
+- **Nowa's app-wide data is built on `provider`.** The global states that Circuit lists under **GLOBALS** are `provider` classes (a `ChangeNotifier` provided at the top of your app). State kept with another package, such as Riverpod or Bloc, still runs in your app, but it doesn't show up there. See [Share data across your app](../logic/global-state.md).
 - **Nowa adds a `.nowa` folder** with its settings. Its `temp/` folder and `thumbnail.png` are Git-ignored. Nowa no longer raises the `version` in `.nowa/settings.json` to match each new release, so updating Nowa doesn't make that file show up as modified in [Git](git.md).
 - **FlutterFlow exports work too.** Nowa draws pages that use `safeSetState`, custom functions and Firestore records with placeholder data, even without a Firebase connection on the board.
 - **Code you change visually is rewritten.** On save, Nowa adds `@NowaGenerated` and an import of `package:nowa_runtime/nowa_runtime.dart`, turns relative imports into `package:` imports, reorders constructor parameters and writes `16` as `16.0`. Code you don't touch stays as you wrote it, including a `main()` function of your own (one without `@NowaGenerated`) and the `library;` and `part` lines of a file.
@@ -89,7 +93,7 @@ Commit before you start editing visually. The [Git](git.md) panel then shows exa
 
 ## Next steps
 
-- [Work with local projects](local-projects.md)
-- [Write your own code](custom-code.md)
-- [Use Git](git.md)
-- [Connect GitHub](github.md)
+- [Work with local projects](local-projects.md): find, link and safely remove the project on your computer.
+- [Write your own code](custom-code.md): use your existing widgets and functions on the board and in Circuit.
+- [Use Git](git.md): see exactly what Nowa changes, commit and sync.
+- [Connect GitHub](github.md): clone more repositories, or push this one.

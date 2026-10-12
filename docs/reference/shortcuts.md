@@ -1,10 +1,16 @@
 ---
 title: Keyboard shortcuts
 description: The keyboard shortcuts and mouse gestures of the Nowa editor, with the keys for Windows, Linux and macOS.
-keywords: [keyboard shortcuts, hotkeys, key bindings, cheat sheet, shortcuts sheet, undo, redo, copy, paste, duplicate, delete, zoom, pan, group, layer order, bring to front, bring forward, send backward, send to back, widget picker, library, add a widget, go to a widget, back, forward, boards, run, save, Ctrl, Cmd, Option, Alt, Mac, Windows, Linux]
+keywords: [keyboard shortcuts, hotkeys, key bindings, cheat sheet, shortcuts sheet, undo, redo, copy, paste, duplicate, delete, zoom, pan, group, layer order, bring to front, bring forward, send backward, send to back, widget picker, library, add a widget, go to a widget, back, forward, boards, run, save, embedded preview, hot reload, hot restart, open widget picker, ungroup, Ctrl, Cmd, Option, Alt, Mac, Windows, Linux]
 ---
 
-Keep your hands on the keyboard while you build: add a widget, group a few, run your app or undo a mistake without reaching for the mouse. This page lists the editor's shortcuts, grouped by where you use them.
+Keep your hands on the keyboard while you build: add a widget, group a few, run your app or undo a mistake without reaching for the mouse. This page lists the editor's shortcuts, grouped by where you use them. You don't need to learn them all at once. Start with these five:
+
+- <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd> opens the Library so you can add a widget.
+- <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Z</kbd> undoes your last change.
+- <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>G</kbd> groups the selected widgets.
+- <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>P</kbd> runs your app in the **Embedded preview**.
+- <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>.</kbd> shows the Shortcuts sheet, in case you forget the rest.
 
 Most shortcuts use <kbd>Ctrl</kbd> on Windows and Linux and <kbd>Cmd</kbd> on macOS, so the tables below list both. On a Mac, tooltips and menus show <kbd>Control</kbd> as ⌃, <kbd>Option</kbd> as ⌥, <kbd>Shift</kbd> as ⇧ and <kbd>Cmd</kbd> as ⌘, always in that order, as in ⇧⌘Z or ⌥⌘]. On Windows and Linux they show Ctrl, Alt and ⇧ in the same order. You can't change the shortcuts.
 
@@ -14,7 +20,7 @@ Hover a board tool, or open a right-click menu, to see its shortcut next to the 
 
 ## Open the Shortcuts sheet
 
-The editor has a built-in cheat sheet with common shortcuts.
+The editor has a built-in cheat sheet with common shortcuts, handy while you're still learning them.
 
 1. Click the keyboard icon (**Shortcuts**) at the bottom of the left sidebar, or press <kbd>Ctrl</kbd> + <kbd>.</kbd> (<kbd>Cmd</kbd> + <kbd>.</kbd> on macOS). The sheet opens over the editor.
 2. Close it with the same keys, the close button, <kbd>Esc</kbd> or a click outside the sheet.
@@ -51,7 +57,7 @@ These work across the project editor. Some act on the area you're in.
 
 The Library has no <kbd>Delete</kbd> key: right-click a row and choose **Delete**. **Back** and **Forward** step through the editors you opened and keep your last 50 places. The **Back** and **Forward** arrows in the top bar do the same and grey out when there's nowhere to go. They're hidden in code mode and in the Run view, where the keys still work.
 
-Undo and Redo work on the area you're in, and each area keeps its own history: every board or open screen, the **Library**, **Files** (code mode), **Themes**, **Api**, the **Router** editor and **Circuit**. **Action History** lists the changes of that area. Click an entry to undo it and every change after it.
+Undo and Redo work on the area you're in, and each area keeps its own history: every board or open screen, the **Library**, **Files** (code mode), **Themes**, **Api**, the **Router** editor and **Circuit**. So undoing in Circuit doesn't touch your design on the board. **Action History** lists the changes of that area. Click an entry to undo it and every change after it.
 
 ## Sidebar panels
 
@@ -87,7 +93,7 @@ These work on a board, on a screen or component opened on its own, and in the **
 | **Send backward**: move it one step earlier | <kbd>Ctrl</kbd> + <kbd>[</kbd> | <kbd>Cmd</kbd> + <kbd>[</kbd> |
 | **Bring to front**: move it to the last place | <kbd>Alt</kbd> + <kbd>Ctrl</kbd> + <kbd>]</kbd> | <kbd>Option</kbd> + <kbd>Cmd</kbd> + <kbd>]</kbd> |
 | **Send to back**: move it to the first place | <kbd>Alt</kbd> + <kbd>Ctrl</kbd> + <kbd>[</kbd> | <kbd>Option</kbd> + <kbd>Cmd</kbd> + <kbd>[</kbd> |
-| Nudge a freely positioned widget (in a Stack, or on the board) by 1 px | <kbd>←</kbd> <kbd>↑</kbd> <kbd>→</kbd> <kbd>↓</kbd> | <kbd>←</kbd> <kbd>↑</kbd> <kbd>→</kbd> <kbd>↓</kbd> |
+| Nudge a widget you place freely (in a Stack, where widgets sit on top of each other, or loose on the board) by 1 px | <kbd>←</kbd> <kbd>↑</kbd> <kbd>→</kbd> <kbd>↓</kbd> | <kbd>←</kbd> <kbd>↑</kbd> <kbd>→</kbd> <kbd>↓</kbd> |
 | Nudge by 10 px | <kbd>Shift</kbd> + an arrow key | <kbd>Shift</kbd> + an arrow key |
 | Move a widget one place inside a Row (<kbd>←</kbd> <kbd>→</kbd>) or a Column (<kbd>↑</kbd> <kbd>↓</kbd>) | an arrow key | an arrow key |
 | Open the screen or component that holds the selection on its own | <kbd>Ctrl</kbd> + <kbd>I</kbd> | <kbd>Cmd</kbd> + <kbd>I</kbd> |
@@ -128,7 +134,7 @@ Snapping is off while you hold <kbd>Shift</kbd> or <kbd>Alt</kbd>/<kbd>Option</k
 | Restart the app while the **Embedded preview** is open | <kbd>Shift</kbd> + <kbd>R</kbd> | <kbd>Shift</kbd> + <kbd>R</kbd> |
 | Show the app fullscreen while the **Embedded preview** is open | <kbd>Ctrl</kbd> + <kbd>F</kbd> | <kbd>Cmd</kbd> + <kbd>F</kbd> |
 
-The restart key does what the restart button in the top bar does: **Hot Reload** in local projects, **Hot Restart** in cloud projects. Instant **Play** has no shortcut: hover a screen's title and click **Play**. See [Run your app](../test/run.md) and [Play your app on the board](../test/instant-play.md).
+The restart key does what the restart button in the top bar does: it puts your latest saved changes into the running app. In a local project that's **Hot Reload**, which updates the app in place. In a cloud project it's **Hot Restart**, which starts the app again. Instant **Play** has no shortcut: hover a screen's title and click **Play**. See [Run your app](../test/run.md) and [Play your app on the board](../test/instant-play.md).
 
 ## Chat with Nowa AI
 
@@ -171,7 +177,7 @@ The search at the top of the [Library](../design/library.md) works like a picker
 
 ## Circuit
 
-These work in the [Circuit](../logic/circuit.md) logic editor.
+These work in the [Circuit](../logic/circuit.md) logic editor, where each step of your logic is a node.
 
 | Action | Windows / Linux | macOS |
 |---|---|---|
@@ -204,7 +210,7 @@ These work in the code editor in code mode.
 | Find | <kbd>Ctrl</kbd> + <kbd>F</kbd> | <kbd>Cmd</kbd> + <kbd>F</kbd> |
 | Replace | <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>F</kbd> | <kbd>Cmd</kbd> + <kbd>Option</kbd> + <kbd>F</kbd> |
 | Turn match case (**Aa**) on or off in Find | <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>C</kbd> | <kbd>Cmd</kbd> + <kbd>Option</kbd> + <kbd>C</kbd> |
-| Turn regular expressions (`.*`) on or off in Find | <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>R</kbd> | <kbd>Cmd</kbd> + <kbd>Option</kbd> + <kbd>R</kbd> |
+| Turn regular expressions (`.*`, search patterns) on or off in Find | <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>R</kbd> | <kbd>Cmd</kbd> + <kbd>Option</kbd> + <kbd>R</kbd> |
 | Close Find | <kbd>Esc</kbd> | <kbd>Esc</kbd> |
 | Comment or uncomment the line | <kbd>Ctrl</kbd> + <kbd>/</kbd> | <kbd>Cmd</kbd> + <kbd>/</kbd> |
 | Comment or uncomment a block | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>/</kbd> | <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>/</kbd> |
@@ -224,6 +230,17 @@ Select all, cut, copy, paste and undo use the usual keys (<kbd>Ctrl</kbd>/<kbd>C
 - **View only.** If you have the **View Only** role, only copy, the two tab-switching keys and <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>W</kbd> work. Panning and zooming still work.
 - **Pop-ups.** <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>O</kbd> and <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd> don't open while the Shortcuts sheet or a picker is already open.
 - **Browser.** A browser keeps some combinations for itself, such as <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>W</kbd>, so a few shortcuts may not reach the web app. Use the buttons instead.
+
+Two exceptions in Nowa 3.13 go the other way: a `/` you type in a **Details** field doesn't appear, and while you name something in the **Variables** list, the letters t, r, v and f can trigger board shortcuts instead of typing. Known issues has a workaround for each: [the `/` in Details](../troubleshooting/known-issues.md#slash-in-details) and [the letters in the Variables list](../troubleshooting/known-issues.md#variables-list-rename).
+
+## If you used an older version
+
+If you learned Nowa from older videos, tutorials or an older Shortcuts sheet, two shortcuts may not do what you remember:
+
+| You may know | Now |
+|---|---|
+| <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>P</kbd> opens the widget picker | It runs your app in the **Embedded preview**. To add a widget, press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd>, which opens the [Library](../design/library.md) ready to search. |
+| <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>G</kbd> groups and ungroups | It only groups. To ungroup, right-click the group and choose **Ungroup**. |
 
 ## Next steps
 

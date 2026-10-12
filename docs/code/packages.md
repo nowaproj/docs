@@ -5,7 +5,7 @@ sidebar_label: Packages
 keywords: [packages, pub.dev, pubspec, dependencies, add package, remove package, update package, package version, pub get, Packages settings, Add New Package, load packages, plugin, library, dev dependency]
 ---
 
-Packages are ready-made building blocks from [pub.dev](https://pub.dev), Flutter's package site, such as animations, charts or date tools. Add one in App Settings and Nowa writes your `pubspec.yaml`, loads the package and checks your project for you.
+Packages are ready-made building blocks from [pub.dev](https://pub.dev), Flutter's package site, such as animations, charts or date tools. They save you from writing that code yourself. Add one in App Settings and Nowa writes it into your `pubspec.yaml` (the project's settings file, which lists the packages your app uses), loads the package and checks your project for you.
 
 ## Open the Packages page
 
@@ -14,7 +14,7 @@ Packages are ready-made building blocks from [pub.dev](https://pub.dev), Flutter
 
 The page lists your packages in a table with a **Name** and a **Version** column. Type in the **Search...** box to filter the list by name.
 
-New projects start with `nowa_runtime`, `provider`, `shared_preferences`, `dio` and `go_router`. Leave `nowa_runtime` in place, because the code Nowa writes imports it.
+New projects start with five: `nowa_runtime` (Nowa's own helpers), `provider` (app-wide data), `shared_preferences` (values saved on the device), `dio` (calls to web APIs) and `go_router` (moving between screens). Leave `nowa_runtime` in place, because the code Nowa writes imports it.
 
 ![The Packages page in Settings behind a dimmed overlay: the Search box and the Name and Version table (nowa_runtime, provider, shared_preferences, dio, go_router), with the Add New Package link highlighted. The empty New Package dialog (highlighted) shows the package_name field, the version field, and the Cancel and Add buttons.](/img/docs/code/code-packages-1.png)
 
@@ -22,7 +22,7 @@ New projects start with `nowa_runtime`, `provider`, `shared_preferences`, `dio` 
 
 1. Click **Add New Package** under the table. The **New Package** dialog opens.
 2. Start typing the package name. Nowa suggests matching packages from pub.dev. Pick one, or type the full name.
-3. Check the version. Nowa fills in the latest one as a caret version such as `^2.1.0`. Change it if you need another.
+3. Check the version. Nowa fills in the latest one as a caret version such as `^2.1.0`, where `^` means this version or any newer one that stays compatible with it. Change it if you need another.
 4. Click **Add**. "Loading packages..." shows under the table while Nowa works, then the package appears in the list.
 
 Nowa adds the package to `pubspec.yaml`, loads it so the board knows what it offers, and refreshes **Problems**.
@@ -36,9 +36,9 @@ A few packages need phone permissions, such as `geolocator` for location. For th
 1. In the table, click the package's **Version** and type the new version, such as `^3.0.0`.
 2. Press <kbd>Enter</kbd>. Nowa updates `pubspec.yaml` and loads the package again at that version.
 
-In a local project Nowa also runs `flutter pub get`.
+In a local project Nowa also runs `flutter pub get`, Flutter's command that downloads the packages listed in `pubspec.yaml`.
 
-Don't change the **Version** of a package that comes from Git or a local path. A version you type there replaces its `git:` or `path:` entry in `pubspec.yaml`.
+Don't change the **Version** of a package that comes from Git or a local path, that is, from a Git repository or a folder on your computer instead of pub.dev. A version you type there replaces its `git:` or `path:` entry in `pubspec.yaml`.
 
 ## Remove a package
 
@@ -48,7 +48,7 @@ Code that still imports the package shows a problem: `'<name>' is imported but i
 
 ## How Nowa loads your packages
 
-- **pub.dev, Git and path packages.** Nowa loads the packages under `dependencies` that list a version. Packages with a `git:` or `path:` source are listed too, with an empty **Version**, and in a local project Nowa loads them from where `flutter pub get` put them. An `sdk:` package such as `flutter_localizations` counts as installed but isn't loaded. A package from another host and anything under `dev_dependencies` isn't loaded. If your code imports a dev dependency, **Problems** says `'<name>' is a dev dependency, so Nowa does not load it. Move it to dependencies to use it in lib/.`
+- **pub.dev, Git and path packages.** Nowa loads the packages under `dependencies` that list a version. Packages with a `git:` or `path:` source are listed too, with an empty **Version**, and in a local project Nowa loads them from where `flutter pub get` put them. An `sdk:` package, one that ships with Flutter itself such as `flutter_localizations`, counts as installed but isn't loaded. A package from another host and anything under `dev_dependencies` (packages used only by tests and tools, not by your app's code) isn't loaded. If your code imports a dev dependency, **Problems** says `'<name>' is a dev dependency, so Nowa does not load it. Move it to dependencies to use it in lib/.`
 - **Only the packages you list.** Packages that your packages depend on aren't loaded for you. If your code imports one, add it to your list too.
 - **After the project opens.** Packages load in the background. **Problems** shows "Loading packages..." and reports nothing until they finish.
 - **When one won't load.** **Problems** says `'<name>' is installed but failed to load, so nothing it defines is available:` and gives the reason.
@@ -80,7 +80,7 @@ Try "Add the `intl` package and show each order's date as 12 March 2026." Nowa A
 
 ## Next steps
 
-- [Write your own code](custom-code.md)
-- [What Nowa can show on the board](limitations.md)
-- [Find and fix problems](../test/problems.md)
-- [Run your app](../test/run.md)
+- [Write your own code](custom-code.md): wrap a package's widgets and functions in your own code.
+- [What Nowa can show on the board](limitations.md): see what the board draws from packages.
+- [Find and fix problems](../test/problems.md): read the package messages in **Problems**.
+- [Run your app](../test/run.md): see every package working for real.

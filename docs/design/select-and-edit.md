@@ -5,7 +5,7 @@ sidebar_label: Select, move and resize
 keywords: [select, selection, move, resize, snap, guides, group, ungroup, copy, paste, duplicate, reorder, bring forward, send backward, bring to front, send to back, move up, move down, replace with, export as image, remove, delete widget, undo, redo, action history, drop rules]
 ---
 
-Click to select, drag to move, pull a handle to resize. Purple guides snap things into line, and every change can be undone.
+Click to select, drag to move, pull a handle to resize. Purple guides snap things into line as you go, and every change can be undone, so you can rearrange freely until it looks right.
 
 ## Select widgets
 
@@ -16,8 +16,8 @@ Click to select, drag to move, pull a handle to resize. Purple guides snap thing
 | Pick the innermost widget | <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + click. |
 | Add or remove a widget | <kbd>Shift</kbd> + click, on the board or in the [Outline](outline.md). |
 | Select with a box | Drag on empty space. Start on the board to select whole screens and components. Start inside a screen to select the widgets placed freely in its main **Stack** group. <kbd>Shift</kbd> toggles. |
-| Select all | <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>A</kbd> selects the selected widget and its siblings. With nothing or a board item selected, it selects every board item. |
-| Select a parent | Click its name in the breadcrumbs at the top of **Details**. |
+| Select all | <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>A</kbd> selects the selected widget and the other widgets in the same group (its siblings). With nothing or a board item selected, it selects every board item. |
+| Select a parent (the widget around it) | Click its name in the breadcrumbs at the top of **Details**. |
 | Clear the selection | Click empty board space. |
 
 ## Move widgets
@@ -27,11 +27,11 @@ Click to select, drag to move, pull a handle to resize. Purple guides snap thing
 - Hold <kbd>Alt</kbd>/<kbd>Option</kbd> while dragging to drag a copy instead. You can press or release the key mid-drag.
 - Press an arrow key to nudge a free widget by 1 pixel, or <kbd>Shift</kbd> + arrow for 10. Free means placed in a **Stack** or directly on the board. In a **Row** or **Column**, the arrow along the layout direction moves the widget one place earlier or later.
 
-Screens always stay board items, so you can't drop one inside another item. To type exact positions and sizes, see [Lay out widgets](layout.md).
+Screens always stay board items, so you can't drop one inside another item. To type exact positions and sizes instead of dragging, see [Lay out widgets](layout.md).
 
 ## Where a dragged widget lands {#where-a-dragged-widget-lands}
 
-What happens when you drop depends on what is under the pointer.
+What happens when you drop depends on what is under the pointer, so watch the outline on the board before you let go.
 
 | Under the pointer | What happens |
 |---|---|
@@ -55,23 +55,23 @@ A component can't be dropped into itself.
 
 Select a widget and drag a corner handle, or an edge, to resize it. Hold <kbd>Shift</kbd> to keep the proportions. Hold <kbd>Alt</kbd>/<kbd>Option</kbd> to resize from the center. With several widgets selected, they resize together.
 
-Some widgets have no handles, for example a widget placed directly inside a **Container** or **Padding**. Set their size in **Layout** instead. See [Lay out widgets](layout.md).
+Some widgets have no handles, for example a widget placed directly inside a **Container** or **Padding**, because the widget around it decides its size. Set their size in **Layout** instead. See [Lay out widgets](layout.md).
 
 ## Snapping and guides
 
-While you move or resize, edges and centers snap to nearby items and purple guide lines show what lined up. Widgets in a **Stack** snap to the stack's edges, its center and their siblings. Board items snap to other board items. Hold <kbd>Shift</kbd> or <kbd>Alt</kbd> while resizing to skip snapping. Nothing snaps to the board's grid.
+While you move or resize, edges and centers snap to nearby items and purple guide lines show what lined up, so it's easy to line things up neatly. Widgets in a **Stack** snap to the stack's edges, its center and their siblings. Board items snap to other board items. Hold <kbd>Shift</kbd> or <kbd>Alt</kbd> while resizing to skip snapping. Nothing snaps to the board's grid.
 
 ## Edit text on the board
 
-Double-click a **Text**, **Markdown** or **Html** widget, or place one with the **Text** tool, and type. Press <kbd>Esc</kbd> or click away to save. Rich text is edited in **Details**. If the text comes from a variable, editing it here replaces that link with the text you typed. Undo brings the link back.
+Double-click a **Text**, **Markdown** or **Html** widget (the last two show formatted text), or place one with the **Text** tool, and type. Press <kbd>Esc</kbd> or click away to save. Rich text (text that mixes styles, such as one bold word in a sentence) is edited in **Details**. If the text comes from a variable, editing it here replaces that link with the text you typed. Undo brings the link back.
 
 ## Copy, cut and paste
 
-Press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>C</kbd>, <kbd>X</kbd> or <kbd>V</kbd>. A widget's right-click menu has **Copy** and **Cut**, and the menu on empty board space has **Paste**. A paste lands at your pointer. With a widget selected, it goes into that widget's parent. For pasting images and text, see [Add widgets](add-widgets.md).
+Press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>C</kbd>, <kbd>X</kbd> or <kbd>V</kbd>. A widget's right-click menu has **Copy** and **Cut**, and the menu on empty board space has **Paste**. A paste lands at your pointer. With a widget selected, it goes into that widget's parent, the widget it sits in. For pasting images and text, see [Add widgets](add-widgets.md).
 
 ## Use the right-click menu {#use-the-right-click-menu}
 
-Right-click a widget to act on it. An unselected widget is selected first.
+Right-click a widget to see everything you can do with it. An unselected widget is selected first.
 
 | Entry | What it does |
 |---|---|
@@ -79,7 +79,7 @@ Right-click a widget to act on it. An unselected widget is selected first.
 | **Replace with...** | Opens the widget picker dialog and swaps the widget for the one you pick. Nowa keeps its children and the properties the new widget also has. See [Add widgets](add-widgets.md#put-a-widget-inside-a-container). |
 | **Group** | Puts the selected widgets into one group. Key: <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>G</kbd>. Inside a **Row**, **Column** or **Stack** the group matches its parent. Elsewhere it is a **Stack**. |
 | **Ungroup** | Shows when one group is selected. It moves the children out and removes the group. The key only groups. It never ungroups. |
-| **Bring forward**, **Send backward** | Moves the widget one place later or earlier among its siblings. Keys: <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>&#93;</kbd> for **Bring forward**, <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>&#91;</kbd> for **Send backward**. |
+| **Bring forward**, **Send backward** | Moves the widget one place later or earlier among the widgets in its group. Keys: <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>&#93;</kbd> for **Bring forward**, <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>&#91;</kbd> for **Send backward**. |
 | **Bring to front**, **Send to back** | Moves the widget to the last or first place. Keys: <kbd>Alt</kbd>/<kbd>Option</kbd> + <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>&#93;</kbd> for **Bring to front**, <kbd>Alt</kbd>/<kbd>Option</kbd> + <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>&#91;</kbd> for **Send to back**. |
 | **Export as image...** | Saves a widget or screen as a picture. |
 
@@ -91,7 +91,7 @@ Later means lower in a **Column**, further right in a **Row**, and in front in a
 
 ## Export as image
 
-Right-click a widget or screen and choose **Export as image...**. Choose a **Format** (**PNG** or **JPG**) and a **Size** (**1x** to **4x**, or type a number), then click **Export** and choose where to save.
+Need a picture of a screen, for a pitch deck or to show a teammate? Right-click a widget or screen and choose **Export as image...**. Choose a **Format** (**PNG** or **JPG**) and a **Size** (**1x** to **4x**, or type a number), then click **Export** and choose where to save.
 
 **Transparent background** is available for PNG. **Resolution** shows the picture size in pixels, and **Export** turns off if a side would pass 8192 pixels. Exporting also works with the **View Only** role.
 
@@ -99,7 +99,7 @@ Right-click a widget or screen and choose **Export as image...**. Choose a **For
 
 Press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Z</kbd> to undo. Press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>Z</kbd> or <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Y</kbd> to redo. The board's right-click menu has **Undo** and **Redo** too. The keys do nothing while you type in a field.
 
-Each area keeps its own history: every board, the [Library](library.md), and a screen opened on its own. Press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>H</kbd> to open **Action History**. Click an entry to undo it and every later step. Dimmed entries are steps you undid. Click one to redo up to it.
+Each area keeps its own history: every board, the [Library](library.md), and a screen opened on its own. To jump back several steps at once, press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>H</kbd> to open **Action History**. Click an entry to undo it and every later step. Dimmed entries are steps you undid. Click one to redo up to it.
 
 :::tip Or ask Nowa AI
 Select a widget, then type something like "Make this button full width with rounded corners." The selected widget is attached to your message automatically. See [Give Nowa AI context](../ai/context.md).

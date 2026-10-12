@@ -2,10 +2,10 @@
 title: Find and add things with the Library
 description: Search your screens and components, Nowa's built-in widgets, your packages and your assets in one panel, then drag a row onto the board, insert it or open it.
 sidebar_label: Library
-keywords: [library, library panel, widgets panel, widget picker, search, find a widget, add a widget, go to a widget, insert, recent, filter, packages, built-in, assets, rename, delete, show in code, add menu, ctrl k, ctrl o]
+keywords: [library, library panel, widgets panel, widget picker, search, find a widget, add a widget, go to a widget, insert, recent, filter, packages, built-in, assets, rename, delete, show in code, add menu, ctrl k, ctrl o, files panel]
 ---
 
-The Library is one panel for everything you can put on your board: your screens and components, Nowa's built-in widgets, your packages' widgets and your assets. Search it, drag a row onto the board, or press <kbd>Enter</kbd> to add a widget where your pointer last was.
+The Library is one panel for everything you can put on your board: your own screens and components, Nowa's built-in widgets, the widgets your packages bring, and your images and other files. Search it, drag a row onto the board, or press <kbd>Enter</kbd> to drop a widget where your pointer last was. It's also where you rename, organize and delete your screens and components.
 
 ## Open the Library
 
@@ -17,16 +17,16 @@ In code mode, **Files** takes the Library's place (see [Manage project files](..
 
 ## Choose where to look
 
-The chips **Project**, **Packages**, **Built-in** and **Assets** turn sources on and off. Only **Project** is on at first, and at least one chip always stays on.
+The chips **Project**, **Packages**, **Built-in** and **Assets** turn sources on and off. Only **Project** is on at first, so you see your own work, and at least one chip always stays on.
 
 | Chip | What it lists |
 |---|---|
-| **Project** | The folders in your `lib/` folder and what they hold. A red number counts the errors in a row or folder. A component's `@Preview` variants sit under it. |
-| **Packages** | The packages in your `pubspec.yaml`, with their versions (**workspace** for a local path), and the widgets and classes they bring. See [Add packages](../code/packages.md). |
-| **Built-in** | Nowa's own widgets in groups such as **Basic**, **Buttons** and **Layout**, then Flutter's libraries, **Material** and **Cupertino** first. |
-| **Assets** | The folders and files in your `assets/` folder. |
+| **Project** | Your screens and components, in folders such as `pages`. A red number counts the errors in a row or folder. Named versions of a component that were set up in code sit under it. |
+| **Packages** | The packages your project uses (add-ons that bring extra widgets and features), with their versions, and the widgets they bring. See [Add packages](../code/packages.md). |
+| **Built-in** | Nowa's own widgets in groups such as **Basic**, **Buttons** and **Layout**, then Flutter's libraries, with **Material** (Google's design style) and **Cupertino** (Apple's iOS style) first. |
+| **Assets** | Your images, fonts, videos and other files, in the folders of your `assets` folder. |
 
-**Filter** opens a menu headed **Show**. **Widgets** (screens, components and widgets) is the default, so models, global states and other code stay hidden until you pick **Everything** or one kind: **Screens**, **Components**, **Models**, **Global states**, classes (the entry reads **Classs**), **Functions**, **Enums** or **Variables**. **Private** adds your project's private names, which start with an underscore.
+**Filter** opens a menu headed **Show**. **Widgets** (screens, components and widgets) is the default, so the rest of your project stays out of the way until you pick **Everything** or one kind: **Screens**, **Components**, **Models** (descriptions of your data, such as a recipe), **Global states** (data every screen shares), classes (the entry reads **Classs**), **Functions**, **Enums** or **Variables**. **Private** also lists your project's private items, whose names start with an underscore (`_`).
 
 The filter never hides assets. **Show as a list** flattens the folders into one list, and **Show as a tree** brings them back.
 
@@ -43,11 +43,11 @@ Type in the search field. It looks in all four sources, whatever the chips say (
 
 Results come in groups, in the order **Project**, **Packages**, **Built-in** and **Assets**, with a count at the end of each heading. In a group, Nowa's own widgets come first, then names that start with what you typed, then the rest from A to Z.
 
-Nowa highlights the first result as you type, and <kbd>Enter</kbd> acts on the highlighted row, so check it first. In a new project, `button` lists **CustomButton** from `nowa_runtime` before Nowa's own **Button** under **Built-in**.
+Nowa highlights the first result as you type, and <kbd>Enter</kbd> acts on the highlighted row, so check it first. In a new project, for example, `button` lists **CustomButton** (from a package every new project includes) before Nowa's own **Button** under **Built-in**.
 
 A group shows 100 rows, then a row such as **Show all 250**. Rows such as **Show 3 more of other kinds** and **Show 2 private matches** reveal what the filter hides. When nothing matches, the panel says **No matches**.
 
-With the search empty, **Recent** tops the panel and lists the last eight things you added to the board.
+With the search empty, **Recent** tops the panel and lists the last eight things you added to the board, so they're a click away when you need them again.
 
 ## Add something to the board
 
@@ -55,7 +55,7 @@ You need an open board, screen or component. Without one, Nowa says "Open a scre
 
 1. Click **Widget** in the toolbar or press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd>. The Library opens with the search ready, and the field reads **Add...**.
 2. Type part of a name, such as `button`. Check the highlighted result and press <kbd>↓</kbd> until it's the one you want.
-3. Press <kbd>Enter</kbd>. The widget lands where your pointer last was on the board, and the keys go back to the board.
+3. Press <kbd>Enter</kbd>. The widget lands where your pointer last was on the board, and the keys go back to the board, so you can keep working right away.
 
 ![The Library after pressing Ctrl/Cmd+K and typing button: the results are grouped under Packages and Built-in headings with a count at the end of each (both highlighted), the Button row is highlighted, and a details card with its preview, name and Widget · Buttons sits beside the panel.](/img/docs/design/design-library-2.png)
 
@@ -64,7 +64,7 @@ You can also:
 - Right-click a row and choose **Insert**, or press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Enter</kbd> on it.
 - Drag a row onto the board. The Library stays open and the board shows where it will land. See [where a dragged widget lands](select-and-edit.md#where-a-dragged-widget-lands).
 
-A double-click doesn't add. The first click ends **Add...**, and the second opens the row if it has a file.
+A double-click doesn't add. The first click ends **Add...**, and the second opens the row if it has something to open.
 
 **Insert** works for widgets: your screens and components, and the widgets of Nowa, your packages and Flutter. To place an asset, drag it onto the board. See [Images, videos and other files](assets.md).
 
@@ -72,7 +72,7 @@ If a widget needs a package your project doesn't have yet, **Insert** first open
 
 ## Preview a row
 
-Click a row, or move to it with the arrow keys, and a details card opens beside the panel. It shows a preview, the name, the kind and where it lives (for example **Component · lib/components**), and the first lines of its description. To write a description for a screen or component, use **Add description** in **Details**.
+Click a row, or move to it with the arrow keys, and a details card opens beside the panel. It shows a preview, the name, the kind and where it lives (for example **Component · lib/components**), and the first lines of its description. It's a quick way to check you've got the right one before you add it. To write a description for a screen or component, use **Add description** in **Details**.
 
 Nowa's own widgets, your screens and components, and most assets show a preview, and other rows show an icon. Once the card is open, it follows your pointer from row to row. Press <kbd>Esc</kbd> on a row to put it away.
 
@@ -83,15 +83,15 @@ Right-click a row for its menu.
 | Entry | What it does |
 |---|---|
 | **Insert** | Adds the widget to the open board. Key: <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Enter</kbd>. The menu shows ⌘⏎ on every system. |
-| **Open** | Opens the file at that code in a tab: a screen or component opens on its own, and an asset opens its file. Key: <kbd>Enter</kbd>, or double-click the row. Nowa's own widgets and Flutter's have no file, so no **Open**. |
-| **Upload assets...** | On a folder in `assets/`: choose files to add to it. |
-| **Rename** | Edits the name in place. Press <kbd>Enter</kbd> to save. Key: <kbd>F2</kbd>. Nowa updates every place that uses the widget, and renames its file when the file is named after it. |
-| **Delete** | Asks **Are you sure you want to delete ProductCard?** with **Cancel** and **Yes**. If something uses it, Nowa lists the places and asks again (**Cancel** or **Remove**). A widget alone in its file takes the file with it. |
-| **Show in code** | Switches to code mode and opens the file at that code. |
+| **Open** | Opens it on its own: a screen or component in place of the board, and an asset, such as an image, so you can look at it. Key: <kbd>Enter</kbd>, or double-click the row. Nowa's own widgets and Flutter's have nothing to open, so they have no **Open**. |
+| **Upload assets...** | On a folder in `assets`: choose files from your computer to add to it. |
+| **Rename** | Edits the name in place. Press <kbd>Enter</kbd> to save. Key: <kbd>F2</kbd>. For a screen or component, Nowa updates every place that uses it for you. |
+| **Delete** | Asks **Are you sure you want to delete ProductCard?** with **Cancel** and **Yes**. If something uses it, Nowa lists the places and asks again (**Cancel** or **Remove**). |
+| **Show in code** | Switches to code mode and shows its code, for when you work with code. |
 
-**Rename**, **Delete** and **Show in code** work on your own rows, under **Project** and **Assets**. Rows under **Packages** and **Built-in** can't be renamed or deleted, and folders have no **Show in code**. While the Library has focus, <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Z</kbd> undoes a rename or a delete.
+**Rename**, **Delete** and **Show in code** work on your own rows, under **Project** and **Assets**. Rows under **Packages** and **Built-in** can't be renamed or deleted, and folders have no **Show in code**. Made a mistake? While the Library has focus, <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Z</kbd> undoes a rename or a delete.
 
-To move something, drag its row onto a folder. Things in `lib` stay in `lib`, and assets stay in `assets`. A widget moves with its file.
+To tidy up, drag a row onto a folder. Screens and components move between the folders of your project, and assets between the folders of `assets`. Working in the code? See [What Nowa adds to your code](../code/generated-code.md#project-files).
 
 The Library works on one row at a time, and the Delete key doesn't act on its rows, so use the menu.
 
@@ -101,13 +101,13 @@ Click **Add** (+) in the header and choose what to make.
 
 | Entry | What it does |
 |---|---|
-| **New Widget...** | Opens the template picker for a screen or component. The new file opens in its own tab. See [Start from a template](templates.md). |
-| **New Folder...** | Makes a folder in the folder of the row you highlighted last, or in `lib`. |
-| **New Model...** | Makes a model in `lib/models`. See [Data models](../logic/models.md). |
-| **New Global State...** | Makes a global state in `lib/globals`. See [Share data across your app](../logic/global-state.md). |
-| **Generate Models From Json...** | Builds models from a JSON sample. |
-| **API Collection...** | Creates a REST API collection. See [Connect a REST API](../integrations/rest-api/index.md). |
-| **Import Dart code...** | Brings Dart code you wrote into your project. See [Write your own code](../code/custom-code.md#import-dart-code). |
+| **New Widget...** | Opens the template picker for a screen or component. The new one opens on its own, ready to design. See [Start from a template](templates.md). |
+| **New Folder...** | Makes a folder inside the folder of the row you highlighted last, or at the top of **Project**. |
+| **New Model...** | Makes a model: a description of one kind of data, such as a recipe with a title and a cooking time. See [Data models](../logic/models.md). |
+| **New Global State...** | Makes a global state: data every screen of your app can share, such as the items in a cart. See [Share data across your app](../logic/global-state.md). |
+| **Generate Models From Json...** | Builds models from a sample of your data in JSON, the text format most web services use. |
+| **API Collection...** | Creates a REST API collection, to connect your app to a web service. See [Connect a REST API](../integrations/rest-api/index.md). |
+| **Import Dart code...** | For people who code: brings Dart code you wrote into your project. See [Write your own code](../code/custom-code.md#import-dart-code). |
 | **Upload Assets...** | Choose files to add to the highlighted `assets` folder, or to `assets`. |
 
 ## Use the keyboard
@@ -119,7 +119,7 @@ Click **Add** (+) in the header and choose what to make.
 - <kbd>Enter</kbd>, <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Enter</kbd> and <kbd>F2</kbd> work as in [Find something](#find-something) and the menu above.
 
 :::tip Or ask Nowa AI
-Try "Create a ProductCard component with an image, a title and a price, and use it on the Home screen." The new component then shows up in the Library.
+Try "Create a ProductCard component with an image, a title and a price, and use it on the Home screen." The new component then shows up in the Library, where you can open it and fine-tune it.
 :::
 
 ## Next steps

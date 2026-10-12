@@ -1,0 +1,202 @@
+# P14-B07 verify: expressions, navigation, router, popups, actions, models
+
+Verifier: P14-B07-V. Diff reviewed: `git diff origin/main` for the six `docs/logic/` pages (section pass `c75d483`).
+Code refs are relative to `/home/user/nowa-master` (3.13.0, `3cb32031c`) unless marked otherwise. Flutter SDK refs are
+under `/home/user/flutter`; package refs are under the pub cache (`/root/.pub-cache/hosted/pub.dev/`).
+
+## Summary
+
+- **Pages checked:** 6 (`expressions`, `navigation`, `router`, `popups`, `actions`, `models`), every `+` and `-` line of
+  the diff, plus the audience rules on the unchanged text.
+- **Claims checked:** about 120, in 75 table rows below (labels, steps, defaults, behavior, the 37 date formats run
+  through intl 0.20.2, both product bugs, the Supabase expression).
+- **Fixed (10):** popups: a snackbar with an **Action** no longer goes away by itself (Flutter 3.44 `persist`), so the
+  **Action**/**Duration** rows were wrong by omission; the default AlertDialog has only a title; the date example's
+  closing line (a closed picker makes `format` fail with a null-check error, not "keep the old text"); "set **Type** to
+  `bool`" (it already is); `showBottomSheet` can't open from a screen's own logic in a running app (caution added).
+  actions: `SystemSound` `tick` is iOS-only and `alert` desktop-only; `showAboutDialog` shows a version only if you fill
+  one in; `print` output "never seen by people" → "never on your app's screens"; the category table now says it shows
+  highlights, not everything. expressions: the **OPERATORS** category also lists five bitwise operators (named, with
+  "most apps never need them").
+- **Removed:** 0. **Facts restored:** 0 (all 11 moved facts checked; nothing the reader needs was lost).
+- **Audience fixes (5):** plain glosses for `bool`, `equal`, `first`/`readAsBytes` (popups) and `context` (router);
+  plus two tightenings (popups intro, navigation "How screens stack").
+- **Confirmed in code:** both writer-found product bugs (snackbar **Width**/**Margin** without **Behavior**; media picker
+  camera default vs desktop Play) and the Supabase redirect expression (bindings, name resolution, import on save).
+- **Open issues:** 4 (see the end): live runs of the examples, product issues for the orchestrator (one new), one
+  coverage label, length.
+
+## logic/popups.md
+
+| claim | verdict | source | note |
+|---|---|---|---|
+| **GLOBALS** → **Show snackbar**; **Content** starts "Hello World"; Play shows it | ok | `packages/core/lib/src/state_management/global_state_suggestions.dart:6-21,65`; `_rewrite/PLAN.md:213` | |
+| Snackbar fields: **Background Color**, **Width**, **Elevation**, **Shape**; advanced **Action**, **Duration**, **Padding**, **Margin**, **On Visible**; link text **Show advanced options** | ok | `packages/core/lib/src/fields/expression_builder/expression_details.dart:158-183`, `packages/core/lib/src/fields/block_field.dart:1331-1365`; labels via `camelCaseToSpaces` (`packages/core/lib/src/utils.dart:77-79`) | |
+| **Width**/**Margin** "leave empty": no **Behavior** field, no snackbar theme, Flutter asserts outside floating | ok (product bug confirmed) | `expression_details.dart:158-183` (no `behavior`), BFClass shows only `contentBuilder` fields (`packages/core/lib/src/fields/class_field.dart:48-49`); no `snackBarTheme`/`SnackBarThemeData` outside the generated libraries (grep); Flutter 3.44.8 (`packages/core/lib/version.dart:6`, CI `flutter-version: '3.44.8'`) `snack_bar.dart:659-680` (assert "Width/Margin can only be used with floating behavior"), `:815-824` (width/margin applied only when floating), defaults `fixed` `:907,986`. Local Run is `flutter run` = debug (`packages/nowa_run/lib/src/services/local/nowa_run_service_local.dart:54`) | page advice kept |
+| **Duration** 4 s | ok, fixed scope | `snack_bar.dart:29,290`; interpreter default `material_library.dart:66493` | **New finding:** in Flutter 3.44 a snackbar with an **Action** persists (`persist = persist ?? action != null`, `snack_bar.dart:303`; timer skips hide, `scaffold.dart:617-624`), and Nowa passes `persist` unset (`material_library.dart:66494,66516`). Added to the **Action** row ("stays until someone taps the button or swipes the bar down", `DismissDirection.down`, `snack_bar.dart:800`); **Duration** row now says "a bar without an action" |
+| "Use what the person chose": **await**, **Store result** → **New Variable** (`var1`), **onValue** with `value`, **+** button | ok | `packages/code/lib/src/fields/future_options.dart:45-111`, `packages/code/lib/src/fields/store_result_field.dart:15-27,121-125` | |
+| If guard: **Add If statement**, **Condition**, **Custom Expression...**, **True** branch | ok | `packages/code/lib/src/widgets/add_statement_menu.dart:70`, `packages/code/lib/src/fields/statement_fields.dart:41-49`, `packages/core/lib/src/fields/field_link_menu.dart:353`, `packages/code/lib/src/models/if_node.dart:61-67` | |
+| `showDialog`: **MATERIAL**, AlertDialog default | fixed | `packages/core/lib/src/interpreter/block_utils.dart:244-254` | default has only the title "Hello World"; "a ready-made dialog with a title, a message and buttons" → "with room for ... At first it has only the title" |
+| Brush tooltip **Edit AlertDialog**; **Builder** → **Pick Widget** / **Edit in circuit** | ok | `packages/core/lib/src/fields/nowa_fields.dart:466`, `packages/core/lib/src/fields/basic_fields.dart:449-473` | |
+| Dialog options and defaults (**Barrier Dismissible** on, **Use Safe Area** on, **Barrier Label**, advanced four) | ok | `packages/core/lib/src/interpreter/libraries/material_library_custom.dart:3159-3186`; https://api.flutter.dev/flutter/widgets/ModalRoute/barrierLabel.html | |
+| "Use your own design": **Alert Dialog** in Library, **Create component** | ok | `packages/core/lib/src/widgets_to_add/widgets_to_add.dart:847-859`, `packages/designer/lib/src/menus/widget_context_menu.dart:49`, `docs/design/components.md#create-a-component` | |
+| Navigator `pop`, **Type**, **result type**, **result** | ok, glossed | `packages/code/lib/src/customizations/navigator_field.dart:85-103,159-168`; bool field = switch (`packages/core/lib/src/fields/basic_fields.dart:379-401`) | `bool` explained (R3) |
+| Example "confirm before deleting" (not run live) | ok, reworded | `equal` in **OPERATORS** for a bool **Condition** builds `false == false` (`packages/core/lib/src/interpreter/suggestion.dart:265-285,476-477`); formula button opens editor (`packages/core/lib/src/fields/expression_builder/expression_field.dart:86-103`); editor **Operator**/**Type**/**Left side**/**Right side** (`expression_details.dart:251-326`). `confirmed` is `dynamic` (`showDialog` returns `Future<T?>`, T inferred as its `dynamic` base: `packages/core/lib/src/interpreter/member.dart:33-56`), links directly (`packages/core/lib/src/interpreter/type.dart:144-145`), and `==` operands accept null, so no `!` is written (`packages/core/lib/src/interpreter/block_host.dart:47-60,250-258`) | "set **Type** to `bool`" → "Keep **Type** as `bool`" (it already is, from the `false` defaults); `equal` glossed; result sentence added |
+| Bottom sheets: defaults, options, modal vs persistent | ok, caution added | `block_utils.dart:264-276`; Flutter showModalBottomSheet docs. `showBottomSheet` passes its **Context** straight to Flutter (`packages/core/lib/src/interpreter/libraries/material_library.dart:7217-7245`), which needs a Scaffold above it (`/home/user/flutter/packages/flutter/lib/src/material/bottom_sheet.dart:1424-1426`, `Scaffold.of` throws when there is none, release builds too); a Nowa screen returns its Scaffold straight from `build` (`packages/core/lib/src/file_system/templates/common/home_page_template.dart:25-26`), so a screen's own `context` sits above it, while a component placed in the screen sits below it | the writer's new "Use it for ..." invites readers to use it from a screen button, which fails; added "Start it from the logic of a component placed on a screen: when your app runs, a screen's own logic can't open it ... use `showModalBottomSheet` there". Scoped to the running app because Play renders inside the editor, which has its own Scaffold (`lib/project/project_page.dart:42`), so Play may attach the sheet there instead. Not run live |
+| Date picker: **First/Last/Initial Date** all today; **Help/Cancel/Confirm Text** | ok | `block_utils.dart:256-263`; `material_library.dart:12454-12490` | |
+| Example "pick a date and show it" (not run live): **Text** label, **Create Variable...**, `.format`, **Pick Variable**, **refresh** | ok, fixed closing line | `packages/designer/lib/src/details/widget_fields.dart:303`, `field_link_menu.dart:233-258,374`, `packages/code/lib/src/customizations/date_format_field.dart:6-49`, `store_result_field.dart:121-125`, `suggestion.dart:614-617` | closing line said the guard "keeps the old text"; in fact `pickedDate` is `DateTime?`, the designer writes `pickedDate!` before `.format` and Play throws "Null check operator used on a null value" (`packages/core/lib/src/interpreter/block_tree.dart:3361-3368,3560-3569`). Reworded: the step stops with an error; the If skips it |
+| 37 date formats and US English examples | ok (all 37) | names `date_format_field.dart:52-90`; call `DateFormat(skeleton).format` with no locale (`packages/nowa_runtime/lib/src/extensions/date_time_format.dart:3-5`); ran intl 0.20.2 (`pubspec.lock:1430-1437`) on 2025-04-10 17:30:15 in the scratchpad: every example matches (the PM space is U+202F) | |
+| Time picker: **Initial Time** 0:00, **Hour**/**Minute**, label texts, members, `format` and 24-hour | ok | `block_utils.dart:72-96,115-116,163-179`; `material_library.dart:70448-70495,70221-70253`; Flutter `time_picker.dart:1941-1955` (label under the field), `time.dart:105-113` | |
+| Date range: placeholder date, `start`/`end` | ok | `block_utils.dart:163-179`, `packages/core/lib/src/interpreter/libraries/dart_core_library_custom.dart:76-99` (`DateTime(0)`) | |
+| Media picker options, **Choose Source** sheet, fixed `gallery`, hidden fields | ok | `expression_details.dart:485-526`; `packages/nowa_runtime/lib/src/media_picker/media_picker.dart:38-100,138-145` | |
+| **Hot Fix** permissions | ok (simplified) | `packages/core/lib/src/interpreter/declaration_info/function_info.dart:56-70` | also microphone and Android storage; "camera and photo library" kept as the plain summary |
+| `showMediaPicker` defaults to camera; Play on a computer can't use it; test with `gallery` | ok (product bug confirmed) | default `camera`: `packages/core/lib/src/interpreter/libraries/nowa_runtime_library.dart:592-597`, `media_picker.dart:6`; Play calls the real function (`nowa_runtime_library.dart:627-639`; `openFakeCamera` is never passed, `customCall` never read: grep); desktop plugins throw `StateError` for the camera without a `cameraDelegate` (`image_picker_macos-0.2.2+1/lib/image_picker_macos.dart:90-103`, `image_picker_windows-0.2.2/lib/image_picker_windows.dart:115-127`, `image_picker_linux-0.2.2/lib/image_picker_linux.dart:87-99`); Nowa sets none (grep); web uses a file input (`image_picker_for_web-3.1.1/lib/image_picker_for_web.dart:50-68`) | page advice kept |
+| Example "show a photo the person picks" (not run live): **Bytes** tab/label, `Uint8List`, `isNotEmpty`, `first`, `readAsBytes` | ok, glossed | `basic_fields.dart:889-948`; list empty when nothing picked (`media_picker.dart:35`) | `first` and `readAsBytes` explained (R3) |
+| Intro | tightened | | removed the repeated "usually in the logic of a button" |
+
+Audience: no code-only facts; `bool`, `equal`, `first`, `readAsBytes` now explained. Length after edits about 2,650 words;
+no real repetition left that could go without losing a step (the brief says not to split). One admonition.
+
+## logic/navigation.md
+
+| claim | verdict | source | note |
+|---|---|---|---|
+| GoRouter **Type** list (`go`, `goNamed`, `push`, `pushNamed`, `pop`, `pushReplacement`, `pushReplacementNamed`, `replace`, `replaceNamed`), **Location**, **Extra**, `pop` → **result** | ok | `packages/code/lib/src/customizations/go_router_field.dart:12-22,94-153`; `extra` param shown by `DefaultClassContentBuilder` (`packages/core/lib/src/fields/class_field.dart:79-99`) | |
+| "Use it when" meanings: `push` stacks, `go` replaces the stack keeping parent routes, `replace` without animation, web history caveat, named types | ok | go_router 17.1.0 (`pubspec.lock:1148-1152`): `router.dart:451-458` ("not run any page animation"); https://pub.dev/documentation/go_router/latest/topics/Navigation-topic.html | |
+| "How screens stack" (push adds, back/pop removes, replace swaps) | ok, tightened | same go_router topic page | dropped the vague "Picking between these is most of the work" |
+| Navigator **Type** list and "Use it when"; `pushAndRemoveUntil` removes every screen below | ok | `packages/code/lib/src/customizations/navigator_field.dart:131-168` (predicate returns `false`) | |
+| **Extra** can't be connected by the Router panel (moved from the detail-screen paragraph) | ok | unchanged fact from origin/main | |
+| "Go back with a value" (not run live): GoRouter `pop` **result**; Text Field controller → `text`; **Future Options** → **await**, **Store result**; If with `var1 != null`; **Set name** → **Value**; **refresh**; **onValue** | ok | `go_router_field.dart:107`; `docs/reference/widgets/forms.md#text-field`; Future Options for any Future-typed node (`packages/code/lib/src/fields/expression_statement_field.dart:86-97`, `future_options.dart:96-104`); `Set ${name}` only for non-final variables (`expression_statement_field.dart:16-21,46-52`); **Value** label (`:111-114`). `push` returns `Future<T?>` (`router.dart:459`) with T inferred as `dynamic` (`packages/core/lib/src/interpreter/member.dart:48-56`), so `var1` links to a `String` without a `!`; a back-arrow exit gives `null` (go_router "Returning values") | |
+| Navigator result: **result type** and **result** on `pop` | ok | `navigator_field.dart:89-103` | |
+| Navigator/GoRouter only in a screen's or component's logic (reworded without `context`) | ok | both insert `.of(context)` (`packages/core/lib/src/state_management/global_state_suggestions.dart:31-54`) | same fact as origin/main |
+| uuid, `int`/`String` glosses; "copy the path from ... the Router panel" | ok | | |
+
+Removed lines: the old Extra sentence, the one-paragraph "go back with a value" for GoRouter and Navigator, and the
+`context` sentence are all still on the page in the new section or in plainer words. Nothing code-only on the page.
+Length about 2,310 words; the brief says not to split, and the remaining sections carry steps.
+
+## logic/router.md
+
+| claim | verdict | source | note |
+|---|---|---|---|
+| **Supabase** redirect: Custom Expression `Supabase.instance.client.auth.currentSession != null` (flagged unverified since W20) | ok in code; not run live | Bindings exist: `Supabase.instance` (`packages/core/lib/src/interpreter/libraries/supabase_flutter_library.dart:9265-9273`), `.client` (`:9342-9347`), `SupabaseClient.auth` (`:8486-8490`), `GoTrueClient.currentSession` typed `Session?` (`:2259-2267`); the library loads when Supabase is connected (`packages/data/lib/src/supabase/supabase_manager.dart:194-195`, `packages/core/lib/src/interpreter/packages/dart_package.dart:154-157`). Free text is parsed by **Eval** or Enter (`packages/core/lib/src/fields/expression_builder/expression_builder_provider.dart:200-215`, `expression_builder_popup.dart:246-262`). A single declaration named `Supabase` resolves in any file regardless of imports (`packages/core/lib/src/interpreter/library.dart:59-65,494-499`), and saving regenerates the router file's imports from its references (`packages/core/lib/src/interpreter/block_tree.dart:7062-7085`, `packages/core/lib/src/interpreter/visitors/imports_visitor.dart:132-145`), so `package:supabase_flutter/supabase_flutter.dart` gets imported. `!=` operands accept null, so no `!` is written (`packages/core/lib/src/interpreter/block_host.dart:250-252`). | kept; the AI tip stays as the no-code option |
+| **Remove # in URLs** meaning | ok | product help text `packages/core/lib/src/editors/router_editor/router_block_view.dart:614-620`; toggles `usePathUrlStrategy()` (`:557-561`) | |
+| **Redirect Logic** gets `context`, `state`, returns `null` by default | ok, glossed | `router_block_view.dart:459-468` | `context` now gets "you won't need it here" (R3) |
+| Switching brings deep links, browser URLs, URL parameters, redirects | ok | `packages/core/lib/src/editors/router_editor/router_migration_editor.dart:101-126` | |
+| Route problems in plain words (duplicate path, no builder, initial location) | ok | `packages/core/lib/src/editors/router_editor/router_problems.dart:39-41,85-93` | |
+| **Screen** bolt opens the builder logic; sub-route example | ok | unchanged facts, plainer words | |
+| "Stay signed in" without `lib/main.dart`; tip without `SupabaseService` | ok (moved) | both sentences are in `P14-B07-for-code.md` (`#project-files`, `#supabase`) unchanged | |
+
+## logic/actions.md
+
+| claim | verdict | source | note |
+|---|---|---|---|
+| `openUrl`: **NOWA_RUNTIME**, **Url**, starts as `https://nowa.dev`, address parsed as typed | ok | `packages/core/lib/src/interpreter/libraries/nowa_runtime_library.dart:334-339`, `packages/core/lib/src/interpreter/block_utils.dart:242-243`, `packages/nowa_runtime/lib/src/functions.dart:3-5`; category name = library file name, upper-cased (`packages/core/lib/src/interpreter/library.dart:45`, `packages/core/lib/src/fields/link_menu.dart:331`) | |
+| Web: new tab; phone: in-app browser view | ok | `url_launcher_web-2.4.2/lib/url_launcher_web.dart:70-89` (`window.open(url, '', ...)`); locked `url_launcher_android` is 6.3.28 (`pubspec.lock:2502-2506`; notes cite 6.3.29), same rule at `url_launcher_android-6.3.28/lib/url_launcher_android.dart:95-96`; `url_launcher_ios-6.4.1/lib/url_launcher_ios.dart:83-90` | |
+| `mailto:`, `tel:`, `sms:` open the matching app if installed; Web View pointer | ok | https://pub.dev/packages/url_launcher ("Supported URL schemes"); `packages/core/lib/src/widgets_to_add/widgets_to_add.dart:879-891` | |
+| `print`: **DART:CORE**, **Msg**, "Hello World", Play writes to **Logs** | ok | `packages/core/lib/src/interpreter/libraries/dart_core_library_custom.dart:3-8` (`msg`, `logInfo`), `packages/core/lib/src/utils.dart:19-22`, `block_utils.dart:240-241`; `docs/test/run.md#read-the-logs` | |
+| "people who use your app never see them" | fixed | | a web app's `print` lands in the browser console, which anyone can open; now "they never show up on your app's screens" |
+| `checkPlatform` table, `isDesktop`, web-only `isWeb`, Play answers for your computer | ok | `packages/nowa_runtime/lib/src/nowa_platform.dart:15-21`; interpreter calls the real getters (`nowa_runtime_library.dart:460-466`); no `debugDefaultTargetPlatformOverride` in `lib/` or `packages/` (grep) | |
+| **Media Query** meaning; responsive link | ok | `global_state_suggestions.dart:60-64`; https://api.flutter.dev/flutter/widgets/MediaQueryData-class.html | |
+| Shared Preferences steps, **Type** values, **Key**/**Value**, no encrypted option | ok | `packages/core/lib/src/interpreter/suggestion.dart:478-504`; `packages/core/lib/src/fields/expression_builder/expression_details.dart:345-392`; no secure-storage package in `lib/` or `packages/` (grep) | |
+| **Create...**, **Pick a constructor**, **Default**; Future/Timer/DateTime/model rows | ok | `suggestion.dart:175-177,741-743`; `packages/core/lib/src/fields/link_menu.dart:92-99` | |
+| `HapticFeedback` meanings; notification patterns need Android 11 | ok | Flutter 3.44.8 `packages/flutter/lib/src/services/haptic_feedback.dart:14-150` (API 30 for the three notifications); members `packages/core/lib/src/interpreter/libraries/services_library.dart:1315-1360` | |
+| `SystemSound` `click`/`tick`/`alert` | fixed | Flutter `packages/flutter/lib/src/services/system_sound.dart:10-25,38-43`: `tick` is ignored everywhere but iOS; `alert` only on desktop platforms; web plays nothing | row now says which sound works where, so a phone app doesn't pick a silent `alert` |
+| `SystemNavigator.pop` closes the app on Android | ok | Flutter `system_navigator.dart:46-63` | |
+| Clipboard functions | ok | `services_library.dart:1217-1240` | |
+| `showAboutDialog` "with your app's name and version" | fixed | Flutter `packages/flutter/lib/src/material/about.dart:97,105` (name defaults to the app title, version to empty) | now "a version if you fill one in" |
+| Category scope ("+ menu, If **Condition**, **Return**"), **PACKAGE:** row and the constants pointer | ok | `packages/core/lib/src/fields/field_link_menu.dart:341`, `suggestion.dart:463-477` | matches the routed B08 check in the notes |
+| "Find any other function" table read as complete lists | fixed (framing) | library categories list every public function and class with statics (`packages/core/lib/src/interpreter/suggestion.dart:636-662`); **SERVICES** also has `SystemChrome`, `SystemChannels`, `TextInput` and more (`packages/core/lib/src/interpreter/libraries/services_library.dart:68-162`) | added "the table shows the parts you're most likely to need" before the table |
+| Moved: `showMenu`, `showSearch`, `unawaited`, `scheduleMicrotask`, the static-members rule | ok (moved) | all in `P14-B07-for-code.md` `#actions-and-popups` unchanged; none is needed to build visually (`showSearch` needs a delegate written in code; popup menus are on `reference/widgets/forms.md`) | |
+| Explicit ids `#create-objects` and `#copy-text-and-vibrate` | ok | both existed on origin/main and are kept | |
+
+## logic/expressions.md
+
+| claim | verdict | source | note |
+|---|---|---|---|
+| Operator names in the table and their meanings (`plus` … `logicalOr`, `ifNull`) | ok | `packages/core/lib/src/interpreter/block_tree.dart:2383-2404` (enum names are what the menus show: `packages/core/lib/src/interpreter/suggestion.dart:271-272`, `packages/core/lib/src/fields/expression_builder/expression_details.dart:291-301`); interpreter maps each to the Dart operator (`block_tree.dart:2646-2661`): `/` gives decimals, `~/` drops the remainder, `%` remainder; https://dart.dev/language/operators | |
+| "Math offers the first four rows, Logical the next four, ifNull its own item" | ok | `isMath`/`isLogical` (`block_tree.dart:2406-2460`), dropdown filter (`expression_details.dart:289-301`), EXPRESSIONS items (`suggestion.dart:526-565`) | |
+| OPERATORS = "the same operators" | fixed (completed) | `OperatorsFinder` lists every enum value (`suggestion.dart:569-585`), including `bitwiseAnd`, `bitwiseOr`, `bitwiseXor`, `leftShift`, `rightShift` (`block_tree.dart:2399-2403`) | one sentence added naming them and saying most apps don't need them |
+| **ifNull** fields **Value** / **If null** | ok | `expression_details.dart:262-272` | |
+| Mismatched type shows what's inside the value | ok | `packages/core/lib/src/fields/link_menu.dart:150-157`, `packages/core/lib/src/fields/field_link_menu.dart:166-186` | |
+| No quotes in text fields; quotes in a custom expression; numbers show as text | ok | `packages/core/lib/src/fields/interpolated_text_field.dart:41-90`; https://dart.dev/language/built-in-types#strings | |
+| Custom expression: one formula; errors in red; nothing applies until it parses | ok | `packages/core/lib/src/fields/expression_builder/expression_builder_provider.dart:200-215` (`host.set` only after a successful parse) | |
+| **Compute...** names `create` + label | ok | `field_link_menu.dart:268-276` | |
+| **Reset to default** / **Set to null** | ok | `packages/core/lib/src/fields/block_field.dart:838-840` | |
+| Glosses (params, `bool`, `int`, `length`) and R9 touches | ok | | |
+
+Nothing code-only on the page; no removed fact (the old "Group | Operators" table is the new table's grouping sentence).
+
+## logic/models.md
+
+| claim | verdict | source | note |
+|---|---|---|---|
+| **New Model** dialog: **Class name** and **Path** filled as you type, **Submit** | ok | `packages/core/lib/src/file_system/widgets/create_file_dialog.dart:94`, `packages/core/lib/src/file_system/widgets/file_name_text_field.dart:167-175` | file location and file name moved (for-code `#models`) |
+| **Is Final**: new model fields start on; tooltip; keep on for `id`/`createdAt`, off for `title`/`isDone` | ok | `packages/core/lib/src/widgets/code/declaration_list_widgets.dart:329,353` (on when the class has the auto constructor); `packages/core/lib/src/widgets/code/variable_widgets.dart:326-332` | |
+| `toJson` under **Functions**; **View Code**; JSON glossed | ok | image `logic-models-1`; regenerated on field changes (refs in for-code `#models`) | |
+| Model function example `markAsDone` sets `isDone` | ok | **Set** only for non-final variables (`packages/code/lib/src/fields/expression_statement_field.dart:16-21`), consistent with the **Is Final** row | |
+| **Generate Models**: **Name** starts as `Root`, **Path** starts as `lib/models`, must stay in `lib` | ok | `packages/core/lib/src/model_generator/generate_models_provider.dart:13,55-58,129-131` | **Path** stays because the dialog shows and checks it (R2 exception) |
+| Picker also sets a function's **Return Type** | ok | `variable_widgets.dart:478-482` | |
+| **Create...** → **Default** or `fromJson`; link an input to a Text Field's `text`; `add`, **refresh**, `notifyListeners` | ok | `packages/core/lib/src/interpreter/suggestion.dart:725-757`; `docs/reference/widgets/forms.md#text-field` | |
+| Moved: constructor/`fromJson`/`toJson` upkeep, `TaskModel` in `task_model.dart`, `lib/models`, rewrite + Dart code, `root.dart` | ok (moved) | all five in `P14-B07-for-code.md` `#models`, unchanged | the reader-facing consequence stays (JSON-ready, one model per nested object) |
+
+No audience issue left; one admonition; one link to `../code/generated-code.md#models`.
+
+## Links and structure (all six pages)
+
+- 115 relative links checked with a script: every target file exists and every `#anchor` exists on its target (headings
+  and explicit ids). The two `../code/generated-code.md` anchors (`#actions-and-popups`, `#models`) are on the brief's list.
+- No heading anchor that existed on origin/main is gone (script compared both versions of each page). The 58 anchored
+  links from other pages into these six pages all resolve.
+- Front matter valid on all six; no H1; admonitions: router 2, the others 1; no `---` rules outside front matter; no
+  emoji; images untouched (no image line in the diff). One hype word ("just") came from my own edit and was replaced.
+
+## Moved facts (11 in `P14-B07-for-code.md`)
+
+All 11 "Moved" bullets are on the for-code file unchanged, under valid anchors (`#project-files` 1, `#models` 5,
+`#actions-and-popups` 4, `#supabase` 1). For each, the reader-facing part is still on the page in plain words: Nowa
+starts Supabase/Firebase before the first screen (router), models stay JSON-ready and **View Code** shows the code,
+**Class name**/**Path** are filled for you and the model sits in the `models` folder of the Library (models),
+**Create...** for anything you make rather than run and the **PACKAGE:** row in plain words (actions), and the Supabase
+AI tip without the class name (router). Nothing the reader needs was lost. `showMenu`/`showSearch`/`unawaited`/
+`scheduleMicrotask` are code-level (`showSearch` needs a delegate written in code; popup menus are a widget on
+`reference/widgets/forms.md`).
+
+## Coverage spot checks
+
+**Obsolete rows (4):**
+- dialog.md **Anchor Point** "where the dialog animates from": confirmed wrong; Flutter uses it to pick the sub-screen on
+  foldables (`/home/user/flutter/packages/flutter/lib/src/widgets/display_feature_sub_screen.dart:31-39`). The page keeps
+  the option under "advanced". OK.
+- data-models.md Files panel **Create new object**: the label is gone (no hit in `lib/` or `packages/`); models are
+  created with **New Model...** (`lib/project/panels/files_panel/add_lib_menu.dart:60-66`, used by the Library's menu:
+  `lib/project/panels/library_panel/library_host.dart:183`, and still by the Files panel: `files_panel.dart:221`). OK.
+- data-models.md "the model shows in the Files panel as a Dart file": **mislabelled**. The file still shows in the Files
+  panel, which lists `lib`, boards and assets outside code mode (`lib/project/panels/files_panel/files_panel.dart:23-26`).
+  Not needed by the reader (models.md works from the Library's **Models** filter, and opening the model's code is in
+  the for-code file), so the right status is `dev-only`/`not useful`, not `obsolete`. No page change.
+- data-models.md single click opens a popup: confirmed changed; double-click or Enter opens the editor
+  (`library_host.dart:145-153`), as models.md says. OK.
+
+**Covered rows sampled (12):** media picker options and "a list even for one" (popups.md table and step 3); Navigator
+via **GLOBALS** with **Type**/**to** (navigation.md#use-the-navigator); **onValue** tip (navigation.md#go-back-with-a-value);
+dynamic **Url** (actions.md#open-a-link); `logicalOr` combination (actions.md#check-the-platform); date picker
+**onValue** with `value` (popups.md#use-what-the-person-chose); **Barrier Dismissible** (popups.md#show-a-dialog);
+**Reset to default**/**Set to null** (expressions.md#reset-a-property); list of models with defaults
+(models.md#use-a-model-as-a-type); **Initial Time** (popups.md#pick-a-time); `$` → `${...}` (expressions.md#dollar);
+"nowa" category now **NOWA_RUNTIME** (popups.md#pick-photos-or-videos). All 12 are covered where the row says.
+
+## Open issues
+
+1. The four worked examples (confirm before deleting, pick a date and show it, show a photo, go back with a value), the
+   Supabase redirect expression and the new `showBottomSheet` caution are checked against the code but not clicked
+   through in the app. Each step's label and behavior is cited above; a live run would settle them.
+2. Product issues confirmed in code, for `_rewrite/product-issues.md` (orchestrator): (a) **Show snackbar** offers
+   **Width**/**Margin** without **Behavior**; (b) `showMediaPicker` defaults to `camera`, which the desktop app's Play
+   can't open (an unused `PreviewerCamera` test camera exists in `packages/core/lib/src/interpreter/libraries/camera_simulation.dart`
+   but nothing passes `openFakeCamera`); (c) new: `showBottomSheet` from a screen's own logic fails in a running app
+   (Flutter needs a Scaffold above the context; Nowa screens build theirs in `build`). A product fix could hide
+   **Width**/**Margin**, wire the test camera, and filter `showBottomSheet` out of screen-level logic or wrap it.
+3. Proposal for the coverage file owner: relabel the data-models "Files panel" row as `dev-only` (see above).
+4. Length: popups.md is about 2,700 words and navigation.md about 2,320 after this pass. I found no repetition that could
+   go without losing a step or a reason; the writer's split proposals in the notes still apply if a split is wanted.

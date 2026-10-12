@@ -1024,8 +1024,8 @@ We’ve added new docs to help you learn and master building with Nowa:
 
 ##### 🧠 Circuit & Logic
 - [🔌 Circuit Intro](../logic/circuit.md)  
-- [🔀 If Statement](../logic/circuit.md)  
-- [🧯 Try Catch](../logic/circuit.md)  
+- [🔀 If Statement](../logic/conditions.md)  
+- [🧯 Try Catch](../logic/conditions.md)  
 
 ##### 🧭 Common Functionalities
 - [🧭 Navigation](../logic/navigation.md)  

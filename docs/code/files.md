@@ -5,14 +5,14 @@ sidebar_label: Files
 keywords: [files, Files panel, file tree, Library, Add, Upload Assets, Add to library, Add board, Import asset, New Folder, rename file, move file, delete file, cut, paste, lib/main.dart, search, replace all, symbols, search for a file, find in files, project search]
 ---
 
-Two panels look after your project's files. In the designer, the [Library](../design/library.md) adds, renames, moves and deletes your screens, widgets, models and assets. In [code mode](code-mode.md), **Files** shows every file in the project as a tree. The **Search** panel finds any line of code.
+Two panels look after your project's files. In the designer, the [Library](../design/library.md) adds, renames, moves and deletes your screens, widgets, models and assets. In [code mode](code-mode.md), **Files** shows every file in the project as a tree, including the ones Flutter itself needs. Most days the Library is all you need; **Files** is there when you want to see everything. The **Search** panel finds any line of code.
 
 ## Open the Library or Files {#open-the-files-panel}
 
 The Library and **Files** share one place in the left sidebar, second from the top. Click the icon to open the panel, and again to close it.
 
-- **Library**: outside code mode, click **Library** or press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>2</kbd>. It lists what your `lib/` folder declares, in folders, and its chips add your packages, Nowa's built-in widgets and your assets. Click a row for a details card with a preview. Double-click it, or press <kbd>Enter</kbd>, to open it.
-- **Files**: in code mode, the folder icon (**Files**) takes the Library's place and opens by itself. <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>2</kbd> opens it too. It lists the whole project, including `pubspec.yaml` and the platform folders, with folders closed. It has no add buttons, so leave code mode and use the Library. Click a file to open it in a tab, and the tree follows the tab you have open.
+- **Library**: outside code mode, click **Library** or press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>2</kbd>. It lists what your `lib/` folder (where your app's code lives) declares, in folders, and its chips add your packages, Nowa's built-in widgets and your assets. Click a row for a details card with a preview. Double-click it, or press <kbd>Enter</kbd>, to open it.
+- **Files**: in code mode, the folder icon (**Files**) takes the Library's place and opens by itself. <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>2</kbd> opens it too. It lists the whole project, including `pubspec.yaml` (the project's settings file) and the platform folders Flutter builds each platform from, with folders closed. It has no add buttons, so leave code mode and use the Library. Click a file to open it in a tab, and the tree follows the tab you have open.
 
 Names in the **Files** tree carry markers:
 
@@ -121,8 +121,8 @@ On the board, the same keys open the Library's search with the hint **Go to...**
 
 ## Next steps
 
-- [Edit code in Nowa](code-mode.md)
-- [Write your own code](custom-code.md)
-- [Find and add things with the Library](../design/library.md)
-- [Images, videos and other files](../design/assets.md)
-- [Keyboard shortcuts](../reference/shortcuts.md)
+- [Edit code in Nowa](code-mode.md): open a file and change it.
+- [Write your own code](custom-code.md): add files of your own and use them on the board.
+- [Find and add things with the Library](../design/library.md): everything the Library can do.
+- [Images, videos and other files](../design/assets.md): add and use assets.
+- [Keyboard shortcuts](../reference/shortcuts.md): move faster in the tree and the editor.

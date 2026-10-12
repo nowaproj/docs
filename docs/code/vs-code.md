@@ -5,14 +5,14 @@ sidebar_label: VS Code
 keywords: [Hybrid approach, hybrid, VS Code, Visual Studio Code, IDE, Android Studio, IntelliJ, Open in VS Code, VS code Path, View in folder, custom code, local project, code command, hot reload, sync]
 ---
 
-A local project is an ordinary Flutter folder, so you can open it in Nowa and in VS Code at the same time. Design screens and wire up logic visually in Nowa, write your own widgets and functions in VS Code, and watch every save show up in the other. Earlier docs and release notes call this the **Hybrid approach**.
+A local project is an ordinary Flutter folder, so you can open it in Nowa and in VS Code at the same time. Design screens and wire up logic visually in Nowa, write your own widgets and functions in VS Code, and watch every save show up in the other. You never copy files between the two, and you can switch between visual building and coding at any stage of your app. Earlier docs and release notes call this the **Hybrid approach**.
 
 <Badge type="desktop" /> <Badge type="local" />
 
 ## Before you start
 
 - A [local project](local-projects.md) open in the [desktop app](../get-started/desktop-app.md).
-- VS Code installed, with its `code` command available.
+- VS Code installed, with its `code` command available. That's the command that opens VS Code from a terminal, and Nowa uses it too.
 - A cloud project instead? Link a local copy with [Project Sync](local-projects.md#link-a-cloud-copy-with-project-sync). Cloud projects get [Code download](../publish/download-code.md) where local projects get **Open in VS Code**.
 
 ## Open the project in VS Code
@@ -30,6 +30,8 @@ Two more shortcuts:
 - Outside code mode, on a plain text file tab, click **Open in VS Code** in the details panel.
 
 If Nowa can't start VS Code, it opens the file in its own editor tab instead. Check the path in the next section.
+
+Prefer another editor? The folder is a normal Flutter project, so Android Studio, IntelliJ or any other editor can open it too. Everything on this page about syncing works the same way; **Open in VS Code** is only the shortcut Nowa builds in for VS Code.
 
 ## Set the VS Code path
 
@@ -67,13 +69,17 @@ See [Nowa and your Flutter code](index.md), [Write your own code](custom-code.md
 
 ## Run and use Git from either place
 
-Run on a device from Nowa or from VS Code. In Nowa, saving hot reloads the running app ([Run on a device or emulator](../test/devices.md)).
+Run on a device or simulator from Nowa or from VS Code. In Nowa, saving hot reloads the running app: your change appears on the device in a moment, without restarting the app or losing your place in it ([Run on a device or emulator](../test/devices.md)).
 
-Git works the same way. Nowa's [Git panel](git.md) and VS Code use the same repository in your folder, and the panel updates when files change outside Nowa.
+To run on your own iPhone, set up signing once in Xcode. Open `ios/Runner.xcworkspace` from your project folder, add your Apple Account under **Xcode** → **Settings** → **Apple Accounts**, then select the **Runner** target and pick your team under **Signing & Capabilities**. A free personal team works for your own devices. Xcode keeps the choice in the project's `ios/` folder, and a local project runs straight from that folder, so it sticks. A cloud project's device runs use a copy that Nowa manages, so a change made there may not last. For the phone side, such as Developer Mode, see [Run on your iPhone or iPad](../test/devices.md#run-on-your-iphone-or-ipad).
+
+Git works from either place too. Nowa's [Git panel](git.md), VS Code, GitHub Desktop and the terminal all use the same repository in your folder, so commit, push, pull or switch branches wherever you like. The panel updates when files change outside Nowa.
+
+The same goes for AI coding assistants in your editor: they change the same files, and Nowa picks up what they save.
 
 ## Next steps
 
-- [Edit code in Nowa](code-mode.md)
-- [Write your own code](custom-code.md)
-- [Use Git](git.md)
-- [Run on a device or emulator](../test/devices.md)
+- [Write your own code](custom-code.md): use the widgets and functions you write in VS Code on the board and in Circuit.
+- [Edit code in Nowa](code-mode.md): make a quick change without leaving Nowa.
+- [Use Git](git.md): commit and sync from Nowa's Git panel.
+- [Run on a device or emulator](../test/devices.md): test on your phone or a simulator, with hot reload.

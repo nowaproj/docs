@@ -9,10 +9,13 @@ Tone: **simple, clear, concise, warm, confident** (and a little exciting through
    "Instant Play runs any screen right on the board, so you can tap through it without leaving the editor."
 2. **Talk to the reader.** Second person, present tense, active voice. "Click **Run**." Not "The user
    should click on the Run button."
-3. **Short sentences, one idea each.** Paragraphs are 1-3 sentences.
+3. **Clear sentences, one idea each.** Paragraphs are 1-4 sentences. Explain enough: the why and what happens next,
+   not just the bare step (phase 14, D25).
 4. **Warm.** Friendly and encouraging, like a helpful teammate: speak to what the reader is trying to build, say
    when something is quick or safe to try, and never make them feel at fault. Warmth comes from empathy and clarity,
-   not from exclamation marks or filler.
+   not from exclamation marks or filler. Be conversational, like a friendly expert sitting next to the reader:
+   natural transitions, everyday examples from the reader's app, a short reason or result after a step. Never a cold
+   summary, never filler (D25).
 5. **Confident, not hyped.** State facts plainly. No "simply", "just", "easily", "seamlessly",
    "powerful", "revolutionary", "in order to", "please note", "it is important to note".
    A little excitement is welcome in intros ("That's it, your screen is live.") but never at the cost of facts.

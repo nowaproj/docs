@@ -5,7 +5,7 @@ sidebar_label: What the board shows
 keywords: [limitations, limits, placeholder, unsupported, not supported, interpreter, Kept as code, could not be loaded, board preview not accurate, not 100% accurate, yield, generator, Dart features, custom code, run the app]
 ---
 
-The board and Instant Play don't compile your app. Nowa reads your Dart and draws it itself, which makes them instant and means a few things look different or don't show up. **Run** compiles everything for real, so it always shows the true result.
+The board and Instant Play don't compile your app. Nowa reads your Dart and draws it itself, which makes them instant and means a few things look different or don't show up. None of this changes your real app: **Run** compiles everything for real, so it always shows the true result, the same one your users get when you publish.
 
 | | Board and Instant Play | **Run** |
 |---|---|---|
@@ -29,7 +29,7 @@ Functions that Nowa doesn't run return a stand-in value, such as `[...]` for tex
 
 Where a value is empty, the board fills in a stand-in so the design isn't blank. See [Design with realistic content](../design/responsive.md#design-with-realistic-content). A value that may be empty, such as an optional number, true/false value, color or enum, stays empty instead, so the widget's own default shows.
 
-A package widget that wraps a child shows that child instead of a placeholder, and so does a method you call on a widget that gives back a widget, such as an effect. A widget that can't be drawn where a scroll view needs a sliver (a `sliver:` or `slivers:` slot) is drawn as a sliver, so the scroll view keeps working.
+A package widget that wraps a child shows that child instead of a placeholder, and so does a method you call on a widget that gives back a widget, such as an effect. A widget that can't be drawn where a scroll view needs a sliver (a piece of a scrolling area, in a `sliver:` or `slivers:` slot) is drawn as a sliver, so the scroll view keeps working.
 
 ## What Nowa skips
 
@@ -54,7 +54,7 @@ Widgets, `State` and `ChangeNotifier` classes work as you'd expect. You can also
 
 - `package:` imports are the best supported form. `part` and `part of` aren't followed. When Nowa rewrites a file you changed visually, it keeps the `library;`, `part '...';` and `part of '...';` lines and adds no generated imports to a part file.
 - `show` is ignored, so a `show` import brings in the whole file. A conditional import, such as `if (dart.library.io)`, uses its default file.
-- Nowa loads the packages you list under `dependencies` with a version. It also lists packages with a `git:` or `path:` source, and in a local project loads them from where `flutter pub get` put them. An `sdk:` package, such as `flutter_localizations`, counts as installed but isn't loaded. Packages from another host, anything under `dev_dependencies` and the packages your packages depend on aren't loaded. See [Add packages](packages.md).
+- Nowa loads the packages you list under `dependencies` with a version. It also lists packages with a `git:` or `path:` source, and in a local project loads them from where `flutter pub get` put them. An `sdk:` package, one that ships with Flutter such as `flutter_localizations`, counts as installed but isn't loaded. Packages from another host, anything under `dev_dependencies` and the packages your packages depend on aren't loaded. See [Add packages](packages.md).
 
 ### What runs differently
 
@@ -80,7 +80,7 @@ Click **Run**. Your own code, your packages and anything the board can't draw ru
 
 ## Next steps
 
-- [Write your own code](custom-code.md)
-- [Add packages](packages.md)
-- [Play your app on the board](../test/instant-play.md)
-- [Run your app](../test/run.md)
+- [Write your own code](custom-code.md): control what the board shows for your functions.
+- [Add packages](packages.md): see which packages have built-in support.
+- [Play your app on the board](../test/instant-play.md): tap through your screens right on the board.
+- [Run your app](../test/run.md): see the real result.

@@ -2,7 +2,7 @@
 title: Known issues
 description: Platform limits and editor quirks you may run into when you use Nowa, why they happen, and the quickest way around each one.
 sidebar_label: Known issues
-keywords: [known issues, limitations, Windows, Firebase, Firestore, test query, Firebase console query builder, Apple sign-in, Google Maps, AdMob, CORS, desktop app, Linux, code download spinning, custom domain pending, remove custom domain, rename variable, Shift drag, slash, route path, New UX, double-click, board toolbar missing, detach component, app bar drag, Connect Apps, firebase_options, InvalidType, Figma, Waiting for Authorization, playground, AI chat grey box, Add context, Redirect Logic]
+keywords: [known issues, limitations, Windows, Firebase, Firestore, test query, Firebase console query builder, Apple sign-in, Google Maps, AdMob, CORS, desktop app, Linux, code download spinning, custom domain pending, remove custom domain, rename variable, Shift drag, slash, route path, New UX, double-click, board toolbar missing, detach component, app bar drag, Connect Apps, firebase_options, InvalidType, Stripe, cancel subscription, Figma, Waiting for Authorization, playground, AI chat grey box, Add context, Redirect Logic, InitState Function, await, initState returned a Future]
 ---
 
 A few things work differently depending on where you run Nowa or your app, and a few editor actions need a workaround
@@ -26,8 +26,8 @@ results another way:
 You can also try a query out before you build it:
 
 - **In the Firebase console.** Open your Firebase project, go to **Databases & Storage** → **Firestore** → **Data**
-  and click the **Query builder** tab. Pick the collection, click **Add to query** for each filter, then click
-  **Run**. Once the results look right, build the same query in Nowa. Reads you make in the console count toward your
+  and click the **Query builder** tab. Choose **Collection** and type the collection's name, click **Add to query**
+  for each filter, then click **Run**. Once the results look right, build the same query in Nowa. Reads you make in the console count toward your
   Firestore usage. See Firebase's guide to [querying data in the console](https://firebase.google.com/docs/firestore/using-console#query_data).
 - **In another version of Nowa.** Open the same project in the web app or the macOS desktop app, where the **Test**
   section is on. For a local project, make a cloud copy first with
@@ -100,7 +100,7 @@ When you detach a component instance, its widgets still point at the component's
 
 ## Double-clicking on the board doesn't work {#new-ux-double-click}
 
-If you turned on the **New UX** experimental flag, double-clicking a widget on the board doesn't go one level deeper or start editing its text, and the toolbar at the bottom of the board is hidden. Turn the flag off: open **Settings** (the gear in the top bar) → **Project Details** → **Experimental flags** → **Edit**, switch off **New UX** and click **Apply**. Nowa saves your project and reopens it with the usual board. See [Experimental flags](../account/project-settings.md#experimental-flags).
+If you turned on the **New UX** experimental flag, double-clicking a widget on the board doesn't go one level deeper or start editing its text, and the board's usual toolbar at the bottom is hidden. Turn the flag off: open **Settings** (the gear in the top bar) → **Project Details** → **Experimental flags** → **Edit**, switch off **New UX** and click **Apply**. Nowa saves your project and reopens it with the usual board. See [Experimental flags](../account/project-settings.md#experimental-flags).
 
 ## A widget dragged across the app bar keeps the app bar's size {#drag-across-app-bar}
 
@@ -114,6 +114,10 @@ In Nowa 3.13, if you reload the page or close Nowa soon after **Connect Apps**, 
 
 After you turn on Firebase **Authentication**, the status bar can show a cut-off error that starts with "Unsupported operation: Unsupported invalid type InvalidType", while **Problems** says "No issues detected". Nothing has been found to stop working because of it, so you can carry on. See [Sign users in with Firebase](../integrations/firebase/auth.md).
 
+## Stripe subscriptions can't be cancelled from your app {#stripe-cancel-subscription}
+
+In Nowa 3.13, the cancel function that **Deploy Configuration** adds to your Supabase project has an error, so cancelling a subscription from your app fails, even though deploying ends with "Deployed successfully!". Until a fix ships, cancel subscriptions in your Stripe Dashboard: on the **Subscriptions** page, open the subscription's overflow menu, choose **Cancel subscription**, pick when it ends and confirm. Your Stripe webhook then updates the subscription's record in Supabase, so your app sees the change. See [Accept payments with Stripe](../integrations/stripe.md#fix-common-problems) and Stripe's guide to [cancelling subscriptions](https://docs.stripe.com/billing/subscriptions/cancel).
+
 ## Connecting Figma doesn't work right now {#figma-connect}
 
 When you click the Figma icon in the chat field, or **Connect** next to Figma in your account settings, **Waiting for Authorization...** appears but no browser window opens, so Figma can't be linked. Click **Cancel**. Linking fails for every account, so until it's fixed you can't turn on the Figma connector unless your account was already linked to Figma. See [Connect Figma and Supabase to Nowa AI](../ai/connectors.md#connect-figma).
@@ -125,6 +129,10 @@ In the playground, before you sign in, the toolbar under the chat field can show
 ## The Redirect Logic row keeps showing + {#redirect-logic-plus}
 
 In the Router panel, after you click **+** next to **Redirect Logic**, Nowa adds the function at once, but the row can keep showing **+** for minutes. Don't click it again. Click `<>` in the top bar to open code mode, then `<>` again to come back: the row now shows the bolt button (**Edit Function**). The trip to code mode and back is only a way to refresh the panel. See [Start on the login screen or the home screen](../logic/router.md#start-on-login-or-home).
+
+## The app shows an error when a screen loads data at start {#await-in-initstate}
+
+In Nowa 3.13, if you turn on **await** for a step in a screen's **InitState Function** (the logic that runs when the screen opens), the screen shows an error when you run your app, with a message that includes "initState() returned a Future". **await** makes the whole start-up function wait, and Flutter, the toolkit your app is built on, doesn't allow that. Put the waiting steps in a function of their own, with **await** inside it, and call that function from **InitState Function** with **await** off. Or ask Nowa AI in **Agent** mode, for example: "Load the products in a separate function and call it when the screen opens, without awaiting it." Then click **Run** to check that the error is gone. See [Run logic when a screen opens or closes](../logic/functions.md#lifecycle).
 
 ## Next steps
 

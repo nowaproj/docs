@@ -11,9 +11,7 @@ New projects use GoRouter, where every screen has a path, like a web address, su
 
 ## How screens stack
 
-The screens people open pile up like a stack of cards. Opening a screen with `push` puts a new card on top. The phone's back button, or the back arrow in the app bar, takes the top card off again (`pop`) and shows the one below. Replacing a screen swaps the top card, so Back can't return to it.
-
-Picking between these is most of the work, and the tables below say when to use each one.
+The screens people open pile up like a stack of cards. Opening a screen with `push` puts a new card on top. The phone's back button, or the back arrow in the app bar, takes the top card off again (`pop`) and shows the one below. Replacing a screen swaps the top card, so Back can't return to it. The tables below say when to use each one.
 
 ## GoRouter or Navigator
 

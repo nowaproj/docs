@@ -146,7 +146,7 @@ Details: [Publish to the web](../publish/web.md), [Publish to Google Play](../pu
 
 That's the whole loop, from the first prompt to a published app. Keep going:
 
-- Let people add and edit recipes with the **Create Record**, **Update Record** and **Delete Record** templates, once your table's rules allow it. See [Read and write Supabase data](../integrations/supabase/database.md).
+- Let people add, edit and delete recipes once your table's rules allow it. Ask Nowa AI in **Agent** mode for the functions, or start from the **Create Record**, **Update Record** and **Delete Record** templates. The templates send every field, even empty ones, so on a table that fills in columns such as `id` by itself, the Nowa AI way is often simpler. See [Add a query from a template](../integrations/supabase/database.md#add-a-query-from-a-template).
 - Polish the result with the [Design tips](design-tips.md), and keep your data safe with the [Data and state tips](data-and-state-tips.md).
 - To update a published app, publish again. For Google Play and the App Store, raise **Build number** first. See [Ship an update](../publish/index.md#ship-an-update).
 

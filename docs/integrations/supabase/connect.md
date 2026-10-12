@@ -84,7 +84,7 @@ Each field has a help icon with a hint on where to find the value, and **Open Su
 
 Supabase now steers you to its newer publishable key, for example in the **Connect** dialog, but Nowa doesn't support the new key types yet. If you paste a publishable or secret key, Nowa says "Using the new Supabase keys is not currently supported, please use the anon key."
 
-With keys alone, your list of tables may not load, and **Tables** and **Query Templates** need it. Nowa asks for that list with your anon key, and Supabase announced that from April 2026 it only shares the list with a full-access key, which Nowa gets when you authorize it through **Connect**. If your tables don't show up, authorize Nowa once: click ⋮ → **Change API Keys** → **Connect**, then **Select** the same project. Your functions stay.
+**Tables** and **Query Templates** need your list of tables, and with keys alone it may not load. Nowa asks for that list with your anon key, and Supabase announced that from April 2026 it only shares the list with a full-access key, which Nowa gets when you authorize it through **Connect**. If your tables don't show up, authorize Nowa once: click ⋮ → **Change API Keys** → **Connect**, then **Select** the same project. Your functions stay.
 
 ## What Nowa sets up for you
 

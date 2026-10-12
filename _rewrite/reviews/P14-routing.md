@@ -32,7 +32,7 @@ Items a section agent or verifier found for a page outside its batch, and what h
 | 26 | B10 | `integrations/google-sign-in.md` (B08) | Supabase bullet: turn on Google as a provider, link `supabase/auth.md#google`. | sent to B08 |
 | 27 | B10 | `guides/complete-app.md`, `guides/data-and-state-tips.md` (B01) | Email confirmation pointer (`supabase/auth.md#confirm-email`); link to `supabase/database.md#create-a-table`. | sent to B01 verifier |
 | 28 | B10 | `integrations/stripe.md` (B09) | Link to `supabase/database.md#create-a-table` from the table bullet. | sent to B09 |
-| 29 | B10 | `troubleshooting/known-issues.md` (B12) | "Supabase tables don't load with Use Keys" (anon key no longer gets the schema since April 2026). Not seen live. | hold until B10 verifier confirms the source |
+| 29 | B10 | `troubleshooting/known-issues.md` (B12) | "Supabase tables don't load with Use Keys" (anon key no longer gets the schema since April 2026). Not seen live. | B10-V found the official source (Supabase discussion #42949); hedged entry sent to B12 verifier |
 | 30 | B10 | product team | Supabase is moving away from the anon key; Nowa 3.13 accepts only the anon key with Use Keys. Create/Update Record templates may send empty id/created_at (not seen live). | for the report |
 | 31 | B10 | `integrations/supabase/database.md` (structure) | ~2,300 words; split proposal in notes. | decide after B10 verification |
 | 32 | B13 | `design/fonts-icons.md` (B05) | Fill/weight/grade/optical size have no visible effect on the Material icons in the picker; Text Direction flips direction-aware icons. | sent to B05 verifier |
@@ -63,3 +63,4 @@ Items a section agent or verifier found for a page outside its batch, and what h
 | 57 | B03-V | `integrations/deep-links.md` (B08) | Changing an iOS permission, App Name or Bundle Identifier rebuilds the settings files and undoes the Google Sign-In fix. | sent to B08 verifier |
 | 58 | B03-V | `publish/download-code.md` (B11) | "That code belongs to you": positioning consistent with the Terms ("You retain ownership over all content created using our Service"); the exact quote stays in the privacy section only. | no change |
 | 59 | B03-V | product team | Changing the Bundle ID gives every iOS target the same ID and rebuilds the Android build file; the load packages dialog text is outdated; New UX hides the board toolbar and breaks double-click on widgets. | for the report |
+| 60 | B10-V | `guides/complete-app.md` (B01) | Next steps: Create/Update Record templates send every field; point to the database note and to Nowa AI. | done by orchestrator |

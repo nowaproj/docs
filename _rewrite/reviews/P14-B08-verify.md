@@ -123,3 +123,25 @@ status codes, safe path and two clearer walk-through steps, offset by a shorter 
 paragraph and a "Call it from logic" bullet that no longer repeats the example's steps). Not split, as instructed. The
 writer's split proposal (basics and requests / testing, models and the example) still stands.
 
+## rest-api/import.md
+
+| Claim | Verdict | Source | Note |
+|---|---|---|---|
+| Swagger sample `https://petstore.swagger.io/v2/swagger.json` gives requests such as `getPetById`, `findPetsByStatus` | ok | fetched 2026-10-12: HTTP 200, Swagger 2.0, title "Swagger Petstore", 20 operation IDs incl. both; `packages/data/lib/src/api/importers/swagger_importer.dart:12-27,36-41` (collection named after `info.title`, requests after the operation ID) | |
+| Swagger 2.0: **Base URL** only from a pasted address; pasted text or a file gives none | ok | `packages/data/lib/src/swagger/utils/url_parser.dart:21-57` (`servers` first, else the input URL; Swagger 2.0 `host`/`basePath` are not read) | For the sample, the address yields `https://petstore.swagger.io/v2`. |
+| "often at an address ending in `swagger.json` or `openapi.json`" | ok | `url_parser.dart:40-42` | Worded as "often". |
+| YAML: convert to JSON first, e.g. in the Swagger Editor | ok | https://editor.swagger.io/ (200); its bundle has "Convert and Save as JSON" and "Convert to JSON" | No menu path on the page; the parent menu name isn't confirmed. |
+| Postman export: **Collections** → **View more actions** → **More** → **Export collection** → **Export JSON** | ok | https://learning.postman.com/docs/getting-started/importing-and-exporting/exporting-data/ (Latest v12): "Click View more actions next to a collection, then select More > Export collection … Click Export JSON" | learning.postman.com answers 451 "DEPLOYMENT_DISABLED" since about 17:00 today; checked against the copy fetched at 16:15 and the search snippets of the v12 page. Re-check the link when the site is back. |
+| Import a picked or dropped file at once; paste text + **Import**; **Import From**, **Select / Drop your JSON file** | ok | `create_collection_dialog.dart:135-155,178,231,270` | |
+| Xano token: profile icon → **Instances** → gear → **Metadata API** → **Manage Access Tokens** → **New Access Token**; name; expiry (default 7 days, 1 hour to never); scopes C/R/U/D; shown once | ok | https://docs.xano.com/xano-features/metadata-api (steps 1-8) | |
+| "**R** for **Content** and **API Groups** is enough" | ok | Nowa calls only `GET …/instance`, `…/workspace`, `…/workspace/{id}/apigroup` (`packages/data/lib/src/xano/xano_service.dart:16-29`); Xano's reference lists no required scope for the last two (https://docs.xano.com/api-reference/workspace/retrieve-all-accessible-workspaces-for-the-authenticated-user.md, `…/api-group/retrieve-all-api-groups-in-a-workspace.md`) | A sufficiency claim, safe. Scope names from the table on the Metadata API page. |
+| Groups import through their Swagger documentation; check it isn't **Disabled** (**Connect this backend** → **API Groups**) | ok | `packages/data/lib/src/api/importers/xano_importer.dart:52-57` (`SwaggerImporter(group.documentation.link)`); https://docs.xano.com/the-function-stack/building-with-visual-development/apis/swagger-openapi-documentation (Public / Private / Disabled) | Private needs a token in the URL; open question below. |
+| Xano labels and messages (**Enter Xano Bearer Token...**, **Select an Instance** / **Workspace** / **API Group**, "Invalid token", "Failed to fetch instances", "Failed to select …", "Failed to import from Xano") | ok | `xano_import_step_view.dart:44,67,81,91,104,132,185,209,242` | |
+| cURL tip: "It creates the request, tests it and builds the model" | fixed | R5 | Now "It can …", plus "Check the result in the **Collections** panel." |
+
+Removed fact: "It needs both an `info` and an `item` section" is in the for-code file (`#rest-api`); the row now tells the
+reader what to do (export again with **Export collection**). Nothing lost.
+
+Open: does a Xano group with **Private** documentation import (its link may need the token Nowa ignores)? Needs a live
+test with a Xano account.
+

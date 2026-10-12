@@ -88,7 +88,7 @@ The request is added to that collection with the method, address, headers and bo
 If the collection has a **Base URL**, the address in the command must start with it. Nowa then keeps only the rest of the path. A command that can't be read shows **Invalid curl**.
 
 :::tip[Or ask Nowa AI]
-In **Agent** mode, paste a cURL command into the chat and ask Nowa AI to add it as an API request. It creates the request, tests it and builds the model. See [Connect a REST API](./index.md#use-a-request-in-your-app).
+In **Agent** mode, paste a cURL command into the chat and ask Nowa AI to add it as an API request. It can create the request, test it and build the model. Check the result in the **Collections** panel. See [Connect a REST API](./index.md#use-a-request-in-your-app).
 :::
 
 ## If an import fails

@@ -15,7 +15,7 @@ Push notifications reach people even when your app is closed. Turn on **Push Not
 ## Turn on push notifications
 
 1. Open **Settings** → **Integrations** → **Firebase** and turn on **Push Notifications (FCM)**.
-2. Nowa opens **Add Missing Dependencies**: "Package flutter_local_notifications requires the following dependencies", with the Android permission `RECEIVE_BOOT_COMPLETED` in the list. Click **Add**. The **Test Push Notifications** box appears below the switch.
+2. The first time, Nowa opens **Add Missing Dependencies**: "Package flutter_local_notifications requires the following dependencies", with the Android permission `RECEIVE_BOOT_COMPLETED` in the list. Click **Add**. The **Test Push Notifications** box appears below the switch.
 3. For iOS, add the capability in Xcode: open your iOS project, then go to **Signing & Capabilities** → **Add Capability** → **Push Notifications**.
 4. Run or publish your app again, so the build includes the notification code. See [Publish to Google Play](../../publish/android.md) and [Publish to the App Store](../../publish/ios.md).
 

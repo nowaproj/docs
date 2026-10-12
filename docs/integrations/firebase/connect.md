@@ -23,15 +23,13 @@ Sign in with Google, pick your Firebase project and click **Connect Apps**. Nowa
 5. Click your project. The **Apps** list shows what Nowa will connect.
 6. Check the list. Nowa reuses apps that already match: an Android app with your package name, an iOS app with your bundle ID, or a web app whose name contains your app name and "nowa". For each missing app it shows "Android App will be automatically created", "iOS App will be automatically created" or "Web App will be automatically created".
 7. Click **Connect Apps**. A spinner shows while Nowa works. When it finishes, the page switches to the connected view. The status bar may show "Failed to recompile application." for a while. It clears on its own.
-8. Save before you reload or close the project: press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>S</kbd>, or click the save icon in the status bar and wait until it says **All changes saved**.
+8. Save before you reload the page or close Nowa: press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>S</kbd>, or click the save icon in the status bar, then **Save now**. Once everything is saved, the icon shows a check mark and its popup reads **All changes saved**.
 
 Nowa names the apps it creates after your **App Name**, such as "My App (Android)-nowa".
 
-:::warning
-In Nowa 3.13, reloading or closing the project soon after **Connect Apps** can lose the connection before it's saved. The Firebase files are gone, `lib/main.dart` points at a missing `firebase_options.dart` and the **Firebase** page asks for your project again. If that happens, connect again: Nowa reuses the apps it already created. See [Known issues](../../troubleshooting/known-issues.md#firebase-reload-after-connect).
-:::
+In Nowa 3.13, reloading the page or closing Nowa soon after **Connect Apps** can lose the connection before it's saved. The Firebase files are gone, `lib/main.dart` points at a missing `firebase_options.dart` and the **Firebase** page asks for your project again. If that happens, connect again: Nowa reuses the apps it already created. See [Known issues](../../troubleshooting/known-issues.md#firebase-reload-after-connect).
 
-![The Firebase page in Settings after picking the docs-capture project: under Apps, the lines Android App, iOS App and Web App will be automatically created and the Connect Apps button, all highlighted.](/img/docs/integrations/integrations-firebase-connect-1.png)
+![The Firebase page in Settings after picking a Firebase project: under Apps, the lines Android App, iOS App and Web App will be automatically created and the Connect Apps button, all highlighted.](/img/docs/integrations/integrations-firebase-connect-1.png)
 
 :::note
 Nowa AI can't connect Firebase for you. It can't add `firebase_core`, and points you to **Settings** → **Integrations** → **Firebase** instead, so the configuration is set up correctly.

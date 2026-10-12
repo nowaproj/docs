@@ -20,7 +20,7 @@ Resume from these files alone: `BRIEF.md` (context + rules), `decisions.md`, `op
 | 9 | Final quality pass: the user's acceptance criteria (see below) | pages, videos, annotated screenshots, best-practice guides | done except signed-in captures (see Resume here) |
 | 10 | Update to Nowa 3.13.0 (released 2026-10-06, live on app.nowa.dev) + all captures from app.nowa.dev, incl. signed-in | `research/changes-3.13.md`, pages, `reviews/P10-*`, captures | done 2026-10-10 (build green, PR updated) |
 | 11-13 | Paid plan and Linux shots, playground shots and live checks, the Mac session and the connected-service shots, merge | `captures/phase11-13/`, `reviews/P11-*`, `P12-*`, `P13-*`, `MISSING-MEDIA.md` | done 2026-10-12; PR #18 merged |
-| 14 | Audience pass (non-developers first, D22-D23) and old-docs coverage (D24), from the user's feedback on the live docs | `P14-BRIEF.md`, `reviews/P14-*`, pages, `docs/code/generated-code.md` | in progress (branch `docs-rewrite` restarted from `main` 9f21e4c) |
+| 14 | Audience pass (non-developers first, D22-D23) and old-docs coverage (D24), from the user's feedback on the live docs | `P14-BRIEF.md`, `P14-VERIFY.md`, `P14-REPORT.md`, `reviews/P14-*`, pages, `docs/code/generated-code.md`, `docs/logic/conditions.md` | done 2026-10-12: 15 section passes + 16 verifiers, build green; PR https://github.com/nowaproj/docs/pull/19 (merge on green, D26) |
 
 ## Phase 14: write for the right reader, bring back what the old docs had (started 2026-10-12)
 

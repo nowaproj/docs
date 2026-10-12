@@ -63,7 +63,7 @@ In plain words: it creates the table with an automatic ID, the time each row was
 
 Prefer clicking? In the **Table Editor**, click **New table**, enter a **Name** (lowercase, with underscores instead of spaces, such as `shop_items`), add your columns with **Add column**, and click **Save**. Supabase turns RLS on for you and adds `id` and `created_at` columns. Then ask Nowa AI for the policies, for example: "Add policies to the shop_items table so anyone can read it and only signed-in users can add rows."
 
-Supabase is also changing how new tables are shared: on newer projects, and on every project from 30 October 2026, a new table doesn't let your app in until access is granted. Until then, tests show **RLS Policy Error** even when your policies are right. The snippet above grants that access. If a table you made in the Table Editor shows this, ask Nowa AI, for example: "Give signed-in users access to the shop_items table."
+Supabase is also changing how new tables are shared: on newer projects, and on every project from 30 October 2026, a new table doesn't let your app in until access is granted. Without that access, tests show **RLS Policy Error** even when your policies are right. The snippet above grants that access. If a table you made in the Table Editor shows this, ask Nowa AI, for example: "Give signed-in users access to the shop_items table."
 
 Tables you make in the SQL Editor or the Table Editor aren't recorded as migrations (the saved, step-by-step history of how your tables were built), so **Pull Backend Files** can't save them into your project later. If you plan to share or copy your backend, ask Nowa AI to create the tables through migrations instead (see [Manage your Supabase backend](backend.md)).
 

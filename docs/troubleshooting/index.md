@@ -113,7 +113,7 @@ The preview and the code check of a local project need Flutter, Google's free to
 ## No devices in the Run on menu
 
 - **Web app:** the menu shows "iOS & Android devices" with "Download the desktop app", because the web app can't reach your devices. Click the row to get the desktop app, or use **Open on Mobile** for a cloud project on your phone.
-- **Desktop app:** "No devices connected. Plug in a device or start an emulator below." means Flutter found none. Connect a phone, or click an emulator under **Start an emulator**. If the message ends with "set up an emulator" instead, you have no emulator yet. An Android phone also needs **USB debugging** turned on before it shows up.
+- **Desktop app:** "No devices connected. Plug in a device or start an emulator below." means Flutter found none. Connect a phone, or click an emulator under **Start an emulator**. If the message ends with "set up an emulator" instead, Nowa found no emulator it can start. An Android phone also needs **USB debugging** turned on before it shows up.
 
 See [Run on a device or emulator](../test/devices.md), with [Run on your Android phone](../test/devices.md#run-on-your-android-phone) and [No emulators listed?](../test/devices.md#no-emulators-listed).
 

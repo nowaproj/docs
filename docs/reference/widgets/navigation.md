@@ -99,7 +99,7 @@ A **Page View** shows one page at a time, and people swipe sideways to the next,
 
 The dots are a separate widget. Nowa doesn't connect them to the pages for you, which is why step 5 matters.
 
-The dots need the `smooth_page_indicator` package, and Nowa doesn't ask about it when you add a **Page View**. Without it, the dots still draw on the board and **Problems** shows one error: `'smooth_page_indicator' is imported but is not in the pubspec.` That means the package isn't in your project yet.
+The dots need the `smooth_page_indicator` package, a ready-made add-on that draws them, and Nowa doesn't ask about it when you add a **Page View**. Without it, the dots still draw on the board and **Problems** shows one error: `'smooth_page_indicator' is imported but is not in the pubspec.` That means the package isn't in your project yet.
 
 To add it, click **Fix** next to that message in **Problems**, or select the dots and click **Hot Fix** under **Dependencies** in **Details**. If you open a project that already uses the dots without the package, Nowa offers a **Page indicator migration**: see [Handle the Page indicator migration](../../code/packages.md#page-indicator-migration).
 

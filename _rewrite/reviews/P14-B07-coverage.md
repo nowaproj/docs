@@ -159,7 +159,7 @@ repeated in `P14-B07-notes.md`.
 | Define the shape once instead of repeating it | added | models.md intro | |
 | Create: Files panel, **+** next to `lib` → **Create new object** | obsolete | Library **Add** (+) → **New Model...** (`lib/project/panels/files_panel/add_lib_menu.dart:60-66`) | covered by models.md#create-a-model |
 | Dialog: name, with **Path** and **Class** shown | covered | models.md#create-a-model | `packages/core/lib/src/file_system/widgets/create_file_dialog.dart:94`, `file_name_text_field.dart:167-175` |
-| The model shows in the Files panel as a Dart file | obsolete | 3.13 shows it in the Library under **Models** | covered by models.md#add-fields |
+| The model shows in the Files panel as a Dart file | dev-only | still true in code mode's **Files** tree (B07 verifier); the main reader finds it in the Library under **Models** | covered by models.md#add-fields |
 | Naming: "task model" → class `TaskModel`, file `task_model.dart` | covered | models.md (class name kept; file name moved) | file name to for-code `#models` |
 | Single click opens a popup with variables and functions | obsolete | a click shows a details card; double-click or Enter opens the editor | covered by models.md#add-fields |
 | Field name, type, default value, **is final** | covered | models.md#add-fields | |

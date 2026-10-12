@@ -8,15 +8,16 @@ under `/home/user/flutter`; package refs are under the pub cache (`/root/.pub-ca
 
 - **Pages checked:** 6 (`expressions`, `navigation`, `router`, `popups`, `actions`, `models`), every `+` and `-` line of
   the diff, plus the audience rules on the unchanged text.
-- **Claims checked:** about 120, in 74 table rows below (labels, steps, defaults, behavior, the 37 date formats run
+- **Claims checked:** about 120, in 75 table rows below (labels, steps, defaults, behavior, the 37 date formats run
   through intl 0.20.2, both product bugs, the Supabase expression).
-- **Fixed (9):** popups: a snackbar with an **Action** no longer goes away by itself (Flutter 3.44 `persist`), so the
+- **Fixed (10):** popups: a snackbar with an **Action** no longer goes away by itself (Flutter 3.44 `persist`), so the
   **Action**/**Duration** rows were wrong by omission; the default AlertDialog has only a title; the date example's
   closing line (a closed picker makes `format` fail with a null-check error, not "keep the old text"); "set **Type** to
   `bool`" (it already is); `showBottomSheet` can't open from a screen's own logic in a running app (caution added).
   actions: `SystemSound` `tick` is iOS-only and `alert` desktop-only; `showAboutDialog` shows a version only if you fill
-  one in; `print` output "never seen by people" → "never on your app's screens". expressions: the **OPERATORS** category
-  also lists five bitwise operators (named, with "most apps never need them").
+  one in; `print` output "never seen by people" → "never on your app's screens"; the category table now says it shows
+  highlights, not everything. expressions: the **OPERATORS** category also lists five bitwise operators (named, with
+  "most apps never need them").
 - **Removed:** 0. **Facts restored:** 0 (all 11 moved facts checked; nothing the reader needs was lost).
 - **Audience fixes (5):** plain glosses for `bool`, `equal`, `first`/`readAsBytes` (popups) and `context` (router);
   plus two tightenings (popups intro, navigation "How screens stack").
@@ -105,6 +106,7 @@ Length about 2,310 words; the brief says not to split, and the remaining section
 | Clipboard functions | ok | `services_library.dart:1217-1240` | |
 | `showAboutDialog` "with your app's name and version" | fixed | Flutter `packages/flutter/lib/src/material/about.dart:97,105` (name defaults to the app title, version to empty) | now "a version if you fill one in" |
 | Category scope ("+ menu, If **Condition**, **Return**"), **PACKAGE:** row and the constants pointer | ok | `packages/core/lib/src/fields/field_link_menu.dart:341`, `suggestion.dart:463-477` | matches the routed B08 check in the notes |
+| "Find any other function" table read as complete lists | fixed (framing) | library categories list every public function and class with statics (`packages/core/lib/src/interpreter/suggestion.dart:636-662`); **SERVICES** also has `SystemChrome`, `SystemChannels`, `TextInput` and more (`packages/core/lib/src/interpreter/libraries/services_library.dart:68-162`) | added "the table shows the parts you're most likely to need" before the table |
 | Moved: `showMenu`, `showSearch`, `unawaited`, `scheduleMicrotask`, the static-members rule | ok (moved) | all in `P14-B07-for-code.md` `#actions-and-popups` unchanged; none is needed to build visually (`showSearch` needs a delegate written in code; popup menus are on `reference/widgets/forms.md`) | |
 | Explicit ids `#create-objects` and `#copy-text-and-vibrate` | ok | both existed on origin/main and are kept | |
 

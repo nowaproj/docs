@@ -115,7 +115,7 @@ The **SERVICES** category has a few phone features. Click a class to see its fun
 
 ## Find any other function
 
-These categories are in the menu that opens when you click **+** in Circuit, and in the link menu of an If's **Condition** or a **Return** value. Each one named after a library holds what you can use from that library. Type a name in the search box to find it.
+These categories are in the menu that opens when you click **+** in Circuit, and in the link menu of an If's **Condition** or a **Return** value. Each one named after a library holds what you can use from that library, and the table shows the parts you're most likely to need. Type a name in the search box to find anything else.
 
 | Category | What's inside |
 |---|---|

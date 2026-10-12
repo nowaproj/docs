@@ -157,3 +157,14 @@ Flagged: every build step leads with an **Agent** prompt and a check. Result: st
 | Publish glosses (`.apk`, signing key, `.aab`, Bundle Identifier example, submit for review) | ok | `docs/publish/android.md`, `docs/publish/ios.md:172` | |
 
 Length: about 2,350 words of visible text after these additions. Routing item #24 (split): not required for correctness; the writer's split (part 1: design and sign-in, steps 1-4; part 2: data, detail screen, publishing, steps 5-8) is reasonable if the orchestrator wants pages under ~2,200 words.
+
+## guides/design-tips.md
+
+| Claim | Verdict | Source | Note |
+|---|---|---|---|
+| Routed from B05 (1): "Need two layouts?" without the typed `MediaQuery` formula, prompt first, **Visibility** with a width condition, link to `design/responsive.md#show-different-widgets-on-wide-and-narrow-screens` | ok, then fixed | `docs/design/responsive.md` (section "Show different widgets on wide and narrow screens", which keeps the formula and the menu path) | The prompt had no mode and no check. Added "in **Agent** mode" and "Then change the screen's **Size** and click **Play** at each size to check", as on the responsive page. |
+| Routed from B05 (2): the app starts in the **Active** theme each time; ask Nowa AI to remember the choice | ok | `packages/core/lib/src/file_system/templates/common/app_state_template.dart:28-35` (`_theme = lightTheme`, `changeTheme` only in memory), `docs/design/theme-styles.md` ("Each time your app opens, it starts in the **Active** theme again") | |
+| Routed from B04: "snake_case" replaced by "lowercase with underscores" (**Login flow** → `login_flow`) | ok | `packages/designer/lib/src/actions/file_actions.dart:61-66`, `packages/core/lib/src/file_system/naming.dart:158-163` (`Cases.snakecase`) | The reader sees that name on the **Boards** chip, so it stays. |
+| Dark mode: Agent prompt, check by running and tapping the switch; by hand `changeTheme` in Circuit, explained | ok | `docs/design/theme-styles.md#switch-themes-while-the-app-runs` | R3/R5. |
+| Theme extensions: no create button because they live in the code; Agent prompt; a new tab in **Themes** shows it worked | ok | `docs/design/themes.md:144-150` | |
+| HEX, breakpoints, params, route glosses; everyday examples | ok | | R4/R9. |

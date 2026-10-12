@@ -20,7 +20,7 @@ These features depend on your plan. If yours doesn't include one, Nowa usually t
 | Your own domain for the web version | **Custom Domain** shows **Premium**. | [Publish to the web](../publish/web.md) |
 | Android and iOS builds | Their rows in the **Deploy** menu show **Premium**. | [Get ready to publish](../publish/index.md) |
 | Premium templates | Adding a template marked **Premium** opens **Time to level up**. | [Start from a template](../design/templates.md) |
-| Connecting your own AI agent (desktop app) | **Connect External Agent** doesn't show in the **AI Assistant** menu. It's Enterprise only for now. | [Connect your own AI agent](../ai/external-agent.md) |
+| Connecting your own AI agent (desktop app) | **Connect External Agent** doesn't show in the **⋮** menu of the **AI Assistant** panel. It's Enterprise only for now. | [Connect your own AI agent](../ai/external-agent.md) |
 
 Nowa AI, Android and iOS builds, and code downloads also come with an allowance that your plan sets. When one runs out, Nowa tells you and offers an upgrade or, for Nowa AI, extra credits. See [Check your usage](#usage), [When you run out of AI credits](#out-of-credits) and [Download your code](../publish/download-code.md).
 

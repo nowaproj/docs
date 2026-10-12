@@ -2,10 +2,10 @@
 title: Install the desktop app
 description: Find out whether you need the Nowa desktop app, download it for macOS, Windows or Linux, sign in, and set up Flutter so you can use local projects and run your app on devices and emulators.
 sidebar_label: Install the desktop app
-keywords: [Nowa Desktop, download, install, macOS, Windows, Linux, tar.gz, install.sh, Flutter SDK, Xcode, Local Setup, Set up automatically, auto update, desktop app, simulator, emulator, do I need the desktop app, xcode-select, Flutter failed to initialize]
+keywords: [Nowa Desktop, download, install, macOS, Windows, Linux, tar.gz, install.sh, Flutter SDK, Xcode, Local Setup, Set up automatically, auto update, desktop app, simulator, emulator, do I need the desktop app, is the desktop app free, xcode-select, Flutter failed to initialize]
 ---
 
-The Nowa desktop app is the same editor in its own window, for macOS, Windows and Linux. It adds a few things the browser can't do: local projects, importing existing Flutter projects, and running your app on real phones and emulators. On macOS and Windows it also installs updates from inside the app.
+The Nowa desktop app is the same editor in its own window, for macOS, Windows and Linux, and it's free on every plan. It adds a few things the browser can't do: local projects, importing existing Flutter projects, and running your app on real phones and emulators. On macOS and Windows it also installs updates from inside the app.
 
 <Badge type="desktop" />
 
@@ -29,10 +29,6 @@ Running on devices and local projects use Flutter, Google's free toolkit that tu
 4. On macOS and Windows, open the downloaded installer and follow the steps for your system. On Linux, follow [Install on Linux](#install-on-linux).
 
 ![The Download Nowa dialog opened with Download Desktop App in the dashboard sidebar: three buttons (highlighted), MacOS, Windows and Linux, and the line Download Nowa version: 3.13.0 below them.](/img/docs/get-started/get-started-desktop-app-1.png)
-
-:::note
-When you sign in, the desktop app checks that your account has desktop access. If it doesn't, Nowa shows "Upgrade to unlock desktop version, or use on web at app.nowa.dev" with your billing options. You can upgrade there or keep using the web app. See [pricing](https://nowa.dev/pricing).
-:::
 
 ## Install on Linux {#install-on-linux}
 

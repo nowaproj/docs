@@ -5,11 +5,11 @@ sidebar_label: Your own code
 keywords: [custom code, hybrid approach, custom widget, custom function, custom class, CustomFunction, preview, "@Preview", widget variants, Import Dart code, Import as Custom code, Dart, write code, nowa_runtime, NowaGenerated]
 ---
 
-Nowa is real Flutter, so you can write your own widgets, functions and classes and use them next to everything Nowa builds. Nowa reads your code, so you can drop your widgets on the board and call your functions from logic. Earlier docs and release notes call this the **Hybrid approach**.
+Nowa is real Flutter, so you can write your own widgets (pieces of UI), functions (pieces of logic you can call) and classes (your own kinds of data, such as a product) and use them next to everything Nowa builds. Nowa reads your code, so you can drop your widgets on the board and call your functions from logic. Your code can do anything Dart and Flutter can: the board draws most of it, and **Run** runs all of it. Earlier docs and release notes call this the **Hybrid approach**.
 
 ## Add your own code
 
-Put your Dart in files under `lib/`. Nowa reads every Dart file there. You have four ways to add code:
+Put your Dart in files under `lib/`, the folder that holds your app's code. Nowa reads every Dart file there, in a file of its own or next to code Nowa wrote. You have four ways to add code:
 
 - **Write it in [code mode](code-mode.md).** Open a file, add your code and save with <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>S</kbd>. To start a new file, create a widget with **New Widget...** ([Manage project files](files.md#add-files)) and rewrite it.
 - **Write it in your own editor.** In a [local project](vs-code.md), save a file in VS Code and Nowa picks it up.
@@ -50,10 +50,29 @@ Nowa keeps code you write exactly as you wrote it, until you change that declara
 | Your code | Where it shows up |
 |---|---|
 | A widget | In the [Library](../design/library.md) under **Project**. Press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd> and type its name, or open the Library from the sidebar. Drag it onto a screen like any [component](../design/components.md). |
-| A function | In [Circuit](../logic/circuit.md), in the **All nodes for this circuit** menu, under the category named after your project. |
-| A class | As a type. **Select type** lists it when you search for its name or click **show more...** ([Store data in variables](../logic/variables.md)). |
+| A function | In [Circuit](../logic/circuit.md), in the **All nodes for this circuit** menu. A function in a file of its own is under **PACKAGE:** followed by your package name, such as **PACKAGE:MY_APP**. A function you add inside a screen or component is under **LOCALS** when you build that screen's logic. Drop the node in and fill in its parameters. |
+| A class | As a type for variables, parameters and return values. **Select type** lists it when you search for its name or click **show more...** ([Store data in variables](../logic/variables.md)). To make an object of it in Circuit, choose **GENERAL** → **Create...** and pick the class ([Use ready-made actions](../logic/actions.md)). |
 
 A widget that Nowa can read opens like any other component, so you can change it on the board too. For a one-off formula, you don't need a function: use a custom expression ([Expressions and conditions](../logic/expressions.md#custom-expression)).
+
+## Ideas for your own code {#ideas-for-your-own-code}
+
+A few things people often write themselves, and how they fit in:
+
+- **A widget around a package.** Wrap a widget from a [pub.dev package](packages.md), such as a map from `flutter_map`, in a widget of your own with the settings you need, then drop it on any screen. On the board it shows as a placeholder unless Nowa has built-in support for the package; **Run** shows the real thing. (For Google Maps, Nowa has a built-in integration: [Add Google Maps](../integrations/google-maps.md).)
+- **A function that does the math.** Write a function that, for example, uses the `geolocator` package to work out the distance between two places, then call it from Circuit where you need it. The board gives a stand-in value for package functions it doesn't support; **Run** shows the real distance.
+- **A class with its own logic.** Give a class fields and a method, then create objects of it in Circuit and show the result in your UI:
+
+```dart
+class Product {
+  Product({required this.name, required this.price});
+
+  final String name;
+  final double price;
+
+  String formattedPrice() => '\$${price.toStringAsFixed(2)}';
+}
+```
 
 ## Preview a widget in several states {#preview-variants}
 
@@ -91,6 +110,8 @@ String readingTime(String article) {
 
 Without a `preview`, the board writes "calling: readingTime" to **Logs** and returns a stand-in value, such as `[...]` for text, `0` for a number or `false` for a true/false value. `preview` works on top-level functions. In **Run**, the real function runs.
 
+You can also put `@CustomFunction` on a method inside a class, including a screen or component that Nowa made. Nowa then keeps that method as code and doesn't run it on the board. `preview` is ignored there, so the board logs the call and uses a stand-in value. Use it for a method the board shouldn't run, such as one that talks to a device feature.
+
 ## Import Dart code {#import-dart-code}
 
 Use this to bring in a function, a widget or a class you wrote somewhere else.
@@ -123,7 +144,7 @@ Try "Write a StarRating widget that shows 1 to 5 stars and add it under the prod
 
 ## Next steps
 
-- [Add packages](packages.md)
-- [What Nowa can show on the board](limitations.md)
-- [Use Nowa with VS Code](vs-code.md)
-- [Edit code in Nowa](code-mode.md)
+- [Add packages](packages.md): bring in ready-made building blocks for your code.
+- [What Nowa can show on the board](limitations.md): see which Dart features the board draws.
+- [Use Nowa with VS Code](vs-code.md): write your code in your own editor.
+- [Edit code in Nowa](code-mode.md): make a quick change without leaving Nowa.

@@ -1,35 +1,35 @@
 ---
 title: Preview and test
-description: Try your app at every step, from an instant tap-through on the board to the real compiled app on your phone, and share a preview link.
+description: Try your app at every step, from an instant tap-through on the board to the real app on your phone, and share a preview link.
 sidebar_label: Overview
-keywords: [preview, test, test your app, try your app, instant play, instant preview, play, run, nowa run, app run, simulator, emulator, run on device, share preview, problems]
+keywords: [preview, test, test your app, try your app, instant play, instant preview, play, run, nowa run, app run, simulator, emulator, run on device, test on my phone, share preview, problems]
 ---
 
-You can try your app at every step without leaving Nowa. Three names show up on the buttons, and each one means one thing:
+You can try your app at every step without leaving Nowa, from a quick tap-through while you design to the real app on your own phone. Three names show up on the buttons, and each one means one thing:
 
 | You see | It means | Learn more |
 |---|---|---|
-| **Play** (**Instant preview** on the phone layout) | Instant Play: Nowa interprets your app, so it starts at once and is close to the real app, not exact. | [Play your app on the board](instant-play.md) |
-| **Run** (**Run real app** on the phone layout) | Your real app, compiled. On a computer it shows in the **Embedded preview**, or on a device in the desktop app. | [Run your app](run.md) |
+| **Play** (**Instant preview** on the phone layout) | Instant Play: Nowa acts out your app on the spot, so it starts at once and is close to the real app, not exact. | [Play your app on the board](instant-play.md) |
+| **Run** (**Run real app** on the phone layout) | Your real app, fully built. On a computer it shows in the **Embedded preview**, or on a phone or emulator in the desktop app. | [Run your app](run.md) |
 | **Share preview** | A link and QR code that open Instant Play in other people's browsers, so they can tap through your app. Cloud projects only. | [Share your app](share.md) |
 
 ## Instant Play or Run?
 
-Both show your app working, in different ways. Instant Play interprets your app, so it starts at once but is only close to the real thing. Run compiles your app, so it takes longer and shows exactly what your users will get.
+Both show your app working, in different ways. Instant Play acts out your app without building it, so it starts at once but is only close to the real thing. Run builds your app for real, so it takes longer and shows exactly how your app behaves.
 
 | | Instant Play | Run |
 |---|---|---|
 | Start it | **Play** in a screen's title bar, or right-click a widget and choose **Play** | **Run** in the top bar |
-| What it does | Nowa interprets your app on the board | Nowa compiles your real Flutter app |
+| What it does | Nowa interprets your app on the board | Nowa builds your real app |
 | Speed | Instant, with no build | The first start can take a few minutes. After that, every save updates it |
 | Accuracy | Close, not exact | The real app |
-| Your own code and packages | What Nowa can't read shows as a placeholder or is left out | All of it runs |
+| Hand-written code and packages | What Nowa can't read shows as a placeholder or is left out | All of it runs |
 | Features that need a phone | Placeholders, or simulated, as with maps and Firebase sign-in | Real, when you run on a phone or an emulator |
 | Share it | **Share preview** gives a link and a QR code (cloud projects) | **Open on Mobile** shows a QR code for your phone (cloud projects) |
 | In the playground | Yes | No, the top bar shows **Save** |
 | Best for | Layout, flows and quick checks while you design | Real behavior, before you publish |
 
-Design with Instant Play, and run the app before you publish. If the two ever disagree, Run is right. That's why Instant Play shows a warning icon that says "In board preview is not 100% accurate, run the app to see the real output".
+A good rhythm: design with Instant Play, and run the app before you publish. If the two ever disagree, Run is right. That's why Instant Play shows a warning icon that says "In board preview is not 100% accurate, run the app to see the real output".
 
 On a phone, **Play** opens **Play your app** with the same two choices: **Instant preview**, marked **SIMULATED**, and **Run real app**, marked **REAL APP** (**LIVE** once the app is running). See [Use Nowa on your phone](../get-started/mobile.md).
 
@@ -40,10 +40,10 @@ On a phone, **Play** opens **Play your app** with the same two choices: **Instan
 | Page | What you can do |
 |---|---|
 | [Play your app on the board](instant-play.md) | Tap, scroll and type in any screen, right on the board. |
-| [Run your app](run.md) | Compile the real app and see it inside Nowa, in your browser or on your phone. |
-| [Run on a device or emulator](devices.md) | Try the app on a phone, an emulator or your computer, in the desktop app. |
+| [Run your app](run.md) | Build the real app and see it inside Nowa, in your browser or on your phone. |
+| [Run on a device or emulator](devices.md) | Try the app on your own phone, an emulator or your computer, and set up the tools it needs. |
 | [Share your app](share.md) | Send a preview link and QR code, or open the whole project to others. |
-| [Find and fix problems](problems.md) | Read errors and warnings, jump to them and fix them. |
+| [Find and fix problems](problems.md) | See what's wrong, jump to it, and fix it with one click or with Nowa AI. |
 
 ## Next steps
 

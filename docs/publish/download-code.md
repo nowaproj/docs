@@ -2,10 +2,10 @@
 title: Download your code
 description: Download your project's full Flutter source code as a zip file from code mode, to back it up, open it in another editor or hand it to a developer.
 sidebar_label: Download code
-keywords: [download code, export, source code, zip, compress project, code download, flutter project, backup]
+keywords: [download code, export, source code, zip, compress project, code download, flutter project, backup, own your code, hand off to developer]
 ---
 
-Your app is real Flutter code, and it belongs to you. Download it as a zip to keep a backup, open it in another editor or hand it to a developer.
+Everything you build in Nowa, with Nowa AI or visually, is real Flutter code, and that code belongs to you. Download it as a zip to keep a backup, or to hand your app to a developer who wants to work on it in their own tools.
 
 <Badge type="cloud" />
 
@@ -13,12 +13,14 @@ Your app is real Flutter code, and it belongs to you. Download it as a zip to ke
 
 1. Switch to code mode: click the `<>` button in the top bar.
 2. In the tab bar, click the download icon (**Code download**).
-3. Click **Compress Project**. Nowa saves your project and compresses it. **Compressing...** shows while it works.
+3. Click **Compress Project**. Nowa saves your project and packs all of it into one zip file. **Compressing...** shows while it works.
 4. Click the zip file that appears in the list. It shows the file name and when it was created.
 
 ![The Code download popup opened from the download icon in the code editor's tab bar (highlighted): the line Compress to get the latest code download., the Compress Project button, and the empty list that says Compress your project to download it. This is the state before the first zip exists.](/img/docs/publish/publish-download-code-1.png)
 
 In the web app, your browser downloads the file. In the desktop app, a **Save project** dialog asks where to keep it. Nowa then opens that folder and shows "Project downloaded successfully to" followed by the file's path.
+
+In the web app, the zip's row keeps spinning after your download starts, and you can't click it again. The download itself works. To download once more, close the popup and open it again.
 
 The list always holds the last zip you compressed, so compress again after you change your project. Until you compress once, the popup says "Compress your project to download it".
 
@@ -28,7 +30,7 @@ Your plan includes an allowance for code downloads. When it's used up, **Compres
 
 ## Use the downloaded code
 
-The zip holds your Flutter project. Unzip it and open the folder in an editor such as VS Code or Android Studio. To run it on your computer, install Flutter first. See [Flutter's install guide](https://docs.flutter.dev/get-started/install).
+You don't need to open the zip yourself. It's the complete project, the copy you keep as a backup or send to a developer. Someone who works with code unzips it and opens the folder in an editor such as VS Code or Android Studio. To run it on a computer, they install Flutter first. See [Flutter's install guide](https://docs.flutter.dev/get-started/install).
 
 ## Local projects
 

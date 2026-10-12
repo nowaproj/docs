@@ -26,8 +26,10 @@ The panel opens on "Hey There" and "Let’s help you build a great app!" with th
 
 ## Report an issue {#report-an-issue}
 
+The clearer your report, the easier it is for the team to help, and a snapshot of your project lets them look at it as it is.
+
 1. Open the project that has the problem, click **?**, then **Report an issue**.
-2. Describe what happened in the message box ("Type a detailed message..."). Say what you did, what you expected and what you saw instead.
+2. Describe what happened in the message box ("Type a detailed message..."). Say what you did, what you expected and what you saw instead, for example: "I tapped **Book** on the booking screen. I expected a confirmation, but nothing happened."
 3. Keep **Include a snapshot of the current project** ticked so the team can look at your project. It's on by default and only appears on the first message of a report. Untick it if you'd rather not share your project.
 4. To add screenshots, click the image button and choose files.
 5. Click the send button.
@@ -38,11 +40,11 @@ Two other places open the same form with the details filled in: **Report** on No
 
 ## Ask a question {#ask-a-question}
 
-Click **?**, then **Chat with support**, type your question and send it. You can attach images. Questions don't have the snapshot checkbox. Your conversation stays under **Your tickets**.
+Not sure how to do something? Click **?**, then **Chat with support**, type your question and send it. You can attach images. Questions don't have the snapshot checkbox. Your conversation stays under **Your tickets**, so you can come back to the answer later.
 
 ## Hire an expert {#hire-an-expert}
 
-Click **Hire an Expert** in the dashboard sidebar or the support panel. The dialog says "Get hands-on help from certified Nowa experts." Click **Book a Free Consultation** to open a booking page, or **Become an expert** to apply. The dialog also shows the expert rate.
+Want hands-on help from someone who knows Nowa well? Click **Hire an Expert** in the dashboard sidebar or the support panel. The dialog says "Get hands-on help from certified Nowa experts." Click **Book a Free Consultation** to open a booking page, or **Become an expert** to apply. The dialog also shows the expert rate.
 
 ## Learn
 
@@ -57,6 +59,8 @@ The bell (tooltip **Notifications**) sits next to the version number on the dash
 Announcements can also appear as banners at the bottom right. At most two show at a time, and an announcement past its expiration date no longer shows as a banner. Click the close button (**Dismiss announcement**) to hide one.
 
 ## Join the community and contact us
+
+Want to swap ideas and tips with other builders? Join them here:
 
 - [Discord](https://discord.gg/ByKfn3H7gX) to chat with other builders and the team.
 - The [community forum](https://community.nowa.dev/) for questions and answers.

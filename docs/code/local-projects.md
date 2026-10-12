@@ -5,20 +5,20 @@ sidebar_label: Local projects
 keywords: [local project, local-only project, On this device, desktop app, Project Sync, Upload to cloud, Sync from Cloud, Sync from Local, Unlink Project, Project not found, Remove from list, delete project, import project, Flutter folder]
 ---
 
-A local project is a normal Flutter project that lives in a folder on your computer. You build it in Nowa, and the same folder opens in VS Code, Git tools and anything else that reads Flutter. Your files are stored in a folder you choose, not in your Nowa account.
+A local project is a normal Flutter project that lives in a folder on your computer. You build it in Nowa, and the same folder opens in VS Code, Git tools and anything else that works with Flutter. Your files stay in a folder you choose, not in your Nowa account, so they're always on your own disk.
 
 <Badge type="desktop" />
 
 ## Before you start
 
 - Install the [Nowa desktop app](../get-started/desktop-app.md), for macOS, Windows or Linux. It needs a plan that includes it. If yours doesn't, the app shows "Upgrade to unlock desktop version, or use on web at app.nowa.dev". See [pricing](https://nowa.dev/pricing).
-- Set up Flutter. Nowa needs the Flutter SDK to create and run projects. If you see **Flutter SDK not found**, follow [Set up Flutter](../get-started/desktop-app.md#setting-up-flutter-sdk).
+- Set up Flutter. Nowa needs the Flutter SDK (the toolkit that builds and runs Flutter apps) on your computer to create and run projects. If you see **Flutter SDK not found**, follow [Set up Flutter](../get-started/desktop-app.md#setting-up-flutter-sdk).
 
 A local project differs from a cloud project in three ways:
 
 - **Where it shows up.** Local projects are listed under **On this device** in the desktop app only. Other computers and the web app don't see them.
 - **What you gain.** You can [open it in VS Code](vs-code.md), jump to its folder with **View in folder** (in code mode, right-click a file in **Files**), and use the [Git](git.md) panel on the repository in that folder. Nowa also picks up files you change outside it: see [What syncs and when](vs-code.md#what-syncs-and-when).
-- **What you give up.** **Deploy**, Cloud Build, **Share preview**, **Public project**, **Move to workspace...** and code download are for cloud projects. To use them, link a cloud copy with [Project Sync](#link-a-cloud-copy-with-project-sync).
+- **What you give up.** **Deploy**, Cloud Build, **Share preview**, **Public project**, **Move to workspace...** and code download are for cloud projects. Where a local project reaches one of them, such as **Share preview** or the **Deployment** settings, Nowa says it isn't available, for example "Cloud build is not available on local projects", and offers **Sync to cloud**. To use them, link a cloud copy with [Project Sync](#link-a-cloud-copy-with-project-sync). You can also build and publish the app yourself with Flutter's own tools, as with any Flutter project: see [Flutter's deployment guides](https://docs.flutter.dev/deployment).
 
 For a side-by-side comparison, see [Cloud and local projects](../get-started/cloud-and-local.md).
 
@@ -28,7 +28,7 @@ For a side-by-side comparison, see [Cloud and local projects](../get-started/clo
 2. Type a **Project name**. You can use letters, numbers, spaces, hyphens and underscores.
 3. Expand **Advanced** and click **Local-only project**. The card says "Stored only on this device. No Cloud Build or backups."
 4. Check the **Path**. It starts as your **Default Projects Path** from **Local Setup**, and it's empty if you haven't set one. Click **Browse** to pick a folder, or type its path.
-5. Click **Create project**. Nowa creates a Flutter project in a new folder inside that path, adds its starter app (routing, theme, a home page and a board), and opens it.
+5. Click **Create project**. Nowa creates a Flutter project in a new folder inside that path, adds its starter app (routing, theme, a home page and a board), and opens it, ready for your first screen.
 
 The folder is named after your project's package name: your project name in lowercase, with underscores for spaces. A leading digit is spelled out, so `2048 Game` becomes `two_048_game`. The dashboard shows the name you typed. If Nowa says a folder with that name already exists, pick another name or path.
 
@@ -55,13 +55,15 @@ Nowa opens the folder where it is and doesn't copy it. For monorepos, cloud impo
 
 ## Link a cloud copy with Project Sync
 
-Project Sync makes a cloud copy of your local project (or a local copy of a cloud project) and links the two. You then copy changes from one to the other when you choose. Nowa keeps the link on this computer.
+Project Sync makes a cloud copy of your local project (or a local copy of a cloud project) and links the two. You then copy changes from one to the other when you choose, for example to work locally all week and copy the result to the cloud copy to **Deploy** it. Project Sync is only in the desktop app (the web app doesn't show it), and Nowa keeps the link on this computer.
+
+If you change both copies, [Git](git.md#move-work-between-a-cloud-and-a-local-project) is the better fit: it merges the two sides instead of overwriting one with the other.
 
 To create the copy:
 
 1. Open the project, click **Settings** (the gear in the top bar) and choose **Project Sync**. From the dashboard, you can instead open the project's ⋮ menu and click **Upload to cloud**.
 2. For a local project, pick a place under **Select Workspace** and click **Clone to Cloud**. The first entry, **Cloud Projects**, means no workspace. For a cloud project, choose a folder in **Path** and click **Clone to Local**.
-3. Wait for the copy to finish. It opens when it's ready.
+3. Wait for the copy to finish. It opens when it's ready, and your original project stays as it was.
 
 To copy changes later:
 
@@ -69,18 +71,18 @@ To copy changes later:
 2. On the card you want to update, click **Sync from Cloud** or **Sync from Local**. The button names where the files come from.
 3. Read the **Sync Warning**, then click **Proceed with Sync**.
 
-A sync overwrites existing data in the destination with the files from the source. It runs one way at a time and never on its own, so back up the destination first.
+A sync overwrites existing data in the destination with the files from the source. It runs one way at a time and never on its own. Syncing in the wrong direction replaces your newer work with the older copy, so check the button name before you click and back up the destination first.
 
 ![The Project Sync page of a local project linked to a cloud copy: the Local Project card marked Current and the Cloud Project card with its Open Project icon, the link icon between them, and the Sync from Cloud and Sync from Local buttons (highlighted).](/img/docs/code/code-local-projects-2.png)
 
-To break the link, click the link icon between the cards (tooltip **Unlink Project**) and confirm with **Unlink Project**. Both projects stay as they are. To link them again, clone the project again.
+Linked the wrong project, or done with the cloud copy? To break the link, click the link icon between the cards (tooltip **Unlink Project**) and confirm with **Unlink Project**. Both projects stay as they are. To link them again, clone the project again. If Nowa can't load the linked copy, the page shows "Failed to load linked projects" with a **Remove link** button that does the same.
 
 ## Fix "Project not found"
 
 If you move, rename or delete a local project's folder, opening the project shows **Project not found** and the old path. Pick one:
 
 - **Use** followed by a folder name: Nowa found a folder next to the old one with the same package name. Click it to point the project there.
-- **Locate folder**: choose the folder yourself. It must contain a `pubspec.yaml`.
+- **Locate folder**: choose the folder yourself. It must contain a `pubspec.yaml`, the settings file at the top of every Flutter project.
 - **Remove from projects**: drop the project from your list. Nothing is deleted from disk.
 - **Back to dashboard**: leave it for now.
 
@@ -104,7 +106,7 @@ Either action also drops the project's Project Sync link. A cloud copy isn't tou
 
 ## Next steps
 
-- [Use Nowa with VS Code](vs-code.md)
-- [Use Git](git.md)
-- [Run on a device or emulator](../test/devices.md)
-- [Create and manage projects](../account/projects.md)
+- [Use Nowa with VS Code](vs-code.md): write code in your editor while you design in Nowa.
+- [Use Git](git.md): keep a history of the folder and sync it with GitHub.
+- [Run on a device or emulator](../test/devices.md): try the app on your phone or a simulator, with hot reload.
+- [Create and manage projects](../account/projects.md): everything about cloud projects.

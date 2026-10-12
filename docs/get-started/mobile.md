@@ -5,11 +5,11 @@ sidebar_label: Use Nowa on your phone
 keywords: [mobile, phone, iPhone, Android, mobile browser, phone layout, narrow window, voice input, tablet]
 ---
 
-Open Nowa in your phone's browser to check a project, ask Nowa AI for a change, play and run your app, and follow builds, wherever you are. Nowa switches to a phone layout on its own.
+Away from your computer? Open Nowa in your phone's browser to check a project, ask Nowa AI for a change, play and run your app, and follow your builds. Nowa switches to a phone layout on its own, so there's nothing to set up.
 
 ## When you get the phone layout
 
-Nowa shows the phone layout in any browser window narrower than 840 px. The phone layout has no board, no sidebar panels and no code editor. It is for checking, chatting and shipping. For design work, use a wider window.
+Nowa shows the phone layout in any browser window narrower than 840 px. It has no board, no sidebar panels and no code editor: it's made for checking, chatting and shipping. When you want to design by hand, switch to a computer or a wider window.
 
 1. Open [app.nowa.dev](https://app.nowa.dev) in your phone's browser and sign in.
 2. Tap a project on the dashboard.
@@ -30,18 +30,18 @@ The top row has these controls:
 
 Below it is the list of your screens and components. Use **Search project...** to find one, and the **All**, **Pages** and **Components** tabs to filter. A toggle switches between a carousel and a list.
 
-Tap a screen or component to attach it to your next message to Nowa AI, and tap again to remove it. Long-press one for **Play alone**, **Attach to chat**, **Rename** and **Delete**.
+Tap a screen or component to attach it to your next message to Nowa AI, so it knows which one you mean, and tap again to remove it. Long-press one for **Play alone**, **Attach to chat**, **Rename** and **Delete**.
 
 ## Chat with Nowa AI
 
-The chat pill sits at the bottom. Tap it and type, or tap the microphone to dictate. The hint follows your mode: "Describe the app you want to build…" in Design, "What would you like to plan?" in Plan, and "Ask Nowa AI…" in Agent.
+The chat pill sits at the bottom. Tap it and type, or tap the microphone and say what you want, which is often quicker on a phone. The hint follows your mode: "Describe the app you want to build…" in Design, "What would you like to plan?" in Plan, and "Ask Nowa AI…" in Agent.
 
 Tap the pill and a row of chips appears above it:
 
 - The first chip shows your mode, **Design**, **Plan** or **Agent**. Tap it to pick another.
 - The next chip shows the thinking level, such as **Thinking**. Tap it to open **Model** and pick another.
 - **Attach** adds an **Image** or **Components**.
-- **Supabase** turns the Supabase connector on or off.
+- **Supabase** turns the Supabase connector on or off (it lets Nowa AI work on your Supabase backend).
 - **History** reopens past sessions.
 - **⋯** holds **Custom Instructions** and **New Session**.
 
@@ -49,7 +49,7 @@ Send your message and the conversation opens full screen. Tap the AI icon at the
 
 ## Play and run your app
 
-Tap **Play** to open **Play your app**. It offers two ways to see your app.
+Tap **Play** to open **Play your app**. It offers two ways to see your app: a quick look, or the real thing.
 
 | Option | What it does |
 |---|---|
@@ -64,7 +64,7 @@ While the instant preview plays, a floating button opens **Stop**, **Restart** a
 
 ## Build and deploy
 
-Tap **Build** to open the build page for your project, with **Android**, **iOS** and **Web** tabs. They are the same pages as **Deployment** in project settings, so the same plan requirements apply. See [Get ready to publish](../publish/index.md).
+Tap **Build** to open the build page for your project, with **Android**, **iOS** and **Web** tabs. They're the same pages as **Deployment** in project settings, so you can start a build or check on one from your phone. The same plan requirements apply. See [Get ready to publish](../publish/index.md).
 
 ## Next steps
 

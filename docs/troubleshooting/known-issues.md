@@ -1,32 +1,48 @@
 ---
 title: Known issues
-description: Platform limits and editor quirks you may run into when you use Nowa, and how to work around each one.
+description: Platform limits and editor quirks you may run into when you use Nowa, why they happen, and the quickest way around each one.
 sidebar_label: Known issues
-keywords: [known issues, limitations, Windows, Firebase, Firestore, Apple sign-in, Google Maps, AdMob, CORS, desktop app, Linux, rename variable, Shift drag, slash, route path, detach component, app bar drag, Connect Apps, firebase_options, InvalidType, Figma, Waiting for Authorization, Redirect Logic]
+keywords: [known issues, limitations, Windows, Firebase, Firestore, test query, Firebase console query builder, Apple sign-in, Google Maps, AdMob, CORS, desktop app, Linux, rename variable, Shift drag, slash, route path, detach component, app bar drag, Connect Apps, firebase_options, InvalidType, Figma, Waiting for Authorization, Redirect Logic]
 ---
 
 A few things work differently depending on where you run Nowa or your app, and a few editor actions need a workaround
-in this version. Here's what to expect and the quickest way around each one.
+in this version. Here's what to expect, why it happens, and the quickest way around each one.
 
 ## Firestore queries can't be tested on Windows {#firebase-on-windows}
 
 In the Windows desktop app, the **Test** section of a Firestore query is switched off. It shows "Testing Firestore
-Queries isn't possible on Windows version".
+Queries isn't possible on Windows version", with the hint "Simply connect your query to the UI and test it by running
+the app on a simulator, or use Nowa web or MacOS version". The Windows version of Nowa can't run Firestore queries
+itself, so it can't try them out for you.
 
-You can still use your queries in your app. To see real results:
+That doesn't stop you from building a Firebase app on Windows. Your queries still work in your app, you only check the
+results another way:
 
 1. Connect the query to your UI (see [Use Cloud Firestore](../integrations/firebase/firestore.md)).
-2. Run your app on a simulator, an emulator or a phone (see [Run on a device or emulator](../test/devices.md)).
+2. Click **Run** to see real results in the **Embedded preview**, which runs the web version of your app. Or run it on
+   an Android emulator or a phone (see [Run on a device or emulator](../test/devices.md)). Skip **Windows** in the
+   **Run on** menu: Nowa connects Firebase for web, Android, iOS and macOS, not for Windows or Linux apps.
 
-Or open the same project in the web app or the macOS desktop app, where the **Test** section is on. In Nowa 3.13 the designer can't open a query in its editor on any platform: see [Add collections and queries in Nowa 3.13](../integrations/firebase/firestore.md#add-collections-and-queries).
+You can also try a query out before you build it:
+
+- **In the Firebase console.** Open your Firebase project, go to **Databases & Storage** → **Firestore** → **Data**
+  and click the **Query builder** tab. Pick the collection, click **Add to query** for each filter, then click
+  **Run**. Once the results look right, build the same query in Nowa. Reads you make in the console count toward your
+  Firestore usage. See Firebase's guide to [querying data in the console](https://firebase.google.com/docs/firestore/using-console#query_data).
+- **In another version of Nowa.** Open the same project in the web app or the macOS desktop app, where the **Test**
+  section is on. For a local project, make a cloud copy first with
+  [Project Sync](../code/local-projects.md#link-a-cloud-copy-with-project-sync). In Nowa 3.13 the designer can't open a
+  query in its editor on any platform: see [Add collections and queries in Nowa 3.13](../integrations/firebase/firestore.md#add-collections-and-queries).
 
 ## API tests fail in the web app but work elsewhere {#api-requests-blocked-in-the-browser}
 
-In the web app, Nowa sends test requests from your browser. Browsers only allow those requests when the API permits
-them (CORS). If an API doesn't, the test fails in the web app even though the same request works in the desktop app
-and in your built mobile app.
+In the web app, Nowa sends test requests from your browser. Browsers follow a safety rule called CORS: a web page may
+only call an API that says it accepts calls from that page's address. If an API doesn't, the test fails in the web
+app, even though the same request works in the desktop app and in your built mobile app.
 
-To test it anyway, use the desktop app, or check the API's settings for allowed origins. See
+To test it anyway, use the desktop app. If you run the API yourself, for example on a backend service you set up, look
+in its settings for the list of allowed addresses (often called allowed origins or CORS) and add
+`https://app.nowa.dev`. Your published web app runs in a browser too, so allow its address as well. See
 [Connect a REST API](../integrations/rest-api/index.md).
 
 ## Continue with Apple is missing in the desktop app
@@ -43,20 +59,20 @@ simulator/emulator or mobile device to preview". Neither draws a live map, so ru
 
 ## Ads show test ads
 
-The **Admob Banner** widget and interstitial ads show Google's test ads until you turn **Show Test Ads** off, and real
-ads run only on Android and iOS. See [Show ads with AdMob](../integrations/admob.md).
+The **Admob Banner** widget and interstitial ads show Google's test ads (sample ads meant for testing) until you turn
+**Show Test Ads** off, and real ads run only on Android and iOS. See [Show ads with AdMob](../integrations/admob.md).
 
 ## Instant Play is close, not exact
 
 **Play** on the board runs your screens instantly, but it's an approximation. Its own tooltip says so: "In board
-preview is not 100% accurate, run the app to see the real output". Use **Run** to check the real app. See
-[Preview and test](../test/index.md).
+preview is not 100% accurate, run the app to see the real output". Use **Run** whenever you need to know how the real
+app behaves. See [Preview and test](../test/index.md).
 
 ## Linux: the preview opens in your browser and updates are manual
 
 The Linux desktop app has no in-app preview yet. When you run your app, the preview pane says "Your app is running" and offers **Open in Browser**. Click it to open your app in your browser. See [Run your app](../test/run.md#choose-where-to-run).
 
-The Linux app doesn't update itself either. When a new version is out, the update message offers **Download v…** and **Skip**. To update, download the new archive and run `install.sh` again. See [Install on Linux](../get-started/desktop-app.md#install-on-linux).
+The Linux app doesn't update itself either. When a new version is out, the update message offers **Download v…** and **Skip**. To update, download the new archive and run `install.sh` again, as you did to install it. See [Install on Linux](../get-started/desktop-app.md#install-on-linux).
 
 ## Some letters don't type in the Variables list {#variables-list-rename}
 
@@ -68,11 +84,11 @@ Holding <kbd>Shift</kbd> while you drag a widget keeps it on one axis, even when
 
 ## A `/` you type in Details doesn't appear {#slash-in-details}
 
-In Nowa 3.13, a `/` you type in a field in **Details** is dropped. Fields in Circuit aren't affected. A route path typed in **Route Settings** loses its slashes, and **Problems** reports "Top-level route path must start with a leading slash". Type route paths in the Router panel instead: select the route and type the path in **Path**, which keeps every `/`. For other text with a `/`, such as a web address, paste it into the field. See [Give a screen a path](../logic/navigation.md#give-a-screen-a-path).
+In Nowa 3.13, a `/` you type in a field in **Details** is dropped. Fields in Circuit aren't affected. A route path (the address of a screen, such as `/home`) typed in **Route Settings** loses its slashes, and **Problems** reports "Top-level route path must start with a leading slash". Type route paths in the Router panel instead: select the route and type the path in **Path**, which keeps every `/`. For other text with a `/`, such as a web address, paste it into the field. See [Give a screen a path](../logic/navigation.md#give-a-screen-a-path).
 
 ## Detach loses an instance's param values {#detach}
 
-When you detach a component instance, the plain widgets still point at the component's params, and the values you gave that instance are lost. The board shows a red box such as "[title] is not found", while **Problems** lists nothing. Note the values before you detach. Afterwards, click each broken property's name, choose **Detach...** and type the value again, or link it to something else. See [Build reusable components](../design/components.md#edit-a-component-or-one-instance).
+When you detach a component instance, its widgets still point at the component's params (the values each copy of the component gets, such as its title), and the values you gave that instance are lost. The board shows a red box such as "[title] is not found", while **Problems** lists nothing. Note the values before you detach. Afterwards, click each broken property's name, choose **Detach...** and type the value again, or link it to something else. See [Build reusable components](../design/components.md#edit-a-component-or-one-instance).
 
 ## A widget dragged across the app bar keeps the app bar's size {#drag-across-app-bar}
 
@@ -80,7 +96,7 @@ When you drag a widget in a screen over the screen's app bar, the app bar takes 
 
 ## Reloading right after connecting Firebase loses the connection {#firebase-reload-after-connect}
 
-In Nowa 3.13, if you reload the page or close Nowa soon after **Connect Apps**, the connection can be lost before it's saved. The Firebase files disappear, `lib/main.dart` points at a missing `firebase_options.dart` so the project doesn't compile, and **Settings** → **Integrations** → **Firebase** asks for your project again. Save first: press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>S</kbd>, or click the save icon in the status bar, then **Save now**. The icon shows a check mark once everything is saved. If it already happened, connect again: Nowa reuses the Firebase apps it created. See [Connect Firebase](../integrations/firebase/connect.md#connect-your-project).
+In Nowa 3.13, if you reload the page or close Nowa soon after **Connect Apps**, the connection can be lost before it's saved. Your app then can't start, because a Firebase settings file it needs is gone, and **Settings** → **Integrations** → **Firebase** asks for your project again. To avoid it, save first: press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>S</kbd>, or click the save icon in the status bar, then **Save now**. The icon shows a check mark once everything is saved. If it already happened, connect again: Nowa reuses the Firebase apps it created, so you don't end up with duplicates in Firebase. See [Connect Firebase](../integrations/firebase/connect.md#connect-your-project).
 
 ## The status bar shows "Unsupported invalid type" {#invalid-type-in-status-bar}
 
@@ -92,7 +108,7 @@ When you click the Figma icon in the chat field, or **Connect** next to Figma in
 
 ## The Redirect Logic row keeps showing + {#redirect-logic-plus}
 
-In the Router panel, after you click **+** next to **Redirect Logic**, Nowa adds the function at once, but the row can keep showing **+** for minutes. Don't click it again. Click `<>` in the top bar to open code mode, then `<>` again to come back: the row now shows the bolt button (**Edit Function**). See [Start on the login screen or the home screen](../logic/router.md#start-on-login-or-home).
+In the Router panel, after you click **+** next to **Redirect Logic**, Nowa adds the function at once, but the row can keep showing **+** for minutes. Don't click it again. Click `<>` in the top bar to open code mode, then `<>` again to come back: the row now shows the bolt button (**Edit Function**). The trip to code mode and back is only a way to refresh the panel. See [Start on the login screen or the home screen](../logic/router.md#start-on-login-or-home).
 
 ## Next steps
 

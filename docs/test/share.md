@@ -1,13 +1,24 @@
 ---
 title: Share your app
-description: Send a link or QR code so people can try your app in a browser, or open your whole project to others.
+description: Send a link or QR code so people can try your app in their browser, with nothing to build or install, or open your whole project to others.
 sidebar_label: Share
-keywords: [share, share preview, preview link, qr code, public project, public link, private, instant preview share, share app, link options, send app to client, feedback]
+keywords: [share, share preview, instant preview share, preview link, qr code, public project, public link, private, share app, link options, send app to client, feedback, demo, device size, play settings]
 ---
 
-Send a link, and people can try your app in their browser, with nothing to build, publish or install. You can share a preview of the app, or open the whole project so others can look inside and keep their own copy.
+Send a link, and people can try your app in their browser. There's nothing to build, publish or install, so you can share a new version after every change and get feedback the same day. You can share a preview of the app, or open the whole project so others can look inside and keep their own copy.
 
 <Badge type="cloud" />
+
+## When to share a preview {#when-to-share-a-preview}
+
+A preview is the quickest way to put your app in front of other people. They open the link on a computer or a phone and tap through your screens right in their browser. It's a good fit when you want to:
+
+- Get quick feedback from a teammate, a co-founder or a few friends.
+- Show a client or an investor how the app looks and flows, without hosting it anywhere.
+- Let people review your screens and flows without installing anything.
+- See how your layout holds up on other devices. Viewers can switch between phone, tablet and desktop sizes (see [What people see in a preview](#what-people-see-in-a-preview)).
+
+A preview isn't the finished app, though. It runs the same way as [Instant Play](instant-play.md), so maps and paywalls show a placeholder and Firebase sign-in is simulated. To try everything on a real phone, [run your app on a device](devices.md). To hand people the real app, [publish it](../publish/index.md) to the web, Google Play or the App Store.
 
 ## Choose how to share
 
@@ -31,25 +42,25 @@ Pick what your client needs to see.
 
 - **A quick look.** Send the preview link set to **Public**. Read the warning above first, because **Public** opens your whole project.
 - **A look without making the project public.** Keep the preview **Private** and give your client access. Put the project in a [workspace](../account/workspaces.md) and [invite your client](../account/workspaces.md#invite-people) as a member. Choose **View Only** if they should look but not change anything. They sign in to Nowa to open the link.
-- **The finished app.** The preview isn't the compiled app. To hand over the real thing at its own address, [publish your app to the web](../publish/web.md). Publishing needs a paid plan.
+- **The finished app.** The preview isn't the compiled app. To hand over the real thing at its own web address, [publish your app to the web](../publish/web.md). Publishing needs a paid plan.
 
 ## Share a preview
 
-The preview is [Instant Play](instant-play.md) in a browser tab: quick, but not the compiled app.
+The preview is [Instant Play](instant-play.md) in a browser tab: it opens at once, and it's close to the real app, not exact.
 
-1. Play a screen on the board. Hover its title bar above the screen and click the play button.
+1. Play a screen on the board. Hover the title bar above the screen and click the play button.
 2. In the controls at the bottom of the board, click **Share preview**. The **Share Preview** popup opens.
 3. Pick who can open the link. **Public** means "Anyone with the link can view the preview." **Private** means "Only members that have access to the project". Only project owners and editors see this choice, and it shows the project's current setting.
 4. If you pick **Public**, Nowa asks "Make this project public?". Read the warning, tick "I checked, there are no secrets in this project", and click **Make public**.
-5. Copy the link with the copy button. Or click the QR code button (**Qr code**) to show a code to scan, or **Open in browser** to see what others will see.
+5. Copy the link with the copy button and send it. Or click the QR code button (**Qr code**) to show a code people can scan with their phone, or **Open in browser** to see exactly what others will see.
 
 ![The Share Preview popup opened with Share preview in the play controls of a playing screen, with the QR code card open beside it (both highlighted). The popup offers Public (Anyone with the link can view the preview.) and Private (Only members that have access to the project, selected), then the preview link with its copy and open buttons. The QR code card covers the third button and its code is blurred here.](/img/docs/test/test-share-1.png)
 
 The link looks like `https://app.nowa.dev/preview/<project>`. If you shared from a played screen, it ends with `?screen=` and that screen's file, so the preview opens on that screen.
 
-To share the whole app, delete the `?screen=…` part of the link. Owners and editors who open a link with `?screen=…` see the warning "Single Screen Preview", even when the screen has a route: "Route-based navigation is disabled in Play Mode for single screen previews. To test navigation, you need to preview the full app."
+Want people to start from the beginning of your app instead? Delete the `?screen=…` part of the link. Owners and editors who open a link with `?screen=…` see the warning "Single Screen Preview", even when the screen has a route: "Route-based navigation is disabled in Play Mode for single screen previews. To test navigation, you need to preview the full app."
 
-The link stays the same when you edit your app. People always see the project as last saved.
+You never need a new link after you change your app. The link stays the same, and people always see the project as you last saved it.
 
 In a local project, **Share preview** says "Share preview is not available on local projects". Click **Sync to cloud** to open **Project Sync** and make a cloud copy first. See [Work with local projects](../code/local-projects.md).
 
@@ -57,7 +68,7 @@ In a local project, **Share preview** says "Share preview is not available on lo
 
 On a computer, the app opens in a phone frame (an iPhone 13 at first) with a toolbar at the top.
 
-Owners and editors also see cards that list what the preview can't show, such as "Custom code can't be shown" or "Dynamic packages can't be shown". The button above them hides the cards (tooltip **Hide Play Warnings**) and brings them back (tooltip **Show Play Warnings**). The "Unattached global states" card lists global states that aren't attached to your app, which can cause errors if they're used. Its **Attach all** button attaches them to your app. See [Attach or detach a global state](../logic/global-state.md#attach-or-detach-a-global-state).
+Owners and editors also see cards that list what the preview can't show, such as "Custom code can't be shown" or "Dynamic packages can't be shown". The button above them hides the cards (tooltip **Hide Play Warnings**) and brings them back (tooltip **Show Play Warnings**). The "Unattached global states" card lists global states (app-wide data, such as the signed-in user or a cart) that aren't attached to your app, which can cause errors if they're used. Its **Attach all** button attaches them to your app. See [Attach or detach a global state](../logic/global-state.md#attach-or-detach-a-global-state).
 
 | Button | What it does |
 |---|---|
@@ -66,13 +77,17 @@ Owners and editors also see cards that list what the preview can't show, such as
 | **Device Settings** | Opens **Play Settings**. |
 | **Restart** | Restarts the preview. Only owners and editors see it. |
 
-In **Play Settings**, viewers can turn **Free Size** and **Show mockup frame** on or off and rotate the device with **Orientation** (for devices that rotate). **Device Size** lists devices by platform and has a **Custom** tab with **Width**, **Height** and **Pixel ratio**. Under **Safe areas** on that tab, **Left**, **Top**, **Right** and **Bottom** set the space at each edge that a **Safe Area** keeps clear, such as for a notch or system bar. Nowa remembers these choices per project in the viewer's browser.
+**Play Settings** lets anyone viewing the preview try your app on other devices. **Device Size** lists iPhones and iPads, Android phones and tablets, and laptop and monitor sizes for macOS, Windows and Linux, so a client can see your app on a tablet or a big screen from the same link. Its **Custom** tab takes a **Width**, **Height** and **Pixel ratio**. Under **Safe areas** on that tab, **Left**, **Top**, **Right** and **Bottom** set the space at each edge that a **Safe Area** keeps clear, such as for a notch or a system bar.
+
+Viewers can also turn **Free Size** and **Show mockup frame** on or off, and rotate the device with **Orientation** (for devices that rotate). Nowa remembers these choices per project in the viewer's browser.
 
 On a phone or in a narrow window, the app fills the screen. A floating button opens **Stop**, **Restart** and **Share preview**.
 
 People without access to a private preview may see **Preview Not Available**, with a **Sign In** button.
 
 ## Open your project to others
+
+Sometimes you want to share more than the app: a template for others to build on, or a project you want a helper to look into. A public project link opens your whole project in Nowa, and every visitor works on a copy of their own.
 
 This works for cloud projects. In a local project, **Sharing** has only the **Cover**. Members with **View Only** access don't see **Sharing**.
 
@@ -81,7 +96,7 @@ This works for cloud projects. In a local project, **Sharing** has only the **Co
 3. Tick "I checked, there are no secrets in this project" and click **Make public**. **Make public** stays dimmed until the box is ticked. **Cancel** leaves the project private.
 4. The link and three icon buttons appear next to the switch: **Copy link**, **Open in a new tab** and **Link options**. Click **Copy link**, or **Open in a new tab** to try it yourself.
 
-The link looks like `https://app.nowa.dev/project/<project>`, with your link options added. Turn **Public project** off to make the project private again.
+The link looks like `https://app.nowa.dev/project/<project>`, with your link options added. Turn **Public project** off whenever you want the project private again.
 
 ![The Sharing section of Project Details in Settings with Public project on: the Cover field (highlighted), the project link in a text field (highlighted) and the Public project switch, on (highlighted), and the open Link options popup (highlighted) with the checkboxes Code mode, Preview (greyed) and Assistant, and the Opened file row set to Default.](/img/docs/test/test-share-2.png)
 
@@ -91,18 +106,18 @@ Their edits are lost when they close the tab, unless they click **Save to keep c
 
 ### Set how the link opens
 
-Click **Link options** to choose what visitors see first. A popup opens over the three buttons. Nowa adds your choices to the link.
+Click **Link options** to choose what visitors see first. A popup opens over the three buttons, and Nowa adds your choices to the link.
 
 | Option | What it does |
 |---|---|
-| **Code mode** | Opens the project in code mode. |
+| **Code mode** | Opens the project in code mode, where the project's files are shown as code. |
 | **Preview** | Shows the Instant Play preview next to the code. Needs **Code mode**. |
 | **Assistant** | Opens the **AI Assistant** panel. |
 | **Opened file** | Picks the file that opens first. Click it and search for a file, or choose **Default**. |
 
 ### Choose the project cover
 
-The **Cover** is the image shown wherever your project is listed. Nowa takes it from your board on every save. To use your own image, click the cover preview. Click **Use my board** to go back to the automatic one.
+The **Cover** is the image shown wherever your project is listed. Nowa takes it from your board on every save, so it stays up to date without any work from you. To use your own image, click the cover preview. Click **Use my board** to go back to the automatic one.
 
 ## Next steps
 

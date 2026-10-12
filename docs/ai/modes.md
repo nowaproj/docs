@@ -5,12 +5,12 @@ sidebar_label: Modes
 keywords: [design mode, plan mode, planning mode, agent mode, switch mode, thinking level, instant, thinking, deep thinking, think mode, make it real, implementation plan]
 ---
 
-Nowa AI has three modes. **Design** builds the look and flow first, **Plan** works out what to build before anything changes, and **Agent** does everything. Pick the one that fits the job, and switch whenever you like.
+Nowa AI has three modes, and each one fits a different moment in building your app. **Design** shapes the look and flow first, **Plan** works out what to build before anything changes, and **Agent** does everything. You can switch between requests whenever you like, in the same conversation.
 
 ## Switch mode
 
 1. Click the mode chip at the bottom left of the chat field. Its tooltip is **Switch mode**.
-2. Choose **Design**, **Plan** or **Agent**.
+2. Choose **Design**, **Plan** or **Agent**. The chat field's hint changes to match, so you can always see which mode you're in.
 
 | Mode | Description in the menu | The chat field says |
 |---|---|---|
@@ -26,40 +26,40 @@ A new project opens in **Design** mode, unless you picked another mode in the da
 
 ## Design mode
 
-Design mode designs screens, navigation and theming with demo data. It doesn't connect real data or a backend: it has no API or Supabase tools and doesn't use connectors.
+Design mode is where a new app takes shape. It designs your screens, the way people move between them and your app's theme, using demo data, so you can see the whole app and settle how it looks before anything is wired up. It doesn't connect real data or a backend: it doesn't set up APIs or Supabase, and it doesn't use connectors.
 
 An empty Design chat explains the idea: describe the app, and Nowa designs it screen by screen, then makes it work one feature at a time.
 
 When Nowa AI has designed all the screens you talked about, a card titled **Your app design is complete** appears, with a short summary. You have three choices:
 
-- Keep refining. Tell Nowa AI what to change in the chat.
-- Pick a feature. Click one of the chips under **Pick what to make work first:**, and Nowa switches to Agent mode and starts with that feature.
-- Click **Make it real**. Nowa switches to Agent mode and starts with the feature Nowa AI recommends. The card then reads **Switched to Agent mode**.
+- **Keep refining.** Tell Nowa AI what to change in the chat, such as "Make the home screen feel lighter".
+- **Pick a feature.** Click one of the chips under **Pick what to make work first:**. Nowa switches to Agent mode and starts with that feature.
+- **Let Nowa AI choose.** Click **Make it real**. Nowa switches to Agent mode and starts with the feature Nowa AI recommends. The card then reads **Switched to Agent mode**.
 
 Only the latest card is active, and only while Nowa AI isn't working.
 
 ## Plan mode
 
-Plan mode works out what to build before anything is built. It reads your project, asks you questions and writes a plan you can review. It changes nothing: it can't edit your files or add and remove packages. It doesn't use connectors either.
+Plan mode is the safe way to think through a big or unclear change. Nowa AI reads your project, asks you questions and writes a plan you can review, and nothing in your project changes until you say so. It can't edit your files or add and remove packages (ready-made add-ons for your app), and it doesn't use connectors either.
 
-1. Switch to **Plan** and describe what you want.
+1. Switch to **Plan** and describe what you want, such as "Plan a Favorites feature for my recipe app".
 2. If a **Questions** card appears, pick an answer for each question. Nowa moves on to the next question by itself. Choose **Other...** to type your own answer.
 3. Click **Send Answers**. The button appears once every question has an answer.
 4. Read the **Implementation Plan** card: a summary, the **Key Decisions** and the numbered steps. Click **Technical details**, when it's shown, to show or hide the technical notes for each step.
-5. To change the plan, reply in the chat. Nowa AI rewrites the whole plan.
+5. To change the plan, reply in the chat. Nowa AI rewrites the whole plan, so you always review one complete version.
 6. Click **Implement this plan**. Nowa switches to Agent mode and sends "Implement this plan". Click **Keep planning** instead to hide the two buttons and keep refining.
 
 Only the latest plan keeps its buttons, and they stay hidden while Nowa AI is working.
 
 ## Agent mode
 
-Agent mode builds for real: screens, logic, data, packages, assets and files. It is the only mode that can use the Figma and Supabase connectors. See [Connect Figma and Supabase to Nowa AI](connectors.md).
+Agent mode builds for real: screens, logic, data, packages, fonts, images and other files. Use it whenever something has to work, not only look right. It's also the only mode that can use the Figma and Supabase connectors. See [Connect Figma and Supabase to Nowa AI](connectors.md).
 
-On long requests it keeps a **Tasks** card with a progress bar and ticks items off as it goes. Each step it takes shows in the conversation. See [Chat with Nowa AI](chat.md).
+On long requests it keeps a **Tasks** card with a progress bar and ticks items off as it goes, so you can see how far along it is. Each step it takes shows in the conversation. See [Chat with Nowa AI](chat.md).
 
 ## Set the thinking level
 
-The chip next to the mode chip sets how much Nowa AI reasons before it acts. It shows the current level.
+The chip next to the mode chip sets how much Nowa AI reasons before it acts. It shows the current level. More thinking helps with tricky work, and less gets small edits done faster.
 
 | Level | Description in the menu | Good for |
 |---|---|---|
@@ -89,6 +89,6 @@ Older versions had a "Think Mode" toggle. It's gone. Nowa AI's reasoning appears
 
 ## Next steps
 
+- [Write prompts that work](prompting.md)
 - [Chat with Nowa AI](chat.md)
 - [Give Nowa AI context](context.md)
-- [Write prompts that work](prompting.md)

@@ -9,7 +9,7 @@ Connect Supabase and your app gets user sign-in, a Postgres database and file st
 
 ## Before you start
 
-- A [Supabase](https://supabase.com) account. You can create the Supabase project from Nowa while you connect.
+- A [Supabase](https://supabase.com) account. You don't need a Supabase project: Nowa can create it for you while you connect.
 - For **Connect**, you must be signed in to your Nowa account.
 
 ## Choose how to connect
@@ -25,15 +25,17 @@ Pick **Connect** unless you only have keys. You can switch later with **Change A
 
 ## Connect with your Supabase account
 
+You don't need a Supabase project yet: Nowa can create one for your app while you connect.
+
 1. Click the **Supabase** icon in the left sidebar.
 2. Click **Connect**.
 3. Finish in the browser. A Supabase page opens: choose your organization and approve the request. Nowa shows **Waiting for Authorization...** and carries on by itself. Click **Cancel** to stop waiting.
-4. In the project list (titled **Projects in** and your organization's name), click **Select** next to the project you want, or [create a new one](#create-a-new-supabase-project).
+4. In the project list (titled **Projects in** and your organization's name), click **Create New Project** and fill in the form, as described in [Create a new Supabase project](#create-a-new-supabase-project). If you already have a Supabase project for this app, click **Select** next to it instead.
 5. Wait for the "Connecting to ..." message. If the project came with backend files, Nowa offers to set them up (see [Manage your Supabase backend](backend.md)). The panel then lists your Supabase functions.
 
 ![The unconnected Supabase panel: the highlighted Supabase icon in the left sidebar, the panel header, and the Connect and Use Keys buttons (highlighted).](/img/docs/integrations/integrations-supabase-connect-1.png)
 
-If Nowa is already authorized, it skips the browser step and shows your projects right away. Nowa works with one organization at a time: click **Change organization** to authorize a different one. Projects that aren't active show **Unavailable** and can't be selected. Their status appears under the name.
+Each Nowa project asks you to authorize once. After that, Nowa skips the browser step for that project and shows your Supabase projects right away. Nowa works with one organization at a time: click **Change organization** to authorize a different one. Projects that aren't active show **Unavailable** and can't be selected. Their status appears under the name.
 
 :::tip
 You can also start from the chat. Click the Supabase icon in the chat field of the **AI Assistant** panel. If the project isn't connected yet, the same connection flow opens.
@@ -41,16 +43,20 @@ You can also start from the chat. Click the Supabase icon in the chat field of t
 
 ### Create a new Supabase project {#create-a-new-supabase-project}
 
-1. In the project list, click **Create New Project**.
+1. In the project list, click **Create New Project**. The **Create New Supabase Project** dialog opens.
 2. Fill in the form.
 
    | Field | What to enter |
    |---|---|
-   | **Project Name** | Starts as your Nowa project's name plus `-backend`. |
+   | **Project Name** | Starts as your project's **Package Name** (in **Settings** → **Project Details**) plus `-backend`, such as `my_app-backend`. |
    | **Region** | Where Supabase hosts your database. Pick the one closest to your users. It starts as West US (North California). |
    | **Database Password** | A password for the database. Nowa needs at least 4 characters, so choose a strong one and keep it safe. The eye icon shows what you typed. |
 
 3. Click **Create Project**. The button shows **Creating...**, then Nowa connects to the new project. Click **Back** instead to return to the project list.
+
+![The Create New Supabase Project dialog, opened with Create New Project in the project list: Project Name (the project's package name plus -backend), Region (West US (North California)) and Database Password with its eye icon, all highlighted, and the highlighted Create Project button.](/img/docs/integrations/integrations-supabase-create-1.png)
+
+You can also create the project in the [Supabase dashboard](https://supabase.com/dashboard) first, then pick it with **Select** in step 4.
 
 ## Connect with keys
 

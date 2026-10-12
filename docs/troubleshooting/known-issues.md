@@ -2,7 +2,7 @@
 title: Known issues
 description: Platform limits and editor quirks you may run into when you use Nowa, and how to work around each one.
 sidebar_label: Known issues
-keywords: [known issues, limitations, Windows, Firebase, Firestore, Apple sign-in, Google Maps, AdMob, CORS, desktop app, Linux, rename variable, Shift drag, slash, route path, detach component, app bar drag]
+keywords: [known issues, limitations, Windows, Firebase, Firestore, Apple sign-in, Google Maps, AdMob, CORS, desktop app, Linux, rename variable, Shift drag, slash, route path, detach component, app bar drag, Connect Apps, firebase_options, InvalidType, Figma, Waiting for Authorization, Redirect Logic]
 ---
 
 A few things work differently depending on where you run Nowa or your app, and a few editor actions need a workaround
@@ -77,6 +77,22 @@ When you detach a component instance, the plain widgets still point at the compo
 ## A widget dragged across the app bar keeps the app bar's size {#drag-across-app-bar}
 
 When you drag a widget in a screen over the screen's app bar, the app bar takes it in while your pointer is there. If you carry on and drop it in the body or on the board, it keeps the size it had in the app bar: a Container can land as a thin line with a height of 0, and a Text or a Button gets a fixed width and height. Press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Z</kbd> to undo the drop, and keep the pointer off the app bar while you drag. See [Where a dragged widget lands](../design/select-and-edit.md#where-a-dragged-widget-lands).
+
+## Reloading right after connecting Firebase loses the connection {#firebase-reload-after-connect}
+
+In Nowa 3.13, if you reload or close the project soon after **Connect Apps**, the connection can be lost before it's saved. The Firebase files disappear, `lib/main.dart` points at a missing `firebase_options.dart` so the project doesn't compile, and **Settings** → **Integrations** → **Firebase** asks for your project again. Save first: press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>S</kbd>, or click the save icon in the status bar and wait for **All changes saved**. If it already happened, connect again: Nowa reuses the Firebase apps it created. See [Connect Firebase](../integrations/firebase/connect.md#connect-your-project).
+
+## The status bar shows "Unsupported invalid type" {#invalid-type-in-status-bar}
+
+After you turn on Firebase **Authentication**, the status bar can show a cut-off error that starts with "Unsupported operation: Unsupported invalid type InvalidType", while **Problems** says "No issues detected". Nothing has been found to stop working because of it, so you can carry on. See [Sign users in with Firebase](../integrations/firebase/auth.md).
+
+## Connecting Figma doesn't work right now {#figma-connect}
+
+When you click the Figma icon in the chat field, or **Connect** next to Figma in your account settings, **Waiting for Authorization...** appears but no browser window opens, so Figma can't be linked. Click **Cancel**. This affects every account, and until it's fixed the Figma connector can't be turned on. See [Connect Figma and Supabase to Nowa AI](../ai/connectors.md#connect-figma).
+
+## The Redirect Logic row keeps showing + {#redirect-logic-plus}
+
+In the Router panel, after you click **+** next to **Redirect Logic**, Nowa adds the function at once, but the row can keep showing **+** for minutes. Don't click it again. Click `<>` in the top bar to open code mode, then `<>` again to come back: the row now shows the bolt button (**Edit Function**). See [Start on the login screen or the home screen](../logic/router.md#start-on-login-or-home).
 
 ## Next steps
 

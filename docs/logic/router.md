@@ -33,7 +33,7 @@ Select a route to edit it:
 | **Screen** | The screen the route shows. Click it to pick another one. The bolt button (**Edit Function**) opens the route's builder in Circuit. |
 | **Route Parameters** | Path and query parameters as chips. Path chips carry a red `*`. Right-click a chip to **Rename** or **Delete** it. |
 | **Screen Parameters** | The screen's own params, shown when it has any. Drag a chip onto one to feed it. |
-| **Redirect Logic** | A function that can send people elsewhere, for example to a login screen. Click **+** (**Add Redirect Logic**), then the bolt button to open it in Circuit. See [Start on the login screen or the home screen](#start-on-login-or-home). |
+| **Redirect Logic** | A function that can send people elsewhere, for example to a login screen. Click **+** (**Add Redirect Logic**), then the bolt button to open it in Circuit. If the row still shows **+** after the click, see step 3 of [Start on the login screen or the home screen](#start-on-login-or-home). |
 
 ## Set options for the whole app
 
@@ -59,15 +59,15 @@ Before you start:
 
 1. Select your home screen and check that **Details** says **This is the home screen**. If it doesn't, click **Make home screen**.
 2. Click **Router** in the sidebar and select the route that shows your home screen.
-3. Next to **Redirect Logic**, click **+** (**Add Redirect Logic**), then click the bolt button (**Edit Function**). Circuit opens in a floating panel.
+3. Next to **Redirect Logic**, click **+** (**Add Redirect Logic**), then click the bolt button (**Edit Function**). Circuit opens in a floating panel, on a `redirect` node that already has a **Return** under it. In Nowa 3.13 the row can keep showing **+** although the function was added. Don't click it again: click `<>` in the top bar to open code mode, click `<>` again to come back, and the bolt button shows. See [Known issues](../troubleshooting/known-issues.md#redirect-logic-plus).
 4. Hover the dot under the top node, click **+** and choose **Add If statement**.
 5. In **Details**, click the **Condition** label and link a check that tells you whether someone is signed in:
-   - **Firebase:** open **FIREBASE** and click `isUserSignedIn`.
+   - **Firebase:** open **FIREBASE** and click `isUserSignedIn`, or type its name in the search box.
    - **Supabase:** click **Custom Expression...**. In the box that opens, replace the text with `Supabase.instance.client.auth.currentSession != null`, press <kbd>Enter</kbd>, then click the back arrow to close the box. Nowa has no ready-made Supabase check. This one asks the Supabase library for the current session, which is empty when nobody is signed in.
 6. Click the dot in the **False** branch, choose **Add Return**, and set **Return** to your login screen's path, such as `/login-page`. Leave the **True** branch empty.
 7. Close Circuit with **×**.
 
-{/* CAPTURE: id=logic-router-1 | state: signed-in cloud project connected to Firebase with Authentication on, Router panel open, the home route selected, Redirect Logic added and opened in Circuit with an If statement whose Condition is isUserSignedIn and a Return in the False branch set to /login-page | show: the Circuit panel with the If node (empty True branch, Return in the False branch) and Details showing Condition | crop: Circuit panel and Details */}
+![The Circuit floating panel for a route's Redirect Logic: the redirect node, then an If Statement checking isUserSignedIn with a Return in the False branch and an empty True branch (highlighted), and the Details pane showing the Condition, FirebaseService().isUserSignedIn() (highlighted).](/img/docs/logic/logic-router-1.png)
 
 A signed-in person now opens the home screen, because the **Return** node below the **If** still returns nothing. Anyone else goes to `/login-page`. Your login screen should open the home screen when sign-in works, and a sign-out button should open the login screen: the two sign-in pages above show how.
 

@@ -26,7 +26,7 @@ Until your account has access, the **⋮** menu in the **AI Assistant** header d
 4. Click **Done**. Keep Nowa open while your agent works.
 5. In your agent, ask it to list and open a Nowa project, then tell it what to build.
 
-{/* CAPTURE: id=ai-external-agent-1 | state: desktop app signed in with an account that has the external agent grant, a project open, ⋮ then Connect External Agent clicked | show: the Connect External Agent dialog with the MCP Server URL (token blurred), the Claude Code command, the help text and Done | crop: dialog */}
+![The Connect External Agent dialog in the desktop app: the MCP Server URL field with its token blurred and the Claude Code field, each with a copy button (both highlighted), the help text about running the command or pasting the URL into another coding agent, and the highlighted Done button.](/img/docs/ai/ai-external-agent-1.png)
 
 The Claude Code command has this form:
 

@@ -38,7 +38,7 @@ Prefer to let Nowa AI do the wiring? Click **Make it real** on the design card, 
 
 ## 3. Connect Supabase
 
-Click **Supabase** in the left sidebar, then **Connect**. Approve Nowa in the browser, then click **Select** next to a project, or **Create New Project**. Nowa adds the Supabase package and a `SupabaseService` with `signUp`, `signIn` and `signOut`.
+Click **Supabase** in the left sidebar, then **Connect**. Approve Nowa in the browser, then click **Create New Project** to make a Supabase project for this app (or **Select** next to one you already have). Nowa adds the Supabase package and a `SupabaseService` with `signUp`, `signIn` and `signOut`.
 
 Nowa has no table editor, so create the table in Supabase, or ask Nowa AI. In **Agent** mode, click the Supabase icon in the chat field and ask:
 

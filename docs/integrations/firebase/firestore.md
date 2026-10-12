@@ -22,8 +22,10 @@ The editors are still there. Open `FirestoreService` (your queries) or one of yo
 
 Here's what works today:
 
-- Collections and queries that are already in your project keep working in a [Data Builder](#use-a-query-in-your-app), in Circuit and in your running app.
-- In code mode, open `lib/firebase/collections.dart` or `lib/firebase/queries.dart` from **Files** and edit the Dart code yourself.
+- Collections and queries that are already in your project keep working in your running app.
+- They also work in a [Data Builder](#use-a-query-in-your-app) and in Circuit, but each time you open the project, click **Refresh/Update apps and config files** in **Settings** → **Integrations** → **Firebase** first. Until you do, **Select Firestore Query** is empty.
+- In code mode, open `lib/firebase/collections.dart` or `lib/firebase/queries.dart` from **Files** and edit the Dart code yourself. Then click **Refresh/Update apps and config files** so Nowa's lists match your file.
+- To add, set or delete documents, write the function in `lib/firebase/queries.dart` yourself. In Nowa 3.13 the builder's `add` and `doc` steps don't work: the step shows as **func** and **Problems** reports an error such as "The function 'add' isn't defined."
 
 ## Define your collections
 
@@ -31,9 +33,9 @@ A collection is a list of documents, such as `orders`. In Nowa, each collection 
 
 Nowa keeps your collections in `lib/firebase/collections.dart`. To add one, see [Add collections and queries in Nowa 3.13](#add-collections-and-queries). When a collection is selected, the **Collections** editor shows its field list, with a details panel on the right:
 
-1. Click **+ Field** and type a name for the field. A new field starts as text (`String?`).
-2. Click the field's type to pick another one.
-3. Click a field to edit its details on the right, or to remove it.
+1. Click **+ Field**. A new field named `var1` appears as text (**String**), with its name selected. Type the field's name.
+2. Click the field's type to pick another one, such as **int**, **double** or **bool**.
+3. Click a field to edit it on the right. The panel, headed **Edit** and the field's name, has **Name**, **Type**, **Default Value**, **Is Final**, **Is Static** and **Remove**.
 
 Double-click a field name to rename it later. The name you type for a collection is its name in Firestore, so it must match your database. Names must be unique.
 
@@ -42,7 +44,7 @@ Double-click a field name to rename it later. The name you type for a collection
 Each query is a function of `FirestoreService`, in `lib/firebase/queries.dart`. To add one, see [Add collections and queries in Nowa 3.13](#add-collections-and-queries). When a query is selected, the **Queries** editor lets you build it one step at a time:
 
 1. Under **Query**, the builder starts with `FirebaseFirestore.instance`.
-2. Open **Select Collection** and pick a collection. It reads "No Collections" until you define one.
+2. Open **Select Collection** and pick a collection. It reads "No Collections" until you define one, or until you click **Refresh/Update apps and config files** after opening the project.
 3. Open the dropdown that appears and pick the next step. Fill in its arguments: **Select Field**, **Select Operator** and **Select Value**.
 4. Keep adding steps until the query ends in a step that reads or writes data. Click the backspace icon at the top right of the builder to remove the last step.
 5. Check the icon at the lower right of the builder. A check mark (tooltip: "Query is Future or Stream, you can run it") means you can test the query. A warning icon (tooltip: "Query not Future or Stream, so you can't run it") means it isn't ready yet.
@@ -59,9 +61,9 @@ Each query is a function of `FirestoreService`, in `lib/firebase/queries.dart`. 
 | `set` | Creates or replaces the document at that ID. | Nothing |
 | `delete` | Deletes the document. | Nothing |
 
-After the collection you can pick `add`, `doc`, `get`, `where`, `orderBy`, `count` or `snapshots`.
+After the collection you can pick `add`, `doc`, `get`, `where`, `orderBy`, `count` or `snapshots`. In Nowa 3.13, `add` and `doc` can't be built yet, so `set` and `delete` can't either. See [Add collections and queries in Nowa 3.13](#add-collections-and-queries).
 
-To make a query reusable, open a value dropdown and choose **Create New Param**. The parameter appears in the **Params** list on the right, and you pass a value each time you use the query. **Enter Value** types a fixed value instead.
+To make a query reusable, open a value dropdown and choose **Create New Param**. The parameter appears in the **Params** list on the right, and you pass a value each time you use the query. Nowa names it `addedParam` and gives it the field's type. Double-click it in **Params** to rename it. If the builder then looks empty, select the query again: your steps are still there. **Enter Value** types a fixed value instead.
 
 The builder has no `update` or `limit` step.
 
@@ -69,13 +71,15 @@ The builder has no `update` or `limit` step.
 
 The **Test** section sits below the builder in the **Queries** editor.
 
-1. In **Test**, set a value for each parameter under **Parameters**. Parameters you leave alone use their defaults.
+1. In **Test**, set a value for each parameter under **Parameters**. Each one is labeled from its name, such as **Min Price** for `minPrice`. Parameters you leave alone use their defaults. For a `double` parameter, type a value with a fraction, such as `50.5`: in Nowa 3.13 a whole number such as `50` is dropped and the test runs with the default.
 2. Click **Run Test**. The result appears under **Preview**.
 3. For a stream, the button becomes **Restart** and the preview updates as the data changes.
 
-{/* CAPTURE: id=integrations-firebase-firestore-1 | state: connected project with an orders collection; a query built as collection → where → orderBy → snapshots; Run Test clicked on a throwaway database | show: the Queries view with the query builder row, the status check mark, the Test section with Parameters and Preview, and the Params list on the right | crop: whole editor window */}
+Your Firestore security rules apply to the test. With rules that don't allow the read, such as the locked rules of a database created in production mode, the preview shows "No Data was found." with an **Error:** line such as `[cloud_firestore/permission-denied] Missing or insufficient permissions.`
 
-The preview shows your documents as JSON, "Data was added successfully" after an `add`, "No Data was found." for an empty result, or **Error:** with the message if the query fails.
+![The Queries editor for a query named productsByPrice: the builder rows FirebaseFirestore.instance, collection('products'), where price >= minPrice, orderBy price descending and snapshots, with the green check mark at the lower right (rows and check mark highlighted); below it the Test section with the Min Price parameter set to 20.5, the Restart button and a Preview that lists two documents as JSON, Running Shoes at 120 and Wireless Headphones at 79.99 (highlighted); and on the right the Params list with minPrice (highlighted).](/img/docs/integrations/integrations-firebase-firestore-1.png)
+
+The preview shows your documents as JSON, "Data was added successfully" after an `add`, or "No Data was found." for an empty result. If the query fails, an **Error:** line with the message appears under "No Data was found."
 
 :::warning
 Test runs against your real database. `add`, `set` and `delete` change real data, so test them on a throwaway project.
@@ -89,12 +93,12 @@ On the Windows desktop app, a message covers the **Test** section: "Testing Fire
 
 1. Select the widget, click **Add Wrapper** and choose **Data Builder**.
 2. In **Details**, set **Source** to **Firestore**.
-3. Next to **Query**, click the button and pick your query in **Select Firestore Query**. Fill in its parameters below, if it has any.
+3. Next to **Query**, click the button and pick your query in **Select Firestore Query**. Fill in its parameters below, if it has any. If the list is empty after you reopen the project, click **Refresh/Update apps and config files** in **Settings** → **Integrations** → **Firebase**.
 4. Inside the Data Builder, `data` holds the result. For a list, `data.docs` has one entry per document, and each entry's `data()` holds your fields.
 
 On the board, Nowa doesn't call Firestore. A list shows three placeholder documents built from your collection's fields, and text reads like `[title]`. Click **Play** on the screen, or run the app, to see your real documents. In the Windows desktop app, run the app on a simulator instead.
 
-**Run it from an event.** In [Circuit](../../logic/circuit.md#add-a-node), add a node from the **FIREBASE** category and pick your query. Set its parameters. A query that ends in `get`, `add`, `set` or `delete` returns a Future, so use **Future Options** for what happens next. For `add` and `set`, pass a model object.
+**Run it from an event.** In [Circuit](../../logic/circuit.md#add-a-node), add a node from the **FIREBASE** category and pick your query. If your queries are missing there, refresh the same way. Set its parameters. A query that ends in `get`, `add`, `set` or `delete` returns a Future, so use **Future Options** for what happens next. For `add` and `set`, pass a model object.
 
 :::tip
 Prefer to describe it? Ask Nowa AI in **Agent** mode, for example: "Show the documents from my orders query in a list on the Orders screen."

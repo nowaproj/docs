@@ -57,6 +57,10 @@ Under **Connected Accounts**, the **Figma** row lets Nowa AI use your Figma acco
 1. Click **Connect**. A **Waiting for Authorization...** dialog appears while you approve Nowa in your browser.
 2. When it finishes, the row shows your Figma name and email, and the button reads **Disconnect**.
 
+:::note
+Connecting Figma doesn't work right now: no browser window opens, and the dialog keeps waiting until you click **Cancel**. See [Known issues](../troubleshooting/known-issues.md#figma-connect).
+:::
+
 To disconnect, click **Disconnect**, then **Yes** under "Are you sure?". Nowa warns "You will need to reconnect to Figma if you want to use Figma features again." Using Figma from the chat is covered in [Connect Figma and Supabase to Nowa AI](../ai/connectors.md).
 
 ## Log out

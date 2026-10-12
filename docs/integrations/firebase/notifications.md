@@ -14,13 +14,14 @@ Push notifications reach people even when your app is closed. Turn on **Push Not
 
 ## Turn on push notifications
 
-1. Open **Settings** → **Integrations** → **Firebase** and turn on **Push Notifications (FCM)**. The **Test Push Notifications** box appears below it.
-2. For iOS, add the capability in Xcode: open your iOS project, then go to **Signing & Capabilities** → **Add Capability** → **Push Notifications**.
-3. Run or publish your app again, so the build includes the notification code. See [Publish to Google Play](../../publish/android.md) and [Publish to the App Store](../../publish/ios.md).
+1. Open **Settings** → **Integrations** → **Firebase** and turn on **Push Notifications (FCM)**.
+2. Nowa opens **Add Missing Dependencies**: "Package flutter_local_notifications requires the following dependencies", with the Android permission `RECEIVE_BOOT_COMPLETED` in the list. Click **Add**. The **Test Push Notifications** box appears below the switch.
+3. For iOS, add the capability in Xcode: open your iOS project, then go to **Signing & Capabilities** → **Add Capability** → **Push Notifications**.
+4. Run or publish your app again, so the build includes the notification code. See [Publish to Google Play](../../publish/android.md) and [Publish to the App Store](../../publish/ios.md).
 
 Nowa shows the Xcode reminder under the switch. In the macOS desktop app it also has an **Open Xcode Workspace** link. It opens `ios/Runner.xcworkspace` from the project's folder, so it works for [local projects](../../code/local-projects.md).
 
-{/* CAPTURE: id=integrations-firebase-notifications-1 | state: connected project, Push Notifications (FCM) on, Test Push Notifications filled in but not sent | show: the Push Notifications (FCM) switch with its description and the Xcode note, and the Test Push Notifications box | crop: Settings window content area */}
+![The Push Notifications (FCM) switch, on, with its description and the Xcode reminder (highlighted), and below it the Test Push Notifications box (highlighted): Notification Title, Notification Text, Target Audience All Users, Deliver with sound on and Send Test Notification. It is filled in but not sent.](/img/docs/integrations/integrations-firebase-notifications-1.png)
 
 ## What Nowa adds
 
@@ -57,7 +58,9 @@ Nowa sends the test with your Google sign-in. If sending fails, a red message sh
 - "Unknown error occurred while sending notification."
 
 :::warning
-If Google no longer accepts Nowa's sign-in, for example because it expired, Nowa disconnects Firebase from your project and the page returns to **Connect Firebase**. Only your Firestore collections and queries files stay. Connect again, then turn **Authentication** and **Push Notifications (FCM)** back on.
+If Google no longer accepts Nowa's sign-in when you send, for example because it expired, Nowa disconnects Firebase from your project and the page returns to **Connect Firebase**. Only your Firestore collections and queries files stay. Connect again, then turn **Authentication** and **Push Notifications (FCM)** back on.
+
+Google's sign-in expires after about an hour. To be safe, click **Refresh/Update apps and config files** before you send. If the page then shows **Connect Firebase**, click **Continue with Google** and sign in: that keeps your project connected.
 :::
 
 ## What a notification looks like

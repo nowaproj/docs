@@ -15,12 +15,12 @@ Firebase Authentication lets people create accounts and sign in to your app. Tur
 ## Turn on Authentication and add providers
 
 1. Open **Settings** → **Integrations** → **Firebase**.
-2. Turn on **Authentication**. **Add Provider** appears below the **Push Notifications (FCM)** section.
+2. Turn on **Authentication**. **Add Provider** appears below the **Push Notifications (FCM)** section. The status bar may then show an error that starts with "Unsupported operation: Unsupported invalid type" while **Problems** says "No issues detected". See [Known issues](../../troubleshooting/known-issues.md#invalid-type-in-status-bar).
 3. Click **Add Provider**. Once Email/Password or Google is on, the button reads **Manage Providers**.
 4. On **Available Providers**, click the **+** on **Email/Password**, **Google** or **Phone**. A check mark means the provider is on. Click it to remove the provider.
 5. Click the back arrow. The **Providers** row shows an icon for each provider that's on.
 
-{/* CAPTURE: id=integrations-firebase-auth-1 | state: connected project, Authentication on, Available Providers open with one provider added | show: the Email/Password, Google and Phone tiles (one with a check mark) and the note above them | crop: Settings window content area */}
+![The Available Providers page opened from Add Provider: the note about enabling the selected providers in Firebase Authentication, then the Email/Password tile with a green check mark and the Google and Phone tiles with plus buttons. The note and the three tiles are highlighted.](/img/docs/integrations/integrations-firebase-auth-1.png)
 
 If adding **Google** shows the red message "Exception: Must Enable Google Authentication on Firebase", turn on Google sign-in in the Firebase console and try again.
 
@@ -78,7 +78,7 @@ Google sign-in on Android needs your app's SHA fingerprints registered in Fireba
 
 1. On the Firebase page, click **Setup** under **SHA Certificate Fingerprints (For Google Sign in)**.
 2. The table lists the fingerprints Firebase already has for your Android app, with their **Type**. It reads "No keys found" when there are none.
-3. Under **Release key**, click **Add** next to **SHA-1** and **SHA-256**. A check mark replaces **Add** once the key is in Firebase. This section shows up when Nowa can get the fingerprints of your project's Android signing key. See [Publish to Google Play](../../publish/android.md).
+3. Under **Release key**, click **Add** next to **SHA-1** and **SHA-256**. A check mark replaces **Add** once the key is in Firebase. This section shows up when Nowa can get the fingerprints of your project's Android signing key. If it's missing, create the key first. See [Create a signing key](../../publish/android.md#create-a-signing-key).
 4. To use Google sign-in in debug builds you run from your own computer, add your debug key too:
    1. Copy the `keytool` command under **Add a key** and run it in a terminal.
    2. Copy the SHA-1 it prints.
@@ -87,7 +87,7 @@ Google sign-in on Android needs your app's SHA fingerprints registered in Fireba
 
 Paste the fingerprint with its colons but without the `SHA1:` label that `keytool` prints in front of it. Nowa treats a value of exactly 59 characters as SHA-1 and anything else as SHA-256.
 
-{/* CAPTURE: id=integrations-firebase-auth-2 | state: connected project, SHA Certificate Fingerprints → Setup | show: the fingerprints table, the Release key rows with Add, and the Add a key command with Add Key | crop: Settings window content area */}
+![The SHA fingerprints page after clicking Setup: No keys found, the Release key section with SHA-1 and SHA-256 values and an Add button on each (highlighted), and the Add a key section with the keytool command, the Enter SHA-1 or SHA-256 field and Add Key (highlighted).](/img/docs/integrations/integrations-firebase-auth-2.png)
 
 ## Turn Authentication off
 

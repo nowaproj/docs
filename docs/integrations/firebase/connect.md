@@ -22,11 +22,16 @@ Sign in with Google, pick your Firebase project and click **Connect Apps**. Nowa
 4. Approve the request. Your Firebase projects appear under **Projects**.
 5. Click your project. The **Apps** list shows what Nowa will connect.
 6. Check the list. Nowa reuses apps that already match: an Android app with your package name, an iOS app with your bundle ID, or a web app whose name contains your app name and "nowa". For each missing app it shows "Android App will be automatically created", "iOS App will be automatically created" or "Web App will be automatically created".
-7. Click **Connect Apps**. A spinner shows while Nowa works. When it finishes, the page switches to the connected view.
+7. Click **Connect Apps**. A spinner shows while Nowa works. When it finishes, the page switches to the connected view. The status bar may show "Failed to recompile application." for a while. It clears on its own.
+8. Save before you reload or close the project: press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>S</kbd>, or click the save icon in the status bar and wait until it says **All changes saved**.
 
 Nowa names the apps it creates after your **App Name**, such as "My App (Android)-nowa".
 
-{/* CAPTURE: id=integrations-firebase-connect-1 | state: Settings → Integrations → Firebase, signed in with Google, a Firebase project clicked | show: the Apps list with the three "will be automatically created" lines and the Connect Apps button | crop: Settings window content area */}
+:::warning
+In Nowa 3.13, reloading or closing the project soon after **Connect Apps** can lose the connection before it's saved. The Firebase files are gone, `lib/main.dart` points at a missing `firebase_options.dart` and the **Firebase** page asks for your project again. If that happens, connect again: Nowa reuses the apps it already created. See [Known issues](../../troubleshooting/known-issues.md#firebase-reload-after-connect).
+:::
+
+![The Firebase page in Settings after picking the docs-capture project: under Apps, the lines Android App, iOS App and Web App will be automatically created and the Connect Apps button, all highlighted.](/img/docs/integrations/integrations-firebase-connect-1.png)
 
 :::note
 Nowa AI can't connect Firebase for you. It can't add `firebase_core`, and points you to **Settings** → **Integrations** → **Firebase** instead, so the configuration is set up correctly.
@@ -36,7 +41,7 @@ Nowa AI can't connect Firebase for you. It can't add `firebase_core`, and points
 
 - **No projects listed.** The page says "You don't have any Firebase project, please create one using firebase console!" Create a project in the Firebase console, then click **Reload Projects**.
 - **An app can't be created.** A red banner says "Error creating apps, you  have finished your limits of apps on Firebase". Nowa shows it whenever creating one of the apps fails. If your Firebase project is at its app limit, remove apps you don't use in the Firebase console. Then click the back arrow, pick your project again and click **Connect Apps**.
-- **The page asks you to sign in again.** Nowa remembers your Google sign-in on the device or browser you used. If it expires, or you open the project somewhere else, the **Firebase** page shows **Continue with Google** again. Your project stays connected.
+- **The page asks you to sign in again.** Nowa remembers your Google sign-in on the device or browser you used, and Google's sign-in expires after about an hour. When it has expired, or you open the project somewhere else, the **Firebase** page shows **Connect Firebase** with **Continue with Google** again, for example after you click **Refresh/Update apps and config files**. Sign in with the same account. Your project stays connected.
 
 ## What Nowa adds to your project
 
@@ -63,7 +68,7 @@ Once connected, **Settings** → **Integrations** → **Firebase** shows these s
 | **Go to your Firebase Dashboard** | Opens your project in the Firebase console. |
 | **Disconnect Project** | Removes Firebase from your Nowa project. |
 
-{/* CAPTURE: id=integrations-firebase-connect-2 | state: cloud project connected to a Firebase project, Authentication on with one provider, Push Notifications (FCM) on | show: the whole connected Firebase page, from Project ID down to Disconnect Project | crop: Settings window content area */}
+![The whole connected Firebase page, top to bottom: Project ID with Refresh/Update apps and config files (highlighted), Authentication and Push Notifications (FCM) both on with the Xcode note and the Test Push Notifications box, the Providers row with Manage Providers, SHA Certificate Fingerprints with Setup, Go to your Firebase Dashboard, and Disconnect Project (highlighted).](/img/docs/integrations/integrations-firebase-connect-2.png)
 
 Nowa's visual tools cover Authentication, Cloud Firestore and push notifications. Other Firebase products, such as Storage and Realtime Database, have no visual tools in Nowa.
 

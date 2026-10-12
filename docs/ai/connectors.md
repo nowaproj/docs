@@ -21,12 +21,12 @@ Before you start, sign in to Nowa. Nowa AI reaches your Supabase project through
 
 1. Click the Supabase icon in the chat field.
 2. Follow what Nowa asks for:
-   - If the project isn't connected to Supabase yet, authorize Nowa in the browser window that opens. Then click **Select** next to your Supabase project, or choose **Create New Project**. See [Connect Supabase](../integrations/supabase/connect.md) for the details.
+   - If the project isn't connected to Supabase yet, authorize Nowa in the browser window that opens. Then choose **Create New Project** to make a Supabase project for this app, or click **Select** next to one you already have. See [Connect Supabase](../integrations/supabase/connect.md) for the details.
    - If the project is connected with keys only, Nowa asks **OAuth Authentication Required**. Click **Authenticate** and authorize in the browser.
    - If the project is already connected, there is nothing more to do.
-3. When the icon turns green, switch to **Agent** mode and describe what you want.
+3. When the icon is highlighted and its tooltip reads **Manage MCP**, the connector is on. Switch to **Agent** mode and describe what you want.
 
-Click the green icon to open its menu:
+Click the highlighted icon to open its menu:
 
 | Menu item | What it does |
 |---|---|
@@ -53,6 +53,10 @@ If your project isn't connected to Supabase, or the connector is off, Nowa AI te
 2. If your Nowa account isn't linked to Figma yet, a browser window opens. Approve access there. Nowa waits with **Waiting for Authorization...** for up to 2 minutes, then shows "Authorization timed out. Please try again." Click **Cancel** to close the dialog, whether it's still waiting or timed out.
 3. When the Figma icon turns on, switch to **Agent** mode and ask.
 
+:::warning[Connecting Figma doesn't work right now]
+When you click the Figma icon, **Waiting for Authorization...** shows but no browser window opens, so you can't link Figma yet. Click **Cancel**. The steps on this page describe how connecting works once the problem is fixed. See [Known issues](../troubleshooting/known-issues.md#figma-connect).
+:::
+
 With the connector on, Nowa AI can:
 
 - Bring in images and icons from your Figma design as project assets, including SVGs.
@@ -75,7 +79,7 @@ Before a connector action runs, an **Approval Required** card appears in the con
 
 The card then reads **Tool Request**, with an **Approved** or **Denied** badge. If you stop the request, pending approvals are dropped.
 
-{/* CAPTURE: id=ai-connectors-2 | state: signed-in project with the Supabase connector on and a request that needs a backend change | show: an Approval Required card with Tool, the expanded Arguments, Deny and Approve | crop: Assistant panel conversation */}
+![The AI Assistant panel with an Approval Required card for the Supabase connector: Tool apply_migration and the open Arguments, a JSON object with a query that adds a priority column to the todos table and the name add_priority_to_todos (both highlighted), and the Deny and Approve buttons (highlighted). Above the card, the Thinking process rows and "Getting Supabase integration instructions...".](/img/docs/ai/ai-connectors-2.png)
 
 To skip the cards, use **Auto-approve tools**. The switch lives in the Figma menu, so turn the Figma connector on, click its icon, then click **Auto-approve tools**. To turn it off, open the menu and click **Auto-approve tools** again.
 

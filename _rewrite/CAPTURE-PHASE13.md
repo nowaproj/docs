@@ -22,6 +22,20 @@ those connections on its server, so you can use them from here.
 - GitHub connected to the test account (avatar → **General Settings** → **Git**), and a private repository
   `docs-capture-repo` with a README.
 
+Checked from the cloud on 12 Oct 2026: **Docs capture services** opens with the **Supabase** panel connected (Generate a
+Query, Authentication with signIn, signUp and signOut), and **Git Settings** shows GitHub Integration connected with one
+repository. The account also has the projects Docs capture firebase, fresh, share and local (made by the Mac session).
+Not checked: the `files` bucket and the **Confirm email** setting.
+
+What the Mac session learned (see `captures/phase13/local.md`):
+- Supabase is connected from the **Supabase** icon in the left sidebar → **Connect** (there is no Supabase entry under
+  Settings → Integrations in 3.13.0).
+- The Supabase authorization is kept **per Nowa project**: connecting a second Nowa project opened Supabase's "Authorize
+  Nowa" page again (product issue P153). From here that page means a Supabase sign-in, so a project that isn't connected
+  yet can't be connected from the cloud. Work in a project that is already connected.
+- Loading a project takes 40 to 55 seconds; files in code mode take 10 to 20 seconds to open; the first click after a
+  popup opens is sometimes ignored.
+
 ## Credentials
 
 The Nowa test account only: `/tmp/claude-0/-home-user/9057e385-ad67-5a58-8715-2a4aa0e20670/scratchpad/test-account.env`

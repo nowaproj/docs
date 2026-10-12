@@ -77,13 +77,13 @@ People without access to a private preview may see **Preview Not Available**, wi
 This works for cloud projects. In a local project, **Sharing** has only the **Cover**. Members with **View Only** access don't see **Sharing**.
 
 1. Click the gear in the top bar, or press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>,</kbd>, then click **Project Details**.
-2. Scroll to **Sharing** and turn on **Public project**. Nowa asks "Make this project public?".
-3. Tick "I checked, there are no secrets in this project" and click **Make public**.
-4. Click **Copy link**, or **Open in a new tab** to try it yourself.
+2. Scroll to **Sharing** and turn on **Public project**. Nowa asks "Make this project public?": "Your project becomes open source, anyone with the link can read every file and save their own copy of it." A warning adds that this "would expose any API keys, tokens and any other secrets".
+3. Tick "I checked, there are no secrets in this project" and click **Make public**. **Make public** stays dimmed until the box is ticked. **Cancel** leaves the project private.
+4. The link and three icon buttons appear next to the switch: **Copy link**, **Open in a new tab** and **Link options**. Click **Copy link**, or **Open in a new tab** to try it yourself.
 
-The link looks like `https://app.nowa.dev/project/<project>`, with your link options added.
+The link looks like `https://app.nowa.dev/project/<project>`, with your link options added. Turn **Public project** off to make the project private again.
 
-{/* CAPTURE: id=test-share-2 | state: signed-in cloud project, Settings open on Project Details, scrolled to Sharing with Public project on, Link options popup open | show: the Cover field, the Public project switch with the link and its buttons (Copy link, Open in a new tab, Link options), and the four link options | crop: Settings page, Sharing section */}
+![The Sharing section of Project Details in Settings with Public project on: the Cover field (highlighted), the project link in a text field (highlighted) and the Public project switch, on (highlighted), and the open Link options popup (highlighted) with the checkboxes Code mode, Preview (greyed) and Assistant, and the Opened file row set to Default.](/img/docs/test/test-share-2.png)
 
 Visitors can open the link without an account. Nowa opens your project in a private copy in their browser, so "your project is never changed by a visitor". They can explore, play and edit.
 
@@ -91,7 +91,7 @@ Their edits are lost when they close the tab, unless they click **Save to keep c
 
 ### Set how the link opens
 
-Click **Link options** to choose what visitors see first. Nowa adds your choices to the link.
+Click **Link options** to choose what visitors see first. A popup opens over the three buttons. Nowa adds your choices to the link.
 
 | Option | What it does |
 |---|---|

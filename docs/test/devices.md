@@ -30,19 +30,19 @@ The preview runs your app as a web app. To install a build on a phone instead, [
 ## Run on a device
 
 1. Click the arrow next to **Run** to open the **Run on** menu.
-2. Look under **DEVICES**. Nowa lists what your Flutter SDK finds, such as a connected phone, a running emulator, a browser or your own computer. While it searches you see "Looking for devices…". If it says "No devices connected", plug in a device or start an emulator.
+2. Look under **DEVICES**. Nowa lists what your Flutter SDK finds, such as a connected phone, a running emulator, a browser or your own computer. While it searches you see "Looking for devices…". If it says "No devices connected", plug in a device or start an emulator. If a device you started after opening the project isn't listed, open another project and come back: in Nowa 3.13 the list doesn't always refresh.
 3. Click your device. Nowa builds your app and starts it there. When the app isn't running, **Run** shows the device's name. Click it to run on the same device again.
 4. Wait for the first build. The top bar shows a spinner and a **Cancel** button while it builds. Once the app is running, you see **Stop**, a lightning bolt (**Hot restart**) and an arrow (**Run target**).
 5. Change something in Nowa and save. The running app reloads with your changes. If a change doesn't show up, for example a theme change, click the lightning bolt to restart the app.
 6. Click **Stop** when you're done.
 
-{/* CAPTURE: id=test-devices-1 | state: desktop app, signed in, a cloud project open with a phone or emulator connected, Run caret clicked | show: the Run on menu with Embedded preview, a device row, Start an emulator rows, the Local cache row and Local environment settings | crop: the open menu with the top bar above it */}
+![The Run on menu in the Nowa desktop app, opened with the arrow next to Run (highlighted), for a cloud project with an iOS Simulator running: the Embedded preview row, DEVICES with iPhone 17 Pro running (and its Stop button), macOS and Chrome, START AN EMULATOR with an Android emulator, the Local cache row with its three icon buttons, and Local environment settings. The whole menu is highlighted.](/img/docs/test/test-devices-1.png)
 
 If you unplug the selected device, **Run** goes back to the **Embedded preview**. Build and app messages go to the **Logs** tab of the **Console**. If the run can't start, the **Log** panel opens by itself. See [Read the logs](run.md#read-the-logs).
 
 ## Start an emulator or simulator
 
-The **Run on** menu also lists emulators and simulators that your Flutter SDK knows about, under **Start an emulator** (shown as START AN EMULATOR).
+The **Run on** menu also lists emulators and simulators that your Flutter SDK knows about, under **Start an emulator** (shown as START AN EMULATOR). One that's already running shows under **DEVICES** instead.
 
 1. Click an emulator. It starts.
 2. Wait for it to show up in the device list. Nowa then selects it as your run target.
@@ -54,7 +54,7 @@ If the emulator you want isn't listed, create it first. See Android's [emulator 
 
 Cloud projects run the same way. Nowa keeps a temporary copy of your project on your computer and runs that copy.
 
-- The first run downloads the project, so it takes longer. The top bar shows the steps, from "Saving project…" to "Syncing files…", with a **Cancel** button.
+- The first run downloads the project, so it takes longer. The top bar shows the steps, from "Saving project…" to "Syncing files…", with a **Cancel** button. A first build for the iOS Simulator can take a couple of minutes.
 - Later runs only sync the files you saved.
 - The **Local cache** row in the **Run on** menu shows the copy's state: "Created on the first device run" or "Cached on disk · re-synced on save".
 

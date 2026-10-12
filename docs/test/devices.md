@@ -5,7 +5,7 @@ sidebar_label: Devices and emulators
 keywords: [run on device, physical device, real device, test on my phone, emulator, simulator, ios simulator, android emulator, device hub, usb, usb debugging, developer options, developer mode, iphone, android phone, hot reload, hot restart, local cache, flutter sdk, xcode, android studio, run locally]
 ---
 
-Seeing your app on a real phone is the best test there is. Run it on your own phone, an Android emulator, the iOS Simulator or your computer, and you see exactly how it looks and feels there. It updates every time you save, so you can tweak a screen in Nowa and check it on the phone a moment later.
+Seeing your app on a real phone is the best test there is. Run it on your own phone, an Android emulator, the iOS Simulator or your computer, and you see how it really looks and feels there. It updates every time you save, so you can tweak a screen in Nowa and check it on the phone a moment later.
 
 <Badge type="desktop" />
 
@@ -13,7 +13,7 @@ It works for cloud projects and local projects alike. The first run needs a litt
 
 ## What your computer needs {#what-your-computer-needs}
 
-Nowa builds your app on your own computer with a few free tools. You don't need to learn any of them: Nowa runs them for you in the background, and it can install most of them itself.
+Nowa builds your app on your own computer with a few free tools. You don't need to learn any of them: Nowa runs them for you in the background, and it can install Flutter and the Android tools for you.
 
 | Tool | What it is | Do you need it? |
 |---|---|---|
@@ -24,7 +24,7 @@ Nowa builds your app on your own computer with a few free tools. You don't need 
 | Xcode | Apple's free app for building iPhone, iPad and Mac apps. It includes the iOS Simulator, a virtual iPhone on your Mac. | For an iPhone, an iPad or the iOS Simulator. Mac only. |
 | Android Studio | Google's app for Android developers. | Optional. Use it to create more emulators, such as a tablet or an older Android version. |
 
-Your computer itself also shows up as a device, which runs your app as a desktop app. That needs one more tool: Xcode on a Mac, Visual Studio with **Desktop development with C++** on Windows (Visual Studio, not VS Code), or a few build packages on Linux. Flutter's [Windows](https://docs.flutter.dev/platform-integration/windows/setup) and [Linux](https://docs.flutter.dev/platform-integration/linux/setup) guides list them. Phones, emulators and Chrome don't need any of this.
+Your computer itself also shows up as a device, which runs your app as a desktop app. That needs your system's own build tools: Xcode on a Mac, Visual Studio with **Desktop development with C++** on Windows (Visual Studio, not VS Code), or a few build packages on Linux. Flutter's [Windows](https://docs.flutter.dev/platform-integration/windows/setup) and [Linux](https://docs.flutter.dev/platform-integration/linux/setup) guides list them. For phones, emulators and Chrome, the tools in the table are all you need.
 
 ### Set up your computer
 
@@ -56,7 +56,7 @@ This runs your app as a web app in the phone's browser, which is great for a qui
 
 ![The Run on menu in the Nowa desktop app, opened with the arrow next to Run (highlighted), for a cloud project with an iOS Simulator running: the Embedded preview row, DEVICES with iPhone 17 Pro running (and its Stop button), macOS and Chrome, START AN EMULATOR with an Android emulator, the Local cache row with its three icon buttons, and Local environment settings. The whole menu is highlighted.](/img/docs/test/test-devices-1.png)
 
-Is a device missing? In Nowa 3.13 the list doesn't always refresh, so a phone or emulator you started after opening the project may not show up. Open another project and come back, and it's there.
+Is a device missing? In Nowa 3.13 the list doesn't always refresh, so a phone or emulator you started after opening the project may not show up. Open another project and come back to refresh the list.
 
 If you unplug the selected device, **Run** goes back to the **Embedded preview**. Build and app messages go to the **Logs** tab of the **Console**, and if the run can't start, the **Log** panel opens by itself so you can see why. See [Read the logs](run.md#read-the-logs). Nowa AI can read those logs too: in **Agent** mode, try "The app closes when I tap Book on my phone. Check the logs and fix it."
 
@@ -75,14 +75,14 @@ The **Run on** menu lists the emulators Flutter knows about under **Start an emu
 When there are no devices and no emulators to start, the menu says "No devices connected. Plug in a device or set up an emulator." Here's how to get one:
 
 - **Android, the quick way:** install the **Android emulator** in Nowa's automatic setup, on the screen where you install the **Android toolchain** (its **Install** unlocks once the toolchain is in). Nowa then creates a virtual Android phone for you. In Nowa 3.13 that screen only opens while the toolchain is missing, so if you already have it, create an emulator in Android Studio instead.
-- **More Android models:** in Android Studio, open **Device Manager** (on the welcome screen: **More Actions** → **Virtual Device Manager**), click **Create Device**, pick a phone or tablet and a system image (the Android version it runs), and click **Finish**. See Android's [guide to virtual devices](https://developer.android.com/studio/run/managing-avds).
+- **More Android models:** in Android Studio, open **Device Manager** (on the welcome screen: **More Actions** → **Virtual Device Manager**), click **Create Device**, pick a phone or tablet and a system image (the Android version it runs), and click **Finish**. If Nowa installed your Android toolchain, an emulator you make in Android Studio may not show up under **Start an emulator**. Start it from Android Studio's **Device Manager** with **Launch** instead: once it's running, it shows under **DEVICES**. See Android's [guide to virtual devices](https://developer.android.com/studio/run/managing-avds).
 - **iPhone and iPad:** **iOS Simulator** shows up once Xcode is installed and set up. To choose another model or iOS version, open Xcode's simulators yourself. In Xcode 27 they live in **Device Hub** (**Xcode** → **Open Developer Tool** → **Device Hub**), and earlier versions use the **Simulator** app. See Apple's [guide to Device Hub](https://developer.apple.com/documentation/xcode/managing-your-simulated-and-physical-devices-in-device-hub).
 
-If a run on the iOS Simulator stops with a message about CocoaPods, your Mac needs one more free tool. CocoaPods adds the iPhone side of your app's packages, the ready-made add-ons for things like maps or sign-in. Flutter's [iOS setup guide](https://docs.flutter.dev/platform-integration/ios/setup) shows how to install it.
+If a run on the iOS Simulator or an iPhone stops with a message about CocoaPods, your Mac needs one more free tool. CocoaPods adds the iPhone side of your app's packages, the ready-made add-ons for things like maps or sign-in. Flutter's [iOS setup guide](https://docs.flutter.dev/platform-integration/ios/setup) shows how to install it.
 
 ## Run on your Android phone {#run-on-your-android-phone}
 
-Your own phone shows your app exactly as your users will see it. Android asks you to flip one switch first, so your computer is allowed to install apps on it. You only do this once.
+Your own phone shows your app as your users will see it. Android asks you to flip one switch first, so your computer is allowed to install apps on it. You only do this once.
 
 1. Turn on **Developer options**. On the phone, open **Settings** → **About phone** and tap **Build number** seven times, until you see "You are now a developer!". Some phones tuck **Build number** away, for example under **Software information** on Samsung phones.
 2. Go back to **Settings**, open **Developer options** (on Android 9 and later, it's under **System** → **Advanced**) and turn on **USB debugging**.
@@ -94,7 +94,7 @@ Make sure the **Android toolchain** is installed first (see [What your computer 
 
 ## Run on your iPhone or iPad {#run-on-your-iphone-or-ipad}
 
-An iPhone takes more setup than an Android phone, because Apple only runs apps that are signed with an Apple Account (signing proves who made the app). That one-time setup happens in Xcode, so it suits people who are comfortable there. If that's not you, the iOS Simulator, **Open on Mobile** ([No desktop app?](#no-desktop-app)) or a TestFlight build ([Publish to iOS](../publish/ios.md)) are easier ways to see your app on an iPhone.
+An iPhone takes more setup than an Android phone, because Apple only runs apps that are signed with an Apple Account (signing proves who made the app). That one-time setup happens in Xcode, so it suits people who are comfortable there. If that's not you, there are easier ways to see your app on an iPhone: the iOS Simulator, or, for a cloud project, **Open on Mobile** ([No desktop app?](#no-desktop-app)) or a TestFlight build ([Publish to iOS](../publish/ios.md)).
 
 If you're comfortable with Xcode:
 

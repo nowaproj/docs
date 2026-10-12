@@ -5,7 +5,7 @@ sidebar_label: Test and ship tips
 keywords: [testing, publish checklist, release checklist, launch, backup, Git, performance, big boards, Problems, instant play, run, device, bundle identifier, signing key, Google Play, web]
 ---
 
-Shipping is calmer when you test in the right place at the right time and always have a way back to a good version. These tips cover both, plus a checklist for the day you publish, so launch day holds no surprises.
+Shipping is calmer when you test in the right place at the right time and always have a way back to a good version. These tips cover both, plus a checklist for the day you publish, so you don't forget a step.
 
 ## Test in the right place
 
@@ -58,13 +58,13 @@ See [Work with boards](../design/boards.md#big-boards-and-errors).
 
 <Badge type="cloud" /> <Badge type="paid" />
 
-Publishing needs a cloud project on a paid plan. Work through this list first: each row takes a minute to check, and fixing it after release can mean another store review.
+Publishing needs a cloud project on a paid plan. Work through this list first: fixing something after release can mean another store review.
 
 | Check | Where |
 |---|---|
 | **App Name**, **Bundle Identifier** (your app's unique ID in the stores: replace the `com.example` start), **Build version**, **Build number** and **App Icon** are set. Choose the identifier before your first store upload. | **Settings** → **Project Details** |
 | Permissions are on for what you use, such as camera or location. | **Settings** → **Permissions** |
-| Test settings are off. Stripe uses live keys instead of test keys, and Google Pay is switched from Google's test environment to the real one (ask Nowa AI in **Agent** mode, for example "Switch Google Pay in my Stripe payments from test to production"). AdMob **Show Test Ads** is off on every banner and ad call, with your real ad unit IDs and both App IDs. Maps has a key for each platform you ship. | [Stripe](../integrations/stripe.md), [AdMob](../integrations/admob.md#before-you-publish), [Google Maps](../integrations/google-maps.md) |
+| Test settings are off. Stripe uses live keys instead of test keys, and its webhook has its own destination in live mode. Google Pay is switched from Google's test environment to the real one (ask Nowa AI in **Agent** mode, for example "Switch Google Pay in my Stripe payments from test to production"). Do that after your last **Deploy Configuration**, because each deploy puts Google Pay's test setting back. AdMob **Show Test Ads** is off on every banner and ad call, with your real ad unit IDs and both App IDs. Maps has a key for each platform you ship. | [Stripe](../integrations/stripe.md#go-live), [AdMob](../integrations/admob.md#before-you-publish), [Google Maps](../integrations/google-maps.md) |
 | No secret key sits in **Constants** or in a REST API's request settings, RLS is on for every table, and the project is **Private**. | [Keep secrets out of your app](data-and-state-tips.md#keep-secrets-out-of-your-app) |
 | **Problems** is clear, and you've used the real app on a device. | [Test in the right place](#test-in-the-right-place) |
 | **Read the store rules** for each store you publish to: payments, sign-in, accounts and privacy. | [Follow Apple's rules](../publish/ios.md#store-rules), [Follow Google Play's rules](../publish/android.md#store-rules) |

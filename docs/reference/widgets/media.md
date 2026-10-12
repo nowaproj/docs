@@ -44,10 +44,11 @@ A **Container** can show a picture behind whatever you put inside it, like a pho
 
 1. Select the Container. The **Shape** tool draws one.
 2. In **Details**, hover **Image** and click **+**. The picture's own settings appear underneath: another **Image** row for the picture itself, and **Fit**.
-3. Set the picture on the **Network** or **Asset** tab, as you would for an Image widget. If that inner **Image** row is still empty, hover it and click **+** first.
-4. Choose a **Fit**. It starts at `cover`, which fills the whole box.
+3. If that inner **Image** row is empty, with no **Network** or **Asset** tab yet, hover it and click **+** too. It starts with a sample photo from the web.
+4. Set your picture on the **Network** or **Asset** tab, as you would for an Image widget.
+5. Choose a **Fit**. It starts at `cover`, which fills the whole box.
 
-While a picture is set, the Container's **Color** row is hidden. To place text or buttons on top of the picture, put them inside the Container: see [Put a widget inside a container](../../design/add-widgets.md#put-a-widget-inside-a-container).
+While a picture is set, the Container's **Color** row is hidden, but the color stays behind the picture and shows wherever the picture doesn't cover the box, such as with `contain`. To place text or buttons on top of the picture, put them inside the Container: see [Put a widget inside a container](../../design/add-widgets.md#put-a-widget-inside-a-container).
 
 ## Choose how a picture fits its box {#fit}
 

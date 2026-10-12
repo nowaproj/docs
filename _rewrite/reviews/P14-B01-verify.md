@@ -5,7 +5,15 @@ Diff checked: `git -C /home/user/docs diff origin/main -- docs/index.md docs/get
 
 ## Summary
 
-(filled in at the end)
+- **Pages checked:** 15, all of B01 (diff `+` and `-` lines, plus the unchanged text for the audience rules R2-R5, R9).
+- **Claims checked:** about 130, in 95 table rows below.
+- **Fixed:** 17 wrong or overstated claims. Most serious: `welcome.md` said moving between screens needs **Agent** mode (Design mode already designs the flow); `complete-app.md` said **Make it real** hands over the whole design at once (it starts with one recommended feature); `desktop-app.md` said the Android emulator can be added later from **Local Setup** (routed from B12: in 3.13 that screen only opens while the toolchain is missing) and that the emulator row says **Managed by Nowa**; `editor-tour.md` said all Agent-built logic opens in Circuit (some loops can't be drawn) and implied Git is opt-in; `first-app.md` called **Run** "the same app your users will get" (it runs the web build).
+- **Removed:** 2 unverifiable phrases ("especially on a first run", "each row takes a minute to check").
+- **Facts restored:** 0 needed. Every removed fact was moved unchanged to `P14-B01-for-code.md` (checked against `origin/main`) or kept in plain words.
+- **Routed items:** 5 applied (B03 Terms/Privacy links, B10 ×2, B12, B09); 5 already applied by the writer, verified (B02 ×2, B04, B05 ×2).
+- **Audience fixes:** 7 (Agent mode and/or a way to check added to 7 prompts; "Git repository" and "webhook" explained).
+- **Old-docs items the writer brought back:** all verified (Xcode "Flutter failed to initialize" + **Try again**, **Managed by Nowa** (refined), stopwatch prompt pattern, internet needed in the desktop app).
+- **Open issues:** 3 (product caption contradicting the Android step's behavior, complete-app length, offline start screen). See the end.
 
 ## index.md
 

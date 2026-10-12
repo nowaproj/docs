@@ -13,6 +13,7 @@ A local project is a normal Flutter project that lives in a folder on your compu
 
 - Install the [Nowa desktop app](../get-started/desktop-app.md), for macOS, Windows or Linux. It needs a plan that includes it. If yours doesn't, the app shows "Upgrade to unlock desktop version, or use on web at app.nowa.dev". See [pricing](https://nowa.dev/pricing).
 - Set up Flutter. Nowa needs the Flutter SDK (the toolkit that builds and runs Flutter apps) on your computer to create and run projects. If you see **Flutter SDK not found**, follow [Set up Flutter](../get-started/desktop-app.md#setting-up-flutter-sdk).
+- An internet connection. Your files stay on your computer, but local projects still need a connection: Nowa checks your account with its servers when you open the dashboard or a project.
 
 A local project differs from a cloud project in three ways:
 

@@ -61,7 +61,7 @@ the form defaults, **Change API Keys** keeps functions, **Set up Backend** visib
 Word count: about 2,100 including table cells and image alt texts. If it grows, split "Find your way around the panel" and "See your
 tables" into a short "The Supabase panel" page.
 
-## Open questions
+### Open questions (connect.md)
 
 1. **Supabase is retiring the anon key, and Nowa 3.13 only accepts the anon key.** Supabase: "deprecating the anon and service_role
    keys by the end of 2026" (api-keys page); the announcement's timetable says "New projects no longer have `anon` and `service_role`

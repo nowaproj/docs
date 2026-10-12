@@ -267,7 +267,7 @@ Open questions:
 Changed for the reader:
 - Intro rewritten (R9); `StripePaymentService` kept (the reader searches for it in Circuit, R3).
 - "Turn on Stripe": `flutter_stripe` package moved; "so the rest of the page opens up" (the sections are built only
-  when the package is installed, `packages/core/lib/src/integrations/stripe/stripe_settings.dart:91-98`).
+  when the package is installed, `packages/core/lib/src/integrations/stripe/stripe_settings.dart:97-98`).
 - Purchase types: the old page's examples added to "How it works" (premium unlock or ebook, extra lives, monthly
   fitness plan) and "start with one and add more later" (old tip; redeploy keeps tables, see below).
 - Constants: "That's fine, because none of them is secret" (Stripe: publishable keys are "Safe to expose", and the
@@ -320,7 +320,7 @@ Added (old page items):
   Signing Request (CSR) file", "One CSR file must be used to issue exactly one certificate. If you switch your Apple
   Merchant ID, you must ... obtain a new CSR and certificate". iOS certificate settings link
   `https://dashboard.stripe.com/settings/ios_certificates` is the one Stripe's page uses. Nowa's hint for the field is
-  `merchant.com.example.yourapp` (`stripe_settings.dart:322`); the entitlement is written only when a merchant ID is set
+  `merchant.com.example.yourapp` (`stripe_settings.dart:328`); the entitlement is written only when a merchant ID is set
   (`stripe_manager.dart:65-76`). The App ID's Apple Pay labels aren't on Apple's help page, so step 6 has no bold labels.
   Link to `publish/ios.md#register-your-bundle-id` (routed from B11).
 - Currency codes (old tip): three-letter codes, **Fixed Value** when all items share one.

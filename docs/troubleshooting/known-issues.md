@@ -80,7 +80,7 @@ When you drag a widget in a screen over the screen's app bar, the app bar takes 
 
 ## Reloading right after connecting Firebase loses the connection {#firebase-reload-after-connect}
 
-In Nowa 3.13, if you reload or close the project soon after **Connect Apps**, the connection can be lost before it's saved. The Firebase files disappear, `lib/main.dart` points at a missing `firebase_options.dart` so the project doesn't compile, and **Settings** → **Integrations** → **Firebase** asks for your project again. Save first: press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>S</kbd>, or click the save icon in the status bar and wait for **All changes saved**. If it already happened, connect again: Nowa reuses the Firebase apps it created. See [Connect Firebase](../integrations/firebase/connect.md#connect-your-project).
+In Nowa 3.13, if you reload the page or close Nowa soon after **Connect Apps**, the connection can be lost before it's saved. The Firebase files disappear, `lib/main.dart` points at a missing `firebase_options.dart` so the project doesn't compile, and **Settings** → **Integrations** → **Firebase** asks for your project again. Save first: press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>S</kbd>, or click the save icon in the status bar, then **Save now**. The icon shows a check mark once everything is saved. If it already happened, connect again: Nowa reuses the Firebase apps it created. See [Connect Firebase](../integrations/firebase/connect.md#connect-your-project).
 
 ## The status bar shows "Unsupported invalid type" {#invalid-type-in-status-bar}
 
@@ -88,7 +88,7 @@ After you turn on Firebase **Authentication**, the status bar can show a cut-off
 
 ## Connecting Figma doesn't work right now {#figma-connect}
 
-When you click the Figma icon in the chat field, or **Connect** next to Figma in your account settings, **Waiting for Authorization...** appears but no browser window opens, so Figma can't be linked. Click **Cancel**. This affects every account, and until it's fixed the Figma connector can't be turned on. See [Connect Figma and Supabase to Nowa AI](../ai/connectors.md#connect-figma).
+When you click the Figma icon in the chat field, or **Connect** next to Figma in your account settings, **Waiting for Authorization...** appears but no browser window opens, so Figma can't be linked. Click **Cancel**. Linking fails for every account, so until it's fixed you can't turn on the Figma connector unless your account was already linked to Figma. See [Connect Figma and Supabase to Nowa AI](../ai/connectors.md#connect-figma).
 
 ## The Redirect Logic row keeps showing + {#redirect-logic-plus}
 

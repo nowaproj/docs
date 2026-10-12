@@ -34,7 +34,7 @@ The Library's details card shows a preview, the name and the first lines of the 
 |---|---|
 | **Color** | The fill. The color picker also offers gradients: **Linear**, **Radial** and **Sweep**. The row hides while a picture is set. |
 | **Border** | Hover the row and click **+** to add one. It starts black and 1 wide; change its **Color** and **Width**. |
-| **Radius** | Rounds the corners. The button next to the number sets each corner on its own (**TL**, **TR**, **BL**, **BR**). |
+| **Radius** | Rounds the corners. Hover the row, click **+** and type a number. The button next to the number sets each corner on its own (**TL**, **TR**, **BL**, **BR**). |
 | **Image** | A picture that fills the box: see [Use a picture as a background](./media.md#background-image). |
 | **Shadows** | A shadow that lifts the box off the screen. Hover and click **+** to add one; you can stack several. |
 | **Alignment**, **Padding**, **Margin** | Where the widget inside sits, the space inside the box, and the space around it. |
@@ -74,7 +74,7 @@ A new text grows with its words: its size in **Layout** is **Auto**. To draw a b
 | <Anchor id="listview" />[**List View**](./lists.md) | A scrolling list: **Builder** repeats one item for each entry of a list, **Normal** holds widgets you add yourself. | Starts in **Builder** with three placeholder items. Click **Connect** next to **List** to use a list variable. |
 | <Anchor id="gridview" />[**Grid View**](./lists.md) | A scrolling grid with the same **Builder** and **Normal** choice. | Starts in **Builder** with two columns and three placeholder items. |
 | <Anchor id="swipeable-stack" />[**Swipeable Stack**](./lists.md) | A deck of cards that people swipe away. | Needs a package, and creates a `swiperController` variable that buttons can use to swipe. The board draws at most two cards. |
-| <Anchor id="pageview" />[**Page View**](./navigation.md) | Pages that people swipe between, one at a time, with a row of dots at the bottom. | The dots are a separate widget on top of the pages: click **+** next to **Effect**, then choose their style with **Effect type**. They need a package that Nowa doesn't add for you: see [Swipe between pages](./navigation.md#page-view). |
+| <Anchor id="pageview" />[**Page View**](./navigation.md) | Pages that people swipe between, one at a time, with a row of dots at the bottom. | The dots are a separate widget on top of the pages: click **+** next to **Effect**, then choose their style with **Effect type**. They need a package, which you add with one click: see [Swipe between pages](./navigation.md#page-view). |
 | <Anchor id="index-stack" />[**Indexed Stack**](./navigation.md) | Widgets on top of each other, where only the one at **Index** shows. The hidden ones keep their state. | Link **Index** to a variable to switch content, for example the `pageIndex` of a Bottom Navigation Bar. |
 | <Anchor id="cross-fade" />[**Cross Fade**](./navigation.md) | Fades between two widgets, **First Child** and **Second Child**. | **Cross Fade State** picks which one shows. **Duration** sets the fade time. |
 | <Anchor id="wrap" />**Wrap** | Lays widgets out in a row (or column) and continues on a new line when it runs out of room, like a set of tags. | Set the gaps with **Spacing** and **Run Spacing**. See [Lay out widgets](../../design/layout.md#scroll-or-wrap-content). |
@@ -130,7 +130,7 @@ A new text grows with its words: its size in **Layout** is **Auto**. To draw a b
 |---|---|---|
 | <Anchor id="admob-banner" />[**Admob Banner**](../../integrations/admob.md) | A banner ad, so your app can earn money from ads. | Needs a package and your App IDs in **Settings** (**AdMob**, under **Integrations**). Test ads are on by default. |
 | <Anchor id="webview" />[**Web View**](./media.md) | A web page inside your app. | Nowa adds `https://` if you leave it out. The board shows a placeholder: run your app to see the page. |
-| <Anchor id="html" />[**Html**](./media.md) | Formatted text written in HTML, such as an article from your blog. | Type or paste your HTML in **Data**. Needs a package that you add yourself: see [Show HTML](./media.md#html). |
+| <Anchor id="html" />[**Html**](./media.md) | Formatted text written in HTML, such as an article from your blog. | Type or paste your HTML in **Data**. Needs a package, which you add with one click: see [Show HTML](./media.md#html). |
 | <Anchor id="markdown" />[**Markdown**](./media.md) | Formatted text written in Markdown. | Type or paste your Markdown in **Data**. People can select the text unless you turn **Selectable** off. |
 | <Anchor id="google-maps" />[**Google Maps**](../../integrations/google-maps.md) | An interactive map with markers, polygons and custom styling. | Needs a package and your Google API keys (codes that let your app use Google's maps) in **Settings** (**Google Maps**, under **Integrations**). The board shows a placeholder: run your app to see the map. |
 | <Anchor id="revenuecat-paywall" />[**RevenueCat Paywall**](../../integrations/revenuecat.md) | A ready-made paywall screen for in-app purchases and subscriptions. | Needs packages and your RevenueCat keys in **Settings** (**RevenueCat**, under **Integrations**). The board shows a placeholder. |

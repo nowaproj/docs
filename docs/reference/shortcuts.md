@@ -231,7 +231,7 @@ Select all, cut, copy, paste and undo use the usual keys (<kbd>Ctrl</kbd>/<kbd>C
 - **Pop-ups.** <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>O</kbd> and <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd> don't open while the Shortcuts sheet or a picker is already open.
 - **Browser.** A browser keeps some combinations for itself, such as <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>W</kbd>, so a few shortcuts may not reach the web app. Use the buttons instead.
 
-Two exceptions in Nowa 3.13 go the other way: a `/` you type in a **Details** field doesn't appear, and while you name something in the **Variables** list, the letters t, r, v and f can trigger board shortcuts instead of typing. [Known issues](../troubleshooting/known-issues.md#slash-in-details) has the workaround for each.
+Two exceptions in Nowa 3.13 go the other way: a `/` you type in a **Details** field doesn't appear, and while you name something in the **Variables** list, the letters t, r, v and f can trigger board shortcuts instead of typing. Known issues has a workaround for each: [the `/` in Details](../troubleshooting/known-issues.md#slash-in-details) and [the letters in the Variables list](../troubleshooting/known-issues.md#variables-list-rename).
 
 ## If you used an older version
 

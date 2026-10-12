@@ -27,14 +27,14 @@ The section also tells you who you're testing as: **Not logged in**, or **Testin
 
 Supabase can ask each new user to confirm their email address before they sign in for the first time. Hosted Supabase projects do this by default. It keeps fake sign-ups out, and it changes how you test:
 
-- Supabase's built-in email sender is meant for trying things out. It only sends to the email addresses of your Supabase organization's team, and only a few emails an hour. So test with your own address, or turn confirmation off while you build.
-- The link in the email confirms the address, then opens your project's **Site URL**. Until you change it, that's `http://localhost:3000`, which usually won't load, on a phone or anywhere else. The address is confirmed anyway.
+- Supabase's built-in email sender is meant for trying things out. It only sends to the email addresses of your Supabase organization's team, and only a few emails an hour. While confirmation is on, a test sign-up with any other address fails, and because Supabase's message says the address isn't authorized, Nowa's test panel can show it as **RLS Policy Error**. So test with the email address you use for Supabase, or turn confirmation off while you build.
+- The link in the email confirms the address, then opens your project's **Site URL**. Until you change it, that's `http://localhost:3000`, which usually shows an error page because nothing runs at that address. The address is confirmed anyway, so the new user can go back to your app and sign in.
 
 To turn email confirmation on or off:
 
 1. In Nowa, click ⋮ in the **Supabase** panel, then **Open Supabase**. Your project opens in the Supabase dashboard.
 2. Go to **Authentication** → **Sign In / Providers**.
-3. Turn **Confirm email** on or off, and save.
+3. Turn **Confirm email** on or off (it's in the **User Signups** section), and save.
 
 Before you launch, set up your own email sender (custom SMTP), so every new user gets their email. Supabase's [custom SMTP guide](https://supabase.com/docs/guides/auth/auth-smtp) shows how. Once your app has a web address, enter it as **Site URL** under **Authentication** → **URL Configuration**.
 
@@ -92,11 +92,17 @@ Google sign-in with Supabase has three parts: client IDs from Google, Nowa's **G
 4. Turn on **Skip nonce check**, which Google sign-in on iOS needs, and save.
 5. Ask Nowa AI in **Agent** mode to build the button, for example: "Add a Continue with Google button to the login screen that signs the user in with Supabase."
 
+If your app also runs on the web, do a little more before you try the button there, because on the web Supabase's guide signs people in through Google's sign-in web page:
+
+- On the same **Google** page in Supabase, also paste your Web client's secret. Google shows it when you create the Web client (see [Google Sign-In](../google-sign-in.md)).
+- In Google Cloud, open your Web client. Add the callback URL shown on that Supabase page under **Authorized redirect URIs**, and your web app's address under **Authorized JavaScript origins**.
+- Enter your web app's address as **Site URL** in Supabase too, under **Authentication** → **URL Configuration**.
+
 Supabase's [Login with Google guide](https://supabase.com/docs/guides/auth/social-login/auth-google) has the details.
 
 ### Everything else
 
-For anything else Supabase Authentication offers, such as a "forgot password" email, ask Nowa AI to add a function to `SupabaseService`, or write it in [code](../../code/custom-code.md). New functions that sign users in, up or out appear under **Authentication** with an AUTH badge, ready to test.
+For anything else Supabase Authentication offers, such as a "forgot password" email, ask Nowa AI to add a function to `SupabaseService`, or write it in [code](../../code/custom-code.md). New functions that sign users in, up or out appear under **Authentication** with an AUTH badge, ready to test. Others, such as a password reset, don't show in the panel, but you can still use them in Circuit under `SupabaseService`.
 
 ## Next steps
 

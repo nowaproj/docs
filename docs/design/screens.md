@@ -80,7 +80,7 @@ The current home screen shows **This is the home screen** instead of the button.
 
 The same screen can sit on several boards, or twice on one board, for example to compare two sizes. Every one of those board items shows the same screen, so a change in one shows in all of them. Copy and paste works the same way: it adds another board item for the same screen, not a new screen.
 
-When you want a separate screen, use **Copy as new widget**. **Detach** shows on a screen's right-click menu too, but it swaps that board item for a loose copy of the screen's widgets, which isn't part of your app. The screen itself stays in your project, and <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Z</kbd> undoes the swap.
+When you want a separate screen, use **Copy as new widget**. **Detach** shows on a screen's right-click menu too, but it swaps that board item for a loose copy that isn't part of your app. The screen itself stays in your project, and <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Z</kbd> undoes the swap.
 
 ## Delete a screen
 

@@ -101,7 +101,7 @@ Constraints decide which edges a widget keeps its distance to when the stack cha
 |---|---|---|---|
 | **Left** | **Top** | stays the same distance from the left or top edge. | A back button in the top-left corner |
 | **Right** | **Bottom** | stays the same distance from the right or bottom edge. | A **Next** button in the bottom-right corner |
-| **Left and right** | **Top and bottom** | keeps both distances, so it stretches. | A search bar that spans the width |
+| **Left and right** | **Top and bottom** | keeps both distances, so it stretches. Its **W** or **H** is greyed out, because the distances set it. | A search bar that spans the width |
 | **Center** | **Center** | sits at the stack's **Alignment**, the middle unless you changed it. | A logo that stays centered |
 
 Pick them in the two dropdowns, or click the bars in the constraints box: the bar on a side pins that side. <kbd>Shift</kbd>-click the opposite bar to pin both sides. The **+** in the middle removes every pin, so the widget centers both ways. Constraints work on several selected widgets at once.

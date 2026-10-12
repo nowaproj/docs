@@ -30,7 +30,7 @@ Some widgets rely on a package, an add-on that brings extra widgets or features 
 
 Dragging a built-in widget from the Library onto a screen doesn't ask. The widget drops at once and the board shows it, but the package is still missing.
 
-**Problems** then lists `'<package>' is imported but is not in the pubspec.`, which means the widget uses a package your project doesn't have yet, with a **Fix** button. **Details** also shows **Dependencies** with a **Hot Fix** button: click **Hot Fix** to add the package. To have Nowa ask first, add the widget with <kbd>Enter</kbd> or **Insert** instead of dragging.
+**Problems** then lists `'<package>' is imported but is not in the pubspec.` with a **Fix** button. The message means the widget uses a package your project doesn't have yet. **Details** also shows **Dependencies** with a **Hot Fix** button: click **Hot Fix** to add the package. To have Nowa ask first, add the widget with <kbd>Enter</kbd> or **Insert** instead of dragging.
 
 ## Draw a shape or text
 

@@ -36,6 +36,7 @@ Added or changed claims and their evidence:
 | **Children**: hover + adds a copy of the last child; drag handle on hover; count field | `packages/core/lib/src/fields/list_field.dart:33-53`, `:144-170`, `:175-215` |
 | Arrow key in a Row/Column moves one place | existing select-and-edit.md fact; `packages/designer/lib/src/designer_setup.dart:26-50` |
 | Constraint dropdown values; bars; Shift-click both; **+** clears; multi-select | `packages/designer/lib/src/details/positioned_details.dart:93-193`, `:197-279` |
+| With **Left and right** / **Top and bottom**, **W** / **H** is greyed out | `positioned_details.dart:26-27` (W/H enabled only when a width/height is set); `packages/core/lib/src/layout/positioned_helper.dart:330-340` (pinning both sides clears width/height) |
 | **Center** in either dropdown clears the pins both ways; choose Center, then Top, to center across only | `positioned_details.dart:127-129`, `:178-180` call `setCenterConstraints`, which clears both axes (`packages/core/lib/src/layout/positioned_helper.dart:352-355`); `setTopConstraints` touches only the vertical pins (`:306-310`) |
 | Dragging a centered widget pins it to the left and top again | Stack drag calls `layout.moveTo` (`packages/designer/lib/src/design_experience/drag_rule.dart:258-262`) → `setOnly` → `setX`/`setY` (`packages/core/lib/src/layout/layout.dart:141-148`), which pin left/top when unpinned (`positioned_helper.dart:126-128`, `:144-146`). Code-derived, not run live. |
 | Check constraints by changing the screen's **Size** or dragging a corner | `packages/core/lib/src/screen_sizes.dart:12-21`; responsive.md (same advice, live-checked in P12) |
@@ -222,6 +223,10 @@ links from other pages). Images, the three videos and every explicit `{#id}` are
 new ID `{#pick-the-right-arrangement}` on layout.md; no baseline heading was removed.
 
 Links to `docs/code/generated-code.md`: components.md → `#components`, library.md → `#project-files` (one each).
+
+`_rewrite/tools/audience-check.py` on the nine pages: 1 hit, add-widgets.md, the **Problems** message `'<package>' is
+imported but is not in the pubspec.`, which is text the reader sees in **Problems** (R3), kept as shown and explained
+right after it.
 
 ## For other pages
 

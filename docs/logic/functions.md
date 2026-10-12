@@ -51,15 +51,15 @@ Screens and components have two built-in moments you can add steps to:
 - **InitState Function** runs once when the screen or component opens. Use it to load data, read a saved setting or start a timer.
 - **Dispose Function** runs once when it closes for good. Use it to clean up, such as stopping a timer you started, so it doesn't keep running in the background.
 
-1. Hover **Functions** and click **+**. The menu lists **Add Function**, **InitState Function** and **Dispose Function**. The last two leave the menu once you've added them, since each screen or component has one of each.
+1. Hover **Functions** and click **+**. The menu lists **Add Function**, **InitState Function** and **Dispose Function**. The last two leave the menu once you've added them, since a screen or component can have only one of each.
 2. Choose **InitState Function** or **Dispose Function**, select it and click **Edit**.
-3. Circuit shows one node named `initState` or `dispose`. It runs the screen's built-in setup or cleanup, so keep it. In **InitState Function**, add your steps below the `initState` node. In **Dispose Function**, add them above the `dispose` node.
+3. Circuit shows one node named `initState` or `dispose`. It runs the screen's built-in setup or cleanup, so keep it. In **InitState Function**, add your steps below it: click the dot under the `initState` node. In **Dispose Function**, add them above it: click the dot under the orange top node.
 
-The **Return Type** of these two functions is locked. When the steps need inputs or should hand back a result, build them as a function of their own and call it from **InitState Function**, which also keeps the setup easy to read. For a timer you start here and stop in **Dispose Function**, see [Create objects](actions.md#create-objects).
+The **Return Type** of these two functions is locked. When the setup has to wait for something, such as data from the internet, build those steps as a function of their own (with **await** inside it) and call that function from **InitState Function** with **await** off. Don't turn on **await** in **InitState Function** itself: Flutter, which your app is built on, doesn't allow it, so the screen shows an error when you run your app. A function of its own also helps when the steps need inputs or should hand back a result, and it keeps the setup easy to read. For a timer you start here and stop in **Dispose Function**, see [Wait, repeat and create objects](actions.md#create-objects).
 
 ## Wait inside a function
 
-Some steps take time, such as a picker or an internet request. Turn on **await** for such a node (under **Future Options**) so the function waits for the result before moving on. Its **Return Type** then changes to a `Future` (a value that arrives later) by itself, and changes back when no await is left. See [Wait for a result](circuit.md#future-options).
+Some steps take time, such as a picker or an internet request. Turn on **await** for such a node (under **Future Options**) so the function waits for the result before moving on. Its **Return Type** then changes to a `Future` (a value that arrives later) by itself, and changes back when no await is left. See [Wait for a result](circuit.md#future-options). In **InitState Function**, put the waiting steps in a function of their own instead, as described [above](#lifecycle).
 
 ## Rename, change or remove a function
 

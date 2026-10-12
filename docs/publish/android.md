@@ -65,7 +65,7 @@ Google Play adds a safety net. For a new app, Google turns on Play App Signing w
 
 Once a key is saved, the icon turns into a check mark (hover to read **Signing key saved**), and the card shows these controls:
 
-- **SHA-1** and **SHA-256**: the key's fingerprints, short codes that identify it, each with a copy button. Services such as Google Sign-In ask for them. With Firebase, Nowa can add them for you. See [Add SHA fingerprints for Google sign-in on Android](../integrations/firebase/auth.md#sha-fingerprints). Apps downloaded from Google Play are signed with Google's app signing key, so add that key's fingerprints too: Play Console lists them on its app signing page. Android's [Sign your app](https://developer.android.com/studio/publish/app-signing) explains both keys.
+- **SHA-1** and **SHA-256**: the key's fingerprints, short codes that identify it, each with a copy button. Services such as Google Sign-In ask for them. With Firebase, Nowa can add them for you. See [Add SHA fingerprints for Google sign-in on Android](../integrations/firebase/auth.md#sha-fingerprints). Apps downloaded from Google Play are signed with Google's own keys, so add their fingerprints too: Play Console lists them in the **App signing key** section of its app signing page. A new app gets three of these keys, and each one needs adding. Android's [Sign your app](https://developer.android.com/studio/publish/app-signing) explains both keys.
 - The download icon (**Download Signing Key**) saves the zip again.
 - **Remove** asks "Are you sure?" before it deletes the key.
 
@@ -134,9 +134,9 @@ Your app's **Dashboard** lists everything Google needs before you can publish, u
 
 ### Test with testers first
 
-If you created a **personal** developer account after November 13, 2023, Google wants you to test before you publish. Run a closed test with at least 12 testers who stay opted in for 14 days in a row. Friends, family and colleagues make good first testers. Then open your **Dashboard**, click **Apply for production** and answer Google's questions about your test. Google usually replies within seven days.
+If you created a **personal** developer account after November 13, 2023, Google wants you to test before you publish. Once your app setup is done, run a closed test (a test only people you invite can join) with at least 12 testers who stay opted in for 14 days in a row. Friends, family and colleagues make good first testers. Then open your **Dashboard**, click **Apply for production** and answer Google's questions about your test. Google usually replies within seven days. Organization accounts don't have this requirement.
 
-Internal testing, for up to 100 people you choose, is optional and a good first step, but the requirement needs a closed test. See [App testing requirements for new personal developer accounts](https://support.google.com/googleplay/android-developer/answer/14151465).
+Internal testing, for up to 100 people you choose, is optional and a good first step, but the requirement needs a closed test. [Set up an open, closed, or internal test](https://support.google.com/googleplay/android-developer/answer/9845334) shows how to invite testers, and [App testing requirements for new personal developer accounts](https://support.google.com/googleplay/android-developer/answer/14151465) has the details.
 
 ## Upload to Google Play
 

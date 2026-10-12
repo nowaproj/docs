@@ -47,7 +47,7 @@ design, logic, data, testing and publishing, with code, account and reference af
   settle (components, pasting, router paths, the first-app steps): about 60 corrections on 27 pages, including 5 new
   entries in Known issues, all checked in code by another agent (142 claims, 16 more corrections). A fifth round on 12
   October, a Claude session on your Mac (Firebase, the iOS Simulator, public sharing, the external agent, an approval
-  card) and three cloud agents with the Supabase and GitHub connections it made, checked the pages behind 23 new
+  card) and three cloud agents with the Supabase and GitHub connections it made, checked the pages behind 24 new
   screenshots: corrections on 19 pages and 4 more Known issues entries, each checked in code by another agent (68
   claims and 14 more corrections in its first round). Review logs are in `_rewrite/reviews/`.
 - **Updated to Nowa 3.13.0** (released 6 October): the Library panel replaces the Widgets panel, Ctrl/Cmd+K and the
@@ -59,7 +59,7 @@ design, logic, data, testing and publishing, with code, account and reference af
   in `_rewrite/left-out.md` with the reason (internal, debug, unreachable, private beta).
 - **Redirects**: `@docusaurus/plugin-client-redirects` with 160 redirects in `redirects.js` covers all 166 old URLs and
   the 44 docs links the app opens (old widget help links land on the matching row of the widget catalog; anchors kept).
-- **Screenshots and videos, all from 3.13**: 137 screenshots and 8 short videos on 94 pages, taken on app.nowa.dev
+- **Screenshots and videos, all from 3.13**: 138 screenshots and 8 short videos on 94 pages, taken on app.nowa.dev
   (the playground, and the test account for the dashboard, settings, Deploy menu, deployment tabs, builds, Git, GitHub,
   Run, Share, Nowa AI, Supabase and Stripe), in the Nowa desktop app for Linux (Local Setup, local projects, import, VS
   Code) and on your Mac (Firebase, the Run on menu with the iOS Simulator, public sharing, the external agent), each

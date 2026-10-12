@@ -41,7 +41,7 @@ Nowa has no breakpoints (preset widths where the layout switches) and no separat
 - **Prefer a Column for page content.** Turn a screen's main group into a **Column** with the down arrow in **Group**, so widgets stretch and flow instead of sitting at fixed positions. In a **Stack**, use the **Left and right** constraint so a widget stretches with the screen.
 - **Let content flow.** A **Wrap** continues on a new line, a **Grid View** set to **Max** adds columns as the screen widens, and the **Scroll View** wrapper makes a tall column scroll.
 - **Keep clear of notches** with the **Safe Area** wrapper.
-- **Need two layouts?** Ask Nowa AI, for example: "Show a side menu on wide screens and a bottom bar on phones." To do it yourself, build both and wrap each in **Visibility**, with a condition on the screen's width. See [Show different widgets on wide and narrow screens](../design/responsive.md#show-different-widgets-on-wide-and-narrow-screens).
+- **Need two layouts?** Ask Nowa AI in **Agent** mode, for example: "Show a side menu on wide screens and a bottom bar on phones." Then change the screen's **Size** and click **Play** at each size to check. To do it yourself, build both and wrap each in **Visibility**, with a condition on the screen's width. See [Show different widgets on wide and narrow screens](../design/responsive.md#show-different-widgets-on-wide-and-narrow-screens).
 
 ## Name things clearly
 

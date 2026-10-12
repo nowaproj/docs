@@ -18,3 +18,7 @@ Items a section agent or verifier found for a page outside its batch, and what h
 | 12 | B11 | `code/generated-code.md#publishing` (code page) | Developer facts at the end of `P14-B11-for-code.md`; ios.md promises how to export a Mac certificate's key as text there. | for the code page agent |
 | 13 | B11 | `integrations/firebase/notifications.md` (B09) | Link the Push Notifications capability step to `publish/ios.md` (register the bundle ID, enable capabilities). | sent to B09 |
 | 14 | B11 | `publish/ios.md`, `publish/android.md` (structure) | ~2,930 and ~2,290 words; writer proposes moving "Set up your Apple account" to `publish/apple-account.md`. | decide after B11 verification |
+| 15 | B04 | `guides/design-tips.md` (B01) | "snake_case" → "lowercase with underscores" (or drop). | sent to B01 |
+| 16 | B04 | `reference/glossary.md` (B14) | Five entries: Constraints, Group, Instance, Row/Column/Stack, Fixed/Auto/Expand. | sent to B14 |
+| 17 | B04 | `troubleshooting/known-issues.md` (B12) | Expand inside a Wrap (P14) only if a live run confirms the error; layout.md already says to use Fixed or Auto in a Wrap. | no action (unconfirmed live) |
+| 18 | B04 | `design/layout.md` (structure) | ~2,080 words; stack sections could become their own page. | decide after B04 verification |

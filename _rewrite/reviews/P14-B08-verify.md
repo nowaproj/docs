@@ -145,3 +145,28 @@ reader what to do (export again with **Export collection**). Nothing lost.
 Open: does a Xano group with **Private** documentation import (its link may need the token Nowa ignores)? Needs a live
 test with a Xano account.
 
+## admob.md
+
+| Claim | Verdict | Source | Note |
+|---|---|---|---|
+| Unpublished app: **Apps** → **Add app** → platform → **No** → name → confirm user metrics → **Add**; **Yes** + search for a listed app | ok | https://support.google.com/admob/answer/9989980 ("Set up an unpublished app", "Set up a published app") | |
+| Ad unit: **Apps** → app → **Ad units** → **Get started** / **Add ad unit** → **Select** (**Banner** / **Interstitial**) → name → **Create ad unit** | ok | https://support.google.com/admob/answer/7311346, https://support.google.com/admob/answer/7311435 | |
+| App ID in **Apps** → **View all apps**; ad unit ID under the app's **Ad units** | ok | https://support.google.com/admob/answer/7356431 | |
+| Limited ad serving until the readiness review; link the app to its store listing | ok | https://support.google.com/admob/answer/9989980 ("Your app will receive limited ad serving until it's approved during AdMob's readiness process") | |
+| `app-ads.txt` on the developer website in the store listing, so AdMob can confirm ownership | ok | https://support.google.com/admob/answer/9363762 (Step 1: "how the app-ads.txt standard establishes who owns an app") | |
+| Test ads: "clicking real ads during development can get your account flagged" | fixed | https://developers.google.com/admob/flutter/test-ads ("If you click on too many ads without being in test mode, you risk your account being flagged for invalid activity") | Now "clicking too many real ads while you test". |
+| Interstitial at "a natural break, such as after a level or between two steps of a task" | fixed | https://support.google.com/admob/answer/7311435 ("natural breaks & transitions … such as after level completion") | Dropped the example Google doesn't give. |
+| Starts each time the app opens; each ID goes where its platform needs it; turning off removes the App IDs | ok | `admob_package_config.dart:20-47`; `package_config_service.dart:146-160` | |
+| Labels: **Android App ID**, **iOS App ID**, `ca-app-pub-` check, **Show Test Ads** (on by default), **Android Unit ID**, **Ios Unit ID**, "No API Keys", **AdMob setup**, **AdMob Android setup**, **AdMob IOS setup** | ok | `admob_package_config.dart:28-47,271-272,296-333`; `packages/nowa_mobile_ads/lib/src/widgets/nowa_ad_banner_widget.dart:6`, `nowa_ad_interstitial_function.dart:5` (labels from `camelCaseToSpaces`, `utils.dart:77-79`); `widgets_to_add.dart:866` | |
+| `NowaAdBannerWidget`, `loadAndShowInterstitialAd` kept | ok | R3: shown in **Details**, the Outline and Circuit; both explained | |
+| AI tip without a mode or a check | fixed | R5 | Now "In **Agent** mode" and a device check. |
+| `## Before and after you publish` | fixed | see "Anchors" | `{#before-you-publish}` kept. |
+
+Removed facts: package name, the `main()` line, the manifest / `Info.plist` / SKAdNetwork sentence and the `main()` line
+in "Turn AdMob off" are in the for-code file under `#admob`, unchanged; plain-words consequences stay. Nothing lost.
+
+Open (writer's, not changed): whether the page should point to ad privacy rules (Apple 5.1.2(i), the **User Tracking**
+iOS permission on the Permissions page, Google's consent requirements for the EEA and UK). Nowa's ads package has no
+consent or tracking prompt (no hit for consent or tracking in `packages/nowa_mobile_ads/lib`), so readers who serve ads
+there need one; a content decision for the team.
+

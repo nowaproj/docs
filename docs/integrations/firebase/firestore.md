@@ -38,11 +38,11 @@ Nowa 3.13 has no button in the designer for adding a collection or a query. **Ad
 The easiest way today is to ask Nowa AI:
 
 1. In the **AI Assistant** panel (the **Assistant** icon at the top of the left sidebar), choose **Agent** mode.
-2. Describe the collection and the query you need, in your own words. For example: "Add a Firestore collection called orders with the fields customerName (text), total (decimal number) and status (text), and a query in FirestoreService that lists the pending orders, newest first, and keeps updating."
+2. Describe the collection and the query you need, in your own words. For example: "Add a Firestore collection called orders with the fields customerName (text), total (decimal number) and status (text), and a query in FirestoreService that lists the orders whose status is pending and keeps updating."
 3. When the AI is done, open **Settings** → **Integrations** → **Firebase** and click **Refresh/Update apps and config files**, so Nowa's lists pick up what it added.
 4. Check the result. **Problems** should show no errors, and your query should appear in **Select Firestore Query** when you [show it in your app](#use-a-query-in-your-app). Click **Play** or run your app to see your real documents.
 
-If **Problems** shows "The function 'add' isn't defined." (or 'doc'), ask the AI to fix it, for example: "Rewrite this Firestore function without withConverter so the error goes away." That's the known 3.13 workaround for queries that add, change or delete documents.
+If **Problems** shows "The function 'add' isn't defined." (or 'doc'), ask the AI to fix it, for example: "Rewrite the Firestore function that has this error without withConverter, so the error goes away." You don't need to know what `withConverter` is: leaving it out is the known 3.13 workaround for queries that add, change or delete documents.
 
 Here's what else works today:
 

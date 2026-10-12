@@ -12,7 +12,7 @@ Once you're connected, sign-in and push notifications are each a switch away, an
 ## Before you start
 
 - **A Firebase project**, and a Google account that can manage it. Nowa can't create the project for you, but it only takes a minute: see [Create a Firebase project](#create-a-firebase-project) below.
-- **Your Bundle Identifier**, set in **Settings** → **Project Details** before you connect. It's your app's unique ID, such as `com.yourcompany.recipes`. Nowa registers your Android app in Firebase under this ID and builds your iOS app's ID from it, so settle on it first. See [Project settings](../../account/project-settings.md).
+- **Your Bundle Identifier**, set in **Settings** → **Project Details** before you connect. It's your app's unique ID, such as `com.yourcompany.recipes`. Nowa registers your Android app in Firebase under this ID and builds your iOS app's ID from it, so settle on it first. Write it in lowercase: in Nowa 3.13, capital letters can change when Nowa registers your iOS app in Firebase, and then the two IDs don't match. See [Project settings](../../account/project-settings.md).
 - **On Windows?** You can connect Firebase in the Windows desktop app, but you can't test Firestore queries inside Nowa there. See [Firebase on Windows](../../troubleshooting/known-issues.md#firebase-on-windows).
 
 ## Create a Firebase project

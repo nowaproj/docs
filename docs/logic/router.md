@@ -49,7 +49,7 @@ Click the gear (**Router Configuration**) for app-wide settings:
 
 People who signed in once shouldn't have to log in every time they open your app. Give your home screen's route **Redirect Logic** that checks whether someone is signed in and sends everyone else to the login screen.
 
-**Redirect Logic** is a small function that runs before the screen opens and answers one question: should this person go somewhere else? It returns a path, such as `/login-page`, to send them there, or nothing (`null`) to let the screen open. Its top node shows `context` and `state`, where `state` tells it where the person is heading. A new one returns nothing, so it lets everyone through until you add a condition.
+**Redirect Logic** is a small function that runs before the screen opens and answers one question: should this person go somewhere else? It returns a path, such as `/login-page`, to send them there, or nothing (`null`) to let the screen open. Its top node shows `context` and `state`: you won't need `context` here, and `state` tells it where the person is heading. A new one returns nothing, so it lets everyone through until you add a condition.
 
 Before you start:
 

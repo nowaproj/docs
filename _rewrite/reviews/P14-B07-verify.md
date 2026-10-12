@@ -54,3 +54,15 @@ no real repetition left that could go without losing a step (the brief says not 
 Removed lines: the old Extra sentence, the one-paragraph "go back with a value" for GoRouter and Navigator, and the
 `context` sentence are all still on the page in the new section or in plainer words. Nothing code-only on the page.
 Length about 2,310 words; the brief says not to split, and the remaining sections carry steps.
+
+## logic/router.md
+
+| claim | verdict | source | note |
+|---|---|---|---|
+| **Supabase** redirect: Custom Expression `Supabase.instance.client.auth.currentSession != null` (flagged unverified since W20) | ok in code; not run live | Bindings exist: `Supabase.instance` (`packages/core/lib/src/interpreter/libraries/supabase_flutter_library.dart:9265-9273`), `.client` (`:9342-9347`), `SupabaseClient.auth` (`:8486-8490`), `GoTrueClient.currentSession` typed `Session?` (`:2259-2267`); the library loads when Supabase is connected (`packages/data/lib/src/supabase/supabase_manager.dart:194-195`, `packages/core/lib/src/interpreter/packages/dart_package.dart:154-157`). Free text is parsed by **Eval** or Enter (`packages/core/lib/src/fields/expression_builder/expression_builder_provider.dart:200-215`, `expression_builder_popup.dart:246-262`). A single declaration named `Supabase` resolves in any file regardless of imports (`packages/core/lib/src/interpreter/library.dart:59-65,494-499`), and saving regenerates the router file's imports from its references (`packages/core/lib/src/interpreter/block_tree.dart:7062-7085`, `packages/core/lib/src/interpreter/visitors/imports_visitor.dart:132-145`), so `package:supabase_flutter/supabase_flutter.dart` gets imported. `!=` operands accept null, so no `!` is written (`packages/core/lib/src/interpreter/block_host.dart:250-252`). | kept; the AI tip stays as the no-code option |
+| **Remove # in URLs** meaning | ok | product help text `packages/core/lib/src/editors/router_editor/router_block_view.dart:614-620`; toggles `usePathUrlStrategy()` (`:557-561`) | |
+| **Redirect Logic** gets `context`, `state`, returns `null` by default | ok, glossed | `router_block_view.dart:459-468` | `context` now gets "you won't need it here" (R3) |
+| Switching brings deep links, browser URLs, URL parameters, redirects | ok | `packages/core/lib/src/editors/router_editor/router_migration_editor.dart:101-126` | |
+| Route problems in plain words (duplicate path, no builder, initial location) | ok | `packages/core/lib/src/editors/router_editor/router_problems.dart:39-41,85-93` | |
+| **Screen** bolt opens the builder logic; sub-route example | ok | unchanged facts, plainer words | |
+| "Stay signed in" without `lib/main.dart`; tip without `SupabaseService` | ok (moved) | both sentences are in `P14-B07-for-code.md` (`#project-files`, `#supabase`) unchanged | |

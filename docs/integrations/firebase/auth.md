@@ -13,7 +13,7 @@ With Firebase Authentication, people can create an account in your app and sign 
 
 ## Turn on sign-in methods in the Firebase console
 
-Firebase only lets people sign in with methods you've switched on in your Firebase project, so start there. Nowa reminds you of this under its **Authentication** switch.
+Firebase only lets people sign in with methods you've switched on in your Firebase project, so start there.
 
 1. In Nowa, open **Settings** → **Integrations** → **Firebase** and click **Enable on Firebase.** under the **Authentication** switch. Your project's Authentication page opens in the Firebase console. You can also get there from the console's menu: **Security** → **Authentication**.
 2. Open the **Sign-in method** tab.
@@ -25,7 +25,7 @@ Firebase only lets people sign in with methods you've switched on in your Fireba
 A few methods need one more thing, depending on where your app runs:
 
 - **Google or Phone on Android:** add your app's fingerprints. See [Add SHA fingerprints](#sha-fingerprints) below.
-- **Phone on iPhone:** Firebase's phone sign-in guide asks for the same Apple push setup as notifications. See [Set up notifications for iPhone](notifications.md#set-up-notifications-for-iphone).
+- **Phone on iPhone:** Firebase checks that each request really comes from your app. With the same Apple push setup as notifications, it checks silently: see [Set up notifications for iPhone](notifications.md#set-up-notifications-for-iphone). Without it, Firebase falls back to a reCAPTCHA check (Google's "I'm not a robot" test). Also read the iPhone note under [Functions Nowa adds](#functions-nowa-adds).
 - **Google or Phone on the web:** Firebase only allows them on web addresses it knows. In the console, open the **Settings** tab of **Authentication**, find **Authorized domains** and click **Add domain** for each address your web app uses, such as the one Nowa gives you when you [publish to the web](../../publish/web.md) or your own domain.
 
 Firebase's guides cover each method: [Email/Password](https://firebase.google.com/docs/auth/flutter/password-auth), [Google](https://firebase.google.com/docs/auth/flutter/federated-auth) and [Phone](https://firebase.google.com/docs/auth/flutter/phone-auth).
@@ -63,7 +63,7 @@ Each switch and provider adds ready-made functions. You find them in Circuit, in
 | `verifyPhoneNumber(phoneNumber)` | **Phone** | Texts a code to that number and returns a verification ID. |
 | `signInWithPhoneNumber(verificationId, smsCode)` | **Phone** | Signs in with the verification ID and the code the user typed. |
 
-**Google** and **Phone** also add the settings your iOS app needs for them.
+**Google** also adds the settings your iOS app needs for it. **Phone** needs one too (Firebase uses it for the reCAPTCHA check), but in Nowa 3.13 it's only added while **Google** is on as well. Without it, your iPhone app closes as soon as it tries to send the code, so try phone sign-in on an iPhone before you offer it there.
 
 :::note
 In Nowa 3.13, the **Google** provider writes `signInWithGoogle()` for an older version of Google's sign-in package than the one Nowa installs. Instant Play doesn't show it, but a real build of your app (**Run** or a cloud build) fails with errors that mention `GoogleSignIn`. If you see them, this is the cause. Turning **Google** off removes the function and the package.
@@ -90,13 +90,13 @@ Prefer to describe it? Once a provider is on, ask Nowa AI in **Agent** mode, for
 
 A complete email sign-in is a handful of small screens and buttons. Here's how each piece maps to a function:
 
-| Where | What it does | Function |
-|---|---|---|
-| **Create account** button on your sign-up screen | Creates the account from the email and password the person typed, and signs them in. | `signUpWithEmailAndPassword` |
-| Right after sign-up, in **onValue** | Sends the link that confirms the email address is really theirs. | `sendVerificationEmail` |
-| **Sign in** button on your sign-in screen | Signs in someone who already has an account. | `signInWithEmailAndPassword` |
-| **Forgot password?** button | Emails a link to choose a new password. Pass it the email field. | `sendPasswordResetEmail` |
-| **Sign out** button, for example on a profile screen | Signs the person out. Then open your sign-in screen. | `signOut` |
+| Where | Function |
+|---|---|
+| **Create account** button on your sign-up screen | `signUpWithEmailAndPassword`, with the email and password the person typed. It signs them in too. |
+| Right after sign-up, in **onValue** | `sendVerificationEmail`, so they can confirm the address is really theirs. |
+| **Sign in** button on your sign-in screen | `signInWithEmailAndPassword` |
+| **Forgot password?** button | `sendPasswordResetEmail`, with the email the person typed. |
+| **Sign out** button, for example on a profile screen | `signOut`. Then open your sign-in screen. |
 
 For each screen, add the text fields first and keep what people type in [variables](../../logic/variables.md) (a variable is a value your screen remembers, such as the email someone typed). Then wire the button as in the steps above. In **onError**, show a short message, for example with a [snackbar](../../logic/popups.md), so people know when their password is wrong or the email is already taken.
 
@@ -130,7 +130,7 @@ Your Android app can be signed with different keys, depending on how it reaches 
    3. Paste it into **Enter SHA-1 or SHA-256** and click **Add Key**. The key appears in the table.
 6. Go back and click **Refresh/Update apps and config files**, so your app's Firebase settings include the new fingerprints.
 
-Rather not use a terminal? Try Google sign-in with a release build instead: its `.apk` installs straight on your phone and is signed with your Nowa key from step 3. See [Download your files](../../publish/android.md#download-your-files).
+Rather not use a terminal? Test sign-in with a release build instead: its `.apk` installs straight on your phone and is signed with your Nowa key from step 3. See [Download your files](../../publish/android.md#download-your-files).
 
 When you paste a fingerprint, keep its colons but leave out the `SHA1:` label that `keytool` prints in front of it. Nowa treats a value of exactly 59 characters as SHA-1 and anything else as SHA-256.
 

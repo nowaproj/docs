@@ -45,7 +45,7 @@ A banner is a small ad strip that stays on the screen, usually at the top or bot
 2. Place the banner on a screen, usually at the top or bottom. It lands at 300 × 50. In an Android or iOS app it loads Google's standard banner, which is 320 × 50, so you may want to set **W** to 320 in **Layout**.
 3. In **Details**, fill in **Android Unit ID** and **Ios Unit ID** with your banner ad unit IDs. In **Details** and the [Outline](../design/outline.md), the banner shows up under the name `NowaAdBannerWidget`.
 
-**Show Test Ads** is on by default. While it's on, the banner shows Google's test ads instead of your own ad units. That matters: Google warns that clicking real ads during development can get your account flagged for invalid activity. Turn it off before you publish.
+**Show Test Ads** is on by default. While it's on, the banner shows Google's test ads instead of your own ad units. That matters: Google warns that clicking too many real ads while you test can get your account flagged for invalid activity. Turn it off before you publish.
 
 If **Details** shows "No API Keys" with an **AdMob setup** button, click the button to open the **AdMob** page and add the missing App ID. The same goes for a button named **AdMob Android setup** or **AdMob IOS setup** that replaces a unit ID field.
 
@@ -63,7 +63,7 @@ To see a real ad, run the app on an Android or iOS device or emulator. That need
 
 ## Show a full-screen ad
 
-A full-screen ad (AdMob calls it an interstitial) covers the screen until the person closes it. Google suggests showing one at a natural break, such as after a level or between two steps of a task.
+A full-screen ad (AdMob calls it an interstitial) covers the screen until the person closes it. Google suggests placing one at a natural break or transition in your app, such as after someone finishes a level.
 
 You show it with the `loadAndShowInterstitialAd` step, which loads the ad and shows it as soon as it's ready. Call it from an event, for example when a level ends or someone taps **Next**.
 
@@ -74,7 +74,7 @@ You show it with the `loadAndShowInterstitialAd` step, which loads the ad and sh
 Like the banner, it only shows ads on Android and iOS.
 
 :::tip[Or ask Nowa AI]
-Try: "Show an AdMob full-screen ad every time the user finishes a level."
+In **Agent** mode, try: "Show an AdMob full-screen ad every time the user finishes a level." Then try it in your app on an Android or iOS device.
 :::
 
 ## Before and after you publish {#before-you-publish}

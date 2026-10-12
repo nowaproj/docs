@@ -2,7 +2,7 @@
 title: Known issues
 description: Platform limits and editor quirks you may run into when you use Nowa, why they happen, and the quickest way around each one.
 sidebar_label: Known issues
-keywords: [known issues, limitations, Windows, Firebase, Firestore, test query, Firebase console query builder, Apple sign-in, Google Maps, AdMob, CORS, desktop app, Linux, code download spinning, custom domain pending, remove custom domain, rename variable, Shift drag, slash, route path, New UX, double-click, board toolbar missing, detach component, app bar drag, Connect Apps, firebase_options, InvalidType, Stripe, cancel subscription, Figma, Waiting for Authorization, playground, AI chat grey box, Add context, Redirect Logic, InitState Function, await, initState returned a Future]
+keywords: [known issues, limitations, Windows, Firebase, Firestore, test query, Firebase console query builder, Apple sign-in, Google Maps, AdMob, CORS, desktop app, Linux, code download spinning, custom domain pending, remove custom domain, rename variable, Shift drag, slash, route path, New UX, double-click, board toolbar missing, detach component, app bar drag, Connect Apps, firebase_options, InvalidType, Supabase tables, Use Keys, Access to schema is forbidden, Stripe, cancel subscription, Figma, Waiting for Authorization, playground, AI chat grey box, Add context, Redirect Logic, InitState Function, await, initState returned a Future]
 ---
 
 A few things work differently depending on where you run Nowa or your app, and a few editor actions need a workaround
@@ -31,7 +31,8 @@ You can also try a query out before you build it:
   Firestore usage. See Firebase's guide to [querying data in the console](https://firebase.google.com/docs/firestore/using-console#query_data).
 - **In another version of Nowa.** Open the same project in the web app or the macOS desktop app, where the **Test**
   section is on. For a local project, make a cloud copy first with
-  [Project Sync](../code/local-projects.md#link-a-cloud-copy-with-project-sync). In Nowa 3.13 the designer can't open a
+  [Project Sync](../code/local-projects.md#link-a-cloud-copy-with-project-sync), test the query in that copy, then
+  build the same query in your local project. In Nowa 3.13 the designer can't open a
   query in its editor on any platform: see [Add collections and queries in Nowa 3.13](../integrations/firebase/firestore.md#add-collections-and-queries).
 
 ## API tests fail in the web app but work elsewhere {#api-requests-blocked-in-the-browser}
@@ -113,6 +114,10 @@ In Nowa 3.13, if you reload the page or close Nowa soon after **Connect Apps**, 
 ## The status bar shows "Unsupported invalid type" {#invalid-type-in-status-bar}
 
 After you turn on Firebase **Authentication**, the status bar can show a cut-off error that starts with "Unsupported operation: Unsupported invalid type InvalidType", while **Problems** says "No issues detected". Nothing has been found to stop working because of it, so you can carry on. See [Sign users in with Firebase](../integrations/firebase/auth.md).
+
+## Supabase tables don't show up after connecting with keys {#supabase-tables-use-keys}
+
+If you connected Supabase with **Use Keys**, the **Tables** page can show "Error fetching tables: … Access to schema is forbidden", and **Query Templates** can stay on **No Tables Found**. Nowa asks for your list of tables with your anon key (the public key you pasted), and Supabase announced that from April 2026 it only shares that list with a full-access key. Authorize Nowa once: in the Supabase panel, click ⋮ → **Change API Keys** → **Connect**, then **Select** the same project. Your functions stay. See [Connect with keys](../integrations/supabase/connect.md#connect-with-keys).
 
 ## Stripe subscriptions can't be cancelled from your app {#stripe-cancel-subscription}
 

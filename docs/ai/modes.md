@@ -10,7 +10,7 @@ Nowa AI has three modes, and each one fits a different moment in building your a
 ## Switch mode
 
 1. Click the mode chip at the bottom left of the chat field. Its tooltip is **Switch mode**.
-2. Choose **Design**, **Plan** or **Agent**. The chat field's hint changes to match, so you can always see which mode you're in.
+2. Choose **Design**, **Plan** or **Agent**. The chip shows the mode you picked, and the chat field's hint changes to match.
 
 | Mode | Description in the menu | The chat field says |
 |---|---|---|

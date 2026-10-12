@@ -26,7 +26,7 @@ The editor is where your app comes together. It's made of a handful of areas tha
 |---|---|
 | Nowa logo | Returns to the dashboard. If files are unsaved, Nowa lists them and asks first: **Cancel** stays, **Close** leaves without saving, and **Save and close** saves, then leaves. |
 | Starting-point chip | Shown in the playground and in public projects you open as a guest. Switches to another starter app or a template. See [Try Nowa without an account](./playground.md). |
-| Package chip | Appears only when a project holds several packages (separate parts of the code, usually in an imported project), and picks the one you edit. Most projects never show it. |
+| Package chip | Appears only when a project holds several packages (separate parts of the code, as some imported projects have), and picks the one you edit. Most projects never show it. |
 | **Back** and **Forward** | Two arrows before the **Boards** chip. They step through the editors you opened, like a browser: <kbd>Ctrl</kbd> + <kbd>-</kbd> goes back and <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>-</kbd> goes forward (the Control key, also on a Mac). An arrow is greyed out when there is nowhere to go, and Nowa keeps your last 50 places. They aren't shown in code mode or while your app runs in the editor, but the keys still work. |
 | **Boards** chip | Shows the current board's name, or **Boards** when you're not on a board. Click it, or press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>B</kbd>, to open the list of boards with a **Search boards** field. Pick one, hover a row for **Rename** and **Delete**, or click **Create new board**. To leave a screen you opened on its own, click **Back** or pick a board. See [Work with boards](../design/boards.md). |
 | Screen or component chip | Appears after the **Boards** chip when a screen or component is open on its own, and names it. If its file holds several views, click it to switch between them. |
@@ -93,7 +93,7 @@ Circuit is where you decide what your app does, for example what happens when so
 
 Circuit opens as a floating panel. The usual way in is an event: select a button, then in **Details** click the button next to an event such as **On Pressed**. It reads **+** or **Edit**, and either one opens Circuit. You can also open a function from the **Variables** panel.
 
-Logic that Nowa AI builds in **Agent** mode lands in the same events and functions, so you can open them in Circuit to check the steps and adjust them. See [Build logic in Circuit](../logic/circuit.md).
+Logic that Nowa AI builds in **Agent** mode lands in the same events and functions, so you can open most of it in Circuit to check the steps and adjust them. A few kinds of steps, such as some loops, can't be shown there. See [Build logic in Circuit](../logic/circuit.md).
 
 ## Status bar and Console
 
@@ -103,7 +103,7 @@ From left to right, the status bar shows:
 - The Nowa version.
 - Counts of errors, warnings and info messages. Click them to open the **Console** on **Problems**.
 - The latest log line, or **Ready**. Click it to open the **Console** on **Logs**.
-- Loading progress while files load and, if the project uses Git, the branch with its ahead and behind counts.
+- Loading progress while files load, and the Git branch with its ahead and behind counts when the project has a Git repository (new projects start with one).
 - The Save button. Click it for **Save options**: **Auto save**, **Save every** (**10 seconds**, **20 seconds**, **30 seconds**, **1 minute** or **5 minutes**) and **Save now**.
 
 **Problems** lists issues Nowa finds in your project, with a **Fix** button for some, so it's the first place to look when something doesn't work. **Logs** shows messages from Nowa and from your running app. See [Find and fix problems](../test/problems.md).

@@ -115,7 +115,7 @@ The **SERVICES** category has a few phone features. Click a class to see its fun
 
 ## Find any other function
 
-Each category named after a library holds functions you can use from that library. Type a name in the search box to find it.
+These categories are in the menu that opens when you click **+** in Circuit, and in the link menu of an If's **Condition** or a **Return** value. Each one named after a library holds what you can use from that library. Type a name in the search box to find it.
 
 | Category | What's inside |
 |---|---|
@@ -124,7 +124,7 @@ Each category named after a library holds functions you can use from that librar
 | **DART:ASYNC** | `Timer`. To repeat steps, make one with **Create...** (above). |
 | **SERVICES** | `Clipboard`, `HapticFeedback`, `SystemNavigator` and `SystemSound`. |
 | **NOWA_RUNTIME** | `openUrl`, `showMediaPicker`, and `NPlatform`, which holds the same checks as **checkPlatform**. |
-| **PACKAGE:** and your package name, such as `PACKAGE:MY_APP` | Functions from your own project, and your keys and constants under `AppConstants`. See [Keys and constants](../integrations/constants.md). |
+| **PACKAGE:** and your package name, such as `PACKAGE:MY_APP` | Functions from your own project, and your keys and constants under `AppConstants`. A step's fields, such as **Url** or **Msg**, don't list this category: to use a constant there, see [Use a constant](../integrations/constants.md#use-a-constant). |
 
 A package you add brings its own category. If what you need is something you make rather than run, such as a timer, use **Create...**. Working in the code? See [What Nowa adds to your code](../code/generated-code.md#actions-and-popups).
 

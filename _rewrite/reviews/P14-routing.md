@@ -44,3 +44,13 @@ Items a section agent or verifier found for a page outside its batch, and what h
 | 38 | B12 | `integrations/firebase/firestore.md` (B09) | Windows: click Run (embedded web preview) or use an emulator or phone. | sent to B09 |
 | 39 | B12 | `code/local-projects.md` or `code/vs-code.md` (B15) | Optional: run on your own iPhone with Xcode signing (local projects). | sent to B15 verifier |
 | 40 | B12 | product team | Setup wizard's Android emulator row unreachable once the Android toolchain is installed, though the caption says you can add it later. | for product-issues.md and the report |
+| 41 | B08 | `integrations/supabase/auth.md#google` (B10) | Web sign-in may need the Web client's Client Secret in Supabase's Google provider. | sent to B10 verifier |
+| 42 | B08 | `logic/circuit.md` (B06), `logic/actions.md` (B07) | PACKAGE: (AppConstants) is in the + node menu, not in a field's link menu; check no page says otherwise. | sent to B06 verifier and B07 |
+| 43 | B08 | product team | RevenueCat paywall insert hangs in the playground (P51, unconfirmed on a normal account); Apple In-App Purchase capability not in Nowa's code. | for the report |
+| 44 | B14 | `design/layout.md` (B04) | Optional: horizontal Scroll Direction for a Row that scrolls sideways. | sent to B04 verifier |
+| 45 | B14 | product team | Color Filter wrapper probably writes code that doesn't compile (named vs positional arguments); verify live before a known-issues entry. | for product-issues.md and the report |
+| 46 | B09 | `troubleshooting/known-issues.md` (B12) | P66: Stripe subscriptions can't be cancelled from the app; cancel in the Stripe Dashboard. | sent to B12 verifier |
+| 47 | B09 | `guides/ship-tips.md` (B01) | Google Pay's test setting comes back after each Deploy Configuration; link stripe.md#go-live; live webhook destination. | sent to B01 verifier |
+| 48 | B09 | `integrations/index.md` (B08) | Don't name `FirebaseService` in the comparison table. | sent to B08 verifier |
+| 49 | B09 | product team | Stripe webhook reads fields removed in Stripe API 2025-03-31; Apple Pay setup may drop a push entitlement (code reading). | for the report |
+| 50 | B09/B13/B14/B10 | pages (structure) | stripe.md ~2,470, rest-api/index.md ~2,350, wrappers ~2,550, shortcuts ~2,670, glossary ~4,400 words. | decide after verification |

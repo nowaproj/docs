@@ -5,9 +5,9 @@ sidebar_label: Dialogs, sheets and pickers
 keywords: [snackbar, dialog, alert dialog, popup, bottom sheet, modal, date picker, time picker, date range picker, media picker, image picker, camera, gallery, showDialog, showSnackBar, format date, date format, time format, await, onValue, confirm before delete, are you sure, pick a photo, profile picture, Show Media Picker, Uint8List]
 ---
 
-Popups are how your app talks with people while they use it: a quick "Saved" message, an "Are you sure?" question, a sheet that slides up with options, or a picker for a date, a time or a photo. You add each one as a step in [Circuit](circuit.md), usually in the logic of a button.
+Popups are how your app talks with people while they use it: a quick "Saved" message, an "Are you sure?" question, a sheet that slides up with options, or a picker for a date, a time or a photo. You add each one as a step in [Circuit](circuit.md).
 
-A popup appears on top of a screen, so add it to a screen's or a component's logic, such as a button's **On Pressed**. Many popup steps have a **Context** input. It tells the popup which screen to appear on, and Nowa fills it in for you.
+A popup appears on top of a screen, so add it to a screen's or a component's logic, usually a button's **On Pressed**. Many popup steps have a **Context** input. It tells the popup which screen to appear on, and Nowa fills it in for you.
 
 ## Show a snackbar
 
@@ -24,8 +24,8 @@ You can style the bar and change how it behaves:
 | **Background Color** | The bar's color. |
 | **Elevation** | The size of its shadow. |
 | **Shape** | Its outline, such as rounded corners. |
-| **Action** | One button on the bar, such as **Undo** after a delete. It's under **Show advanced options**. |
-| **Duration** | How long the bar stays. It's 4 seconds unless you change it. Also under **Show advanced options**. |
+| **Action** | One button on the bar, such as **Undo** after a delete. It's under **Show advanced options**. With an action, the bar no longer goes away by itself: it stays until someone taps the button or swipes the bar down. |
+| **Duration** | How long a bar without an action stays. It's 4 seconds unless you change it. Also under **Show advanced options**. |
 | **Padding**, **On Visible** | Space inside the bar, and logic that runs once it's visible. Also advanced. |
 | **Width**, **Margin** | Leave these empty. They only work on a floating snackbar, which this step doesn't offer. |
 
@@ -42,7 +42,7 @@ If the person closes the popup without choosing, there's no answer, so the varia
 
 A dialog is a box in the middle of the screen that asks for attention. Use it to confirm an action ("Delete this recipe?"), show a warning or an error, ask for a quick choice, or show something like your terms.
 
-1. In Circuit, click a **+** and choose **MATERIAL** → `showDialog`. Its content starts as an **AlertDialog**, a ready-made dialog with a title, a message and buttons, titled "Hello World".
+1. In Circuit, click a **+** and choose **MATERIAL** → `showDialog`. Its content starts as an **AlertDialog**, a ready-made dialog with room for a title, a message and buttons. It starts with just the title "Hello World".
 2. Click the brush next to it (tooltip **Edit AlertDialog**) to change the title, the content and the buttons. For example, click the brush next to **Title** and type your own title.
 3. Click **Play** and tap the button to try it.
 
@@ -68,7 +68,7 @@ The same menu has **Edit in circuit**, which opens the dialog's content as a fun
 
 ### Get an answer from a dialog
 
-1. Add buttons to the dialog's **Actions**, such as **Cancel** and **Delete**. In each button's **On Pressed**, add a **Navigator** step (under **GLOBALS**) and set its **Type** to `pop`, which closes the dialog. Then set **result type** and **result**, the answer that button gives, for example `bool` with **result** turned on. See [Navigate between screens](navigation.md).
+1. Add buttons to the dialog's **Actions**, such as **Cancel** and **Delete**. In each button's **On Pressed**, add a **Navigator** step (under **GLOBALS**) and set its **Type** to `pop`, which closes the dialog. Then set **result type** and **result**, the answer that button gives: for example, **result type** `bool` (a yes/no answer) with **result** turned on for "yes". See [Navigate between screens](navigation.md).
 2. On the `showDialog` step, turn on **await** and set **Store result** to **New Variable**, or use **onValue**. See [Use what the person chose](#use-what-the-person-chose).
 
 ### Example: confirm before deleting
@@ -78,7 +78,7 @@ Say your recipe screen has a **Delete** button. Asking first keeps people from d
 1. In the **Delete** button's **On Pressed**, add `showDialog` and set the AlertDialog's title to "Delete this recipe?".
 2. Give the dialog a **Cancel** and a **Delete** button, as in [Get an answer from a dialog](#get-an-answer-from-a-dialog). Both use **result type** `bool`: turn **result** on for **Delete** and leave it off for **Cancel**.
 3. On the `showDialog` step, turn on **await**, set **Store result** to **New Variable** and rename the variable `confirmed`.
-4. Below it, choose **Add If statement**. Click its **Condition** label, open **OPERATORS** and choose `equal`. Click the formula the **Condition** now shows, set **Type** to `bool`, link **Left side** to `confirmed` under **LOCALS** and turn **Right side** on.
+4. Below it, choose **Add If statement**. Click its **Condition** label, open **OPERATORS** and choose `equal`, which checks whether two values are the same. Click the formula the **Condition** now shows. Keep **Type** as `bool`, link **Left side** to `confirmed` under **LOCALS** and turn **Right side** on. The condition now means "the person tapped **Delete**".
 5. In the **True** branch, add the steps that delete the recipe, then a snackbar such as "Recipe deleted".
 
 If the person taps **Cancel** or outside the dialog, `confirmed` isn't true, so nothing gets deleted.
@@ -111,7 +111,7 @@ Say a booking screen has a text that should show the chosen day, and a **Pick a 
 5. Add **LOCALS** → **refresh** below it, so the screen shows the new text.
 6. Click **Play**, tap the button and pick a day. The text now reads something like "April 10, 2025".
 
-If someone closes the picker, there's no date to show. To keep the old text in that case, put steps 3 to 5 in an If that checks `pickedDate != null`, as in [Use what the person chose](#use-what-the-person-chose).
+If someone closes the picker, there's no date, and the `format` step stops with an error. To skip steps 3 to 5 in that case, put them in an If that checks `pickedDate != null`, as in [Use what the person chose](#use-what-the-person-chose). The text then keeps showing what it showed before.
 
 ### Show a date as text
 
@@ -167,7 +167,7 @@ Say a profile screen has an image and a **Change photo** button.
 1. Select the image widget. In **Details**, open the **Bytes** tab of its image, click the **Bytes** label and choose **Create Variable...**. Rename the new variable `photo`. Its type, `Uint8List`, means the raw data of an image.
 2. In the button's **On Pressed**, add `showMediaPicker` and set **Source Type** to `gallery`. Turn on **await** and store the result in a new variable, `var1`.
 3. Choose **Add If statement**. Click its **Condition** label, open **LOCALS**, pick `var1` and choose `isNotEmpty`, so the next steps only run when a photo was picked.
-4. In the **True** branch, add a node: pick `var1` under **LOCALS**, click **+** in **Details**, choose `first`, then `readAsBytes`. Turn on **await**, set **Store result** to **Pick Variable** and choose `photo`.
+4. In the **True** branch, add a node: pick `var1` under **LOCALS**, click **+** in **Details** and choose `first` (the first picked file), then `readAsBytes` (its image data). Turn on **await**, set **Store result** to **Pick Variable** and choose `photo`.
 5. Add **LOCALS** → **refresh** below it.
 6. Click **Play**, tap the button and choose an image. On your computer, the gallery opens a file picker, so you choose an image file.
 

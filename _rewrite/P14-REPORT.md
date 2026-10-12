@@ -18,7 +18,8 @@ dropped, and make the tone warmer and better explained. The plan, rules and per-
 - **Warmer and better explained.** Steps carry the why and what happens next, with everyday examples and natural
   transitions, without filler (D25).
 - **New page: What Nowa adds to your code** (`code/generated-code.md`): the developer details from the other pages,
-  per feature, for people who work in code mode or VS Code. Main pages link to it at most once.
+  per feature (files, classes, packages, platform settings, what turning a feature off removes), for people who work
+  in code mode or VS Code. It's a long reference page reached by anchors from the main pages.
 - **New page: Make decisions, handle errors and repeat steps** (`logic/conditions.md`): If, Try and loops, split
   from the Circuit page, which had grown to about 2,700 words. Old control-flow URLs redirect there.
 
@@ -58,8 +59,8 @@ Highlights:
 
 - 15 section agents rewrote the pages and audited the old docs; 15 different agents then checked every added or
   changed claim against `nowaproj/nowa` 3.13.0 (`3cb32031c`) and the official third-party docs, checked every
-  removed fact, and enforced the reader rules. They made **207 corrections**, restored **15 facts** and made **36
-  more plain-language fixes**.
+  removed fact, and enforced the reader rules. They made **220 corrections**, restored **16 facts** and made **36
+  more plain-language fixes**. The new code page got its own independent check.
 - `yarn build` passes with no broken links or anchors; all 48 anchored targets of old URLs and in-app links resolve;
   no MDX hazards; front matter valid.
 - Developer-only details on non-code pages: **328 → 104**. What's left is on-screen text the reader sees or picks
@@ -77,9 +78,9 @@ Highlights:
 | D26 | Merge to `main` when done (your instruction), review live afterwards. |
 | D27 | Split only where a section is a separate concept (If, Try and loops); pages that walk one task top to bottom (iOS, Android, Stripe, tutorials) and reference pages stay whole. |
 
-## New product issues found while checking (P159-P178)
+## New product issues found while checking (P159-P185)
 
-20 new entries in `_rewrite/product-issues.md`, mostly from reading the code (not run live). The ones users are most
+27 new entries in `_rewrite/product-issues.md`, mostly from reading the code (not run live). The ones users are most
 likely to hit: Stripe charges zero-decimal currencies (such as yen) 100 times too much (P171); turning on **await**
 in a screen's start-up function shows an error screen (P161); Supabase **Use Keys** may no longer list tables after
 Supabase's anon-key change (P168); the Android emulator option disappears from the setup screen once the Android

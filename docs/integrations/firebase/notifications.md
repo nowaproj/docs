@@ -28,7 +28,7 @@ Once your app has notifications, it asks people for permission to show them when
 
 | Platform | What to know |
 |---|---|
-| iPhone and iPad | Needs the Apple setup below. Nowa turns on the background settings iOS needs to receive notifications. |
+| iPhone and iPad | Needs the Apple setup below. Nowa adds the background settings iOS needs to receive notifications the next time it rebuilds your app's iOS settings file, for example when you change an iOS permission. So before your first iPhone build, turn on an iOS permission your app doesn't use and turn it off again in [Permissions](../../account/project-settings.md#set-permissions), or ask Nowa AI in **Agent** mode to check that these settings are there. |
 | Android | Nowa turns on an Android build setting that the notification tools need. |
 | Web | Nowa doesn't set up push notifications for the web version of your app. |
 

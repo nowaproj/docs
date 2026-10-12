@@ -171,7 +171,9 @@ Once test payments work, switch to real ones:
 
 ## Remove Stripe
 
-Turn **Enabled** off. Nowa deletes the Stripe settings, the `StripePaymentService`, its Android changes and the Apple Pay setting, so remove any logic that calls `StripePaymentService` first.
+First remove any buttons or logic that use `StripePaymentService`, so nothing in your app still points at Stripe. Then turn **Enabled** off. Nowa takes the Stripe settings and `StripePaymentService` out of your app.
+
+Nowa also undoes the changes Stripe made to your Android and iOS app settings, such as Apple Pay, but in Nowa 3.13 only if you ran **Deploy Configuration** since you last opened the project. If you didn't, those settings stay. Ask Nowa AI in **Agent** mode to clean them up, for example: "Remove the Android and Apple Pay settings Stripe added to my app." Then run your app on a device to check it still starts. People who code can follow the checklist in [What Nowa adds to your code](../code/generated-code.md#stripe).
 
 The iOS **Camera** permission (**Settings** → **General** → **Permissions**) and your values in **Constants** stay. Your Supabase project isn't touched. Delete its tables, functions and secrets yourself if you no longer need them.
 

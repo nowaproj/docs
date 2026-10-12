@@ -32,7 +32,7 @@ Click **Fix**. Nowa applies the fix and checks again, so the row disappears once
 | `Setup statement in main.dart for "<key>" is required but not found.` | A package needs a setup step when your app starts, and it's missing. **Fix** adds it to `main.dart`, the file your app starts from. |
 | `Android permission "<name>" is required by <package> but not enabled.` (or iOS) | A package needs a phone permission, such as the camera, that isn't turned on for your app yet. **Fix** turns it on, so your app can ask for it. |
 | `The name '<name>' is defined in <packages>. Try removing one of the imports.` | Two packages use the same name, and Nowa needs to know which one you mean. **Fix** opens **Fix Ambiguous Import**: pick the one to keep visible, then click **Apply Fix**. |
-| `Main file is not found` or `Main function is not found` | Your app's main file, where your app starts, is missing or broken. **Fix** opens **Reset main file**. Click **Reset** to get a new main file with the default setup. |
+| `Main file is not found` or `Main function is not found` | Your app's main file, where your app starts, is missing or broken. **Fix** opens **Reset main file**. Click **Reset** to get a new main file with the default setup. If your project has routes (the paths that open each screen, which new projects have), the new file doesn't use them, so afterwards ask Nowa AI in **Agent** mode to connect them again and check with **Run**. |
 
 :::warning
 **Reset** replaces your app's main file with a fresh default one. Anything that was added to the old file is gone, so use it only when the file is missing or broken.

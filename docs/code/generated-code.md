@@ -38,12 +38,17 @@ main() async {
 | Push notifications | `await NotificationService.instance.initialize();` |
 | RevenueCat | `await RevenuecatService().configureRevenuecat();` |
 | AdMob | `await MobileAds.instance.initialize();` |
-| Stripe | `Stripe.publishableKey = AppConstants.stripePublishableKey;`, plus `Stripe.merchantIdentifier = '<merchant ID>';` while Apple Pay is on |
+| Stripe | `Stripe.publishableKey = AppConstants.stripePublishableKey;`, plus `Stripe.merchantIdentifier = '<merchant ID>';` once you deploy with Apple Pay on |
 | **Remove # in URLs** | `usePathUrlStrategy();` |
 
-Each line brings its own import. Firebase and Supabase start with their default settings, so they're ready before your first screen opens.
+Each line brings its own import, and they all run before `runApp`, so Firebase, Supabase and the rest are ready before your first screen opens.
 
-You can't delete `lib/main.dart`. If it goes missing anyway, or loses its `main()`, **Problems** offers **Fix**, which opens **Reset main file**. **Reset** writes a fresh `lib/main.dart` and replaces everything in the old one. That file uses Flutter's `Navigator` (a `MaterialApp` with `initialRoute` and `routes`) and expects a `HomePage` class in `lib/pages/home_page.dart`, not the GoRouter setup new projects start with. In a GoRouter project, switch it back to `MaterialApp.router(routerConfig: appRouter, ...)` afterwards. See [Find and fix problems](../test/problems.md#fix-a-problem-with-one-click).
+You can't delete `lib/main.dart`. If it goes missing anyway, or loses its `main()`, **Problems** offers **Fix**, which opens **Reset main file**. **Reset** writes a fresh `lib/main.dart` and replaces everything in the old one. That file uses Flutter's `Navigator` (a `MaterialApp` with `initialRoute` and `routes`), expects a `HomePage` class in `lib/pages/home_page.dart`, and its `MultiProvider` lists only `AppState`. So afterwards:
+
+- In a GoRouter project, make `MyApp` return `MaterialApp.router(routerConfig: appRouter, ...)` again and import `globals/router.dart`, yourself or with Nowa AI. Don't use **Enable GoRouter** in the Router panel for this: it replaces `lib/globals/router.dart` with a single route for the home screen.
+- Attach your other global states again ([Global state](#global-state)).
+
+See [Find and fix problems](../test/problems.md#fix-a-problem-with-one-click).
 
 ### `pubspec.yaml`
 
@@ -60,18 +65,18 @@ Nowa generates these files from its own templates plus your settings, and writes
 
 | File | Rebuilt when you change |
 |---|---|
-| `android/app/src/main/AndroidManifest.xml` | The **App Name**, an Android permission, the AdMob **Android App ID**, the Google Maps **Android API Key** or the Deep Links **Host** |
+| `android/app/src/main/AndroidManifest.xml` | The **App Name**, an Android permission (including one an integration turns on, such as **Boot Completed** for push notifications), the AdMob **Android App ID**, the Google Maps **Android API Key** or the Deep Links **Host** |
 | `android/app/build.gradle.kts` | The **Bundle Identifier**, the Firebase connection or push notifications |
 | `android/settings.gradle.kts` | The Firebase connection |
-| `ios/Runner/Info.plist` | The **App Name**, an iOS permission or its message, the AdMob **iOS App ID**, the Google Sign-In **iOS Client ID**, the Firebase **Google** or **Phone** sign-in provider, or the Deep Links **URL Scheme** |
+| `ios/Runner/Info.plist` | The **App Name**, an iOS permission or its message (including one an integration turns on, such as **Camera** for a Stripe deploy), the AdMob **iOS App ID**, the Google Sign-In **iOS Client ID**, the Firebase **Google** or **Phone** sign-in provider, or the Deep Links **URL Scheme** |
 | `ios/Podfile` | An integration that needs a newer iOS version: `platform :ios, '...'` is set to the highest one |
 | `ios/Runner/AppDelegate.swift` | The Google Maps **iOS API Key** |
 | `web/index.html` | The Google Maps **Web API Key**. The **App Name** changes only its `<title>` line. |
 
-Turning one of those integrations off rebuilds its files too.
+Turning one of those integrations off rebuilds its files too. And when you open a project whose `web/index.html` still uses Flutter's older web loader (it doesn't load `flutter_bootstrap.js`), Nowa replaces that file with its own template.
 
 :::warning
-A rebuilt file keeps only what Nowa's template and your settings put in it. Anything you added by hand, or that an imported project already had (Nowa keeps only the permissions it finds), is gone at the next rebuild. Commit your project with [Git](git.md) before you change permissions, the **App Name**, the **Bundle Identifier** or an integration, so you can compare and put back what you need.
+A rebuilt file keeps only what Nowa's template and your settings put in it. Anything you added by hand, or that an imported project already had, is gone at the next rebuild. The one exception is permissions: the first time Nowa opens a project, it records the Android permissions in the manifest, and the iOS ones on its own list, and keeps writing those. Commit your project with [Git](git.md) before you change permissions, the **App Name**, the **Bundle Identifier** or an integration, so you can compare and put back what you need.
 :::
 
 A few more changes happen outside those files:
@@ -89,6 +94,8 @@ A few more changes happen outside those files:
 | `.nowa/settings.json` | The settings Nowa keeps for the project: the app name and bundle ID, permissions, the start-up lines for `main()`, experimental flags, the integration keys that go into platform files (under `packages`), and your Firebase and Stripe setup. |
 | `.nowa/assistant_instructions.md` | Your Nowa AI [Custom Instructions](../ai/prompting.md#custom-instructions), so they travel with the project. |
 | `.nowa/temp/` | Nowa AI checkpoints. They're an undo button, not a backup: `.nowa/.gitignore` keeps this folder out of Git. |
+| `.nowa/thumbnail.png` | Your project's cover in the projects list: a screenshot of the board, taken when Nowa saves while a board is open, or the image you picked. `.nowa/.gitignore` keeps it out of Git too. |
+| `.nowa/icon.<ext>` | The last image you picked as your app icon, which Nowa makes the platform icons from. |
 
 The **Files** tree in code mode doesn't list folders whose names start with a dot, so open `.nowa` in VS Code or your file manager.
 
@@ -110,7 +117,7 @@ To add and set up screens, see [Create and set up screens](../design/screens.md)
 - **Add description** writes a doc comment (`///`) above the class. The Library's details card and the widget picker show it.
 - **Copy as new widget** creates a separate class in a new file.
 - **Remove** takes the screen off the board. Its file stays in your project.
-- **Routes in GoRouter projects**, which all new projects are: a screen you add from a single-file template gets a route in `lib/globals/router.dart`, its class name in lowercase with hyphens, so `HomePage` gets `/home-page`. Screens from multi-file templates, such as the **Authentication Template**, start without one. See [Navigation](#navigation).
+- **Routes in GoRouter projects**, which new projects are (one saved from the **Simple app** playground uses `Navigator`): a screen you add from a single-file template gets a route in `lib/globals/router.dart`, its class name in lowercase with hyphens, so `HomePage` gets `/home-page`. Screens from multi-file templates, such as the **Authentication Template**, start without one. See [Navigation](#navigation).
 - **Routes in older Navigator projects:** Nowa keeps the `routes` map of `MaterialApp` in `lib/main.dart`, with one entry per public screen in `lib/` whose constructor has no required parameters, keyed by its class name (`'HomePage'`). The home screen is the `initialRoute`.
 
 ## Components {#components}
@@ -128,7 +135,7 @@ To build and reuse components, see [Build reusable components](../design/compone
 To create and edit themes, see [Create and edit themes](../design/themes.md).
 
 - **Where themes live.** Each theme is a top-level `ThemeData` variable in `lib/globals/themes.dart`, and the **Themes** panel writes your edits there. New projects have `lightTheme` and `darkTheme`, built on `ColorScheme.light()` and `ColorScheme.dark()`. A `ThemeData` variable that a function builds is listed too; variables of other types aren't. **Open in New Tab** opens your themes as code.
-- **New themes** you create in the panel are named `newTheme` at first and use `ColorScheme.fromSeed(seedColor: Color(0xFF673AB7))`. If you open a theme that sets no color scheme, Nowa adds `ColorScheme.fromSeed(seedColor: Colors.deepPurple)`.
+- **New themes** you create in the panel are named `newTheme` at first and use `ColorScheme.fromSeed(seedColor: Color(0xFF673AB7))`. If you open a theme that sets no color scheme, Nowa adds the same `ColorScheme.fromSeed(seedColor: Color(0xFF673AB7))`, Material's deep purple.
 - **The applied theme.** In new projects `MaterialApp` reads `AppState.of(context).theme`, so **Apply** sets the starting value of `_theme` in `AppState` (`lib/globals/app_state.dart`), and `AppState.changeTheme(theme)` switches themes while the app runs. In a project without that setup, **Apply** sets `theme:` on the `MaterialApp` in `lib/main.dart`.
 - **Default Font** and the **Default Theme** tab appear for themes written as `ThemeData(...)`. A theme that a function or `copyWith` builds shows only its extension tabs.
 - **Theme extensions** are classes that extend `ThemeExtension`. A widget reads an extension color as `AppColors.of(context).brand`, or as `Theme.of(context).extension<AppColors>()!.brand` when the class has no `of`. A color that points to another color, such as `AppColors.primary`, shows as the color it reads.
@@ -154,7 +161,7 @@ To add and use files, see [Images, videos and other files](../design/assets.md).
 - **Upload Image**, when you choose an asset for a widget, saves the file in `assets/` and selects it.
 - **A pasted image** is saved as `assets/pasted_image_<id>`, with its own file extension, and Nowa places an Image widget where your pointer is.
 - **Images from AI.** Images that Nowa AI saves from your chat attachments, and images a connected external agent adds with `add_image_assets`, go in `assets/images/`.
-- **`pubspec.yaml`.** Nowa writes the `flutter:` → `assets:` list for you, with one entry for each folder under `assets/` that has files, such as `assets/images/`. It rebuilds the whole list whenever you import a file, pick a font or add, update or remove a package, so entries for files outside `assets/` don't last. Fonts go under `fonts:`, as in [Fonts and icons](#fonts-and-icons).
+- **`pubspec.yaml`.** Nowa writes the `flutter:` → `assets:` list for you, with one entry for each folder that isn't empty, `assets/` itself and the folders in it at any depth, such as `assets/images/`. It rebuilds the whole list whenever you import a file, pick a font or add, update or remove a package, so entries for files outside `assets/` don't last. Fonts go under `fonts:`, as in [Fonts and icons](#fonts-and-icons).
 
 ## Translations {#localization}
 
@@ -168,7 +175,7 @@ To make your app speak several languages, see [Languages and right-to-left text]
 
 To work with logic, see [Store data in variables](../logic/variables.md), [Create functions](../logic/functions.md) and [Build logic in Circuit](../logic/circuit.md).
 
-- **Variables** of a screen or component are fields of its `State` class. Adding the first one to a component that had none turns it into a `StatefulWidget` with a `State` class automatically.
+- **Variables** of a screen or component are fields of its `State` class, which Nowa adds with the first variable (see [Components](#components)).
 - **Circuit edits real Dart code.** What you change in Circuit changes the function in its file, and code you save shows up in Circuit. An open Circuit panel rebuilds when the file is read again, and shows "Function was modified in code and could not find it" when the function is gone.
 - **await.** Turning on **await** for a step, under **Future Options**, makes the enclosing function `async` and wraps its return type in `Future`. Turning the last one off undoes it. This happens in **InitState Function** too, which becomes `Future<void> initState() async`, and Flutter rejects that in debug builds, the kind **Run** makes. Put the waiting steps in a separate function and call that from `initState` without **await**. See [Run logic when a screen opens or closes](../logic/functions.md#lifecycle).
 - **What Circuit can draw.** Circuit draws a function only when its body sticks to these statements: expression statements, local variables, `if`/`else`, `try`/`catch` (one `catch` clause shown), `while` and `return`. It can't draw a function that uses others, such as `for`, `switch`, `break` or `continue`, so keep functions you want to edit visually within that list.
@@ -189,7 +196,7 @@ To share data across your app, see [Share data across your app](../logic/global-
 To create models, see [Data models](../logic/models.md).
 
 - **Files.** **New Model...** creates the model in `lib/models/`. Nowa fills in the class and file names from what you type: "task model" becomes the class `TaskModel` in `task_model.dart`.
-- **Generated members.** Each model has a constructor, `factory TaskModel.fromJson(Map<String, dynamic> json)` and `Map<String, dynamic> toJson()`. Nowa rewrites all three each time you change the fields, and **View Code** shows the result.
+- **Generated members.** Each model has a constructor, `factory TaskModel.fromJson({required Map<String, dynamic> json})` and `Map<String, dynamic> toJson()`, so you write `TaskModel.fromJson(json: data)`. Nowa rewrites all three each time you change the fields, and **View Code** shows the result. Models from Supabase templates take the map as a plain argument instead: `TodosModel.fromJson(data)`.
 - **JSON keys.** By default each field reads and writes the JSON key with its own name. A field whose type is another model, or a list of models, goes through that model's `fromJson` and `toJson`. A `DateTime` field is read with `DateTime.tryParse` and written with `toIso8601String()`, so it expects dates as text.
 - **Generate Models From Json** puts every class it creates in one file named after the main class, in `lib/models/` by default, so `Root` becomes `lib/models/root.dart`. The folder must be inside `lib`. **Generate Model** for a REST API request uses the same dialog.
 - **Edit in code.** Open a model's file (in the Library, right-click it and choose **Show in code**, or click **View Code** in the model editor) and add or change fields. Nowa reads them back into the model editor.
@@ -203,7 +210,7 @@ To move between screens, see [Navigate between screens](../logic/navigation.md) 
 - **Routes.** Each route is a `GoRoute`, such as `GoRoute(path: '/home-page', builder: (context, state) => const HomePage())`, and sub-routes go in its `routes` list. A path parameter, such as `:id` in `/product/:id`, is read in the builder with `state.pathParameters['id']` and passed to the screen's constructor. A query parameter is read with `state.uri.queryParameters['q']`.
 - **Router Configuration.** **Initial Location** is the router's `initialLocation`, the path your app opens first. **Redirect Logic**, on the router or on one route, adds a `redirect` function that takes `context` and `state` and starts by returning `null`, which lets everyone through. **Remove # in URLs** adds `usePathUrlStrategy();` to `main()` and the `flutter_web_plugins` SDK package.
 - **Navigation steps.** The **GoRouter** step writes `GoRouter.of(context).push('/path')`, and its **Type** is the method, such as `push`, `go` or `pop`. The **Navigator** step writes `Navigator.of(context).push(MaterialPageRoute(builder: ...))`.
-- **Older projects** use Flutter's `Navigator`, with the `routes` map in `MaterialApp` described under [Screens and routes](#screens-and-routes). To move one to GoRouter, see [Switch an older project to GoRouter](../logic/router.md#switch-an-older-project-to-gorouter).
+- **Older projects**, and one saved from the **Simple app** playground, use Flutter's `Navigator`, with the `routes` map in `MaterialApp` described under [Screens and routes](#screens-and-routes). To move one to GoRouter, see [Switch an older project to GoRouter](../logic/router.md#switch-an-older-project-to-gorouter).
 
 ## Actions and popups {#actions-and-popups}
 
@@ -237,7 +244,7 @@ To connect an API, see [Connect a REST API](../integrations/rest-api/index.md).
 - **Auth Key** adds an interceptor to the collection's constructor. Before each request it sets the `Authorization` header to `'Bearer ${sharedPrefs.getString('<Auth Key>')}'`, the token your app saved on the device under that name.
 - **File uploads.** If a body has a file field (**MultipartFile**), **Upload File** picks a file to test with. For the test only, Nowa puts its bytes into the request's `Uint8List` or `List<int>` parameters.
 - **Models** from **Generate Model** go in `lib/models` by default. See [Data models](#models).
-- **Import.** A Postman file needs both an `info` and an `item` section, or Nowa says **Invalid Postman collection format**. See [Import an API](../integrations/rest-api/import.md).
+- **Import.** A Postman file needs both an `info` and an `item` section, or Nowa shows an error that starts with `Invalid Postman collection format`. See [Import an API](../integrations/rest-api/import.md).
 
 ## Keys and constants {#constants}
 
@@ -251,9 +258,9 @@ To manage your keys, see [Keys and constants](../integrations/constants.md).
   | Supabase | `supabaseUrl`, `supabaseAnonKey` |
   | RevenueCat | `revenueCatAppleApiKey`, `revenueCatAndroidApiKey`, `revenueCatWebApiKey` |
   | Stripe | `stripePublishableKey`, `stripeMerchantName`, `stripeMerchantCountryCode` |
-  | Google Sign-In | `webClientId` |
+  | Google Sign-In, and the Firebase **Google** provider, which installs the same package | `webClientId` |
 
-- When you turn an integration off, its constants stay, listed under **Custom Constants**.
+- When you turn an integration off, its constants stay, listed under **Custom Constants**. Turning RevenueCat, Stripe or Google Sign-In on again sets theirs back to empty, so note your keys before you switch one off and on.
 - **Platform keys aren't constants.** Keys that only platform files need (the Google Maps API keys, the AdMob App IDs, the Deep Links **URL Scheme** and **Host**, and the Google Sign-In **iOS Client ID**) are stored under `packages` in `.nowa/settings.json`, and Nowa writes them into your Android, iOS or web files. They live on their own pages under **Settings** → **Integrations**.
 - **In Circuit**, `AppConstants` is in the **PACKAGE:** category of the **+** menu. See [Use a constant](../integrations/constants.md#use-a-constant).
 
@@ -275,7 +282,7 @@ To set it up, see [Connect Supabase](../integrations/supabase/connect.md).
 - `signIn` calls `Supabase.instance.client.auth.signInWithPassword(...)` and `signUp` calls `auth.signUp(...)`, both returning a `Future<AuthResponse>`. `signOut` calls `auth.signOut()`.
 - There's no ready-made "is someone signed in" function. Check `Supabase.instance.client.auth.currentSession != null`, as the [redirect example](../logic/router.md#start-on-login-or-home) does, or ask Nowa AI to add a function to `SupabaseService` that tells you.
 - A generated function is ordinary Dart code. Change it with **Edit Code** in its test panel ([Change a function's code](../integrations/supabase/database.md#edit-code)) or in code mode.
-- The **Supabase** panel sorts the functions of `SupabaseService` by what their code calls: `.from(...)` goes under **Queries**, auth calls such as `.auth.signOut()` under **Authentication**, `.storage` under **Storage**, `.rpc(...)` under **RPC** and `.functions` under **Other Functions**. Functions you write yourself are sorted the same way.
+- The **Supabase** panel sorts the functions of `SupabaseService` by what their code contains: `.from` (without `.rpc`, `.storage`, `.realtime` or `.functions`) goes under **Queries**, `.auth.s`, as in `.auth.signIn...`, `.auth.signUp` and `.auth.signOut`, under **Authentication**, `.storage` under **Storage**, `.rpc` under **RPC** and `.functions` under **Other Functions**. Functions you write yourself are sorted the same way, and one that matches none of these, such as a function that only calls `.auth.resetPasswordForEmail(...)`, doesn't show in the panel.
 - A live query returns a `Stream`, and no template creates one. Here's a minimal one ([Live queries](../integrations/supabase/database.md#live-queries) covers turning on Realtime for the table):
 
   ```dart
@@ -338,7 +345,7 @@ Nowa puts the sign-in functions in `FirebaseService`, in `lib/firebase/firebase.
 
 - **iOS URL schemes.** **Google** adds a `CFBundleURLTypes` entry to `Info.plist` with your reversed client ID. **Phone** needs its own scheme, `app-` plus your iOS app ID with dashes, but it's only added while **Google** is on too: both come from the `google_sign_in` package's settings, and **Phone** doesn't add that package. A scheme you add by hand is lost when Nowa next rebuilds `Info.plist`. See [Functions Nowa adds](../integrations/firebase/auth.md#functions-nowa-adds).
 - **Google and `google_sign_in` 7.x.** In Nowa 3.13, `signInWithGoogle()` is written for an older version of `google_sign_in` (it calls `GoogleSignIn().signIn()`) than the 7.x version Nowa installs. If your build reports errors about `GoogleSignIn` in `lib/firebase/firebase.dart`, this is the cause. Turning **Google** off removes the function and the package.
-- **Turning Authentication off** removes every function in the table except `sendPasswordResetEmail()`, which stays in `FirebaseService`. Nowa also switches the providers off and removes `firebase_auth`, and `google_sign_in` if **Google** was on. The leftover function still calls `FirebaseAuth.instance`, so it breaks your build: delete it in code mode.
+- **Turning Authentication off** removes every function in the table except `sendPasswordResetEmail()`, which stays in `FirebaseService`. Nowa also switches the providers off and removes `firebase_auth`, and `google_sign_in` if **Google** was on. The leftover function still calls `FirebaseAuth.instance`, so it breaks your build: delete it in code mode. Turning only **Email/Password** off leaves it behind too, which is harmless while **Authentication** stays on.
 
 ### Cloud Firestore
 
@@ -358,13 +365,15 @@ Nowa puts the sign-in functions in `FirebaseService`, in `lib/firebase/firebase.
 | iOS | The `fetch` and `remote-notification` background modes (`UIBackgroundModes`) for `Info.plist`. Turning notifications on doesn't rebuild that file by itself, so they're written at its next rebuild, for example when you change an iOS permission. Check `ios/Runner/Info.plist` before an iOS build. |
 
 - `initialize()` asks for permission to show notifications, shows messages that arrive while the app is open as local notifications (Android channel `high_importance_channel`), keeps the device's token in `fcmToken` and subscribes to the topic `all`, which Nowa's test notifications go to.
-- To react when someone taps a notification, set `onNotificationTap`, which gets the message data as JSON. A tap that opens the app calls `_handleBackgroundMessage`, which Nowa leaves empty for your code.
+- When someone taps a notification that arrived while your app was open, `onNotificationTap` gets the message data as JSON, so set it to react. A tap that opens the app from the background, or starts it, calls `_handleBackgroundMessage`, which Nowa leaves empty for your code.
 - Nowa writes no `aps-environment` entitlement. Add the Push Notifications capability in Xcode, under **Signing & Capabilities**. In the macOS desktop app, the **Open Xcode Workspace** link under the switch opens `ios/Runner.xcworkspace` from the project's folder, so it works for [local projects](local-projects.md). See [Set up notifications for iPhone](../integrations/firebase/notifications.md#set-up-notifications-for-iphone).
-- Turning off **Push Notifications (FCM)** removes `lib/firebase/notification_service.dart`, the two packages and the start-up line.
+- Turning off **Push Notifications (FCM)** removes `lib/firebase/notification_service.dart`, the two packages and the start-up line. The background modes leave `Info.plist` only at its next rebuild.
 
 ### Disconnect Firebase
 
 Nowa removes `FirebaseService`, the config files, `lib/firebase_options.dart`, the sign-in functions and notification code, the Firebase packages and the start-up line, and rebuilds the Gradle files. **Keep Files** keeps `collections.dart` and `queries.dart` so you can reuse them with another project. Your queries show errors until you connect again.
+
+In Nowa 3.13, disconnecting leaves the `google_sign_in` package in place if the **Google** provider was on. If you don't need it, turn **Enabled** off on the **Google Sign-In** page.
 
 ## Stripe {#stripe}
 
@@ -400,7 +409,7 @@ In your project, it generates `StripePaymentService` in `lib/integrations/stripe
 - **Google Pay** is set up in `_initPaymentSheet` as `PaymentSheetGooglePay(merchantCountryCode: AppConstants.stripeMerchantCountryCode, testEnv: true)`, Google's test environment. When Google approves your app, change it to `testEnv: false` after your last deploy, because each deploy puts `true` back.
 - **The functions** pin `apiVersion: '2025-12-15.clover'` and load `stripe@17.5.0` from esm.sh. `stripe-webhook` checks each event with `stripe.webhooks.constructEventAsync` and reads `event.data.object`, so your Stripe event destination must send snapshot events, not thin ones.
 - **Amounts** are sent as `Math.round(amount * 100)` for every currency. Stripe expects zero-decimal currencies, such as JPY, without that multiplication, so those would be charged 100 times the price ([Stripe: zero-decimal currencies](https://docs.stripe.com/currencies#zero-decimal)). A **Fixed Currency** is lowercased for you; a **Currency Column** value is sent as stored, and Stripe wants lowercase codes.
-- **Subscription periods.** `stripe-webhook` and `stripe-create-subscription` read `invoice.subscription` and the subscription's `current_period_start` and `current_period_end`, which Stripe removed in API version `2025-03-31.basil` ([Stripe changelog](https://docs.stripe.com/changelog/basil/2025-03-31/deprecate-subscription-current-period-start-and-end)). On a Stripe account with a current API version, the period columns can stay empty and the `invoice.*` branches find no subscription. The status still follows the `customer.subscription.*` events.
+- **Subscription periods.** `stripe-create-subscription` and `stripe-webhook` read the subscription's `current_period_start` and `current_period_end`, and `stripe-webhook` also reads `invoice.subscription`. Stripe removed these fields in API version `2025-03-31.basil` ([subscription periods](https://docs.stripe.com/changelog/basil/2025-03-31/deprecate-subscription-current-period-start-and-end), [invoices](https://docs.stripe.com/changelog/basil/2025-03-31/adds-new-parent-field-to-invoicing-objects)). The functions call Stripe with the pinned `2025-12-15.clover`, so the subscriptions they create or fetch never have the period fields, and webhook events have them only when your event destination uses an older API version than basil ([Stripe: event destinations](https://docs.stripe.com/event-destinations)). So the period columns can stay empty, and on basil or later the `invoice.*` branches find no subscription. The status still follows the `customer.subscription.*` events.
 
 **Platform changes**, written at the end of each successful deploy:
 
@@ -411,7 +420,14 @@ In your project, it generates `StripePaymentService` in `lib/integrations/stripe
 
 ### Remove Stripe
 
-Turning **Enabled** off deletes the Stripe settings, the start-up lines, `lib/integrations/stripe_payment_service.dart` and `android/app/proguard-rules.pro`. It sets `NormalTheme` back to `@android:style/Theme.Light.NoTitleBar` in both `styles.xml` files, switches `MainActivity` from `FlutterFragmentActivity` to `FlutterActivity`, and removes the Apple Pay key from `Runner.entitlements` (deleting the file if nothing else is left). The **Camera** permission, your constants and everything in Supabase stay. If you also use RevenueCat, check that `MainActivity` is still a `FlutterFragmentActivity`, which RevenueCat set up.
+Turning **Enabled** off deletes the Stripe settings, the start-up lines and `lib/integrations/stripe_payment_service.dart`. The **Camera** permission, your constants and everything in Supabase stay.
+
+It also undoes the platform changes, but in Nowa 3.13 only if a **Deploy Configuration** finished since you last opened the project. Otherwise they stay, and you undo them yourself (or ask Nowa AI to):
+
+- Delete `android/app/proguard-rules.pro`.
+- Set `NormalTheme` back to `@android:style/Theme.Light.NoTitleBar` in both `styles.xml` files.
+- Switch `MainActivity` from `FlutterFragmentActivity` to `FlutterActivity`. If you also use RevenueCat, leave it a `FlutterFragmentActivity`, which Nowa set up for RevenueCat. (When Nowa undoes it, it doesn't check, so look at `MainActivity.kt` afterwards.)
+- Remove the `com.apple.developer.in-app-payments` key from `ios/Runner/Runner.entitlements`, and the file if nothing else is left in it.
 
 ## RevenueCat {#revenuecat}
 
@@ -485,16 +501,16 @@ Turning on **Enabled** adds the `google_sign_in` package. Nowa doesn't generate 
 
 To set them up, see [Deep links](../integrations/deep-links.md).
 
-Turning on **Enabled** adds the `app_links` package and switches off Flutter's built-in deep link handling: `FlutterDeepLinkingEnabled` is `false` in `Info.plist`, and the manifest's activity gets `flutter_deeplinking_enabled` set to `false`. Your settings take effect in a built app.
+Turning on **Enabled** adds the `app_links` package. From then on, each time Nowa rebuilds `Info.plist` or the Android manifest, it switches off Flutter's built-in deep link handling there: `FlutterDeepLinkingEnabled` is `false` in `Info.plist`, and the manifest's activity gets `flutter_deeplinking_enabled` set to `false`. Turning on **Enabled** doesn't rebuild either file by itself; saving the fields below does. Your settings take effect in a built app.
 
 | Field | Opens your app from | Where Nowa writes it |
 |---|---|---|
-| **URL Scheme** | Links like `myapp://...` | `Info.plist`, as a `CFBundleURLTypes` entry, as soon as you save it. The Android manifest, as an intent filter for the scheme with the host `open.my.app`, the next time Nowa rebuilds the manifest. |
+| **URL Scheme** | Links like `myapp://...` | `Info.plist`, as a `CFBundleURLTypes` entry, as soon as you save it. The Android manifest, as an intent filter for the scheme with the host `open.my.app`, only at the manifest's next rebuild (see below). |
 | **Host** | Links like `https://example.com/...` | The Android manifest only, as an App Links intent filter with `android:autoVerify="true"`. A path after the domain, as in `example.com/app`, becomes `android:pathPrefix="/app"`. |
 
-- **Check the Android manifest.** Saving **URL Scheme** rebuilds only `Info.plist`, so the manifest gets your scheme the next time Nowa rebuilds it, for example when you save **Host**. To add a scheme without a host, save any **Host** and clear it again. Before you test on Android, open `android/app/src/main/AndroidManifest.xml` and look for your scheme.
+- **Check the Android manifest.** Saving **URL Scheme** rebuilds only `Info.plist`. To get your scheme into the manifest, save **Host**, which rebuilds it; without a host, save any **Host** and clear it again. Before you test on Android, open `android/app/src/main/AndroidManifest.xml` and look for your scheme.
 - **No iOS Universal Links.** Nowa doesn't add the associated-domains entitlement, so web links open your app on Android only until you set up Universal Links yourself ([Apple's guide](https://developer.apple.com/documentation/xcode/supporting-universal-links-in-your-app)). On Android, `autoVerify` makes the system check that you own the domain, so your site must serve the verification file ([Android's guide](https://developer.android.com/training/app-links)).
-- **Two URL types.** Google sign-in, standalone or through Firebase, also writes a `CFBundleURLTypes` entry once its client ID is saved. With both, `Info.plist` holds two separate `CFBundleURLTypes` keys, and since a property list should hold that key once, one of them may not take effect on iOS. Merging them by hand, or with Nowa AI, doesn't last: Nowa rebuilds the whole file when you save the **URL Scheme**, the Google Sign-In **iOS Client ID** or the AdMob **iOS App ID**, turn the Firebase **Google** or **Phone** provider on or off, change an iOS permission or change the **App Name**. See [Use deep links with Google Sign-In](../integrations/deep-links.md#with-google-sign-in).
+- **Two URL types.** Google sign-in, standalone or through Firebase, also writes a `CFBundleURLTypes` entry once its client ID is saved. With both, `Info.plist` holds two separate `CFBundleURLTypes` keys, and since a property list should hold that key once, one of them may not take effect on iOS. Merging them by hand, or with Nowa AI, doesn't last: Nowa rebuilds the whole file whenever one of its settings changes (see [Platform files Nowa rebuilds](#platform-files-nowa-rebuilds)). See [Use deep links with Google Sign-In](../integrations/deep-links.md#with-google-sign-in).
 - **Reading the link is up to your code.** Nowa registers the links and adds `app_links`, but it doesn't generate code that reads an incoming link. Your app's logic has to read it and open the right screen.
 - Turning **Enabled** off removes the package and the entries Nowa added to the Android and iOS files.
 
@@ -534,12 +550,14 @@ Cloud builds run the workflows in your project's `codemagic.yaml`:
    openssl pkcs12 -in IOS_DISTRIBUTION.p12 -nodes -nocerts | openssl rsa -out ios_distribution_private_key
    ```
 
+   If your `openssl` is OpenSSL 3 and the first command fails with an `unsupported` algorithm error, add `-legacy` after `pkcs12`: OpenSSL 3 loads the older algorithms some `.p12` files use only in its legacy mode ([OpenSSL: pkcs12](https://docs.openssl.org/3.0/man1/openssl-pkcs12/)).
+
 4. Rename that file so it ends in `.p12`, such as `ios_distribution_private_key.p12`, so Nowa's file picker shows it.
 5. In the **Distribution Certificate** card, click **Browse** next to **Certificate Private Key**, pick the file and click **Save**. See [Use a key you already have](../publish/ios.md#use-a-key-you-already-have).
 
 ### Before you upload to the App Store
 
-- **Export compliance.** Nowa's `Info.plist` template doesn't set `ITSAppUsesNonExemptEncryption`, so App Store Connect asks the encryption questions for each build ([Apple: export compliance](https://developer.apple.com/help/app-store-connect/test-a-beta-version/provide-export-compliance-information-for-beta-builds/)). You can add the key yourself, but Nowa rebuilds `Info.plist` whole when you change a permission, the **App Name** or certain integration keys, so check that it's still there before each upload.
+- **Export compliance.** Nowa's `Info.plist` template doesn't set `ITSAppUsesNonExemptEncryption`, so App Store Connect asks the encryption questions for each build ([Apple: export compliance](https://developer.apple.com/help/app-store-connect/test-a-beta-version/provide-export-compliance-information-for-beta-builds/)). You can add the key yourself, but Nowa rebuilds `Info.plist` whole when one of its settings changes ([Platform files Nowa rebuilds](#platform-files-nowa-rebuilds)), so check that it's still there before each upload.
 - **App icon transparency.** Nowa generates the iOS icons without removing transparency (`remove_alpha_ios` isn't set), and the icon generator it uses warns that "Icons with alpha channel are not allowed in the Apple App Store". Use an icon image without transparency for iOS.
 - **Version numbers.** **Build version** and **Build number** come from `version:` in `pubspec.yaml`. See [Project files](#project-files).
 
@@ -547,9 +565,11 @@ Cloud builds run the workflows in your project's `codemagic.yaml`:
 
 To add, update or remove packages yourself, see [Add packages](packages.md).
 
-New projects start with `nowa_runtime`, `provider`, `shared_preferences`, `dio` and `go_router`, plus `flutter_lints` as a dev dependency. When you turn on an integration with its **Enabled** switch, Nowa adds the newest version of its package from pub.dev. Connecting Supabase or Firebase, and the packages Nowa adds for a widget, use versions fixed in your Nowa release.
+New projects start with `nowa_runtime`, `provider`, `shared_preferences`, `dio` and `go_router`, plus `flutter_lints` as a dev dependency. When you turn on an integration with its **Enabled** switch, Nowa adds the newest version of its package from pub.dev. Connecting Supabase or Firebase, and the packages Nowa adds for a widget, use versions fixed in your Nowa release, and so does Nowa AI when it adds a package that Nowa has its own setup for.
 
-**`nowa_runtime`** is Nowa's helper package. It holds `@NowaGenerated`, `NPlatform`, `openUrl`, `showMediaPicker` and widgets such as **CustomButton**, which the Library lists before Nowa's own **Button** when you search for `button` in a new project. It brings `url_launcher`, `flutter_inappwebview`, `markdown_widget`, `video_player`, `chewie`, `audioplayers`, `image_picker`, `intl` and `web` into your app with it.
+That setup runs however the package arrives, from an integration, the **Packages** page or Nowa AI: it adds the package's start-up line, files, constants and permissions. Adding `geolocator`, for example, asks first in **Add Missing Dependencies**, then turns on the **Fine Location** and **Coarse Location** permissions on Android and **Location When In Use** on iOS, which rebuilds the manifest and `Info.plist`.
+
+**`nowa_runtime`** is Nowa's helper package. It holds `@NowaGenerated`, `NPlatform`, `openUrl`, `showMediaPicker` and widgets such as **CustomButton**, which the Library lists before Nowa's own **Button** when you search for `button` in a new project. It brings `url_launcher`, `flutter_inappwebview`, `markdown_widget`, `video_player`, `chewie`, `audioplayers`, `image_picker`, `intl` and `web` into your app with it. Each time Nowa loads your project, it sets `nowa_runtime`, and `nowa_mobile_ads` if you use AdMob, back to the versions your Nowa release works with, so a different version you write for either doesn't last.
 
 | Feature | Packages Nowa adds |
 |---|---|
@@ -576,5 +596,5 @@ New projects start with `nowa_runtime`, `provider`, `shared_preferences`, `dio` 
 | **Admob Banner**, **Google Maps**, **RevenueCat Paywall** | The integration's packages above, plus your keys in **Settings** → **Integrations**. |
 
 - The Library's **Packages** chip lists the packages in your `pubspec.yaml` with their versions (**workspace** for a local path), and the widgets and classes they bring.
-- `'<package>' is imported but is not in the pubspec.` in **Problems** means your code imports a package your `pubspec.yaml` doesn't list. **Fix** adds the package at its latest version. A package listed with `sdk:`, `git:` or `path:` doesn't cause this problem.
+- `'<package>' is imported but is not in the pubspec.` in **Problems** means your code imports a package your `pubspec.yaml` doesn't list. **Fix** adds the package at its latest version. A package listed with `sdk:`, `git:` or `path:` doesn't cause this problem. If the package is a dev dependency, **Problems** says so instead, with no **Fix**: Nowa doesn't load dev dependencies, so move it to `dependencies` to use it in `lib/`.
 - Nowa AI won't add `firebase_core` (see [Firebase](#firebase)) or `flutter_localizations` (see [Translations](#localization)).

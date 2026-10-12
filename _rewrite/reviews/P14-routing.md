@@ -29,3 +29,9 @@ Items a section agent or verifier found for a page outside its batch, and what h
 | 23 | B01 | `troubleshooting/index.md` (B12) | Starting the desktop app offline may open the sign-in page instead of No Internet Connection (code reading, hedged). | sent to B12 |
 | 24 | B01 | `guides/complete-app.md` (structure) | ~2,300 words; writer proposes two parts. | decide after B01 verification |
 | 25 | B03 | product team | The load packages switch's description is out of date (3.13: it only gates Nowa AI adding packages). New UX flag breaks double-click. | for the report (product copy and bug) |
+| 26 | B10 | `integrations/google-sign-in.md` (B08) | Supabase bullet: turn on Google as a provider, link `supabase/auth.md#google`. | sent to B08 |
+| 27 | B10 | `guides/complete-app.md`, `guides/data-and-state-tips.md` (B01) | Email confirmation pointer (`supabase/auth.md#confirm-email`); link to `supabase/database.md#create-a-table`. | sent to B01 verifier |
+| 28 | B10 | `integrations/stripe.md` (B09) | Link to `supabase/database.md#create-a-table` from the table bullet. | sent to B09 |
+| 29 | B10 | `troubleshooting/known-issues.md` (B12) | "Supabase tables don't load with Use Keys" (anon key no longer gets the schema since April 2026). Not seen live. | hold until B10 verifier confirms the source |
+| 30 | B10 | product team | Supabase is moving away from the anon key; Nowa 3.13 accepts only the anon key with Use Keys. Create/Update Record templates may send empty id/created_at (not seen live). | for the report |
+| 31 | B10 | `integrations/supabase/database.md` (structure) | ~2,300 words; split proposal in notes. | decide after B10 verification |

@@ -12,7 +12,7 @@ Stripe lets your app take payments by card, Apple Pay and Google Pay. Nowa build
 - A Stripe account. While you build, work in a sandbox, Stripe's test environment, where no real money moves.
 - Supabase connected with **Connect**. **Use Keys** isn't enough: Nowa creates tables, deploys functions and saves secrets in your Supabase project through that authorization. See [Connect Supabase](./supabase/connect.md).
 - Users who sign in with Supabase Auth. The payment functions refuse anyone who isn't signed in. See [Sign users in with Supabase](./supabase/auth.md).
-- For **One-Time** and **Consumable**: a Supabase table with one row per item you sell, a unique ID column and a price column. For **Subscription**: a price created in Stripe (you need its Price ID).
+- For **One-Time** and **Consumable**: a Supabase table with one row per item you sell, a unique ID column and a price column. See [Create a table](./supabase/database.md#create-a-table). For **Subscription**: a price created in Stripe (you need its Price ID).
 - If your app goes on the App Store or Google Play and sells digital goods, credits or subscriptions, read the store rules first: [Follow Apple's rules](../publish/ios.md#store-rules) and [Follow Google Play's rules](../publish/android.md#store-rules).
 
 ## Get your Stripe keys

@@ -102,7 +102,7 @@ The **Test** section sits below the builder in the **Queries** editor. It runs y
 2. Click **Run Test**. The documents it finds show up under **Preview**.
 3. For a stream, the button becomes **Restart** and the preview updates as the data changes.
 
-Your Firestore security rules apply to the test, just as they do in your app. With rules that don't allow the read, such as the locked rules of a database created in production mode, the preview shows "No Data was found." with an **Error:** line such as `[cloud_firestore/permission-denied] Missing or insufficient permissions.`
+Your Firestore security rules apply to the test, the same way they do in your app. With rules that don't allow the read, such as the locked rules of a database created in production mode, the preview shows "No Data was found." with an **Error:** line such as `[cloud_firestore/permission-denied] Missing or insufficient permissions.`
 
 ![The Queries editor for a query named productsByPrice: the builder rows FirebaseFirestore.instance, collection('products'), where price >= minPrice, orderBy price descending and snapshots, with the green check mark at the lower right (rows and check mark highlighted); below it the Test section with the Min Price parameter set to 20.5, the Restart button and a Preview that lists two documents as JSON, Running Shoes at 120 and Wireless Headphones at 79.99 (highlighted); and on the right the Params list with minPrice (highlighted).](/img/docs/integrations/integrations-firebase-firestore-1.png)
 

@@ -16,7 +16,7 @@ Most properties in **Details** can show a fixed value or a linked one. Click a p
    - **LOCALS** has the variables, params (values handed to the screen) and functions of the current screen or component. See [Store data in variables](variables.md).
    - **GLOBALS** has your global states, **checkPlatform**, **Media Query** and more. See [Share data across your app](global-state.md).
    - **EXPRESSIONS** has **Conditional**, **Math** or **Logical**, and **ifNull**. They're explained below.
-3. The property now shows the value's name, such as `product.name`, and updates with it.
+3. The property now shows the value's name, such as `product.name`.
 
 ![The Link Text menu (highlighted) opened from the label of the Text property of a selected Text: a search box, Custom Expression..., Create Param..., Create Variable..., Compute..., and the collapsed LOCALS, GLOBALS and EXPRESSIONS categories, next to the Details panel.](/img/docs/logic/logic-expressions-1.png)
 
@@ -32,7 +32,7 @@ The menu also has these items:
 | **Edit** | Opens the linked variable's settings in a popup. Shown when the property is linked to a variable. |
 | **Open in Circuit** | Opens the linked function. |
 
-If the value you pick isn't the right kind for the property, the menu shows what's inside it, so you can reach a part that fits, such as `toString` to show a number as text.
+If the value you pick isn't the right kind for the property, the menu shows what's inside it, so you can reach a part that fits, such as a product's `name` when the property needs text.
 
 In Circuit, a node's own fields (an If's **Condition**, a **Return** value, **Expression:**) show every category of the add-node menu, including **OPERATORS**. Elsewhere you get **LOCALS**, **GLOBALS** and **EXPRESSIONS**.
 
@@ -76,7 +76,7 @@ The property now shows **Edit condition**. Click it to reopen the popup.
 | `logicalAnd`, `logicalOr` | Both are true, at least one is true. | signed in logicalAnd has a plan |
 | `ifNull` | Use the right side when the left side is empty. | `nickname` ifNull "Guest" |
 
-In Circuit, the same operators are in the **OPERATORS** category, so you can use them in an If's **Condition**. Where a menu has no **OPERATORS**, use **EXPRESSIONS** instead.
+The **Math** popup offers the first four rows, **Logical** the next four, and **ifNull** is an item of its own. In Circuit, the same operators are in the **OPERATORS** category, so you can use them in an If's **Condition**. Where a menu has no **OPERATORS**, use **EXPRESSIONS** instead.
 
 ## Write your own expression {#custom-expression}
 

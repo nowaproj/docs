@@ -20,6 +20,23 @@ Resume from these files alone: `BRIEF.md` (context + rules), `decisions.md`, `op
 | 9 | Final quality pass: the user's acceptance criteria (see below) | pages, videos, annotated screenshots, best-practice guides | done except signed-in captures (see Resume here) |
 | 10 | Update to Nowa 3.13.0 (released 2026-10-06, live on app.nowa.dev) + all captures from app.nowa.dev, incl. signed-in | `research/changes-3.13.md`, pages, `reviews/P10-*`, captures | done 2026-10-10 (build green, PR updated) |
 | 11-13 | Paid plan and Linux shots, playground shots and live checks, the Mac session and the connected-service shots, merge | `captures/phase11-13/`, `reviews/P11-*`, `P12-*`, `P13-*`, `MISSING-MEDIA.md` | done 2026-10-12; PR #18 merged |
+| 14 | Audience pass (non-developers first, D22-D23) and old-docs coverage (D24), from the user's feedback on the live docs | `P14-BRIEF.md`, `reviews/P14-*`, pages, `docs/code/generated-code.md` | in progress (branch `docs-rewrite` restarted from `main` 9f21e4c) |
+
+## Phase 14: write for the right reader, bring back what the old docs had (started 2026-10-12)
+
+Why: the user read the live docs and found pages written for developers (RevenueCat: generated service class,
+`main()` line) and pages shorter than the old ones (GitHub, deployment). Rules and batches: `P14-BRIEF.md`.
+
+Steps:
+1. **Section agents** (15 batches, `P14-B01`..`P14-B15`): audit the mapped old pages item by item
+   (`reviews/P14-Bxx-coverage.md`), then rewrite every page for the primary reader and add the missing still-valid
+   items (`reviews/P14-Bxx-notes.md`); code-only facts go to `reviews/P14-Bxx-for-code.md`.
+2. **Code page**: one agent builds `docs/code/generated-code.md` from the for-code files (verified in code) and fills
+   its anchors; unused anchors are removed only if no page links to them.
+3. **Verifiers** (non-authors, one per batch): every new or changed claim against `/home/user/nowa-master` or the
+   official third-party docs, plus the audience rules (`P14-VERIFY.md`).
+4. Build, audience grep (no `lib/` paths or generated class names outside `docs/code/`), credential scan, commit,
+   push, draft PR with a report; ask the user before merging (merging deploys).
 
 ## Phase 10: update to Nowa 3.13.0 (started 2026-10-09)
 

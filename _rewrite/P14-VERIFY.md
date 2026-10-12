@@ -39,6 +39,10 @@ dropped (a step, a label, a warning, a limit, a workaround, a gating note), rest
   in the UI) comes first, without promising exact output.
 - The page passes the test: someone who has never written code can follow it and knows why it matters.
 
+**3b. Tone (R9).** Where a passage is so compressed that the reader can't tell why to do it or what happens next,
+add the missing reason or result (accurate, from the code or the official docs). Cut filler and repetition. Don't
+rewrite text that already reads warmly and clearly.
+
 **4. Coverage spot checks.** For every `obsolete` row in the coverage file, open the cited code and confirm the
 feature or label really is gone or changed in 3.13.0; if it still exists and the reader would need it, add it. For
 10 `covered` rows of your choice, confirm the cited page really covers the item. Note results in your log.

@@ -50,7 +50,7 @@ app does, in their own words, never by reading code.
 opening code, but they aren't necessarily Flutter or Git experts. Developer detail belongs in "Work with code".
 
 Test every sentence outside `docs/code/`: *Could someone who has never written code follow this, and do they know why
-it matters for their app?*
+it matters for their app?* And every page: *Does it sound like a helpful person explaining, not a cold summary?* (R9)
 
 ## Rules for pages outside `docs/code/`
 
@@ -104,6 +104,29 @@ search for) and tighten the description.
 **R8. Logic pages are visual programming, not code.** Variables, functions, parameters, conditions, loops and events
 are Nowa concepts the reader uses visually. Explain them as you would to a smart non-programmer ("a variable is a value
 your screen remembers, such as the number of items in a cart").
+
+**R9. Warm, conversational and explained, never filler (the user's tone note).** The current text is accurate but
+often reads like a summary: cold and too compressed. Write like a friendly expert sitting next to the reader:
+- Give the **why** and the **what happens next** where it helps: why you'd do this step, what you'll see afterwards,
+  what it means for your app. A step stays one action, but it can carry a short reason or result.
+- Connect ideas with natural transitions ("Once that's done, ...", "Next, tell Nowa where your app lives.").
+- Use everyday examples from the kind of app the reader is building (a recipe list, a shop's products, a booking).
+- Reassure when it's true and useful: safe to try, you can undo it, nothing goes live until you publish.
+- Contractions, second person, plain words. Paragraphs of 1-4 sentences.
+- Still concise: every added sentence must help the reader understand, decide or avoid a mistake. No filler ("In this
+  section we'll...", "Let's dive in", "It's that simple!"), no repeating the same point, no hype words. Accuracy rules
+  still apply to every added sentence (never invent).
+
+Examples:
+- ✗ "Click **Run Test**. The result appears under **Preview**."
+  ✓ "Click **Run Test** to try the query on your real database. The documents it finds show up under **Preview**, so
+  you can check the results before you build a screen around them."
+- ✗ "Turn on **Enabled**. Nowa adds the `purchases_flutter` package."
+  ✓ "Turn on **Enabled**. Nowa sets up everything your app needs to talk to RevenueCat, so you can go straight to
+  adding your keys."
+- ✗ "Cloud Firestore is Firebase's database."
+  ✓ "Cloud Firestore is Firebase's database. It's where your app keeps things like orders, messages or user profiles,
+  so everyone who uses your app sees the same, up-to-date data."
 
 ## Coverage: bring back what the old docs had
 

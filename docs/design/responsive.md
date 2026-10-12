@@ -73,7 +73,7 @@ Hover a screen's title and click **Play** to tap and scroll at its current size.
 
 ## Design with realistic content
 
-While your data isn't connected yet, Nowa fills in empty values on the board so a design doesn't look blank. Real content is usually longer, so test with it too: a product name that runs to two lines, or a list of 30 orders instead of three.
+On the board, Nowa fills in values that are still empty, such as a list your app only fills once it runs, so a design doesn't look blank. Real content is usually longer, so test with it too: a product name that runs to two lines, or a list of 30 orders instead of three.
 
 | Empty value | What the board shows |
 |---|---|
@@ -107,7 +107,7 @@ To set it up yourself:
 7. Select the narrow version and set it up the same way, with the operator `smallerThan` (is less than).
 8. Change the screen's **Size**, then click **Play** to see which version shows.
 
-Comfortable typing a formula? In step 3, choose **Custom Expression...** instead and type `MediaQuery.of(context).size.width >= 600` for the wide version, or `MediaQuery.of(context).size.width < 600` for the narrow one. See [Write your own expression](../logic/expressions.md#custom-expression). For more on **Media Query**, see [Read the screen size](../logic/actions.md#read-the-screen-size).
+Comfortable typing a formula? In step 3, choose **Custom Expression...** instead, type `MediaQuery.of(context).size.width >= 600` for the wide version, or `MediaQuery.of(context).size.width < 600` for the narrow one, and press <kbd>Enter</kbd>. See [Write your own expression](../logic/expressions.md#custom-expression). For more on **Media Query**, see [Read the screen size](../logic/actions.md#read-the-screen-size).
 
 :::tip Or ask Nowa AI
 Try "Make this screen work on phones and tablets: stretch the fields to the full width and put the cards in a grid that adds columns on wider screens." Then check the result at other sizes. See [Write prompts that work](../ai/prompting.md).

@@ -5,7 +5,7 @@ sidebar_label: Connectors
 keywords: [connector, MCP, Supabase MCP, Figma MCP, enable MCP, manage MCP, turn off MCP, auto-approve tools, approval required, connected accounts, figma import, supabase backend, row level security, RLS, edge functions, triggers, migrations]
 ---
 
-Connectors let Nowa AI reach beyond your project. With the **Supabase** connector, it can build and change your backend, the online part of your app that stores data and signs people in. With the **Figma** connector, it can bring in the images, icons, colors and text styles of your design. In the app they're labeled **MCP**, short for the standard way an AI agent connects to another service.
+Connectors let Nowa AI reach beyond your project. With the **Supabase** connector, it can build and change your backend, the online part of your app that stores data and signs people in. With the **Figma** connector, it can bring in the images, icons, colors and text styles of your design. In the app they're labeled **MCP** (Model Context Protocol), the standard way an AI agent connects to another service.
 
 ## How connectors work
 

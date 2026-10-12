@@ -50,7 +50,7 @@ You don't have to understand a problem to get it fixed. Nowa AI can read the sam
 
 Here's what each message means and how to solve it. Whenever a fix would mean changing code, ask Nowa AI to do it for you.
 
-- `'<package>' is a dev dependency, so Nowa does not load it. Move it to dependencies to use it in lib/.`: the package is set up as a tool for building and testing only, not as part of your app. Ask Nowa AI in **Agent** mode: "Move the package <name> from dev dependencies to dependencies." If you edit code yourself: in `pubspec.yaml`, move it from `dev_dependencies` to `dependencies`.
+- `'<package>' is a dev dependency, so Nowa does not load it. Move it to dependencies to use it in lib/.`: the package is set up as a tool for building and testing only, not as part of your app. Ask Nowa AI in **Agent** mode: "Move the package [package name] from dev dependencies to dependencies." If you edit code yourself: in `pubspec.yaml`, move it from `dev_dependencies` to `dependencies`.
 - `'<package>' is installed but failed to load, so nothing it defines is available: <reason>`: the board can't draw anything from that package. Read the reason, and try another version under **Settings** → **Packages**. **Run** shows whether the real app still builds. See [Add packages](../code/packages.md).
 - `No Home screen Selected, select one of screens as Home Screen`: your app doesn't know which screen to open first. Select a screen and click **Make home screen**. See [Choose the home screen](../design/screens.md#choose-the-home-screen).
 - **Router problems**, such as `Duplicate route path found: "/home".`: two screens share the same address. Fix the route in the **Router** panel. See [Set up routes in the Router panel](../logic/router.md#edit-a-route).

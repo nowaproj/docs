@@ -93,7 +93,7 @@ You'll also meet Nowa AI outside the panel, usually right where you need a hand.
 
 Nowa AI runs on your plan's AI credits. When you start to run low, a **% used** indicator appears under the panel header, so it doesn't catch you by surprise. After a request finishes, the session's token counts appear there too (tokens are the small pieces of text Nowa AI reads and writes), next to a **Session Details** info icon. Its popup shows what the session used, and **Global Usage** opens your account's usage page. If you run out, the chat tells you and offers ways to continue.
 
-For plans, extra credits and billing, see [Plans, billing and AI usage](../account/plans-and-usage.md). For what each plan includes, see [nowa.dev/pricing](https://nowa.dev/pricing). To see which features depend on your plan, see [What your plan includes](../account/plans-and-usage.md#what-your-plan-includes).
+For plans, extra credits and billing, see [Plans, billing and AI usage](../account/plans-and-usage.md). To see which features depend on your plan, see [What your plan includes](../account/plans-and-usage.md#what-your-plan-includes). For what each plan includes and costs, see [nowa.dev/pricing](https://nowa.dev/pricing).
 
 ## Next steps
 

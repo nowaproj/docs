@@ -100,3 +100,37 @@ Anchors kept (`{#welcome-tour}`; the H2 auto anchors are unchanged, Circuit sect
 | "Sync in the direction of the copy you changed" | ok | both buttons overwrite the other side (unchanged fact) | Advice that follows from it. |
 
 Removed: the dashboard-badge paragraph moved into the new section, unchanged. Auto anchors all kept.
+
+## get-started/desktop-app.md
+
+| Claim | Verdict | Source | Note |
+|---|---|---|---|
+| Routed from B12: step 7 said the Android tools can be added later from **Local Setup** (**Environment**) | fixed | `packages/core/lib/src/environment/environment_setup_dialog.dart:331-333` (header steps are only Flutter and Verify), `:525` (the "Android isn't set up" note shows only while the toolchain isn't installed), `:580` (its **Download** is the only way to the Android step), `:548` (caption "You can add these later from Settings → Environment."), `:89-93` (emulator blocked until the toolchain is in); `packages/core/lib/src/environment/environment_doctor.dart:51-71` (a found Android Studio SDK also counts as installed); `packages/core/lib/src/settings/editor_settings/local_setup.dart:69`, `:144` (the page offers only **Set up automatically**) | Now: install the emulator in the same go, because in 3.13 the screen only opens while the toolchain is missing; link to `test/devices.md#no-emulators-listed`; the toolchain itself can still be added later. Same wording as `test/devices.md:34`, `:77`. |
+| New "Do you need the desktop app?": the web app designs, builds with AI, plays, runs (QR to phone), shares and publishes; desktop for devices/emulators, local projects, importing | ok | `lib/project/top_bar.dart:377`, `lib/project/top_bar_mapper.dart:188`, `lib/project/run/run_button.dart:636-655`, `docs/account/projects.md:48` (Import project is desktop only), `docs/test/devices.md` | |
+| Set up Flutter intro: what Flutter and the SDK are; cloud projects run in the editor can skip it | ok | `packages/nowa_run/lib/src/nowa_run_plugin.dart:14-16` (cloud projects run on `NowaRunServiceImpl`, local ones on `NowaRunServiceLocal`), `docs/code/local-projects.md`, `docs/test/devices.md` | R4. |
+| Xcode error: red "Flutter failed to initialize" + Flutter's message under the row, then **Try again** | ok | `packages/core/lib/src/environment/flutter_installer.dart:111-114`, `:38-41`; `environment_setup_dialog.dart:181-186`, `:880-883` (error text in `errorColor`), `:913-916` (`hasError ? 'Try again' : 'Install'`) | The page paraphrases Apple's `xcode-select` text instead of quoting it; fine. |
+| Xcode "a large download"; Apple's free app | ok | general fact (old docs); in-app helper `environment_setup_dialog.dart:463-470` covers the first-launch steps | |
+| "**Managed by Nowa** next to the ones Nowa installed" | fixed | `environment_doctor.dart:21-25` (Flutter, when `flutterManagedByNowa`), `:63-68` (Android toolchain, stored path), `checkEmulator` ("Virtual device ready"); `flutter_installer.dart:122`; status joined at `environment_setup_dialog.dart:943-953` | The emulator row says **Virtual device ready**, not **Managed by Nowa**. Now names the **Flutter** and **Android toolchain** rows. |
+| **Found on PATH** for a Flutter found on the computer | ok | `environment_doctor.dart:28-31` | |
+| Internet needed to sign in and open projects, local ones included | ok | `lib/router.dart:46-63`, `:86-111` | |
+| `flutter doctor` and Android toolchain glosses; "terminal" for `ldd --version` | ok | `environment_setup_dialog.dart:487` ("Running flutter doctor…") | R3/R4. |
+
+Anchors kept: `{#install-on-linux}`, `{#setting-up-flutter-sdk}`, `{#macos-install-xcode}` (the app's helper links to `#macos-install-xcode` and `#setting-up-flutter-sdk` on the old URL, D13), and the two auto anchors under Set up Flutter. One admonition (note).
+
+## guides/index.md
+
+| Claim | Verdict | Source | Note |
+|---|---|---|---|
+| Habits and checklist reworded with glosses (global state, Git, Row Level Security, Bundle Identifier); "secret key ... in a REST API's request settings" | ok | `docs/guides/data-and-state-tips.md#keep-secrets-out-of-your-app` | Same facts, plain words. Anchors checked (see Links). |
+
+## guides/data-and-state-tips.md
+
+| Claim | Verdict | Source | Note |
+|---|---|---|---|
+| Routed from B10: link "create them in Supabase" to `../integrations/supabase/database.md#create-a-table` | applied | anchor at `docs/integrations/supabase/database.md:16` | |
+| "Ask Nowa AI ... through its Supabase connector" (tables, RLS) and the empty-list prompt without a mode | fixed | `docs/ai/modes.md` ("the only mode that can use the Figma and Supabase connectors"), `docs/integrations/supabase/database.md:20-22` | R5 asks for **Agent** mode; connectors only work there. Added "in **Agent** mode" to the three prompts. |
+| Anon key gloss "the public key Supabase gives every app" | fixed | | It's per Supabase project; now "your Supabase project's public key". |
+| Model bullet without `fromJson`/`toJson`: Nowa keeps the model up to date, including the part that turns backend data into a recipe and back | ok | `docs/logic/models.md:19` | Original moved to the for-code file (`#models`), unchanged. |
+| **refresh** redraws the screen; **notifyListeners** tells every screen showing the data to update | ok | `docs/logic/variables.md:87-91`, `docs/logic/global-state.md:40-42` | R3. |
+| Future / **Future Options** / **onValue** / **onError** glosses | ok | `docs/logic/circuit.md:120-124` | |
+| JSON, base URL, header values, webhook secret, query, `isEmpty` glosses | ok | | R4. Webhook secret role per https://docs.stripe.com/webhooks (signature verification). |

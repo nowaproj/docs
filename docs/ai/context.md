@@ -13,7 +13,7 @@ The quickest way to point is to click. Click a screen or widget on the board, an
 
 - If you click a component you placed on a screen, Nowa AI gets the component itself, so it can change it everywhere it's used. A plain widget, such as a text or a button, attaches only that widget.
 - If you select several widgets, Nowa AI gets the first one.
-- With nothing selected on the board, Nowa AI gets the screen or component that's open in the code editor, if there is one.
+- With nothing selected on the board, Nowa AI gets the screen, component or other part of your app that's open in code mode, if there is one.
 - Hover a chip to highlight its widget on the board. Click **×** on the chip to remove it. A removed selection stays removed until you select something else.
 
 ## Add context

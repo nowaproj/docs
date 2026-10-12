@@ -41,8 +41,8 @@ Everything else sits in categories under them. They start closed and open on the
 
 | Category | What's inside |
 |---|---|
-| **PACKAGE:** and your package name, such as `PACKAGE:MY_APP` | Things from your own project, such as the requests of a [REST API collection](../integrations/rest-api/index.md) and your [keys and constants](../integrations/constants.md). |
-| One per library (a set of ready-made functions): **DART:CORE**, **MATERIAL**, **SERVICES**, **NOWA_RUNTIME** and more | Ready-made actions from Flutter, Dart and the packages your app uses, such as `openUrl` (opens a web link) and `print` (writes a message to the logs). See [Use ready-made actions](actions.md). A package you add brings its own. |
+| **PACKAGE:** and your package name, such as `PACKAGE:MY_APP` | Things from your own project: the requests of a [REST API collection](../integrations/rest-api/index.md), your [keys and constants](../integrations/constants.md) under `AppConstants`, and functions that sit in a file of their own. |
+| One per library (a set of ready-made functions): **DART:CORE**, **MATERIAL**, **SERVICES**, **NOWA_RUNTIME** and more | Ready-made actions from Flutter, Dart and the packages (add-ons) your app uses, such as `openUrl` (opens a web link) and `print` (writes a message to the logs). See [Use ready-made actions](actions.md). A package you add brings its own. |
 | **OPERATORS** | Math (`plus`, `divide`...), comparisons (`greaterThan`, `equal`...) and logic (`logicalAnd`, `logicalOr`). |
 | **LOCALS** | Variables, params and functions of the current screen or component, plus **refresh** ([Store data in variables](variables.md)). |
 | **GLOBALS** | **Navigator** and **GoRouter** ([Navigate between screens](navigation.md)), **checkPlatform** (where the app runs), **Media Query** (the screen's size), **Show snackbar** and your global states. |
@@ -50,7 +50,7 @@ Everything else sits in categories under them. They start closed and open on the
 | **GENERAL** | **Create...** (makes something new, such as a timer or one of your models) and **parse** (turns text into a number). |
 | **EXPRESSIONS** | **Conditional** (picks one of two values) and **ifNull** (a fallback for an empty value). |
 
-Connecting Firebase adds a **FIREBASE** category. Click a class, such as `HapticFeedback`, to see its functions.
+Connecting Firebase adds a **FIREBASE** category. Click a class, such as `HapticFeedback` (short vibrations), to see its functions.
 
 ## Kinds of nodes
 
@@ -58,7 +58,7 @@ Nodes come in a few kinds. Knowing them makes any circuit easier to read, includ
 
 | Kind | What it does | Examples |
 |---|---|---|
-| Action | Does something and hands nothing back. | `print`, **refresh** (redraws the screen), **clear** (erases the values saved on the device) |
+| Action | Does something and hands nothing back. | `print`, **refresh** (redraws the screen) |
 | Value | Works something out and hands it back for later steps. | A calculation from **OPERATORS**, a function of yours that returns a result |
 | Both | Does something and hands back a result. | An internet request that returns the reply, a date picker that returns the picked date |
 | Branch | Decides which steps run next. | **If Statement**, **Try** |
@@ -69,7 +69,7 @@ When a node hands something back, its **Details** show **Store result** so you c
 
 Here's a small example from a water-tracking app. A function called `loadGoal` has three steps:
 
-1. **get** (from **SHARED PREFERENCES**) reads the daily goal saved on the device. **Store result** keeps it in a local variable named `savedGoal`.
+1. **get** (from **SHARED PREFERENCES**) reads the daily goal saved on the device. Its **Type** is set to `int` (a whole number), so the node reads `getInt`. **Store result** keeps the value in a local variable named `savedGoal`.
 2. An **If Statement** asks whether a goal was saved, with the condition `savedGoal != null` ("savedGoal isn't empty").
 3. In the **True** branch, **Set dailyGoal** copies the saved goal into the screen's `dailyGoal` variable, and **refresh** redraws the screen. The **False** branch is empty, so the screen keeps its default goal.
 
@@ -140,12 +140,12 @@ Steps below the If node run afterwards, whichever branch ran, unless that branch
 The **Condition** starts as a switch that's on, so the **True** branch always runs. Switch it off and the **False** branch always runs, which is handy for trying out each branch while you build. To make a real decision, click the **Condition** label and link it to something that's true or false:
 
 - **A true/false variable or param** of the screen or component, under **LOCALS**, such as `isLoading`. **Create Variable...** makes a new true/false variable and links it in one go.
-- **A value from a global state**, under **GLOBALS**, such as whether someone is signed in.
-- **A function that answers true or false**: one of yours under **LOCALS**, or a global state's function (**GLOBALS**, the global state, then **+**). It runs when the flow reaches the If, and its answer picks the branch.
+- **A value from a global state**: under **GLOBALS**, click the global state, then the true/false value, such as whether someone is signed in.
+- **A function that answers true or false**: one of yours under **LOCALS**, or a global state's function (**GLOBALS**, the global state, then the function in the list that opens). It runs when the flow reaches the If, and its answer picks the branch.
 - **A comparison** from **OPERATORS**, such as `greaterThan` or `equal`, or **checkPlatform** under **GLOBALS** to check where the app runs.
 - **Custom Expression...** to type the condition, or **Compute...** to work it out in a function of its own when it needs several steps. See [Expressions and conditions](expressions.md).
 
-For example, to celebrate when someone reaches their water goal for the day: click **Condition**, open **OPERATORS** and choose `greaterThanOrEqual`. Set **Type** to `int`, link **Left side** to your `totalToday` variable, and type `1400` in **Right side**. Then add a **Show snackbar** to the **True** branch. Typed as a **Custom Expression...**, the same condition is `totalToday >= 1400`.
+For example, to celebrate when someone reaches their water goal for the day: click **Condition**, open **OPERATORS** and choose `greaterThanOrEqual` ("is at least"). The **Condition** now shows a formula: click it to open its popup. Set **Type** to `int` first (changing it resets both sides), link **Left side** to your `totalToday` variable, and type `1400` in **Right side**. Then add a **Show snackbar** to the **True** branch. Typed as a **Custom Expression...**, the same condition is `totalToday >= 1400`.
 
 ## Handle errors with Try
 
@@ -165,7 +165,7 @@ Good things to put in **On Error**:
 - **Show snackbar** (**GLOBALS**) with a friendly message. See [Show a snackbar](popups.md#show-a-snackbar).
 - A dialog or a bottom sheet: **MATERIAL** → `showDialog` or `showModalBottomSheet` ([Show dialogs, sheets, snackbars and pickers](popups.md)).
 - Steps that tidy up, such as setting `isLoading` back to false, or sending people to another screen.
-- `print` (**DART:CORE**) with `${error}`, to read the details in the logs while you test ([Write to the logs](actions.md#write-to-the-logs)).
+- `print` (**DART:CORE**) with `${error}` in its message (type `$` and pick `error`), to read the details in the logs while you test ([Write to the logs](actions.md#write-to-the-logs)).
 
 ### Example: load products, and say so if it fails
 
@@ -191,15 +191,15 @@ A Return also ends the function right there, so nothing can be added after it in
 
 ## Loops
 
-A loop repeats steps, for example once for every item in a cart. Circuit has no node for adding one, so the easiest way is to ask Nowa AI in **Agent** mode: "In the checkout function, add up the price of every item in cartItems and store it in total." Then open the function in Circuit to see what it built, and try it with **Play**.
+A loop repeats steps, for example once for every item in a cart. Circuit has no node for adding one, so the easiest way is to ask Nowa AI in **Agent** mode: "In the checkout function, use forEach to add up the price of every item in cartItems and store it in total." Then open the function in Circuit to see what it built, and try it with **Play**.
 
 To go through a list without a loop, click **+** after the list and pick one of its functions, such as `forEach` (runs steps for each item).
 
-A `while` loop, written in code or by Nowa AI, shows as a **While** node with a **True** branch and a **Condition**, and you edit it like an If. Circuit can't draw other kinds of loops, such as a `for` loop, so ask Nowa AI to use `forEach` or `while` when you want to keep editing the function in Circuit.
+A `while` loop (it repeats its steps as long as a condition is true), written in code or by Nowa AI, shows as a **While** node with a **True** branch and a **Condition**, and you edit it like an If. Circuit can't draw other kinds of loops, such as a `for` loop, so ask Nowa AI to use `forEach` or `while` when you want to keep editing the function in Circuit.
 
 ## Fix missing permissions with Hot Fix {#hot-fix}
 
-Some actions need extra setup in your project before they work. For example, `showMediaPicker` (lets people pick photos and videos) needs permission to use the camera and the photo library. Such an action's **Details** show a **Dependencies** section listing what's needed under **Permissions:** and **Packages:**, with a check mark next to each item that's already on.
+Some actions need extra setup in your project before they work. For example, `showMediaPicker` (lets people pick photos and videos) needs permissions such as access to the camera and the photo library. Such an action's **Details** show a **Dependencies** section listing what's needed under **Permissions:** and **Packages:**, with a check mark next to each item that's already on.
 
 Click **Hot Fix** to switch on everything that's missing in one go. To see the details, click a section title: it opens that part of the [project settings](../account/project-settings.md).
 

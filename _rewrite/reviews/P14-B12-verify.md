@@ -18,3 +18,10 @@ Status: in progress (sections appended page by page).
 - 180 inbound links from `docs/` to the batch pages checked by script: all files and anchors resolve. All outbound
   relative links from the batch pages resolve (files and anchors). No links to `generated-code.md` from the batch.
 - Front matter valid, no H1, no `---` rules, admonitions ≤2 per page (problems 2, run 2, share 1, others 0).
+
+## Build blocker fixed (coordinator report)
+
+- `test/problems.md` line 53: the Agent prompt "Move the package <name> from dev dependencies to dependencies." had a
+  bare `<name>` outside a code span, which MDX parses as a JSX tag ("Expected a closing tag for `<name>`"). Now reads
+  "Move the package [package name] from dev dependencies to dependencies." Script scan of all 8 pages (code spans,
+  fences and MDX comments stripped): no other bare `<word>`; the only `{` are heading IDs `{#id}`.

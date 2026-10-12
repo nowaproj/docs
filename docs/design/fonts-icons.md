@@ -54,7 +54,9 @@ Many icons come in several styles, such as `home`, `home_outlined` and `home_rou
 
 The picker has Google's Material Icons only. For any other icon, such as a brand logo or an icon from another set, add it as an SVG file and show it with an SVG widget. See [Images, videos and other files](assets.md). With the Figma connection on, Nowa AI can also bring icons in from your Figma file as SVG files.
 
-An Icon widget also has **Size** and **Color**. A new icon has no color of its own, so it follows your theme. Pick a [theme color](theme-styles.md#use-a-theme-color) to keep it in step with your theme. **Show advanced options** adds fill, weight, grade, optical size, shadows, text direction, blend mode, text scaling and a semantic label (what screen readers say for the icon).
+An Icon widget also has **Size** and **Color**. A new icon has no color of its own, so it follows your theme. To give it another color that still changes with your theme, pick a [theme color](theme-styles.md#use-a-theme-color). **Show advanced options** adds fill, weight, grade, optical size, shadows, text direction, blend mode, text scaling and a semantic label (what screen readers say for the icon).
+
+Fill, weight, grade and optical size only change icon fonts that support them. The Material icons in the picker don't, so these four have no visible effect. **Text Direction** matters for icons that point somewhere, such as a back arrow, which flips to point the other way in a right-to-left language.
 
 :::tip
 Or ask Nowa AI: "Use the Poppins font for all headlines." If the font isn't in your project yet, Nowa AI downloads and sets it up. Then select a headline on the board and check its font in **Details**.

@@ -40,7 +40,7 @@ A backend is the online service that stores your app's data and signs people in.
 | [Firebase](../integrations/firebase/connect.md) | Firebase sign-in with email, Google or phone, Cloud Firestore, or push notifications. |
 | [A REST API](../integrations/rest-api/index.md) | Data that already lives behind an API: your own server, a public API or Xano. |
 
-Nowa has no table editor, so ask Nowa AI to create your Supabase tables through its Supabase connector, or create them in Supabase. Nowa AI can set up Supabase this way, but it can't connect Firebase for you. See [Connect data and services](../integrations/index.md).
+Nowa has no table editor, so ask Nowa AI in **Agent** mode to create your Supabase tables through its Supabase connector, or [create them in Supabase](../integrations/supabase/database.md#create-a-table). Nowa AI can set up Supabase this way, but it can't connect Firebase for you. See [Connect data and services](../integrations/index.md).
 
 ## Keep secrets out of your app
 
@@ -48,9 +48,9 @@ Anything inside your app can be read by anyone who has a copy of it, so treat ev
 
 - **Constants ship in the app.** The **Constants** page talks about secret keys, but everything on it is built into your app.
 - **Request settings ship too.** The base URL (the service's address) and the header values (extra details sent with every request, often keys) that you type in a REST collection are saved in your project and go into the app.
-- **Fine to ship:** publishable keys, client IDs, RevenueCat's public keys, and the Supabase URL and anon key (the public key Supabase gives every app).
+- **Fine to ship:** publishable keys, client IDs, RevenueCat's public keys, and the Supabase URL and anon key (your Supabase project's public key).
 - **Never ship:** a Stripe secret key, a database password or any server key. Nowa's Stripe setup keeps the secret key and the webhook secret (which proves that payment updates really come from Stripe) in Supabase secrets, stored in your Supabase project, not in your app.
-- **Let the server decide who sees what.** The Supabase anon key ships, so Row Level Security (RLS) must decide who can read and write each row. Turn it on for every table and add rules (policies): ask Nowa AI with the Supabase connector, for example "Turn on Row Level Security for every table so people only see their own rows", or set it up in Supabase. Then test your queries while signed in (see below).
+- **Let the server decide who sees what.** The Supabase anon key ships, so Row Level Security (RLS) must decide who can read and write each row. Turn it on for every table and add rules (policies): ask Nowa AI in **Agent** mode with the Supabase connector, for example "Turn on Row Level Security for every table so people only see their own rows", or set it up in Supabase. Then test your queries while signed in (see below).
 - **Keep the project private.** With **Public project** on, anyone with the link can read every file, **Constants** included. See [Share your app](../test/share.md).
 
 ## Test queries before you build the screen
@@ -69,7 +69,7 @@ People notice when a screen sits blank or fails silently. Plan for both.
 
 - A **Data Builder** shows a progress circle while it loads and the error in red if the call fails. Design your own under **Loading Widget** and **Error Builder**. See [Show data in your UI](../integrations/show-data.md).
 - A source that returns nothing keeps the **Loading Widget** on screen. That's what **Get Record by ID** does when no row matches, so test an ID that doesn't exist.
-- An empty list shows nothing. When your source returns a list, show a message instead. Ask Nowa AI, for example: "When the recipe list is empty, show the message No recipes yet." To do it yourself, put the list and the message in a **Column** inside the Data Builder and set the list's height to **Expand**. Wrap the message in **Visibility**, link **Visible** to `data`, then pick `isEmpty` (true when the list has no items).
+- An empty list shows nothing. When your source returns a list, show a message instead. Ask Nowa AI in **Agent** mode, for example: "When the recipe list is empty, show the message No recipes yet." To do it yourself, put the list and the message in a **Column** inside the Data Builder and set the list's height to **Expand**. Wrap the message in **Visibility**, link **Visible** to `data`, then pick `isEmpty` (true when the list has no items).
 - The board shows placeholder values, not a real call, so click **Play** to see real loading, results and empty lists. See [Placeholders on the board, real values in Play](../test/instant-play.md#placeholders-on-the-board-real-values-in-play).
 - A tap that calls a backend, such as save or sign-in, takes a moment, so its step has **Future Options** (a Future is something that finishes later). Use **onValue** for what happens when it works and **onError** for when it fails, and add **Show snackbar** in **onError** so people get a short message. See [Wait for a result](../logic/circuit.md#future-options).
 

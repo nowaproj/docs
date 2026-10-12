@@ -39,7 +39,7 @@ The new theme opens for editing in **Seed** mode with a purple seed color, so yo
 
 Click a theme in the list and the **Active** label moves to it. The active theme is the one your app starts with and the one the board shows. Nowa saves your choice with the project.
 
-Your app doesn't switch between light and dark by itself: it uses the **Active** theme until you give people a way to switch. To add a dark mode button, see [Switch themes while the app runs](theme-styles.md#switch-themes-while-the-app-runs).
+In a new project, your app doesn't switch between light and dark by itself: it uses the **Active** theme until you give people a way to switch. To add a dark mode button, see [Switch themes while the app runs](theme-styles.md#switch-themes-while-the-app-runs).
 
 ## Rename or delete a theme
 
@@ -131,11 +131,11 @@ To start one style over, hover the icon at the start of its row and click it (**
 - **Fields**: every text field. Set the fill, borders, label, hint and error styles, and more.
 - **Buttons**: choose **Button** or **Icon Button**, then set **Background Color**, **Foreground Color** (the text and icon color), **Shadow Color**, **Elevation** (how raised it looks), **Side** (its border) and **Radius** (how round its corners are). The reset icon restores the default button style.
 
-New buttons follow these styles from the start. To check or change which style a button uses, see [Connect buttons to the theme](theme-styles.md#connect-buttons-to-the-theme).
+New buttons and icon buttons follow these styles from the start. To check or change which style a button uses, see [Connect buttons to the theme](theme-styles.md#connect-buttons-to-the-theme).
 
 ## Widgets that keep their own color
 
-Most widgets you add start with your theme's look. A new text, button or icon has no color of its own, so it follows the theme. A box you draw with the **Shape** tool is the exception: it starts light gray. Templates often bring fixed colors of their own too.
+Most widgets you add start with your theme's look. A new text, button or icon has no color of its own, so it follows the theme. Boxes are the main exception: a **Container**, whether you add it as a widget or draw it with the **Shape** tool, starts light gray. A few other widgets, such as **TabView**, and many templates bring fixed colors of their own too.
 
 A widget follows the theme as long as its color field shows a role's name, such as `primary`, or the name of a color from a [theme extension](#edit-theme-extensions), such as `brand`. Once you give a widget its own color, picked in the color picker or typed as a HEX code, it keeps that color when you edit the theme. The same goes for a text style you've cut loose from the theme. That's handy for a one-off accent, and it's usually the reason when a widget doesn't change with your theme.
 
@@ -151,7 +151,7 @@ There's no button to create an extension in the panel, because extensions come f
 
 ## Add themes to a project that has none
 
-Projects you create in Nowa come with themes. A project without them, such as one you imported, shows an error in the **Themes** panel and a **Create Theme Setup** button.
+Projects you create in Nowa come with themes. A project without Nowa's theme setup, such as one you imported, shows an error in the **Themes** panel and a **Create Theme Setup** button.
 
 1. Click **Create Theme Setup**. A dialog lists the files Nowa will add.
 2. Click **Create**.

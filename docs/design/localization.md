@@ -9,7 +9,7 @@ Reach people in their own language. Nowa AI sets up the languages in your app fo
 
 ## Run your app in several languages
 
-Nowa has no translation editor or language switcher of its own. Instead, Nowa AI adds the translations to your project, and the board can show them.
+Nowa has no translation editor or language switcher of its own. Instead, you ask Nowa AI to add the translations to your project, and the board can show them.
 
 1. In **Agent** mode, ask for the languages you need, for example: "Make my app available in English and Arabic." See [Write prompts that work](../ai/prompting.md).
 2. When it's done, look through your screens on the board and check **Problems** for errors.

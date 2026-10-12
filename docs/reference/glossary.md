@@ -2,7 +2,7 @@
 title: Glossary
 description: Plain-language meanings of the words you'll meet in Nowa and in these docs, from Nowa's own terms to app-building, data and publishing words.
 sidebar_label: Glossary
-keywords: [glossary, terms, definitions, dictionary, what does it mean, jargon, board, screen, component, instance, widget, library, widgets panel, widget picker, Nowa AI, Circuit, Instant Play, Think mode, renamed, Flutter, Dart, group, row, column, stack, constraints, API, API key, backend, database, JSON, query, null, String, bool, Future, Stream, bundle ID, package name, signing key, keystore, SHA-1, emulator, simulator, APK, AAB, hot reload, Git, commit]
+keywords: [glossary, terms, definitions, dictionary, what does it mean, jargon, board, screen, component, instance, widget, library, widgets panel, widget picker, Nowa AI, Circuit, Instant Play, Think mode, renamed, Flutter, Dart, group, row, column, stack, constraints, API, API key, backend, database, JSON, query, "null", String, bool, Future, Stream, bundle ID, package name, signing key, keystore, SHA-1, emulator, simulator, APK, AAB, hot reload, Git, commit]
 ---
 
 New to building apps? This page explains the words you'll meet in Nowa and in these docs, in plain language. You don't need to learn them by heart: Nowa AI and the visual editor take care of the technical side. Come back here whenever a word stops you.

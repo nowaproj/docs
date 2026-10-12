@@ -77,7 +77,7 @@ Like the banner, it only shows ads on Android and iOS.
 Try: "Show an AdMob full-screen ad every time the user finishes a level."
 :::
 
-## Before and after you publish
+## Before and after you publish {#before-you-publish}
 
 - Turn **Show Test Ads** off on every banner and in every `loadAndShowInterstitialAd` step, and enter your real unit IDs.
 - Check that both App IDs are set.

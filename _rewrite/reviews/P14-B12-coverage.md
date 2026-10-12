@@ -81,4 +81,14 @@ Code refs are relative to `/home/user/nowa-master` (3.13.0, `3cb32031c`). Status
 
 ## Totals
 
-(updated at the end)
+| Old page | items | covered | added | obsolete | not useful | dev-only | for other page |
+|---|---|---|---|---|---|---|---|
+| `deployment/share.md` | 22 | 10 | 9 | 0 | 3 | 0 | 0 |
+| `local-project-simulator/simulator.md` | 25 | 14 | 6 | 2 | 3 | 0 | 0 |
+| `data-connections/firebase/known-issues/firebase-windows.md` | 12 | 6 | 4 | 2 | 0 | 0 | 0 |
+| **Total** | **59** | **30** | **19** | **4** | **6** | **0** | **0** |
+
+Not counted above (not old-page items): the batch note's tool explanations and the iPhone section on
+`test/devices.md` (counted once, as the "(batch note)" and "Real device" rows), and four known-issues entries routed from
+other batches (B02 `#playground-ai-toolbar`, B11 `#code-download-spinner` and `#pending-custom-domain`, B03
+`#new-ux-double-click`) plus the B01 offline note on `troubleshooting/index.md`; see `P14-B12-notes.md`.

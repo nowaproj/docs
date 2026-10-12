@@ -352,3 +352,29 @@ What changed for the reader:
 - R9: everyday examples (message, website button, QR code on a flyer).
 
 Nothing added from old docs (no old page maps here).
+
+## index.md
+
+What changed for the reader:
+- Moved to for-code (#supabase, #firebase): `SupabaseService` and `FirebaseService` in the "What you get" row and the
+  sign-in table. Plain replacements: "Ready-made sign-in functions, query and storage templates, and a panel to test
+  them"; "their settings files and sign-in functions"; "Ready-made `signUp`, `signIn` and `signOut` functions in the
+  **Supabase** panel" (function names stay: they're listed in the panel's **Authentication** section,
+  `docs/integrations/supabase/auth.md#meet-the-auth-functions`).
+- R4: "A backend is where your app's shared data lives..." and Row Level Security explained in a clause. "Any service
+  that speaks HTTP" became "Any service with a web API".
+- "What Nowa doesn't include": no-code path first (R5): Nowa AI in **Agent** mode can add a package and the code
+  around it (agent `packages` tool, action `add`: `packages/ai/lib/src/tools/packages_tool.dart:31-60`; edits any
+  project file: `research/features-ai.md`), checked with **Problems** and **Run**; the pub.dev route is labelled
+  "If you work with code". The OneSignal prompt is an example, no result promised. "or write the code" dropped from
+  the Supabase "Good to know" cell.
+- Tip: cURL explained in a clause.
+- R9: intro speaks to what the reader builds (sign-in, orders or messages, payments).
+
+Nothing added from old docs (no old page maps here).
+
+## Routed from B10
+
+- `google-sign-in.md` "Before you start", Supabase bullet: now says to turn on Google as a sign-in provider in your
+  Supabase project, linking [Sign users in with Supabase](./supabase/auth.md#google) (heading `### Google` checked at
+  `docs/integrations/supabase/auth.md:85`). Source: https://supabase.com/docs/guides/auth/social-login/auth-google.

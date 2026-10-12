@@ -5,7 +5,7 @@ sidebar_label: Connect Firebase
 keywords: [Firebase, connect Firebase, Firebase project, create Firebase project, Firebase console, Google account, google-services.json, GoogleService-Info.plist, firebase_options, FlutterFire, Continue with Google, Connect Apps, disconnect Firebase]
 ---
 
-Firebase is Google's backend for apps. It can sign people in, keep your app's data in its Cloud Firestore database and send push notifications. To connect it, you sign in with Google, pick your Firebase project and click **Connect Apps**. Nowa then registers your Android, iOS and web apps in Firebase and does the setup you'd otherwise do by hand.
+Firebase is a set of Google services that run behind your app. It can sign people in, keep your app's data in its Cloud Firestore database and send push notifications. To connect it, you sign in with Google, pick your Firebase project and click **Connect Apps**. Nowa then registers your Android, iOS and web apps in Firebase and does the setup you'd otherwise do by hand.
 
 Once you're connected, sign-in and push notifications are each a switch away, and your project is ready for Cloud Firestore.
 

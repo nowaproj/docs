@@ -357,4 +357,17 @@ Status key: `covered` (page#section) / `added` (page#section) / `to add` (planne
 
 ## Totals
 
-(Filled in at the end.)
+235 items on 36 old pages (15 of them "Coming soon" stubs with only a description):
+
+| status | count |
+|---|---|
+| covered | 131 |
+| added | 78 |
+| not useful | 16 |
+| obsolete | 8 |
+| dev-only | 1 |
+| for other page | 1 |
+
+Obsolete: the Container "Add Widget" button, Text from the picker being "Fixed", dropping files from the computer into Nowa,
+Ctrl/Cmd + O and Ctrl/Cmd + P for the picker, the YouTube "full link", Rive **Fit**, and the Container wrapper "color on top of an
+image" (a Container paints behind its child). "For other page" and two related proposals are in `P14-B13-notes.md`.

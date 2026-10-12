@@ -84,3 +84,13 @@ code refs in the earlier writer notes W14 and W17). Relative links in the copied
 - [deep-links.md] [Google Sign-In](./google-sign-in.md) also writes a URL type to `Info.plist`, once you save its **iOS Client ID**. With both saved, Nowa writes two separate `CFBundleURLTypes` entries. A property list should hold that key once, so one of the two may not take effect on iOS. Open `ios/Runner/Info.plist` in code mode to check.
 - [deep-links.md] Nowa registers the links and adds `app_links`, but it doesn't generate code that reads an incoming link. Your app's logic has to read the link and open the right screen.
 - [deep-links.md] Turn **Enabled** off to remove the package and the entries Nowa added to the Android and iOS files.
+
+## #supabase
+
+- [index.md] What you get with Supabase: A `SupabaseService` with sign-in functions, query and storage templates, and a panel to test them.
+- [index.md] What Nowa adds for Supabase sign-in: `signUp`, `signIn` and `signOut` in your `SupabaseService`.
+
+## #firebase
+
+- [index.md] What you get with Firebase: Your Android, iOS and web apps registered in Firebase, the config files and a `FirebaseService`.
+- [index.md] What Nowa adds for Firebase sign-in: Sign-in functions in your `FirebaseService` for each provider you turn on.

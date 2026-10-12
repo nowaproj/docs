@@ -246,3 +246,34 @@ item is tapped" (about 480 words, explicit id `#open-a-detail-screen`, linked fr
 
 **Open questions** (carried, not new): the Supabase custom expression in Redirect Logic has still not been run live
 (`reviews/W20-writer-notes.md`, `reviews/W22-writer-notes.md`).
+
+## logic/expressions.md
+
+**Changed for the reader**
+- Intro (R8, R9): an expression is "a bit like a formula in a spreadsheet cell", with everyday examples.
+- Link menu: "params" glossed; "If you pick a value of another type, the menu shows its members" → "shows what's inside
+  it, so you can reach a part that fits" (same fact: `packages/core/lib/src/fields/link_menu.dart:10-16,138-157`,
+  `packages/core/lib/src/fields/field_link_menu.dart:161-186`).
+- `$`: result shown in words ("Hello Sara"); `+`: `length` glossed.
+- Conditional, Math, Logical, ifNull: one everyday example each; `bool` and `int` glossed (R3/R4).
+- Operators table rebuilt as "Operator | Means | Example" so a non-coder can pick one (the brief asks for a plain meaning
+  for each name). Same operator list (`packages/core/lib/src/interpreter/block_tree.dart:2383-2404`), grouping kept in
+  a sentence (Math = the math group, Logical = compare and combine, ifNull alone: `block_tree.dart:2406-2460`,
+  `packages/core/lib/src/fields/expression_builder/expression_details.dart:289-302`). Meanings and examples follow
+  Dart's operators (https://dart.dev/language/operators: `/` "Divide" with a double result, `~/` "Divide, returning an
+  integer result", `%` "Get the remainder of an integer division (modulo)", `??` if-null with the doc's own "Guest"
+  example).
+- Custom expression: "It must be one expression, not a statement such as `if`" → "a single formula that gives back a
+  value. Steps such as `if` belong in Circuit" (same rule, `packages/core/lib/src/fields/expression_builder/expression_builder_provider.dart:195-217`).
+  "so you can fix it before anything changes": **Eval** applies only a valid expression (W5 notes, same file).
+- Small R9 touches: "Changed your mind?" on Reset; reasons after **refresh** and the Visibility example.
+- Nothing code-only on the page; no link to `generated-code.md`.
+
+**Added from the old docs**
+- No quotes when typing in a text field, while a custom expression needs them (old print.md note "The String in a
+  custom expression should be with double quotes ... when typing directly inside the Msg field, Nowa automatically wraps
+  your input"). Text fields hold the typed text as a text value and insert picks as `${...}`
+  (`packages/core/lib/src/fields/interpolated_text_field.dart:41-90`); a number inside `${...}` shows as text (Dart
+  string interpolation, https://dart.dev/language/built-in-types#strings).
+
+**Open questions**: none.

@@ -9,7 +9,7 @@ Let people sign in to your app with the Google account they already have: one ta
 
 ## Before you start
 
-- A backend that accepts Google sign-in. With Supabase, connect it first ([Connect Supabase](./supabase/connect.md)) and turn on Google there ([Google sign-in with Supabase](./supabase/auth.md#google)).
+- A backend that accepts Google sign-in. With Supabase, connect it first ([Connect Supabase](./supabase/connect.md)), then turn on Google as a sign-in provider in your Supabase project. [Sign users in with Supabase](./supabase/auth.md#google) shows the steps.
 - Your app's **Bundle Identifier**, set in **Settings** → **Project Details**. Google asks for it. See [Check your app details](../publish/index.md#app-details).
 - To publish your iOS app on the App Store, read [App Store Review Guideline 4.8 Login Services](https://developer.apple.com/app-store/review/guidelines/#login-services). It names Google Sign-In.
 

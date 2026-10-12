@@ -33,3 +33,24 @@ Product issue numbers (P…) refer to the issues report in the private repo `now
 | publish-web-2 | `docs/publish/web.md`, "Use your own domain" (placeholder in the page) | The **DNS Records** page: **Pending**, **Verify** and the **Name** / **Type** / **Value** table with copy icons | Paid plan, the web app published, a custom domain set on it, **DNS** clicked | Needs a domain or subdomain the project owner controls. Don't click **Verify** with a domain you don't own |
 | integrations-import-2 | `docs/integrations/rest-api/import.md`, "From Xano", after the numbered steps (no placeholder) | The **Import From** dialog on **Xano**: **Select an API Group** with one group imported (check mark) and one not (**+**) | **Api** → **+** → **Import from Xano**, a Xano token pasted, instance and workspace chosen | Needs a Xano account and a Metadata API token |
 | troubleshooting-known-issues-1 | `docs/troubleshooting/known-issues.md`, "Firestore queries can't be tested on Windows" (no placeholder) | The dimmed **Test** section with "Testing Firestore Queries isn't possible on Windows version" | Windows desktop app, a Firebase-connected project, a query open (needs the P48 fix to open one) | Needs the Windows desktop app; also blocked by P48 |
+
+## Text to update when the fixes ship
+
+Pages describe Nowa 3.13.0 as shipped, with a workaround where a bug gets in the way. When a fix is released, update
+the sentence named here. The full list for every issue is the table "Docs to update after each fix" in the issues
+report's `README.md`; the rows below are the notes added with the local and cloud capture sessions of 12 October 2026.
+
+| issue | pages and note to change |
+|---|---|
+| P117 (Figma connection) | `docs/ai/connectors.md` note "Connecting Figma doesn't work right now", `docs/account/account-settings.md` note under "Connect Figma", `docs/troubleshooting/known-issues.md#figma-connect`; then add `ai-connectors-1` |
+| P48, P49 (Firestore in the designer, lists after a reload) | `docs/integrations/firebase/firestore.md`: the section "Add collections and queries in Nowa 3.13" and the Refresh notes in "Build a query" and "Use a query in your app"; `docs/integrations/firebase/connect.md` (file table); `docs/troubleshooting/known-issues.md#firebase-on-windows` (last sentence); `docs/guides/data-and-state-tips.md` (Firestore tip); then re-take `integrations-firebase-firestore-1` and `-2` |
+| P156 (Firestore `add` and `doc` steps) | `docs/integrations/firebase/firestore.md`: the "In Nowa 3.13, `add` and `doc` can't be built" sentences |
+| P158 (whole numbers dropped in a `double` test parameter) | `docs/integrations/firebase/firestore.md`, "Test a query" step 1 |
+| P155 (reload soon after Connect Apps) | `docs/integrations/firebase/connect.md` paragraph after the steps; `docs/troubleshooting/known-issues.md#firebase-reload-after-connect` |
+| P34 (expired Google sign-in disconnects on Send Test Notification) | `docs/integrations/firebase/notifications.md` warning under "Send a test notification" |
+| P151 (InvalidType in the status bar) | `docs/integrations/firebase/auth.md` step 2; `docs/troubleshooting/known-issues.md#invalid-type-in-status-bar` |
+| P150 (Redirect Logic row keeps **+**) | `docs/logic/router.md` steps 3 and 4; `docs/troubleshooting/known-issues.md#redirect-logic-plus` |
+| P152 (Run on device list doesn't refresh) | `docs/test/devices.md`, "Run on a device" step 2 |
+| P153 (Supabase authorizes each Nowa project) | `docs/integrations/supabase/connect.md`, "Each Nowa project asks you to authorize once" |
+| Not in the report yet: B-1 to B-5 in `_rewrite/captures/phase13/b.md` (Set up Backend stops on the second migration, migration-history query on a new project, the "already set up" message never shows, Stripe choices not kept) | `docs/integrations/supabase/backend.md` (the "In Nowa 3.13, a backend with two or more migrations" paragraph, "no dialog opens", the **Pull failed** sentence); `docs/integrations/stripe.md` (Country Code, "Nowa saves your table and field choices") |
+

@@ -120,3 +120,62 @@ Nothing code-only on the page; no removed fact (the old "Group | Operators" tabl
 | Moved: constructor/`fromJson`/`toJson` upkeep, `TaskModel` in `task_model.dart`, `lib/models`, rewrite + Dart code, `root.dart` | ok (moved) | all five in `P14-B07-for-code.md` `#models`, unchanged | the reader-facing consequence stays (JSON-ready, one model per nested object) |
 
 No audience issue left; one admonition; one link to `../code/generated-code.md#models`.
+
+## Links and structure (all six pages)
+
+- 115 relative links checked with a script: every target file exists and every `#anchor` exists on its target (headings
+  and explicit ids). The two `../code/generated-code.md` anchors (`#actions-and-popups`, `#models`) are on the brief's list.
+- No heading anchor that existed on origin/main is gone (script compared both versions of each page). The 58 anchored
+  links from other pages into these six pages all resolve.
+- Front matter valid on all six; no H1; admonitions: router 2, the others 1; no `---` rules outside front matter; no
+  emoji; images untouched (no image line in the diff). One hype word ("just") came from my own edit and was replaced.
+
+## Moved facts (11 in `P14-B07-for-code.md`)
+
+All 11 "Moved" bullets are on the for-code file unchanged, under valid anchors (`#project-files` 1, `#models` 5,
+`#actions-and-popups` 4, `#supabase` 1). For each, the reader-facing part is still on the page in plain words: Nowa
+starts Supabase/Firebase before the first screen (router), models stay JSON-ready and **View Code** shows the code,
+**Class name**/**Path** are filled for you and the model sits in the `models` folder of the Library (models),
+**Create...** for anything you make rather than run and the **PACKAGE:** row in plain words (actions), and the Supabase
+AI tip without the class name (router). Nothing the reader needs was lost. `showMenu`/`showSearch`/`unawaited`/
+`scheduleMicrotask` are code-level (`showSearch` needs a delegate written in code; popup menus are a widget on
+`reference/widgets/forms.md`).
+
+## Coverage spot checks
+
+**Obsolete rows (4):**
+- dialog.md **Anchor Point** "where the dialog animates from": confirmed wrong; Flutter uses it to pick the sub-screen on
+  foldables (`/home/user/flutter/packages/flutter/lib/src/widgets/display_feature_sub_screen.dart:31-39`). The page keeps
+  the option under "advanced". OK.
+- data-models.md Files panel **Create new object**: the label is gone (no hit in `lib/` or `packages/`); models are
+  created with **New Model...** (`lib/project/panels/files_panel/add_lib_menu.dart:60-66`, used by the Library's menu:
+  `lib/project/panels/library_panel/library_host.dart:183`, and still by the Files panel: `files_panel.dart:221`). OK.
+- data-models.md "the model shows in the Files panel as a Dart file": **mislabelled**. The file still shows in the Files
+  panel, which lists `lib`, boards and assets outside code mode (`lib/project/panels/files_panel/files_panel.dart:23-26`).
+  Not needed by the reader (models.md works from the Library's **Models** filter, and opening the model's code is in
+  the for-code file), so the right status is `dev-only`/`not useful`, not `obsolete`. No page change.
+- data-models.md single click opens a popup: confirmed changed; double-click or Enter opens the editor
+  (`library_host.dart:145-153`), as models.md says. OK.
+
+**Covered rows sampled (12):** media picker options and "a list even for one" (popups.md table and step 3); Navigator
+via **GLOBALS** with **Type**/**to** (navigation.md#use-the-navigator); **onValue** tip (navigation.md#go-back-with-a-value);
+dynamic **Url** (actions.md#open-a-link); `logicalOr` combination (actions.md#check-the-platform); date picker
+**onValue** with `value` (popups.md#use-what-the-person-chose); **Barrier Dismissible** (popups.md#show-a-dialog);
+**Reset to default**/**Set to null** (expressions.md#reset-a-property); list of models with defaults
+(models.md#use-a-model-as-a-type); **Initial Time** (popups.md#pick-a-time); `$` → `${...}` (expressions.md#dollar);
+"nowa" category now **NOWA_RUNTIME** (popups.md#pick-photos-or-videos). All 12 are covered where the row says.
+
+## Open issues
+
+1. The four worked examples (confirm before deleting, pick a date and show it, show a photo, go back with a value), the
+   Supabase redirect expression and the new `showBottomSheet` caution are checked against the code but not clicked
+   through in the app. Each step's label and behavior is cited above; a live run would settle them.
+2. Product issues confirmed in code, for `_rewrite/product-issues.md` (orchestrator): (a) **Show snackbar** offers
+   **Width**/**Margin** without **Behavior**; (b) `showMediaPicker` defaults to `camera`, which the desktop app's Play
+   can't open (an unused `PreviewerCamera` test camera exists in `packages/core/lib/src/interpreter/libraries/camera_simulation.dart`
+   but nothing passes `openFakeCamera`); (c) new: `showBottomSheet` from a screen's own logic fails in a running app
+   (Flutter needs a Scaffold above the context; Nowa screens build theirs in `build`). A product fix could hide
+   **Width**/**Margin**, wire the test camera, and filter `showBottomSheet` out of screen-level logic or wrap it.
+3. Proposal for the coverage file owner: relabel the data-models "Files panel" row as `dev-only` (see above).
+4. Length: popups.md is about 2,700 words and navigation.md about 2,320 after this pass. I found no repetition that could
+   go without losing a step or a reason; the writer's split proposals in the notes still apply if a split is wanted.

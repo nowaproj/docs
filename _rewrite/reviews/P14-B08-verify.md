@@ -11,12 +11,12 @@ fetched 2026-10-12.
 - **Claims checked:** about 110 rows below, many covering several labels; UI labels against `/home/user/nowa-master`
   (3.13.0), console steps against the official docs fetched today (RevenueCat, Apple, Google AdMob, Google Maps
   Platform, Google Cloud, Supabase, Postman, Xano, Swagger Petstore, MDN, Android developers).
-- **Fixed:** 24 claims, plus 4 heading anchors kept with explicit IDs (one was the broken
+- **Fixed:** 23 claims, plus 4 heading anchors kept with explicit IDs (one was the broken
   `admob#before-you-publish` from the trial build). Most serious: the REST walk-through linked the reply to a dialog
   "content" that a new `showDialog` doesn't have (only a "Hello World" title); "pick it under **Members**" on the
   RevenueCat and REST pages, a heading Circuit never shows; the Maps and Google Sign-In Android steps used only Nowa's
-  signing key, so the copy people download from Google Play (signed by Google) would show no map or fail Google
-  sign-in; the deep links fix claimed Nowa AI "fixes it" and listed only two of the settings that undo it.
+  signing key, so the copy people download from Google Play (signed by Google) would show no map and could fail
+  Google sign-in; the deep links fix claimed Nowa AI "fixes it" and listed only two of the settings that undo it.
 - **Removed:** no claim removed outright; inaccurate ones were rewritten (e.g. an AdMob example Google doesn't give,
   "change prices" on a RevenueCat paywall).
 - **Facts restored or added (verified):** RevenueCat store prerequisites (Paid Applications Agreement, tax and banking;

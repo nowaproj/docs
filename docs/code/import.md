@@ -55,11 +55,11 @@ Then:
 
 1. Click the arrow next to **New project** and choose **Clone from GitHub**.
 2. Pick a repository in the list. Type in **Search repositories** to filter it. If you can't find yours, click **Manage your connected repositories** to choose which repositories Nowa can see on GitHub.
-3. Check the **Project name**. It starts as the repository name, and it's the name Nowa shows.
+3. Check the **Project name**. It starts as the repository name, and it's the name Nowa shows. If you then pick another repository, the name stays, so change it yourself.
 4. Choose where the clone goes. The chip at the top picks the workspace for a cloud project. In the desktop app, tick **Local-only** to clone to your computer instead. Nowa puts the clone in a folder named after the repository, inside your **Default Projects Path** from **Local Setup**.
-5. Click **Clone project**. A timer shows how long the clone has run. The project opens when it finishes.
+5. Click **Clone project**. It turns on once a repository is selected. A timer shows how long the clone has run. The project opens when it finishes.
 
-{/* CAPTURE: id=code-import-2 | state: signed in with GitHub connected and a plan that includes Git integration; click the arrow next to New project, choose Clone from GitHub, select a throwaway repository | show: the repository list with Search repositories and the Manage link, Project name, the workspace chip, and the Local-only, Cancel and Clone project controls | crop: the dialog */}
+![The Clone from GitHub dialog in the web app, with the Personal workspace chip at the top: the repository list (highlighted) with Search repositories, one private repository selected (owner name blurred, then /docs-capture-repo) and the Manage your connected repositories link, then Project name filled in as docs-capture-repo, and Cancel and Clone project (highlighted).](/img/docs/code/code-import-2.png)
 
 If the clone fails, the dialog shows the reason with a **Fix** button:
 

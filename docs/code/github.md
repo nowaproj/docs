@@ -20,7 +20,7 @@ Connect GitHub once and Nowa can list your repositories, clone them as projects,
 
 Click **Manage** to open GitHub and change which repositories Nowa can use. Inside a project you can also connect from **Settings** (the gear in the top bar) → **Git**, or from **Manage Remotes**.
 
-{/* CAPTURE: id=code-github-1 | state: signed in with a plan that includes Git integration; avatar → General Settings → Git, GitHub connected with a throwaway account | show: the Git Settings page with GitHub Integration in its connected state (avatar, username, number of repositories, Manage) and the Legacy Remote Credentials heading below | crop: the settings window content */}
+![The Git Settings page of the settings window, opened from Git under Editor Settings: GitHub Integration is connected (highlighted), with the GitHub avatar and username (blurred), 1 repositories connected and a Manage button. Below it, Legacy Remote Credentials with a Documentation link reads When GitHub Integration is enabled, legacy remote credentials are not used.](/img/docs/code/code-github-1.png)
 
 While GitHub is connected, Nowa uses it instead of any access tokens you added.
 
@@ -30,7 +30,7 @@ A project needs a remote before it can push and pull. **Manage Remotes** sets on
 
 To create a new repository:
 
-1. In **Create GitHub Repository**, check the **Name**. It starts as your project's name, after your GitHub account name. Use letters, numbers, hyphens, underscores and periods only.
+1. In **Create GitHub Repository**, check the **Name**. It starts as your project's **Package Name** (for example `my_app`), after your GitHub account name. Use letters, numbers, hyphens, underscores and periods only.
 2. Keep **Private** ticked to keep the repository to yourself and the people you share it with.
 3. Click **Create Repository**. Nowa creates it on GitHub, adds it as the remote `origin` and pushes your commits.
 
@@ -45,7 +45,7 @@ To connect a repository you already have:
 Make sure the repository is the right one for this project. Nowa warns that connecting the wrong repository may lead to the loss of your current changes.
 :::
 
-{/* CAPTURE: id=code-github-2 | state: signed in, GitHub connected, a project without a remote; Git panel → ... → Manage Remotes | show: the Create GitHub Repository form (Name with your username prefix, Private, Create Repository), the OR divider and the Add Existing Repository row | crop: the dialog */}
+![The Manage Remotes dialog of a project without a remote: Create GitHub Repository with the Name field (the GitHub username, blurred, then /docs_capture_paid), Private ticked and the Create Repository button (highlighted), then the OR divider and the collapsed Add Existing Repository row (highlighted).](/img/docs/code/code-github-2.png)
 
 Once a repository is connected, **Connected Remote Repository** shows its address. The icon beside it (tooltip **View Repository in Browser**) opens it in your browser, and **Disconnect** removes the remote from the project. The repository on GitHub stays.
 
@@ -69,7 +69,7 @@ Personal access tokens are the older way to sign in to your Git provider, and th
 2. Open the Git settings (see above). Under **Legacy Remote Credentials**, click **Add Credentials**.
 3. In **Set Git Credentials**, type your **Username**, paste the token into **Access Token** and click **Add Credentials**.
 
-**Add Credentials** shows when nothing is saved. To replace a token, delete the saved one with its trash icon first. While GitHub Integration is on, Nowa says "When GitHub Integration is enabled, legacy remote credentials are not used."
+**Add Credentials** shows when nothing is saved. To replace a token, delete the saved one with its trash icon first. While GitHub Integration is on, **Add Credentials** is hidden and Nowa says "When GitHub Integration is enabled, legacy remote credentials are not used."
 
 ## Local projects: credentials and SSH {#local-credentials-and-ssh}
 

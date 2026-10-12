@@ -453,6 +453,6 @@ workspaces and project creation is covered there with current labels (see the co
 
 1. `guides/design-tips.md`, Name things clearly, **Boards** bullet: "snake_case" was already replaced in this batch;
    the page reads "Nowa writes the name in lowercase with underscores, so **Login flow** becomes `login_flow`." Kept
-   (the reader sees that name in the **Boards** chip list). Evidence: `packages/designer/lib/src/actions/file_actions.dart:61-66`
+   (the reader sees that name: the **Boards** chip shows the board file's name, `lib/project/top_bar_mapper.dart:92`). Evidence: `packages/designer/lib/src/actions/file_actions.dart:61-66`
    (new board file named with `generateFileName`), `packages/core/lib/src/file_system/naming.dart:158-163`
    (`Cases.snakecase`).

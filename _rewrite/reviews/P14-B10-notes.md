@@ -250,9 +250,12 @@ itself says "2. Navigate to Authentication → Policies" (`ui/rls_error_widget.d
 5. Supabase's default table grants are changing (all existing projects from 30 October 2026, discussion 45329). Whether a table made in
    the Table Editor gets grants automatically isn't documented; the page tells readers what "permission denied" means and how to fix it.
    Worth a live check on a new project in November.
-6. Tables made with the SQL Editor or the Table Editor leave no migration history, so **Pull Backend Files** fails on such a project
-   until Nowa AI recreates the tables through migrations (backend.md). The database page offers the SQL Editor as the do-it-yourself
-   path; if the docs owner prefers, it could add one line there pointing to backend.md for people who plan to pull later.
+6. (Resolved, added) Tables made with the SQL Editor or the Table Editor leave no migration history, so **Pull Backend Files** fails on
+   such a project. database.md now says so after the dashboard path and suggests asking Nowa AI to create tables through migrations:
+   https://supabase.com/docs/guides/deployment/database-migrations ("Making schema changes directly on your remote database (via the
+   SQL editor or Table Editor) bypasses the migration history"; history kept in `supabase_migrations.schema_migrations`). The connector
+   can apply migrations (docs/ai/connectors.md; `apply_migration` in `captures/phase13/local.md:28`). Also backs backend.md's "the
+   project's tables weren't made through migrations".
 
 ## For other pages
 

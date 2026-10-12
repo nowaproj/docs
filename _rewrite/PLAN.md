@@ -19,6 +19,7 @@ Resume from these files alone: `BRIEF.md` (context + rules), `decisions.md`, `op
 | 8 | Draft PR with report | PR | open: https://github.com/nowaproj/docs/pull/18 (update it after phase 9) |
 | 9 | Final quality pass: the user's acceptance criteria (see below) | pages, videos, annotated screenshots, best-practice guides | done except signed-in captures (see Resume here) |
 | 10 | Update to Nowa 3.13.0 (released 2026-10-06, live on app.nowa.dev) + all captures from app.nowa.dev, incl. signed-in | `research/changes-3.13.md`, pages, `reviews/P10-*`, captures | done 2026-10-10 (build green, PR updated) |
+| 11-13 | Paid plan and Linux shots, playground shots and live checks, the Mac session and the connected-service shots, merge | `captures/phase11-13/`, `reviews/P11-*`, `P12-*`, `P13-*`, `MISSING-MEDIA.md` | done 2026-10-12; PR #18 merged |
 
 ## Phase 10: update to Nowa 3.13.0 (started 2026-10-09)
 
@@ -83,6 +84,16 @@ P21 reproduced and raised to High) in the private report. Computer use can't rea
 session, so `LOCAL-SESSION.md` is now a brief for a Claude session on the Mac (signed-in Chrome, Nowa desktop app); the
 cloud takes the Supabase, Stripe and GitHub shots after it (`CAPTURE-PHASE13.md`). Last live check of 6 points:
 `reviews/P12-live-checks-2.md`.
+
+**Phase 13 (2026-10-12): the Mac session, the connected-service shots and the merge.** A Claude session on the user's
+Mac (computer use, Claude in Chrome) connected Supabase, GitHub and Firebase to the test account and pushed 13 images
+(`captures/phase13/local.md`, commit `155c4ff`): 12 embedded, the second Firestore image left out (it shows the hidden
+Files popup, D21). Three cloud agents then took the Supabase panel, backend, Stripe and GitHub shots with those
+connections (`captures/phase13/a.md`, `b.md`, `c.md`). Pages fixed from all four live checks (`reviews/P13-fixes.md`),
+checked in code by another agent (`reviews/P13-verify.md`). Owner's rule for bugs: pages describe 3.13.0 as shipped
+with the workaround; where a bug kept a screenshot out, the text describes the fixed feature with a short note.
+Missing shots and the notes to update after each fix: `MISSING-MEDIA.md`. Then PR #18 is merged to `main` (owner's
+request), which deploys docs.nowa.dev.
 
 Batches (2026-10-09): research done (`research/changes-3.13.md`: 53 pages, 27 changes, 11 open points). Writers:
 **W30a** (new `design/library.md`, get-started, design index/boards/screens/components/add-widgets/select-and-edit/

@@ -4,9 +4,9 @@ A full rewrite of docs.nowa.dev. Every page is new, written from the released pr
 code by a second agent that didn't write it. The docs describe **Nowa 3.13.0**, the release on `nowa` `master` and on
 app.nowa.dev. Old URLs redirect to their new pages, including every docs link the Nowa app opens.
 
-> **Ready for review, still a draft.** The rewrite, the quality pass you asked for and the update to 3.13 are done, and
-> `yarn build` passes with no broken links or anchors. A few screenshots can't be taken with the test account (see
-> [Unfinished](#unfinished)).
+> **Ready to merge.** The rewrite, the quality pass you asked for, the update to 3.13 and the screenshots from your Mac
+> and from the cloud with the connected Supabase, GitHub and Firebase accounts are done, and `yarn build` passes with no
+> broken links or anchors. Two screenshots wait for a product fix or a custom domain (see [Unfinished](#unfinished)).
 
 ## New structure
 
@@ -45,8 +45,11 @@ design, logic, data, testing and publishing, with code, account and reference af
   projects, import, builds, AI connectors), all fixed and checked in code by another agent. A fourth round the same
   day, in the live playground, checked the pages behind 13 new screenshots and videos and 56 claims the code couldn't
   settle (components, pasting, router paths, the first-app steps): about 60 corrections on 27 pages, including 5 new
-  entries in Known issues, all checked in code by another agent (142 claims, 16 more corrections). Review logs are in
-  `_rewrite/reviews/`.
+  entries in Known issues, all checked in code by another agent (142 claims, 16 more corrections). A fifth round on 12
+  October, a Claude session on your Mac (Firebase, the iOS Simulator, public sharing, the external agent, an approval
+  card) and three cloud agents with the Supabase and GitHub connections it made, checked the pages behind 23 new
+  screenshots: corrections on 19 pages and 4 more Known issues entries, each checked in code by another agent (68
+  claims and 14 more corrections in its first round). Review logs are in `_rewrite/reviews/`.
 - **Updated to Nowa 3.13.0** (released 6 October): the Library panel replaces the Widgets panel, Ctrl/Cmd+K and the
   toolbar's **Widget** tool open the Library, the top bar has **Back** / **Forward** and a searchable **Boards** chip,
   **Files** moved into code mode as a tree, menu entries were renamed (**Bring forward**, **Send backward**...), the
@@ -56,13 +59,14 @@ design, logic, data, testing and publishing, with code, account and reference af
   in `_rewrite/left-out.md` with the reason (internal, debug, unreachable, private beta).
 - **Redirects**: `@docusaurus/plugin-client-redirects` with 160 redirects in `redirects.js` covers all 166 old URLs and
   the 44 docs links the app opens (old widget help links land on the matching row of the widget catalog; anchors kept).
-- **Screenshots and videos, all from 3.13**: 114 screenshots and 8 short videos on 83 pages, taken on app.nowa.dev
-  (the playground, and the test account for the dashboard, settings, Deploy menu, deployment tabs, builds, Git, Run,
-  Share and Nowa AI) and in the Nowa desktop app for Linux (Local Setup, local projects, import, VS Code), each
+- **Screenshots and videos, all from 3.13**: 137 screenshots and 8 short videos on 94 pages, taken on app.nowa.dev
+  (the playground, and the test account for the dashboard, settings, Deploy menu, deployment tabs, builds, Git, GitHub,
+  Run, Share, Nowa AI, Supabase and Stripe), in the Nowa desktop app for Linux (Local Setup, local projects, import, VS
+  Code) and on your Mac (Firebase, the Run on menu with the iOS Simulator, public sharing, the external agent), each
   checked by eye, nearly all with an orange highlight on what matters, and names and emails blurred. The videos show adding a
   widget from the Library, laying out rows and columns, moving a widget along the snap guides, Instant Play, adding a
-  Circuit node, a button showing a snackbar, changing a theme color and Nowa AI building an app. The remaining placeholders are hidden MDX comments, listed in
-  `_rewrite/captures/to-capture.md` (rebuilt from the pages by `_rewrite/captures/tools/to-capture.py`).
+  Circuit node, a button showing a snackbar, changing a theme color and Nowa AI building an app. The screenshots still
+  missing are listed in `_rewrite/MISSING-MEDIA.md`, with where each goes and what unblocks it.
 - **What's New and Changelog**: new 3.13.0 entries (the Library, Back/Forward and boards, Linux, theme extensions,
   `@Preview` variants, packages and code, local sync), checked claim by claim against the code. Older entries are
   untouched; only links to removed pages were re-pointed (and one empty link removed).
@@ -107,10 +111,12 @@ Full log with reasons: `_rewrite/decisions.md`. The main ones:
 - The test account was used for the signed-in screenshots and is kept outside the repo (never committed). 5 of the 5
   AI prompts you allowed were used (logged in `_rewrite/captures/ai-prompts.md`).
 - You upgraded the test account to a paid plan and created throwaway Supabase, Stripe, GitHub, Figma and Google
-  accounts (credentials kept outside the repo). Figma signs in from the cloud; Supabase and Stripe show CAPTCHAs and
-  GitHub and Google block automated browsers, and computer use can't reach your Mac from a cloud session. So a Claude
-  session on your Mac, in your signed-in Chrome, connects them and takes the Firebase and simulator screenshots
-  (`_rewrite/LOCAL-SESSION.md`); the cloud then takes the Supabase, Stripe and GitHub ones (`_rewrite/CAPTURE-PHASE13.md`).
+  accounts (credentials kept outside the repo). Supabase and Stripe show CAPTCHAs to the cloud browser and GitHub and
+  Google block it, so a Claude session on your Mac connected them and took the Firebase, simulator, sharing, external
+  agent and approval card screenshots (`_rewrite/captures/phase13/local.md`); the cloud then took the Supabase, Stripe
+  and GitHub ones with those connections (`_rewrite/captures/phase13/a.md`, `b.md`, `c.md`).
+- For features a bug kept out of the screenshots, the pages describe how they work once fixed, with a short note about
+  the current problem, and `_rewrite/MISSING-MEDIA.md` lists the shots to take after the fixes.
 - You asked for a 3.13 entry in What's New: written, with a Changelog entry, and checked against the code.
 
 ## Open questions
@@ -121,8 +127,9 @@ Full log with reasons: `_rewrite/decisions.md`. The main ones:
 
 ## Product issues found along the way
 
-149 product issues were written up for the engineering team, each with steps to reproduce, the root cause with code
-references and a suggested fix. Some describe security problems, so the full report lives in the private product repo
+158 product issues were written up for the engineering team, each with steps to reproduce, the root cause with code
+references and a suggested fix (fix PRs for most of them are open; see `PROGRESS.md` next to the report). The last
+cloud round found 5 more, not in the report yet (B-1 to B-5 in `_rewrite/captures/phase13/b.md`). Some describe security problems, so the full report lives in the private product repo
 (`nowaproj/nowa`, `docs/platform_issues/`, branch `claude/tender-pascal-quit5k`); `_rewrite/product-issues.md` keeps
 the first 58 as short notes. A few that affect the docs:
 - Firestore (3.13): no designer entry point to add collections or queries.
@@ -145,22 +152,21 @@ the first 58 as short notes. A few that affect the docs:
 
 ## Unfinished
 
-- **25 screenshots still need something**: Supabase (8), Stripe (1) and GitHub (3) once the Mac session has connected
-  them, Firebase (7) and the device menu with a simulator (1) from the Mac session itself (`_rewrite/LOCAL-SESSION.md`),
-  Figma (1) once its connection is fixed on Nowa's side, and four that need your decision: one AI request for the
-  Supabase approval card, a custom domain, a project made public for a moment, and the Enterprise feature for
-  **Connect External Agent**. All 25 stay as hidden placeholders, listed in `_rewrite/captures/to-capture.md`. Every
-  screenshot the playground allows is taken.
-- **Live checks** that need those setups (for example the Firestore flow, View Only in the Library) are listed in
-  `_rewrite/PLAN.md` and the review logs.
-- **Clean-up**: the "Docs capture ..." projects (including "Docs capture paid", whose preview site expires on its
-  own, and "Docs capture local" from the Linux app) and the "Docs capture" workspace can be deleted. Change the
-  passwords of the test and throwaway accounts once the screenshots are done.
+- **2 screenshots wait for something outside the docs**: the Figma connector menu, once connecting Figma works again
+  (product issue P117), and the DNS records page of a custom domain, which needs a domain you control. Both stay as
+  hidden placeholders. `_rewrite/MISSING-MEDIA.md` lists them with three more to take later (two Firestore re-takes
+  after the P48 fix, a Xano import and the Windows Firestore message), and the page notes to update when each fix
+  ships.
+- **Clean-up**: the "Docs capture ..." projects (services, firebase, fresh, share, local, paid) and the "Docs capture"
+  workspace can be deleted, and so can the throwaway Supabase projects (`docs-capture` has a test user
+  `docs.tester@example.com`; `docs-capture-empty` has a `products` table and a `files` bucket that anyone with its key can
+  upload to), the GitHub repository `docs-capture-repo` and the Firebase project. Change the passwords of the test and
+  throwaway accounts.
 
 ## How to review
 
 - `yarn start`, then read in this order: **Build your first app**, **Build a complete app**, **Tour the editor**,
   **Find and add things with the Library**, **How Nowa AI works**, **Connect data and services**, **Get ready to
   publish**.
-- `_rewrite/` holds the plan, research (with code references), review logs and capture tools. It isn't part of the
-  site; keep it for follow-up work or delete it before merging.
+- `_rewrite/` holds the plan, research (with code references), review logs, capture tools and `MISSING-MEDIA.md`. It
+  isn't part of the site, and it stays for the follow-up work.

@@ -59,13 +59,14 @@ Before you start:
 
 1. Select your home screen and check that **Details** says **This is the home screen**. If it doesn't, click **Make home screen**.
 2. Click **Router** in the sidebar and select the route that shows your home screen.
-3. Next to **Redirect Logic**, click **+** (**Add Redirect Logic**), then click the bolt button (**Edit Function**). Circuit opens in a floating panel, on a `redirect` node that already has a **Return** under it. In Nowa 3.13 the row can keep showing **+** although the function was added. Don't click it again: click `<>` in the top bar to open code mode, click `<>` again to come back, and the bolt button shows. See [Known issues](../troubleshooting/known-issues.md#redirect-logic-plus).
-4. Hover the dot under the top node, click **+** and choose **Add If statement**.
-5. In **Details**, click the **Condition** label and link a check that tells you whether someone is signed in:
+3. Next to **Redirect Logic**, click **+** (**Add Redirect Logic**). In Nowa 3.13 the row can keep showing **+** although the function was added. Don't click it again: click `<>` in the top bar to open code mode, click `<>` again to come back, and the bolt button shows. See [Known issues](../troubleshooting/known-issues.md#redirect-logic-plus).
+4. Click the bolt button (**Edit Function**). Circuit opens in a floating panel, on a `redirect` node that already has a **Return** under it.
+5. Hover the dot under the top node, click **+** and choose **Add If statement**.
+6. In **Details**, click the **Condition** label and link a check that tells you whether someone is signed in:
    - **Firebase:** open **FIREBASE** and click `isUserSignedIn`, or type its name in the search box.
    - **Supabase:** click **Custom Expression...**. In the box that opens, replace the text with `Supabase.instance.client.auth.currentSession != null`, press <kbd>Enter</kbd>, then click the back arrow to close the box. Nowa has no ready-made Supabase check. This one asks the Supabase library for the current session, which is empty when nobody is signed in.
-6. Click the dot in the **False** branch, choose **Add Return**, and set **Return** to your login screen's path, such as `/login-page`. Leave the **True** branch empty.
-7. Close Circuit with **×**.
+7. Click the dot in the **False** branch, choose **Add Return**, and set **Return** to your login screen's path, such as `/login-page`. Leave the **True** branch empty.
+8. Close Circuit with **×**.
 
 ![The Circuit floating panel for a route's Redirect Logic: the redirect node, then an If Statement checking isUserSignedIn with a Return in the False branch and an empty True branch (highlighted), and the Details pane showing the Condition, FirebaseService().isUserSignedIn() (highlighted).](/img/docs/logic/logic-router-1.png)
 

@@ -9,7 +9,7 @@ Connect Supabase and your app gets user sign-in, a Postgres database and file st
 
 ## Before you start
 
-- A [Supabase](https://supabase.com) account. You don't need a Supabase project: Nowa can create it for you while you connect.
+- A [Supabase](https://supabase.com) account. You don't need a Supabase project: with **Connect**, Nowa can create it for you.
 - For **Connect**, you must be signed in to your Nowa account.
 
 ## Choose how to connect
@@ -85,7 +85,7 @@ The anon key ships inside your app, so rely on Row Level Security (RLS) in Supab
 
 After you connect, the **Supabase** panel lists the functions in `SupabaseService`, grouped by what they do.
 
-{/* CAPTURE: id=integrations-supabase-connect-2 | state: signed-in cloud project connected to a Supabase project that has a table, a few generated functions and a storage function, ⋮ menu open | show: the Authentication, Queries and Storage sections with their badges, and the open ⋮ menu | crop: Supabase panel */}
+![The connected Supabase panel: Generate a Query with its plus button, Authentication reading Testing as: docs.tester@example.com above signIn, signUp and signOut (AUTH badges), Queries with getAllTodos (SELECT) and Storage with uploadFile and downloadFile (STORAGE). Beside it, the open three-dot menu (highlighted) lists Open Supabase, Tables, Change API Keys, Pull Backend Files and Disconnect.](/img/docs/integrations/integrations-supabase-connect-2.png)
 
 | Section | What it holds |
 |---|---|
@@ -113,7 +113,7 @@ The ⋮ menu at the top of the panel has these items:
 
 ## See your tables
 
-Click ⋮, then **Tables**. You get a read-only list of your Supabase tables with their column names. Click the back arrow to return.
+Click ⋮, then **Tables**. A page headed **Supabase Setup** opens with a read-only list of your Supabase tables and their column names. Click the back arrow to return.
 
 Nowa has no table editor. Create and change tables in Supabase, or ask Nowa AI to do it. Created a table after you connected? Opening **Tables** refreshes the list. If there are no tables, Nowa says "No tables found, create tables in Supabase and you will see them here."
 

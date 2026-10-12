@@ -9,8 +9,9 @@ Supabase Storage keeps your app's files, such as profile photos and documents, i
 
 ## Before you start
 
-- [Connect Supabase](connect.md).
+- [Connect Supabase](connect.md). Nowa can create the Supabase project for you while you connect.
 - A bucket in Supabase. Create one in the Supabase dashboard (open **Storage**), or ask Nowa AI to create it with the Supabase connector. The templates don't create buckets or policies.
+- Storage policies that allow what you test, even in a public bucket: a public bucket only makes files readable by their link. Without a policy that lets users upload, `uploadFile` fails with an **RLS Policy Error**. See Supabase's [Storage access control](https://supabase.com/docs/guides/storage/security/access-control) guide.
 - If your bucket's policies need a signed-in user, sign in first. See [Sign users in with Supabase](auth.md).
 
 ## Add the storage functions
@@ -19,7 +20,7 @@ Supabase Storage keeps your app's files, such as profile photos and documents, i
 2. Click **Storage Templates** ("File operations").
 3. Click a template. Nowa generates the function straight away, shows `Function "uploadFile" generated successfully!` and closes the dialog. The function appears under **Storage**.
 
-{/* CAPTURE: id=integrations-supabase-storage-1 | state: signed-in cloud project connected to Supabase, Generate a Query + clicked, Storage Templates clicked | show: the Supabase Templates dialog with Storage Templates and its three cards (Upload File, Download File, Delete File) with their parameter chips | crop: the Supabase Templates dialog */}
+![The Supabase Templates dialog on Storage Templates, with Back at the top and three cards (highlighted): Upload File with the chips bucketName, fileName and fileData, Download File with bucketName and filePath, and Delete File with bucketName and fileName.](/img/docs/integrations/integrations-supabase-storage-1.png)
 
 | Template | Function | Inputs | Returns |
 |---|---|---|---|

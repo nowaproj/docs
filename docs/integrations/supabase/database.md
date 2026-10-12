@@ -9,7 +9,7 @@ Query Templates turn a Supabase table into ready-made functions that list, find,
 
 ## Before you start
 
-- [Connect Supabase](connect.md).
+- [Connect Supabase](connect.md). Nowa can create the Supabase project for you while you connect.
 - A table in Supabase. Nowa has no table editor, so create the table in Supabase, or ask Nowa AI to create it with the Supabase connector.
 - If your table uses Row Level Security (RLS), which decides which rows each user can read or change, a test user to sign in with. See [Sign users in with Supabase](auth.md).
 
@@ -22,7 +22,7 @@ Query Templates turn a Supabase table into ready-made functions that list, find,
 5. Choose a model. Click **Create new model class** (Nowa suggests a name such as `TodosModel`) or pick one under **Use Existing Model**. Nothing is selected until you click.
 6. Click **Generate Function**. The message `Function "getAllTodos" generated successfully!` appears, and the function shows up under **Queries**.
 
-{/* CAPTURE: id=integrations-supabase-database-1 | state: signed-in cloud project connected to Supabase with a todos table, Generate a Query + clicked, Query Templates, Get All Records and the todos table picked, on the Choose Model step | show: the Choose Model For "todos" step with Create new model class selected (name filled in) and the Generate Function button | crop: the Supabase Templates dialog */}
+![The Supabase Templates dialog on the Choose Model For "todos" step: under Create New Model, the Create new model class option is selected with TodosModel filled in as its name (highlighted), and the Generate Function button at the bottom (highlighted).](/img/docs/integrations/integrations-supabase-database-1.png)
 
 | Template | What it does | Function for a table called `todos` |
 |---|---|---|
@@ -50,7 +50,7 @@ Or ask Nowa AI. In **Agent** mode with the Supabase connector on, try: "Create a
 2. Under **Testing values**, fill in one field for each input of the function.
 3. Click **Run**. Until then the result area says "Run test to see result".
 
-{/* CAPTURE: id=integrations-supabase-database-2 | state: signed-in cloud project connected to Supabase, getAllTodos generated and clicked, Run clicked once | show: the bottom test panel titled Testing getAllTodos with the result on the left, and Testing values, Run and Edit Code on the right | crop: bottom test panel */}
+![The bottom panel titled Testing getAllTodos (highlighted) after Run: on the left the result, a list of 3 items, each an instance of TodosModel with id, created_at, title (Buy milk, Write docs, Walk the dog) and done. On the right, Testing values reads No parameters to test, above the Run button (highlighted) and Edit Code.](/img/docs/integrations/integrations-supabase-database-2.png)
 
 What the result area can show:
 

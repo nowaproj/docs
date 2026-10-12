@@ -53,8 +53,8 @@ If your project isn't connected to Supabase, or the connector is off, Nowa AI te
 2. If your Nowa account isn't linked to Figma yet, a browser window opens. Approve access there. Nowa waits with **Waiting for Authorization...** for up to 2 minutes, then shows "Authorization timed out. Please try again." Click **Cancel** to close the dialog, whether it's still waiting or timed out.
 3. When the Figma icon turns on, switch to **Agent** mode and ask.
 
-:::warning[Connecting Figma doesn't work right now]
-When you click the Figma icon, **Waiting for Authorization...** shows but no browser window opens, so you can't link Figma yet. Click **Cancel**. The steps on this page describe how connecting works once the problem is fixed. See [Known issues](../troubleshooting/known-issues.md#figma-connect).
+:::note[Connecting Figma doesn't work right now]
+When you click the Figma icon, **Waiting for Authorization...** shows but no browser window opens, so you can't link Figma yet. Click **Cancel**. The steps above describe how connecting works once the problem is fixed. See [Known issues](../troubleshooting/known-issues.md#figma-connect).
 :::
 
 With the connector on, Nowa AI can:

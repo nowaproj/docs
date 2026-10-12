@@ -25,7 +25,7 @@ Here's what works today:
 - Collections and queries that are already in your project keep working in your running app.
 - They also work in a [Data Builder](#use-a-query-in-your-app) and in Circuit, but each time you open the project, click **Refresh/Update apps and config files** in **Settings** → **Integrations** → **Firebase** first. Until you do, **Select Firestore Query** is empty.
 - In code mode, open `lib/firebase/collections.dart` or `lib/firebase/queries.dart` from **Files** and edit the Dart code yourself. Then click **Refresh/Update apps and config files** so Nowa's lists match your file.
-- To add, set or delete documents, write the function in `lib/firebase/queries.dart` yourself. In Nowa 3.13 the builder's `add` and `doc` steps don't work: the step shows as **func** and **Problems** reports an error such as "The function 'add' isn't defined."
+- To add, set or delete documents, write the function in `lib/firebase/queries.dart` yourself, without `withConverter`. In Nowa 3.13 the builder's `add` and `doc` steps don't work: the step shows as **func** and **Problems** reports an error such as "The function 'add' isn't defined."
 
 ## Define your collections
 

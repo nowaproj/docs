@@ -9,7 +9,7 @@ Supabase Authentication lets people create an account and sign in with an email 
 
 ## Before you start
 
-- [Connect Supabase](connect.md).
+- [Connect Supabase](connect.md). Nowa can create the Supabase project for you while you connect.
 
 ## Meet the auth functions
 
@@ -26,13 +26,13 @@ The section also tells you who you're testing as: **Not logged in**, or **Testin
 ## Test sign-up and sign-in
 
 1. Click `signUp` under **Authentication**. The test panel opens at the bottom of the editor.
-2. Under **Testing values**, type an **Email** and a **Password**.
-3. Click **Run**. Supabase creates the user. If something goes wrong, the result area shows **Error:** and the message from Supabase.
-4. Click `signIn`, then repeat steps 2 and 3 with the same **Email** and **Password**. The section now reads **Testing as:** and your email.
+2. Under **Testing values**, type an **Email** and a **Password**. The **Password** field shows what you type, so use a test password.
+3. Click **Run**. Supabase creates the user. If your Supabase project doesn't ask new users to confirm their email, you're signed in right away and the section reads **Testing as:** and the email. If something goes wrong, the result area shows **Error:** and the message from Supabase.
+4. To test `signIn`, run `signOut` first. Then click `signIn` and repeat steps 2 and 3 with the same **Email** and **Password**. The section now reads **Testing as:** and your email.
 5. Test your other functions. They run as this user, the way they will in your app.
 6. When you're done, run `signOut` to go back to **Not logged in**.
 
-{/* CAPTURE: id=integrations-supabase-auth-1 | state: signed-in cloud project connected to Supabase, signIn clicked in the Authentication section with an email and password typed | show: the Authentication section reading "Testing as: ...", and the test panel with Testing values (Email, Password), Run and Edit Code | crop: Supabase panel + bottom test panel */}
+![The editor after testing signIn: in the Supabase panel, Authentication reads Testing as: docs.tester@example.com (highlighted) and signIn is selected. The bottom panel Testing signIn shows the result on the left and, on the right, Testing values with Email and Password (blurred) and the Run button (highlighted), with Edit Code below.](/img/docs/integrations/integrations-supabase-auth-1.png)
 
 The test uses your real Supabase project, so every `signUp` creates a real user. If your Supabase project asks new users to confirm their email, click the link in the confirmation email before `signIn` works.
 

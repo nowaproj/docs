@@ -43,7 +43,7 @@ Code refs are relative to `/home/user/nowa-master` (3.13.0, `3cb32031c`). Every 
 | Previewer limits: Firebase Authentication can be tried but doesn't sign you in; use a simulator or device for real behavior | covered | `test/instant-play.md#know-what-instant-play-cant-show` | |
 | Video `builtinsimulator.mp4` | not useful | | media, 3.12-era UI |
 | Warning: only local projects run on simulators or devices | obsolete | see above (`local_run_config.dart:13`) | |
-| Warning: not in the web version of Nowa | covered | `test/devices.md#before-you-start` | web shows **iOS & Android devices** / "Download the desktop app" (`lib/project/run/run_button.dart:636-656`) |
+| Warning: not in the web version of Nowa | covered | `test/devices.md#no-desktop-app` | web shows **iOS & Android devices** / "Download the desktop app" (`lib/project/run/run_button.dart:636-656`) |
 | A menu at the top right of Nowa Desktop lists available targets (Chrome, macOS, Windows) | covered | `test/devices.md#run-on-a-device` step 2 | 3.13: the arrow next to **Run** opens **Run on** (`lib/project/run/run_button.dart:437-446, 537-580`) |
 | Android and iOS simulators must be started first | covered | `test/devices.md#start-an-emulator-or-simulator` | |
 | Select the target and press **Run** | covered | `test/devices.md#run-on-a-device` step 3 | |

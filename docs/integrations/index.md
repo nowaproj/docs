@@ -14,7 +14,7 @@ A backend is where your app's shared data lives, so everyone who uses your app s
 | | Supabase | Firebase | REST API |
 |---|---|---|---|
 | Good for | [Sign-in](./supabase/auth.md), a [database](./supabase/database.md) and [file storage](./supabase/storage.md) in one place. Stripe builds on it. | [Sign-in](./firebase/auth.md) with Email/Password, Google or Phone, the [Cloud Firestore](./firebase/firestore.md) database and [push notifications](./firebase/notifications.md). | Any service with a web API: your own server, a public API or Xano. |
-| What you get | Ready-made sign-in functions, query and storage templates, and a panel to test them. | Your Android, iOS and web apps registered in Firebase, their settings files and sign-in functions. | A collection per API, with requests you test and turn into models. [Import](./rest-api/import.md) from Swagger, Postman, Xano or cURL. |
+| What you get | Ready-made sign-in functions, query and storage templates, and a panel to test them. | Your Android, iOS and web apps registered in Firebase and set up in your project, plus sign-in functions you pick in Circuit. | A collection per API, with requests you test and turn into models. [Import](./rest-api/import.md) from Swagger, Postman, Xano or cURL. |
 | Start here | [Connect Supabase](./supabase/connect.md), from the **Supabase** panel in the left sidebar | [Connect Firebase](./firebase/connect.md), from **Settings** → **Integrations** → **Firebase** | [Connect a REST API](./rest-api/index.md), from the **Api** panel in the left sidebar |
 
 ## Show the data on your screens
@@ -51,8 +51,8 @@ Maps, ads and paywalls come with widgets: **Google Maps**, **Admob Banner** and 
 
 Both sell things in your app, and they work differently in Nowa.
 
-- **Stripe** takes card, Apple Pay and Google Pay payments through your Supabase backend. Nowa creates the payment tables, server functions and webhook in your Supabase project, and people must be signed in with Supabase to pay. It covers one-time items from a Supabase table, consumables such as credits, and subscriptions. See [Stripe](./stripe.md).
-- **RevenueCat** sells in-app purchases and subscriptions on iOS, Android and the web, with a ready-made **RevenueCat Paywall** widget. You set up your products in RevenueCat, and Nowa needs only your RevenueCat keys. See [RevenueCat](./revenuecat.md).
+- **Stripe** takes card, Apple Pay and Google Pay payments through your Supabase backend. Nowa creates the payment tables, server functions and webhook (how Stripe tells your backend that a payment went through) in your Supabase project, and people must be signed in with Supabase to pay. It covers one-time items from a Supabase table, consumables such as credits, and subscriptions. See [Stripe](./stripe.md).
+- **RevenueCat** sells in-app purchases and subscriptions on iOS, Android and the web, with a ready-made **RevenueCat Paywall** widget for iOS and Android. You set up your products in RevenueCat, and Nowa needs only your RevenueCat keys. See [RevenueCat](./revenuecat.md).
 
 Apple has rules for selling subscriptions and digital content in an app, and Google Play has its own billing system for them. Before you choose, read [App Store Review Guideline 3.1 Payments](https://developer.apple.com/app-store/review/guidelines/#payments) and [Google Play's billing system](https://developer.android.com/google/play/billing), then see [Follow Apple's rules](../publish/ios.md#store-rules) and [Follow Google Play's rules](../publish/android.md#store-rules).
 

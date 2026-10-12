@@ -42,7 +42,7 @@ If the person closes the popup without choosing, there's no answer, so the varia
 
 A dialog is a box in the middle of the screen that asks for attention. Use it to confirm an action ("Delete this recipe?"), show a warning or an error, ask for a quick choice, or show something like your terms.
 
-1. In Circuit, click a **+** and choose **MATERIAL** → `showDialog`. Its content starts as an **AlertDialog**, a ready-made dialog with room for a title, a message and buttons. It starts with just the title "Hello World".
+1. In Circuit, click a **+** and choose **MATERIAL** → `showDialog`. Its content starts as an **AlertDialog**, a ready-made dialog with room for a title, a message and buttons. At first it has only the title "Hello World".
 2. Click the brush next to it (tooltip **Edit AlertDialog**) to change the title, the content and the buttons. For example, click the brush next to **Title** and type your own title.
 3. Click **Play** and tap the button to try it.
 

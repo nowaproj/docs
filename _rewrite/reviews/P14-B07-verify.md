@@ -22,11 +22,11 @@ under `/home/user/flutter`; package refs are under the pub cache (`/root/.pub-ca
 | "Use your own design": **Alert Dialog** in Library, **Create component** | ok | `packages/core/lib/src/widgets_to_add/widgets_to_add.dart:847-859`, `packages/designer/lib/src/menus/widget_context_menu.dart:49`, `docs/design/components.md#create-a-component` | |
 | Navigator `pop`, **Type**, **result type**, **result** | ok, glossed | `packages/code/lib/src/customizations/navigator_field.dart:85-103,159-168`; bool field = switch (`packages/core/lib/src/fields/basic_fields.dart:379-401`) | `bool` explained (R3) |
 | Example "confirm before deleting" (not run live) | ok, reworded | `equal` in **OPERATORS** for a bool **Condition** builds `false == false` (`packages/core/lib/src/interpreter/suggestion.dart:265-285,476-477`); formula button opens editor (`packages/core/lib/src/fields/expression_builder/expression_field.dart:86-103`); editor **Operator**/**Type**/**Left side**/**Right side** (`expression_details.dart:251-326`). `confirmed` is `dynamic` (`showDialog` returns `Future<T?>`, T inferred as its `dynamic` base: `packages/core/lib/src/interpreter/member.dart:33-56`), links directly (`packages/core/lib/src/interpreter/type.dart:144-145`), and `==` operands accept null, so no `!` is written (`packages/core/lib/src/interpreter/block_host.dart:47-60,250-258`) | "set **Type** to `bool`" → "Keep **Type** as `bool`" (it already is, from the `false` defaults); `equal` glossed; result sentence added |
-| Bottom sheets: defaults, options, modal vs persistent | ok | `block_utils.dart:265-276`; Flutter showModalBottomSheet docs | see open issue on `showBottomSheet` |
+| Bottom sheets: defaults, options, modal vs persistent | ok | `block_utils.dart:264-276`; Flutter showModalBottomSheet docs | see open issue on `showBottomSheet` |
 | Date picker: **First/Last/Initial Date** all today; **Help/Cancel/Confirm Text** | ok | `block_utils.dart:256-263`; `material_library.dart:12454-12490` | |
 | Example "pick a date and show it" (not run live): **Text** label, **Create Variable...**, `.format`, **Pick Variable**, **refresh** | ok, fixed closing line | `packages/designer/lib/src/details/widget_fields.dart:303`, `field_link_menu.dart:233-258,374`, `packages/code/lib/src/customizations/date_format_field.dart:6-49`, `store_result_field.dart:121-125`, `suggestion.dart:614-617` | closing line said the guard "keeps the old text"; in fact `pickedDate` is `DateTime?`, the designer writes `pickedDate!` before `.format` and Play throws "Null check operator used on a null value" (`packages/core/lib/src/interpreter/block_tree.dart:3361-3368,3560-3569`). Reworded: the step stops with an error; the If skips it |
 | 37 date formats and US English examples | ok (all 37) | names `date_format_field.dart:52-90`; call `DateFormat(skeleton).format` with no locale (`packages/nowa_runtime/lib/src/extensions/date_time_format.dart:3-5`); ran intl 0.20.2 (`pubspec.lock:1430-1437`) on 2025-04-10 17:30:15 in the scratchpad: every example matches (the PM space is U+202F) | |
-| Time picker: **Initial Time** 0:00, **Hour**/**Minute**, label texts, members, `format` and 24-hour | ok | `block_utils.dart:72-96,163-179,233-239`; `material_library.dart:70448-70495,70221-70253`; Flutter `time_picker.dart:1941-1955` (label under the field), `time.dart:105-113` | |
+| Time picker: **Initial Time** 0:00, **Hour**/**Minute**, label texts, members, `format` and 24-hour | ok | `block_utils.dart:72-96,115-116,163-179`; `material_library.dart:70448-70495,70221-70253`; Flutter `time_picker.dart:1941-1955` (label under the field), `time.dart:105-113` | |
 | Date range: placeholder date, `start`/`end` | ok | `block_utils.dart:163-179`, `packages/core/lib/src/interpreter/libraries/dart_core_library_custom.dart:76-99` (`DateTime(0)`) | |
 | Media picker options, **Choose Source** sheet, fixed `gallery`, hidden fields | ok | `expression_details.dart:485-526`; `packages/nowa_runtime/lib/src/media_picker/media_picker.dart:38-100,138-145` | |
 | **Hot Fix** permissions | ok (simplified) | `packages/core/lib/src/interpreter/declaration_info/function_info.dart:56-70` | also microphone and Android storage; "camera and photo library" kept as the plain summary |
@@ -66,3 +66,57 @@ Length about 2,310 words; the brief says not to split, and the remaining section
 | Route problems in plain words (duplicate path, no builder, initial location) | ok | `packages/core/lib/src/editors/router_editor/router_problems.dart:39-41,85-93` | |
 | **Screen** bolt opens the builder logic; sub-route example | ok | unchanged facts, plainer words | |
 | "Stay signed in" without `lib/main.dart`; tip without `SupabaseService` | ok (moved) | both sentences are in `P14-B07-for-code.md` (`#project-files`, `#supabase`) unchanged | |
+
+## logic/actions.md
+
+| claim | verdict | source | note |
+|---|---|---|---|
+| `openUrl`: **NOWA_RUNTIME**, **Url**, starts as `https://nowa.dev`, address parsed as typed | ok | `packages/core/lib/src/interpreter/libraries/nowa_runtime_library.dart:334-339`, `packages/core/lib/src/interpreter/block_utils.dart:242-243`, `packages/nowa_runtime/lib/src/functions.dart:3-5`; category name = library file name, upper-cased (`packages/core/lib/src/interpreter/library.dart:45`, `packages/core/lib/src/fields/link_menu.dart:331`) | |
+| Web: new tab; phone: in-app browser view | ok | `url_launcher_web-2.4.2/lib/url_launcher_web.dart:70-89` (`window.open(url, '', ...)`); locked `url_launcher_android` is 6.3.28 (`pubspec.lock:2502-2506`; notes cite 6.3.29), same rule at `url_launcher_android-6.3.28/lib/url_launcher_android.dart:95-96`; `url_launcher_ios-6.4.1/lib/url_launcher_ios.dart:83-90` | |
+| `mailto:`, `tel:`, `sms:` open the matching app if installed; Web View pointer | ok | https://pub.dev/packages/url_launcher ("Supported URL schemes"); `packages/core/lib/src/widgets_to_add/widgets_to_add.dart:879-891` | |
+| `print`: **DART:CORE**, **Msg**, "Hello World", Play writes to **Logs** | ok | `packages/core/lib/src/interpreter/libraries/dart_core_library_custom.dart:3-8` (`msg`, `logInfo`), `packages/core/lib/src/utils.dart:19-22`, `block_utils.dart:240-241`; `docs/test/run.md#read-the-logs` | |
+| "people who use your app never see them" | fixed | | a web app's `print` lands in the browser console, which anyone can open; now "they never show up on your app's screens" |
+| `checkPlatform` table, `isDesktop`, web-only `isWeb`, Play answers for your computer | ok | `packages/nowa_runtime/lib/src/nowa_platform.dart:15-21`; interpreter calls the real getters (`nowa_runtime_library.dart:460-466`); no `debugDefaultTargetPlatformOverride` in `lib/` or `packages/` (grep) | |
+| **Media Query** meaning; responsive link | ok | `global_state_suggestions.dart:60-64`; https://api.flutter.dev/flutter/widgets/MediaQueryData-class.html | |
+| Shared Preferences steps, **Type** values, **Key**/**Value**, no encrypted option | ok | `packages/core/lib/src/interpreter/suggestion.dart:478-504`; `packages/core/lib/src/fields/expression_builder/expression_details.dart:345-392`; no secure-storage package in `lib/` or `packages/` (grep) | |
+| **Create...**, **Pick a constructor**, **Default**; Future/Timer/DateTime/model rows | ok | `suggestion.dart:175-177,741-743`; `packages/core/lib/src/fields/link_menu.dart:92-99` | |
+| `HapticFeedback` meanings; notification patterns need Android 11 | ok | Flutter 3.44.8 `packages/flutter/lib/src/services/haptic_feedback.dart:14-150` (API 30 for the three notifications); members `packages/core/lib/src/interpreter/libraries/services_library.dart:1315-1360` | |
+| `SystemSound` `click`/`tick`/`alert` | fixed | Flutter `packages/flutter/lib/src/services/system_sound.dart:10-25,38-43`: `tick` is ignored everywhere but iOS; `alert` only on desktop platforms; web plays nothing | row now says which sound works where, so a phone app doesn't pick a silent `alert` |
+| `SystemNavigator.pop` closes the app on Android | ok | Flutter `system_navigator.dart:46-63` | |
+| Clipboard functions | ok | `services_library.dart:1217-1240` | |
+| `showAboutDialog` "with your app's name and version" | fixed | Flutter `packages/flutter/lib/src/material/about.dart:97,105` (name defaults to the app title, version to empty) | now "a version if you fill one in" |
+| Category scope ("+ menu, If **Condition**, **Return**"), **PACKAGE:** row and the constants pointer | ok | `packages/core/lib/src/fields/field_link_menu.dart:341`, `suggestion.dart:463-477` | matches the routed B08 check in the notes |
+| Moved: `showMenu`, `showSearch`, `unawaited`, `scheduleMicrotask`, the static-members rule | ok (moved) | all in `P14-B07-for-code.md` `#actions-and-popups` unchanged; none is needed to build visually (`showSearch` needs a delegate written in code; popup menus are on `reference/widgets/forms.md`) | |
+| Explicit ids `#create-objects` and `#copy-text-and-vibrate` | ok | both existed on origin/main and are kept | |
+
+## logic/expressions.md
+
+| claim | verdict | source | note |
+|---|---|---|---|
+| Operator names in the table and their meanings (`plus` … `logicalOr`, `ifNull`) | ok | `packages/core/lib/src/interpreter/block_tree.dart:2383-2404` (enum names are what the menus show: `packages/core/lib/src/interpreter/suggestion.dart:271-272`, `packages/core/lib/src/fields/expression_builder/expression_details.dart:291-301`); interpreter maps each to the Dart operator (`block_tree.dart:2646-2661`): `/` gives decimals, `~/` drops the remainder, `%` remainder; https://dart.dev/language/operators | |
+| "Math offers the first four rows, Logical the next four, ifNull its own item" | ok | `isMath`/`isLogical` (`block_tree.dart:2406-2460`), dropdown filter (`expression_details.dart:289-301`), EXPRESSIONS items (`suggestion.dart:526-565`) | |
+| OPERATORS = "the same operators" | fixed (completed) | `OperatorsFinder` lists every enum value (`suggestion.dart:569-585`), including `bitwiseAnd`, `bitwiseOr`, `bitwiseXor`, `leftShift`, `rightShift` (`block_tree.dart:2399-2403`) | one sentence added naming them and saying most apps don't need them |
+| **ifNull** fields **Value** / **If null** | ok | `expression_details.dart:262-272` | |
+| Mismatched type shows what's inside the value | ok | `packages/core/lib/src/fields/link_menu.dart:150-157`, `packages/core/lib/src/fields/field_link_menu.dart:166-186` | |
+| No quotes in text fields; quotes in a custom expression; numbers show as text | ok | `packages/core/lib/src/fields/interpolated_text_field.dart:41-90`; https://dart.dev/language/built-in-types#strings | |
+| Custom expression: one formula; errors in red; nothing applies until it parses | ok | `packages/core/lib/src/fields/expression_builder/expression_builder_provider.dart:200-215` (`host.set` only after a successful parse) | |
+| **Compute...** names `create` + label | ok | `field_link_menu.dart:268-276` | |
+| **Reset to default** / **Set to null** | ok | `packages/core/lib/src/fields/block_field.dart:838-840` | |
+| Glosses (params, `bool`, `int`, `length`) and R9 touches | ok | | |
+
+Nothing code-only on the page; no removed fact (the old "Group | Operators" table is the new table's grouping sentence).
+
+## logic/models.md
+
+| claim | verdict | source | note |
+|---|---|---|---|
+| **New Model** dialog: **Class name** and **Path** filled as you type, **Submit** | ok | `packages/core/lib/src/file_system/widgets/create_file_dialog.dart:94`, `packages/core/lib/src/file_system/widgets/file_name_text_field.dart:167-175` | file location and file name moved (for-code `#models`) |
+| **Is Final**: new model fields start on; tooltip; keep on for `id`/`createdAt`, off for `title`/`isDone` | ok | `packages/core/lib/src/widgets/code/declaration_list_widgets.dart:329,353` (on when the class has the auto constructor); `packages/core/lib/src/widgets/code/variable_widgets.dart:326-332` | |
+| `toJson` under **Functions**; **View Code**; JSON glossed | ok | image `logic-models-1`; regenerated on field changes (refs in for-code `#models`) | |
+| Model function example `markAsDone` sets `isDone` | ok | **Set** only for non-final variables (`packages/code/lib/src/fields/expression_statement_field.dart:16-21`), consistent with the **Is Final** row | |
+| **Generate Models**: **Name** starts as `Root`, **Path** starts as `lib/models`, must stay in `lib` | ok | `packages/core/lib/src/model_generator/generate_models_provider.dart:13,55-58,129-131` | **Path** stays because the dialog shows and checks it (R2 exception) |
+| Picker also sets a function's **Return Type** | ok | `variable_widgets.dart:478-482` | |
+| **Create...** → **Default** or `fromJson`; link an input to a Text Field's `text`; `add`, **refresh**, `notifyListeners` | ok | `packages/core/lib/src/interpreter/suggestion.dart:725-757`; `docs/reference/widgets/forms.md#text-field` | |
+| Moved: constructor/`fromJson`/`toJson` upkeep, `TaskModel` in `task_model.dart`, `lib/models`, rewrite + Dart code, `root.dart` | ok (moved) | all five in `P14-B07-for-code.md` `#models`, unchanged | the reader-facing consequence stays (JSON-ready, one model per nested object) |
+
+No audience issue left; one admonition; one link to `../code/generated-code.md#models`.

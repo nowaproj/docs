@@ -20,7 +20,7 @@ A client ID tells Google which app is asking to sign someone in. You create one 
 1. In the Google Cloud console, open the **Google Auth Platform** [Clients](https://console.cloud.google.com/auth/clients) page. If Google asks, create a project and register your app for Google sign-in first.
 2. Click **CREATE CLIENT**, choose **Web application**, give it a name and click **CREATE**. Copy the client ID. Google shows the client secret only now, so keep it somewhere safe if your backend asks for it.
 3. Click **CREATE CLIENT** again and choose **iOS**. Enter your **Bundle Identifier** as the bundle ID and click **CREATE**. Copy this client ID too.
-4. For Android, Supabase's guide has you create one more client of type **Android**, with your **Bundle Identifier** as the package name and the SHA-1 fingerprint of your signing key (Nowa shows it with a copy button, see [Create a signing key](../publish/android.md#create-a-signing-key)). Nowa has no field for this one: its client ID goes into Supabase with the others.
+4. For Android, Supabase's guide has you create one more client of type **Android**, with your **Bundle Identifier** as the package name and the SHA-1 fingerprint of your signing key (Nowa shows it with a copy button, see [Create a signing key](../publish/android.md#create-a-signing-key)). Once your app is on Google Play, create another **Android** client with the SHA-1 from the **App signing key** section of Play Console's app signing page, because Google signs the app people download with its own key. Nowa has no field for these: their client IDs go into Supabase with the others.
 
 Google's [Manage OAuth Clients](https://support.google.com/cloud/answer/6158849) help explains each client type, and Supabase's [Login with Google guide](https://supabase.com/docs/guides/auth/social-login/auth-google) covers the Supabase side, including the separate fingerprints for testing and publishing.
 
@@ -49,7 +49,7 @@ In **Agent** mode, try: "Add a Continue with Google button to the Login screen t
 
 If your project is connected to Firebase and Nowa has saved a Google client ID from it, this page shows **Managed by Firebase** ("Google Sign-In is configured through Firebase Authentication. To modify settings, go to Firebase settings.") and an **Open Firebase Settings** button. The **Enabled** switch and the fields are hidden. Change the setup in the Firebase settings instead.
 
-Nowa saves that client ID when it sets Firebase up for your project and your Firebase project has Google sign-in turned on, for example when you connect Firebase or add the **Google** provider in Firebase Authentication.
+Nowa saves that client ID when it sets Firebase up for your project and your Firebase project has Google sign-in turned on, for example when you connect Firebase or add the **Google** provider in Firebase Authentication. Firebase's Google sign-in adds the same link entry to your iPhone app, so if you also use a **URL Scheme**, read [Use deep links with Google Sign-In](./deep-links.md#with-google-sign-in) too.
 
 ## Turn Google Sign-In off
 

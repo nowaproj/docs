@@ -39,7 +39,7 @@ Nothing saves when you click away, so press <kbd>Enter</kbd> before you leave th
 If you type a name that already exists, its value is replaced. Nowa shows an error under the row when a name isn't valid. To delete one of your own constants, click the X (**Remove**) at the end of its row. Values in an integration's section have no **Remove** icon.
 
 :::tip[Or ask Nowa AI]
-Try: "Add a constant called weatherApiKey and use it in my weather request." When Nowa AI changes your constants, a **Constants updated** card appears in the chat. Click **Open Constants** to review the values.
+In **Agent** mode, try: "Add a constant called weatherApiKey and use it in my weather request." When Nowa AI changes your constants, a **Constants updated** card appears in the chat. Click **Open Constants** to review the values.
 :::
 
 ## Use a constant

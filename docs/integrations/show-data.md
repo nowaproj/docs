@@ -74,7 +74,7 @@ On the board, a request that has a **Model** isn't called. Nowa shows placeholde
 Press **Play** on the screen to load real data, or **Run** the app. To load the data again, for example to see a new random picture, click **Stop**, then **Play** again. See [Play your app on the board](../test/instant-play.md) and [Run your app](../test/run.md).
 
 :::tip[Or ask Nowa AI]
-Describe what you want to see: "Show the results of getItems in a list on the home screen, with each item's title and price."
+In **Agent** mode, describe what you want to see: "Show the results of getItems in a list on the home screen, with each item's title and price." Then press **Play** on the screen to check it with real data.
 :::
 
 ## Next steps

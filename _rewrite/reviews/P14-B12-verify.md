@@ -4,7 +4,24 @@ Batch pages: `test/index.md`, `test/instant-play.md`, `test/run.md`, `test/devic
 `test/problems.md`, `troubleshooting/index.md`, `troubleshooting/known-issues.md`. Code refs relative to
 `/home/user/nowa-master` (3.13.0+1, `3cb32031c`). Diff: `git diff origin/main -- docs/test docs/troubleshooting`.
 
-Status: in progress (sections appended page by page).
+## Summary
+
+- **Pages checked:** 8 of 8 (all claims in the `+` lines, all `-` lines, audience rules on every page). About 160 claims
+  and labels checked against the code (3.13.0) and today's official docs (developer.android.com, developer.apple.com
+  JSON endpoints, docs.flutter.dev, firebase.google.com, docs.stripe.com, supabase.com changelog).
+- **Fixed:** 13 (wrong or over-stated: "can install most of them", desktop build tools vs. iPhones, "and it's there",
+  CocoaPods only for the simulator, three "exactly" claims, **Open on Mobile**/TestFlight for local projects, Problems
+  groups "file's name", "you have no emulator yet", Firebase console query steps, New UX toolbar, plus the MDX build
+  blocker `<name>` on `problems.md`).
+- **Added:** 1 verified caveat on `devices.md` (Android Studio emulators may not be listed when Nowa installed the
+  Android toolchain; start them from **Device Manager**), 3 routed known-issues entries (B09 `#stripe-cancel-subscription`,
+  B10-V `#supabase-tables-use-keys`, B06-V `#await-in-initstate`), 1 routed line on `run.md` (B07, `print` in **Logs**).
+- **Restored:** 1 (old firebase-windows workaround's last step: test in the cloud copy, then build the query locally).
+- **Removed:** 0. **Audience fixes:** 2 (plain meaning for every **Fix** row on `problems.md`; Android toolchain
+  prerequisite moved before the phone steps).
+- **Routed items confirmed in code:** B02 P50, B11 P9 and P17, B03 New UX, B01 offline start (writer's), plus B09, B10-V,
+  B06-V and B07 (mine). All explicit anchors from `origin/main` kept; all links resolve; MDX scan clean.
+- **Open issues:** 6, listed at the end.
 
 ## Links and anchors (all pages)
 
@@ -15,8 +32,10 @@ Status: in progress (sections appended page by page).
 - Implicit (heading) anchors: only `devices.md#before-you-start` is gone; no link to it in `docs/`, `src/` or
   `redirects.js`. The coverage file still cites it (row "Warning: not in the web version of Nowa"); the fact is now in
   `devices.md#no-desktop-app`.
-- 180 inbound links from `docs/` to the batch pages checked by script: all files and anchors resolve. All outbound
-  relative links from the batch pages resolve (files and anchors). No links to `generated-code.md` from the batch.
+- Final script check after all edits: 120 links from other `docs/` pages into the batch and 148 relative links out of
+  the batch pages (incl. between them): every file and anchor resolves. No links to `generated-code.md` from the batch.
+  New explicit anchors on `known-issues.md`: `code-download-spinner`, `pending-custom-domain`, `new-ux-double-click`,
+  `playground-ai-toolbar` (writer), `stripe-cancel-subscription`, `supabase-tables-use-keys`, `await-in-initstate` (mine).
 - Front matter valid, no H1, no `---` rules, admonitions ≤2 per page (problems 2, run 2, share 1, others 0).
 
 ## Build blocker fixed (coordinator report)
@@ -52,6 +71,8 @@ Status: in progress (sections appended page by page).
 | Android phone: **Build number** ×7, "You are now a developer!", Samsung **Software information**, Android 9+ **System** → **Advanced**, **USB debugging**, accept the RSA prompt, OEM USB driver on Windows | ok | developer.android.com/studio/debug/dev-options (table 1, "Enable USB debugging"); …/studio/run/device ("RSA security key", updated 2026-10-01); …/studio/run/oem-usb | "exactly as your users will see it" → "as your users will see it" (it's a debug build) |
 | iPhone: **Trust**, **Developer Mode** in **Privacy & Security**, **Restart**, **Enable** + passcode, switch appears once pairing starts, **Apple Accounts**, **Signing & Capabilities**, free account, **VPN & Device Management** → **Developer App** → **Trust** | ok | developer.apple.com …/enabling-developer-mode-on-a-device; …/running-your-app-on-simulated-or-physical-devices ("Set up code signing for physical devices"); docs.flutter.dev/platform-integration/ios/setup ("If the Developer Mode option is not visible … Open Xcode (or run flutter run)") | |
 | Cloud copy: first run downloads, progress texts, **Cancel**, later runs only sync files, **Local cache** texts and three buttons, 14-day cleanup | ok | `packages/core/lib/src/runner/cloud_local_run_service.dart:54-64, 123-147, 220-252, 286-308`; `run_button.dart:686-760` | |
+| Intro "you see exactly how it looks and feels there" | fixed (tone) | | → "how it really looks and feels there" (a debug build on the device) |
+| Android phone: "Make sure the **Android toolchain** is installed first" came after the steps | audience fix | | moved into the section intro, before step 1 |
 | Removed facts | ok | | old "Before you start" items are in the table, setup steps and "No desktop app?"; Android emulator-guide link replaced by the managing-AVDs guide; Apple simulators link content is in setup step 2 |
 
 Open: writer's question 1 (Xcode team on a cloud project's local copy) stays open. Every device run re-mirrors all
@@ -116,6 +137,7 @@ Every quoted message checked against the code (exact text, quotes, final period 
 | "A problem inside a file sits under the file's name" | fixed | group title is the file's project path (`packages/core/lib/src/interpreter/services/problem_service.dart:165-175`; `problems_panel.dart:122-136`) | → "is listed under that file" (no false "name", no path jargon) |
 | No-code first (R5): Agent prompts first; dev-dependency hand edit labelled "If you edit code yourself"; "Anything else" → Nowa AI first, **Navigate** for code users; AI check via **Problems** and **Run** | ok | agent tools `packages/ai/lib/src/tools/analyze_tool.dart:6-30`, `packages/ai/lib/src/agent/agent.dart:123-158` | |
 | R3 explanations: pubspec, `main.dart`, `@NowaGenerated`, `flutter analyze`, Dart | ok | | |
+| Fix table gave what **Fix** does, but not what four messages mean (missing function, setup step, permission, main file) | fixed | messages and fixes as above; `package_service.dart:129-134` (`^latest`) | column now "What it means and what Fix does": a plain meaning first, then **Fix**, for every row |
 | Build blocker `<name>` (line 53) | fixed | see "Build blocker fixed" above | |
 | Removed facts | ok | | `sdk:`/`git:`/`path:` exception and `lib/main.dart` wording moved unchanged to for-code (`#packages`, `#project-files`) |
 
@@ -170,3 +192,53 @@ All 11 explicit anchors from `origin/main` kept. Entries checked one by one:
 | Removed facts | ok | | none dropped |
 
 Page is ~2,240 words with 25 independent entries; kept whole (reference/troubleshooting page, D27).
+
+## Coverage spot checks
+
+- **Obsolete rows (all 4 checked):** (1) and (2) simulator page "must be a local project" / "only local projects run on
+  devices": confirmed changed, `packages/core/lib/src/runner/local_run_config.dart:13` (`kLocalRunForCloud = true`), and
+  `lib/project/run/run_button.dart:88-121` runs cloud projects through the local copy. (3) firebase-windows "copy the query
+  code from the cloud project": superseded, Project Sync makes and links a cloud copy and copies changes either way
+  (`code/local-projects.md#link-a-cloud-copy-with-project-sync`; `project_sync_settings.dart:394-427, 500-505`). The
+  entry still lacked the old workaround's last step, so I added "test the query in that copy, then build the same query
+  in your local project". (4) "GitHub integration with cloud projects coming soon": shipped (`packages/git_nowa/`,
+  `code/github.md` covers cloud projects, e.g. **Legacy Remote Credentials**).
+- **Covered rows sampled (10), all confirmed on the cited page:** share 3 (Public/Private, `share.md#share-a-preview`
+  step 3); share "link stays in sync" (same section); share "clients without sending files" (`#share-with-a-client`);
+  simulator "Firebase Authentication doesn't sign you in" (`instant-play.md#know-what-instant-play-cant-show`); simulator
+  "select the target and press Run", "Logs tab", "Stop" (`devices.md#run-on-a-device` steps 3 and 6 and the paragraph
+  after them); simulator "choose devices for the preview" (`design/responsive.md#check-your-layout-at-other-sizes`,
+  `share.md#what-people-see-in-a-preview`); simulator "open the local project in VS Code or Android Studio, stays in
+  sync" (`code/vs-code.md` line 34, `#what-syncs-and-when`, `#run-and-use-git-from-either-place`); firebase-windows "doesn't
+  stop you building a Firebase app" (`known-issues.md#firebase-on-windows`); firebase-windows "help: team@nowa.dev, forum,
+  Discord" (`account/help.md#join-the-community-and-contact-us`).
+- Stale citation in the coverage file (not mine to edit): row "Warning: not in the web version of Nowa" cites
+  `test/devices.md#before-you-start`, which no longer exists; the fact is in `#no-desktop-app`.
+
+## for-code file
+
+All 7 bullets in `P14-B12-for-code.md` match the `origin/main` text character for character (checked with `grep -F`
+against the old pages). My edits moved no further code-only facts, so the file is unchanged.
+
+## Open issues
+
+1. **Xcode team on a cloud project's local copy** (writer's question 1): every device run re-mirrors all project files
+   onto the copy, including `ios/Runner.xcodeproj/project.pbxproj`, so a team set in Xcode there is likely overwritten;
+   Flutter may still pick a signing identity itself. Needs a live check on an iPhone; the page stays general.
+2. **New product issue (for `_rewrite/product-issues.md`):** when Nowa installs the Android toolchain it runs
+   `flutter config --android-sdk <Nowa SDK>` (`android_sdk_installer.dart:192-201`), and that SDK has no `emulator`
+   package unless the **Android emulator** row ran (`:225-232`). Flutter then lists no Android emulators, including ones
+   made in Android Studio (flutter_tools `android_sdk.dart:91-94, 279-291`, `android_emulator.dart:53-57`). Together with
+   the writer's issue (the emulator row is unreachable once the toolchain is in), a user who skipped the emulator can only
+   start emulators from Android Studio. Documented on `devices.md`; not tried live.
+3. **Code reading only, hedged on the pages:** P50's Enter-to-sign-in path, the offline start opening sign-in, the Stripe
+   cancel failure (whether Supabase rejects the function at deploy or it fails at boot, cancelling fails either way), and
+   Supabase's April 2026 change for **Use Keys** (announced by Supabase, not seen in Nowa).
+4. **Firestore "another version of Nowa" route:** `firestore.md` (B09) says that in 3.13 the designer can't open a query
+   in its editor on any platform, which would make the **Test** section unreachable everywhere. The known-issues bullet
+   keeps its caveat sentence; if B09's finding holds, the bullet only helps once that's fixed. Worth a look by the
+   orchestrator together with B09.
+5. **Coverage file** cites `test/devices.md#before-you-start` (gone; fact now under `#no-desktop-app`). Not edited (not in
+   my write scope).
+6. **Length:** `devices.md` ~2,350 words, `known-issues.md` ~2,240. Kept whole per D27 (task page and troubleshooting
+   reference); the writer's split plan for `devices.md` stands if the orchestrator wants it.

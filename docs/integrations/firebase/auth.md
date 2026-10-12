@@ -25,7 +25,7 @@ Firebase only lets people sign in with methods you've switched on in your Fireba
 A few methods need one more thing, depending on where your app runs:
 
 - **Google or Phone on Android:** add your app's fingerprints. See [Add SHA fingerprints](#sha-fingerprints) below.
-- **Phone on iPhone:** Firebase checks that each request really comes from your app. With the same Apple push setup as notifications, it checks silently: see [Set up notifications for iPhone](notifications.md#set-up-notifications-for-iphone). Without it, Firebase falls back to a reCAPTCHA check (Google's "I'm not a robot" test). Also read the iPhone note under [Functions Nowa adds](#functions-nowa-adds).
+- **Phone on iPhone:** Firebase checks that each request really comes from your app. With the same Apple push setup as notifications, it checks silently: see [Set up notifications for iPhone](notifications.md#set-up-notifications-for-iphone). Without it, Firebase falls back to a reCAPTCHA check (Google's "I'm not a robot" test). Nowa 3.13 also has an iPhone catch here: see [Functions Nowa adds](#functions-nowa-adds).
 - **Google or Phone on the web:** Firebase only allows them on web addresses it knows. In the console, open the **Settings** tab of **Authentication**, find **Authorized domains** and click **Add domain** for each address your web app uses, such as the one Nowa gives you when you [publish to the web](../../publish/web.md) or your own domain.
 
 Firebase's guides cover each method: [Email/Password](https://firebase.google.com/docs/auth/flutter/password-auth), [Google](https://firebase.google.com/docs/auth/flutter/federated-auth) and [Phone](https://firebase.google.com/docs/auth/flutter/phone-auth).

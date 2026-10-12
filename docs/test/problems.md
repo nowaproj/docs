@@ -25,14 +25,14 @@ The red number counts the errors in this list, so it's a quick way to see whethe
 
 Click **Fix**. Nowa applies the fix and checks again, so the row disappears once it's solved. If the fix fails, a red message says why.
 
-| Problem | What Fix does |
+| Problem | What it means and what Fix does |
 |---|---|
-| `'<package>' is imported but is not in the pubspec.` | Adds the missing package (a ready-made add-on your app uses) to your project's list of packages, the pubspec, at its latest version. |
-| `The function '<name>' isn't defined.` | Adds the package that provides it, when it's one Nowa knows. |
-| `Setup statement in main.dart for "<key>" is required but not found.` | Adds the missing setup to `main.dart`, the file your app starts from. |
-| `Android permission "<name>" is required by <package> but not enabled.` (or iOS) | Turns the permission on, so your app can ask the phone for it (for example, the camera). |
-| `The name '<name>' is defined in <packages>. Try removing one of the imports.` | Two packages use the same name, and Nowa needs to know which one you mean. **Fix Ambiguous Import** opens: pick the one to keep visible, then click **Apply Fix**. |
-| `Main file is not found` or `Main function is not found` | Opens **Reset main file**. Click **Reset** to get a new main file with the default setup. |
+| `'<package>' is imported but is not in the pubspec.` | Your app uses a package (a ready-made add-on) that's missing from your project's list of packages, the pubspec. **Fix** adds it, at its latest version. |
+| `The function '<name>' isn't defined.` | Your app calls a function Nowa can't find. **Fix** adds the package that provides it, when it's one Nowa knows. |
+| `Setup statement in main.dart for "<key>" is required but not found.` | A package needs a setup step when your app starts, and it's missing. **Fix** adds it to `main.dart`, the file your app starts from. |
+| `Android permission "<name>" is required by <package> but not enabled.` (or iOS) | A package needs a phone permission, such as the camera, that isn't turned on for your app yet. **Fix** turns it on, so your app can ask for it. |
+| `The name '<name>' is defined in <packages>. Try removing one of the imports.` | Two packages use the same name, and Nowa needs to know which one you mean. **Fix** opens **Fix Ambiguous Import**: pick the one to keep visible, then click **Apply Fix**. |
+| `Main file is not found` or `Main function is not found` | Your app's main file, where your app starts, is missing or broken. **Fix** opens **Reset main file**. Click **Reset** to get a new main file with the default setup. |
 
 :::warning
 **Reset** replaces your app's main file with a fresh default one. Anything that was added to the old file is gone, so use it only when the file is missing or broken.

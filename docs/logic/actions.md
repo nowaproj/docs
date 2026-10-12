@@ -30,7 +30,7 @@ To show a web page inside one of your screens instead, use the [**Web View**](..
 2. Type the message in **Msg**. It starts as "Hello World". Type `$` to put a value inside it, such as `Total: ${total}`, or click the **Msg** label to link a value.
 3. Try your screen with **Play**, or run your app. Then click the last log line in the status bar at the bottom to open the **Logs** tab. See [Read the logs](../test/run.md#read-the-logs).
 
-For example, to see what someone typed in a [Text Field](../reference/widgets/forms.md#text-field), type `$` in **Msg**, pick the field's controller under **LOCALS** (it's called `text` unless you renamed it) and choose `text`. These messages are only for you: people who use your app never see them.
+For example, to see what someone typed in a [Text Field](../reference/widgets/forms.md#text-field), type `$` in **Msg**, pick the field's controller under **LOCALS** (it's called `text` unless you renamed it) and choose `text`. These messages are only for you: they never show up on your app's screens.
 
 ## Check the platform
 
@@ -110,7 +110,7 @@ The **SERVICES** category has a few phone features. Click a class to see its fun
 |---|---|---|
 | `Clipboard` | `setData` copies text. `getData` reads what's copied, and `hasStrings` tells you whether there's text to paste. | Add a "Copy" button for a coupon code or an invite link. |
 | `HapticFeedback` | `vibrate` is a short vibration. `lightImpact`, `mediumImpact` and `heavyImpact` are a light, medium or strong tap. `selectionClick` is a small tick, as when scrolling through choices. `successNotification`, `warningNotification` and `errorNotification` signal a success, a warning or a failure. | Let people feel a tap, a finished order or an error. It works on phones that support it, and on Android the three notification patterns need Android 11 or later. |
-| `SystemSound` | `play` plays a short system sound: `click`, `tick` or `alert`. | Add a click sound to a custom button. Web apps play no system sounds. |
+| `SystemSound` | `play` plays a short system sound: `click` (a button press), `tick` (a picker moving, on iPhone and iPad only) or `alert` (desktop apps only). | Add a click sound to a custom button. Web apps play no system sounds. |
 | `SystemNavigator` | `pop` closes your app on Android and goes back to what was open before. | Add an exit button to an Android app. |
 
 ## Find any other function
@@ -119,7 +119,7 @@ These categories are in the menu that opens when you click **+** in Circuit, and
 
 | Category | What's inside |
 |---|---|
-| **MATERIAL** | Dialogs, sheets and pickers (see [popups](popups.md)), plus `showAboutDialog`, a ready-made dialog with your app's name and version and a button that lists the licenses of the software your app uses. |
+| **MATERIAL** | Dialogs, sheets and pickers (see [popups](popups.md)), plus `showAboutDialog`, a ready-made dialog with your app's name, a version if you fill one in, and a button that lists the licenses of the software your app uses. |
 | **DART:CORE** | `print`, and `Future` for waiting. |
 | **DART:ASYNC** | `Timer`. To repeat steps, make one with **Create...** (above). |
 | **SERVICES** | `Clipboard`, `HapticFeedback`, `SystemNavigator` and `SystemSound`. |

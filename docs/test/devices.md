@@ -82,7 +82,7 @@ If a run on the iOS Simulator or an iPhone stops with a message about CocoaPods,
 
 ## Run on your Android phone {#run-on-your-android-phone}
 
-Your own phone shows your app as your users will see it. Android asks you to flip one switch first, so your computer is allowed to install apps on it. You only do this once.
+Your own phone shows your app as your users will see it. Android asks you to flip one switch first, so your computer is allowed to install apps on it. You only do this once. Make sure the **Android toolchain** is installed on your computer too (see [What your computer needs](#what-your-computer-needs)).
 
 1. Turn on **Developer options**. On the phone, open **Settings** → **About phone** and tap **Build number** seven times, until you see "You are now a developer!". Some phones tuck **Build number** away, for example under **Software information** on Samsung phones.
 2. Go back to **Settings**, open **Developer options** (on Android 9 and later, it's under **System** → **Advanced**) and turn on **USB debugging**.
@@ -90,7 +90,7 @@ Your own phone shows your app as your users will see it. Android asks you to fli
 4. When the phone asks whether to allow debugging from this computer, accept. Until you do, Nowa can't see the phone.
 5. In Nowa, open the **Run on** menu. Your phone shows under **DEVICES**. Click it, and Nowa installs your app on the phone and opens it.
 
-Make sure the **Android toolchain** is installed first (see [What your computer needs](#what-your-computer-needs)). On Windows, a phone that doesn't show up may need its maker's USB driver: see Android's [Install OEM USB drivers](https://developer.android.com/studio/run/oem-usb). Android's [Run apps on a hardware device](https://developer.android.com/studio/run/device) has more help.
+On Windows, a phone that doesn't show up may need its maker's USB driver: see Android's [Install OEM USB drivers](https://developer.android.com/studio/run/oem-usb). Android's [Run apps on a hardware device](https://developer.android.com/studio/run/device) has more help.
 
 ## Run on your iPhone or iPad {#run-on-your-iphone-or-ipad}
 

@@ -18,15 +18,15 @@ You need a Google Cloud API key for each platform you ship: Android, iOS and the
 
 Google's [Getting started](https://developers.google.com/maps/get-started) guide walks through the same steps with pictures.
 
-Before you publish, restrict each key so that only your app can use it, as Google strongly recommends. Open the key on the **Credentials** page, choose **Set an application restriction** under **Key restrictions**, and pick the type:
+Before you publish, restrict each key so that only your app can use it. Google strongly recommends this for apps in production, and it keeps others from running up your bill with your key. Open the key on the **Credentials** page, choose **Set an application restriction** under **Key restrictions**, and pick the type:
 
 | Key | Restriction | What to add |
 |---|---|---|
-| Android | **Android apps** | Your **Bundle Identifier** (Nowa uses it as your Android package name) and the SHA-1 fingerprint of your signing key. Nowa shows it with a copy button, see [Create a signing key](../publish/android.md#create-a-signing-key). |
+| Android | **Android apps** | Click **+ Add** and enter your **Bundle Identifier** (Nowa uses it as your Android package name) with the SHA-1 fingerprint of your signing key, which Nowa shows with a copy button (see [Create a signing key](../publish/android.md#create-a-signing-key)). Once your app is on Google Play, add the SHA-1 from the **App signing key** section of Play Console's app signing page too, because Google signs the app people download with its own key. |
 | iOS | **iOS apps** | Your **Bundle Identifier**, from **Settings** → **Project Details**. |
 | Web | **Websites** | Your web app's address, such as `https://myapp.com`. |
 
-Click **Save**. A restricted key only works on its platform, so you end up with one key per platform, matching Nowa's three key fields. Google's [API security best practices](https://developers.google.com/maps/api-security-best-practices) explain the options.
+Click **Save**. A restricted key only works on its platform, so you end up with one key per platform, matching Nowa's three key fields. Test runs from Nowa use a separate test certificate on Android and a different web address than your site, so a restricted key may not load the map there. That's why it's best to restrict right before you publish. Google's [API security best practices](https://developers.google.com/maps/api-security-best-practices) explain the options.
 
 ## Turn on Google Maps
 
@@ -47,7 +47,7 @@ Nowa puts each key where its platform needs it, so you don't have to touch any p
 On the board the widget is a placeholder labeled "Google Maps" with the text "Run to preview". While no key is saved, **Details** can show "Google Maps API keys are not set. Please configure them in the project settings to use the Google Map widget." Click the gear next to the message to open the **Google Maps** page.
 
 :::tip[Or ask Nowa AI]
-Try: "Add a Google Map to the Contact screen and put a marker on our office."
+In **Agent** mode, try: "Add a Google Map to the Contact screen and put a marker on our office." Then run your app to check the result (see [See the map](#see-the-map)).
 :::
 
 ## See the map

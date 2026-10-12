@@ -170,3 +170,101 @@ iOS permission on the Permissions page, Google's consent requirements for the EE
 consent or tracking prompt (no hit for consent or tracking in `packages/nowa_mobile_ads/lib`), so readers who serve ads
 there need one; a content decision for the team.
 
+## google-maps.md
+
+| Claim | Verdict | Source | Note |
+|---|---|---|---|
+| **Create Project** on the project selector page; billing must be enabled; **ENABLE** on the Maps API Library page; **Google Maps Platform** → **Credentials** → **Create credentials** → **API key**; **API key created** dialog; **Close** | ok | https://developers.google.com/maps/get-started | |
+| Products **Maps SDK for Android**, **Maps SDK for iOS**, **Maps JavaScript API** | ok | same site (product pages) | |
+| "Google bills map use beyond a free allowance" (no amounts, D3) | ok | https://developers.google.com/maps/billing-and-pricing/pricing | |
+| Restrict before publishing, "as Google strongly recommends" | ok, expanded | https://developers.google.com/maps/get-started ("If you use your API Key in production, we strongly recommend that you restrict your API key"); https://developers.google.com/maps/api-security-best-practices ("to avoid being billed for unauthorized use") | Added the reason (nobody else runs up the bill). |
+| **Key restrictions** → **Set an application restriction** → **Android apps** / **iOS apps** / **Websites**, **Save** | ok | https://developers.google.com/maps/api-security-best-practices | |
+| Android row: package name + "the SHA-1 fingerprint of your signing key" from Nowa | fixed | same page ("If you use Play App Signing, to fetch the signing certificate fingerprint, see Working with API Providers"; "+ Add" per app); `docs/publish/android.md` (Play App Signing makes Nowa's key the upload key; Play's **App signing key** section lists Google's) | With only Nowa's fingerprint, the copy people download from Google Play would show no map. Now also the SHA-1 from Play Console's **App signing key** section. |
+| (new) restricted keys don't load in Nowa's test runs | added | Google: debug certificate is generated "when you run a debug build" (same page); Nowa device runs are debug builds (`flutter_tool.dart:120-133`) and the Android template signs only release builds with your key (`packages/core/lib/src/file_system/templates/android/app_build_gradle_template.dart:70-90`); **Run** serves the web app from a local or Nowa address | Answers the writer's open question: "That's why it's best to restrict right before you publish." |
+| **Enabled**, **Configuration**, **Android API Key** / **iOS API Key** / **Web API Key**, `AIza...`; iOS 14 or later; keys go where each platform needs them | ok | `google_maps_package_config.dart:12-47` (`minIosVersion: '14.0'` at `:19`) | |
+| Turn off: remove widgets first (`Method "GoogleMap" is not found`), then **Enabled** off; keys removed | ok | unchanged facts (W17); `package_config_service.dart:146-160` | |
+| AI tip without mode or check | fixed | R5 | "In **Agent** mode", check via "See the map". |
+
+Removed facts: package name, "at least 14.0" wording and the "Where Nowa writes it" table are in the for-code file under
+`#google-maps`, unchanged; "your app then needs iOS 14 or later" and "puts each key where its platform needs it" stay.
+
+## google-sign-in.md
+
+| Claim | Verdict | Source | Note |
+|---|---|---|---|
+| **Google Auth Platform** → **Clients**; create a project and register the app when prompted; **CREATE CLIENT** → type → **CREATE**; client secret shown only after creating | ok | https://support.google.com/cloud/answer/6158849 ("You will be prompted to register your application … This is required before creating a client"; "client secret will only be shown after you create the client") | |
+| Types **Web application**, **iOS** (bundle ID), **Android** (package name + SHA-1) | ok | same page; https://supabase.com/docs/guides/auth/social-login/auth-google (Flutter: Android and iOS clients) | |
+| Android client with "the SHA-1 fingerprint of your signing key" from Nowa | fixed | Supabase: "a different set of SHA-1 certificate fingerprints for testing locally and going to production. Make sure to add both"; `docs/publish/android.md` (Play App Signing, **App signing key** section) | Added a second **Android** client for Play's app signing SHA-1, as on `google-maps.md`. |
+| **iOS Client ID**: lets the sign-in screen open from the app and come back; needed without Firebase | ok | `google_sign_in_package_config.dart:20-35` (`GIDClientID` + reversed client ID URL scheme); https://developers.google.com/identity/sign-in/ios/start-integrating | |
+| **Web Client ID**: for the backend; help text "Also used as serverClientId on Android"; on **Constants**; Nowa only stores it | ok | `google_sign_in_package_config.dart:36-45` (no `applyTo`, so a constant) | |
+| Deep links pointer in the standalone section | ok | `deep-links.md#with-google-sign-in` | Added the same pointer to "When Firebase manages Google sign-in": Firebase's Google sign-in writes the same entry (`fb_auth_manager.dart:66-69`, `google_sign_in_package_config.dart:49-79`). |
+| Turn off: setup leaves the iPhone app; **Web Client ID** stays under **Custom Constants** as `webClientId` | ok | `package_config_service.dart:146-172`; `app_constants_service.dart:65-74` | |
+| Supabase bullet (routed from B10 earlier) links `supabase/auth.md#google` | ok | heading `### Google` in `docs/integrations/supabase/auth.md` | |
+
+Removed facts: package name, the "What Nowa does with it" column (`Info.plist`, `GIDClientID`, reversed scheme,
+`AppConstants.webClientId`) and the `Info.plist` pointer are in the for-code file under `#google-sign-in`, unchanged;
+plain-words versions stay in the table.
+
+## deep-links.md
+
+| Claim | Verdict | Source | Note |
+|---|---|---|---|
+| URL Scheme works on iOS and Android; Host (web links) on Android only; links written with `open.my.app` | ok | `app_links_package_config.dart:29-53,68-113` | |
+| Lowercase: "Android treats capitals as different letters" | ok | https://developer.android.com/guide/topics/manifest/data-element ("Scheme matching in the Android framework is case-sensitive"; same for host names) | |
+| "From now on, your app handles these links itself" | ok | `app_links_package_config.dart:17-27,57-66` (Flutter's own deep linking switched off on both platforms) | |
+| Note: saving **URL Scheme** updates only the iOS side; save (and clear) **Host** so Android gets it | ok | `package_config_service.dart:66-92` (`firstWhere` picks the first `urlScheme` token, the iOS one, `app_links_package_config.dart:29-36`); the Android token (`:37-42`) is written on the next manifest rewrite | P39 workaround, check is now a device test (R5). |
+| Universal Links not set up by Nowa; Android domain check via `/.well-known/assetlinks.json` | ok | no associated-domains handling in the config; https://developer.android.com/training/app-links/verify-applinks ("…Digital Asset Links file at https://hostname/.well-known/assetlinks.json") | |
+| Google Sign-In section: "To fix it, ask Nowa AI …" | fixed | Nowa AI can edit any project file (`research/features-ai.md`), nothing in the code shows the merge holds | Worded so it claims no more than the code shows: "You can ask Nowa AI … to combine them", "Nowa can't check the result for you", test both on an iPhone or the simulator, **Restore Checkpoint** (`packages/ai/lib/src/ui/content_views.dart:183`) to undo. |
+| "If you change the **URL Scheme** or the **iOS Client ID** later, Nowa writes the entries again" | fixed | see "Routed from B03-V" | Incomplete: an iOS permission, the **App Name** and the AdMob **iOS App ID** rebuild the same file. Now lists them and links the `project-settings.md#set-permissions` warning. |
+| Who adds the iOS link entry | expanded | `fb_auth_manager.dart:66-69`; `google_sign_in_package_config.dart:49-79` | Also when Firebase handles Google sign-in. |
+| Handle the link: Nowa doesn't add the logic; AI tip with a device check | ok | no generated link handler in the config | |
+| Turn off removes the link settings | ok | `package_config_service.dart:146-160` | |
+
+Removed facts: package name, the platform files, the "Where Nowa writes it" column, the manifest path check, the
+associated-domains / `autoVerify` wording and the `CFBundleURLTypes` details are in the for-code file under
+`#deep-links`, unchanged; the reader-facing consequences stay in plain words. Nothing lost.
+
+## constants.md
+
+| Claim | Verdict | Source | Note |
+|---|---|---|---|
+| "Change one there, and every place that uses it picks up the new value"; "Every constant holds text" | ok | `app_constants_service.dart:17-24,44-62` (one `const String` per constant, read by name) | |
+| Platform-only keys (Maps, AdMob, Deep Links, Google Sign-In **iOS Client ID**) aren't on this page | ok | tokens with `applyTo` are stored in the settings file, not as constants (`package_config_service.dart:77-81`) | Same fact as before, without "project files". |
+| Integration sections and **Custom Constants**; sections only while the integration is on | ok | `app_constants_service.dart:65-74` | |
+| Tip: **Constants updated** card, **Open Constants** | ok | `packages/ai/lib/src/ui/chat_panel/summary_card.dart:233,251` | Tip moved up by the writer (no stacked admonitions); added "In **Agent** mode" (R5). |
+| Use a constant: **Custom Expression...**, **Add Custom Expression**, type `AppConstants.<name>`, **Eval**, back arrow | ok | W14 refs (`expression_builder_provider.dart:82-100`); `add_statement_menu.dart:106-120` (**Add Custom Expression**) | `AppConstants` is what the reader types (R3), explained as the group name. Link `logic/expressions.md#custom-expression` exists. |
+| Warning (constants ship in the app; Stripe secret key lives in Supabase) | ok | unchanged facts; "compiled into" → "built into" | |
+
+Removed facts: the `AppConstants` class in `lib/globals/app_constants.dart` and "project files" are in the for-code
+file under `#constants`, unchanged; the keyword `app_constants.dart` was dropped from the front matter (a file name).
+Nothing lost.
+
+## show-data.md
+
+| Claim | Verdict | Source | Note |
+|---|---|---|---|
+| Intro and Future / Stream explained in plain words | ok | R4; behavior unchanged (W14) | |
+| Image example: **Image** → **Network** tab → link **Url** to a field with a picture's address | ok | `docs/reference/widgets/media.md:12,30` (B13); linking works like any property | Old createapi.md step brought back. |
+| "Pick the source first, so Nowa knows what `data` holds" | ok | same fact as before, without "type" | |
+| List: **Item Count** set from `data` ("exactly one row per item"); `element` is the row's item | ok | unchanged facts (W14, `list_view_field.dart`) | |
+| Error Builder example text, Stream "keeps the screen up to date" | ok | unchanged facts reworded | |
+| Reload: **Stop**, then **Play** again | ok | `packages/designer/lib/src/play_mode/play_mode.dart:516,529,540` (toolbar: **Share preview**, **Reset zoom**, **Stop**; no restart); playing again builds a fresh screen (`:443-487`) | |
+| AI tip without mode or check | fixed | R5 | "In **Agent** mode" (Design mode uses demo data), check with **Play**. |
+
+No code-only facts on the page; nothing moved or lost.
+
+## index.md
+
+| Claim | Verdict | Source | Note |
+|---|---|---|---|
+| Firebase "What you get" cell (routed from B09) | fixed (applied) | `docs/integrations/firebase/connect.md` "What connecting sets up" (apps registered, Firebase settings downloaded into the project, sign-in functions show in Circuit under **FIREBASE**); `firebase/auth.md:51`; `packages/data/lib/src/firebase/firebase_manager.dart:82` | The writer had already removed `FirebaseService` ("their settings files and sign-in functions"); the B09 wording is plainer and says where the functions appear, so applied as suggested: "Your Android, iOS and web apps registered in Firebase and set up in your project, plus sign-in functions you pick in Circuit." |
+| Supabase cells: ready-made sign-in functions in the **Supabase** panel | ok | `docs/integrations/supabase/auth.md#meet-the-auth-functions` | |
+| Backend, Row Level Security, web API explained in plain words | ok | R4 | |
+| "add-on (a package)" + **Add Missing Dependencies** / **Hot Fix** | ok | unchanged facts; `missing_dependency_dialog.dart:47` | |
+| What Nowa doesn't include: Nowa AI in **Agent** mode can add a pub.dev package and the code around it, checked with **Problems** and **Run** | ok | `packages/ai/lib/src/tools/packages_tool.dart:31-60` (action `add`) | No result promised. |
+| Stripe bullet: "webhook" unexplained | fixed | `docs/integrations/stripe.md:52` | Short gloss added (R4). |
+| RevenueCat bullet: paywall implied on the web | fixed | https://www.revenuecat.com/docs/getting-started/installation/flutter (paywalls not on Flutter web) | "widget for iOS and Android". |
+| Tip: cURL explained | ok | | |
+
+Removed facts: `SupabaseService` / `FirebaseService` cells are in the for-code file (`#supabase`, `#firebase`), unchanged.
+

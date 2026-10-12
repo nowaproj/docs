@@ -153,10 +153,10 @@ After you deploy, ask the agent to wire the button, for example: "When the user 
 
 Once test payments work, switch to real ones:
 
-1. In your Stripe Dashboard, switch from your sandbox to live mode. On the [API keys page](https://dashboard.stripe.com/apikeys), copy the live publishable key (`pk_live_`), and click **Reveal live key** to copy the secret key (`sk_live_`).
+1. In your Stripe Dashboard, switch from your sandbox to live mode. Live mode works only once you've verified your business with Stripe: see [Activate your account](https://docs.stripe.com/get-started/account/activate). Then, on the [API keys page](https://dashboard.stripe.com/apikeys), copy the live publishable key (`pk_live_`), and click **Reveal live key** to copy the secret key (`sk_live_`).
 2. In Nowa, submit them in **Publishable Key** and **Secret Key**.
 3. Sandbox and live mode each have their own webhooks. Create the event destination again in live mode, with the same steps and events, and submit its signing secret in **Webhook Secret**.
-4. If you use Google Pay, switch it to production, as described above.
+4. If you use Google Pay, request production access from Google, choosing **Gateway** as the integration type: see Stripe's [Go live with Google Pay](https://docs.stripe.com/google-pay#go-live). Once Google approves your app, switch Google Pay to production, as described above.
 5. Publish your app again. The publishable key is built into your app, so people need the new version.
 
 ## Fix common problems
@@ -171,7 +171,7 @@ Once test payments work, switch to real ones:
 
 ## Remove Stripe
 
-Turn **Enabled** off. Nowa deletes the Stripe settings, the `StripePaymentService` and the Android and iOS changes it made, including the Apple Pay setting, so remove any logic that calls `StripePaymentService` first.
+Turn **Enabled** off. Nowa deletes the Stripe settings, the `StripePaymentService`, its Android changes and the Apple Pay setting, so remove any logic that calls `StripePaymentService` first.
 
 The iOS **Camera** permission (**Settings** → **General** → **Permissions**) and your values in **Constants** stay. Your Supabase project isn't touched. Delete its tables, functions and secrets yourself if you no longer need them.
 

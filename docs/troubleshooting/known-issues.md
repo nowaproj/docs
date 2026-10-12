@@ -29,11 +29,13 @@ You can also try a query out before you build it:
   and click the **Query builder** tab. Choose **Collection** and type the collection's name, click **Add to query**
   for each filter, then click **Run**. Once the results look right, build the same query in Nowa. Reads you make in the console count toward your
   Firestore usage. See Firebase's guide to [querying data in the console](https://firebase.google.com/docs/firestore/using-console#query_data).
-- **In another version of Nowa.** Open the same project in the web app or the macOS desktop app, where the **Test**
-  section is on. For a local project, make a cloud copy first with
+- **In another version of Nowa, once the query editor works again.** In Nowa 3.13 you can't pick a query in the
+  **Queries** editor on any platform, so this route is closed for now: see
+  [Add collections and queries in Nowa 3.13](../integrations/firebase/firestore.md#add-collections-and-queries). When
+  that's fixed, open the same project in the web app or the macOS desktop app, where the **Test** section is on. For a
+  local project, make a cloud copy first with
   [Project Sync](../code/local-projects.md#link-a-cloud-copy-with-project-sync), test the query in that copy, then
-  build the same query in your local project. In Nowa 3.13 the designer can't open a
-  query in its editor on any platform: see [Add collections and queries in Nowa 3.13](../integrations/firebase/firestore.md#add-collections-and-queries).
+  build the same query in your local project.
 
 ## API tests fail in the web app but work elsewhere {#api-requests-blocked-in-the-browser}
 

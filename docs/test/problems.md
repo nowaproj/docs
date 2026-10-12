@@ -17,7 +17,7 @@ The red number counts the errors in this list, so it's a quick way to see whethe
 
 ## Read a problem and jump to it
 
-- **Groups.** Problems that concern the whole project have their own groups, such as **Packages**, **main** and **Router problems**. A problem inside a file sits under the file's name.
+- **Groups.** Problems that concern the whole project have their own groups, such as **Packages**, **main** and **Router problems**. A problem inside a file is listed under that file.
 - **Menu.** Click a problem to open a small menu. **Navigate** opens the file and, when it can, selects the spot. **Copy** copies the message, handy for asking Nowa AI or support about it. Problems with no file, such as package problems, have nothing to open. In **From Code Analysis**, the menu offers **Open File** and **Copy**.
 - **Fix.** A **Fix** button on a row means Nowa knows exactly how to solve it.
 

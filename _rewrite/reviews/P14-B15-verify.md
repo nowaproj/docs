@@ -9,7 +9,29 @@ Reader: secondary (`docs/code/`), so code, paths and package names may stay; R1-
 
 ## Summary
 
-(Filled in at the end.)
+- **Pages checked:** 11 (`index`, `code-mode`, `files`, `packages`, `custom-code`, `limitations`, `local-projects`,
+  `vs-code`, `import`, `git`, `github`). `generated-code.md` not touched.
+- **Claims checked:** about 130 added or changed claims (about 100 table rows below, trivial ones grouped), every one
+  against the code or the current GitHub, Apple, Flutter or Dart docs.
+- **Fixed:** 15. github.md 8: the connect steps put "Waiting for Authorization..." after the approval (it opens with
+  the browser); "your whole history" on Create Repository (only the current branch is pushed); the Quick Setup address
+  must be the `https://` one (SSH addresses are rejected); GitHub's first step, verify your email, was missing; the
+  classic-token case now covers outside collaborators on organization repositories too; organization approval said
+  "public repositories" (GitHub: public resources) and lacked the justification box and owner auto-approval; the
+  other-hosts paragraph told readers to "keep GitHub disconnected" (Nowa has no disconnect button) and was reduced to
+  what the UI shows; the missing-repository row now points repositories in someone else's account to the team section.
+  git.md 6: team step 3 promised teammates would find the shared repository in **Clone from GitHub** (not shown by the
+  code; now conditional, with a code-supported fallback); invite steps scoped to personal repositories; new branches
+  show **Publish Branch** before **Sync**; after a merge on GitHub you sync the branch it went into; conflicts appear
+  on pull, sync or merge; GitHub's delete control is a trash icon. custom-code.md 1: **PACKAGE:** holds every
+  top-level function, not only ones in their own file.
+- **Removed:** 0 (one claim reduced, see Q2).
+- **Facts restored:** 1 (github.md: **View Repository in Browser** opens the remote in your browser, any host).
+- **Added:** 1, routed from B12: iPhone signing in Xcode for people who code, in `vs-code.md` (local projects).
+- **Audience and tone:** no R3-R9 problems left; Git and GitHub terms are each explained once, Flutter terms in a clause.
+- **Open issues:** Q1 (GitHub's approval and Manage pages, needs a live check), Q2 (tokens from other Git hosts,
+  server untested), Q3 (whether teammates see repositories from another account in **Clone from GitHub**, server-side),
+  a minor panel-refresh note, and git.md at about 2,320 words.
 
 ## github.md
 

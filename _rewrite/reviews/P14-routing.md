@@ -59,3 +59,7 @@ Items a section agent or verifier found for a page outside its batch, and what h
 | 53 | B07 | `integrations/supabase/storage.md` (B10) | Guard the upload when nothing was picked; test with gallery in Play on a computer. | sent to B10 verifier |
 | 54 | B07 | `test/run.md` (B12) | Optional: print messages show in the logs. | sent to B12 verifier |
 | 55 | B07 | product team | Show snackbar offers Width/Margin without Behavior (fails in debug); showMediaPicker defaults to the camera, which desktop Play can't open. | for product-issues.md and the report |
+| 56 | B06-V | `troubleshooting/known-issues.md` (B12) | Turning on await in InitState Function makes the app show an error screen; workaround on functions.md. | sent to B12 verifier |
+| 57 | B03-V | `integrations/deep-links.md` (B08) | Changing an iOS permission, App Name or Bundle Identifier rebuilds the settings files and undoes the Google Sign-In fix. | sent to B08 verifier |
+| 58 | B03-V | `publish/download-code.md` (B11) | "That code belongs to you": positioning consistent with the Terms ("You retain ownership over all content created using our Service"); the exact quote stays in the privacy section only. | no change |
+| 59 | B03-V | product team | Changing the Bundle ID gives every iOS target the same ID and rebuilds the Android build file; the load packages dialog text is outdated; New UX hides the board toolbar and breaks double-click on widgets. | for the report |

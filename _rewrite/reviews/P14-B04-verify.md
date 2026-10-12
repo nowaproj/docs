@@ -181,3 +181,71 @@ Tone and plain-word changes only (siblings, parent, rich text, reasons). Checked
 | "Nowa has 32 wrappers" (unchanged) | ok | `wrappers_to_add.dart:12-184` (32 entries) | |
 
 Removed facts: none (the page had no code-only facts).
+
+## Coverage spot checks
+
+**All 7 `obsolete` rows re-checked in the code: all confirmed.**
+
+| Old item | Confirmed by |
+|---|---|
+| Create a board with **+** in the tabs bar and pick a board type | No board types or tab-bar **+** in 3.13: Boards chip with **Search boards** and **Create new board** (`lib/project/top_bar_mapper.dart:92-113`); no "Widgets Board" or "Assets Board" string in the code. |
+| Open a board from **Recent files** | **Recent Files** is only on the code-mode empty tab (`lib/empty_editor.dart:119`); the chip lists every board. |
+| Switch boards with the tabs | Tabs only in code mode; boards switch from the chip (`top_bar_mapper.dart:92`). |
+| Component dialog button **Create** | The button is **Submit** (`packages/core/lib/src/file_system/widgets/create_file_dialog.dart:125`). |
+| Can't edit a component inside a screen | Widgets inside an instance are selectable in place, and the first crumb selects the instance (`packages/core/lib/src/interpreter/widget/instance_tree.dart:41-43`, `packages/designer/lib/src/details/widget_details.dart:314-334`). |
+| Ctrl/Cmd+G again ungroups | The key always groups (`packages/designer/lib/src/designer_setup.dart:20`, `packages/designer/lib/src/actions/designer_actions.dart:54-56`). |
+| Don't mix "Left and right" with "Center" | One choice per direction, and **Center** clears both directions (`packages/designer/lib/src/details/positioned_details.dart:93-193`, `packages/core/lib/src/layout/positioned_helper.dart:352-355`). The useful part became the **Center** cautions on layout.md. |
+
+**10 `covered` rows sampled: all covered where the coverage file says.**
+
+| Old item | Page checked |
+|---|---|
+| Board color and grid in **Details** | boards.md#set-the-board-color-and-grid (**Show Grid**, **Board Color**, **Reset**) |
+| Rename a screen by double-clicking its name | screens.md#rename-describe-copy-and-open |
+| **Make home screen** | screens.md#choose-the-home-screen |
+| Screen **Size** with presets | screens.md#set-up-a-screen (table, six presets) |
+| More instances: copy/paste, Alt-drag | components.md#use-a-component |
+| **Detach** an instance | components.md#edit-a-component-or-one-instance |
+| Spacing **Fixed**/**Between**/**Around**/**Evenly** | layout.md#rows-and-columns |
+| Group via right-click or Ctrl/Cmd+G, from the board or the Outline | layout.md#groups |
+| **Left and right** stretches with the width | layout.md#choose-what-each-widget-sticks-to (table) |
+| Reorder wrappers by dragging the handle | properties.md#add-a-wrapper (**Reorder**) |
+
+Also re-read the old pages `ui/layout/groups.mdx`, `ui/layout/rows-and-columns.md`, `ui/layout/constrains.md`,
+`ui/boards.mdx` and `ui/screens.md` against the new pages: nothing the reader needs is missing. The old "container
+becomes a wrapper when grouping" tip is the layout.md background tip, now with the condition the code needs (the
+shape selected first).
+
+## Moved facts
+
+All 32 bullets in `P14-B04-for-code.md` (7 #components, 6 #screens-and-routes, 14 #project-files, 3 #packages,
+1 #models, 1 #global-state) match the `-` lines of the diff word for word (all 32 checked with a script against `origin/main`). For each, the page keeps
+the step and its result in plain words; what's gone is only file paths, file mechanics and package names. Nothing
+the reader needs was lost. The verifier moved no further facts (the for-code file is unchanged).
+
+## Links and structure
+
+Checked with a script on all nine pages: front matter has `title` and `description`, no H1, no `---` rules, at most
+two admonitions per page, no banned words (one temporal "just" I introduced was reworded), no emoji. Every relative
+link resolves, including anchors (`localization.md#show-text-right-to-left`, `../reference/wrappers.md#safe-area`,
+`../reference/wrappers.md#scrollview`, `../logic/router.md#switch-an-older-project-to-gorouter`). Links to
+`../code/generated-code.md` use only `#components` and `#project-files`. Every explicit `{#id}` and every heading from
+`origin/main` still exists; all 28 inbound links from other pages to these pages' anchors resolve. Image and video
+lines are byte-identical to `origin/main`.
+
+## Open issues
+
+1. **Not run live** (code-derived, now worded to what the code shows): the background tip when grouping
+   (layout.md), dragging a centered widget re-pins it to the left and top (layout.md), **Detach** on a screen's board
+   item (screens.md), a wrapper added on a component's own board item goes inside the component (components.md),
+   and where **Copy as new widget** puts an instance's copy (components.md, "where your pointer last was", the same
+   placement as Ctrl/Cmd+K). A one-minute check of each in the app would settle them.
+2. **Expand inside a Wrap** (product issue P14): code and Flutter's rules say it breaks; not run. The page gives
+   advice only, so it stays true either way. Worth a known-issues entry (B12) once seen live.
+3. **layout.md length**: ~2,180 words of prose after the fixes and the routed B14 sentence, just under ~2,200. Any
+   further addition should go with the writer's split plan.
+4. **Stack → Row/Column undo**: the switch is one undoable step, but the reordering of the children
+   (`packages/designer/lib/src/details/group_details.dart:61`) runs outside it, so after an undo the stack's
+   stacking order may differ. Code reading only; the page now says only that Ctrl/Cmd+Z switches it back.
+5. Product issue P21 (Column → Row on the playground home screen paints the screen gray, seen in 3.12.5) was not
+   re-checked for 3.13.0; layout.md's image shows a working switch to a Row.

@@ -70,3 +70,20 @@ and can't be removed." unless the widget sits loose on the board (`class_field.d
 the page only drops "It starts gray". To confirm live: add **Color Filter** to a Text on a screen, then check its section,
 **Problems**, the board and **Run**. If it's confirmed, it belongs in `product-issues.md` and `known-issues.md`. The
 writer already routed this.
+
+## `docs/reference/shortcuts.md`
+
+Bindings: `AdaptiveActivator` is <kbd>Ctrl</kbd> on Windows and Linux and <kbd>Cmd</kbd> on macOS
+(`packages/core/lib/src/inputs.dart:22-25`).
+
+| Claim | Verdict | Source | Note |
+|---|---|---|---|
+| Five to learn first: <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd> opens the Library to add a widget, + <kbd>Z</kbd> undo, + <kbd>G</kbd> group, + <kbd>P</kbd> runs the app in the **Embedded preview**, + <kbd>.</kbd> Shortcuts sheet | ok | `packages/designer/lib/src/designer_setup.dart:20`, `:50-51`, `:106`; `packages/designer/lib/src/actions/add_actions.dart:13-25` (Library search in add mode; the widget picker only during a walkthrough); `packages/nowa_run/lib/src/actions/nowa_run_actions.dart:8-15`; `lib/setup_general_actions.dart:26`, `:34`; label `lib/project/run/run_button.dart:604` | Same keys on every OS apart from Ctrl/Cmd. |
+| Undo per area: "undoing in Circuit doesn't touch your design on the board" | ok | follows from the verified per-area history sentence above it | |
+| Nudge row: Stack explained in place | ok | `designer_setup.dart:26-49` | Wording only. |
+| Restart key (<kbd>Shift</kbd> + <kbd>R</kbd>, all OS) applies the latest saved changes: **Hot Reload** (local, updates in place) / **Hot Restart** (cloud, starts again) | ok | `packages/nowa_run/lib/src/actions/actions_setup.dart:20`; `lib/project/top_bar_mapper.dart:187`; `packages/nowa_run/lib/src/nowa_run_manager.dart:80-84` ("Brings the preview in line with the just-saved code"); local `app.restart` with `fullRestart: false`, i.e. a hot reload (`packages/nowa_run/lib/src/services/local/daemon_protocol.dart:115-123`); https://docs.flutter.dev/tools/hot-reload | |
+| Circuit "each step of your logic is a node"; regular expressions = search patterns | ok | `docs/logic/circuit.md` | Explanations only. |
+| 3.13 exceptions: `/` dropped in **Details**; t, r, v, f in the **Variables** list | ok, link fixed | `docs/troubleshooting/known-issues.md:85-95` (verified in earlier phases); the bare `/` and V, R, T, F bindings `designer_setup.dart:16-19`, `:55` | The sentence promised "the workaround for each" but linked only `#slash-in-details`. Now it links both anchors (`#slash-in-details`, `#variables-list-rename`). |
+| "If you used an older version": <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>P</kbd> now runs the app (add a widget with + <kbd>K</kbd>); + <kbd>G</kbd> only groups, ungroup from the right-click **Ungroup** | ok | `designer_setup.dart:20`, `:50-51`; `packages/designer/lib/src/actions/designer_actions.dart:46-56` (group only); `packages/designer/lib/src/menus/widget_context_menu.dart:40-42`; old page `_rewrite/old-docs/shortcuts.md:15`, `:24` | Framed as what readers may remember from older material, not as a 3.12 binding (3.12.5's real binding for the picker was already <kbd>K</kbd>; its sheet said <kbd>P</kbd>). |
+| Removed lines | ok | diff | Rewordings only. No fact lost. |
+| Headings and anchors | ok | script | All `origin/main` headings kept (`#code-editor` is linked from `docs/code/code-mode.md`), plus the new H2. 0 broken links. |

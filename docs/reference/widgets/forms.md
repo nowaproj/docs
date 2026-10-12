@@ -48,7 +48,7 @@ Validators check the text and show a message under the field when it isn't right
 | **Max length** | The text has more characters than the maximum. | "Too long", maximum 40 |
 | **Email** | The text isn't a valid email address. | "Invalid email" |
 | **Phone** | The text isn't a valid phone number. | "Invalid phone" |
-| **Regex** | The text doesn't match your **Regex** pattern (a regular expression), such as one for a postal code. Nowa AI can write the pattern for you. | "Invalid input" |
+| **Regex** | The text doesn't match your **Regex** pattern, a regular expression that describes what valid text looks like, such as a postal code. Nowa AI can write the pattern for you. | "Invalid input" |
 
 Nowa checks the rules from top to bottom and shows the message of the first one that fails. To remove a rule, hover its title and click the remove button. **Required**, **Min length** and **Max length** show no title or remove button: click the remove button on the validator row to remove all the rules.
 
@@ -62,7 +62,7 @@ A **Min length** or **Max length** rule has a catch in Nowa 3.13. Right after yo
 
 Editing that **Message** is safe. Adding or removing another rule afterwards isn't: Nowa rewrites the row as a **Required** check and drops the length check. So add a length rule last.
 
-To change the number, ask Nowa AI in **Agent** mode, for example: "Make the password field require at least 8 characters." Then check it in **Play**: type something shorter and submit the form, and the message should show. If you edit code yourself, change the number in code mode (see [Edit code in Nowa](../../code/code-mode.md)).
+To change the number, ask Nowa AI in **Agent** mode, for example: "Make the password field require at least 8 characters." Then check it in **Play**: type something shorter and tap your submit button, and the message should show. If you edit code yourself, change the number in code mode (see [Edit code in Nowa](../../code/code-mode.md)).
 
 ## Check the whole form {#form}
 
@@ -104,11 +104,13 @@ A **Pin Code Field** shows a row of boxes for a short code, such as the one-time
 
 ## Use checkboxes, switches and sliders {#checkbox-switch-slider}
 
+<Anchor id="use-checkboxes-switches-and-sliders" />
+
 **Checkbox**, **Switch** and **Slider** work alike. **Value** holds the current state, and **On Changed** runs when someone changes it, with the new state as `value`. To remember the choice, click the label of **Value** and choose **Create Variable...**. Then open **On Changed**, set that variable to `value` and add **refresh**, which redraws the screen with the new value. See [Store data in variables](../../logic/variables.md).
 
 | Widget | Settings worth knowing |
 |---|---|
-| **Checkbox** | Starts checked. **Tristate** allows a third, empty state that shows a dash, for "some of these are selected"; taps then go from unchecked to checked to empty. **Active Color** fills the box when it's checked and **Check Color** colors the tick. **Side** is the box's border. **Is Error** shows it in error colors, for a box that must be ticked. **Semantic Label** is what screen readers say. **Focus Color** and **Hover Color** show on the web and desktop. |
+| **Checkbox** | Starts checked. **Tristate** adds a third state that shows a dash, for "some of these are selected"; taps then go from unchecked to checked to the dash. **Active Color** fills the box when it's checked and **Check Color** colors the tick. **Side** is the box's border. **Is Error** shows it in error colors, for a box that must be ticked. **Semantic Label** is what screen readers say. **Focus Color** and **Hover Color** show on the web and desktop. |
 | **Switch** | Starts on. **Active Thumb Color** and **Active Track Color** color the knob and the track while it's on. **Inactive Thumb Color** and **Inactive Track Color** do the same while it's off. |
 | **Slider** | **Min** and **Max** set the range: 0 to 1 at first, starting at 0.5. **Divisions** makes it move in steps, such as 10 steps from 0 to 100. With **Divisions** set, **Label** shows above the thumb while someone drags it: type `$` in it and pick your variable to show the current value. **Slider Height** is the track's thickness and **Thumb Radius** the knob's size. **Active Color**, **Inactive Color**, **Thumb Color** and **Overlay Color** set the colors. |
 
@@ -116,7 +118,7 @@ A **Pin Code Field** shows a row of boxes for a short code, such as the one-time
 
 A **Popup Menu Button** opens a small menu when tapped, such as Edit, Share and Delete on a post. It starts as the text "Popup Menu" with one item, "Item 1".
 
-- The items live in **Item Builder**. Click **Edit** next to it to change them in Circuit. The quickest way is to ask Nowa AI, for example: "Give this menu the items Edit, Share and Delete."
+- The items live in **Item Builder**. Click **Edit** next to it to change them in Circuit. The quickest way is to ask Nowa AI, for example: "Give this menu the items Edit, Share and Delete." Then tap the button in **Play** to check the menu.
 - **On Selected** runs when someone picks an item, with that item's value as `value`. **On Opened** runs when the menu opens, and **On Canceled** when it closes without a choice.
 - The button shows its **Child**, the "Popup Menu" text, which you can edit or replace. **Tooltip** is the hint people see on hover or a long press, and **Color** and **Shape** style the menu.
 

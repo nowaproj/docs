@@ -14,3 +14,7 @@ Items a section agent or verifier found for a page outside its batch, and what h
 | 8 | B05 | `guides/design-tips.md` (B01) | Replace the `MediaQuery.of(context).size.width` formula with Visibility + width condition / Nowa AI, link `design/responsive.md#show-different-widgets-on-wide-and-narrow-screens`. | sent to B01 |
 | 9 | B05 | `guides/design-tips.md` (B01) | Optional: the app starts in the Active theme each time; ask Nowa AI to remember the choice. | sent to B01 |
 | 10 | B05 | `integrations/firebase/auth.md` (B09) | Same broken anchor as #1. | see #1 |
+| 11 | B11 | `troubleshooting/known-issues.md` (B12) | P9 code download keeps spinning (web), P17 pending custom domain can't be removed: entries with workarounds. | sent to B12 |
+| 12 | B11 | `code/generated-code.md#publishing` (code page) | Developer facts at the end of `P14-B11-for-code.md`; ios.md promises how to export a Mac certificate's key as text there. | for the code page agent |
+| 13 | B11 | `integrations/firebase/notifications.md` (B09) | Link the Push Notifications capability step to `publish/ios.md` (register the bundle ID, enable capabilities). | sent to B09 |
+| 14 | B11 | `publish/ios.md`, `publish/android.md` (structure) | ~2,930 and ~2,290 words; writer proposes moving "Set up your Apple account" to `publish/apple-account.md`. | decide after B11 verification |

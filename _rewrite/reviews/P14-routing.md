@@ -40,3 +40,7 @@ Items a section agent or verifier found for a page outside its batch, and what h
 | 34 | B13 | `logic/events.md` (B06) | Optional: what On Hover does. | sent to B06 verifier |
 | 35 | B13 | `reference/wrappers.md` (B14) | Optional: a Container wrapper's fill sits behind the widget, so it can't tint a picture; use the Image's Color and Blendmode. | sent to B14 |
 | 36 | B13 | `reference/widgets/*` (structure) | index ~2,650, media ~2,500, lists ~2,250 words. | decide after B13 verification |
+| 37 | B12 | `get-started/desktop-app.md` (B01) | The Android emulator row is only reachable while the Android toolchain is missing; don't say "add it later". | sent to B01 verifier |
+| 38 | B12 | `integrations/firebase/firestore.md` (B09) | Windows: click Run (embedded web preview) or use an emulator or phone. | sent to B09 |
+| 39 | B12 | `code/local-projects.md` or `code/vs-code.md` (B15) | Optional: run on your own iPhone with Xcode signing (local projects). | sent to B15 verifier |
+| 40 | B12 | product team | Setup wizard's Android emulator row unreachable once the Android toolchain is installed, though the caption says you can add it later. | for product-issues.md and the report |

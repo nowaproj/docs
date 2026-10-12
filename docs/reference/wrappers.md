@@ -62,7 +62,7 @@ The other settings, such as **Primary** and **Restoration Id**, are for special 
 
 ### Gesture Detector {#gesture-detector}
 
-**Gesture Detector** makes any widget respond to touch, so a picture, a card or a line of text can work like a button. It has no look of its own: nothing changes on screen when someone taps, your logic runs. If you'd like a ripple as feedback, use **Ink Well** instead.
+**Gesture Detector** makes any widget respond to touch, so a picture, a card or a line of text can work like a button. It has no look of its own: when someone taps, nothing changes on screen and your logic runs. If you'd like a ripple as feedback, use **Ink Well** instead.
 
 | Event | Runs when someone... | For example |
 |---|---|---|
@@ -102,7 +102,7 @@ For the full steps, including the logic that switches it, see [Show or hide a wi
 | **Elevation** | How high the surface floats. Above 0 it casts a shadow, and a higher number means a bigger shadow. |
 | **Shadow Color** | The color of that shadow. |
 | **Tint Color** | A color laid over the surface. The higher the **Elevation**, the more it shows. |
-| **Border** | An outline, with **Border Radius** for rounded corners. Hover it and click **+** to add one: it starts as a thin black line. |
+| **Border** | An outline, with **Border Radius** for rounded corners. Hover the **Border** header and click **+** to add one: it starts as a thin black line. |
 | **Border On Foreground** | On (the default) draws the border over the content. Off draws it behind. |
 
 No ripple when you tap an **Ink Well**? A filled widget, such as a Container with a color, covers it, because ripples are drawn on the Material surface underneath. Take the color off the widget, add a **Material** wrapper below the **Ink Well** in **Details**, and give the Material that color instead.
@@ -124,7 +124,7 @@ Every wrapper in the **Add Wrapper** list, with the name the list shows, grouped
 | **Padding** | Adds empty space around the widget. See [Padding](#padding). |
 | <Anchor id="align" />**Align** | Places the widget inside the space it's given. It starts centered: move it with the **Alignment** sliders, for example to push a button into a corner of a card. |
 | <Anchor id="constrained-box" />**Constrained Box** | Sets the smallest and largest size the widget may take, with **Constraints**. Use it to stop a card from stretching too wide on a big screen. |
-| <Anchor id="fractionally-sized-box" />**Fractionally Sized Box** | Sizes the widget as a share of the space it's given, with **Width Factor** and **Height Factor**: 0.5 is half. Use it for a button that's always half as wide as the screen. |
+| <Anchor id="fractionally-sized-box" />**Fractionally Sized Box** | Sizes the widget as a share of the space it's given, with **Width Factor** and **Height Factor**: 0.5 is half. Use it for a button that's always half as wide as the area it sits in. |
 | <Anchor id="aspect-ratio" />**Aspect Ratio** | Keeps the widget at a fixed width-to-height ratio, whatever its width. It starts at 1, a square, and 2 is twice as wide as it is tall. |
 | <Anchor id="fitted-box" />**Fitted Box** | Scales the widget up or down to fit the space it's given, with **Fit** and **Alignment**. Use it to shrink a long title so it stays on one line. |
 | <Anchor id="intrinsic-height" />**Intrinsic Height** | Makes the widget as tall as its content naturally is. |

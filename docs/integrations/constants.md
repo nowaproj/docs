@@ -19,7 +19,7 @@ Constants ship inside your app, so anyone who has the app can read them. See [Ke
 - **Integration sections.** Some integrations keep their values here, in a section named after the integration: **Stripe** (**Publishable Key**, **Merchant Name**, **Country Code**), **RevenueCat** (**Apple API Key**, **Android API Key**, **Web API Key**) and **Google Sign-In** (**Web Client ID**). A section appears once you turn the integration on. Changing a value here also changes it on the integration's own page, and the other way round.
 - **Custom Constants.** Your own constants, plus values Nowa adds for you. Connecting Supabase, for example, adds `supabaseUrl` and `supabaseAnonKey`.
 
-Every constant holds text. Keys that only your Android, iOS or web app settings need aren't listed here: Google Maps, AdMob, Deep Links and the Google Sign-In **iOS Client ID** keep theirs on their own pages under **Settings** → **Integrations**. See [Connect data and services](./index.md).
+Every constant holds text. Keys that only your Android, iOS or web app settings need aren't listed here: Google Maps, AdMob, Deep Links and the Google Sign-In **iOS Client ID** keep theirs on their own pages under **Settings** → **Integrations**. See [Connect data and services](./index.md). Working in the code? See [What Nowa adds to your code](../code/generated-code.md#constants).
 
 ## Change a value
 

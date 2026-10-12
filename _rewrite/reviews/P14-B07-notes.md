@@ -356,7 +356,7 @@ Proposals for other batches' pages (I didn't edit them). Each with the text I'd 
    release builds. The docs now say to leave both empty. Fix idea: show **Behavior**, or hide the two fields. Not tried
    live.
 2. **`showMediaPicker` defaults to the camera, which Play in the desktop app can't open.** The default **Source Type**
-   is `camera` (`packages/core/lib/src/interpreter/libraries/nowa_runtime_library.dart:590-603`); the macOS, Windows
+   is `camera` (`packages/core/lib/src/interpreter/libraries/nowa_runtime_library.dart:588-597`); the macOS, Windows
    and Linux image_picker plugins throw a `StateError` for the camera unless a `cameraDelegate` is set, and Nowa sets
    none (refs in the popups.md notes). The docs tell readers to test with `gallery`. Fix idea: a camera delegate for
    the desktop app, or a clearer message. Not tried live.

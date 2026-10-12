@@ -101,7 +101,7 @@ Added (old page items and brief):
   is a function on the table: `signUpWithEmailAndPassword` (`fb_auth_blocks.dart:182-203`), "the user is also signed in"
   (Firebase: "If the new account was created successfully, the user is also signed in.", password-auth page);
   `sendVerificationEmail` only sends when the user isn't verified (`:326-344`); `sendPasswordResetEmail(email)`
-  (`:346-361`); `signOut` (`:33-46`). Snackbar link to `logic/popups.md#show-a-snackbar` page (heading exists).
+  (`:346-361`); `signOut` (`:33-46`). Snackbar link to `logic/popups.md` (its first section is "Show a snackbar").
 - Phone in two steps: `verifyPhoneNumber` completes with the verification ID on `codeSent` or timeout and with null after
   automatic sign-in (`fb_auth_blocks.dart:364-402`, null at `:383`); `signInWithPhoneNumber(verificationId, smsCode)`
   (`:404-425`). Official: "Phone number sign-in is only available for use on real devices and the web. To test your

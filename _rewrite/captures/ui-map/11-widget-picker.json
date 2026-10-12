@@ -1,0 +1,473 @@
+{
+ "id": "11-widget-picker",
+ "title": "Widget picker (Ctrl+K or the toolbar Widget button)",
+ "viewport": {
+  "width": 1440,
+  "height": 900,
+  "deviceScaleFactor": 2
+ },
+ "ocr": [
+  {
+   "text": "first",
+   "conf": 90,
+   "x": 410,
+   "y": 15,
+   "w": 20,
+   "h": 9
+  },
+  {
+   "text": "Starter app",
+   "conf": 97,
+   "x": 74,
+   "y": 16,
+   "w": 58,
+   "h": 11
+  },
+  {
+   "text": "Save",
+   "conf": 97,
+   "x": 1403,
+   "y": 16,
+   "w": 25,
+   "h": 9
+  },
+  {
+   "text": "Page",
+   "conf": 97,
+   "x": 117,
+   "y": 157,
+   "w": 30,
+   "h": 13
+  },
+  {
+   "text": "Component",
+   "conf": 96,
+   "x": 256,
+   "y": 157,
+   "w": 72,
+   "h": 13
+  },
+  {
+   "text": "for a widget",
+   "conf": 94,
+   "x": 604,
+   "y": 163,
+   "w": 84,
+   "h": 15
+  },
+  {
+   "text": "Bearch",
+   "conf": 58,
+   "x": 550,
+   "y": 160,
+   "w": 48,
+   "h": 19
+  },
+  {
+   "text": "Q",
+   "conf": 58,
+   "x": 523,
+   "y": 163,
+   "w": 14,
+   "h": 14
+  },
+  {
+   "text": "a Widget",
+   "conf": 96,
+   "x": 860,
+   "y": 165,
+   "w": 54,
+   "h": 14
+  },
+  {
+   "text": "Request",
+   "conf": 95,
+   "x": 806,
+   "y": 165,
+   "w": 50,
+   "h": 13
+  },
+  {
+   "text": "for: @",
+   "conf": 78,
+   "x": 572,
+   "y": 202,
+   "w": 70,
+   "h": 26
+  },
+  {
+   "text": "Search",
+   "conf": 97,
+   "x": 519,
+   "y": 209,
+   "w": 48,
+   "h": 12
+  },
+  {
+   "text": "Builtin",
+   "conf": 82,
+   "x": 659,
+   "y": 210,
+   "w": 38,
+   "h": 11
+  },
+  {
+   "text": "Components",
+   "conf": 96,
+   "x": 724,
+   "y": 210,
+   "w": 79,
+   "h": 13
+  },
+  {
+   "text": "HomePage",
+   "conf": 96,
+   "x": 129,
+   "y": 216,
+   "w": 68,
+   "h": 13
+  },
+  {
+   "text": "00",
+   "conf": 93,
+   "x": 1259,
+   "y": 260,
+   "w": 11,
+   "h": 9
+  },
+  {
+   "text": "200",
+   "conf": 97,
+   "x": 1362,
+   "y": 260,
+   "w": 19,
+   "h": 9
+  },
+  {
+   "text": "O Container",
+   "conf": 81,
+   "x": 528,
+   "y": 259,
+   "w": 109,
+   "h": 22
+  },
+  {
+   "text": "93",
+   "conf": 56,
+   "x": 1259,
+   "y": 296,
+   "w": 11,
+   "h": 9
+  },
+  {
+   "text": "808",
+   "conf": 97,
+   "x": 1362,
+   "y": 296,
+   "w": 19,
+   "h": 9
+  },
+  {
+   "text": "Tt Text",
+   "conf": 80,
+   "x": 528,
+   "y": 321,
+   "w": 70,
+   "h": 18
+  },
+  {
+   "text": "age",
+   "conf": 91,
+   "x": 1260,
+   "y": 350,
+   "w": 22,
+   "h": 11
+  },
+  {
+   "text": "Container",
+   "conf": 97,
+   "x": 963,
+   "y": 379,
+   "w": 60,
+   "h": 10
+  },
+  {
+   "text": "Al",
+   "conf": 97,
+   "x": 531,
+   "y": 380,
+   "w": 18,
+   "h": 16
+  },
+  {
+   "text": "Field",
+   "conf": 97,
+   "x": 604,
+   "y": 384,
+   "w": 32,
+   "h": 12
+  },
+  {
+   "text": "Text",
+   "conf": 97,
+   "x": 569,
+   "y": 385,
+   "w": 30,
+   "h": 11
+  },
+  {
+   "text": "flexible widget",
+   "conf": 97,
+   "x": 971,
+   "y": 399,
+   "w": 64,
+   "h": 10
+  },
+  {
+   "text": "that enables many",
+   "conf": 97,
+   "x": 1038,
+   "y": 400,
+   "w": 82,
+   "h": 10
+  },
+  {
+   "text": "A",
+   "conf": 97,
+   "x": 960,
+   "y": 397,
+   "w": 5,
+   "h": 14
+  },
+  {
+   "text": "design options.",
+   "conf": 97,
+   "x": 1122,
+   "y": 400,
+   "w": 67,
+   "h": 10
+  },
+  {
+   "text": "Documentation.",
+   "conf": 96,
+   "x": 990,
+   "y": 432,
+   "w": 72,
+   "h": 8
+  },
+  {
+   "text": "Open",
+   "conf": 97,
+   "x": 963,
+   "y": 432,
+   "w": 23,
+   "h": 10
+  },
+  {
+   "text": "Icon",
+   "conf": 94,
+   "x": 570,
+   "y": 445,
+   "w": 28,
+   "h": 11
+  },
+  {
+   "text": "SizedBox",
+   "conf": 92,
+   "x": 571,
+   "y": 504,
+   "w": 65,
+   "h": 12
+  },
+  {
+   "text": "Custom",
+   "conf": 96,
+   "x": 1301,
+   "y": 544,
+   "w": 40,
+   "h": 9
+  },
+  {
+   "text": "Image",
+   "conf": 96,
+   "x": 570,
+   "y": 565,
+   "w": 43,
+   "h": 14
+  },
+  {
+   "text": "expand",
+   "conf": 96,
+   "x": 1301,
+   "y": 580,
+   "w": 37,
+   "h": 12
+  },
+  {
+   "text": "hardEdge",
+   "conf": 92,
+   "x": 1301,
+   "y": 616,
+   "w": 49,
+   "h": 12
+  },
+  {
+   "text": "SVG",
+   "conf": 96,
+   "x": 569,
+   "y": 625,
+   "w": 29,
+   "h": 11
+  },
+  {
+   "text": "SVG",
+   "conf": 95,
+   "x": 529,
+   "y": 633,
+   "w": 20,
+   "h": 9
+  },
+  {
+   "text": "mo",
+   "conf": 44,
+   "x": 528,
+   "y": 683,
+   "w": 22,
+   "h": 9
+  },
+  {
+   "text": "Rutttan",
+   "conf": 69,
+   "x": 569,
+   "y": 685,
+   "w": 45,
+   "h": 7
+  },
+  {
+   "text": "select",
+   "conf": 86,
+   "x": 579,
+   "y": 719,
+   "w": 42,
+   "h": 12
+  },
+  {
+   "text": "close",
+   "conf": 54,
+   "x": 858,
+   "y": 719,
+   "w": 37,
+   "h": 12
+  },
+  {
+   "text": "© to",
+   "conf": 88,
+   "x": 537,
+   "y": 720,
+   "w": 37,
+   "h": 11
+  },
+  {
+   "text": "*",
+   "conf": 65,
+   "x": 649,
+   "y": 720,
+   "w": 11,
+   "h": 11
+  },
+  {
+   "text": "to",
+   "conf": 54,
+   "x": 840,
+   "y": 720,
+   "w": 14,
+   "h": 11
+  },
+  {
+   "text": "esc",
+   "conf": 94,
+   "x": 809,
+   "y": 723,
+   "w": 21,
+   "h": 8
+  },
+  {
+   "text": "tonavigate",
+   "conf": 89,
+   "x": 705,
+   "y": 720,
+   "w": 78,
+   "h": 14
+  },
+  {
+   "text": "im",
+   "conf": 51,
+   "x": 1394,
+   "y": 722,
+   "w": 13,
+   "h": 13
+  },
+  {
+   "text": "Safe Area",
+   "conf": 96,
+   "x": 1210,
+   "y": 775,
+   "w": 59,
+   "h": 11
+  },
+  {
+   "text": "V3.12.5-78",
+   "conf": 71,
+   "x": 74,
+   "y": 886,
+   "w": 55,
+   "h": 9
+  },
+  {
+   "text": "my_app",
+   "conf": 90,
+   "x": 17,
+   "y": 888,
+   "w": 40,
+   "h": 9
+  }
+ ],
+ "semantics": [
+  {
+   "id": "flt-semantic-node-1",
+   "label": "",
+   "role": "group",
+   "tappable": false,
+   "x": 0,
+   "y": 0,
+   "w": 1440,
+   "h": 900,
+   "cx": 720,
+   "cy": 450
+  },
+  {
+   "id": "flt-semantic-node-3",
+   "label": "Container A flexible widget that enables many design options.",
+   "role": "group",
+   "tappable": true,
+   "x": 0,
+   "y": 0,
+   "w": 1440,
+   "h": 900,
+   "cx": 720,
+   "cy": 450
+  },
+  {
+   "id": "flt-semantic-node-167",
+   "label": "Open Documentation.",
+   "role": "button",
+   "tappable": true,
+   "x": 962,
+   "y": 430,
+   "w": 101,
+   "h": 12,
+   "cx": 1013,
+   "cy": 436
+  }
+ ]
+}

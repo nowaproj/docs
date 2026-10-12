@@ -1,8 +1,0 @@
-{
-    "label": "Firebase",
-    "position": 2,
-    "link": {
-        "description": "Enable login system using Firebase Authentication",
-        "type": "generated-index"
-    }
-}

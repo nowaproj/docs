@@ -1,0 +1,4 @@
+captures/tools/node_modules/
+captures/tools/*.log
+captures/tmp/
+old-docs/

@@ -4,6 +4,8 @@
 // const lightCodeTheme = require('prism-react-renderer/themes/github');
 // const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const { themes } = require('prism-react-renderer');
+// Old docs URLs (including the ones the Nowa app opens) and where they live now. See _rewrite/redirects.md.
+const redirects = require('./redirects.js');
 const lightCodeTheme = themes.github;
 const darkCodeTheme = themes.dracula;
 
@@ -36,10 +38,10 @@ const config = {
   onBrokenLinks: 'throw',
 
   markdown: {
-  hooks: {
-    onBrokenMarkdownLinks: 'warn',
+    hooks: {
+      onBrokenMarkdownLinks: 'throw',
+    },
   },
-},
 
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
@@ -50,6 +52,7 @@ const config = {
   },
 
   plugins: [
+    ['@docusaurus/plugin-client-redirects', {redirects}],
     [
       "posthog-docusaurus",
       {
@@ -86,7 +89,7 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      image: 'img/nowa_icon.png',
+      image: 'img/social-card.png',
 
       // Replace with your project's social card
       colorMode: {
@@ -142,6 +145,11 @@ const config = {
         },
         items: [
           {
+            label: "What's new",
+            position: 'left',
+            to: '/new/whats-new',
+          },
+          {
             label: 'Get Started',
             position: 'right',
             to: 'https://app.nowa.dev/signup'
@@ -187,7 +195,11 @@ const config = {
               {
                 label: 'Reddit',
                 href: 'https://www.reddit.com/r/nowa/',
-              }
+              },
+              {
+                label: 'Community forum',
+                href: 'https://community.nowa.dev/',
+              },
 
             ],
           },

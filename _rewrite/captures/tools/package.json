@@ -1,0 +1,13 @@
+{
+  "name": "nowa-docs-capture-tools",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Playwright helpers to capture screenshots and videos of the Nowa web editor for the docs rewrite.",
+  "type": "module",
+  "scripts": {
+    "capture": "node capture.mjs"
+  },
+  "dependencies": {
+    "playwright": "1.56.1"
+  }
+}

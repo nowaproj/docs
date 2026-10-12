@@ -8,6 +8,53 @@ sidebar_position: 1
 
 ---
 
+### **3.13.0 (6 October 2026)**
+
+Nowa 3.13 gives everything in your project one home: the new **Library**. 📚 Find any screen, component or widget in a few keystrokes and add it to your board without reaching for the mouse. This release also brings a desktop app for Linux, quicker ways to move around your project, and your theme extension colors right in the color picker.
+
+#### **New in This Version ✨**
+
+- 📚 **The Library: Your Whole Project in One Place**
+  The **Library** replaces the Widgets panel. Your screens, components, models and global states, Nowa's built-in widgets, the widgets in your packages and your assets now live in one searchable list.
+  - **Add anything fast**: press **Ctrl/Cmd + K** (or click the **Widget** tool), type what you need and press **Enter** to drop it on your board.
+  - **Go anywhere**: press **Ctrl/Cmd + O**, type a name and press **Enter** to open it.
+  - **Find your way around**: filter by kind, choose which of your project, packages, built-in widgets and assets to show, and jump straight to the code with **Show in code**.
+
+  **Files** now lives in code mode only, where you can move through your project with the keyboard and drag several files into a folder at once. Learn more in [Find and add things with the Library](../design/library.md).
+
+- ↔️ **Back, Forward and All Your Boards**
+  Two new arrows in the top bar take you back and forward through the screens and files you've opened, just like in a browser (**Ctrl + -** and **Ctrl + Shift + -**, with Control on macOS too). The board chip now lists every board in your project: press **Ctrl/Cmd + B**, type a name and press **Enter**, or create a new board right from the list.
+
+- 🐧 **Nowa for Linux**
+  Nowa now has a desktop app for Linux. Choose **Linux** when you download Nowa to get a 64-bit archive with an install script that adds Nowa to your app menu. On Linux, you download updates from the update dialog, and your app's preview opens in your browser. See [Install the desktop app](../get-started/desktop-app.md).
+
+- 🎨 **Your Theme Extensions in the Pickers**
+  If your theme uses theme extensions, the color picker now shows a tab for each one next to **Material**, and the text style picker lists their styles in their own groups. Pick a color and Nowa links it to your extension for you. See [Edit theme extensions](../design/themes.md#edit-theme-extensions).
+
+- 🧩 **Widget Variants from `@Preview`**
+  Add Flutter's `@Preview` to a function or constructor that builds your widget, and Nowa shows it as a named variant: next to the component when you open it, as a choice in the widget picker, and under the widget in the Library. See [Preview a widget in several states](../code/custom-code.md#preview-variants).
+
+- 📦 **More of Your Code and Packages Just Work**
+  - **Packages**: `git:` and `path:` dependencies now load in local projects, `sdk:` dependencies like `flutter_localizations` count as installed, and `gap`, `flutter_animate`, `google_fonts` and `smooth_page_indicator` now work on the board.
+  - **Your own Flutter code**: much more hand-written code renders on the board, including switch patterns like `> 5`, named arguments passed to `super(...)`, and `part` files, which now stay intact when Nowa saves. Screens from open-source apps like Flutter's compass_app and Wonderous render too.
+  - **Smarter placeholders**: a package widget Nowa can't draw is now a small box, and one that wraps another widget shows what it wraps.
+  - **Page indicators**: `nowa_runtime` no longer includes `smooth_page_indicator`. If your project uses page dots, Nowa offers to add the package to your pubspec in one click (**Migrate**).
+
+- 💻 **Local Projects Stay in Sync**
+  Changes you make in another editor right after Nowa saves are no longer missed, and new dependencies you add to `pubspec.yaml` outside Nowa load on their own.
+
+- ✨ **Smaller Touches**
+  - **A fresh look**: new buttons, lists and menus throughout, and the Albert Sans font is back.
+  - **Design-tool words**: **Bring forward**, **Send backward**, **Bring to front** and **Send to back** replace the old move entries. **Ctrl/Cmd + Alt/Option + ]** or **[** moves a widget all the way to the front or back.
+  - **Default in dropdowns**: the dropdown of a property that can be left empty now starts with **Default**, which keeps the widget's own default.
+  - **Branch search**: find a Git branch by typing in the branch menu.
+  - **Tidier boards**: each screen stays inside its frame, and snap guides line up at any zoom.
+  - **Quieter Git history**: opening a project in a newer Nowa no longer changes `.nowa/settings.json`.
+
+➡️ Tell us how the Library feels! Click the **? icon** to chat with us directly, or email us at `team@nowa.dev`. Happy building!
+
+---
+
 ### **3.12.5 (25 September 2026)**
 
 Nowa 3.12.5 makes big projects feel light again. ⚡ Boards with lots of screens are now **up to 50x faster** to move around and work in, projects reopen faster, and Instant Play can now play anything on your board. This release also lets you switch Git branches without committing first, gives your connected agent a way to bring images (including the ones in your Figma designs) into your project, and helps Nowa understand even more of the Flutter code you write yourself.
@@ -663,7 +710,7 @@ We excited to introduce two powerful new features — **Notifications** and **Su
   👉 Explore it here: [docs.nowa.dev](https://docs.nowa.dev)  
 
 - 🎥 **New Tutorial:**  
-  Learn how to build a beautiful **Movie App** using Nowa and APIs — [Watch Part 1](https://www.youtube.com/watch?v=COpngAiqm0o). You can [try the app yourself here]()
+  Learn how to build a beautiful **Movie App** using Nowa and APIs — [Watch Part 1](https://www.youtube.com/watch?v=COpngAiqm0o). You can try the app yourself here
 
 #### **Coming Soon 🔮**
 - 🚀 **Nowa 3.1:** Our biggest update since 3.0 — featuring a more stable AI, restore points, chat history, a token-based credit system, and instant Cloud + Local sync.  
@@ -871,7 +918,7 @@ Skip the manual setup! Import groups of API requests instantly from:
 
 Simply import, and Nowa automatically handles the rest—endpoints, request types, headers, and body included.
 
-For more, check out [this page](../data-connections/api/createapi)
+For more, check out [this page](../integrations/rest-api/import.md)
 
 📥 **Instant cURL Support**  
 Paste a **cURL command**, and Nowa turns it into a ready-to-use API request. Less manual work, more building!
@@ -950,7 +997,7 @@ Manage your projects like a pro with full Git operations:
 - Push cloud projects to Git  
 - Keep local, cloud, and remote versions in sync  
 - Commit, discard, branch—you name it  
-[Check out the full Git guide](../git/intro-git.md)
+[Check out the full Git guide](../code/git.md)
 
 🔘 **New Button Widget**  
 Customize your buttons with the all-new `ButtonStyle`:
@@ -972,26 +1019,26 @@ Customize your buttons with the all-new `ButtonStyle`:
 We’ve added new docs to help you learn and master building with Nowa:
 
 ##### 🧬 Hybrid Approach
-- [🌿 Intro to Hybrid Approach](../hybrid-approach/intro-hybrid-approach.md)  
-- [🧩 Using Custom Code](../hybrid-approach/custom-code)  
+- [🌿 Intro to Hybrid Approach](../code/vs-code.md)  
+- [🧩 Using Custom Code](../code/custom-code.md)  
 
 ##### 🧠 Circuit & Logic
-- [🔌 Circuit Intro](../logic/intro-circuit.md)  
-- [🔀 If Statement](../logic/control-flow/if-statement)  
-- [🧯 Try Catch](../logic/control-flow/try-catch)  
+- [🔌 Circuit Intro](../logic/circuit.md)  
+- [🔀 If Statement](../logic/circuit.md)  
+- [🧯 Try Catch](../logic/circuit.md)  
 
 ##### 🧭 Common Functionalities
-- [🧭 Navigation](../logic/common-functionalities/navigation)  
-- [🖼️ Media Picker](../logic/common-functionalities/media-picker)  
-- [💻 Check Platform](../logic/common-functionalities/platform-checking)  
-- [🖨️ Print](../logic/common-functionalities/print)  
+- [🧭 Navigation](../logic/navigation.md)  
+- [🖼️ Media Picker](../logic/popups.md)  
+- [💻 Check Platform](../logic/actions.md)  
+- [🖨️ Print](../logic/actions.md)  
 
 ##### 📦 Variables & States
-- [🧠 Using Data Models](../vars-params-functions/data-models)  
-- [🌍 Global States](../vars-params-functions/global-states)  
+- [🧠 Using Data Models](../logic/models.md)  
+- [🌍 Global States](../logic/global-state.md)  
 
 ##### 🔁 Git & Version Control
-- [🔁 Full Git & GitHub Guide](../git/intro-git.md)  
+- [🔁 Full Git & GitHub Guide](../code/git.md)  
 
 
 ### **2.0.18 (12 March 2025)**  
@@ -1004,7 +1051,7 @@ Nowa now includes an **Chat template**, helping you to quickly create a powerful
 - Ready-to-use **chat screen** for immediate integration.
 - Pre-built components including **chat bubbles** and **chat logic**.
 - Fully customizable to fit your own chat use case!
-[See how to use it here](../tutorials-template/chat-template.mdx)
+[See how to use it here](../legacy/tutorials/chat-template.mdx)
 
 🚀 **Quick Navigation to Functions & APIs**  
 We've enhanced your workflow in Circuit with **quick navigation**:
@@ -1026,7 +1073,7 @@ This update introduces a major new capability—**Web Deployment**—allowing yo
   - **Production Mode**: Publish a **permanent live version** (Pro & Premium users only) and even use a **custom domain**.
   - Need to host it yourself? **Download the build files** and deploy them anywhere!
   
-Check out the **[full guide on web deployment](../deployment/web-deploy.mdx)** to get started!
+Check out the **[full guide on web deployment](../publish/web.md)** to get started!
 
 
 - **Badge Wrapper**  
@@ -1120,7 +1167,7 @@ This version introduces powerful new features, improvements, and essential bug f
 #### **New ✨**  
 - **Expansion Tile Widget:**  
   Add collapsible sections in your app with the new Expansion Tile widget. Perfect for organizing content hierarchically.  
-  [Learn more](../ui/widgets/widget-desc/expansion-tile.md)  
+  [Learn more](../reference/widgets/index.md#expansion-tile)  
 
 - **Getters in the Hybrid Approach:**  
   Write custom Getters in code and use them seamlessly in your project for more flexibility in app logic.  
@@ -1159,7 +1206,7 @@ This version introduces groundbreaking new features, an improved workflow, and a
   - **Declaration Map:** While in code preview, view a mapped structure of all declarations in the left-side panel for easier navigation and understanding.
 
 - **Custom Code Support:** Write custom Flutter code anywhere in your project, including functions, widgets, and classes. Modify the generated code, and see changes sync instantly inside Nowa. For more, [watch this video](https://www.youtube.com/watch?v=hlOoXTdw1vg&t=1087s)
-- **Themes Management:** Create and manage multiple themes for your app, customize colors and typography, and dynamically switch themes during runtime. [Read more about it here](../ui/themes/create-themes.md)
+- **Themes Management:** Create and manage multiple themes for your app, customize colors and typography, and dynamically switch themes during runtime. [Read more about it here](../design/themes.md)
 - **Revamped Logic-Building Circuit:** Build more complex and advanced flows with the new Circuit. Features include:
   - "Await" for asynchronous functions.
   - "Try-Catch" support for functions that may throw exceptions (e.g., network requests).

@@ -1,0 +1,172 @@
+# Rewrite the Nowa docs for 3.13
+
+A full rewrite of docs.nowa.dev. Every page is new, written from the released product code and checked against that
+code by a second agent that didn't write it. The docs describe **Nowa 3.13.0**, the release on `nowa` `master` and on
+app.nowa.dev. Old URLs redirect to their new pages, including every docs link the Nowa app opens.
+
+> **Ready to merge.** The rewrite, the quality pass you asked for, the update to 3.13 and the screenshots from your Mac
+> and from the cloud with the connected Supabase, GitHub and Firebase accounts are done, and `yarn build` passes with no
+> broken links or anchors. Two screenshots wait for a product fix or a custom domain (see [Unfinished](#unfinished)).
+
+## New structure
+
+The sidebar follows the journey of building an app: get started, learn the habits of a good app, then AI, visual
+design, logic, data, testing and publishing, with code, account and reference after.
+
+| Section | Pages | What's in it |
+|---|---|---|
+| Home | 1 | What Nowa is, where to start, help links |
+| Get started | 8 | Welcome, **Build your first app** (tutorial), account, try without an account, editor tour, cloud vs local, desktop app (macOS, Windows, Linux), phone layout |
+| Build a great app | 6 | Habits and a quality checklist, **Build a complete app** (sign-in, list, detail screen, publish), design, AI, data and state, test-and-ship tips |
+| Build with Nowa AI | 8 | How it works, prompting, Design / Plan / Agent modes, chat, context, undo and history, Figma and Supabase connectors, your own agent |
+| Design your app | 17 | Boards, screens, components, **the Library** (new in 3.13), adding and editing widgets, properties, layout, responsive design, outline, themes, assets, fonts and icons, templates, localization |
+| Add logic | 13 | Events, variables, Circuit, parameters, global state, functions, expressions, navigation (with a list-to-detail recipe), routes (with "start on the login or the home screen"), popups, ready-made actions, models |
+| Connect data and services | 20 | Choosing a backend and sign-in, Data Builder, REST APIs, Supabase (5), Firebase (4), Stripe, RevenueCat, AdMob, Google Maps, Google Sign-In, deep links, constants |
+| Preview and test | 6 | Instant Play, Run, devices (also without the desktop app), sharing (also with a client), problems |
+| Publish | 6 | Getting ready (and shipping an update), web, Google Play, App Store (each with the store's rules), builds, downloading code |
+| Work with code | 11 | Code in Nowa (code mode, files, packages, custom code incl. `@Preview` variants, limitations); local projects and Git (local projects, VS Code, import, Git, GitHub) |
+| Projects and account | 7 | Projects, project settings, account, workspaces, plans and usage, help |
+| Troubleshooting | 2 | "My app shows an error" first, then by the app's own messages; known issues |
+| Reference | 9 | Overview, widget catalog (45 widgets) + 4 widget guides, wrappers (32), keyboard shortcuts, glossary |
+| What's new | 2 | Unchanged |
+| Legacy tutorials | 10 | The old video courses and tutorials, moved untouched, with a "made with an earlier version" banner |
+
+## What changed
+
+- **114 new pages** replace 133 old ones. They follow one style guide (simple, clear, concise, warm, confident; exact UI
+  labels in bold) and use **Beta / Enterprise / Desktop app / Cloud / Local / Paid** badges only where the code gates a
+  feature.
+- **Checked against the code**: every page was verified claim by claim by a separate agent, which fixed what was wrong
+  (about 2,100 checks and 410 fixes in the first pass, about 790 claims and 61 fixes for the quality-pass text, about
+  1,400 checks and 32 fixes for the 3.13 update). A check in the live 3.13 editor then caught 8 behaviors the code
+  alone didn't show, and those pages were corrected. A second live check, of the REST API and Data Builder pages once
+  the network was open, found 10 more differences; 9 needed a fix, each confirmed in the code by another agent. A
+  third round on 11 October, with the paid plan and the Nowa desktop app for Linux, found 12 more (desktop setup, local
+  projects, import, builds, AI connectors), all fixed and checked in code by another agent. A fourth round the same
+  day, in the live playground, checked the pages behind 13 new screenshots and videos and 56 claims the code couldn't
+  settle (components, pasting, router paths, the first-app steps): about 60 corrections on 27 pages, including 5 new
+  entries in Known issues, all checked in code by another agent (142 claims, 16 more corrections). A fifth round on 12
+  October, a Claude session on your Mac (Firebase, the iOS Simulator, public sharing, the external agent, an approval
+  card) and three cloud agents with the Supabase and GitHub connections it made, checked the pages behind 24 new
+  screenshots: corrections on 19 pages and 4 more Known issues entries, each checked in code by another agent (102
+  claims, 16 more corrections). Review logs are in `_rewrite/reviews/`.
+- **Updated to Nowa 3.13.0** (released 6 October): the Library panel replaces the Widgets panel, Ctrl/Cmd+K and the
+  toolbar's **Widget** tool open the Library, the top bar has **Back** / **Forward** and a searchable **Boards** chip,
+  **Files** moved into code mode as a tree, menu entries were renamed (**Bring forward**, **Send backward**...), the
+  shortcuts changed, theme-extension tabs, `@Preview` variants and a Linux desktop app. Research with code refs:
+  `_rewrite/research/changes-3.13.md`.
+- **Coverage audit**: every user-facing feature found in the code was matched to a page; the gaps were closed or listed
+  in `_rewrite/left-out.md` with the reason (internal, debug, unreachable, private beta).
+- **Redirects**: `@docusaurus/plugin-client-redirects` with 160 redirects in `redirects.js` covers all 166 old URLs and
+  the 44 docs links the app opens (old widget help links land on the matching row of the widget catalog; anchors kept).
+- **Screenshots and videos, all from 3.13**: 138 screenshots and 8 short videos on 94 pages, taken on app.nowa.dev
+  (the playground, and the test account for the dashboard, settings, Deploy menu, deployment tabs, builds, Git, GitHub,
+  Run, Share, Nowa AI, Supabase and Stripe), in the Nowa desktop app for Linux (Local Setup, local projects, import, VS
+  Code) and on your Mac (Firebase, the Run on menu with the iOS Simulator, public sharing, the external agent), each
+  checked by eye, nearly all with an orange highlight on what matters, and names and emails blurred. The videos show adding a
+  widget from the Library, laying out rows and columns, moving a widget along the snap guides, Instant Play, adding a
+  Circuit node, a button showing a snackbar, changing a theme color and Nowa AI building an app. The screenshots still
+  missing are listed in `_rewrite/MISSING-MEDIA.md`, with where each goes and what unblocks it.
+- **What's New and Changelog**: new 3.13.0 entries (the Library, Back/Forward and boards, Linux, theme extensions,
+  `@Preview` variants, packages and code, local sync), checked claim by claim against the code. Older entries are
+  untouched; only links to removed pages were re-pointed (and one empty link removed).
+- **Site**: explicit `sidebars.js`; global `<Badge>` and `<Anchor>` components (`<Anchor>` registers link targets in
+  tables with the broken-anchor check); broken Markdown links now fail the build; fixed the sidebar override that put
+  `[object Object]` in every link title; a current social card; "What's new" in the navbar; "Community forum" in the
+  footer; removed the Docusaurus sample page and an unused category file. `yarn.lock` adds the redirects plugin and
+  pins `search-insights` (`yarn install --frozen-lockfile` passes).
+
+## The quality pass (your acceptance criteria)
+
+1. **Everything needed to build and ship a full app**: a "Build a great app" section with an end-to-end walkthrough,
+   recipes for the steps a fresh-eyes review found missing (detail screen from a list, start on the login or the home
+   screen, ship an update, share with a client, test without the desktop app), a sign-in comparison, and the Apple and
+   Google store rules.
+2. **Video where motion matters**: eight short videos, including Nowa AI building an app.
+3. **Simple, clear, concise, warm, confident**: a wording pass over every page; a script compared each page before and
+   after and confirmed no label, link, number, step or heading changed.
+4. **Easy to follow**: a fresh-eyes agent walked six real goals through the docs; its fixes are in.
+5. **A highlighted screenshot where it helps**: 94 pages have one now (29 before the pass).
+6. **Tips for quality apps**: design, AI, data and state, and test-and-ship guides, linked from the feature pages.
+
+## Decisions made for you
+
+Full log with reasons: `_rewrite/decisions.md`. The main ones:
+
+1. **Docs describe the released code**: 3.13.0 now (D20; first written for 3.12.5, then updated when 3.13 shipped).
+2. Shipped features only, with badges where gated; internal, debug, unreachable and private-beta features (including
+   Nowa GO) are listed in `_rewrite/left-out.md` instead.
+3. No prices, credit amounts or plan limits; plans link to nowa.dev/pricing.
+4. Old tutorials kept untouched as "Legacy tutorials".
+5. Widget reference = one catalog + four guides for widgets that need Nowa-specific setup.
+6. A "Build a great app" section right after Get started, with an end-to-end guide.
+7. Store rules: short pointers that quote Apple's and Google's own pages; Google's Help Center pages couldn't be opened
+   from here, so those are linked, not described.
+8. The hidden `?panel=files` link that still opens the old Files panel isn't documented (D21, see Open questions).
+
+## Your answers
+
+- Connect External Agent is **Enterprise** only: badge kept.
+- The docs point to Apple's and Google's store rules.
+- The test account was used for the signed-in screenshots and is kept outside the repo (never committed). 5 of the 5
+  AI prompts you allowed were used (logged in `_rewrite/captures/ai-prompts.md`).
+- You upgraded the test account to a paid plan and created throwaway Supabase, Stripe, GitHub, Figma and Google
+  accounts (credentials kept outside the repo). Supabase and Stripe show CAPTCHAs to the cloud browser and GitHub and
+  Google block it, so a Claude session on your Mac connected them and took the Firebase, simulator, sharing, external
+  agent and approval card screenshots (`_rewrite/captures/phase13/local.md`); the cloud then took the Supabase, Stripe
+  and GitHub ones with those connections (`_rewrite/captures/phase13/a.md`, `b.md`, `c.md`).
+- For features a bug kept out of the screenshots, the pages describe how they work once fixed, with a short note about
+  the current problem, and `_rewrite/MISSING-MEDIA.md` lists the shots to take after the fixes.
+- You asked for a 3.13 entry in What's New: written, with a Changelog entry, and checked against the code.
+
+## Open questions
+
+- **Firestore in 3.13**: the designer has no way to add a main collection or a query any more (product issue P48). A
+  hidden link, the project URL with `?panel=files`, still opens the old panel. Should the docs mention it as a
+  workaround until it's fixed? Left out for now.
+
+## Product issues found along the way
+
+158 product issues were written up for the engineering team, each with steps to reproduce, the root cause with code
+references and a suggested fix (fix PRs for most of them are open; see `PROGRESS.md` next to the report). The last
+cloud round found 6 more, not in the report yet (B-1 to B-6 in `_rewrite/captures/phase13/b.md`). Some describe security problems, so the full report lives in the private product repo
+(`nowaproj/nowa`, `docs/platform_issues/`, branch `claude/tender-pascal-quit5k`); `_rewrite/product-issues.md` keeps
+the first 58 as short notes. A few that affect the docs:
+- Firestore (3.13): no designer entry point to add collections or queries.
+- Firebase Google sign-in: the generated `signInWithGoogle()` doesn't compile against `google_sign_in` 7.x.
+- RevenueCat: the generated service has no way to restore purchases, which App Store guideline 3.1.1 asks for.
+- Signed-out playground (3.13): the AI chat field's toolbar is broken ("BillingProvider is not initialized").
+- Connecting Figma fails for everyone today: Figma rejects Nowa's OAuth app (server-side setup).
+- REST API (3.13): setting a collection's **Auth Key** shows a false "Undefined name 'headers'" error in **Problems**
+  (Nowa's model of Dio has no `RequestOptions.headers`).
+- Git (local projects): after **Bring my changes**, **Accept Local** drops your own edits; **Revert Commit** only stages.
+- Form validators: **Min length** and **Max length** lose their number field as soon as they're added, and adding or
+  removing another rule silently drops the length check.
+- Typing `/` in a **Details** field does nothing (3.13), so **Route Settings** can't take a path like `/product/:id`;
+  the docs use the Router panel's **Path** instead.
+- **Create Variable...** on a property left at its default makes a variable with no value, so the app doesn't compile;
+  the docs say to type a **Default Value**.
+- In the **Variables** list's name field, t, r and v switch board tools; the docs name things in **Details** instead.
+- Switching the starter screen's **Group** from Stack to Column turns the screen grey, and undo doesn't bring it back.
+- 32 widget help links in the app point at old URLs (they redirect now; updating them would skip the redirect).
+
+## Unfinished
+
+- **2 screenshots wait for something outside the docs**: the Figma connector menu, once connecting Figma works again
+  (product issue P117), and the DNS records page of a custom domain, which needs a domain you control. Both stay as
+  hidden placeholders. `_rewrite/MISSING-MEDIA.md` lists them with five more to take later (two Firestore re-takes
+  after the P48 fix, a Supabase backend re-take after the migration fix, a Xano import and the Windows Firestore
+  message), and the page notes to update when each fix ships.
+- **Clean-up**: the "Docs capture ..." projects (services, firebase, fresh, share, local, paid) and the "Docs capture"
+  workspace can be deleted, and so can the throwaway Supabase projects (`docs-capture` has a test user
+  `docs.tester@example.com`; `docs-capture-empty` has a `products` table and a `files` bucket that anyone with its key can
+  upload to), the GitHub repository `docs-capture-repo` and the Firebase project. Change the passwords of the test and
+  throwaway accounts.
+
+## How to review
+
+- `yarn start`, then read in this order: **Build your first app**, **Build a complete app**, **Tour the editor**,
+  **Find and add things with the Library**, **How Nowa AI works**, **Connect data and services**, **Get ready to
+  publish**.
+- `_rewrite/` holds the plan, research (with code references), review logs, capture tools and `MISSING-MEDIA.md`. It
+  isn't part of the site, and it stays for the follow-up work.

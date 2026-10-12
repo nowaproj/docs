@@ -1,0 +1,94 @@
+[
+ {
+  "id": "01-editor-default",
+  "title": "Editor on first open: AI Assistant panel, board \"first\" with HomePage"
+ },
+ {
+  "id": "02-panel-widgets",
+  "title": "Left sidebar: Widgets panel"
+ },
+ {
+  "id": "03-panel-themes",
+  "title": "Left sidebar: Themes panel"
+ },
+ {
+  "id": "04-panel-search",
+  "title": "Left sidebar: Search panel"
+ },
+ {
+  "id": "05-panel-files",
+  "title": "Left sidebar: Files panel"
+ },
+ {
+  "id": "06-panel-outline",
+  "title": "Left sidebar: Outline panel"
+ },
+ {
+  "id": "07-panel-api",
+  "title": "Left sidebar: Api panel"
+ },
+ {
+  "id": "08-panel-supabase",
+  "title": "Left sidebar: Supabase panel"
+ },
+ {
+  "id": "09-panel-closed",
+  "title": "Left panel closed (click the open panel icon again)"
+ },
+ {
+  "id": "10-screen-selected",
+  "title": "Screen selected (click its title on the board): Details shows the screen"
+ },
+ {
+  "id": "11-widget-picker",
+  "title": "Widget picker (Ctrl+K or the toolbar Widget button)"
+ },
+ {
+  "id": "12-file-search",
+  "title": "File search palette (Ctrl+O)"
+ },
+ {
+  "id": "13-starter-picker",
+  "title": "Top bar starting-point picker (playground only)"
+ },
+ {
+  "id": "14-context-menu-board",
+  "title": "Right-click on an empty part of the board"
+ },
+ {
+  "id": "15-settings",
+  "title": "Project settings (gear in the top bar)"
+ },
+ {
+  "id": "16-code-mode",
+  "title": "Code mode (the </> button in the top bar)"
+ },
+ {
+  "id": "17-drag-in-progress",
+  "title": "Dragging a widget from the picker onto the board"
+ },
+ {
+  "id": "18-widget-selected",
+  "title": "Widget selected with a click: Details shows its properties"
+ },
+ {
+  "id": "19-context-menu-widget",
+  "title": "Right-click on a widget placed on the board"
+ },
+ {
+  "id": "20-outline-selection",
+  "title": "Outline panel: Button selected in the widget tree"
+ },
+ {
+  "id": "21-logic-editor",
+  "title": "Logic editor for On Pressed (Details > On Pressed > Edit)"
+ },
+ {
+  "id": "22-canvas-title-hover",
+  "title": "Hovering a screen title: Play and Open in new tab appear"
+ },
+ {
+  "id": "23-instant-play",
+  "title": "Instant Play running on the board"
+ }
+]

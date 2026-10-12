@@ -1,0 +1,48 @@
+.badge {
+  display: inline-block;
+  padding: 0.1rem 0.55rem;
+  margin-right: 0.35rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.5;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.beta {
+  color: #8a5a00;
+  background: #fff4d6;
+  border-color: #f2d48a;
+}
+
+.enterprise {
+  color: #5b3cc4;
+  background: #efe9ff;
+  border-color: #cfc2ff;
+}
+
+.platform {
+  color: #1d5c46;
+  background: #e3f6ee;
+  border-color: #a9e2c9;
+}
+
+[data-theme='dark'] .beta {
+  color: #ffd98a;
+  background: rgba(255, 196, 0, 0.12);
+  border-color: rgba(255, 196, 0, 0.35);
+}
+
+[data-theme='dark'] .enterprise {
+  color: #c9b8ff;
+  background: rgba(124, 92, 255, 0.16);
+  border-color: rgba(124, 92, 255, 0.4);
+}
+
+[data-theme='dark'] .platform {
+  color: #8fe3bf;
+  background: rgba(63, 207, 142, 0.12);
+  border-color: rgba(63, 207, 142, 0.35);
+}

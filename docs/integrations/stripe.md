@@ -91,7 +91,7 @@ Skip this section if you only chose **Subscription**.
 
 1. Under **3. Business Table**, open **Table** and pick the table that holds your items, such as `products`. If you see "No tables found", click **Refresh**. After you add a table in Supabase, click the refresh icon (**Refresh tables**) next to **Table**.
 2. Under **4. Map Fields**, which appears once you pick a table, set **ID Field** to the column that identifies each row and **Amount Field** to the column with the price.
-3. Set **Currency** to **From Column** and pick a **Currency Column**, or to **Fixed Value** and type a **Fixed Currency**. Currencies use three-letter codes, such as `USD`, `EUR` or `AED`. If all your items share one currency, **Fixed Value** is the simplest choice.
+3. Set **Currency** to **From Column** and pick a **Currency Column**, or to **Fixed Value** and type a **Fixed Currency**. Currencies use three-letter codes, such as `USD`, `EUR` or `AED`. If all your items share one currency, **Fixed Value** is the simplest choice. In a currency column, write the codes in lowercase (`usd`): Stripe asks for lowercase codes, and Nowa passes the column's value on as it is.
 
 If you leave the page before you deploy, pick the table and fields again.
 
@@ -99,6 +99,8 @@ Your app sends only the row's ID. The function reads the price (and the currency
 
 :::warning
 Nowa multiplies the **Amount Field** by 100 before it sends the amount to Stripe. Store prices in whole currency units (`9.99`), not in cents, or customers are charged 100 times too much.
+
+In Nowa 3.13 this also happens for currencies that have no cents, such as the Japanese yen: a price of 500 yen is charged as 50,000. Check Stripe's list of [zero-decimal currencies](https://docs.stripe.com/currencies#zero-decimal) before you sell in one.
 :::
 
 ## Deploy the configuration

@@ -139,3 +139,21 @@ All links and anchors in the eight pages resolve (same script as round 1); every
 1. **Stripe save note placement.** The new paragraph sits in "Connect your table", which readers who only chose **Subscription** are told to skip. But it also covers the purchase types from step 4, which aren't saved until **Deploy Configuration** or a submit under **1. API Keys** either. Moving it, or a short version, under step 4 would reach everyone. I didn't restructure.
 2. **Pull failed text.** The raw error for a project without a `supabase_migrations` schema comes from the code and the 400 seen on the same query (`b.md:56`), not from a live pull. The friendly message only shows when the history table exists but is empty. One pull on a fresh Supabase project would settle the wording.
 3. **Repository Name default.** It comes from `gProject.name`, like the Supabase **Project Name** (round 1 open question 3). They match for projects made in Nowa.
+
+## Round 3: commit 336d12f
+
+Scope: `integrations/supabase/storage.md` "Test the functions" (step 4, the preview paragraph, the "already exists" sentence, image storage-2) and the reopen sentence in `integrations/supabase/backend.md`. Evidence: the code and the follow-up rows at the end of `captures/phase13/b.md` (cited as `b.md` follow-up).
+
+| page | claim | verdict | evidence |
+|---|---|---|---|
+| supabase/storage.md | Step 4: when the upload works, the result reads `result null` | holds | The generated function is `Future<void> uploadFile(...)` (`packages/data/lib/src/supabase/templates/template_source_generator.dart:105-115`), and the panel shows a non-file result as `result <value>` (`packages/data/lib/src/supabase/ui/func_test_section.dart:234-244`); `b.md` follow-up (`result null`) |
+| supabase/storage.md | Image storage-2 (Testing downloadFile with the preview) after step 7 | holds | Shows **Testing downloadFile**, the PNG preview, the download icon with the tooltip **Download image** (both highlighted), **Bucket Name** `files`, **File Path** `sample.png`, **Run** and **Edit Code**, as the alt text says; the tooltip text is `func_test_section.dart:335` |
+| supabase/storage.md | Preview paragraph: if the preview is cut off, drag the top edge of the test panel up | holds | The preview can be up to 400 px tall (`func_test_section.dart:316`), and the bottom panel starts 400 px tall including its title bar (`lib/project/project_page.dart:603-608`); the divider above it drags (`packages/core/lib/src/panels/panel.dart:708-713`); `b.md` follow-up (cut off at the default height) |
+| supabase/storage.md | A taken file name: the result shows an **Error:** with "The resource already exists" | holds | `uploadBinary` is called without upsert (`template_source_generator.dart:108-112`), so Supabase answers 409 Duplicate; the panel prints `Error: <message>` unless it matches the RLS patterns (`func_test_section.dart:222-230`, `rls_error_widget.dart:11-32`); `b.md` follow-up (`StorageException(message: The resource already exists, statusCode: 409, error: Duplicate)`) |
+| supabase/backend.md | After you reopen the project, **Set up Backend** is missing until Nowa checks again: ⋮ → **Change API Keys** → **Connect**, then **Select** the same project | holds | The menu item depends on `hasBundleCached` (`packages/data/lib/src/supabase/ui/sb_outline.dart:326`), which starts false in each new service (`supabase_plugin.dart:22`, `migrations/sb_backend_bundle_service.dart:65`) and is set only when the bundle is read (`:68-78`, on connect through `offerSetupIfPending`, `sb_setup/sb_oauth_setup.dart:148`, `migrations/sb_backend_setup_flow.dart:19-21`) or after a pull (`:140`); nothing reads it when the project opens. `b.md` follow-up: the item came back after that reconnect, which offered the setup at once |
+
+Links and anchors in both pages resolve, each page has at most two admonitions, and the added lines have no em dashes or hype words.
+
+### Round 3 summary
+
+- Claims checked: 5 (4 text, 1 image). Holds: 5. Fixed: 0. Removed: 0. No page edited.

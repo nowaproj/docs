@@ -48,8 +48,8 @@ design, logic, data, testing and publishing, with code, account and reference af
   entries in Known issues, all checked in code by another agent (142 claims, 16 more corrections). A fifth round on 12
   October, a Claude session on your Mac (Firebase, the iOS Simulator, public sharing, the external agent, an approval
   card) and three cloud agents with the Supabase and GitHub connections it made, checked the pages behind 24 new
-  screenshots: corrections on 19 pages and 4 more Known issues entries, each checked in code by another agent (68
-  claims and 14 more corrections in its first round). Review logs are in `_rewrite/reviews/`.
+  screenshots: corrections on 19 pages and 4 more Known issues entries, each checked in code by another agent (102
+  claims, 16 more corrections). Review logs are in `_rewrite/reviews/`.
 - **Updated to Nowa 3.13.0** (released 6 October): the Library panel replaces the Widgets panel, Ctrl/Cmd+K and the
   toolbar's **Widget** tool open the Library, the top bar has **Back** / **Forward** and a searchable **Boards** chip,
   **Files** moved into code mode as a tree, menu entries were renamed (**Bring forward**, **Send backward**...), the

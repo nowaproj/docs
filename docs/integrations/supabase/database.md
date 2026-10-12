@@ -47,7 +47,7 @@ Or ask Nowa AI. In **Agent** mode with the Supabase connector on, try: "Create a
 ## Test a function {#test-a-function}
 
 1. Click a function in the **Supabase** panel. A panel opens at the bottom of the editor, titled with the function's name, for example **Testing getAllTodos**.
-2. Under **Testing values**, fill in one field for each input of the function.
+2. Under **Testing values**, fill in one field for each input of the function. A function without inputs shows "No parameters to test".
 3. Click **Run**. Until then the result area says "Run test to see result".
 
 ![The bottom panel titled Testing getAllTodos (highlighted) after Run: on the left the result, a list of 3 items, each an instance of TodosModel with id, created_at, title (Buy milk, Write docs, Walk the dog) and done. On the right, Testing values reads No parameters to test, above the Run button (highlighted) and Edit Code.](/img/docs/integrations/integrations-supabase-database-2.png)

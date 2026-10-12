@@ -11,7 +11,7 @@ The Nowa desktop app is the same editor in its own window, for macOS, Windows an
 
 ## Do you need the desktop app?
 
-Many people never install it. The web app at [app.nowa.dev](https://app.nowa.dev) already lets you design, build with Nowa AI, **Play** your screens, **Run** your real app (and open it on your phone with a QR code), share previews and publish.
+You may not need it at all. The web app at [app.nowa.dev](https://app.nowa.dev) already lets you design, build with Nowa AI, **Play** your screens, **Run** your real app (and open it on your phone with a QR code), share previews and publish.
 
 Get the desktop app when you want to:
 

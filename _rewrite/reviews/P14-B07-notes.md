@@ -175,3 +175,45 @@ product (see below).
 
 **Open questions**: none new. The iOS behavior of `SystemNavigator.pop` isn't stated (the Flutter page describes a view
 controller pop, which a plain app doesn't use), so the row says Android only.
+
+## logic/navigation.md
+
+**Changed for the reader**
+- Intro (R9): what navigation is with an everyday example; GoRouter explained as "every screen has a path, like a web
+  address". Keywords: "go back", "back button", "return value", "result", "screen stack", "open screen".
+- New "How screens stack" (old navigation.md "The Stack Concept"): push adds a card on top, Back/pop removes it,
+  replacing swaps the top card. The app bar's back arrow is Flutter's automatic leading button; go_router calls it the
+  "page stack" (https://pub.dev/documentation/go_router/latest/topics/Navigation-topic.html).
+- Both type tables have a "Use it when" column (old navigation.md types table with use cases; the brief asks for it).
+  Refs: `go` "will replace the current stack of screens with the screens configured to be displayed for the destination
+  route" and "imperative navigation is known to cause issues with the browser history" (go_router Navigation topic,
+  above); `replace` "treats it as the same page ... will preserve the state and not run any page animation"
+  (`go_router-17.1.0/lib/src/router.dart:450-458`); `pushAndRemoveUntil` removes every screen below
+  (`packages/code/lib/src/customizations/navigator_field.dart:144-149`, predicate returns `false`). Named types row:
+  unchanged fact, plainer words.
+- **Extra** reworded (same fact as the detail-screen paragraph: the Router panel can't connect it to a param).
+- "uuid" glossed (R4). "Keep **Type** on `push`, so people can come back to the list" (reason added).
+- "Navigator and GoRouter nodes need a screen's `context`" reworded without `context`: both nodes insert
+  `Navigator.of(context)` / `GoRouter.of(context)` (`packages/core/lib/src/state_management/global_state_suggestions.dart:31-54`),
+  and only screens and components have a `context` to look up (`packages/core/lib/src/fields/block_field.dart:723-735`).
+- The Navigator "To return a result" paragraph now points to the new section and keeps its facts (**result type**,
+  **result**: `navigator_field.dart:89-103`).
+- Nothing code-only was on the page; no link to `generated-code.md`.
+
+**Added from the old docs**
+- "Go back with a value" (old navigation.md "Returning Data with Pop", name example), re-derived for GoRouter projects,
+  with the Navigator differences after it. Pieces: GoRouter `pop` shows a **result** field
+  (`packages/code/lib/src/customizations/go_router_field.dart:64-66,107,123-125`); the Text Field controller and `text`
+  (`docs/reference/widgets/forms.md:13-15`); **await** and **Store result** on the `push` node (circuit.md
+  #future-options); the guard `var1 != null`, because a push comes back empty when people go back without a value
+  (go_router docs "Returning values": `final bool? result = await context.push<bool>('/page2'); if(result ?? false)`);
+  the **Set** button named after the variable (`docs/logic/variables.md:79-91`); **refresh**; **onValue** alternative
+  (old page's tip). The guard replaces the old page's direct "set `name` = result", which would fail on an empty result
+  when `name` can't be empty (**Create Variable...** keeps the field's type: `packages/core/lib/src/fields/field_link_menu.dart:246-247`).
+  Not run live.
+
+**Length**: about 2,400 words (`wc -w`), over ~2,200. Proposed split if wanted: move "Open a detail screen when a list
+item is tapped" (about 480 words, explicit id `#open-a-detail-screen`, linked from six pages) to its own page, or move
+"Use the Navigator" (older projects only) next to "Switch an older project to GoRouter" on router.md.
+
+**Open questions**: the "Go back with a value" steps as a whole (not run live).

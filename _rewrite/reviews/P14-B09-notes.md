@@ -243,8 +243,9 @@ Added:
     itself (`packages/core/lib/src/interpreter/packages/integrations/firebase_package_config.dart:54`), so only the
     capability is left.
   - Capability: the in-app note, "Important: You must enable Push Notifications capability in Xcode. Go to your iOS
-    project → Signing & Capabilities → Add Capability → Push Notifications." (`notification_settings.dart:98`). Nowa
-    writes no `aps-environment` anywhere (grep), so the capability isn't added for you. No-code path: Nowa AI in Agent mode
+    project → Signing & Capabilities → Add Capability → Push Notifications." (`notification_settings.dart:98`). The Nowa
+    client code writes no `aps-environment` (grep of `lib/` and `packages/`); the server-side iOS template isn't in the repo and
+    wasn't checked, so the page claims neither way and follows the in-app note. No-code path: Nowa AI in Agent mode
     can create and edit non-Dart files such as entitlements and platform files (`research/features-ai.md`, `edit` and
     `write` tools); the page doesn't promise the result, says it can't be checked in Nowa and how to check it (a test
     notification on an iPhone after the next iOS build), and that **Restore Checkpoint** undoes AI file changes

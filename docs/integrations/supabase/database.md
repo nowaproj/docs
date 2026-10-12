@@ -65,6 +65,8 @@ Prefer clicking? In the **Table Editor**, click **New table**, enter a **Name** 
 
 Supabase is also rolling out a change: on newer projects, a new table doesn't let your app in until access is granted, and your tests show **RLS Policy Error** with "permission denied". The snippet above grants that access. For a table you made in the Table Editor, ask Nowa AI, for example: "Give signed-in users access to the shop_items table."
 
+Tables you make in the SQL Editor or the Table Editor aren't recorded as migrations, so **Pull Backend Files** can't save them into your project later. If you plan to share or copy your backend, ask Nowa AI to create the tables through migrations instead (see [Manage your Supabase backend](backend.md)).
+
 ## Add a query from a template
 
 1. In the **Supabase** panel, click **+** next to **Generate a Query**. The **Add Supabase Function** dialog opens.
@@ -117,7 +119,7 @@ What the result area can show:
 |---|---|
 | The result | The data your function returned. |
 | **Error:** and a message | Supabase or the function returned an error. |
-| **RLS Policy Error** | The error message points to a Row Level Security policy that blocked the query, or to missing access ("permission denied"). Follow the steps shown, or click **Open Supabase Dashboard**. Sign in first if the policy needs a user. |
+| **RLS Policy Error** | The error message points to a Row Level Security policy that blocked the query, or to missing access ("permission denied"). Follow the steps shown (today's Supabase dashboard lists policies under **Database** → **Policies**), or click **Open Supabase Dashboard**. Sign in first if the policy needs a user. |
 | **Empty Result - Possible RLS Filtering** | The query returned an empty list. If the table has rows, RLS may be hiding them: click **Check RLS Policies**. If the table is empty, you can ignore it. |
 | **Streaming** over a colored border | A live query. See [Live queries](#live-queries). |
 

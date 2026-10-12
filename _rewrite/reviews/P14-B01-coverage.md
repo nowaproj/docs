@@ -2,7 +2,7 @@
 
 Batch P14-B01. Old pages under `_rewrite/old-docs/`, new pages under `docs/`. Code refs are relative to
 `/home/user/nowa-master` (3.13.0, `3cb32031c`). Statuses: `covered` (page#section) / `added` (page#section) /
-`obsolete` (code ref) / `not useful` / `dev-only` / `for other page` (target). `to add` = planned, not saved yet.
+`obsolete` (code ref) / `not useful` / `dev-only` / `for other page` (target). (All planned additions are saved; no `to add` rows remain.)
 
 ## index.md (old docs home)
 
@@ -149,4 +149,23 @@ Batch P14-B01. Old pages under `_rewrite/old-docs/`, new pages under `docs/`. Co
 
 ## Totals
 
-(Updated when pages are saved.)
+| Old page | Items | covered | added | obsolete | not useful | dev-only | for other page |
+|---|---|---|---|---|---|---|---|
+| `index.md` | 2 | 1 | 0 | 0 | 1 | 0 | 0 |
+| `getting-started/introduction.md` | 21 | 14 | 3 | 2 | 2 | 0 | 0 |
+| `getting-started/quickstart.md` | 5 | 4 | 1 | 0 | 0 | 0 | 0 |
+| `getting-started/install.md` | 14 | 11 | 0 | 3 | 0 | 0 | 0 |
+| `getting-started/exploreinterface.mdx` | 13 | 11 | 1 | 0 | 1 | 0 | 0 |
+| `ui/toolbar.md` | 7 | 5 | 0 | 2 | 0 | 0 | 0 |
+| `ui/widget-panel.md` | 6 | 5 | 0 | 1 | 0 | 0 | 0 |
+| `local-project-simulator/createlocalproject.md` | 22 | 17 | 2 | 2 | 1 | 0 | 0 |
+| `local-project-simulator/whylocalproject.md` | 8 | 6 | 1 | 1 | 0 | 0 | 0 |
+| **Total** | **98** | **74** | **8** | **11** | **5** | **0** | **0** |
+
+Besides the 8 `added` rows, 7 rows marked `covered` or `obsolete` brought something back on a page of this batch:
+the hand-off-to-a-developer pointer (`welcome.md`), the plain-words Variables tabs (`editor-tour.md`), the Flutter
+"why" and "Do you need the desktop app?" (`desktop-app.md`), "large download" for Xcode (`desktop-app.md`), what saving
+does in a run (`cloud-and-local.md`), and the internet-connection correction for the two old "work offline" claims
+(`cloud-and-local.md`, `desktop-app.md`). The code-level item (project folders `lib`, `boards`, `assets`) was already
+in the code section, so nothing went to the for-code file from the old pages. The for-code file holds facts moved off
+the new pages (R2). Two items were routed to other batches' pages in the notes ("For other pages").

@@ -43,6 +43,16 @@ Open it from the **Git** panel: hover the branch row, click the **...** button a
 
 ### Connect a repository you already have
 
+Creating the repository on GitHub yourself, for example because you use an access token instead of connecting GitHub? Create it empty first, so your first push has nothing to clash with:
+
+1. On GitHub, click **+** in the upper-right corner, then **New repository**.
+2. Choose the **Owner** and type a name.
+3. Choose whether the repository is public or private.
+4. Leave the README, .gitignore and license options off. GitHub advises against them when you bring in an existing project, because they can cause a merge conflict.
+5. Click **Create repository**. On the Quick Setup page that opens, copy the repository's address (it ends in `.git`).
+
+Then connect it in Nowa:
+
 1. Under **OR**, expand **Add Existing Repository**.
 2. Pick a repository from the list (it appears once GitHub is connected; type in **Search repositories** to filter), or paste its **Repository URL**. Nowa accepts `http://` and `https://` addresses here. If yours isn't listed, click **Manage your connected repositories** to give Nowa access to it on GitHub.
 3. Click **Connect Repository**.
@@ -51,14 +61,6 @@ Open it from the **Git** panel: hover the branch row, click the **...** button a
 :::warning
 Make sure the repository is the right one for this project. Nowa warns that connecting the wrong repository may lead to the loss of your current changes.
 :::
-
-Making the repository on GitHub yourself, for example because you use an access token? Create it empty, so your first push has nothing to clash with:
-
-1. On GitHub, click **+** in the upper-right corner, then **New repository**.
-2. Choose the **Owner** and type a name.
-3. Choose whether the repository is public or private.
-4. Leave the README, .gitignore and license options off. GitHub advises against them when you bring in an existing project, because they can cause a merge conflict.
-5. Click **Create repository**. On the Quick Setup page that opens, copy the repository's address (it ends in `.git`) and paste it into **Repository URL** in Nowa.
 
 ### Check or remove the connection
 
@@ -98,7 +100,7 @@ GitHub recommends fine-grained tokens, which you can limit to the repositories N
 
 Two cases need a little more:
 
-- **Someone else's repository.** Fine-grained tokens can't yet push to a repository that belongs to another person's account when you're a collaborator on it. Create a classic token instead: under **Personal access tokens**, click **Tokens (classic)**, then **Generate new token** → **Generate new token (classic)**. Give it a **Note** and an **Expiration**, tick the **repo** scope and click **Generate token**.
+- **Someone else's repository.** Fine-grained tokens can't yet push to a repository that belongs to another person's account when you're a collaborator on it. Create a classic token instead: under **Personal access tokens**, click **Tokens (classic)**, then **Generate new token** → **Generate new token (classic)**. Give it a **Note** and an **Expiration**, tick the **repo** scope and click **Generate token**. A classic token reaches every repository you can access, so keep it extra safe.
 - **An organization's repository.** Some organizations review fine-grained tokens. Until an administrator approves yours, it can only read public repositories.
 
 For every detail, see [GitHub's guide to personal access tokens](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).

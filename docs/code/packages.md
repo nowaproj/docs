@@ -14,7 +14,7 @@ Packages are ready-made building blocks from [pub.dev](https://pub.dev), Flutter
 
 The page lists your packages in a table with a **Name** and a **Version** column. Type in the **Search...** box to filter the list by name.
 
-New projects start with five: `nowa_runtime` (helpers the code Nowa writes relies on), `provider` (app-wide data), `shared_preferences` (values saved on the device), `dio` (calls to web APIs) and `go_router` (moving between screens). Leave `nowa_runtime` in place, because the code Nowa writes imports it.
+New projects start with five: `nowa_runtime` (Nowa's own helpers), `provider` (app-wide data), `shared_preferences` (values saved on the device), `dio` (calls to web APIs) and `go_router` (moving between screens). Leave `nowa_runtime` in place, because the code Nowa writes imports it.
 
 ![The Packages page in Settings behind a dimmed overlay: the Search box and the Name and Version table (nowa_runtime, provider, shared_preferences, dio, go_router), with the Add New Package link highlighted. The empty New Package dialog (highlighted) shows the package_name field, the version field, and the Cancel and Add buttons.](/img/docs/code/code-packages-1.png)
 

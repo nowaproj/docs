@@ -35,3 +35,22 @@ code refs in the earlier writer notes W14 and W17). Relative links in the copied
 
 - [constants.md] Behind the scenes, every constant is a text value in the `AppConstants` class in `lib/globals/app_constants.dart`.
 - [constants.md] Keys that Nowa writes into your Android, iOS or web project files aren't listed here. Google Maps, AdMob, Deep Links and the Google Sign-In **iOS Client ID** live on their own pages under **Settings** → **Integrations**.
+
+## #admob
+
+- [admob.md] Turn on **Enabled**. Nowa adds the `nowa_mobile_ads` package and `await MobileAds.instance.initialize();` to `main()`.
+- [admob.md] Nowa writes the Android App ID into the Android manifest and the iOS App ID into `Info.plist`, together with Google's SKAdNetwork identifiers.
+- [admob.md] Turn **Enabled** off to remove the package, your App IDs and the `main()` line. Remove your banners and `loadAndShowInterstitialAd` calls first.
+
+## #google-maps
+
+- [google-maps.md] Turn on **Enabled**. Nowa adds the `google_maps_flutter` package and makes sure the iOS minimum version is at least 14.0.
+- [google-maps.md] Nowa puts each key where its platform needs it:
+
+  | Key | Where Nowa writes it |
+  |---|---|
+  | **Android API Key** | The Android manifest, as the `com.google.android.geo.API_KEY` setting. |
+  | **iOS API Key** | The iOS `AppDelegate`, as `GMSServices.provideAPIKey`, with `import GoogleMaps`. |
+  | **Web API Key** | A Google Maps script tag in the web `index.html`. |
+
+- [google-maps.md] Turn **Enabled** off to remove the package, your keys and their platform entries.

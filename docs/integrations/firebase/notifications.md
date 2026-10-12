@@ -40,7 +40,7 @@ Apple delivers every notification to iPhones and iPads itself, through its Apple
 
 **Allow notifications for your app's ID.** In your [Apple Developer account](https://developer.apple.com/account/), open **Certificates, Identifiers & Profiles**:
 
-1. Click **Identifiers**, select your app's identifier (the one that matches your **Bundle Identifier**) and click **Edit**. If it isn't there yet, register it first: see [Publish to the App Store](../../publish/ios.md).
+1. Click **Identifiers**, select your app's identifier (the one that matches your **Bundle Identifier**) and click **Edit**. If it isn't there yet, register it first, and tick **Push Notifications** while you do: see [Register your bundle ID](../../publish/ios.md#register-your-bundle-id).
 2. Tick **Push Notifications** and click **Save**. If a warning appears, click **Confirm**.
 
 **Create a push key.**

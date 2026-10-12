@@ -28,7 +28,7 @@ The section also tells you who you're testing as: **Not logged in**, or **Testin
 Supabase can ask each new user to confirm their email address before they sign in for the first time. Hosted Supabase projects do this by default. It keeps fake sign-ups out, and it changes how you test:
 
 - Supabase's built-in email sender is meant for trying things out. It only sends to the email addresses of your Supabase organization's team, and only a few emails an hour. So test with your own address, or turn confirmation off while you build.
-- The link in the email confirms the address, then opens your project's **Site URL**. Until you change it, that's `http://localhost:3000`, which won't load on a phone. The address is confirmed anyway.
+- The link in the email confirms the address, then opens your project's **Site URL**. Until you change it, that's `http://localhost:3000`, which usually won't load, on a phone or anywhere else. The address is confirmed anyway.
 
 To turn email confirmation on or off:
 

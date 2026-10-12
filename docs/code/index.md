@@ -5,7 +5,7 @@ sidebar_label: Overview
 keywords: [code, Dart, Flutter, source code, own your code, sync, NowaGenerated, hybrid approach, custom code, code and design, pubspec]
 ---
 
-Every screen you design and every change Nowa AI makes ends up as real code in a standard Flutter project, and the project is yours. Flutter is Google's toolkit for building iOS, Android, web and desktop apps from one code base, and its apps are written in a language called Dart. You never have to touch the code, but you can: read it, edit it by hand, add code of your own, and keep using the board and Nowa AI on the same files.
+Every screen you design and every change Nowa AI makes ends up as real code in a standard Flutter project, and the project is yours. Flutter is Google's toolkit for building iOS, Android, web and desktop apps from one code base, and its apps are written in a language called Dart. Read the code, edit it by hand, add code of your own, and keep using the board and Nowa AI on the same files.
 
 :::tip[Already a Flutter developer?]
 Install the [desktop app](../get-started/desktop-app.md) and [set up Flutter](../get-started/desktop-app.md#setting-up-flutter-sdk). Then [import your folder](import.md) as a local-only project, [open it in VS Code](vs-code.md) and keep its history with [Git](git.md).
@@ -64,7 +64,7 @@ Nowa reads your code to draw it on the board. It doesn't run it there the way a 
 | [Import an existing Flutter project](import.md) | Bring in an app you already have, from a folder or from GitHub. |
 | [Work with local projects](local-projects.md) | Keep your app in a Flutter folder on your computer, link it to the cloud and find it again if it goes missing. |
 | [Use Nowa with VS Code](vs-code.md) | Open the same folder in Nowa and VS Code at once and see every save in both. |
-| [Use Git](git.md) and [Connect GitHub](github.md) | Keep a history of your code and sync it with GitHub. |
+| [Use Git](git.md) and [Connect GitHub](github.md) | Keep a history of your code, sync it with GitHub and work on it as a team. |
 
 :::tip
 You never have to open code mode. Describe the change to [Nowa AI](../ai/index.md), then read what it changed here if you're curious.

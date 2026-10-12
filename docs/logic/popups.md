@@ -36,7 +36,7 @@ Dialogs, sheets and pickers wait for the person to choose something, and your ne
 - Turn on **await**, then set **Store result** to **New Variable**. The steps below wait until the person answers, and the variable holds what they chose. This is the easiest way to use the answer right away.
 - Or click **+** next to **onValue**. Your other steps carry on at once, and a separate function runs when the answer arrives, with the answer as `value`.
 
-If the person closes the popup without choosing, there's no answer, so the variable or `value` is empty (`null`). [Wait for a result](circuit.md#future-options) has more on both options.
+If the person closes the popup without choosing, there's no answer, so the variable or `value` is empty (`null`). When your next steps need the answer, put them in the **True** branch of an If: click its **Condition** label, choose **Custom Expression...** and type `var1 != null` (with your variable's name), which means "there's an answer". [Wait for a result](circuit.md#future-options) has more on both options.
 
 ## Show a dialog
 
@@ -111,7 +111,7 @@ Say a booking screen has a text that should show the chosen day, and a **Pick a 
 5. Add **LOCALS** → **refresh** below it, so the screen shows the new text.
 6. Click **Play**, tap the button and pick a day. The text now reads something like "April 10, 2025".
 
-If someone closes the picker, there's no date to show. To keep the old text in that case, put steps 3 to 5 in the **True** branch of an If whose **Condition** is the custom expression `pickedDate != null`, which means "a date was picked".
+If someone closes the picker, there's no date to show. To keep the old text in that case, put steps 3 to 5 in an If that checks `pickedDate != null`, as in [Use what the person chose](#use-what-the-person-chose).
 
 ### Show a date as text
 

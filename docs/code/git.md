@@ -124,7 +124,7 @@ Both are greyed out when they can't run. Neither works on a repository's first c
 
 ## Work with a team {#work-with-a-team}
 
-A Nowa [workspace](../account/workspaces.md) shares cloud projects with your teammates, but it has no live co-editing. With Git and GitHub, several people change the same app, each in their own project, and bring the work together. Your project is a normal Flutter repository, so teammates can work in Nowa or in their own editor, with no extra branches just for Nowa.
+A Nowa [workspace](../account/workspaces.md) shares cloud projects with your teammates, but it has no live co-editing. With Git and GitHub, several people change the same app, each in their own project, and bring the work together. Your project is a normal Flutter repository, so teammates can work in Nowa or in their own editor, and Nowa needs no extra branches of its own.
 
 1. One person connects the project to a GitHub repository: [create or connect a repository](github.md#connect-a-repository).
 2. On GitHub, they invite the others. Open the repository, click **Settings**, then **Collaborators** in the "Access" section of the sidebar. Click **Add people**, pick a teammate and confirm. Each teammate accepts the invitation GitHub sends them by email.

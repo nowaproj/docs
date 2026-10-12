@@ -206,3 +206,65 @@ Added, with evidence:
 Kept facts (P13-verified): template names, inputs and returns, "generated successfully" message, every test step, `result null`, the
 preview and its cut-off fix, "The resource already exists", the two Circuit flows, the Network-tab tip, the AI tip. Preview image types
 re-checked: `ui/func_test_section.dart:253-266`.
+
+## backend.md
+
+What changed for the reader:
+- Intro and the "Part of a backend" table explain migrations, edge functions and buckets by what they mean for the app (R4, R9).
+- "Save your backend into the project": the path table, the replace rule with paths, and "Supabase CLI layout" moved to the for-code
+  file (`#supabase`); the page keeps the `supabase` folder (the dialog itself names `supabase/`, `sb_backend_pull_dialog.dart`) and
+  says in plain words what's saved and what's replaced. One link to `generated-code.md#supabase`. Auth provider settings and secrets
+  explained.
+- "Set up a backend": `supabase/nowa_setup.json` moved (`#supabase`); the page says "the setup note that came with the backend".
+- "Let Nowa AI manage your backend": RLS policies and triggers explained.
+- "Disconnect": file, package and `main.dart` details moved (`#supabase`); the page says the functions are removed and Supabase no
+  longer starts with the app, and what stays. Warning reworded: "you start over with sign-in, sign-up and sign-out only" (the new
+  `SupabaseService` has only those, `supabase_manager.dart:194-239`: an existing class only gets `initialize` again, otherwise a new class with the three).
+
+Added, with evidence:
+- "To finish, set them up in your Supabase project": sign-in settings on **Authentication** → **Sign In / Providers**
+  (https://supabase.com/docs/guides/auth/general-configuration); **Edge Function Secrets**, **Key**, **Value**, **Save**
+  (https://supabase.com/docs/guides/functions/secrets, "Using the Dashboard"). The setup note text is P13-verified (`b.md:88`).
+- "the project's tables weren't made through migrations": from Nowa's own message ("Recreate it through migrations and pull again",
+  `migrations/sb_backend_bundle_service.dart:117-128`).
+- "as Nowa suggests when it's done" (commit the folder): the pull result says "Commit them with the project: whoever copies it can now
+  recreate this backend on their own Supabase." (`migrations/ui/sb_backend_pull_dialog.dart:69-114`, research `features-data.md`).
+
+Kept facts (P13-verified, deliberate): **Pull failed** wording and the raw error (B-2), the reopen workaround (`hasBundleCached`),
+"no dialog opens" (B-3), the `schema_migrations_pkey` workaround (B-1), every dialog label and button, the two images.
+
+Addendum (database.md): the **RLS Policy Error** row now says "today's Supabase dashboard lists policies under **Database** →
+**Policies**": https://supabase.com/docs/guides/api/securing-your-api ("Go to the Database > Policies page in the Dashboard") and
+https://supabase.com/docs/guides/auth/general-configuration ("Policies" links to `/dashboard/project/_/database/policies`). Nowa's card
+itself says "2. Navigate to Authentication → Policies" (`ui/rls_error_widget.dart:79`); see open question 4.
+
+## Open questions (all pages)
+
+1. Anon key retirement (connect.md, above): Nowa 3.13 accepts only the anon key; Supabase is retiring it by the end of 2026.
+2. Use Keys and the table list (connect.md, above): derived from the code and Supabase's changelog; one live check settles it.
+3. Create Record and Update Record may send empty `id`/`created_at` (database.md, above): one live check settles it.
+   `guides/complete-app.md:149` suggests these templates for adding and editing recipes, so it matters there too.
+4. Product text: the **RLS Policy Error** card's step "Navigate to Authentication → Policies" (`ui/rls_error_widget.dart:79`) doesn't
+   match Supabase's docs (Database → Policies). It also shows for missing grants ("permission denied for", `:15`), where policies
+   aren't the fix. The pages work around both; a product fix would be to point at Database → Policies and to mention grants.
+5. Supabase's default table grants are changing (all existing projects from 30 October 2026, discussion 45329). Whether a table made in
+   the Table Editor gets grants automatically isn't documented; the page tells readers what "permission denied" means and how to fix it.
+   Worth a live check on a new project in November.
+6. Tables made with the SQL Editor or the Table Editor leave no migration history, so **Pull Backend Files** fails on such a project
+   until Nowa AI recreates the tables through migrations (backend.md). The database page offers the SQL Editor as the do-it-yourself
+   path; if the docs owner prefers, it could add one line there pointing to backend.md for people who plan to pull later.
+
+## For other pages
+
+| target page (batch) | proposed text | evidence |
+|---|---|---|
+| `integrations/google-sign-in.md` (B08), "Before you start", Supabase bullet | "... and turn on Google as a sign-in provider in your Supabase project (steps: [Sign users in with Supabase](./supabase/auth.md#google))." | My auth.md "Google" section (heading id `google`), from https://supabase.com/docs/guides/auth/social-login/auth-google |
+| `guides/complete-app.md` (B01), sign-in test step (line 64) | After "after you confirm the email if Supabase asks": "(Supabase asks by default, and its built-in email sender only writes to your Supabase team: see [Decide whether new users confirm their email](../integrations/supabase/auth.md#confirm-email))" | https://supabase.com/docs/guides/auth/passwords; https://supabase.com/docs/guides/auth/auth-smtp |
+| `guides/data-and-state-tips.md` (B01), line 43 "or create them in Supabase" | Link "create them in Supabase" to `../integrations/supabase/database.md#create-a-table` | New section with the Table Editor and SQL Editor steps |
+| `integrations/stripe.md` (B09), "Before you start", the table bullet | Add "See [Create a table](./supabase/database.md#create-a-table)." | Same |
+| `troubleshooting/known-issues.md` (B12) | New entry "Supabase tables don't load with Use Keys": "Since April 2026, Supabase no longer gives the table list to the anon key, so with **Use Keys** the **Tables** page shows "Error fetching tables: … Access to schema is forbidden" and **Query Templates** stays on **No Tables Found**. Authorize Nowa once: ⋮ → **Change API Keys** → **Connect**, then **Select** the same project. See [Connect with keys](../integrations/supabase/connect.md#connect-with-keys)." | connect.md evidence above (code + Supabase changelog); not seen live (open question 2) |
+
+New anchors on my pages that other pages may use: `connect.md#find-your-url-and-anon-key`, `auth.md#confirm-email`, `auth.md#google`,
+`database.md#create-a-table`, `database.md#ask-nowa-ai`, `storage.md#create-a-bucket`, `storage.md#policies`. All earlier anchors stay
+(`#create-a-new-supabase-project`, `#if-something-goes-wrong`, `#login-screen`, `#test-a-function`, `#edit-code`, `#live-queries`,
+`#nowa-ai`, `#disconnect-supabase`); a link check over the five pages and the three pages that link into them found no broken link.

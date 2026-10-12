@@ -233,3 +233,64 @@ For other pages:
   not for a step's argument field (link menu without library categories, `field_link_menu.dart:341`). If those
   pages suggest picking a constant into a field from that category, they should say **Custom Expression...**
   instead. No change proposed beyond a check.
+
+## admob.md
+
+What changed for the reader:
+- Moved to for-code (#admob): the package name and `main()` line, the manifest / `Info.plist` / SKAdNetwork sentence,
+  the `main()` line in "Turn AdMob off". Plain consequences kept: "Nowa sets AdMob up in your app and starts it each
+  time your app opens" (main statement, `packages/core/lib/src/interpreter/packages/integrations/admob_package_config.dart:20-27`),
+  "Nowa puts each ID where its platform needs it" (`:28-47`), "removes your App IDs" on turn-off
+  (`package_config_service.dart:146-160`). One link to `../code/generated-code.md#admob`.
+- Kept (R3): `NowaAdBannerWidget` (shown in **Details** and the Outline), `loadAndShowInterstitialAd` (picked in
+  Circuit), now introduced as "the `loadAndShowInterstitialAd` step". The intro no longer names the function.
+- R9: why ads (earn from a free app), what a banner and a full-screen ad are, why test ads matter.
+
+Added (no old page; batch note asked for plain-words consequences and the third-party steps readers need):
+- AdMob unpublished app setup: **Apps** → **Add app** → platform → **No** → name, user metrics → **Add**:
+  https://support.google.com/admob/answer/9989980.
+- Ad units: **Apps** → app → **Ad units** → **Get started** / **Add ad unit** → **Select** for **Banner** or
+  **Interstitial** → name → **Create ad unit**: https://support.google.com/admob/answer/7311346 (banner),
+  https://support.google.com/admob/answer/7311435 (interstitial, also "natural breaks & transitions ... after level
+  completion").
+- Finding IDs: **Apps** → **View all apps** (App ID column); app → **Ad units** (ad unit column):
+  https://support.google.com/admob/answer/7356431.
+- Test ads reason: "If you click on too many ads without being in test mode, you risk your account being flagged for
+  invalid activity": https://developers.google.com/admob/flutter/test-ads.
+- Limited ad serving until the app readiness review, link the app to its store listing:
+  https://support.google.com/admob/answer/9989980. app-ads.txt on the developer website in the store listing:
+  https://support.google.com/admob/answer/9363762.
+
+Open questions:
+- Privacy and tracking for ads (Apple guideline 5.1.2(i), Nowa's **User Tracking** iOS permission, Google's
+  advertising ID rule; raised in W21 notes): not added, as nothing in Nowa's AdMob setup ties to them. Worth a
+  decision whether the page should point to them.
+
+## google-maps.md
+
+What changed for the reader:
+- Moved to for-code (#google-maps): package name, "iOS minimum version is at least 14.0" (kept as "your app then
+  needs iOS 14 or later", `minIosVersion: '14.0'`), the "Where Nowa writes it" table (manifest, `AppDelegate`,
+  `index.html`), "platform entries" on turn-off. Plain: "Nowa puts each key where its platform needs it, so you don't
+  have to touch any project files" (`packages/core/lib/src/interpreter/packages/integrations/google_maps_package_config.dart:12-47`).
+  One link to `../code/generated-code.md#google-maps`.
+- R9: everyday examples (shop location, city guide); "That's where the map opens" after the camera step.
+
+Added (no old page; Google Cloud key steps the reader needs, verified on official pages):
+- Create project (**Create Project**), billing required, enable APIs (**ENABLE** on the Maps API Library page),
+  **Google Maps Platform** → **Credentials** → **Create credentials** → **API key**, **API key created** dialog,
+  **Close**: https://developers.google.com/maps/get-started. Product names **Maps SDK for Android**, **Maps SDK for
+  iOS**, **Maps JavaScript API**: Google's Maps docs (same site).
+- Fee exists, no amounts (D3): "Google bills map use beyond a free allowance" — the pricing tables list a "Free
+  usage" range then billed ranges: https://developers.google.com/maps/billing-and-pricing/pricing.
+- Restrictions: **Key restrictions** → **Set an application restriction** → **Android apps** (package name + SHA-1),
+  **iOS apps** (bundle ID), **Websites** (referrer), **Save**; a key with an application restriction can't be used on
+  other platforms: https://developers.google.com/maps/api-security-best-practices. Nowa's **Bundle Identifier** is the
+  Android package name and the iOS bundle ID (`docs/publish/index.md#app-details`, `docs/publish/android.md` "Nowa
+  uses the Bundle Identifier as your Android package name"); the signing key's SHA-1 with a copy button is on the
+  Deployment page (`docs/publish/android.md#create-a-signing-key`).
+
+Open questions:
+- An Android key restricted to the release SHA-1 won't work in debug runs on an emulator (debug certificate). The
+  page says "before you publish, restrict"; if readers hit a blank map on an emulator after restricting, a sentence
+  could say to restrict after testing or to add the debug fingerprint. Not verified in a run.

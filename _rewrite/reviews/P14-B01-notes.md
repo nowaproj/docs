@@ -326,7 +326,7 @@ For the reader:
   a state-by-state description in plain words (coverage: old `getting-started/quickstart.md`, "Example prompt").
   It's a prompt pattern, not a product claim; the check is to play the screen and try each case.
 - "Edit by hand in between": "Nowa applies your code edits before it sends a request, so Nowa AI works from your
-  latest code" became "Nowa AI always works from your latest version, including the changes you just made by hand"
+  latest code" became "Nowa AI always works from your latest version, including the changes you've made by hand"
   (the reader edits visually, not in code).
 - Checkpoints: `.nowa/temp/` moved to the for-code file (R2); the page keeps the consequence: "Git doesn't save them.
   Keep a Git commit or a downloaded copy of any version you want to be able to return to."
@@ -419,3 +419,40 @@ Open questions: none.
    (`packages/core/lib/src/file_system/templates/common/app_state_template.dart:28-35`); applying a theme sets that
    starting value (`packages/core/lib/src/project/env_services/theme_service.dart:114-140`, `_applyThemeToGetterDefault`).
    Same fact on `docs/design/theme-styles.md`.
+
+## For other pages
+
+1. **`docs/code/local-projects.md` (B15)**, near the intro or "Before you start". The old docs
+   (`local-project-simulator/createlocalproject.md` "Offline mode", `getting-started/install.md` "Work offline")
+   promised offline work; 3.13 needs a connection. Proposed text: "Local projects still need an internet connection:
+   Nowa checks your account with its servers when you open the dashboard or a project." Evidence: every signed-in
+   route runs `_authorize` (`lib/router.dart:176`, `:248`, `:280`, `:307`, `:317`), which calls the server for the
+   version (`lib/router.dart:55`, `packages/core/lib/src/services/version_service.dart:98-103`) and your profile
+   (`packages/core/lib/src/services/user_service.dart:81-83`); errors redirect to sign-in or **No Internet Connection**
+   (`lib/router.dart:86-111`). The same line is now on `get-started/cloud-and-local.md` and `get-started/desktop-app.md`.
+2. **`docs/troubleshooting/index.md` (B12)**, section "No Internet Connection". By the code, starting the desktop app
+   offline more likely lands on the sign-in page than on **No Internet Connection**: the redirect checks the version
+   first with package:http (`packages/core/lib/src/services/version_service.dart:98-99`, via
+   `packages/core/lib/src/services/http.dart:8-16`), and that error isn't a `DioException`, so the generic `catch`
+   sends you to `/signin` (`lib/router.dart:108-111`). **No Internet Connection** appears only when the version check
+   passes and the profile call (Dio) then fails with no connectivity (`lib/router.dart:86-91`). Proposed addition:
+   "If you start the desktop app without a connection, it may open the sign-in page instead. Connect to the internet,
+   then sign in again or restart Nowa." Not tried live (code reading only); worth a product issue entry too.
+
+No items for the `account/*` pages: everything from old `getting-started/install.md` about the dashboard, sidebar,
+workspaces and project creation is covered there with current labels (see the coverage file).
+
+## Open questions
+
+- Startup offline goes to sign-in rather than **No Internet Connection** (code reading, see "For other pages" item 2).
+  Candidate product issue; the pages in this batch avoid naming either screen.
+- `guides/complete-app.md` is about 2,300 words of visible text, a little over the ~2,200 mark. Split proposal in its
+  notes section (part 1: design and sign-in; part 2: data, detail screen, publishing).
+
+## Routed from B04 (applied)
+
+1. `guides/design-tips.md`, Name things clearly, **Boards** bullet: "snake_case" was already replaced in this batch;
+   the page reads "Nowa writes the name in lowercase with underscores, so **Login flow** becomes `login_flow`." Kept
+   (the reader sees that name in the **Boards** chip list). Evidence: `packages/designer/lib/src/actions/file_actions.dart:61-66`
+   (new board file named with `generateFileName`), `packages/core/lib/src/file_system/naming.dart:158-163`
+   (`Cases.snakecase`).

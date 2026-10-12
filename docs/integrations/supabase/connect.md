@@ -5,7 +5,7 @@ sidebar_label: Connect
 keywords: [Supabase, connect Supabase, Connect, Use Keys, Authorize Nowa, organization, API Url, Project URL, anon key, legacy API keys, Create New Project, Supabase project, backend, database, row level security, RLS, SupabaseService, Supabase panel, Change API Keys, Tables]
 ---
 
-Supabase is a ready-made backend for your app. It signs people in, keeps your app's data in a database and stores files such as photos, so you don't need a server of your own. Connect a Supabase project once and Nowa wires it into your app, so you can be testing sign-up and saving data within minutes.
+Supabase is a ready-made backend for your app. It signs people in, keeps your app's data in a database and stores files such as photos, so you don't need a server of your own. Connect a Supabase project once and Nowa wires it into your app, so you can start testing sign-up and saving data right away.
 
 | Part of Supabase | What it does for your app | Learn more |
 |---|---|---|
@@ -22,7 +22,7 @@ Supabase is a ready-made backend for your app. It signs people in, keeps your ap
 
 | | **Connect** | **Use Keys** |
 |---|---|---|
-| You give Nowa | Permission to use your Supabase account, in a browser step | Your project URL and anon key |
+| You give Nowa | Permission to use your Supabase account, in a browser step | Your project URL and anon key (the public key your app uses to reach Supabase) |
 | Pick or create the project in Nowa | Yes | No, create it in Supabase first |
 | Your list of tables (**Tables**, **Query Templates**) | Works | Needs the browser authorization from **Connect** (see [Connect with keys](#connect-with-keys)) |
 | [Backend files](backend.md) and [Nowa AI's Supabase connector](../../ai/connectors.md) | Work right away | Nowa asks you to authorize the first time you use them |
@@ -143,7 +143,7 @@ Nowa has no table editor. Create and change tables in Supabase, or ask Nowa AI t
 | What you see | What to do |
 |---|---|
 | Authorization timed out. Please try again. | Nowa waits two minutes for the browser step. Click **Cancel**, then **Connect** again, and finish the browser step in time. |
-| Failed to create project: … | The form shows the reason Supabase gave, in an **Error** box. Fix it and click **Create Project** again, or click **Back** and pick an existing project. |
+| Failed to create project: … | The form shows the reason that came back, in an **Error** box. Fix it and click **Create Project** again, or click **Back** and pick an existing project. |
 | Anon key not found for project … | Nowa couldn't read an anon key for that project. Supabase now calls it a legacy key: in the project's **Settings** → **API Keys**, check that the project has one and that its legacy keys aren't turned off. |
 | Using the new Supabase keys is not currently supported, please use the anon key. | You pasted a publishable or secret key. Paste the project's anon key into **Key** (see [Find your URL and anon key](#find-your-url-and-anon-key)). |
 | Error fetching tables: … Access to schema is forbidden | You connected with **Use Keys**, and Supabase no longer shares the table list with the anon key. Authorize Nowa once: ⋮ → **Change API Keys** → **Connect**, then **Select** the same project. |

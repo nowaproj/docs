@@ -2,7 +2,7 @@
 title: Known issues
 description: Platform limits and editor quirks you may run into when you use Nowa, why they happen, and the quickest way around each one.
 sidebar_label: Known issues
-keywords: [known issues, limitations, Windows, Firebase, Firestore, test query, Firebase console query builder, Apple sign-in, Google Maps, AdMob, CORS, desktop app, Linux, rename variable, Shift drag, slash, route path, detach component, app bar drag, Connect Apps, firebase_options, InvalidType, Figma, Waiting for Authorization, Redirect Logic]
+keywords: [known issues, limitations, Windows, Firebase, Firestore, test query, Firebase console query builder, Apple sign-in, Google Maps, AdMob, CORS, desktop app, Linux, rename variable, Shift drag, slash, route path, detach component, app bar drag, Connect Apps, firebase_options, InvalidType, Figma, Waiting for Authorization, playground, AI chat grey box, Add context, Redirect Logic]
 ---
 
 A few things work differently depending on where you run Nowa or your app, and a few editor actions need a workaround
@@ -105,6 +105,10 @@ After you turn on Firebase **Authentication**, the status bar can show a cut-off
 ## Connecting Figma doesn't work right now {#figma-connect}
 
 When you click the Figma icon in the chat field, or **Connect** next to Figma in your account settings, **Waiting for Authorization...** appears but no browser window opens, so Figma can't be linked. Click **Cancel**. Linking fails for every account, so until it's fixed you can't turn on the Figma connector unless your account was already linked to Figma. See [Connect Figma and Supabase to Nowa AI](../ai/connectors.md#connect-figma).
+
+## The AI chat shows a grey box in the playground {#playground-ai-toolbar}
+
+In the playground, before you sign in, the toolbar under the chat field can show as a grey box, and the mode menu and **Add context** don't open. Nowa AI needs an account anyway, and you can still get there: type your message and press <kbd>Enter</kbd>, and Nowa asks you to sign in. See [Try Nowa without an account](../get-started/playground.md).
 
 ## The Redirect Logic row keeps showing + {#redirect-logic-plus}
 

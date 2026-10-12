@@ -100,7 +100,7 @@ Status values: `covered` (page#section) / `added` (page#section) / `obsolete` (c
 | # | Item | Status | Where / evidence | Note |
 |---|---|---|---|---|
 | 1 | Local projects: clone a GitHub repo locally and open it, or create a local repo and push it | covered | `import.md#clone-from-github` (**Local-only**), `import.md#import-a-project-from-a-folder`, `github.md#connect-a-repository` | |
-| 2 | Why clone into the cloud: work anywhere, deploy, share web versions, one-click deploys | covered | `get-started/cloud-and-local.md#the-difference-at-a-glance` | The "12-hour" web version figure belongs to the publish/test pages (B11/B12); `publish/web.md` shows **Expires In:** |
+| 2 | Why clone into the cloud: work anywhere, deploy, share web versions, one-click deploys | covered | `get-started/cloud-and-local.md#the-difference-at-a-glance`; web expiry: `publish/web.md` (**Expires In:** countdown) | The old "12-hour" figure isn't in the client: the expiry comes from the server (`env.expiresAt`, `packages/core/lib/src/web_deploy/web_deploy_widgets/environment_card.dart:64-70`), so no number is proposed |
 | 3 | Steps: authenticate, copy the HTTPS link, Cloud Projects → New Project → Clone from GitHub, paste, confirm | obsolete (flow) / covered | No URL field: `lib/dashboard/create_new_project/github_clone_dialog.dart:199-315`; `import.md#clone-from-github` | |
 | 4 | The cloud project stays linked to the repository: commit, push, pull, branches right away | added | `import.md#clone-from-github` ("stays connected, so Sync works right away") | Clone keeps `origin`: `packages/git_nowa/lib/src/local/local_git_service.dart:125-131` (git clone), cloud clone `start_project_provider.dart:97-105` |
 | 5 | Push a cloud project: create a new repository on GitHub (New repository, name, visibility) | covered + added | Nowa creates it: `github.md#connect-a-repository`; GitHub-side steps for the token route (empty repository, no README) added in `github.md#connect-a-repository` | https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-new-repository ; About Git ("Do not initialize the repository with a README, .gitignore or License file") |
@@ -177,7 +177,7 @@ Status values: `covered` (page#section) / `added` (page#section) / `obsolete` (c
 | 9 | Local to Cloud: choose workspace, Clone to Cloud | covered | same | |
 | 10 | Warning: the wrong direction can overwrite your work; check before Proceed with Sync | covered | same (Sync Warning, back up first) | Reworded warmer |
 | 11 | Sync from cloud or from local, direction shown, Proceed with Sync | covered | same | |
-| 12 | Unlink when you linked the wrong project; confirm; then asked whether to sync | covered + obsolete | Unlink covered; the use case added; no follow-up sync question in 3.13 (`packages/core/lib/src/settings/project_sync_settings.dart:180-191,433-460`) | "Remove link" when the linked copy can't load added (`:200-209`) |
+| 12 | Unlink when you linked the wrong project; confirm; then asked whether to sync | covered + added (follow-up question obsolete) | Unlink covered; the use case added; no follow-up sync question in 3.13 (`packages/core/lib/src/settings/project_sync_settings.dart:180-191,433-460`) | "Remove link" when the linked copy can't load added (`:200-209`) |
 
 ## Totals
 

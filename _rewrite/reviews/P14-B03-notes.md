@@ -11,6 +11,23 @@ and `#project-menu`, `workspaces.md#invite-people` (heading text unchanged), `pl
 `help.md#report-an-issue`, plus the in-section anchors `help.md#notifications`, `#hire-an-expert`, `#share-feedback`,
 `projects.md#find-a-project`, `plans-and-usage.md#invite-a-friend`. Images and alt texts are untouched.
 
+## Summary
+
+| Page | Words before → after (prose) | Facts moved (R2) | Old-docs items added |
+|---|---|---|---|
+| `index.md` | 564 → 620 | 0 | 0 |
+| `projects.md` | 1,206 → 1,434 | 2 | 0 |
+| `project-settings.md` | 1,168 → 1,869 | 4 | 0 |
+| `account-settings.md` | 742 → 919 | 0 | 1 (privacy and data ownership) |
+| `workspaces.md` | 777 → 843 | 0 | 0 |
+| `plans-and-usage.md` | 1,020 → 1,388 | 0 | 0 (items 6-10 of `ai/price.md` were covered elsewhere; now also gathered in "What your plan includes") |
+| `help.md` | 709 → 788 | 0 | 0 |
+| **Total** | | **6** | **1** |
+
+Before = commit `9f21e4c` (PR #18); after = this pass. All pages keep 2 admonitions or fewer, no em dashes, no `---`
+rules, images and alt texts untouched. Every relative link and anchor on the seven pages resolves, and so does every
+link into them from other pages (checked with a script on 2026-10-12).
+
 ## project-settings.md
 
 **For the reader (R1-R4, R9).**
@@ -75,7 +92,7 @@ files...". One pointer added: "Working in the code? What Nowa adds to your code"
   (`left-out.md:75` recommended not documenting the New UX parts)? I kept the row because the flag is visible in every
   project and readers who flip it need the warning.
 
-Word count after the pass: about 1,780 (was 1,402).
+Word count (prose, same counter for all pages): 1,168 before, 1,869 after. Under the ~2,200 limit; if it must shrink, "Set permissions" (with its table and tip) is the natural part to move to its own page, `account/permissions.md`.
 
 ## projects.md
 
@@ -110,7 +127,7 @@ No pointer to the code section on this page (none needed).
 | Matching-folder button, **Remove from projects**, **Back to dashboard**, **Try again** for cloud (kept) | `lib/project/missing_project_folder.dart:39-44,90-126` |
 | Monorepo wording | `code/import.md#work-with-a-monorepo` (workspace members or packages in `packages/`/`apps/`) |
 
-Word count after the pass: about 1,330 prose words (was 1,256).
+Word count (prose): 1,206 before, 1,434 after.
 
 ## plans-and-usage.md
 
@@ -224,3 +241,38 @@ facts, labels, links and anchors kept.
 |---|---|
 | The desktop app is needed for local projects and to run the real app on a phone or emulator | `get-started/cloud-and-local.md` table (local projects: desktop app only; "Run on devices and emulators: Yes, with the desktop app"), `test/devices.md` ("The web app can't reach the devices on your computer."); `packages/core/lib/src/settings/project_settings.dart:29`, `lib/dashboard/create_new_project/new_project_dialog.dart` (local option disabled on the web) |
 | The automatic dashboard dialogs don't change projects | the four dialogs are an update prompt, the onboarding survey, the rating dialog and an upgrade offer (kept list; `_rewrite/research/features-account-projects.md` "Dashboard pop-ups"); none writes project files |
+
+## For other pages
+
+None of these come from an old-docs item that another batch owns; they are follow-ups from facts verified in this pass.
+
+1. **`docs/troubleshooting/known-issues.md` (P14-B12): add the New UX double-click bug.** Proposed text:
+   "### Double-clicking on the board doesn't work {#new-ux-double-click}
+   If you turned on the **New UX** experimental flag, double-clicking on the board doesn't go one level deeper or start
+   editing a text. Turn the flag off: open **Settings** (the gear in the top bar) → **Project Details** →
+   **Experimental flags** → **Edit**, switch off **New UX** and click **Apply**. Nowa reopens your project. See
+   [Experimental flags](../account/project-settings.md#experimental-flags)."
+   Evidence: `packages/designer/lib/src/design_experience/designer_board_controller.dart:104-121,361-366,414-419`
+   (`UnimplementedError('Drill into component is not implemented yet')` whenever New UX is on);
+   `packages/core/lib/src/settings/experimental_flags_dialog.dart:30-39,67-79,100-106`; `_rewrite/left-out.md:75`.
+2. **`docs/get-started/create-account.md` (P14-B01), optional:** after the step "Tick **I accept the terms &
+   conditions**", add: "The link opens Nowa's [Terms and Conditions](https://nowa.dev/terms-and-conditions/). How Nowa
+   handles your personal information is in the [Privacy Policy](https://nowa.dev/privacy-policy/); see also [Your data
+   and privacy](../account/account-settings.md#your-data-and-privacy)." Evidence: `lib/auth/auth_view.dart:496-512` and
+   `lib/auth/google_signup.dart:105` (link to https://www.nowa.dev/terms-and-conditions, which redirects to
+   https://nowa.dev/terms-and-conditions/); Privacy Policy URL checked with curl (the old https://www.nowa.dev/2/privacy
+   redirects to it).
+3. **`docs/ai/index.md` (P14-B02), optional:** in "Usage and credits", after the pricing link, add "To see which
+   features depend on your plan, see [What your plan includes](../account/plans-and-usage.md#what-your-plan-includes)."
+   Evidence: the new section (all rows tied to `packages/core/lib/src/billing/entitlement_keys.dart`).
+
+## Open questions (all pages)
+
+1. **New UX flag** (`project-settings.md#experimental-flags`): it hides the board toolbar and breaks double-click on
+   the board in 3.13. The row now warns about both and says the docs assume it's off. Keep documenting it, or drop the
+   row as `left-out.md:75` once suggested?
+2. **load packages** dialog copy is out of date (it talks about loading packages from `pubspec.yaml` and longer load
+   times; in 3.13 it only gates Nowa AI adding packages). Product copy fix?
+3. **Privacy wording**: the docs paraphrase the Terms ("you keep ownership of the content you create") and the Privacy
+   Policy (what's collected; access, correction and deletion via team@nowa.dev). The policy calls itself "not a legal
+   document" (section 8) and was last updated 22 May 2024. OK to point to it this way?

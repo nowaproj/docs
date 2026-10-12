@@ -169,6 +169,19 @@ Facts, anchors and workarounds of every entry kept (3.13.0 as shipped). Changes:
 
 **Open questions**: none.
 
+- **Routed from B02**: new entry `#playground-ai-toolbar` ("The AI chat shows a grey box in the playground"),
+  product issue P50. Confirmed in code: signed out, `BillingProvider` is never initialized
+  (`packages/core/lib/src/billing/billing_providers.dart:39-52, 79-82, 111-113`), and the toolbar's agent picker
+  calls `getGrantSync` in its build (`packages/ai/lib/src/ui/chat_field/ai_chat_field.dart:1026-1028`, inside
+  `ChatControlBar`, `:311-357`), which throws "BillingProvider is not initialized" (the grey box and status-bar text the
+  capture agents saw live, P50). Enter still works: the key handler sits on the text field, outside the toolbar
+  (`ai_chat_field.dart:72-84`), and calls `sendMessage()`, which in the playground runs `SandboxSession.requestAuth()`
+  first (`packages/ai/lib/src/chat_session.dart:256-264`; `packages/core/lib/src/project/sandbox_session.dart:35-42`;
+  handler `ensureSignedIn` → sign-in dialog, `lib/sandbox/sandbox_save.dart:82`, `lib/auth/save_prompts.dart:21-30`).
+  Not claimed: that the toolbar recovers after signing in from the playground (`BillingProvider.onUserChanged` runs
+  in the router's `_authorize`, `lib/router.dart:45-63`, which the sign-in dialog may not pass through). Enter path
+  is from code reading, not tried live.
+
 ## test/problems.md
 
 **What changed for the reader**

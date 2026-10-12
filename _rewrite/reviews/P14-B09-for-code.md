@@ -58,4 +58,4 @@ From `integrations/firebase/notifications.md`:
 
 Added (new, verified; not moved text):
 
-- Nowa writes no `aps-environment` entitlement for push (no match for `aps-environment` in `lib/` or `packages/`); the Push Notifications capability has to be added to the Runner target (Xcode's **Signing & Capabilities**, as the in-app note says, `packages/data/lib/src/firebase/setup/views/notification_settings.dart:98`).
+- The Nowa client code writes no `aps-environment` entitlement for push (no match for `aps-environment` in `lib/` or `packages/` of `nowa-master`); the in-app note asks for the Push Notifications capability in Xcode's **Signing & Capabilities** (`packages/data/lib/src/firebase/setup/views/notification_settings.dart:98`). Whether the server-side iOS project template already has the entitlement was not checked (not in this repo).

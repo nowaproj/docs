@@ -4,7 +4,26 @@ Verifier: P14-B07-V. Diff reviewed: `git diff origin/main` for the six `docs/log
 Code refs are relative to `/home/user/nowa-master` (3.13.0, `3cb32031c`) unless marked otherwise. Flutter SDK refs are
 under `/home/user/flutter`; package refs are under the pub cache (`/root/.pub-cache/hosted/pub.dev/`).
 
-(In progress: sections are appended page by page.)
+## Summary
+
+- **Pages checked:** 6 (`expressions`, `navigation`, `router`, `popups`, `actions`, `models`), every `+` and `-` line of
+  the diff, plus the audience rules on the unchanged text.
+- **Claims checked:** about 120, in 74 table rows below (labels, steps, defaults, behavior, the 37 date formats run
+  through intl 0.20.2, both product bugs, the Supabase expression).
+- **Fixed (9):** popups: a snackbar with an **Action** no longer goes away by itself (Flutter 3.44 `persist`), so the
+  **Action**/**Duration** rows were wrong by omission; the default AlertDialog has only a title; the date example's
+  closing line (a closed picker makes `format` fail with a null-check error, not "keep the old text"); "set **Type** to
+  `bool`" (it already is); `showBottomSheet` can't open from a screen's own logic in a running app (caution added).
+  actions: `SystemSound` `tick` is iOS-only and `alert` desktop-only; `showAboutDialog` shows a version only if you fill
+  one in; `print` output "never seen by people" → "never on your app's screens". expressions: the **OPERATORS** category
+  also lists five bitwise operators (named, with "most apps never need them").
+- **Removed:** 0. **Facts restored:** 0 (all 11 moved facts checked; nothing the reader needs was lost).
+- **Audience fixes (5):** plain glosses for `bool`, `equal`, `first`/`readAsBytes` (popups) and `context` (router);
+  plus two tightenings (popups intro, navigation "How screens stack").
+- **Confirmed in code:** both writer-found product bugs (snackbar **Width**/**Margin** without **Behavior**; media picker
+  camera default vs desktop Play) and the Supabase redirect expression (bindings, name resolution, import on save).
+- **Open issues:** 4 (see the end): live runs of the examples, product issues for the orchestrator (one new), one
+  coverage label, length.
 
 ## logic/popups.md
 
@@ -16,7 +35,7 @@ under `/home/user/flutter`; package refs are under the pub cache (`/root/.pub-ca
 | **Duration** 4 s | ok, fixed scope | `snack_bar.dart:29,290`; interpreter default `material_library.dart:66493` | **New finding:** in Flutter 3.44 a snackbar with an **Action** persists (`persist = persist ?? action != null`, `snack_bar.dart:303`; timer skips hide, `scaffold.dart:617-624`), and Nowa passes `persist` unset (`material_library.dart:66494,66516`). Added to the **Action** row ("stays until someone taps the button or swipes the bar down", `DismissDirection.down`, `snack_bar.dart:800`); **Duration** row now says "a bar without an action" |
 | "Use what the person chose": **await**, **Store result** → **New Variable** (`var1`), **onValue** with `value`, **+** button | ok | `packages/code/lib/src/fields/future_options.dart:45-111`, `packages/code/lib/src/fields/store_result_field.dart:15-27,121-125` | |
 | If guard: **Add If statement**, **Condition**, **Custom Expression...**, **True** branch | ok | `packages/code/lib/src/widgets/add_statement_menu.dart:70`, `packages/code/lib/src/fields/statement_fields.dart:41-49`, `packages/core/lib/src/fields/field_link_menu.dart:353`, `packages/code/lib/src/models/if_node.dart:61-67` | |
-| `showDialog`: **MATERIAL**, AlertDialog default | fixed | `packages/core/lib/src/interpreter/block_utils.dart:244-254` | default has only the title "Hello World"; "a ready-made dialog with a title, a message and buttons" → "with room for ... It starts with just the title" |
+| `showDialog`: **MATERIAL**, AlertDialog default | fixed | `packages/core/lib/src/interpreter/block_utils.dart:244-254` | default has only the title "Hello World"; "a ready-made dialog with a title, a message and buttons" → "with room for ... At first it has only the title" |
 | Brush tooltip **Edit AlertDialog**; **Builder** → **Pick Widget** / **Edit in circuit** | ok | `packages/core/lib/src/fields/nowa_fields.dart:466`, `packages/core/lib/src/fields/basic_fields.dart:449-473` | |
 | Dialog options and defaults (**Barrier Dismissible** on, **Use Safe Area** on, **Barrier Label**, advanced four) | ok | `packages/core/lib/src/interpreter/libraries/material_library_custom.dart:3159-3186`; https://api.flutter.dev/flutter/widgets/ModalRoute/barrierLabel.html | |
 | "Use your own design": **Alert Dialog** in Library, **Create component** | ok | `packages/core/lib/src/widgets_to_add/widgets_to_add.dart:847-859`, `packages/designer/lib/src/menus/widget_context_menu.dart:49`, `docs/design/components.md#create-a-component` | |

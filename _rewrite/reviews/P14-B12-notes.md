@@ -12,6 +12,9 @@ Batch: `test/index.md`, `test/instant-play.md`, `test/run.md`, `test/devices.md`
   needs (desktop app, Flutter, Android toolchain, Android emulator, Xcode, Android Studio), what each is and whether
   the reader needs it, plus one paragraph on the desktop targets (your computer as a device). The old "Before you
   start" list is folded into it and into **Set up your computer** (numbered steps; links to B01's detailed setup).
+- Anchor `#before-you-start` is gone (its prerequisites moved into **What your computer needs** and **Set up your
+  computer**). Nothing links to it: no hit in `docs/`, `src/`, `redirects.js` or the app's links
+  (`_rewrite/research/app-links.txt`). All other pre-phase-14 anchors on the batch pages still resolve.
 - "No desktop app?" keeps its anchor; the web-app **Run on** row ("iOS & Android devices" / "Download the desktop
   app") moved to its opening; TestFlight explained in a clause.
 - "Run on a device": steps warmed (why/what happens next); the 3.13 list-refresh workaround (P152) moved out of step 2

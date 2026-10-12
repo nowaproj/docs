@@ -107,3 +107,135 @@ says "derived", it comes from that rule.
 ### Open questions
 
 - The page is about 2,670 readable words, most of it key tables (it was about 2,430 before this pass). If it must shrink, split off "Tabs in code mode" and "Code editor" onto a code-section page (`docs/code/code-mode.md` already links `#code-editor`).
+
+### Routed from B13 (applied)
+
+- Container row: "Its fill sits behind the widget it wraps, so it doesn't tint a picture. To tint one, use the Image's **Color** and **Blendmode** (see [Add an image](./widgets/media.md#image))." Checked: Flutter `widgets/container.dart:334` ("The decoration to paint behind the [child]"); Nowa's Container editor always shows decoration, alignment, padding and margin and other parameters only when they already have a value (`packages/designer/lib/src/details/widget_fields.dart:317-350`, `if (p0.block == null) return false`), so there's no foreground fill to reach for; Image labels **Color** and **Blendmode** (`widget_fields.dart:41-42`); `## Add an image {#image}` exists on `docs/reference/widgets/media.md:24`.
+
+## `docs/reference/glossary.md`
+
+### What changed for the reader
+
+- Warm intro: who the page is for, reassurance that nobody has to learn these by heart, and how to find a word (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>F</kbd>).
+- The page is now sorted into sections: **Nowa words** (the old table), **Building your app**, **Logic and data**, **Backend and services**, **Testing and publishing**, **Code and Git** (marked as optional for people who don't code), then **Renamed or removed**. The old page had no H2 above its table and nothing links to glossary anchors (grep), so no anchor changed.
+- Nowa words: 8 new entries (Api panel, Data Builder, Embedded preview, Instance, Integrations, Node, Router, Template); warmer wording with everyday examples on Board, Circuit, Component, Global state, Screen, Variable, Widget (matching `docs/get-started/welcome.md` "Key terms"); Model rewritten without "data class" and `fromJson`; Wrapper says what it adds.
+- 67 technical terms defined in plain words across the new sections (some rows group two or three related words). Chosen by grepping every page outside `docs/new/` and `docs/legacy/` for Flutter, backend, publishing and Git words and keeping the ones pages actually use (counts and contexts checked; for example `bundle ID` 3 pages, `SHA` 3, `keystore` 1, `emulator` 20, `backend` 19, `query` 19, `JSON` 14, `Future` 14, `RLS` 8, `webhook` 3, `MCP` 4, `CORS` 1, `edge function` 4, `cURL` 6). `Map` was considered and dropped (no page uses it as a type).
+- Every definition avoids code knowledge; type names and Circuit names that the UI shows (`String`, `int`, `double`, `bool`, **refresh**, `notifyListeners`, **await**) are explained (R3).
+- Renamed table: the Move Up/Down/To Top/To Bottom row now pairs each old name with its new one (the old row relied on column order); the widget-picker row says <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>P</kbd> runs the app; new row for the three wrappers whose names changed since the old list.
+- Nothing moved to the code section.
+
+### Routed from B04 (applied, labels checked)
+
+| Entry | How it was merged | Evidence |
+|---|---|---|
+| Constraints | Taken as given, plus one sentence that **Constrained Box** uses the word for min/max size | `packages/designer/lib/src/details/positioned_details.dart:97-100`, `:148-151` (**Left**, **Right**, **Left and right**, **Center**; **Top**, **Bottom**, **Top and bottom**, **Center**); `wrappers_to_add.dart:87-91` |
+| Group | Taken as given | `packages/designer/lib/src/details/group_details.dart:101-120` (Stack, Row and Column buttons) |
+| Instance | Nowa words, with the recipe-card example from `docs/design/components.md:12` | `docs/design/components.md` |
+| Row, Column, Stack | Own row; links `layout.md#pick-the-right-arrangement` (exists, `docs/design/layout.md:12`) | `group_details.dart:101-120` |
+| Fixed, Auto, Expand | Replaced my own draft row | `packages/core/lib/src/layout/layout.dart:388` (`enum SizeType { fixed, auto, expand }`) shown as `val.name.capitalize()` (`packages/designer/lib/src/details/size_fields.dart:154`); `flex_size_field.dart:52-67` |
+
+### Evidence for the other new or changed entries
+
+| Entry | Evidence |
+|---|---|
+| Api panel | Sidebar name `Api` (`lib/project/side_bar.dart:76`); `docs/integrations/rest-api/index.md` |
+| Data Builder (widget and wrapper) | `wrappers_to_add.dart:86`; catalog `docs/reference/widgets/index.md#data-builder`; `docs/integrations/show-data.md` |
+| Embedded preview | `lib/project/run/run_button.dart:604`; `docs/test/run.md` |
+| Integrations (7 names) | `packages/core/lib/src/settings/project_settings.dart:33-40` (Google Maps, AdMob, RevenueCat, Deep Links, Google Sign-In, Stripe) plus Firebase, added by the data plugin (`docs/integrations/index.md:63`); display names in `packages/core/lib/src/interpreter/packages/integrations/*_package_config.dart` |
+| Node, **Show snackbar** | `docs/logic/circuit.md:10`; `packages/core/lib/src/state_management/global_state_suggestions.dart:65` |
+| Router | `docs/logic/router.md` intro (routes, the screen that opens first) |
+| Template | `docs/design/templates.md` intro |
+| Model (rewritten) | `docs/logic/models.md`; **New Model...** unchanged from the old entry |
+| Asset, **Assets** chip | `docs/design/assets.md`; old entry "Assets panel → Assets chip" |
+| Container | `docs/reference/widgets/index.md:27` |
+| Dart, Flutter | flutter.dev home page ("Flutter is an open-source framework for building beautiful, natively compiled, multi-platform applications from a single codebase"); real Flutter code the user owns: `_rewrite/BRIEF.md` "What Nowa is" |
+| Dialog, snackbar, bottom sheet | `docs/logic/popups.md` sections |
+| Localization and RTL | `docs/design/localization.md`; `ltr`/`rtl` values `material_library.dart:81163-81168` |
+| Markdown and HTML widgets | Catalog anchors `#markdown`, `#html` (`docs/reference/widgets/index.md`) |
+| Material and Cupertino under **Built-in** | `docs/design/library.md:26` |
+| Overflow, `ellipsis` | Text's **Overflow** property (`docs/design/properties.md:23`); Flutter `TextOverflow.ellipsis` |
+| Padding and margin | Container editor `padding`, `margin` (`widget_fields.dart:317-350`) |
+| Responsive | `docs/design/responsive.md` |
+| Route `/home` | `docs/logic/router.md`, `docs/logic/navigation.md`; paths start with `/` (`docs/troubleshooting/known-issues.md#slash-in-details`) |
+| Safe area | `wrappers.md#safe-area` |
+| SVG, Lottie, Rive widgets | `docs/reference/widgets/media.md` |
+| Widget tree | `docs/design/outline.md` description |
+| Class, mention with `@` | `docs/reference/shortcuts.md` (Chat table) |
+| Condition, **If** node | `docs/logic/circuit.md:103-109` |
+| Expression | `docs/logic/expressions.md` |
+| Function | `docs/logic/functions.md` |
+| Future, Stream, **await** | `docs/integrations/firebase/firestore.md:57-58` (`get` returns a Future, `snapshots` a Stream that updates live); `docs/logic/circuit.md:95` (**await**) |
+| JSON, models from JSON | `docs/logic/models.md` ("Generate models from JSON") |
+| null, **Set to null** | `docs/design/screens.md:43`; `docs/design/properties.md:68` |
+| **refresh**, `notifyListeners` | `docs/logic/variables.md:72-74`; `docs/logic/global-state.md:33-35`, `:64` |
+| State | `docs/logic/variables.md`, `docs/logic/global-state.md` |
+| Types, **As List** | `docs/logic/variables.md:36-59` |
+| Ad unit ID | `docs/integrations/admob.md:12`, `:31`, `:55` |
+| API, REST API | `docs/integrations/rest-api/index.md` intro |
+| Publishable vs secret keys; anything in the app can be dug out | https://docs.stripe.com/keys ("Only publishable keys are safe to expose outside your application's backend"); `docs/integrations/rest-api/index.md:64`; `docs/integrations/supabase/connect.md:82` |
+| Authentication | `docs/integrations/index.md#add-sign-in` |
+| Backend | `docs/integrations/index.md#choose-a-backend` |
+| Cloud Firestore documents and collections | https://firebase.google.com/docs/firestore/data-model ("you store data in documents, which are organized into collections. Each document contains a set of key-value pairs") |
+| CORS | `docs/troubleshooting/known-issues.md:37-41` |
+| cURL, Swagger, Postman, Xano | `docs/integrations/rest-api/import.md:8`; `docs/ai/prompting.md:59` |
+| Deep link, URL scheme `myapp://` | `docs/integrations/deep-links.md:3`, `:8`, `:14` |
+| Edge Function | `docs/ai/connectors.md:43`; `docs/integrations/supabase/connect.md:116`; Stripe secret key kept on Supabase (`docs/integrations/stripe.md:43`) |
+| Endpoint, methods, base URL | `docs/integrations/rest-api/index.md:49`, `:64` (methods GET, POST, PUT, DELETE, PATCH, HEAD; base URL) |
+| Entitlement, offering | `docs/integrations/revenuecat.md:21-22`; https://www.revenuecat.com/docs/getting-started/entitlements ("Entitlements represent a level of access, features, or content that a user is 'entitled' to") |
+| Firebase, **Settings** → **Integrations** → **Firebase** | `docs/integrations/index.md:16` |
+| In-app purchase, subscription | `docs/integrations/index.md#stripe-or-revenuecat` |
+| MCP | https://modelcontextprotocol.io/docs/getting-started/intro ("an open-source standard for connecting AI applications to external systems"); `docs/ai/connectors.md:12`, `:20`; `docs/ai/external-agent.md` |
+| Migration | https://supabase.com/docs/guides/deployment/database-migrations ("SQL statements that create, update, or delete your existing database schemas ... tracking changes to your database over time"); `docs/integrations/supabase/backend.md:30` |
+| OAuth, client ID | `docs/integrations/google-sign-in.md` intro ("Google OAuth client IDs") |
+| Package, pub.dev, dependency, **Add Missing Dependencies** | `docs/code/packages.md:8`, `:28`; `docs/design/add-widgets.md:29` |
+| Paywall, **RevenueCat Paywall** | `docs/integrations/revenuecat.md:8` |
+| pubspec.yaml updated when you add packages | `docs/code/packages.md:28`, `:37` |
+| Push notification, **Push Notifications (FCM)** | `packages/data/lib/src/firebase/setup/views/notification_settings.dart:43`; https://firebase.google.com/docs/cloud-messaging ("a cross-platform messaging solution that lets you reliably send messages"); `docs/integrations/firebase/notifications.md:8` |
+| Query | `docs/integrations/firebase/firestore.md`, `docs/integrations/supabase/database.md` |
+| Request, response, header | `docs/integrations/rest-api/index.md` intro (headers, sign-in token) |
+| Row Level Security, policies | https://supabase.com/docs/guides/database/postgres/row-level-security ("granular authorization rules that run inside the database"; "Each policy is attached to a table"; example "Individuals can view their own todos"); `docs/integrations/supabase/connect.md:82` |
+| SDK, Flutter SDK | `docs/test/devices.md#what-your-computer-needs`; `docs/get-started/desktop-app.md#setting-up-flutter-sdk` |
+| SQL via the Supabase connector | `docs/ai/connectors.md:37-43` |
+| Storage bucket, policies | `docs/integrations/supabase/storage.md:13-15`; https://supabase.com/docs/guides/storage/buckets/fundamentals (access via RLS policies; profile pictures as a use case) |
+| Supabase panel | `docs/integrations/index.md:16` |
+| Webhook | `docs/integrations/stripe.md:8`; https://docs.stripe.com/webhooks ("Receive Stripe events in your webhook endpoint") |
+| APK, AAB, IPA | `docs/publish/android.md:25`, `:66-68`; `docs/publish/ios.md:61-62`; https://developer.android.com/guide/app-bundle ("a publishing format ... Google Play uses your app bundle to generate and serve optimized APKs") |
+| App Store Connect | https://developer.apple.com/app-store-connect/ ("upload, submit, and manage your apps on the App Store ... invite users to test your apps and games with TestFlight"); `docs/publish/ios.md:23`, `:61` |
+| Build, cloud builds | `docs/publish/builds.md`; `docs/publish/ios.md:8` |
+| Bundle Identifier vs **Package Name** | `docs/publish/index.md#app-details` (and the note on **Package Name** below its table); `docs/integrations/firebase/connect.md:14` |
+| Debug and release builds, **Debug mode** | `docs/publish/android.md:8`, `:23`, `:31` |
+| Distribution certificate | `docs/publish/ios.md:39` |
+| Domain, DNS records | `docs/publish/web.md:55-64` |
+| Emulator, iOS Simulator (Mac) | `docs/test/devices.md#what-your-computer-needs` |
+| Google Play Console | `docs/publish/android.md:8`, `:73` |
+| Hot reload, hot restart | `docs/test/run.md:43`; https://docs.flutter.dev/tools/hot-reload ("Flutter's stateful hot reload preserves the state of your app") |
+| SHA-1, SHA-256 on the **Android** tab of **Settings** → **Deployment** | `docs/publish/android.md:50`; `docs/publish/ios.md:28` (**Settings** → **Deployment** with platform tabs) |
+| Signing key, keystore, Nowa can generate one | `docs/publish/android.md:31-41` |
+| TestFlight | https://developer.apple.com/testflight/ ("easy for testers to give feedback on your apps ... before you publish"); `docs/publish/ios.md:75` |
+| Commit, push, pull, branch; Git, repository | `docs/code/git.md` sections |
+| GitHub, access token (legacy) | `docs/code/github.md` headings (`#connect-github`, `#legacy-remote-credentials`) |
+| VS Code | `docs/code/vs-code.md` |
+| Xcode, Android Studio, cloud builds need neither | `docs/test/devices.md#what-your-computer-needs`; `docs/publish/ios.md:8` |
+| Old widget-picker shortcut | 3.12.5's sheet showed "Open widget picker" with <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>P</kbd> (`git show b84bfdafd:packages/core/lib/src/widgets/shortcuts_cheat_sheet.dart`, line 40) while the real binding was <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd> (`b84bfdafd:packages/designer/lib/src/designer_setup.dart:47-48`); so the row says what <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>P</kbd> does, not that it changed |
+| Move Up → Send backward, etc. | `b84bfdafd:packages/designer/lib/src/menus/widget_context_menu.dart:78-91` (Move Up = `goNext: false`, Move Down = `goNext: true`, Move To Top = `goNext: false, allTheWay`, Move To Bottom = `goNext: true, allTheWay`) vs 3.13 `packages/designer/lib/src/menus/widget_context_menu.dart:45-48` |
+| Old wrapper names | `_rewrite/old-docs/ui/wrappers/wrappers-list.md:14`, `:20`, `:32` vs `wrappers_to_add.dart:42`, `:73`, `:122` |
+
+Third-party pages were read with curl through the session proxy (WebFetch could not resolve hosts), on 2026-10-12.
+
+### Open questions
+
+- The page is about 4,400 readable words (was about 1,340), because it now defines every technical term the docs use. If that's too long for one page, split it into "Glossary: Nowa words" (the Nowa words and Renamed tables) and "Glossary: app-building words" (the other five sections). That needs a sidebar change, which is outside this batch.
+
+## `docs/reference/index.md`
+
+- Warmer intro that says what the section is for and that it's for dipping into, not reading through.
+- Table rows updated to match the pages as they are now: the catalog lists the widgets "in the Library" (B13's wording, `docs/reference/widgets/index.md` description), wrappers mention their settings, shortcuts mention the five-to-learn-first list, the glossary mentions its new sections.
+- Widget guides: one-line lead-in says why the guides exist; the media guide's link text follows its new title ("Images, video, animations and web content", `docs/reference/widgets/media.md`); an everyday example on Lists and grids.
+- No new facts that need code refs. Nothing moved to the code section. No coverage items map to this page.
+
+## For other pages
+
+| Target page (batch) | Proposed text | Evidence |
+|---|---|---|
+| `docs/design/layout.md#scroll-or-wrap-content` (B04) | After the **Scroll View** bullet: "For a Row that scrolls sideways, set **Scroll Direction** to `horizontal` in the wrapper's section; `vertical` is the default. [Wrappers](../reference/wrappers.md#scrollview) explains the other settings." | Old `ui/wrappers/scrollview.md:26-31`; `material_library.dart:78960-78966` (values), `:109286` (default `vertical`); enum dropdown `basic_fields.dart:1511-1548` |
+| `_rewrite/product-issues.md` and, once confirmed, `docs/troubleshooting/known-issues.md` (orchestrator / B12) | Verify live: add a **Color Filter** wrapper to any widget and check **Problems**, the board and **Run**. Expected issue: the starting filter passes its color and blend mode by name to a constructor that takes them by position. | See wrappers open question 1 above (`wrappers_to_add.dart:101-114`, `material_library.dart:80347-80353`, `declaration_internal.dart:239-257`, `block_tree.dart:5924-5951`, `:6264-6280`) |

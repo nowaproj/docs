@@ -39,7 +39,7 @@ in 3.13) / `not useful` / `dev-only` / `for other page`.
 | Text before the colon is the header's key, after it the value | added | `rest-api/index.md#add-an-api-key-or-token` | |
 | Add a `Content-Type` header; list of content types | obsolete | the body type now sets the content type: `packages/data/lib/src/api/views/api_panel/api_setup_panel/api_request_body/api_body_types.dart:4-12`, `body_type_actions.dart:36-60` | already said on `rest-api/index.md#add-a-request` ("Choosing a body type sets the content type for you"); YAML, protobuf and GraphQL types have no body type |
 | A parameter carries a value that changes, such as what the user typed (old page: created in the **Body** tab) | covered | `rest-api/index.md#send-values-that-change` | created under **Params** in the right panel now: `packages/data/lib/src/api/views/api_panel/api_setup_panel/api_params_panel.dart:28` |
-| Put parameters in the body as `${name}`; start from the example body in the API's docs | covered + added | `rest-api/index.md#send-values-that-change` | the "copy the example from the API's docs" tip is new |
+| Put parameters in the body as `${name}`; start from the example body in the API's docs | added | `rest-api/index.md#send-values-that-change` | `${name}` was already covered; the "copy the example from the API's docs and swap in your parameters" tip is new |
 | OpenRouter body (`model`, `messages`) | not useful | | vendor-specific example; model IDs change. Replaced by a generic example |
 | Test with a value for the parameter | covered | `rest-api/index.md#test-a-request` | |
 | Build a model from only the parts you need | covered | `rest-api/index.md#turn-the-response-into-a-model` | |
@@ -94,4 +94,18 @@ in 3.13) / `not useful` / `dev-only` / `for other page`.
 
 ## Totals
 
-To be completed at the end of the pass.
+| Old page | Items | covered | added | obsolete | not useful | dev-only | for other page |
+|---|---|---|---|---|---|---|---|
+| `api/createapi.md` | 14 | 9 | 4 | 1 | 0 | 0 | 0 |
+| `api/Openrouter.md` | 16 | 7 | 7 | 1 | 1 | 0 | 0 |
+| `api/.authkey.md` | 2 | 2 | 0 | 0 | 0 | 0 | 0 |
+| `api/importapi/postman.md` | 3 | 2 | 1 | 0 | 0 | 0 | 0 |
+| `api/importapi/swagger.md` | 4 | 3 | 1 | 0 | 0 | 0 | 0 |
+| `api/importapi/xano.md` | 2 | 1 | 1 | 0 | 0 | 0 | 0 |
+| `supabase/ui.md` | 7 | 7 | 0 | 0 | 0 | 0 | 0 |
+| **Total** | **48** | **31** | **14** | **2** | **1** | **0** | **0** |
+
+Beyond the old pages, this pass also added verified third-party steps the readers of these pages need (no old page
+had them): RevenueCat dashboard setup, Test Store and sandbox testing; AdMob app and ad unit setup, App ID and ad unit
+IDs, app readiness review, app-ads.txt; Google Cloud API keys and key restrictions for Maps; Google OAuth client IDs;
+Android's `assetlinks.json` check for web links. Sources are in `P14-B08-notes.md`.

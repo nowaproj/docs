@@ -145,14 +145,15 @@ Status: `covered` (already in the new docs) / `added` (added in this pass) / `ob
 
 ## Totals
 
-| Status | Count |
-|---|---|
-| covered (incl. covered + added) | 38 |
-| added (new on my pages, incl. corrected) | 34 |
-| obsolete (incl. partial) | 4 |
-| not useful | 20 |
-| dev-only | 0 |
-| for other page | 0 |
+90 rows across the 9 old pages. A row with two statuses (for example "covered + added", or "covered / obsolete") counts
+once under each.
 
-Counting rule: an item marked "covered + added" counts once under covered and once under added; partial statuses
-("covered / obsolete") count once under each. 70 old items in all.
+| Status | Rows |
+|---|---|
+| covered (already in the new docs, possibly expanded) | 52 |
+| added (new on my pages in this pass, incl. 4 corrected or updated) | 38 |
+| obsolete (changed or gone in 3.13, or wrong in the old page) | 3 |
+| not useful (filler, media, vague or developer-only detail) | 13 |
+| not added, open question (Color Filter grayscale; see notes) | 1 |
+| dev-only | 0 |
+| for other page | 0 (one optional follow-up for `docs/design/layout.md` is listed under "For other pages" in the notes) |

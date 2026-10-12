@@ -158,7 +158,12 @@ Changed for the reader:
 - "Test a query": R9 wording from the brief's own example; JSON explained.
 - "Use a query in your app": reasons added (placeholders let you design before data arrives; an everyday Circuit example).
   "pass a model object" explained.
-- The step table, 3.13 notes, P157 and P158 facts are unchanged.
+- The step table, 3.13 notes, P157 and P158 facts are unchanged. The 3.13 bullet about `add` and `doc` (shown as
+  **func**, "The function 'add' isn't defined.") was folded into the note after the step table, which now also points to
+  the Nowa AI path, so the fact appears once in the builder section and once as the AI fix prompt.
+- "Use a query in your app" step 4: added the link to `integrations/show-data.md#show-a-list` and "connect **List** to
+  `data.docs`" (B08's page: **List** → **Connect**, `data`, rows linked to `element`); `data.docs` and `data()` are the
+  verified names already on the page.
 
 Added:
 - "Create your Firestore database" (brief; implied by the old Firestore tutorial). Official steps
@@ -364,3 +369,51 @@ Open questions:
 - Nowa's own helper text for **Webhook URL** still says "(Developers > Webhooks > + Add endpoint)"
   (`stripe_settings.dart:568-570`); Stripe now points to Workbench ("Workbench replaces the existing Developers Dashboard.
   You can still create a new webhook endpoint in the Developers Dashboard"). Product text could be updated.
+
+
+## Routed items (from the coordinator)
+
+- **Routed from B11** (publish pages): `notifications.md` now links "Register your bundle ID"
+  (`../../publish/ios.md#register-your-bundle-id`, heading checked on `publish/ios.md:43`) from the App ID capability
+  steps, and says to tick **Push Notifications** there when registering. The same link is on the Apple Pay step 6 of
+  `stripe.md`. The page doesn't claim whether Nowa's server-side iOS template already has the push entitlement: it keeps
+  the in-app note (Xcode **Signing & Capabilities**, `notification_settings.dart:98`) and says Nowa can't check this part,
+  with a test notification as the check. The client repo writes no `aps-environment` (grep); the server template wasn't
+  checked (not in the repo).
+- **Routed from B05/B06** (link checks): `auth.md` → `notifications.md#set-up-notifications-for-iphone` resolves now (the
+  heading is `## Set up notifications for iPhone` on `notifications.md`). Every relative link and anchor on the five pages
+  resolves (script over the pages: file exists, `#fragment` matches an explicit `{#id}` or a heading slug), and so do the
+  inbound links from other pages (`guides/data-and-state-tips.md`, `logic/router.md`, `publish/android.md`,
+  `test/problems.md`, `troubleshooting/index.md`, `troubleshooting/known-issues.md`).
+- **Routed from B10** (Supabase pages): `stripe.md` "Before you start", table bullet: added "See [Create a
+  table](./supabase/database.md#create-a-table)." (explicit `{#create-a-table}` checked on `supabase/database.md:16`).
+
+## For other pages
+
+1. `docs/troubleshooting/known-issues.md` (B12): a 3.13 entry for P66 would help people who search by symptom.
+   Proposed text: "## Stripe subscriptions can't be cancelled from the app {#stripe-cancel-subscription}
+   In Nowa 3.13, the `stripe-cancel-subscription` function that **Deploy Configuration** sends to Supabase has an error, so
+   `cancelSubscription()` always fails, even though deploying ends with "Deployed successfully!". Until a fix ships, cancel
+   subscriptions in your Stripe Dashboard: the webhook then updates the subscription's record. See [Accept payments with
+   Stripe](../integrations/stripe.md#fix-common-problems)." Evidence: P66 (`packages/core/lib/src/integrations/stripe/stripe_edge_functions.dart:659`,
+   parsed with three TypeScript parsers), P67 (swallowed errors, `packages/data/lib/src/supabase/supabase_oauth_manager.dart:125-209`),
+   webhook handles `customer.subscription.updated` / `.deleted` (`stripe_edge_functions.dart:818-821`).
+2. `docs/guides/ship-tips.md` (B01), publish checklist row "Stripe uses live keys instead of test keys and Google Pay's
+   `testEnv: true` is changed": add "after your last **Deploy Configuration**, which puts it back to test", and link
+   `../integrations/stripe.md#go-live`. Evidence: P68, `packages/core/lib/src/integrations/stripe/services/stripe_supabase_service.dart:392-394,517-566,846-852`.
+   The row could also mention the live webhook destination (Stripe: event destinations are per sandbox or live mode,
+   https://docs.stripe.com/events/how-events-work).
+3. `docs/integrations/index.md` (B08), Supabase/Firebase table, "What you get" for Firebase: "Your Android, iOS and web
+   apps registered in Firebase, the config files and a `FirebaseService`" names a class the reader doesn't see outside
+   Circuit details. Suggested: "Your Android, iOS and web apps registered in Firebase and set up in your project, plus
+   sign-in functions you pick in Circuit." Evidence: `firebase/connect.md#what-connecting-sets-up` (this batch).
+
+## Summary
+
+- Pages: all five rewritten for the primary reader (R1-R9). Prose word counts: connect 1,572; auth 2,068; firestore
+  2,170; notifications 1,310; stripe 2,471 (split proposal under the Stripe page). Each page has at most two
+  admonitions; no H1, no `---` rules, no hype words, no em dashes.
+- Coverage: 74 old-page items; 36 covered, 24 added, 4 obsolete, 10 not useful (`P14-B09-coverage.md`).
+- Moved to the code section: 34 facts copied unchanged into `P14-B09-for-code.md` (`#firebase` 29, `#stripe` 5), plus 8
+  new code-level facts marked "Added (new, verified)".
+- Images and explicit heading IDs untouched; each image stayed with its paragraph.

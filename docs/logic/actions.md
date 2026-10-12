@@ -50,7 +50,7 @@ For example, to see what someone typed in a [Text Field](../reference/widgets/fo
 
 `currentPlatform` gives the platform itself rather than true or false.
 
-When you test with **Play**, the checks answer for the device you're working on: in the web app, `isWeb` is true, and in the desktop app, your computer's system is. To try the phone branch, run your app on a phone or an emulator. See [Run on a device or emulator](../test/devices.md).
+When you test with **Play**, the checks answer for the device you're working on: in the web app, `isWeb` is true, and in the desktop app, the check for your computer's system is, such as `isMacOs`. To try the phone branch, run your app on a phone or an emulator. See [Run on a device or emulator](../test/devices.md).
 
 ## Read the screen size
 
@@ -79,9 +79,9 @@ Read a value with the same **Type** and **Key** you saved it with. **set**, **re
 
 The values aren't encrypted, and Nowa has no encrypted storage option, so don't keep passwords or secret keys here.
 
-## Wait, repeat and create objects
+## Wait, repeat and create objects {#create-objects}
 
-**Create...** in the **GENERAL** category builds a new object, a value made from a kind of thing (a class): a pause, a timer, the current date and time, or one of your own [models](models.md).
+**Create...** in the **GENERAL** category builds something new from a class, the blueprint for one kind of value: a pause, a timer, the current date and time, or one of your own [models](models.md).
 
 1. Choose **GENERAL** → **Create...**. The **Pick a constructor** list opens. Search for the class.
 2. If the class can be built in several ways (constructors), pick one in the second list. The plain one reads **Default**.
@@ -102,7 +102,7 @@ To stop a timer, add a node on that variable, click **+** and choose `cancel`. A
 
 Math, comparison and logic live in the **OPERATORS** category, for example `plus`, `greaterThan` and `logicalAnd`. See [Calculate and compare](expressions.md#operators).
 
-## Copy text, vibrate and play sounds
+## Copy text, vibrate and play sounds {#copy-text-and-vibrate}
 
 The **SERVICES** category has a few phone features. Click a class to see its functions:
 

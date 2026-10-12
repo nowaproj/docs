@@ -1,6 +1,6 @@
 ---
 title: Accept payments with Stripe
-description: Take one-time payments, consumable purchases and subscriptions in a Supabase-backed app. Get your Stripe keys, set up the webhook and wallets, and let Nowa deploy the payment backend for you.
+description: Take one-time payments, consumable purchases and subscriptions in a Supabase-backed app, from getting your Stripe keys and webhook to wallets, deploying and going live.
 sidebar_label: Stripe
 keywords: [stripe, payments, checkout, subscriptions, one-time payment, consumable, in-app purchase, apple pay, google pay, webhook, event destination, signing secret, publishable key, secret key, sandbox, test mode, live mode, merchant ID, supabase]
 ---

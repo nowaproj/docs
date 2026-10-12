@@ -15,7 +15,7 @@ Set up your app in AdMob once per platform you ship. If your app isn't in a stor
 
 1. In AdMob, click **Apps** in the sidebar, then **Add app**.
 2. Select the platform, **Android** or **iOS**.
-3. When AdMob asks whether your app is listed on a supported app store, select **No**.
+3. When AdMob asks whether your app is listed on a supported app store, select **No**. (If it's already in Google Play or the App Store, select **Yes** instead and search for it.)
 4. Enter your app's name, confirm user metrics, and click **Add**.
 
 Next, create an ad unit for each ad you'll show. An ad unit is one ad placement, with its own ID:

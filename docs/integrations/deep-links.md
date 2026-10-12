@@ -43,7 +43,7 @@ Things to know:
 
 - **Write your links with `open.my.app`.** On Android, Nowa registers your scheme together with the host `open.my.app`, so a link looks like `myapp://open.my.app/products/12`. The same link works on iOS, which only looks at the scheme.
 - **Web links open your app on Android only.** On iPhone, web links need Apple's Universal Links, which Nowa doesn't set up. Apple's guide explains them: [Supporting universal links in your app](https://developer.apple.com/documentation/xcode/supporting-universal-links-in-your-app).
-- **Android checks that the domain is yours.** Your website must publish a small verification file, `https://example.com/.well-known/assetlinks.json` for the domain `example.com`. Android's [App Links guide](https://developer.android.com/training/app-links) shows what goes in it.
+- **For web links, Android checks that the domain is yours.** Your website must publish a small verification file, `https://example.com/.well-known/assetlinks.json` for the domain `example.com`. Android's [App Links guide](https://developer.android.com/training/app-links) shows what goes in it.
 
 ## Use deep links with Google Sign-In {#with-google-sign-in}
 

@@ -38,6 +38,10 @@ Nothing saves when you click away, so press <kbd>Enter</kbd> before you leave th
 
 If you type a name that already exists, its value is replaced. Nowa shows an error under the row when a name isn't valid. To delete one of your own constants, click the X (**Remove**) at the end of its row. Values in an integration's section have no **Remove** icon.
 
+:::tip[Or ask Nowa AI]
+Try: "Add a constant called weatherApiKey and use it in my weather request." When Nowa AI changes your constants, a **Constants updated** card appears in the chat. Click **Open Constants** to review the values.
+:::
+
 ## Use a constant
 
 Stripe and RevenueCat read their keys from here by themselves, so there's nothing to connect. To use one of your own constants, write a short expression with its name. Nowa groups all your constants under the name `AppConstants`:
@@ -50,10 +54,6 @@ See [Build logic in Circuit](../logic/circuit.md) and [Write your own expression
 
 :::warning
 Constants are built into your app, so anyone who has the app can find them. The page describes itself as a place for "Secret keys", but everything on it ships with your app. Use it for values meant to be in an app, like a publishable key. Never put server secrets here, such as a Stripe secret key or a database password. The Stripe integration keeps its secret key in Supabase instead.
-:::
-
-:::tip[Or ask Nowa AI]
-Try: "Add a constant called weatherApiKey and use it in my weather request." When Nowa AI changes your constants, a **Constants updated** card appears in the chat. Click **Open Constants** to review the values.
 :::
 
 ## Next steps

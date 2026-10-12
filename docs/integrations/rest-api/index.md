@@ -36,7 +36,7 @@ A collection holds all the requests for one API, so they can share its address a
 
 ![The Collections panel in the Api sidebar: the Cats collection (base URL https://catfact.ninja) with a GET request getFact at /fact and a POST request createNote at /notes, and the Add Collection menu open (highlighted) with New Collection, Import from Swagger, Import from Postman and Import from Xano.](/img/docs/integrations/integrations-rest-api-1.png)
 
-You can also use **API Collection...** in the **Add** (+) menu of the [Library](../../design/library.md).
+You can also use **API Collection...** in the **Add** (+) menu of the [Library](../../design/library.md). Working in the code? See [What Nowa adds to your code](../../code/generated-code.md#rest-api).
 
 ## Set the base URL, headers and sign-in
 
@@ -104,7 +104,7 @@ A quick way to write the body: copy the example from your API's documentation, p
 
 - **Rename a request:** right-click it in the **Collections** panel and choose **Rename**. The name turns into a text box. Type the new name and press <kbd>Enter</kbd>.
 - **Remove a request:** right-click it and choose **Remove**. It goes right away, without a question.
-- **Remove a collection:** right-click it and choose **Remove**. If something in your app uses the collection, Nowa lists those places first (**Cancel** or **Remove**). Then it asks **Are you sure you want to delete "cats.api.dart"?** with **Cancel** and **Yes**.
+- **Remove a collection:** right-click it and choose **Remove**. If something in your app uses the collection, Nowa lists those places first (**Cancel** or **Remove**). Then it asks **Are you sure you want to delete "cats.api.dart"?**, naming the collection's file, with **Cancel** and **Yes**.
 - **Search:** type in the **Search...** box at the top of the panel. It filters the requests of every collection by name or endpoint.
 
 ## Test a request

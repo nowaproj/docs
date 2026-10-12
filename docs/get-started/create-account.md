@@ -12,6 +12,8 @@ Your account is where your projects and Nowa AI live. Signing up is quick: use a
 1. Go to [app.nowa.dev/signup](https://app.nowa.dev/signup).
 2. Fill in **First name**, **Last name**, **Email**, **Password** (at least 8 characters) and **Repeat password**.
 3. Tick **I accept the terms & conditions**. The box below it, **I want to receive emails on latest updates and features**, is ticked by default. Untick it if you don't want those emails.
+
+   The **terms & conditions** link opens Nowa's [Terms and Conditions](https://nowa.dev/terms-and-conditions/). How Nowa handles your personal information is in the [Privacy Policy](https://nowa.dev/privacy-policy/), and [Your data and privacy](../account/account-settings.md#your-data-and-privacy) sums up both.
 4. Click **Create account**. The **Confirm your email** step opens.
 5. Type the 6-digit code Nowa sent to your email into the six boxes. This confirms the address is yours. Nowa checks the code when you enter the last digit, or you can click **Verify**.
 

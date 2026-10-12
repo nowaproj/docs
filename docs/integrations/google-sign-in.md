@@ -39,7 +39,7 @@ Also using a **URL Scheme** for [deep links](./deep-links.md)? Both settings add
 
 ## Build the sign-in flow
 
-Nowa sets up the keys and everything around them, but it doesn't create a sign-in function or a Google button for this setup. That's the part Nowa AI builds for you. With Supabase, connect your project and turn on Google in Supabase first, then ask.
+Nowa stores your client IDs and prepares your app, but it doesn't create a sign-in function or a Google button for this setup. That's the part Nowa AI builds for you. With Supabase, connect your project and turn on Google in Supabase first, then ask.
 
 :::tip[Or ask Nowa AI]
 In **Agent** mode, try: "Add a Continue with Google button to the Login screen that signs the user in with Supabase." Then check **Problems** for errors and try the button in your app on a device.

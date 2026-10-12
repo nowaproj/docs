@@ -70,7 +70,7 @@ repeated in `P14-B07-notes.md`.
 | item | status | where / evidence | note |
 |---|---|---|---|
 | `print` writes messages to the logs, to check values while testing | covered | actions.md#write-to-the-logs | |
-| Use cases: see a value, check what someone typed, check that a step or condition ran, record taps or visits | added | actions.md#write-to-the-logs | |
+| Use cases: see a value, check what someone typed, check that a step or condition ran, record taps or visits | added | actions.md#write-to-the-logs | "record taps or visits" folded into "whether a step ran" |
 | Steps: "Nowa" category → **Print**; type the **Msg** or link it | covered | actions.md#write-to-the-logs (+ "click **Msg** to link a value") | category is **DART:CORE** |
 | See the messages: log icon at the bottom left, popup opens on Errors, click **Logs** | covered | actions.md#write-to-the-logs → test/run.md#read-the-logs | old UI obsolete: the status bar's last log line opens the Console on **Logs** (`docs/test/run.md:78`, `packages/core/lib/src/panels/logs_and_errors_panel.dart:14-15`) |
 | Messages also show while you test with **Play** | added | actions.md#write-to-the-logs | interpreted `print` calls `logInfo`: `packages/core/lib/src/interpreter/libraries/dart_core_library_custom.dart:3-8`, `packages/core/lib/src/utils.dart:19-21` |
@@ -177,4 +177,21 @@ repeated in `P14-B07-notes.md`.
 
 ## Totals
 
-To be completed after the pages are edited (see the bottom of this file).
+117 items on 10 old pages: **71 covered**, **33 added**, **5 dev-only** (in `P14-B07-for-code.md`), **4 obsolete**,
+**4 not useful**, 0 for other pages.
+
+| Old page | covered | added | dev-only | obsolete | not useful |
+|---|---|---|---|---|---|
+| common-functionalities/media-picker.md | 9 | 4 | 1 | 0 | 0 |
+| common-functionalities/navigation.md | 5 | 3 | 0 | 0 | 1 |
+| common-functionalities/open-url.md | 4 | 2 | 0 | 0 | 0 |
+| common-functionalities/platform-checking.md | 6 | 1 | 1 | 0 | 0 |
+| common-functionalities/print.md | 4 | 4 | 2 | 0 | 0 |
+| ui-popups/date-picker.md | 7 | 3 | 0 | 0 | 0 |
+| ui-popups/dialog.md | 11 | 4 | 0 | 1 | 0 |
+| ui-popups/snackbar.md | 8 | 2 | 1 | 0 | 0 |
+| ui-popups/time-picker.md | 6 | 5 | 0 | 0 | 2 |
+| vars-params-functions/data-models.md | 11 | 5 | 0 | 3 | 1 |
+
+Several "covered" rows were also reworded or given a plain meaning on the page (noted in the row). The data-models row
+"View and edit the model's code" is covered on the page (**View Code**); editing the code by hand is in the for-code file.

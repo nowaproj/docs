@@ -26,7 +26,7 @@ Before you publish, restrict each key so that only your app can use it, as Googl
 | iOS | **iOS apps** | Your **Bundle Identifier**, from **Settings** → **Project Details**. |
 | Web | **Websites** | Your web app's address, such as `https://myapp.com`. |
 
-Click **Save**. A restricted key only works on its platform, which is why Nowa asks for one key per platform. Google's [API security best practices](https://developers.google.com/maps/api-security-best-practices) explain the options.
+Click **Save**. A restricted key only works on its platform, so you end up with one key per platform, matching Nowa's three key fields. Google's [API security best practices](https://developers.google.com/maps/api-security-best-practices) explain the options.
 
 ## Turn on Google Maps
 

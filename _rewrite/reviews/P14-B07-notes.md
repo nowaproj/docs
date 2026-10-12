@@ -123,8 +123,9 @@ product (see below).
 **Changed for the reader**
 - Intro and every section now say what the step is for and when to use it (R3, R9). Section ids kept: `#open-a-link`,
   `#write-to-the-logs`, `#check-the-platform`, `#read-the-screen-size`, `#save-values-on-the-device` (all linked from
-  other pages). Renamed without inbound links: "Create objects" → "Wait, repeat and create objects", "Copy text and
-  vibrate" → "Copy text, vibrate and play sounds" (grep of `docs/` found no links to either anchor).
+  other pages). Renamed: "Create objects" → "Wait, repeat and create objects" `{#create-objects}` (kept with an explicit
+  id because `docs/logic/functions.md:58` links `actions.md#create-objects`), "Copy text and vibrate" → "Copy text,
+  vibrate and play sounds" `{#copy-text-and-vibrate}` (no inbound link today; id kept for live deep links).
 - Platform checks are now a table with a plain meaning per check (old platform-checking.md listed them in a code
   block). `logicalOr` gets a plain gloss.
 - Shared Preferences: added what **Key** and **Type** mean, and turned "Nowa has no secure (encrypted) storage option"
@@ -316,3 +317,46 @@ item is tapped" (about 480 words, explicit id `#open-a-detail-screen`, linked fr
 card; double-click or Enter opens the editor, `lib/project/panels/library_panel/library_host.dart:147-154`).
 
 **Open questions**: none.
+
+## For other pages
+
+Proposals for other batches' pages (I didn't edit them). Each with the text I'd use and its evidence.
+
+1. `docs/logic/functions.md` (P14-B06), line 58: the link text "[Create objects](actions.md#create-objects)" still
+   works (the anchor is kept), but the heading is now "Wait, repeat and create objects". Optional new text:
+   "see [Wait, repeat and create objects](actions.md#create-objects)".
+2. `docs/logic/circuit.md` (P14-B06), category table, **PACKAGE:** row: "Functions and static class members from your
+   own code, if you have any." uses code words. Proposed, matching actions.md: "Functions from your own project, and
+   your keys and constants under `AppConstants`." Evidence: library categories list top-level functions and classes
+   with static members (`packages/core/lib/src/interpreter/suggestion.dart:636-669`); `AppConstants` holds the
+   constants (`docs/integrations/constants.md`).
+3. `docs/reference/widgets/index.md` (P14-B13), **Alert Dialog** row: add the reusable way. Proposed: "To show it in a
+   running app, add a `showDialog` step in logic. To reuse your own design, make it a component and pick it as the
+   dialog's content: see [Use your own design](../../logic/popups.md#use-your-own-design)." Evidence: popups.md section
+   (**Builder** → **Pick Widget**: `packages/core/lib/src/fields/basic_fields.dart:450-473`; **Create component**:
+   `docs/design/components.md:15`).
+4. `docs/integrations/supabase/storage.md` (P14-B10), "Upload a picked image": two optional safety lines. After step 2:
+   "If nothing was picked, the list is empty, so put the next steps in an If whose **Condition** is the list's
+   `isNotEmpty`." And: "With **Play** on a computer, the camera can't open: use `gallery` to test there." Evidence:
+   empty list when nothing is picked (`packages/nowa_runtime/lib/src/media_picker/media_picker.dart:35`), `first` on an
+   empty list fails (Dart `Iterable.first` throws `StateError`), desktop image_picker plugins throw for the camera
+   without a `cameraDelegate` (refs in the popups.md notes).
+5. `docs/test/run.md` (P14-B12), "Read the logs": optional sentence "Messages from a `print` step show here too, both
+   when you run your app and when you test with **Play**." Evidence: `packages/core/lib/src/interpreter/libraries/dart_core_library_custom.dart:3-8`,
+   `packages/core/lib/src/utils.dart:19-21`.
+
+## Product issue candidates (for `_rewrite/product-issues.md`, orchestrator)
+
+1. **Show snackbar offers Width and Margin but no Behavior.** Flutter only honors `width` and `margin` on a floating
+   snackbar and asserts otherwise ("Width can only be used with floating behavior. SnackBarBehavior.fixed was set by
+   default.": `/home/user/flutter/packages/flutter/lib/src/material/snack_bar.dart:661-680`). Nowa's details list
+   `content`, `backgroundColor`, `width`, `elevation`, `shape` and, under advanced, `action`, `duration`, `padding`,
+   `margin`, `onVisible` (`packages/core/lib/src/fields/expression_builder/expression_details.dart:158-183`), and no Nowa
+   theme sets a snackbar behavior. Result: a value in **Width** or **Margin** fails in debug runs and does nothing in
+   release builds. The docs now say to leave both empty. Fix idea: show **Behavior**, or hide the two fields. Not tried
+   live.
+2. **`showMediaPicker` defaults to the camera, which Play in the desktop app can't open.** The default **Source Type**
+   is `camera` (`packages/core/lib/src/interpreter/libraries/nowa_runtime_library.dart:590-603`); the macOS, Windows
+   and Linux image_picker plugins throw a `StateError` for the camera unless a `cameraDelegate` is set, and Nowa sets
+   none (refs in the popups.md notes). The docs tell readers to test with `gallery`. Fix idea: a camera delegate for
+   the desktop app, or a clearer message. Not tried live.

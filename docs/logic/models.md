@@ -21,7 +21,8 @@ Nowa also keeps each model ready to be saved, sent or loaded as JSON (the text f
 ## Create a model
 
 1. Open the [**Library**](../design/library.md) in the sidebar and click **Add** (+) in its header, then **New Model...**.
-2. Type a name, such as `Task`, and click **Submit**. The dialog also shows the **Class name**, the name you'll pick later when you use the model as a type, and the **Path**, the model's file. Nowa fills in both for you: "task model" becomes `TaskModel`. Click either one to change it.
+2. Type a name, such as `Task`. As you type, Nowa fills in the **Class name**, the name you'll pick later when you use the model as a type, and the **Path**, the model's file: "task model" becomes `TaskModel`. Click either one to change it.
+3. Click **Submit**. Your new model is ready for its fields.
 
 ## Add fields
 

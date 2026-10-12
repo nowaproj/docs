@@ -87,7 +87,7 @@ If the person taps **Cancel** or outside the dialog, `confirmed` isn't true, so 
 
 A bottom sheet slides up from the bottom edge and holds content you design. There are two kinds:
 
-- `showModalBottomSheet` (**MATERIAL**) covers the screen until it's closed: tapping outside or dragging it down closes it. Use it for a short list of choices or a small form, such as "Edit, Share, Delete" or a set of filters. It starts with a centered text, "Bottom Sheet Opened", and a minimum height of 400. Edit it like a dialog. Extra options include **Background Color**, **Is Scroll Controlled**, **Is Dismissible**, **Enable Drag**, **Show Drag Handle** and **Constraints**. It can send an answer back, like a dialog.
+- `showModalBottomSheet` (**MATERIAL**) sits over the screen and blocks it until the sheet is closed: tapping outside or dragging it down closes it. Use it for a short list of choices or a small form, such as "Edit, Share, Delete" or a set of filters. It starts with a centered text, "Bottom Sheet Opened", and a minimum height of 400. Edit it like a dialog. Extra options include **Background Color**, **Is Scroll Controlled**, **Is Dismissible**, **Enable Drag**, **Show Drag Handle** and **Constraints**. It can send an answer back, like a dialog.
 - `showBottomSheet` (**MATERIAL**) stays at the bottom while people keep using the screen. Use it for extra information that sits next to your content. Choose its content in the **Builder** row.
 
 ## Pick a date or time

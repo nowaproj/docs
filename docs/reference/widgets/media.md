@@ -136,7 +136,7 @@ Rive animations are made in the [Rive](https://rive.app) editor. One file can ho
 2. On **Network**, paste a link to a `.riv` file. On **Asset**, click **Pick Rive** or **Upload Rive**. Only `.riv` files are accepted.
 3. After the file loads, choose an **Artboard**. If that artboard has state machines, a **State Machine** list appears too. The lists show what the file contains.
 
-If the file can't be read, **Details** shows "Error loading Rive file" instead of the lists. Check the link, or pick the file again.
+If Nowa can't read the file, **Details** shows "Error loading Rive file" instead of the lists, and a web link that doesn't open keeps loading. Check the link, or pick the file again.
 
 ## Show a web page {#web-view}
 

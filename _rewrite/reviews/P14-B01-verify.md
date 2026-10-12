@@ -11,7 +11,7 @@ Diff checked: `git -C /home/user/docs diff origin/main -- docs/index.md docs/get
 - **Removed:** 2 unverifiable phrases ("especially on a first run", "each row takes a minute to check").
 - **Facts restored:** 0 needed. Every removed fact was moved unchanged to `P14-B01-for-code.md` (checked against `origin/main`) or kept in plain words.
 - **Routed items:** 5 applied (B03 Terms/Privacy links, B10 ×2, B12, B09); 5 already applied by the writer, verified (B02 ×2, B04, B05 ×2).
-- **Audience fixes:** 7 (Agent mode and/or a way to check added to 7 prompts; "Git repository" and "webhook" explained).
+- **Audience fixes:** 9 (Agent mode and/or a way to check added to 7 prompts, R5; "Git repository" and "webhook" explained, R4).
 - **Old-docs items the writer brought back:** all verified (Xcode "Flutter failed to initialize" + **Try again**, **Managed by Nowa** (refined), stopwatch prompt pattern, internet needed in the desktop app).
 - **Open issues:** 3 (product caption contradicting the Android step's behavior, complete-app length, offline start screen). See the end.
 

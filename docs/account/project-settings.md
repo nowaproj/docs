@@ -21,7 +21,7 @@ The **General** group has these pages:
 | **Deployment** | Build your app and publish it (cloud projects) | [Get ready to publish](../publish/index.md) |
 | **Permissions** | The phone features your app may ask to use, such as the camera or location | This page |
 | **Packages** | Ready-made add-ons (packages) from pub.dev, Flutter's public library, for things like charts or date formats | [Add packages](../code/packages.md) |
-| **Git** | Your project's history of saved changes and its link to GitHub. It needs a plan that includes Git. | [Use Git](../code/git.md), [Connect GitHub](../code/github.md) |
+| **Git** | Settings for Git, which keeps a history of saved snapshots of your project: the name and email on each snapshot, and this project's GitHub connection and sign-in details. It needs a plan that includes Git. | [Use Git](../code/git.md), [Connect GitHub](../code/github.md) |
 | **Project Sync** | Keep a cloud copy and a copy on your computer in step (desktop app) | [Work with local projects](../code/local-projects.md) |
 | **Constants** | Keys for the services you connect, and fixed values of your own | This page |
 
@@ -43,6 +43,8 @@ These details decide how your app appears on people's phones and how the app sto
 | **Bundle Identifier** | Your app's unique ID. Phones and app stores use it to tell your app apart from every other app. |
 | **Build version** | The version number people see in the store, such as `1.3.4`. |
 | **Build number** | A behind-the-scenes counter that tells your builds apart. |
+
+Changing the **App Name** or the **Bundle Identifier** also rebuilds some of your app's Android and iOS settings files. Read the warning in [Set permissions](#set-permissions) first if you imported your project or changed those files in code.
 
 ### Choose your Bundle Identifier
 
@@ -80,6 +82,10 @@ Before an app can use the camera, the microphone or someone's location, the phon
 3. For each iOS permission you turned on, edit the message in the box beside it. People read it in the permission prompt, so say why your app needs it, for example "We use your camera so you can add a photo to your recipe." Nowa fills in a default, and your changes are kept as you type.
 
 Under each name, a grey line shows the permission's technical name, such as `NSCameraUsageDescription` or `android.permission.CAMERA`. You don't need to do anything with it. Permissions that an imported project already had show as on.
+
+:::warning
+Each time you change a permission, the **App Name** or the **Bundle Identifier**, Nowa rebuilds some of your app's Android and iOS settings files from your project settings. Anything added to those files another way, by hand in code mode, by Nowa AI or in a project you imported, can be lost.
+:::
 
 | Permission | Platform | What it lets your app do |
 |---|---|---|
@@ -132,7 +138,7 @@ Experimental flags let you try features Nowa is still working on, one project at
 | Flag | What it does |
 |---|---|
 | **load packages** | Lets Nowa AI add packages (ready-made add-ons) to your project when a request needs one. With it off, Nowa AI asks you to turn it on first. You can still add packages yourself on the **Packages** page. It's on in new projects. |
-| **New UX** | Tries out an editor layout that Nowa is still building. The panel icons move from the left edge into the top bar, with a **More panels** menu for the rest. A **Debug** panel lists your app's global data with its current values, and the toolbar at the bottom of the board is hidden. Double-clicking on the board doesn't work while it's on. It's off by default, and a **NEW UX** badge shows in the top bar while it's on. These docs describe Nowa with it off. |
+| **New UX** | Tries out an editor layout that Nowa is still building. The panel icons move from the left edge into the top bar, with a **More panels** menu for the rest. A **Debug** panel lists your app's global data with its current values, and the toolbar at the bottom of the board is hidden. Double-clicking a widget on the board does nothing while it's on, so you can't go one level deeper or start editing a text that way. It's off by default, and a **NEW UX** badge shows in the top bar while it's on. These docs describe Nowa with it off. |
 
 ## Shared Preferences and the project ID
 

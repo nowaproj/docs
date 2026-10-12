@@ -47,7 +47,7 @@ Nowa highlights the first result as you type, and <kbd>Enter</kbd> acts on the h
 
 A group shows 100 rows, then a row such as **Show all 250**. Rows such as **Show 3 more of other kinds** and **Show 2 private matches** reveal what the filter hides. When nothing matches, the panel says **No matches**.
 
-With the search empty, **Recent** tops the panel and lists the last eight things you added to the board, so the widgets you use most are always a click away.
+With the search empty, **Recent** tops the panel and lists the last eight things you added to the board, so what you've just used is a click away.
 
 ## Add something to the board
 

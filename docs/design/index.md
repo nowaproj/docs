@@ -4,7 +4,7 @@ description: Boards, screens, components and widgets, and how you design your ap
 keywords: [design, designer, board, design board, canvas, UI, screen, component, widget, library, visual editor, drag and drop]
 ---
 
-In Nowa you design on a board: one big, free-form space where your screens sit side by side. Click anything to change it, drag to rearrange, and let Nowa AI build alongside you. Everything you design becomes part of a real app that you own.
+In Nowa you design on a board: one big, free-form space where your screens sit side by side. Click anything to change it, drag to rearrange, and let Nowa AI build alongside you. Your screens and components become part of a real app that you own.
 
 ## How the pieces fit
 
@@ -30,7 +30,7 @@ Screens and components have a title bar above them with their name. Hover it to 
 | **Outline** panel, left sidebar | Shows how the widgets nest inside each other, so you can jump to any widget, even one that's hidden or hard to click. |
 | Toolbar, bottom of the board | **Select tool**, **Shape**, **Screen**, **Text** and **Widget**. |
 | **Details**, top right | The settings of whatever is selected: its color, size, text and more. With nothing selected, it shows the board's color and grid. |
-| **Variables**, above **Details** | The values the selected screen or component remembers and the actions it can run (its variables and functions). With nothing selected, it shows **Globals**: data every screen of your app can use. |
+| **Variables**, above **Details** | The values the selected screen or component receives and remembers, and the actions it can run (its params, variables and functions). With nothing selected, it shows **Globals**: data every screen of your app can use. |
 
 The board is part of the desktop-width layout. On a phone-sized window Nowa shows a simpler view without a board, described in [Use Nowa on your phone](../get-started/mobile.md).
 
@@ -64,7 +64,7 @@ Build a screen:
 - [Use the Outline](outline.md): the widget tree.
 - [Change widget properties](properties.md): the **Details** panel.
 - [Lay out widgets](layout.md): rows, columns, stacks and sizing.
-- [Design for every screen size](responsive.md): screen sizes without breakpoints.
+- [Design for every screen size](responsive.md): one layout that fits phones, tablets and browsers.
 
 Set up common widgets:
 

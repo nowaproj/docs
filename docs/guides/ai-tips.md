@@ -29,11 +29,11 @@ See [Give Nowa AI context](../ai/context.md).
 
 ## Describe behavior the way people see it
 
-When something in your app behaves differently depending on what's going on, describe each situation the way a user sees it: what's on screen and what happens when they tap. You don't need any technical words. For example:
+When something in your app behaves differently depending on what's going on, describe each situation the way a user sees it: what's on screen and what happens when they tap. You don't need any technical words. For example, in **Agent** mode:
 
 > A stopwatch with one button. When it shows 0:00 and isn't running, the button says Start and starts it. While it runs, the button says Stop and pauses it. When it's paused, the button says Reset and sets it back to 0:00.
 
-A description like this leaves Nowa AI nothing to guess, and it doubles as your test plan: play the screen and try each case.
+A description like this leaves Nowa AI little to guess, and it doubles as your test plan: play the screen and try each case.
 
 ## Work in small steps
 

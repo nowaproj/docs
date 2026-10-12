@@ -28,6 +28,16 @@ the old docs (marked "old docs"). Anchors are the fixed ones on `docs/code/gener
   `packages/core/lib/src/interpreter/visitors/block_visitor.dart:114-256` (`ThrowingBlockVisitor`: `visitForStatement`
   `:217`, `visitBreakStatement` `:232`, `visitSwitchStatement` `:256`). Keep functions you want to edit visually within
   those statements.
+- Added by the verifier (P14-B06-V), the code-level reason behind the new caution on `docs/logic/functions.md`
+  ("Run logic when a screen opens or closes"): turning on **await** inside **InitState Function** makes it
+  `Future<void> initState() async`, because `FutureOptions.toggleAwait` calls `updateAsync()` on the enclosing function
+  and `updateAsync` doesn't skip overrides (`packages/code/lib/src/fields/future_options.dart:10-31`,
+  `packages/core/lib/src/interpreter/declaration_runtime.dart:1555-1565`). Flutter asserts in debug builds
+  ("initState() returned a Future ... must be a void method without an `async` keyword"; Flutter SDK
+  `packages/flutter/lib/src/widgets/framework.dart:5948-5962`), and Nowa's Run uses `flutter run` without a mode flag,
+  i.e. debug (`packages/nowa_run/lib/src/services/local/nowa_run_service_local.dart:54`). The fix is a separate async
+  function called from `initState` without `await`. The Return Type lock for overrides is only in the UI
+  (`packages/core/lib/src/widgets/code/variable_widgets.dart:472-480`).
 
 ## #global-state
 

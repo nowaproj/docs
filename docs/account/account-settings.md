@@ -1,6 +1,6 @@
 ---
 title: Account settings
-description: Update your name and photo, change your email or password, connect Figma, see how your data is handled, log out, or delete your account.
+description: Update your name and photo, change your email or password, connect Figma, find Nowa's terms and privacy policy, log out, or delete your account.
 sidebar_label: Account settings
 keywords: [account, profile, account details, change email, change password, delete account, connected accounts, Figma, log out, logout, sign out, settings, General Settings, privacy, privacy policy, terms, data ownership, my data]
 ---
@@ -36,7 +36,7 @@ A status line at the top right confirms each change, for example "Profile update
 
 ## Change your email {#change-email}
 
-You can change your email if you signed up with an email address. If you use Google to sign in, **Account Details** shows "Google SignedIn" instead of **Change Email**, because Google manages that address for you.
+You can change your email if you signed up with an email address. If you use Google to sign in, **Account Details** shows "Google SignedIn" instead of **Change Email**, because your email comes from your Google account.
 
 1. In **Account Details**, click **Change Email**.
 2. Type the new address in **New Email** and click **Verify Email**. Nowa sends a one-time code to that address and says "OTP Code Sent on" followed by the address.
@@ -74,9 +74,9 @@ Either way, Nowa signs you out and opens the sign-in page. Your projects stay wh
 
 ## Your data and privacy {#your-data-and-privacy}
 
-What you build in Nowa is yours. Nowa's [Terms and Conditions](https://nowa.dev/terms-and-conditions/) say you keep ownership of the content you create with Nowa. To take your app's code with you, [download it](../publish/download-code.md) or [connect GitHub](../code/github.md), depending on your plan.
+Nowa's [Terms and Conditions](https://nowa.dev/terms-and-conditions/) govern your use of Nowa. Their "Content Ownership" section begins: "You retain ownership over all content created using our Service, subject to the terms and conditions laid out in these Terms." The [Privacy Policy](https://nowa.dev/privacy-policy/) explains what personal information Nowa collects, how it's used and the options you have to manage it. For questions about either page, email [team@nowa.dev](mailto:team@nowa.dev).
 
-The [Privacy Policy](https://nowa.dev/privacy-policy/) explains what personal information Nowa collects, such as your name, email and profile picture, and what it's used for. To see, correct or delete your personal information, email [team@nowa.dev](mailto:team@nowa.dev).
+To keep your own copy of a cloud project's code, [download it](../publish/download-code.md) or [connect GitHub](../code/github.md), depending on your plan. A local project's files are already on your computer.
 
 ## Delete your account {#delete-account}
 
@@ -84,7 +84,7 @@ The [Privacy Policy](https://nowa.dev/privacy-policy/) explains what personal in
 Deleting your account is permanent. Nowa tells you "This action can not be reversed" and deletes all the resources listed on the next page.
 :::
 
-If you want to keep any of your work, download your code first.
+If you want to keep any of your work, [download your code](../publish/download-code.md) first.
 
 1. In **Account Details**, click **Delete Account**.
 2. Optionally write a reason under "Reason for deleting". If your account has a password, enter it.

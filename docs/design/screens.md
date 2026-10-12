@@ -13,7 +13,7 @@ Screens are the pages of your app: a home page, a settings page, a profile page.
 2. Next to **Search for:**, keep **Screens** selected. The other choice, **Components**, lists templates for components. Type in **Search for templates** or scroll, and highlight a template to preview it on the right.
 3. Click a template. **Empty Page** gives you a blank screen to fill yourself.
 4. Type a name, such as `SettingsPage`, and click **Submit**. The dialog is titled after the template, such as **New Empty Page**. Its **Class name** and **Path** lines show how the screen is named and stored in your project's code, and you can leave them as they are.
-5. The screen appears on the board, ready to fill. In projects that use GoRouter, Nowa also gives it a route, its address in your app (see [Name the route](#name-the-route)).
+5. The screen appears on the board, ready to fill. In projects that use GoRouter, the navigation system new projects start with, Nowa also gives it a route, its address in your app (see [Name the route](#name-the-route)).
 
 ![The template picker for new screens with Onboarding Screen highlighted: the Search for templates box and the Screens and Components chips (highlighted together), the template list with Premium badges on Article and Dashboard, and the preview pane showing the Onboarding Screen template.](/img/docs/design/design-screens-1.png)
 
@@ -46,13 +46,13 @@ Fill the other slots the same way: click the slot, which reads **null** (empty) 
 
 ![Details for the selected home screen, scrolled down. The Screen section is highlighted (Color, App Bar, Drawer, Floating Action Button, Bottom Navigation Bar, Size). Below it are Route Settings with the Path field and the line This is the home screen.](/img/docs/design/design-screens-2.png)
 
-Your content lives in the screen's main group, which you set up in the **Group** section of **Details**. A screen made from **Empty Page** starts as a **Stack**, where you place widgets freely. Switch it to a **Column** when you want them to line up and make room for each other: see [Lay out widgets](layout.md#pick-the-right-arrangement). Other sections, such as **Safe Area** (which keeps your content clear of notches and system bars), are covered in [Change widget properties](properties.md).
+Your content usually lives in the screen's main group, which you set up in the **Group** section of **Details**. A screen made from **Empty Page** starts as a **Stack**, where you place widgets freely. Switch it to a **Column** when you want them to line up and make room for each other: see [Lay out widgets](layout.md#pick-the-right-arrangement). Other sections, such as **Safe Area** (which keeps your content clear of notches and system bars), come from wrappers: see [Add a wrapper](properties.md#add-a-wrapper) and the [list of wrappers](../reference/wrappers.md#safe-area).
 
 A widget counts as a screen when it has the **Screen** wrapper. Without it, it's a component.
 
 ## Name the route
 
-A route is a screen's address in your app, such as `/settings`. Other screens use it to open this one, and on the web it becomes part of the page's link. **Route Settings**, in the **Screen** section, sets it. It appears in projects that use GoRouter, which new projects do.
+A route is a screen's address in your app, such as `/settings`. Other screens use it to open this one, and on the web it becomes part of the page's link. **Route Settings**, in the **Screen** section, sets it. It appears in projects that use GoRouter, which all new projects do. For an older project, see [Switch an older project to GoRouter](../logic/router.md#switch-an-older-project-to-gorouter).
 
 1. Click the route icon next to **Route Settings** (**Open Router Editor**). In the Router panel, select the screen's route, type a path such as `/settings` in **Path** and press <kbd>Enter</kbd>. Don't type it in the **Path** field of **Route Settings**: in Nowa 3.13 that field drops every `/` you type.
 2. To pass data in the address, such as which recipe to show, expand **Route Parameters** and click **+** (**Add Route Parameter**).
@@ -80,7 +80,7 @@ The current home screen shows **This is the home screen** instead of the button.
 
 The same screen can sit on several boards, or twice on one board, for example to compare two sizes. Every one of those board items shows the same screen, so a change in one shows in all of them. Copy and paste works the same way: it adds another board item for the same screen, not a new screen.
 
-When you want a separate screen, use **Copy as new widget**. **Detach** shows on a screen's right-click menu too, but it turns that board item into a loose copy that isn't part of your app.
+When you want a separate screen, use **Copy as new widget**. **Detach** shows on a screen's right-click menu too, but it swaps that board item for a loose copy of the screen's widgets, which isn't part of your app. The screen itself stays in your project, and <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Z</kbd> undoes the swap.
 
 ## Delete a screen
 

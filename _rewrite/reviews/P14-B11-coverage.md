@@ -55,8 +55,8 @@ part of it and this pass added the rest.
 | 37 | Deleting the key in Nowa removes only Nowa's copy | covered | ios.md#manage-the-saved-key | `workflow_manager.dart:466-483` |
 | 38 | Revoke the certificate: **Certificates** → select → **Revoke** | added | ios.md#manage-the-saved-key | https://developer.apple.com/help/account/certificates/revoke-a-certificate; effects from support/certificates |
 | 39 | Warning: Apple's limit of three; generating at the limit fails signing | covered | ios.md#let-nowa-generate-a-key | `packages/core/lib/src/cloud_build_v2/ui/warning_dialogs.dart:45-51`; Apple publishes no number today, Codemagic says 3 (attributed to Nowa's warning) |
-| 40 | Use one certificate for all your apps; several developers up to the limit, then share | added | ios.md#share-one-certificate | |
-| 41 | Caution: updates signed with a different certificate are rejected | not useful (contradicted) | https://developer.apple.com/support/certificates/: apps on the store aren't affected; only uploads signed with an expired or revoked certificate are refused | replaced by the verified facts in ios.md#manage-the-saved-key and #share-one-certificate |
+| 40 | Use one certificate for all your apps; several developers up to the limit, then share | added | ios.md#use-a-key-you-already-have | |
+| 41 | Caution: updates signed with a different certificate are rejected | not useful (contradicted) | https://developer.apple.com/support/certificates/: apps on the store aren't affected; only uploads signed with an expired or revoked certificate are refused | replaced by the verified facts in ios.md#manage-the-saved-key and #use-a-key-you-already-have |
 | 42 | Videos (bundle ID, create bundle ID, API key, start build) and GIF | not useful | | pure media of older Apple and Nowa UIs |
 
 ## deployment/android-deploy.md

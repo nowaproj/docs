@@ -77,6 +77,8 @@ It runs in the chat's current mode, so switch to **Agent** mode to let the AI ch
 
 Everything your running app prints, plus Nowa's own messages, goes to the **Console**. When something goes wrong while you tap through the app, this is where the error shows up.
 
+Messages from a `print` step, which writes a message of your choice to the logs, show up here too, both when you run your app and when you test with **Play**. See [Write to the logs](../logic/actions.md#write-to-the-logs).
+
 1. Click the last log line in the status bar at the bottom. It reads **Ready** when nothing has been logged. The **Console** opens on its **Logs** tab.
 2. Drag the title bar to move the **Console**, drag an edge to resize it, and select text to copy it.
 3. Use the buttons at the top right of **Logs**. **Pub get** (the terminal icon) downloads your project's packages (the ready-made add-ons it uses) again, and **Clear** empties the list.

@@ -16,10 +16,9 @@ GitHub is a website that keeps Git repositories online. A repository is your pro
 ## Connect your GitHub account {#connect-github}
 
 1. Open the Git settings. Click **Settings** in the dashboard sidebar, or click your avatar in a project's top bar and choose **General Settings**. Then, under **Editor Settings**, click **Git**.
-2. Under **GitHub Integration**, click **Connect GitHub**. GitHub opens in your browser.
+2. Under **GitHub Integration**, click **Connect GitHub**. GitHub opens in your browser, and Nowa shows "Waiting for Authorization..." while you approve. It waits up to two minutes; click **Cancel** to stop waiting.
 3. Approve Nowa on GitHub. If GitHub asks which repositories Nowa can use, choose **All repositories**, or **Only select repositories** and pick the ones that hold your apps. You can change this later.
-4. Come back to Nowa. It shows "Waiting for Authorization..." and waits up to two minutes for your approval. Click **Cancel** to stop waiting.
-5. Once it works, you see your GitHub avatar and username with "n repositories connected".
+4. Back in Nowa, once the approval comes through, you see your GitHub avatar and username with "n repositories connected".
 
 ![The Git Settings page of the settings window, opened from Git under Editor Settings: GitHub Integration is connected (highlighted), with the GitHub avatar and username (blurred), 1 repositories connected and a Manage button. Below it, Legacy Remote Credentials with a Documentation link reads When GitHub Integration is enabled, legacy remote credentials are not used.](/img/docs/code/code-github-1.png)
 
@@ -37,7 +36,7 @@ Open it from the **Git** panel: hover the branch row, click the **...** button a
 
 1. In **Create GitHub Repository**, check the **Name**. It starts as your project's **Package Name** (for example `my_app`), after your GitHub account name. Use letters, numbers, hyphens, underscores and periods only.
 2. Keep **Private** ticked to keep the repository to yourself and the people you share it with. A public repository can be seen by anyone on the internet.
-3. Click **Create Repository**. Nowa creates it on GitHub, adds it as the remote `origin` (Git's usual name for a project's main remote) and pushes your commits, so your whole history is on GitHub in one go.
+3. Click **Create Repository**. Nowa creates it on GitHub, adds it as the remote `origin` (Git's usual name for a project's main remote) and pushes your commits, so your work is on GitHub straight away.
 
 ![The Manage Remotes dialog of a project without a remote: Create GitHub Repository with the Name field (the GitHub username, blurred, then /docs_capture_paid), Private ticked and the Create Repository button (highlighted), then the OR divider and the collapsed Add Existing Repository row (highlighted).](/img/docs/code/code-github-2.png)
 
@@ -49,7 +48,7 @@ Creating the repository on GitHub yourself, for example because you use an acces
 2. Choose the **Owner** and type a name.
 3. Choose whether the repository is public or private.
 4. Leave the README, .gitignore and license options off. GitHub advises against them when you bring in an existing project, because they can cause a merge conflict.
-5. Click **Create repository**. On the Quick Setup page that opens, copy the repository's address (it ends in `.git`).
+5. Click **Create repository**. On the Quick Setup page that opens, copy the repository's address: the one that starts with `https://` and ends in `.git`.
 
 Then connect it in Nowa:
 
@@ -86,7 +85,7 @@ A personal access token is a long, password-like code that you create on GitHub 
 
 ### Create a token on GitHub
 
-GitHub recommends fine-grained tokens, which you can limit to the repositories Nowa needs.
+GitHub recommends fine-grained tokens, which you can limit to the repositories Nowa needs. If you haven't verified your email address on GitHub yet, do that first.
 
 1. On GitHub, click your profile picture in the upper-right corner, then **Settings**.
 2. In the left sidebar, click **Developer settings**.
@@ -100,8 +99,8 @@ GitHub recommends fine-grained tokens, which you can limit to the repositories N
 
 Two cases need a little more:
 
-- **Someone else's repository.** Fine-grained tokens can't yet push to a repository that belongs to another person's account when you're a collaborator on it. Create a classic token instead: under **Personal access tokens**, click **Tokens (classic)**, then **Generate new token** → **Generate new token (classic)**. Give it a **Note** and an **Expiration**, tick the **repo** scope and click **Generate token**. A classic token reaches every repository you can access, so keep it extra safe.
-- **An organization's repository.** Some organizations review fine-grained tokens. Until an administrator approves yours, it can only read public repositories.
+- **A repository you're a collaborator on.** Fine-grained tokens can't yet push to a repository you were invited to as a collaborator, such as a teammate's personal repository, or an organization's repository when you aren't a member of that organization. Create a classic token instead: under **Personal access tokens**, click **Tokens (classic)**, then **Generate new token** → **Generate new token (classic)**. Give it a **Note** and an **Expiration**, tick the **repo** scope and click **Generate token**. A classic token reaches every repository you can access, so keep it extra safe.
+- **An organization's repository.** Some organizations approve fine-grained tokens before they work. You can explain what the token is for in the box under **Resource owner**. Until an organization administrator approves it, the token can only read public resources, so Nowa can't push with it yet. If you own the organization, it's approved automatically.
 
 For every detail, see [GitHub's guide to personal access tokens](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
 
@@ -113,7 +112,7 @@ For every detail, see [GitHub's guide to personal access tokens](https://docs.gi
 
 **Add Credentials** shows when nothing is saved. To replace a token, for example when it expires, delete the saved one with its trash icon first, then add the new one. While GitHub Integration is on, **Add Credentials** is hidden and Nowa says "When GitHub Integration is enabled, legacy remote credentials are not used."
 
-Tokens also work with other Git hosts. **Repository URL** takes any `http://` or `https://` address, so you can connect a repository on another host and add an access token from that host. Keep GitHub disconnected in that case: while it's connected, Nowa signs in to every repository with your GitHub account.
+The token route isn't tied to GitHub: **Repository URL** takes any `http://` or `https://` address, and **Set Git Credentials** asks for a token from your Git provider's website. For a repository on another Git host, add a token from that host. Nowa uses it only while GitHub isn't connected: once GitHub is connected, Nowa signs in to every repository with your GitHub account.
 
 ## Local projects: credentials and SSH {#local-credentials-and-ssh}
 
@@ -130,7 +129,7 @@ Git for a local project runs on your computer, so Nowa signs in from your comput
 | You see | Do this |
 |---|---|
 | No repository list in **Clone from GitHub** | Connect GitHub first, as above. The list doesn't appear until you do. |
-| A repository is missing from the list | Click **Manage your connected repositories** (or **Manage** in the Git settings) and give Nowa access to it on GitHub. |
+| A repository is missing from the list | Click **Manage your connected repositories** (or **Manage** in the Git settings) and give Nowa access to it on GitHub. For a repository in someone else's account, see [Work with a team](git.md#work-with-a-team). |
 | "You need to provide authentication for this action" or "You need to add your credentials to access the remote repository" | Connect GitHub, or add an access token: under **Legacy Remote Credentials** for a cloud project, under **External Local Credentials** for a local project. |
 | "You don't have access to this repository, please check your credentials" | Click **Manage** under **GitHub Integration** and make sure Nowa can use that repository, or check your token. |
 | Push and pull stopped working with a token that used to work | The token may have expired. Create a new one on GitHub, delete the saved token in the Git settings and add the new one. |

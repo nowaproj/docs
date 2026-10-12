@@ -23,8 +23,8 @@ RevenueCat organizes your sales around three ideas:
 
 Here's the short version of the setup in the RevenueCat dashboard. RevenueCat's guide to [configuring products](https://www.revenuecat.com/docs/projects/configuring-products) has every detail.
 
-1. **Add your apps.** Add an app config from **Apps** for each store you sell in, or a web config from **Web** to sell on the web (RevenueCat Billing, Stripe or Paddle). Each app gets its own public API key. Every project also comes with a **Test Store**, so you can try purchases before you connect a real store. See [Connect Apps & Web Providers](https://www.revenuecat.com/docs/projects/connect-a-store).
-2. **Create your products.** Go to **Product catalog** → **Products**. To start testing right away, pick the **Test Store** tab and click **+ New**. For the real stores, create the products in App Store Connect or Google Play Console first, then import them here.
+1. **Add your apps.** Add an app config from **Apps** for each store you sell in, or a web config from **Web** to sell on the web (RevenueCat Billing, Stripe or Paddle). Each store asks for your **Bundle Identifier** (as the bundle ID or package name) and a few credentials from the store; [Connect Apps & Web Providers](https://www.revenuecat.com/docs/projects/connect-a-store) shows where to find them. Each app gets its own public API key. Every project also comes with a **Test Store**, so you can try purchases before you connect a real store.
+2. **Create your products.** Go to **Product catalog** → **Products**. To start testing right away, pick the **Test Store** tab and click **+ New**. For the real stores, create the products in App Store Connect or Google Play Console first, then import them here. Apple lets you test in-app purchases only after your Account Holder signs the latest Paid Applications Agreement and adds tax and banking details in App Store Connect. Google Play lets you create products only after you've uploaded a build of your app (see [Publish to Google Play](../publish/android.md)). RevenueCat's [App Store](https://www.revenuecat.com/docs/getting-started/entitlements/ios-products) and [Google Play](https://www.revenuecat.com/docs/getting-started/entitlements/android-products) product guides walk you through both.
 3. **Create an entitlement.** Go to **Product catalog** → **Entitlements**, click **+ New** and give it an identifier such as `premium`. Open it and click **Attach** to link the products that unlock it.
 4. **Create an offering.** Go to **Product catalog** → **Offerings**, click **+ New**, give it an identifier such as `default` and add packages. A package groups the same product across stores, such as one monthly plan for iOS and Android. Your app shows the offering that's marked as the default.
 5. **Design your paywall.** On the **Paywalls** page, click **Create paywall** for your offering. Start from scratch, from a template or with RevenueCat's AI. When it looks right, click **Publish Paywall** so your app can show it.
@@ -48,11 +48,11 @@ Once RevenueCat is on, your app needs iOS 14 or later on iPhone and iPad.
 
 ## Add the paywall
 
-A paywall is the screen that shows your offers and lets people buy. RevenueCat builds it from the design you published in its dashboard, so you can change prices, texts and layout there later, without updating your app.
+A paywall is the screen that shows your offers and lets people buy. RevenueCat builds it from the design you published in its dashboard, so you can change its texts, layout and the plans it shows there later, without updating your app.
 
 1. Create a screen for it, such as **Upgrade**. RevenueCat recommends showing the paywall as part of a screen, not inside a bottom sheet or a popup.
 2. Press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd> or click the **Widget** tool to open the [Library](../design/library.md), search for **RevenueCat Paywall** and press <kbd>Enter</kbd>.
-3. If Nowa shows **Add Missing Dependencies**, click **Add**. Nowa adds the two add-ons the paywall needs, then places it.
+3. If Nowa shows **Add Missing Dependencies**, click **Add**. Nowa adds the add-ons the paywall still needs, then places it.
 
 On the board, the paywall is a placeholder labeled "RevenueCat Paywall" with the text "Run to preview". Size and place it like any other widget.
 
@@ -74,8 +74,8 @@ The board and **Play** only show placeholders. In **Play**, the paywall reads "R
 
 You don't need to spend real money to test. Pick one of these:
 
-- **RevenueCat's Test Store** simulates purchases, with no store setup at all. Create a Test Store in your RevenueCat project and copy its API key ([RevenueCat's Test Store guide](https://www.revenuecat.com/docs/test-and-launch/sandbox/test-store) shows where). Paste it into **Apple API Key** and **Android API Key** while you test. When your app buys something, a dialog lets you choose a successful purchase, a failed one or a cancel, so you can check how your app reacts to each.
-- **The stores' sandboxes** let test accounts from Apple and Google Play buy your real products without being charged. See RevenueCat's [sandbox testing guide](https://www.revenuecat.com/docs/test-and-launch/sandbox).
+- **RevenueCat's Test Store** simulates purchases, with no store setup at all. Copy your Test Store's API key from **API keys** in your RevenueCat project. If your project has no Test Store yet, [RevenueCat's Test Store guide](https://www.revenuecat.com/docs/test-and-launch/sandbox/test-store) shows how to create one. Paste the key into **Apple API Key** and **Android API Key** while you test. When your app buys something, a dialog lets you choose a successful purchase, a failed one or a cancel, so you can check how your app reacts to each.
+- **The stores' sandboxes** let test accounts from Apple and Google Play buy your real products without being charged. RevenueCat calls this the essential last check before launch. See its [sandbox testing guide](https://www.revenuecat.com/docs/test-and-launch/sandbox).
 
 :::warning[Put your real keys back before you build for the stores]
 RevenueCat makes any release build that uses a Test Store key stop on purpose, so it can't reach the stores. That includes TestFlight and Google Play testing tracks. Paste your real public keys back in before you deploy.
@@ -101,18 +101,21 @@ Once Nowa AI is done, open **Problems** to make sure nothing is flagged, then te
 
 ### Build your own buy buttons
 
-Prefer to design your own offer screen instead of the paywall? Nowa's setup includes two RevenueCat steps for that, grouped under `RevenuecatService`. In Circuit, search for `RevenuecatService`, click it and pick a step under **Members**:
+Prefer to design your own offer screen instead of the paywall? Nowa's setup includes two RevenueCat steps for that, grouped under `RevenuecatService`. In Circuit, hover the dot under the top node, click **+** and search for `RevenuecatService`. Click it to see its steps:
 
 - `fetchOfferings` loads the offerings you set up in RevenueCat.
 - `purchasePackage` buys one package from an offering.
 
-Both work with RevenueCat's own data, such as the package someone picked, so the easiest way to connect them is to ask Nowa AI, for example: "On the Upgrade screen, list the packages of my default RevenueCat offering, buy the one the user taps, and add a Restore purchases button." With your own screen, keep that restore button: Apple expects a way to restore purchases (see [Follow Apple's rules](../publish/ios.md#store-rules)).
+The third one, `configureRevenuecat`, is the start-up step Nowa already runs each time your app opens, so you don't need it.
+
+Both steps work with RevenueCat's own data, such as the package someone picked, so the easiest way to connect them is to ask Nowa AI, for example: "On the Upgrade screen, list the packages of my default RevenueCat offering, buy the one the user taps, and add a Restore purchases button." With your own screen, keep that restore button: Apple's guideline [3.1.1](https://developer.apple.com/app-store/review/guidelines/#in-app-purchase) asks for "a restore mechanism for any restorable in-app purchases".
 
 ## Before you publish
 
 - Swap any Test Store key for your real public keys.
 - Check that every platform you ship has its key.
 - Connect your real App Store and Google Play apps in RevenueCat and import their products.
+- App Store purchases, in the sandbox and live, need Apple's In-App Purchase capability, as RevenueCat's [iOS guide](https://www.revenuecat.com/docs/getting-started/installation/ios#3-enable-the-in-app-purchase-capability) explains. Apple turns it on by default for the App ID you register (see [Register your bundle ID](../publish/ios.md#register-your-bundle-id)), and RevenueCat also has you add it to your app in Xcode under **Signing & Capabilities**. If you don't use Xcode, ask Nowa AI in **Agent** mode: "Add the In-App Purchase capability to my iOS app, the way Xcode's Signing & Capabilities does." Then check with a sandbox purchase on an iPhone.
 - Go through RevenueCat's [launch checklist](https://www.revenuecat.com/docs/test-and-launch/launch-checklist) and the store rules for [Apple](../publish/ios.md#store-rules) and [Google Play](../publish/android.md#store-rules).
 
 ## Turn RevenueCat off

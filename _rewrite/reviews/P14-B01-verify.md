@@ -168,3 +168,14 @@ Length: about 2,350 words of visible text after these additions. Routing item #2
 | Dark mode: Agent prompt, check by running and tapping the switch; by hand `changeTheme` in Circuit, explained | ok | `docs/design/theme-styles.md#switch-themes-while-the-app-runs` | R3/R5. |
 | Theme extensions: no create button because they live in the code; Agent prompt; a new tab in **Themes** shows it worked | ok | `docs/design/themes.md:144-150` | |
 | HEX, breakpoints, params, route glosses; everyday examples | ok | | R4/R9. |
+
+## guides/ai-tips.md
+
+| Claim | Verdict | Source | Note |
+|---|---|---|---|
+| New "Describe behavior the way people see it" (old quickstart's stopwatch prompt) | ok, then fixed | old `getting-started/quickstart.md` | Prompt pattern, no product claim. "Leaves Nowa AI nothing to guess" overpromised (R5): now "little to guess". The example had no mode; behavior needs logic, so "For example, in **Agent** mode:". The check (play the screen, try each case) was already there. |
+| Routed from B02 (2): link to `../ai/prompting.md#when-the-result-isnt-right` in "Review what the agent did" | ok | heading at `docs/ai/prompting.md:78` | |
+| "Nowa AI always works from your latest version, including the changes you've made by hand" | ok | `packages/ai/lib/src/chat_session.dart:266-268` (code-mode buffers flushed before sending), `packages/ai/lib/src/tools/read_file_content_tool.dart:49-55` (reads the in-memory file, unsaved changes included) | Replaces the code-centric wording. |
+| Checkpoints: Git doesn't save them; keep a commit or a downloaded copy | ok | `docs/ai/undo-and-history.md:40`; `packages/core/lib/src/project/settings_service.dart:34-38` | `.nowa/temp/` moved to the for-code file (`#project-files`), unchanged. |
+| **Writing code** cards, hover to highlight, click to jump, no need to read code | ok | `packages/ai/lib/src/tools/legacy/write_code_tool.dart:23`, `docs/ai/chat.md:41` | |
+| Packages, RLS policies, migrations, logs glosses; Design "a safe place to explore" | ok | `docs/ai/modes.md` (Design doesn't touch a backend) | R4/R9. |

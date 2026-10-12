@@ -19,7 +19,7 @@ Stripe lets your app take card, Apple Pay and Google Pay payments. Nowa sets up 
 
 1. Click the gear in the top bar (**Settings**) or press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>,</kbd>. Under **Integrations**, click **Stripe**.
 2. Turn on **Enabled**. Nowa adds the `flutter_stripe` package to your project.
-3. Under **1. API Keys**, fill in **Merchant Name** (the name customers see), **Country Code** (two letters; it starts as `US`) and **Publishable Key** (starts with `pk_`). Press <kbd>Enter</kbd> or click the send icon (**Submit**) after each one. A check mark confirms the save.
+3. Under **1. API Keys**, fill in **Merchant Name** (the name customers see), **Country Code** (two letters; it starts as `US`, but it can be empty when you come back to the page, so check it) and **Publishable Key** (starts with `pk_`). Press <kbd>Enter</kbd> or click the send icon (**Submit**) after each one. A check mark confirms the save.
 4. Under **Purchase Types**, select what your app sells.
 
 | Purchase type | Use it for | How it works |
@@ -65,6 +65,8 @@ Skip this section if you only chose **Subscription**.
 2. Under **4. Map Fields**, which appears once you pick a table, set **ID Field** to the column that identifies each row and **Amount Field** to the column with the price.
 3. Set **Currency** to **From Column** and pick a **Currency Column**, or to **Fixed Value** and type a **Fixed Currency** such as `USD`.
 
+Nowa saves your table and field choices, and the purchase types, when you click **Deploy Configuration** or submit one of the keys. If you leave the page before that, pick them again.
+
 Your app sends only the row's ID. The function reads the price (and the currency, when it comes from a column) from your table as the signed-in user, so the app can't change the amount. Your [row-level security](https://supabase.com/docs/guides/database/postgres/row-level-security) rules must let signed-in users read these rows.
 
 :::warning
@@ -92,7 +94,7 @@ A failed Supabase step doesn't always show an error, so open your Supabase dashb
 
 After any change, such as a new purchase type or a different table, click **Deploy Configuration** again. Nowa keeps existing payment tables.
 
-{/* CAPTURE: id=integrations-stripe-2 | state: signed-in cloud project, Supabase connected, Stripe enabled, One-Time selected, a table picked | show: 3. Business Table, 4. Map Fields and the Deploy Configuration button | crop: Settings window content area, lower half */}
+![The lower half of the Stripe page in Settings with Supabase connected. Under 3. Business Table the products table is picked, and under 4. Map Fields ID Field is id, Amount Field is price and Currency is From Column with Currency Column currency (all highlighted). Below them is the Deploy Configuration button, now enabled.](/img/docs/integrations/integrations-stripe-2.png)
 
 ## Take a payment from a button
 

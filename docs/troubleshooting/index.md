@@ -155,6 +155,8 @@ Your version of Nowa is too old for Nowa's servers, so this screen replaces the 
 
 Nowa couldn't reach the internet while it checked your account. The desktop app shows "Please check your internet connection and try again." with a **Retry** button. Check that your computer is online, then click **Retry**.
 
+If you start the desktop app without a connection, it may open the sign-in page instead. Connect to the internet, then sign in again or restart Nowa.
+
 ## We'll Be Right Back or Maintenance in Progress
 
 Nowa's servers are unreachable or down for maintenance. "Maintenance in Progress" shows the server's message, or "The server is currently under maintenance. Please try again later." Neither screen has a button.

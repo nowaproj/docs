@@ -2,7 +2,7 @@
 title: Known issues
 description: Platform limits and editor quirks you may run into when you use Nowa, why they happen, and the quickest way around each one.
 sidebar_label: Known issues
-keywords: [known issues, limitations, Windows, Firebase, Firestore, test query, Firebase console query builder, Apple sign-in, Google Maps, AdMob, CORS, desktop app, Linux, code download spinning, custom domain pending, remove custom domain, rename variable, Shift drag, slash, route path, detach component, app bar drag, Connect Apps, firebase_options, InvalidType, Figma, Waiting for Authorization, playground, AI chat grey box, Add context, Redirect Logic]
+keywords: [known issues, limitations, Windows, Firebase, Firestore, test query, Firebase console query builder, Apple sign-in, Google Maps, AdMob, CORS, desktop app, Linux, code download spinning, custom domain pending, remove custom domain, rename variable, Shift drag, slash, route path, New UX, double-click, board toolbar missing, detach component, app bar drag, Connect Apps, firebase_options, InvalidType, Figma, Waiting for Authorization, playground, AI chat grey box, Add context, Redirect Logic]
 ---
 
 A few things work differently depending on where you run Nowa or your app, and a few editor actions need a workaround
@@ -97,6 +97,10 @@ In Nowa 3.13, a `/` you type in a field in **Details** is dropped. Fields in Cir
 ## Detach loses an instance's param values {#detach}
 
 When you detach a component instance, its widgets still point at the component's params (the values each copy of the component gets, such as its title), and the values you gave that instance are lost. The board shows a red box such as "[title] is not found", while **Problems** lists nothing. Note the values before you detach. Afterwards, click each broken property's name, choose **Detach...** and type the value again, or link it to something else. See [Build reusable components](../design/components.md#edit-a-component-or-one-instance).
+
+## Double-clicking on the board doesn't work {#new-ux-double-click}
+
+If you turned on the **New UX** experimental flag, double-clicking a widget on the board doesn't go one level deeper or start editing its text, and the toolbar at the bottom of the board is hidden. Turn the flag off: open **Settings** (the gear in the top bar) → **Project Details** → **Experimental flags** → **Edit**, switch off **New UX** and click **Apply**. Nowa saves your project and reopens it with the usual board. See [Experimental flags](../account/project-settings.md#experimental-flags).
 
 ## A widget dragged across the app bar keeps the app bar's size {#drag-across-app-bar}
 

@@ -67,3 +67,20 @@ code refs in the earlier writer notes W14 and W17). Relative links in the copied
 
 - [google-sign-in.md] If you also set a **URL Scheme** under [Deep links](./deep-links.md), check `Info.plist` as described there: both write a URL type to it.
 - [google-sign-in.md] Turn **Enabled** off to remove the package and the iOS entries Nowa added. The **Web Client ID** value stays in **Constants**, under **Custom Constants** as `webClientId`.
+
+## #deep-links
+
+- [deep-links.md] Turn on **Enabled**. Nowa adds the `app_links` package.
+- [deep-links.md] Nowa writes your settings into the iOS and Android project files, and switches off Flutter's built-in deep link handling in them. They take effect in a built app.
+- [deep-links.md] What each field sets up:
+
+  | Field | Opens your app from | Where Nowa writes it |
+  |---|---|---|
+  | **URL Scheme** | Links like `myapp://...` | The iOS `Info.plist` (a URL type), as soon as you save it. The Android manifest (an intent filter for the scheme, with the host `open.my.app`) the next time Nowa rewrites it. |
+  | **Host** | Links like `https://example.com/...` | The Android manifest only, as an App Links intent filter with `autoVerify`. |
+
+- [deep-links.md] Check the Android manifest: Currently, saving **URL Scheme** rewrites only the iOS `Info.plist`. The Android manifest gets your scheme the next time Nowa rewrites it, for example when you save **Host**. To add a scheme without a host, save any **Host** and clear it again. Before you test on Android, open `android/app/src/main/AndroidManifest.xml` in code mode and look for your scheme.
+- [deep-links.md] **Host** doesn't set up iOS Universal Links. Nowa doesn't add the iOS associated-domains entitlement, so web links open your app on Android only until you set up Universal Links yourself ([Apple's guide](https://developer.apple.com/documentation/xcode/supporting-universal-links-in-your-app)). On Android, `autoVerify` makes the system check that you own the domain, so your site must serve the verification file ([Android's guide](https://developer.android.com/training/app-links)).
+- [deep-links.md] [Google Sign-In](./google-sign-in.md) also writes a URL type to `Info.plist`, once you save its **iOS Client ID**. With both saved, Nowa writes two separate `CFBundleURLTypes` entries. A property list should hold that key once, so one of the two may not take effect on iOS. Open `ios/Runner/Info.plist` in code mode to check.
+- [deep-links.md] Nowa registers the links and adds `app_links`, but it doesn't generate code that reads an incoming link. Your app's logic has to read the link and open the right screen.
+- [deep-links.md] Turn **Enabled** off to remove the package and the entries Nowa added to the Android and iOS files.

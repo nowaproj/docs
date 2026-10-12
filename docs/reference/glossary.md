@@ -105,13 +105,13 @@ Labels in **bold** are exactly what the app shows. To find a word fast, use your
 | null | Empty: no value at all. An empty widget slot reads **null**, and **Set to null** empties a property on purpose. |
 | refresh and notifyListeners | Circuit steps that update what's on screen. **refresh** redraws a screen after its variables change. `notifyListeners` tells every widget that shows a global state to update. See [Store data in variables](../logic/variables.md) and [Share data across your app](../logic/global-state.md). |
 | State | The data your app or a screen holds right now, such as what's in the cart or who's signed in. See [Share data across your app](../logic/global-state.md). |
-| Types: String, int, double, bool, List, Map | The kind of value a variable holds. `String` is text, `int` a whole number, `double` a number with decimals and `bool` true or false. A list holds several values in order, and a `Map` looks values up by a key, such as a name. See [Store data in variables](../logic/variables.md). |
+| Types: String, int, double and bool | The kind of value a variable holds. `String` is text, `int` a whole number, `double` a number with decimals and `bool` true or false. Tick **As List** to hold several values of one type in order, such as a list of names. See [Store data in variables](../logic/variables.md). |
 
 ## Backend and services
 
 | Term | What it means |
 |---|---|
-| Ad unit ID | The ID AdMob gives each ad placement in your app. You paste it into the ad widget. See [Show ads with AdMob](../integrations/admob.md). |
+| Ad unit ID | The ID AdMob gives each ad placement in your app, such as a banner. You paste it into Nowa where you place that ad. See [Show ads with AdMob](../integrations/admob.md). |
 | API and REST API | An API is a way for one program to ask another for data or actions, like your app asking a weather service for today's forecast. A REST API does it over the web, and it's the most common kind. See [Connect a REST API](../integrations/rest-api/index.md). |
 | API key, secret key and token | Codes that prove your app, or you, may use a service. A publishable key is safe inside your app. A secret key works like a password and must stay on a server, because anything inside your app can be dug out. A token is often a temporary key, given after someone signs in. See [Keys and constants](../integrations/constants.md). |
 | Authentication | Checking who someone is, for example with an email and a password or a Google account, so your app can show them their own data. Also called sign-in. See [Connect data and services](../integrations/index.md#add-sign-in). |
@@ -148,7 +148,7 @@ Labels in **bold** are exactly what the app shows. To find a word fast, use your
 |---|---|
 | APK, AAB and IPA | App files. An APK installs straight onto an Android phone. An AAB (Android App Bundle) is what you upload to Google Play. An IPA is the iPhone app file that goes to App Store Connect. See [Build history and logs](../publish/builds.md). |
 | App Store Connect | Apple's website where you create your app's store page, receive the builds Nowa uploads, invite testers and submit for review. See [Publish to the App Store](../publish/ios.md). |
-| Build | Turning your project into an app file a phone or a browser can run. Nowa builds in the cloud, and you can follow each build step by step. See [Build history and logs](../publish/builds.md). |
+| Build | Turning your project into an app file a phone or a browser can run. When you publish, Nowa builds your app in the cloud, and you can follow each build step by step. See [Build history and logs](../publish/builds.md). |
 | Bundle Identifier | Your app's unique ID in the app stores, such as `com.yourcompany.yourapp`. Apple calls it a bundle ID, and Android calls it a package name or application ID. Set it in **Project Details** before your first build. It isn't the **Package Name** field on the same page. See [Check your app details](../publish/index.md#app-details). |
 | Debug and release builds | A debug build is a quick test version you install yourself. A release build is signed and ready for the stores. For Android, the **Debug mode** switch picks between them. See [Publish to Google Play](../publish/android.md). |
 | Distribution certificate | Apple's proof that an iPhone app comes from you. Nowa signs every iOS build with it. See [Publish to the App Store](../publish/ios.md#apple-distribution-certificate). |
@@ -156,7 +156,7 @@ Labels in **bold** are exactly what the app shows. To find a word fast, use your
 | Emulator and simulator | A virtual phone in a window on your computer, for testing without a real phone: an emulator for Android, the iOS Simulator for iPhone (on a Mac). See [Run on a device or emulator](../test/devices.md). |
 | Google Play Console | Google's website for publishing Android apps: you upload your app bundle there and fill in its store listing. See [Publish to Google Play](../publish/android.md). |
 | Hot reload and hot restart | Two ways to put your latest changes into an app that's running. **Hot Reload** updates it in place, so you stay where you are. **Hot Restart** starts it again from the beginning. See [Run your app](../test/run.md). |
-| SHA-1 and SHA-256 fingerprints | Short codes that identify your Android signing key. Services such as Google sign-in ask for them. Nowa shows them on the **Android** tab of the Deployment page. See [Publish to Google Play](../publish/android.md). |
+| SHA-1 and SHA-256 fingerprints | Short codes that identify your Android signing key. Services such as Google sign-in ask for them. Nowa shows them on the **Android** tab of **Settings** → **Deployment**. See [Publish to Google Play](../publish/android.md). |
 | Signing key | The digital key that proves an Android app comes from you, kept in a keystore file. Google Play needs your releases signed with it, so keep a copy somewhere safe. Nowa can generate one for you. See [Publish to Google Play](../publish/android.md). |
 | TestFlight | Apple's way to let testers install your iPhone app before it's on the App Store. See [Publish to the App Store](../publish/ios.md). |
 

@@ -200,3 +200,9 @@ Counting rule: a row whose status mentions "added" counts once, as `added` (for 
 (labels) / covered", "obsolete (flow) / covered", "obsolete (first half) / covered (second half)") counts as `covered`.
 Only fully obsolete rows count as `obsolete`. Nothing was moved to the for-code file (every page is already in the code
 section), and nothing needed another batch's page.
+
+## Routed from other batches
+
+| From | Item | Status | Where / evidence | Note |
+|---|---|---|---|---|
+| B01 (old `local-project-simulator/createlocalproject.md` "Offline mode", `getting-started/install.md` "Work offline") | Offline work is no longer possible: local projects need an internet connection | added | `local-projects.md#before-you-start` | `lib/router.dart:46-111` (`_authorize`: version check, then `/auth/profile`; errors redirect to sign-in or **No Internet Connection**), `packages/core/lib/src/services/version_service.dart:98-103`, `packages/core/lib/src/services/user_service.dart:81-83` |

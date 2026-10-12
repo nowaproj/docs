@@ -326,3 +326,29 @@ For other pages:
   the Client ID and Client Secret ... Add these values to the Google provider page"). If the page covers web
   sign-in, it may want that sentence. Evidence: https://supabase.com/docs/guides/auth/social-login/auth-google (Web
   section, steps 1-4).
+
+## deep-links.md
+
+What changed for the reader:
+- Moved to for-code (#deep-links): package name, "writes into the project files and switches off Flutter's built-in
+  deep link handling", the "Where Nowa writes it" column, the manifest file path check, the associated-domains /
+  `autoVerify` wording, the `CFBundleURLTypes` / `Info.plist` details, "doesn't generate code that reads an incoming
+  link". One link to `../code/generated-code.md#deep-links`.
+- Plain consequences kept: "From now on, your app handles these links itself" (Flutter's default handling is
+  switched off: `packages/core/lib/src/interpreter/packages/integrations/app_links_package_config.dart:17-27`,
+  `:56-66`); table "Works on" (URL Scheme iOS + Android, Host Android only, `:68-113`); "write your links with
+  `open.my.app`" (`:84-94`); "Android checks that the domain is yours" with the file name
+  `/.well-known/assetlinks.json` (https://developer.android.com/training/app-links/verify-applinks: "the
+  corresponding websites for the Digital Asset Links file at https://hostname/.well-known/assetlinks.json").
+- P39 workaround (save Host, or save and clear it) kept in plain words; its check is now "open a link on an Android
+  device or emulator" (R5). The code-mode manifest check moved to for-code.
+- New section `{#with-google-sign-in}` for P40 (duplicate URL types), with a Nowa AI prompt first (R5; the agent edits
+  any project file, `research/features-ai.md`) and how to check (try both on an iPhone or the simulator). "If you
+  change the URL Scheme or the iOS Client ID later, Nowa writes the entries again": platform tokens are rewritten
+  into the platform files when a value is saved (`packages/core/lib/src/interpreter/packages/package_config/package_config_service.dart`,
+  W17 notes). Whether a merged plist entry survives the next rewrite wasn't run; the sentence tells readers to check.
+- "Handle the link in your app": AI path first (R5), with how to check. The prompt keeps "app_links" as a hint for the
+  agent; the reader only copies it.
+- R9: everyday examples (message, website button, QR code on a flyer).
+
+Nothing added from old docs (no old page maps here).

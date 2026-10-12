@@ -52,6 +52,8 @@ Validators check the text and show a message under the field when it isn't right
 
 Nowa checks the rules from top to bottom and shows the message of the first one that fails. To remove a rule, hover its title and click the remove button. **Required**, **Min length** and **Max length** show no title or remove button: click the remove button on the validator row to remove all the rules.
 
+Validators run only when your logic asks the form to check, as [Check the whole form](#form) shows.
+
 ![The bottom of Details for a selected Text Field, scrolled down. The text validator block is highlighted: the Required rule's Message (Field is required), a Regex rule with its Message (Invalid input) and Regex field, and the + Add validator button. The Add Wrapper button is below.](/img/docs/reference/reference-forms-1.png)
 
 ### Length rules in Nowa 3.13
@@ -61,8 +63,6 @@ A **Min length** or **Max length** rule has a catch in Nowa 3.13. Right after yo
 Editing that **Message** is safe. Adding or removing another rule afterwards isn't: Nowa rewrites the row as a **Required** check and drops the length check. So add a length rule last.
 
 To change the number, ask Nowa AI in **Agent** mode, for example: "Make the password field require at least 8 characters." Then check it in **Play**: type something shorter and submit the form, and the message should show. If you edit code yourself, change the number in code mode (see [Edit code in Nowa](../../code/code-mode.md)).
-
-Validators run only when your logic asks the form to check. The next section shows how.
 
 ## Check the whole form {#form}
 
@@ -114,7 +114,7 @@ A **Pin Code Field** shows a row of boxes for a short code, such as the one-time
 
 ## Add a popup menu {#popup-menu-button}
 
-A **Popup Menu Button** opens a small menu when tapped, such as **Edit**, **Share** and **Delete** on a post. It starts as the text "Popup Menu" with one item, "Item 1".
+A **Popup Menu Button** opens a small menu when tapped, such as Edit, Share and Delete on a post. It starts as the text "Popup Menu" with one item, "Item 1".
 
 - The items live in **Item Builder**. Click **Edit** next to it to change them in Circuit. The quickest way is to ask Nowa AI, for example: "Give this menu the items Edit, Share and Delete."
 - **On Selected** runs when someone picks an item, with that item's value as `value`. **On Opened** runs when the menu opens, and **On Canceled** when it closes without a choice.

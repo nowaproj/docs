@@ -192,6 +192,15 @@ Facts, anchors and workarounds of every entry kept (3.13.0 as shipped). Changes:
   which is false while DNS setup is needed (`packages/core/lib/src/web_deploy/web_environment_manager.dart:64-66`);
   while pending the button reads **DNS** and only opens the DNS records (`custom_domain_section.dart:139-158`), whose
   page offers copy and **Verify** only (`custom_domain/dns_records.dart:38, 144`). **Chat with support**: `account/help.md`.
+- **Routed from B03**: new entry `#new-ux-double-click` ("Double-clicking on the board doesn't work"), as an H2 like
+  the page's other entries. Confirmed: with **New UX** on, every double-click that hits a widget throws
+  `UnimplementedError('Drill into component is not implemented yet')` before selecting a child or editing text
+  (`packages/designer/lib/src/design_experience/designer_board_controller.dart:103-121, 361-366, 414-419`; `isNewUx`
+  = the **New UX** flag, `packages/core/lib/src/providers/editor_provider.dart:348`). The board toolbar at the bottom
+  is hidden unless something plays (`packages/designer/lib/src/panels/designer_board.dart:137-148`), so the entry
+  mentions it. Path and dialog: **Experimental flags** → **Edit** (`packages/core/lib/src/settings/project_detail_settings.dart:69-80`),
+  **New UX** switch, **Apply** saves and reopens the project (`packages/core/lib/src/settings/experimental_flags_dialog.dart:30-39, 67-79, 100-106`).
+  Linked to `account/project-settings.md#experimental-flags`.
 
 ## test/problems.md
 
@@ -314,6 +323,13 @@ All headings kept (inbound anchors `#this-screen-failed-to-render`, `#update-pro
   (`lib/project/missing_project_folder.dart:84-124`).
 - Both "No devices connected" variants: `lib/local_export.dart:108-109`. USB debugging: https://developer.android.com/studio/run/device.
 - Local Setup can download Flutter: `packages/core/lib/src/settings/editor_settings/local_setup.dart:119-160`.
+- **Routed from B01**: under "No Internet Connection", added "If you start the desktop app without a connection, it
+  may open the sign-in page instead. Connect to the internet, then sign in again or restart Nowa." Confirmed reading:
+  `_authorize` first calls `ensureValidVersion()` (`lib/router.dart:55`), which uses package:http
+  (`packages/core/lib/src/services/version_service.dart:98-99` via `packages/core/lib/src/services/http.dart:8-16`);
+  offline, that error isn't a `DioException`, so the generic `catch` returns `/signin` (`lib/router.dart:108-111`).
+  `/no-internet` is reached only from the `DioException` branch with no connectivity (`lib/router.dart:86-91`; the only
+  route to it, `lib/router.dart:346-352`). Wording kept hedged ("may"), not tried live.
 
 **Open questions**: none.
 

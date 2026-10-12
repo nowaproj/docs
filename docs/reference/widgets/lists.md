@@ -60,8 +60,8 @@ To open a screen when someone taps an item, see [Open a detail screen when a lis
 Here's how the pieces fit together, using a small plant shop. You can follow it without a backend: sample entries stand in for real data, and later the data from your database replaces them.
 
 1. Create a model called `Plant` with two text fields, `name` and `imageUrl`. See [Create a model](../../logic/models.md#create-a-model).
-2. On the screen, add a variable called `plants`. In its type picker, tick **As List** and pick `Plant`. In **Default Value**, click **+** for each plant and fill in its name and picture address. See [Use a model as a type](../../logic/models.md#use-a-model-as-a-type).
-3. Build the card once as a [component](../../design/components.md) called `PlantCard`, with an Image and a Text. Give it a param called `plant` of type `Plant`. Link the Image's **Url** to the `imageUrl` field of `plant`, and the Text to its `name` field.
+2. On the screen, [add a variable](../../logic/variables.md) called `plants`. In its type picker, tick **As List** and pick `Plant`. In **Default Value**, click **+** for each plant and fill in its name and picture address. See [Use a model as a type](../../logic/models.md#use-a-model-as-a-type).
+3. Build the card once as a [component](../../design/components.md) called `PlantCard`, with an Image and a Text. Give it a [param](../../logic/parameters.md) called `plant` of type `Plant`. Link the Image's **Url** to the `imageUrl` field of `plant`, and the Text to its `name` field.
 4. Add a **Grid View** to the screen. Click **Item Builder**, choose **Pick Widget** and pick `PlantCard`.
 5. Click **List**, open **LOCALS** and pick `plants`. The grid now shows one card per plant.
 6. Select a `PlantCard` inside the grid. In **Details**, click the label of its param (it reads **Plant**), open **LOCALS** and pick `element`. Each card now shows its own plant.

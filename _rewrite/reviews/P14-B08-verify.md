@@ -7,7 +7,35 @@ fetched 2026-10-12.
 
 ## Summary
 
-(in progress)
+- **Pages checked:** all 10 (every `+` line of the diff, every `-` line, and the audience rules on each page).
+- **Claims checked:** about 110 rows below, many covering several labels; UI labels against `/home/user/nowa-master`
+  (3.13.0), console steps against the official docs fetched today (RevenueCat, Apple, Google AdMob, Google Maps
+  Platform, Google Cloud, Supabase, Postman, Xano, Swagger Petstore, MDN, Android developers).
+- **Fixed:** 24 claims, plus 4 heading anchors kept with explicit IDs (one was the broken
+  `admob#before-you-publish` from the trial build). Most serious: the REST walk-through linked the reply to a dialog
+  "content" that a new `showDialog` doesn't have (only a "Hello World" title); "pick it under **Members**" on the
+  RevenueCat and REST pages, a heading Circuit never shows; the Maps and Google Sign-In Android steps used only Nowa's
+  signing key, so the copy people download from Google Play (signed by Google) would show no map or fail Google
+  sign-in; the deep links fix claimed Nowa AI "fixes it" and listed only two of the settings that undo it.
+- **Removed:** no claim removed outright; inaccurate ones were rewritten (e.g. an AdMob example Google doesn't give,
+  "change prices" on a RevenueCat paywall).
+- **Facts restored or added (verified):** RevenueCat store prerequisites (Paid Applications Agreement, tax and banking;
+  uploaded build before Google Play products); Apple's In-App Purchase capability for App Store purchases; restricted
+  Maps keys don't load in Nowa's test runs; the safe path for secret keys now says where the key goes (Supabase
+  **Edge Function Secrets**) and how to check.
+- **Routed items applied:** B09 (Firebase "What you get" cell, `index.md`); B03-V (deep links fix undone by an iOS
+  permission or **App Name** change; the **Bundle Identifier** doesn't touch the iOS file, so it isn't named).
+- **Audience fixes:** AI tips now name **Agent** mode and say how to check (5 pages); Xcode, webhook and the two `text`
+  picks explained; `configureRevenuecat` explained; no file paths, package names or generated code left outside
+  agent prompts, Circuit-visible names and dialog text.
+- **Moved facts:** all 39 in `P14-B08-for-code.md` match the removed text; each reader-facing consequence is still on
+  its page in plain words. Nothing the reader needs was lost. One verifier addition to `#deep-links` (what rebuilds
+  `Info.plist`).
+- **Checks:** every relative link and `#anchor` resolves, `generated-code.md` anchors are from the allowed list, no
+  `origin/main` anchor is missing, front matter valid, no H1, no `---` rules, at most 2 admonitions per page and none
+  stacked, no banned words or emoji, images unchanged; all 10 pages compile with `@mdx-js/mdx` + `remark-gfm` (heading
+  IDs stripped first, as Docusaurus does; a control file with a stray `{` fails). No `yarn build`.
+- **Open issues:** 7, listed at the end.
 
 ## Anchors (coordinator request, done first)
 
@@ -268,3 +296,37 @@ No code-only facts on the page; nothing moved or lost.
 
 Removed facts: `SupabaseService` / `FirebaseService` cells are in the for-code file (`#supabase`, `#firebase`), unchanged.
 
+## Coverage spot checks
+
+Obsolete rows (2 of 2 checked, both confirmed):
+
+| Row | Result |
+|---|---|
+| createapi.md: close the request window, **Widgets** icon, **Get Data** | Confirmed: the Widgets panel is gone in 3.13, a stored "Widgets" panel name is migrated to "Library" (`packages/core/lib/src/panels/panel.dart:39`); **Get Data** was a field of the old tutorial's model, not a Nowa label. |
+| Openrouter.md: add a `Content-Type` header by hand | Confirmed: each body type carries its content type (`api_body_types.dart:3-13`) and switching body type rewrites the body (`body_type_actions.dart:37-62`); the page says so in "Add a request". |
+
+Covered rows sampled (13), all confirmed on the cited section: collection groups requests (`rest-api/index.md` intro,
+#create-a-collection); **+** → **New Collection** → **Submit**; base URL means only the endpoint (#add-a-request step
+4); **Run Test** → **Generate Model** → **Next** → fields → **Save** (#turn-the-response-into-a-model); **POST** to send
+data; parameters (#send-values-that-change); test values (#test-a-request); two ways to send a token (#set-the-base-url-headers-and-sign-in,
+#add-an-api-key-or-token); Postman upload (`import.md#from-postman`); Swagger URL → **Import**; Xano token → import
+(`#from-xano`); **Add Wrapper** → **Data Builder** → **Source** (`show-data.md#add-a-data-builder`); one field per row
+via **List** → **Connect** and `element` (`show-data.md#show-a-list`).
+
+## Open issues
+
+1. **REST walk-through, not run:** linking `var1` inside the dialog's **Title** is derived from code (scope walk,
+   `block_tree.dart:4894-4900`); the **Edit AlertDialog** / **Title** brush labels come from `logic/popups.md`. Worth a
+   live check.
+2. **RevenueCat paywall events:** whether **Details** shows an `onDismiss`-style event for the inserted `PaywallView`
+   in 3.13 (if so, "go back after closing" needs no AI). P51 (insert hangs in the playground) still unconfirmed.
+3. **Deep links:** nothing shows that a Nowa AI merge of the two iOS URL entries works; the page now only offers it,
+   with a device test and **Restore Checkpoint**. The product fix (one merged entry) belongs in `product-issues.md`.
+4. **Xano Private documentation:** may not import (the link needs a token Nowa ignores). Needs a Xano account.
+5. **AdMob privacy:** Nowa's ads package has no consent or tracking prompt; whether the page should point to Apple
+   5.1.2(i), the **User Tracking** permission and Google's EEA/UK consent rules is a content decision.
+6. **External availability:** learning.postman.com answered 451 "DEPLOYMENT_DISABLED" from about 17:00; the export
+   steps were checked against the copy fetched at 16:15 and the v12 search snippets. Re-check the link later.
+7. **Cross-batch link and length:** `revenuecat.md` links `publish/ios.md#register-your-bundle-id` (B11 heading,
+   implicit anchor); `rest-api/index.md` is about 2,440 words by my count, not split as instructed (the writer's
+   split proposal stands).

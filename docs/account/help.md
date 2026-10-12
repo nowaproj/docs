@@ -60,7 +60,7 @@ Announcements can also appear as banners at the bottom right. At most two show a
 
 ## Join the community and contact us
 
-Want to swap ideas and tips with other builders? Join them here:
+Want to swap ideas and tips with other builders, or write to the team directly?
 
 - [Discord](https://discord.gg/ByKfn3H7gX) to chat with other builders and the team.
 - The [community forum](https://community.nowa.dev/) for questions and answers.

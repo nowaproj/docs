@@ -50,7 +50,7 @@ Nowa keeps code you write exactly as you wrote it, until you change that declara
 | Your code | Where it shows up |
 |---|---|
 | A widget | In the [Library](../design/library.md) under **Project**. Press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd> and type its name, or open the Library from the sidebar. Drag it onto a screen like any [component](../design/components.md). |
-| A function | In [Circuit](../logic/circuit.md), in the **All nodes for this circuit** menu. A function in a file of its own is under **PACKAGE:** followed by your package name, such as **PACKAGE:MY_APP**. A function you add inside a screen or component is under **LOCALS** when you build that screen's logic. Drop the node in and fill in its parameters. |
+| A function | In [Circuit](../logic/circuit.md), in the **All nodes for this circuit** menu. A function outside any class, for example in a file of its own, is under **PACKAGE:** followed by your package name, such as **PACKAGE:MY_APP**. A function you add inside a screen or component is under **LOCALS** when you build that screen's logic. Drop the node in and fill in its parameters. |
 | A class | As a type for variables, parameters and return values. **Select type** lists it when you search for its name or click **show more...** ([Store data in variables](../logic/variables.md)). To make an object of it in Circuit, choose **GENERAL** → **Create...** and pick the class ([Use ready-made actions](../logic/actions.md)). |
 
 A widget that Nowa can read opens like any other component, so you can change it on the board too. For a one-off formula, you don't need a function: use a custom expression ([Expressions and conditions](../logic/expressions.md#custom-expression)).

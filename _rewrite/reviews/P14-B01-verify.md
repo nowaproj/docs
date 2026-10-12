@@ -179,3 +179,16 @@ Length: about 2,350 words of visible text after these additions. Routing item #2
 | Checkpoints: Git doesn't save them; keep a commit or a downloaded copy | ok | `docs/ai/undo-and-history.md:40`; `packages/core/lib/src/project/settings_service.dart:34-38` | `.nowa/temp/` moved to the for-code file (`#project-files`), unchanged. |
 | **Writing code** cards, hover to highlight, click to jump, no need to read code | ok | `packages/ai/lib/src/tools/legacy/write_code_tool.dart:23`, `docs/ai/chat.md:41` | |
 | Packages, RLS policies, migrations, logs glosses; Design "a safe place to explore" | ok | `docs/ai/modes.md` (Design doesn't touch a backend) | R4/R9. |
+
+## guides/ship-tips.md
+
+| Claim | Verdict | Source | Note |
+|---|---|---|---|
+| Routed from B09: Google Pay's test setting comes back after each **Deploy Configuration**, so change it after the last one; live-mode webhook needs its own destination; link `../integrations/stripe.md#go-live` | applied | `packages/core/lib/src/integrations/stripe/services/stripe_supabase_service.dart:392-394` (deploy calls `_updateServiceClass`), `:517-566`, `:846-852` (writes `testEnv: true` whenever Google Pay is on); `packages/core/lib/src/integrations/stripe/stripe_settings.dart:613` (**Deploy Configuration**); https://docs.stripe.com/events/how-events-work ("a maximum of 16 event destinations per livemode or sandbox account"); `docs/integrations/stripe.md:150-158` (`## Go live`, step 3) | Said as "Google Pay's test setting", no bare code (R2). The Stripe link in the Where column now points to `#go-live`. |
+| Routed from B02 (1): checkpoints bullet without `.nowa/temp/` | ok | `packages/core/lib/src/project/settings_service.dart:34-38`, `packages/core/lib/src/file_system/templates/common/gitignore_template.dart:13-16` | Folder kept in the for-code file (`#project-files`). |
+| **From Code Analysis (Accurate)** "checks your whole app thoroughly"; web publishing "starts with that same check" | ok | `packages/core/lib/src/panels/problems_panel.dart:14`, `:47`, `:501`; `packages/core/lib/src/web_deploy/web_environment_manager.dart:118-119` (both call `FlutterService.analyze()`) | `flutter analyze` moved to the for-code file (`#publishing`), unchanged. |
+| **Pull Backend Files** in plain words (database setup, server functions, bucket list, "into your project, so Git can keep them") | ok | `docs/integrations/supabase/backend.md:22-24` | `supabase/` folder sentence moved to the for-code file (`#supabase`), unchanged. |
+| Google Pay switch via an **Agent** prompt | ok | `docs/integrations/stripe.md:75` | R5. |
+| "Each row takes a minute to check" | fixed | | Not verifiable (reading the store rules takes longer). Removed; the reason that stays is "fixing something after release can mean another store review". |
+| "So launch day holds no surprises" | fixed | | Overpromise. Now "so you don't forget a step". |
+| Play starts the app's navigation at a played screen with a route; paywall, logs, commit, migrations, edge functions, Bundle Identifier, `.aab` glosses; bundle ID registered in your Apple Developer account | ok | `docs/test/instant-play.md`, `docs/publish/ios.md` (register a bundle ID) | |

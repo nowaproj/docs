@@ -37,7 +37,7 @@ the old docs (marked "old docs"). Anchors are the fixed ones on `docs/code/gener
   `packages/flutter/lib/src/widgets/framework.dart:5948-5962`), and Nowa's Run uses `flutter run` without a mode flag,
   i.e. debug (`packages/nowa_run/lib/src/services/local/nowa_run_service_local.dart:54`). The fix is a separate async
   function called from `initState` without `await`. The Return Type lock for overrides is only in the UI
-  (`packages/core/lib/src/widgets/code/variable_widgets.dart:472-480`).
+  (`packages/core/lib/src/widgets/code/variable_widgets.dart:474-482`).
 
 ## #global-state
 

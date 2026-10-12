@@ -4,7 +4,7 @@ description: What each of the 32 wrappers does to the widget inside it, when to 
 keywords: [wrapper, wrappers, add wrapper, wrapper list, wrapper picker, padding, visibility, opacity, gesture detector, scroll view, scrollview, material, text direction, clip radius, transform, align, safe area, ink well, tooltip, badge, dismissible, refresh indicator, form wrapper, data builder wrapper, notifier builder, aspect ratio, animated container, fractional sized box, directionality, single child scroll view, inkwell, color filtered, default text style, gesture, swipe to dismiss, swipe to delete, pull to refresh, wrap a widget, make a widget tappable, tap, double tap, long press, right-click, ripple, shadow, elevation, see-through, transparency, hide a widget, show a widget, scrollable, content cut off, right to left, rtl, ltr, screen reader]
 ---
 
-A wrapper goes around a widget and gives it one extra ability, while the widget itself stays as it is. Wrap a product card in a **Gesture Detector** and it opens the product page when tapped. Wrap a long column in a **Scroll View** and people can scroll through it. Nowa has 32 wrappers, and each one gets its own section in **Details**, so you set it up like any other widget.
+A wrapper goes around a widget and gives it one extra ability, while the widget itself stays as it is. Wrap a product card in a **Gesture Detector** and you can make it open the product page when tapped. Wrap a long column in a **Scroll View** and people can scroll through it. Nowa has 32 wrappers, and each one gets its own section in **Details**, so you set it up like any other widget.
 
 ## Add a wrapper
 
@@ -40,7 +40,7 @@ These seven come up again and again. Each section says what the wrapper does, wh
 - It starts at 8 on every side. The first field sets the space on the left and right, the second the space on the top and bottom.
 - For a different value on each side, click **Individual padding**, the button next to the fields. You then get left, top, right and bottom. Click it again to go back to two fields.
 - Values can't go below 0.
-- On a Group, the Padding shows in the Group's own **Padding** row instead of in a section of its own.
+- On a Group, the first Padding shows in the Group's own **Padding** row instead of in a section of its own.
 
 Where you put it matters: inside or outside a colored box gives a different look. See [Reorder wrappers](#reorder-wrappers).
 
@@ -48,7 +48,7 @@ Where you put it matters: inside or outside a colored box gives a different look
 
 **Scroll View** lets people scroll through a widget that's bigger than the space it has. Without it, whatever doesn't fit is cut off and nobody can reach it. That's a common surprise when content loaded from your data grows longer than the screen.
 
-Use it for a long form, an article, a settings screen, or a row of cards that people swipe through sideways. Add it to the widget that holds the content, usually a Column, or a Row for sideways scrolling. Then click the screen's title and **Play** to scroll through it the way your users will.
+Use it for a long form, an article, a settings screen, or a row of cards that people swipe through sideways. Add it to the widget that holds the content, usually a Column, or a Row for sideways scrolling. Then hover the screen's title and click **Play** to scroll through it the way your users will.
 
 | Setting | What it does |
 |---|---|
@@ -58,7 +58,7 @@ Use it for a long form, an article, a settings screen, or a row of cards that pe
 | **Physics** | How scrolling feels: `BouncingScrollPhysics` bounces back at the ends (iPhone style), `ClampingScrollPhysics` stops there (Android style), `NeverScrollableScrollPhysics` turns scrolling off and `AlwaysScrollableScrollPhysics` scrolls even when everything fits. Empty means each platform's usual feel. |
 | **Keyboard Dismiss Behavior** | Pick `onDrag` to hide the on-screen keyboard as soon as someone starts scrolling, which helps on a long form. |
 
-The other settings, such as **Primary** and **Restoration Id**, are for special cases, so you can leave them as they are. Inside a Scroll View, **Expand** isn't offered in the scrolling direction, because a scrolling area has no fixed end to fill. For a long list built from your data, a [List View](./widgets/lists.md) is often the better choice: it scrolls on its own and repeats one item design.
+The other settings, such as **Primary** and **Restoration Id**, are for special cases, so you can leave them as they are. Inside a Scroll View, **Expand** isn't offered in the scrolling direction, because a scrolling area has no fixed end to fill. For a long list built from your data, a [List View](./widgets/lists.md) is often the better choice: it scrolls on its own and repeats one item design. For a row of tags that should continue on a new line instead of scrolling, see [Scroll or wrap content](../design/layout.md#scroll-or-wrap-content).
 
 ### Gesture Detector {#gesture-detector}
 
@@ -111,7 +111,7 @@ No ripple when you tap an **Ink Well**? A filled widget, such as a Container wit
 
 **Text Direction** sets the reading direction for everything inside it. Pick `rtl` (right to left) for languages such as Arabic and Hebrew, or keep `ltr` (left to right), the default.
 
-It does more than move text: rows inside it also lay out their widgets from right to left, so a whole section mirrors itself. Add it to a screen's main widget to flip the whole screen. A single Text widget also has its own **Text Direction** setting. See [Languages and right-to-left text](../design/localization.md#show-text-right-to-left).
+It does more than move text: rows inside it also lay out their widgets from right to left, so the first widget in a row moves to the right. Add it to a screen's main widget to set the direction for the whole screen. A single Text widget also has its own **Text Direction** setting. See [Languages and right-to-left text](../design/localization.md#show-text-right-to-left).
 
 ## All wrappers
 
@@ -139,7 +139,7 @@ Every wrapper in the **Add Wrapper** list, with the name the list shows, grouped
 | **Opacity** | Makes the widget see-through, from 0 (invisible) to 1. See [Opacity](#opacity). |
 | <Anchor id="clip-radius" />**Clip radius** | Rounds the widget's corners and trims anything that sticks out. Set **Border Radius**. Use it for photos with rounded corners. |
 | <Anchor id="transform" />**Transform** | Rotates, scales or moves the widget without changing the space it takes. It starts with a rotation applied. Use it to tilt a sticker or a label. |
-| <Anchor id="color-filter" />**Color Filter** | Recolors the widget by blending a **Color** over it with a **Blend Mode**. It starts gray. |
+| <Anchor id="color-filter" />**Color Filter** | Recolors the widget by blending a **Color** over it with a **Blend Mode**. |
 | **Material** | A surface with its own color, shadow and border, where ripples show. See [Material](#material). |
 | <Anchor id="badge" />**Badge** | Adds a small badge to the corner of the widget, such as an unread count on a bell icon. It starts with the label "99". |
 | <Anchor id="animated-container" />**AnimatedContainer** | A box that animates smoothly when its settings change, such as its color or size, like the [AnimatedContainer widget](./widgets/index.md#animated-container). It starts with a 300 ms **Duration** and a gray fill. |
@@ -150,7 +150,7 @@ Every wrapper in the **Add Wrapper** list, with the name the list shows, grouped
 |---|---|
 | **Gesture Detector** | Makes the widget respond to taps, double taps, long presses and more. See [Gesture Detector](#gesture-detector). |
 | <Anchor id="ink-well" />**Ink Well** | Like **Gesture Detector**, with a ripple when the widget is tapped. Set **On Tap** and the ripple colors, such as **Splash Color**. No ripple? See the tip under [Material](#material). |
-| <Anchor id="dismissible" />**Dismissible** | Lets people swipe the widget away, for example to delete an item from a list. **On Dismissed** runs when it's gone: remove the item from your list there, or you'll see an error when you test. **Direction** sets which way it swipes, and **Background** shows behind it as it slides. |
+| <Anchor id="dismissible" />**Dismissible** | Lets people swipe the widget away, for example to delete an item from a list. **On Dismissed** runs when it's gone: remove the item from your list there, or your app shows an error when you try it with **Run**. **Direction** sets which way it swipes, and **Background** shows behind it as it slides. |
 | <Anchor id="refresh-indicator" />**Refresh Indicator** | Adds pull-to-refresh: people pull down to reload, and **On Refresh** runs. It needs a scrolling widget inside, such as a List View or a Scroll View. |
 | <Anchor id="interactive-viewer" />**Interactive Viewer** | Lets people pan and zoom the widget with their fingers. Use it for a floor plan or a photo people want to see up close. |
 | <Anchor id="tooltip" />**Tooltip** | Shows a short hint when people hover over the widget with a mouse or long-press it. It starts with the message "Tooltip message". Use it to explain a button that only has an icon. |

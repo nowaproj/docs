@@ -44,7 +44,7 @@ These details decide how your app appears on people's phones and how the app sto
 | **Build version** | The version number people see in the store, such as `1.3.4`. |
 | **Build number** | A behind-the-scenes counter that tells your builds apart. |
 
-Changing the **App Name** or the **Bundle Identifier** also rebuilds some of your app's Android and iOS settings files. Read the warning in [Set permissions](#set-permissions) first if you imported your project or changed those files in code.
+Changing the **App Name** or the **Bundle Identifier** also rebuilds some of your app's Android and iOS settings files, so read the warning in [Set permissions](#set-permissions) first.
 
 ### Choose your Bundle Identifier
 

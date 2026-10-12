@@ -94,7 +94,7 @@ Click the branch name at the top of the panel. The menu opens below it, with a *
 
 ![Two steps side by side: the branch menu open below the main branch row, with the Search branches field (highlighted), the feature-title branch, a star on the current branch main and New Branch; then the Switch branch? dialog shown after clicking feature-title with uncommitted changes, reading Your local changes conflict with feature-title., with Cancel and Bring my changes.](/img/docs/code/code-git-2.png)
 
-A branch you delete in Nowa stays on GitHub. To delete it there too, open the repository on GitHub, choose **View all branches** in its branch menu and click the delete icon next to the branch.
+A branch you delete in Nowa stays on GitHub. To delete it there too, open the repository on GitHub, choose **View all branches** in its branch menu and click the trash icon next to the branch.
 
 In a local project you can also switch branches in another tool, such as VS Code, GitHub Desktop or a terminal (`git checkout branch-name`). Nowa notices and reloads the files that changed: see [What syncs and when](vs-code.md#what-syncs-and-when).
 
@@ -127,11 +127,11 @@ Both are greyed out when they can't run. Neither works on a repository's first c
 A Nowa [workspace](../account/workspaces.md) shares cloud projects with your teammates, but it has no live co-editing. With Git and GitHub, several people change the same app, each in their own project, and bring the work together. Your project is a normal Flutter repository, so teammates can work in Nowa or in their own editor, and Nowa needs no extra branches of its own.
 
 1. One person connects the project to a GitHub repository: [create or connect a repository](github.md#connect-a-repository).
-2. On GitHub, they invite the others. Open the repository, click **Settings**, then **Collaborators** in the "Access" section of the sidebar. Click **Add people**, pick a teammate and confirm. Each teammate accepts the invitation GitHub sends them by email.
-3. Each teammate [connects their own GitHub account](github.md#connect-github) and creates their project with [Clone from GitHub](import.md#clone-from-github): a cloud project, or a local one with **Local-only** in the desktop app.
-4. Everyone works on their own branch, commits, and clicks **Sync** to share. Sync before you start working too, so you build on the latest version.
+2. On GitHub, they invite the others. For a repository in their personal account: open the repository, click **Settings**, then **Collaborators** in the "Access" section of the sidebar. Click **Add people**, pick a teammate and confirm. Each teammate accepts the invitation GitHub sends them by email.
+3. Each teammate [connects their own GitHub account](github.md#connect-github) and creates their project with [Clone from GitHub](import.md#clone-from-github): a cloud project, or a local one with **Local-only** in the desktop app. That list only shows repositories the teammate's own GitHub connection reaches, so a repository in someone else's account may be missing. If it is, clone it with another Git tool, such as GitHub Desktop, and open the folder with [Import project](import.md#import-a-project-from-a-folder) as a local-only project. That tool can also push and pull for it if Nowa's **Git** panel can't sign in to it.
+4. Everyone works on their own branch, commits, and clicks **Sync** to share (**Publish Branch** the first time). Sync before you start working too, so you build on the latest version.
 
-When a feature is finished, merge its branch in Nowa, or open a pull request on GitHub: a page where the team reviews and discusses a branch before it's merged. After a merge on GitHub, **Sync** in Nowa brings the result into your project. If two people changed the same lines, the next pull opens [Resolve Conflicts](#resolve-conflicts).
+When a feature is finished, merge its branch in Nowa, or open a pull request on GitHub: a page where the team reviews and discusses a branch before it's merged. After a merge on GitHub, switch to the branch it went into and click **Sync** to bring the result into your project. If two people changed the same lines, Nowa shows the clash when you pull, sync or merge: see [Resolve conflicts](#resolve-conflicts).
 
 ## Move work between a cloud and a local project
 

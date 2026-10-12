@@ -71,7 +71,9 @@ See [Nowa and your Flutter code](index.md), [Write your own code](custom-code.md
 
 Run on a device or simulator from Nowa or from VS Code. In Nowa, saving hot reloads the running app: your change appears on the device in a moment, without restarting the app or losing your place in it ([Run on a device or emulator](../test/devices.md)).
 
-Git works the same way. Nowa's [Git panel](git.md), VS Code, GitHub Desktop and the terminal all use the same repository in your folder, so commit, push, pull or switch branches wherever you like. The panel updates when files change outside Nowa.
+To run on your own iPhone, set up signing once in Xcode. Open `ios/Runner.xcworkspace` from your project folder, add your Apple Account under **Xcode** → **Settings** → **Apple Accounts**, then select the **Runner** target and pick your team under **Signing & Capabilities**. A free personal team works for your own devices. Xcode keeps the choice in the project's `ios/` folder, and a local project runs straight from that folder, so it sticks. A cloud project's device runs use a copy that Nowa manages, so a change made there may not last. For the phone side, such as Developer Mode, see [Run on your iPhone or iPad](../test/devices.md#run-on-your-iphone-or-ipad).
+
+Git works from either place too. Nowa's [Git panel](git.md), VS Code, GitHub Desktop and the terminal all use the same repository in your folder, so commit, push, pull or switch branches wherever you like. The panel updates when files change outside Nowa.
 
 The same goes for AI coding assistants in your editor: they change the same files, and Nowa picks up what they save.
 

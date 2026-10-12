@@ -133,7 +133,7 @@ light/dark switch, see "Theme" at the end).
   `?email=` for a different account than the one signed in, Nowa signs you out and asks you to sign in
   with that email (field locked) (`lib/router.dart:70-74`).
 - **Gating:** Desktop app only: after sign-in the account must have desktop access, otherwise `/upgrade`
-  (see "Desktop app").
+  (see "Desktop app"). Owner, 2026-10-12: every plan includes the desktop app (D28).
 - **Code refs:** `lib/router.dart:28-44` (AuthRedirectManager), `lib/router.dart:46-114`,
   `lib/router.dart:185-190`, `lib/auth/auth_view.dart:219-339`.
 - **Old docs:** none (install.md covers sign-up only) — missing.
@@ -555,8 +555,8 @@ light/dark switch, see "Theme" at the end).
 - **Options:** —
 - **Limits and rules:** No Linux button in 3.12.5 (the code has local-project support on Linux, but there is
   no download link). A button is disabled if the server sends no link for that OS.
-- **Gating:** Sidebar button web only. Using the desktop app needs desktop access on your plan (see
-  "Desktop app").
+- **Gating:** Sidebar button web only. Using the desktop app needs desktop access, which every plan
+  includes (owner, D28; see "Desktop app").
 - **Code refs:** `packages/core/lib/src/dialogs/download_nowa_dialog.dart:7-79`, `packages/core/lib/src/services/version_service.dart:30-32`,
   `packages/nowa_ui/lib/dashboard/dashboard_side_bar.dart:181-186`.
 - **Old docs:** `local-project-simulator/createlocalproject.md` "Downloading Nowa Desktop" — partly
@@ -753,7 +753,8 @@ light/dark switch, see "Theme" at the end).
 - **Limits and rules:** After sign-in the app checks that your plan includes desktop access; if not it shows
   the page above. Auto-update: see "Update prompts". "No Internet Connection" screen when offline.
 - **Gating:** Plan — `desktop` entitlement required for every non-web build (macOS, Windows and the native
-  mobile app) (`lib/router.dart:76-82`). Which plans include it is not in the code.
+  mobile app) (`lib/router.dart:76-82`). Which plans include it is not in the code; owner, 2026-10-12: the
+  desktop app is free and included in every plan, so the docs don't mention this check (D28, P186).
 - **Code refs:** `lib/router.dart:76-82,323-329`, `lib/upgrade_page.dart:8-71`, `packages/core/lib/src/billing/entitlement_keys.dart:5`.
 - **Old docs:** `createlocalproject.md` "Why use Nowa Desktop?" — says "available for all users — no premium
   plan required"; the code gates it by entitlement (needs confirmation, see Open questions).
@@ -1353,6 +1354,7 @@ light/dark switch, see "Theme" at the end).
 - **Plan gates:** which plans include desktop access (`desktop`), Git/GitHub (`github`), code download
   (`code_download`), buying credits (`top_up_credits`)? Not in the code; docs should link to nowa.dev/pricing.
   Old docs claim "Nowa Desktop is available for all users — no premium plan required" — still true?
+  Answered by the owner, 2026-10-12: yes, the desktop app is free and included in every plan (D28).
 - **Free plan name:** the badge shows the server's plan name; "Starter" is only a fallback when there's no
   subscription. What does a free account actually display?
 - **Workspace roles in projects:** which project permissions do Editor and View Only members get? The client only

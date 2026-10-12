@@ -14,13 +14,14 @@ These features depend on your plan. If yours doesn't include one, Nowa usually t
 | Feature | If your plan doesn't include it | Learn more |
 |---|---|---|
 | Buying extra credits | The page that **Buy credits** opens says your plan doesn't support it and offers **Upgrade Plan**. | [Buy extra AI credits](#buy-credits) |
-| The desktop app | After you sign in, the app says "Upgrade to unlock desktop version, or use on web at app.nowa.dev". | [Install the desktop app](../get-started/desktop-app.md) |
 | Git and GitHub, including **Clone from GitHub** | The **Git** panel and settings say "Your plan does not support git integration", and **Clone from GitHub** opens **Time to level up**. | [Use Git](../code/git.md) |
 | Publishing to the web | The **Web** row of the **Deploy** menu shows **Premium**. | [Publish to the web](../publish/web.md) |
 | Your own domain for the web version | **Custom Domain** shows **Premium**. | [Publish to the web](../publish/web.md) |
 | Android and iOS builds | Their rows in the **Deploy** menu show **Premium**. | [Get ready to publish](../publish/index.md) |
 | Premium templates | Adding a template marked **Premium** opens **Time to level up**. | [Start from a template](../design/templates.md) |
 | Connecting your own AI agent (desktop app) | **Connect External Agent** doesn't show in the **⋮** menu of the **AI Assistant** panel. It's Enterprise only for now. | [Connect your own AI agent](../ai/external-agent.md) |
+
+The [desktop app](../get-started/desktop-app.md) itself is free on every plan, so you can install it whichever plan you're on.
 
 Nowa AI, Android and iOS builds, and code downloads also come with an allowance that your plan sets. When one runs out, Nowa tells you and offers an upgrade or, for Nowa AI, extra credits. See [Check your usage](#usage), [When you run out of AI credits](#out-of-credits) and [Download your code](../publish/download-code.md).
 

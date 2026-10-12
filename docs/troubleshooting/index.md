@@ -130,10 +130,6 @@ Nowa lists only the repositories your connected GitHub account lets it use, and 
 
 If **Time to level up** appears instead, your plan doesn't include Git integration. See [Import an existing Flutter project](../code/import.md#clone-from-github).
 
-## Upgrade to unlock desktop version, or use on web at app.nowa.dev
-
-The desktop app checks that your plan includes desktop access. The page shows your billing options under the message. Upgrade there, then click **Refresh** (see [pricing](https://nowa.dev/pricing)), or click the message to use Nowa in your browser at app.nowa.dev.
-
 ## A new version of Nowa is available {#update-prompts}
 
 An update is out. The dashboard shows this dialog with both versions.

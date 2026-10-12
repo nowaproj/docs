@@ -65,6 +65,8 @@ If your app's identifier isn't registered yet, register it as [Register your bun
 - **In the macOS desktop app**, the **Open Xcode Workspace** link under the switch opens your project in Xcode. It works for local projects, whose files are on your Mac.
 - **If you don't use Xcode**, ask Nowa AI in **Agent** mode, for example: "Add the Push Notifications capability to my iOS app, the way Xcode's Signing & Capabilities does." Nowa can't check this part for you, so after your next iOS build, send a test notification to an iPhone to confirm it works. If something breaks, **Restore Checkpoint** undoes the AI's changes.
 
+If your app also takes Apple Pay through [Stripe](../stripe.md), add the capability again after each **Deploy Configuration** there: in Nowa 3.13, deploying rewrites the file that holds your app's capabilities and leaves push notifications out.
+
 The official guides have more detail: Firebase's [Upload your APNs authentication key](https://firebase.google.com/docs/cloud-messaging/flutter/client#upload-authentication-key), and Apple's [Create a private key](https://developer.apple.com/help/account/keys/create-a-private-key/) and [Enable app capabilities](https://developer.apple.com/help/account/identifiers/enable-app-capabilities/).
 
 ## Send a test notification

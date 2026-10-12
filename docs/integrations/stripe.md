@@ -22,7 +22,7 @@ Stripe gives you two keys, and Nowa needs both:
 - The **publishable key** (starts with `pk_`) identifies your Stripe account. It's made to be built into apps, so it's safe on your users' phones.
 - The **secret key** (starts with `sk_`) can do anything in your Stripe account, so it must never be in your app. Nowa keeps it on the server, in Supabase.
 
-You find both on the [API keys page](https://dashboard.stripe.com/apikeys) of your Stripe Dashboard. In a sandbox, they start with `pk_test_` and `sk_test_`, and payments are only simulated. Live mode keys start with `pk_live_` and `sk_live_` and take real money, so keep them for when you [go live](#go-live). See Stripe's [API keys](https://docs.stripe.com/keys) guide.
+You find both on the [API keys page](https://dashboard.stripe.com/apikeys) of your Stripe Dashboard. In a sandbox, they start with `pk_test_` and `sk_test_`. Live mode keys start with `pk_live_` and `sk_live_` and take real money, so keep them for when you [go live](#go-live). See Stripe's [API keys](https://docs.stripe.com/keys) guide.
 
 ## Turn on Stripe and add your keys
 
@@ -53,9 +53,9 @@ A webhook is how Stripe tells your Supabase project that a payment went through 
 
 1. Paste your **Secret Key** (starts with `sk_`) and submit it. Nowa saves it as a Supabase secret, never in your app.
 2. Click the copy icon (**Copy webhook URL**) next to **Webhook URL**.
-3. In your Stripe Dashboard, open **Workbench**, go to its **Webhooks** tab and click **Create an event destination**.
+3. In your Stripe Dashboard, open the [Webhooks tab in Workbench](https://dashboard.stripe.com/webhooks) and click **Create an event destination**.
 4. Select **Your account**.
-5. For the payload format, choose **Snapshot**. Nowa's webhook reads the full event, which only snapshot events include.
+5. For the payload format, choose **Snapshot**, not the recommended **Thin**: Nowa's webhook reads the full event, which only snapshot events include. Stripe then asks for an API version; you can keep your account's default.
 6. Select the events in the table below, click **Continue**, choose **Webhook endpoint** as the destination type and click **Continue** again.
 7. Paste the address from Nowa into **Endpoint URL**, add a description if you like, and create the destination.
 8. On the destination's settings page, click **Reveal secret** and copy the signing secret (it starts with `whsec_`).
@@ -72,7 +72,7 @@ Saved secrets are never shown again, so both fields are empty when you reopen th
 
 Cards work without extra setup. To add wallets, use **2. Payment Methods**. Both wallets need the **Country Code** from step 3. Your app offers the payment methods that are turned on in your Stripe Dashboard's [Payment methods settings](https://dashboard.stripe.com/settings/payment_methods), so check that the wallets you want are on there too.
 
-**Google Pay.** Turn on **Google Pay**. Nowa sets it up in Google's test environment, which is right while you test. Before you publish, switch it to production: ask Nowa AI in **Agent** mode, for example "Switch Google Pay in my Stripe payment service from the test environment to production", or change it in [code mode](../code/code-mode.md). Do this after your last **Deploy Configuration**, because deploying again puts it back to test. See Stripe's [Google Pay](https://docs.stripe.com/google-pay) guide.
+**Google Pay.** Turn on **Google Pay**. Nowa sets it up in Google's test environment, which is right while you test (on a real Android phone: Google Pay can't be tested on an emulator). Before it can take real payments, Google has to approve your app (see [Go live](#go-live)) and you switch it to production. To switch, ask Nowa AI in **Agent** mode, for example "Switch Google Pay in my Stripe payment service from the test environment to production". If you edit code yourself, see [What Nowa adds to your code](../code/generated-code.md#stripe). Do this after your last **Deploy Configuration**, because deploying again puts it back to test.
 
 **Apple Pay.** Turn on **Apple Pay** and enter your **Apple Merchant ID**. Apple only lets apps take Apple Pay with a merchant ID and a payment certificate, so you set those up once:
 
@@ -81,7 +81,7 @@ Cards work without extra setup. To add wallets, use **2. Payment Methods**. Both
 3. In Stripe, open the [iOS certificate settings](https://dashboard.stripe.com/settings/ios_certificates), click **Add new application** and download the certificate signing request (CSR) file Stripe gives you.
 4. In Apple Developer, go to **Identifiers**, filter by **Merchant IDs** and select yours. Under **Apple Pay Payment Processing Certificate**, click **Create Certificate**, then **Continue**. Click **Choose File**, pick Stripe's CSR file, click **Continue** and **Download** the certificate (a `.cer` file).
 5. Back in Stripe, upload the `.cer` file to finish adding the application.
-6. Your app's own identifier needs Apple Pay too: in **Identifiers**, edit your app's identifier, turn on Apple Pay and choose your merchant ID. If you haven't registered the identifier yet, see [Register your bundle ID](../publish/ios.md#register-your-bundle-id).
+6. Your app's own identifier needs Apple Pay too: in **Identifiers**, edit your app's identifier, turn on Apple Pay, choose your merchant ID and save. If you haven't registered the identifier yet, see [Register your bundle ID](../publish/ios.md#register-your-bundle-id).
 
 Nowa adds the Apple Pay setting your iOS app needs once a merchant ID is set. The payment certificate expires every 25 months, so make a new one before then. Each CSR from Stripe makes exactly one certificate, and if you switch merchant IDs, get a new CSR. See Apple's [Configure Apple Pay](https://developer.apple.com/help/account/capabilities/configure-apple-pay/) and Stripe's [Apple Pay](https://docs.stripe.com/apple-pay?platform=ios) guide.
 

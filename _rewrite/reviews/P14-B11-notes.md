@@ -28,6 +28,8 @@ code sign the build" (https://docs.codemagic.io/yaml-code-signing/alternative-co
 - Moved to the code section: 1 fact (`flutter analyze`, web.md). Six new developer facts proposed for `#publishing`.
 - Fees: only "one-time registration fee" (Google) and "yearly fee" (Apple), each with a link. No amounts.
 - No em dashes, no hype words, at most two admonitions per page.
+- "Service account" (listed in the batch note) doesn't come up: Nowa 3.13 doesn't upload to Google Play, and there's no
+  service-account code in `lib/`, `packages/core/lib` or `packages/data/lib` (grep), so the pages don't mention it.
 
 ## ios.md
 

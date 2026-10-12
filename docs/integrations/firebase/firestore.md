@@ -49,7 +49,6 @@ Here's what else works today:
 - Collections and queries that are already in your project keep working in your running app.
 - They also work in a [Data Builder](#use-a-query-in-your-app) and in Circuit, but each time you open the project, click **Refresh/Update apps and config files** in **Settings** → **Integrations** → **Firebase** first. Until you do, **Select Firestore Query** is empty. If the page shows **Continue with Google** instead, sign in, then click it again.
 - The editors still open, but you can't pick an item in them. Open `FirestoreService` (your queries) or one of your collections from the [Library](../../design/library.md), with **Filter** set to **Everything**, and the **Queries** or **Collections** editor opens. It says "select a query from the outline panel to open it" or "select a collection from the outline panel to open it", but there's no outline panel for it.
-- In the visual query builder, the `add` and `doc` steps don't work in 3.13: the step shows as **func** and **Problems** reports an error such as "The function 'add' isn't defined." Ask Nowa AI for functions that add, set or delete documents instead.
 - If you work in code yourself, you can edit your collections and queries in code mode, then click **Refresh/Update apps and config files** so Nowa's lists match your code. See [What Nowa adds to your code](../../code/generated-code.md#firebase).
 
 The sections below describe the collection and query editors and the query test. In Nowa 3.13 you can't open an item in them from the designer, but they show what your collections and queries are made of.
@@ -88,7 +87,7 @@ Each query is a function of `FirestoreService`, the list of your queries that No
 | `set` | Creates or replaces the document at that ID. | Nothing |
 | `delete` | Deletes the document. | Nothing |
 
-After the collection you can pick `add`, `doc`, `get`, `where`, `orderBy`, `count` or `snapshots`. In Nowa 3.13, `add` and `doc` can't be built yet, so `set` and `delete` can't either. See [Add collections and queries in Nowa 3.13](#add-collections-and-queries).
+After the collection you can pick `add`, `doc`, `get`, `where`, `orderBy`, `count` or `snapshots`. In Nowa 3.13, `add` and `doc` can't be built yet: the step shows as **func** and **Problems** reports an error such as "The function 'add' isn't defined." So `set` and `delete` can't be built either. Ask Nowa AI for these instead, as [Add collections and queries in Nowa 3.13](#add-collections-and-queries) shows.
 
 To make a query reusable, open a value dropdown and choose **Create New Param**. A parameter is an input you fill in each time you use the query, such as the lowest price to show. It appears in the **Params** list on the right. Nowa names it `addedParam` and gives it the field's type. Double-click it in **Params** to rename it. If the builder then looks empty, select the query again: your steps are still there. **Enter Value** types a fixed value instead.
 

@@ -135,7 +135,7 @@ Every wrapper in the **Add Wrapper** list, with the name the list shows, grouped
 
 | Wrapper | What it does |
 |---|---|
-| <Anchor id="container" />**Container** | Puts the widget in a box with the same settings as the [Container widget](./widgets/index.md#container): fill, border, rounded corners, shadow, padding and margin. It starts with a gray fill. Use it to turn plain text into a colored tag. |
+| <Anchor id="container" />**Container** | Puts the widget in a box with the same settings as the [Container widget](./widgets/index.md#container): fill, border, rounded corners, shadow, padding and margin. It starts with a gray fill. Use it to turn plain text into a colored tag. Its fill sits behind the widget it wraps, so it doesn't tint a picture. To tint one, use the Image's **Color** and **Blendmode** (see [Add an image](./widgets/media.md#image)). |
 | **Opacity** | Makes the widget see-through, from 0 (invisible) to 1. See [Opacity](#opacity). |
 | <Anchor id="clip-radius" />**Clip radius** | Rounds the widget's corners and trims anything that sticks out. Set **Border Radius**. Use it for photos with rounded corners. |
 | <Anchor id="transform" />**Transform** | Rotates, scales or moves the widget without changing the space it takes. It starts with a rotation applied. Use it to tilt a sticker or a label. |

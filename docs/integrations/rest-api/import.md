@@ -48,7 +48,8 @@ First, export your collection from Postman as a JSON file:
 Postman's own guide, [Export data from Postman](https://learning.postman.com/docs/getting-started/importing-and-exporting/exporting-data/), shows these steps with pictures. Then bring it into Nowa:
 
 1. Choose **Import from Postman**.
-2. Select or drop the file you exported. Or open it, copy its text, paste it into the field and click **Import**.
+2. Click the box **Select / Drop your JSON file** and pick the file you exported, or drop it there. The import starts right away.
+3. Or open the file, copy its text, paste it into the field and click **Import**.
 
 Folders in your Postman collection are flattened into one list of requests.
 

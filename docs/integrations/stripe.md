@@ -49,7 +49,7 @@ Nowa keeps the three values from step 3 in **Constants** (**Settings** → **Gen
 
 These fields appear once Supabase is connected. Until then the page shows "Connect to Supabase to configure backend settings, secrets, and deploy edge functions."
 
-A webhook is how Stripe tells your backend that a payment went through or failed, so the payment's record can be updated. You create it in Stripe and point it at the address Nowa gives you.
+A webhook is how Stripe tells your Supabase project that a payment went through or failed, so the payment's record can be updated. You create it in Stripe and point it at the address Nowa gives you.
 
 1. Paste your **Secret Key** (starts with `sk_`) and submit it. Nowa saves it as a Supabase secret, never in your app.
 2. Click the copy icon (**Copy webhook URL**) next to **Webhook URL**.

@@ -13,3 +13,16 @@ Each bullet is copied unchanged from the page it left, for `docs/code/generated-
 - From `reference/widgets/lists.md` (Add swipeable cards, step 1): "The widget needs the `flutter_card_swiper` package." (The page now says "the cards need a package to work".)
 - From `reference/widgets/forms.md` (Add a pin code field, step 1): "The field needs the `pin_code_fields` package." (The page now says "the boxes need a package to work".)
 - From `reference/widgets/navigation.md` (Swipe between pages): "They come from the `smooth_page_indicator` package, which `nowa_runtime` no longer includes." (The page keeps the package name, because **Problems** names it, and drops `nowa_runtime`.)
+- From `reference/widgets/index.md` (catalog rows; each now says "Needs a package"): SVG "Needs the `flutter_svg` package."; Swipeable Stack "Needs the `flutter_card_swiper` package and creates a `swiperController` variable."; Page View "They come from the `smooth_page_indicator` package"; YouTube Player "Needs the `youtube_player_flutter` package."; Lottie "Needs the `lottie` package."; Rive "Needs the `rive` package."; Pin Code Field "Needs the `pin_code_fields` package and creates a `pinCode` variable."
+
+## #admob
+
+- From `reference/widgets/index.md` (Admob Banner row): "Needs the `nowa_mobile_ads` package and your App IDs in **Settings** → **Integrations**."
+
+## #google-maps
+
+- From `reference/widgets/index.md` (Google Maps row): "Needs the `google_maps_flutter` package and your API keys in **Settings** → **Integrations**."
+
+## #revenuecat
+
+- From `reference/widgets/index.md` (RevenueCat Paywall row): "Needs the `purchases_flutter` and `purchases_ui_flutter` packages and your RevenueCat keys in **Settings** → **Integrations**."

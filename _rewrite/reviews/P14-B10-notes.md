@@ -164,8 +164,10 @@ Added, with evidence:
 Kept facts (P13-verified): every template label and step, function names, `id` rule, regenerate replaces, "No parameters to test",
 result table, **Edit Code** steps and messages, STREAM badge and **Streaming**, Data Builder steps, placeholder values on the board.
 
-Word count: about 2,250 including the SQL snippet, tables and alt texts. Split if it grows: move "Create a table" (and the Realtime
-step) to a new page "Set up your Supabase tables", leaving this page for queries, tests and Data Builders.
+Word count: about 2,300 including the SQL snippet (about 170 words), tables and alt texts, so just past the ~2,200 mark. Proposed
+split (not done): move "Create a table" and the Realtime step of "Live queries" to a new page "Set up your Supabase tables" (about
+700 words), leaving this page for templates, Nowa AI queries, tests and Data Builders (about 1,600 words). Anchors would need
+`#create-a-table` kept as a short pointer section or links updated in connect.md and auth.md.
 
 Open question 3. **Create Record and Update Record may send empty columns.** The templates insert or update `data.toJson()`
 (`templates/template_source_generator.dart:67-92`), and a model's `toJson` writes every field, empty ones included

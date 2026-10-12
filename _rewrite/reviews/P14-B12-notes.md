@@ -181,6 +181,17 @@ Facts, anchors and workarounds of every entry kept (3.13.0 as shipped). Changes:
   Not claimed: that the toolbar recovers after signing in from the playground (`BillingProvider.onUserChanged` runs
   in the router's `_authorize`, `lib/router.dart:45-63`, which the sign-in dialog may not pass through). Enter path
   is from code reading, not tried live.
+- **Routed from B11**: new entry `#code-download-spinner` ("The code download keeps spinning in the web app"), product
+  issue P9, linked to `publish/download-code.md#download-the-zip`. Confirmed: on the web, `_downloadProject` sets
+  `_downloading`, opens the download URL and returns without resetting it (`lib/project/download_code_button.dart:110-116`);
+  while `_downloading`, the zip row shows a spinner and has no tap action (`:200-212`); the popup is created anew on
+  each open (`const DownloadProjectPopup()` in `showPopup`, `:16-23`; state `:68-71`), so reopening resets it.
+- **Routed from B11**: new entry `#pending-custom-domain` ("A pending custom domain can't be removed"), product issue
+  P17, linked to `publish/web.md#use-your-own-domain`. Confirmed: the trash icon (**Remove custom domain**) shows only
+  when `isCustomDomainSet` (`packages/core/lib/src/web_deploy/web_deploy_widgets/custom_domain/custom_domain_section.dart:87-101`),
+  which is false while DNS setup is needed (`packages/core/lib/src/web_deploy/web_environment_manager.dart:64-66`);
+  while pending the button reads **DNS** and only opens the DNS records (`custom_domain_section.dart:139-158`), whose
+  page offers copy and **Verify** only (`custom_domain/dns_records.dart:38, 144`). **Chat with support**: `account/help.md`.
 
 ## test/problems.md
 

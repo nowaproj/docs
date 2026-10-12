@@ -180,3 +180,51 @@ Added (from old docs, verified):
   `widgets/basic.dart:4815-4826` (one child shown; the example keeps each card's state).
 - Drawer rows link to the new List Tile section on lists.md.
 
+## index.md (catalog)
+
+All 45 `<Anchor id>` tags and `{#find-a-widget-in-the-picker}` are unchanged (diffed before/after); no existing link was removed or
+changed. New links point to the new sections on the category pages.
+
+Changed for the reader:
+- Intro (R9). "Find a widget" second bullet now says the tables use the Library's groups (the old "not in the order of the tables
+  below ... follow the same ones" read as a contradiction); same fact: groups from `packages/core/lib/src/widgets_to_add/widgets_to_add.dart:96-107`.
+- "package" explained in one clause (R4). Package names in the rows replaced by "Needs a package" (R2; moved to `#packages`,
+  `#admob`, `#google-maps`, `#revenuecat`). The nine-widget sentence stays (the dialog lists them). New sentence: Html and the
+  Page View dots need a package too, without a prompt (consistent with media.md and navigation.md; Html declares no dependency, the
+  dots' package left `nowa_runtime`: see those pages' notes).
+- Integration rows: "**Settings** → **Integrations**" → "**Settings** (**AdMob** / **Google Maps** / **RevenueCat**, under
+  **Integrations**)", matching the integration pages (Integrations is a group in the Settings list, the page is the integration).
+  API keys explained (R4).
+- "Use it for" examples (R9; old `widgets-ref.md`): Container (cards, banners, a background behind an icon: old `container.md`),
+  Button (Save, Sign in, Add to cart: old "sending emails, sharing documents, liking content"), Icon Button, Floating Button
+  (main action: old), Wrap (tags), AnimatedContainer, Circular Progress Indicator (loading, form sent: old), Checkbox, Switch,
+  Expansion Tile (FAQ), Alert Dialog (confirm an action, important information: old), Admob (earn money: old), Html (blog article:
+  old "rich text or web content without a browser").
+
+Added (from old docs, verified):
+- "Container settings" table (old `container.md`): editor `packages/designer/lib/src/details/widget_fields.dart:317-350` and
+  `packages/core/lib/src/fields/basic_fields.dart:291-321` (Color with gradients `:323-378` and `color_fields.dart:377-380`, hidden while an image is set `:331-336`;
+  **Border** `:307`, created as black, width 1 at `:571-575`; **Radius** `:309-313` with the per-corner button and **TL**/**TR**/**BL**/**BR**
+  in `BFBorderRadius`; **Image** `:315`; **Shadows** `:317`); Alignment, Padding, Margin `widget_fields.dart:334-336`. Gradient names: `packages/core/lib/src/fields/color_fields.dart:377-380` (**Solid**, **Linear**, **Radial**, **Sweep**).
+- "Text settings" table (old `text.md`): fields `widget_fields.dart:261-315`; Auto size for a new text from the Text tool
+  (`packages/designer/lib/src/widgets/designer_tools.dart:93-94`) and the Library (`widgets_to_add.dart:156-167`), Auto for a null
+  size (`packages/designer/lib/src/details/layout_details.dart:116-122`); drawing a size with a drag (design/add-widgets.md; resize during
+  placement `packages/designer/lib/src/design_experience/place_board.dart:100-113`); **Text Align** four buttons
+  (`packages/core/lib/src/fields/text_fields.dart:336-363`); **Overflow** values `packages/core/lib/src/interpreter/libraries/material_library.dart:85218-85225`
+  shown by name with **Default** (`basic_fields.dart:1540-1545`); meanings are Flutter's `TextOverflow` values; **Style** and CopyWith /
+  Modify Style as design/theme-styles.md states them. Double-click to edit: design/select-and-edit.md.
+- Icon: **Semantic Label** under **Show advanced options** (`packages/core/lib/src/fields/button_fields.dart:49-61`).
+- Button: **On Hover** meaning (Flutter SDK `material/button_style_button.dart:118-122`).
+- Progress indicators (old `loading-circular.md`, `linear-progress-indicator.md`): parameters `material_library.dart:61083+` and
+  `:61150+` (default editor, derived labels; old "Minimum Height" is **Min Height**, old "Radius" is **Border Radius**); meanings Flutter
+  SDK `material/progress_indicator.dart:109-130` (semantics), `:453` (Min Height), `:461` (Border Radius), `:927` (Background Color =
+  the track), `:936` (Stroke Width). 0.4 = 40%: old linear page example.
+- Indexed Stack: hidden children keep their state (see navigation.md).
+- Rows link to the new sections: forms#checkbox-switch-slider, forms#popup-menu-button, lists#list-tile, lists#expansion-tile,
+  media#fit, media#background-image, media#html.
+
+Length: body ~2,650 words by `wc`, but about a fifth of that is table markup (45 `<Anchor id="..." />` tags, link targets). If it
+must shrink, move the "Container settings" and "Text settings" tables (and the progress-indicator details) to a new category page
+such as "Basic widgets" (`reference/widgets/basics.md`) and link to it from the rows. The catalog rows and their anchors must stay
+on index.md, since the app links to `/reference/widgets#<id>` (D13).
+

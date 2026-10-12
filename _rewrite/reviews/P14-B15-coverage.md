@@ -183,18 +183,20 @@ Status values: `covered` (page#section) / `added` (page#section) / `obsolete` (c
 
 | Old page | Items | covered | added | obsolete | not useful | dev-only | for other page |
 |---|---|---|---|---|---|---|---|
-| git/intro-git.md | 13 | 7 | 6 | 0 | 1 | 0 | 0 |
+| git/intro-git.md | 13 | 5 | 7 | 0 | 1 | 0 | 0 |
 | git/git-local.md | 12 | 5 | 2 | 4 | 1 | 0 | 0 |
-| git/git-operations-cloud.md | 25 | 13 | 9 | 1 | 3 | 0 | 0 |
-| git/token-github.md | 18 | 6 | 8 | 1 | 3 | 0 | 0 |
-| git/clone-from-cloud.md | 14 | 8 | 4 | 0 | 1 | 0 | 0 |
-| hybrid-approach/intro-hybrid-approach.md | 10 | 5 | 3 | 0 | 1 | 0 | 0 |
+| git/git-operations-cloud.md | 25 | 11 | 11 | 1 | 2 | 0 | 0 |
+| git/token-github.md | 18 | 7 | 8 | 0 | 3 | 0 | 0 |
+| git/clone-from-cloud.md | 14 | 8 | 5 | 0 | 1 | 0 | 0 |
+| hybrid-approach/intro-hybrid-approach.md | 10 | 6 | 3 | 0 | 1 | 0 | 0 |
 | hybrid-approach/custom-code.md | 11 | 4 | 3 | 3 | 1 | 0 | 0 |
 | local-project-simulator/openexisting.md | 3 | 2 | 1 | 0 | 0 | 0 | 0 |
 | local-project-simulator/othertools.md | 4 | 3 | 1 | 0 | 0 | 0 | 0 |
-| local-project-simulator/sync.md | 12 | 8 | 2 | 1 | 1 | 0 | 0 |
-| **All** | **122** | **61** | **39** | **10** | **12** | **0** | **0** |
+| local-project-simulator/sync.md | 12 | 8 | 3 | 0 | 1 | 0 | 0 |
+| **All** | **122** | **59** | **44** | **8** | **11** | **0** | **0** |
 
-Counting rule: a row marked "covered + added" counts once, as `added`; "obsolete (labels) / covered" counts as
-`covered` (the topic is in the docs with current labels); "obsolete (changed) + added" counts as `added`. Rows that are
-fully obsolete count as `obsolete`.
+Counting rule: a row whose status mentions "added" counts once, as `added` (for example "covered + added", "obsolete
+(changed) + added"). A row that is partly obsolete but whose topic is in the docs with current labels ("obsolete
+(labels) / covered", "obsolete (flow) / covered", "obsolete (first half) / covered (second half)") counts as `covered`.
+Only fully obsolete rows count as `obsolete`. Nothing was moved to the for-code file (every page is already in the code
+section), and nothing needed another batch's page.

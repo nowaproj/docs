@@ -261,3 +261,106 @@ Open questions:
   when Apple Pay is turned on afterwards (code reading).
 - Android 13 and later need the `POST_NOTIFICATIONS` permission for notifications; nothing in Nowa adds it (W16 notes).
   Whether the `firebase_messaging` plugin declares it was not checked. Not on the page.
+
+## Page: `docs/integrations/stripe.md`
+
+Changed for the reader:
+- Intro rewritten (R9); `StripePaymentService` kept (the reader searches for it in Circuit, R3).
+- "Turn on Stripe": `flutter_stripe` package moved; "so the rest of the page opens up" (the sections are built only
+  when the package is installed, `packages/core/lib/src/integrations/stripe/stripe_settings.dart:91-98`).
+- Purchase types: the old page's examples added to "How it works" (premium unlock or ebook, extra lives, monthly
+  fitness plan) and "start with one and add more later" (old tip; redeploy keeps tables, see below).
+- Constants: "That's fine, because none of them is secret" (Stripe: publishable keys are "Safe to expose", and the
+  merchant name and country code aren't secrets).
+- Secret key and webhook: what a webhook is (R4); the Supabase secret names moved into the deploy check, where the
+  reader sees them in the Supabase dashboard.
+- Payment methods: Apple Pay entitlement file and the Google Pay `testEnv` file path moved to the for-code file; plain
+  versions kept; the Google Pay fix now leads with Nowa AI (R5) and says to do it after the last deploy (P68).
+- Deploy: "You'll find these in your Supabase project afterwards" (the table is what the reader checks in Supabase);
+  platform file changes in plain words ("prepares the Android and iOS versions for Stripe's payment screen", iOS
+  **Camera** permission kept); "Nowa keeps your existing payment tables and the payments in them" (`CREATE TABLE IF NOT
+  EXISTS`, no `DROP`, `stripe_edge_functions.dart:171,349,574`).
+- Remove Stripe: file path moved; plain words.
+- RLS explained in one clause (R4).
+
+Added (old page items):
+- "Get your Stripe keys" (old: where to find the publishable and secret keys, `pk_test_` vs `pk_live_`, "publishable
+  key is safe"). Stripe (https://docs.stripe.com/keys): "Use the API keys page in the Dashboard to create, reveal,
+  expire, and rotate keys for the account or sandbox you're viewing"; "Sandbox keys start with pk_test_ ... and sk_test_
+  for secret keys"; "Switch to your live mode keys, which start with pk_live_, rk_live_, and sk_live_"; publishable key
+  "Safe to expose: Yes ... You can include it in front-end code or applications you distribute"; secret key "Safe to
+  expose: No ... unrestricted permissions on all Stripe APIs". API keys page link `https://dashboard.stripe.com/apikeys`
+  is the one Stripe's page uses. "Sandbox" is Stripe's current name for test mode ("Sandbox versus live mode").
+- Webhook destination step by step (old: Webhooks → Add destination → events → Webhook endpoint → Endpoint URL → Create
+  destination → Reveal signing secret). Stripe today (https://docs.stripe.com/webhooks#create-webhook-endpoint): "Open the
+  Webhooks tab in Workbench. Click Create an event destination. Select Your account ... Choose the payload format: Thin
+  (recommended) or Snapshot. For snapshot destinations, also select the API version. Select the event types ... Select
+  Continue, then select Webhook endpoint as the destination type. Click Continue, then provide the Endpoint URL and an
+  optional description ... On the webhook settings page, a signing secret beginning with whsec_ appears. Click Reveal
+  secret". The final create button isn't named on the page, so the docs say "create the destination". **Snapshot** is
+  required by Nowa's webhook (`constructEventAsync`, `event.data.object`, `stripe_edge_functions.dart:803-835,862`).
+- Events: the old page's 9 events reduced to the 7 the webhook handles (unchanged table; `stripe_edge_functions.dart:803-835`);
+  Stripe also advises "Configure your webhook endpoints to receive only the types of events required by your integration".
+- Wallets need the Dashboard's payment method settings: the payment intents use `automatic_payment_methods: { enabled:
+  true }` (`stripe_edge_functions.dart:123-132,301-310`); Stripe, "View your payment methods settings and enable the
+  payment methods you want to support" (https://docs.stripe.com/payments/mobile/accept-payment-embedded), link
+  `https://dashboard.stripe.com/settings/payment_methods` (from Stripe's pages). The old path "Settings → Payments →
+  Payment Methods" is not confirmed today, so the page links the settings instead.
+- Apple Pay step by step (old: merchant ID, Payment Processing Certificate with Stripe's CSR, `apple_pay.cer` back to
+  Stripe). Apple (https://developer.apple.com/help/account/capabilities/configure-apple-pay/): "click Identifiers in the
+  sidebar, then click the add button (+) ... Select Merchant IDs, then click Continue. Enter the merchant description and
+  identifier name, then click Continue. Review the settings, then click Register"; certificate: "select Merchant IDs
+  using the filter on the top right ... select your merchant identifier ... Under Apple Pay Payment Processing
+  Certificate, click Create Certificate ... click Continue. Click Choose File ... select the certificate request file (a
+  file with a .certSigningRequest file extension) ... Click Continue. Click Download"; "The payment processing certificate
+  expires every 25 months" (so the old "one-time setup" is corrected); "To add the Apple Pay entitlement to your App ID,
+  first create a merchant identifier, then enable Apple Pay". Stripe (https://docs.stripe.com/apple-pay?platform=ios):
+  "Stripe recommends using the name of your app as the identifier (for example, merchant.com.{{YOUR_APP_NAME}})", "Go to
+  the iOS Certificate Settings in the Dashboard, click Add new application, and follow the guide. Download a Certificate
+  Signing Request (CSR) file", "One CSR file must be used to issue exactly one certificate. If you switch your Apple
+  Merchant ID, you must ... obtain a new CSR and certificate". iOS certificate settings link
+  `https://dashboard.stripe.com/settings/ios_certificates` is the one Stripe's page uses. Nowa's hint for the field is
+  `merchant.com.example.yourapp` (`stripe_settings.dart:322`); the entitlement is written only when a merchant ID is set
+  (`stripe_manager.dart:65-76`). The App ID's Apple Pay labels aren't on Apple's help page, so step 6 has no bold labels.
+  Link to `publish/ios.md#register-your-bundle-id` (routed from B11).
+- Currency codes (old tip): three-letter codes, **Fixed Value** when all items share one.
+- Test cards: Stripe (https://docs.stripe.com/testing#cards), "use a card number, such as 4242 4242 4242 4242 ... Use a
+  valid future date, such as 12/34. Use any three-digit CVC (four digits for American Express cards)", "Don't use real
+  card details".
+- "Go live" (old: `pk_live_` for production). Stripe: "On the API keys page, toggle from sandbox mode to live mode",
+  "On the API keys page in live mode, in the Standard keys list, click Reveal live key"; "Each mode has its own set of API
+  keys, and objects in one mode aren't accessible to the other" (keys page); "You can register a maximum of 16 event
+  destinations per livemode or sandbox account" (https://docs.stripe.com/events/how-events-work), so the live webhook is
+  a separate destination. Republish because the publishable key is a Dart-only constant compiled into the app
+  (`packages/core/lib/src/interpreter/packages/integrations/stripe_package_config.dart:19-45`, W17 notes).
+- Troubleshooting (old tip "keys copied correctly with no extra spaces"): values are saved untrimmed
+  (`stripe_supabase_service.dart:244-251,299-312`, `stripe_settings.dart:476-516,537,552`).
+- `cancelSubscription()` fails in 3.13 (P66, not from the old page): the deployed `stripe-cancel-subscription` source has
+  `.order('created_at', ascending: false)` (`stripe_edge_functions.dart:659`), which three TypeScript parsers reject
+  (P66), and deploy errors are swallowed (P67). Workaround from P66: "a subscription can still be cancelled in Stripe
+  itself"; the webhook handles `customer.subscription.updated` and `.deleted` (`stripe_edge_functions.dart:818-821`).
+  Added to the method table and to "Fix common problems".
+
+Obsolete (old page): "Supabase MCP must be enabled" (Stripe uses the **Connect** authorization,
+`stripe_supabase_service.dart:20,224-251`); `type` and name columns (only ID, amount and currency are mapped,
+`stripe_settings.dart:344-455`); `payment_intent.canceled` and `.processing` (not handled).
+
+Length: about 2,465 words of prose (2,618 with front matter and tables), over the ~2,200 mark. Proposed split: move
+"Choose payment methods" (Apple Pay and Google Pay setup, about 450 words) to its own page, "Add Apple Pay and Google Pay
+to Stripe", linked from step 4 of "Turn on Stripe"; this page would drop to about 2,000 words.
+
+Open questions:
+- Snapshot destinations also ask for an API version. Nowa's functions pin `2025-12-15.clover`; the page says nothing
+  about which version to pick. Possible product issue: since Stripe API `2025-03-31.basil` the Invoice object has no
+  `subscription` field (moved to `parent.subscription_details.subscription`) and the Subscription object no
+  `current_period_start`/`current_period_end` (https://docs.stripe.com/changelog/basil/2025-03-31/adds-new-parent-field-to-invoicing-objects,
+  https://docs.stripe.com/changelog/basil/2025-03-31/deprecate-subscription-current-period-start-and-end). The webhook still
+  reads `invoice.subscription` (`stripe_edge_functions.dart:823-835`) and `subscription.current_period_*` (`:544-545,791`),
+  so on current API versions the `invoice.paid` / `invoice.payment_failed` branches do nothing and the period dates stay
+  empty; the status still follows `customer.subscription.*`. Code reading, not run.
+- Stripe recommends restricted keys (`rk_`) over secret keys for new integrations (keys page); Nowa asks for the
+  **Secret Key** (hint `sk_test_...`). Which permissions a restricted key would need for Nowa's functions wasn't checked,
+  so the page keeps the secret key.
+- Nowa's own helper text for **Webhook URL** still says "(Developers > Webhooks > + Add endpoint)"
+  (`stripe_settings.dart:568-570`); Stripe now points to Workbench ("Workbench replaces the existing Developers Dashboard.
+  You can still create a new webhook endpoint in the Developers Dashboard"). Product text could be updated.

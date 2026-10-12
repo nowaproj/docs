@@ -5,6 +5,13 @@ Code-only facts for `docs/code/generated-code.md`, grouped by its anchors. Two k
 - **Old docs (dev-only)**: still valid, code-level information from an old page that the main pages leave out, with
   the old page and the code ref that confirms it (wording is mine, as the old text was outdated).
 
+## #project-files
+
+- Moved from `docs/logic/router.md` ("Stay signed in between launches"): "Nowa starts Supabase and Firebase with their
+  default settings, in `lib/main.dart`, before your first screen opens." (Refs as in `reviews/W20-writer-notes.md`,
+  Task 2: `packages/data/lib/src/supabase/supabase_manager.dart:188-192,214-226`,
+  `packages/core/lib/src/interpreter/packages/integrations/firebase_package_config.dart:13-18`.)
+
 ## #actions-and-popups
 
 - Moved from `docs/logic/actions.md` ("Find any other function" table, MATERIAL row; `showAboutDialog` stays on the
@@ -42,3 +49,8 @@ Code-only facts for `docs/code/generated-code.md`, grouped by its anchors. Two k
 - Old docs (dev-only), from `old-docs/logic/common-functionalities/print.md`: the `$` menu writes Dart string
   interpolation, `${name}`. When you type in code yourself, `$name` works for a plain variable, and anything with a dot
   or a call needs braces: `${textController.text}`, `${getName()}`. Ref: `packages/core/lib/src/fields/interpolated_text_field.dart:41-90`.
+
+## #supabase
+
+- Moved from `docs/logic/router.md` (Nowa AI tip): "For Supabase, you can also ask for a function in `SupabaseService`
+  that tells you whether someone is signed in."

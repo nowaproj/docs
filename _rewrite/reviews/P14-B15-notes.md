@@ -207,8 +207,15 @@ Evidence: the page's own verified "Check the real result" section (Run compiles 
 
 ## Open questions
 
-(Collected at the end.)
+- **Q1. The GitHub pages Nowa opens.** `github.md` describes the approval step as GitHub's app installation page (pick **All repositories** or **Only select repositories**) and **Manage** as GitHub's page for an installed app (**Repository access** → **Save**). Both URLs come from Nowa's server (`/github/start` → `authorizationUrl`, `/github/status` → `manageUrl`; `packages/git_nowa/lib/src/github_oauth/github_oauth_service.dart:17-31`), and the client models a GitHub App installation, so this matches GitHub's docs (GH-APP, GH-APPMOD). Step 3 is written conditionally ("If GitHub asks"). A live check with a throwaway GitHub account in the desktop app would confirm the exact labels.
+- **Q2. Other Git hosts.** The page says a token from another host works with any `http(s)` **Repository URL**, with GitHub disconnected. The client allows it (any http/https URL, host-agnostic username/password credentials), but cloud Git runs on Nowa's servers and wasn't tried against GitLab or Bitbucket. If the product team knows it fails, drop that paragraph in `github.md#legacy-remote-credentials`.
+- **Q3. Teammates and Clone from GitHub.** `git.md#work-with-a-team` says each teammate connects their own GitHub account and clones the shared repository. The repository list comes from Nowa's server (`/github/repositories`), probably from the user's own GitHub App installation. GitHub only lets an account owner install an app on that account, so a collaborator on another person's personal repository may not see it in the list. If that's the case, the page should add the way around it (for example, keep team repositories in a GitHub organization where Nowa is installed, or clone with Git and **Import project** in the desktop app). The fix table in `github.md` covers "A repository is missing from the list".
+- **Q4. Old diagram.** `static/img/git/git-setup-explanation.png` (remote repo on GitHub with cloud and local copies) still explains the three-copy setup, but it's dark-themed and labels hot reload as local-only (cloud projects can run on devices from the desktop app too). Not reused. A redrawn diagram for `git.md#move-work-between-a-cloud-and-a-local-project` could be a future capture request.
+- **Q5. "GitHub shows the token only once."** The old page said so; none of the GitHub docs pages fetched state it, so `github.md` says "copy the token right away and keep it somewhere safe" without that claim.
 
 ## For other pages
 
-(Collected at the end.)
+None needed. Everything still valid from this batch's old pages fits on `docs/code/` pages. FYI only:
+
+- Old `git/clone-from-cloud.md` promised "testable web versions (12-hour expiration)". `publish/web.md` (B11) already explains the **Expires In:** countdown, and 3.13's client takes the expiry from the server (`packages/core/lib/src/web_deploy/web_deploy_widgets/environment_card.dart:64-70`), so no figure should be added.
+- `get-started/cloud-and-local.md` (B01) and `test/share.md` / `publish/index.md` (B11/B12) already describe the "not available on local projects" notice and **Sync to cloud**; `local-projects.md` now mentions it in one sentence and links nowhere new.

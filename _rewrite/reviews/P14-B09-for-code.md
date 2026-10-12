@@ -59,3 +59,20 @@ From `integrations/firebase/notifications.md`:
 Added (new, verified; not moved text):
 
 - The Nowa client code writes no `aps-environment` entitlement for push (no match for `aps-environment` in `lib/` or `packages/` of `nowa-master`); the in-app note asks for the Push Notifications capability in Xcode's **Signing & Capabilities** (`packages/data/lib/src/firebase/setup/views/notification_settings.dart:98`). Whether the server-side iOS project template already has the entitlement was not checked (not in this repo).
+
+## #stripe
+
+From `integrations/stripe.md`:
+
+- Turn on Stripe, step 2: "Turn on **Enabled**. Nowa adds the `flutter_stripe` package to your project."
+- Choose payment methods, Apple Pay: "Nowa writes the entitlement into `ios/Runner/Runner.entitlements`."
+- Choose payment methods, Google Pay: "The generated code uses `testEnv: true`, Google's test environment. Change it before you publish, in `lib/integrations/stripe_payment_service.dart` ([Code mode](../code/code-mode.md)) or by asking Nowa AI."
+- Deploy the configuration: "In your project, Nowa also generates `lib/integrations/stripe_payment_service.dart` and updates the platform files Stripe needs: on Android `MainActivity`, ProGuard rules and the app theme; on iOS the **Camera** permission and, when Apple Pay is on, the Apple Pay entitlement."
+- Remove Stripe: "Turn **Enabled** off. Nowa deletes the Stripe settings, `lib/integrations/stripe_payment_service.dart`, the Android changes and the Apple Pay entitlement, so remove any logic that calls `StripePaymentService` first."
+
+Added (new, verified; not moved text):
+
+- Every **Deploy Configuration** regenerates the members of `StripePaymentService`, including `_initPaymentSheet` with `testEnv: true` when Google Pay is on, and removes members it didn't generate, so a hand edit (or a Nowa AI edit) of `testEnv` or an added helper method is lost on the next deploy (`packages/core/lib/src/integrations/stripe/services/stripe_supabase_service.dart:392-394,517-566,846-852`; P68).
+- The `stripe-webhook` function verifies events with `stripe.webhooks.constructEventAsync` and reads `event.data.object` (`packages/core/lib/src/integrations/stripe/stripe_edge_functions.dart:803-835,862`), so the Stripe event destination must send snapshot events, not thin ones. All functions pin `apiVersion: '2025-12-15.clover'` with `stripe@17.5.0` from esm.sh (`:14-17` and the same lines in each function).
+- The publishable key, merchant name and country code are saved as typed (no trimming): `setPublishableKey`, `setMerchantName`, `setMerchantCountryCode` (`stripe_supabase_service.dart:299-312`); the secrets go to `setSecret` unchanged (`:244-251,499-509`).
+- Apple Pay's entitlements file is written whole (`stripe_manager.dart:102-118`) and deleted on removal when no other key is left (`:79-100`), so any other entitlement in `ios/Runner/Runner.entitlements` (such as `aps-environment` for push) is replaced (code reading).

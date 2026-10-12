@@ -294,3 +294,35 @@ Open questions:
 - An Android key restricted to the release SHA-1 won't work in debug runs on an emulator (debug certificate). The
   page says "before you publish, restrict"; if readers hit a blank map on an emulator after restricting, a sentence
   could say to restrict after testing or to add the debug fingerprint. Not verified in a run.
+
+## google-sign-in.md
+
+What changed for the reader:
+- Moved to for-code (#google-sign-in): package name; the "What Nowa does with it" column (`Info.plist`, `GIDClientID`,
+  reversed ID URL scheme, `AppConstants.webClientId`, "your sign-in code reads it"); the `Info.plist` pointer;
+  "iOS entries" on turn-off. One link to `../code/generated-code.md#google-sign-in`.
+- Plain replacements: **iOS Client ID** "lets Google's sign-in screen open from your iPhone and iPad app and come back
+  to it" (Google: Sign-In needs the client ID and a custom URL scheme from the reversed client ID,
+  https://developers.google.com/identity/sign-in/ios/start-integrating; Nowa writes both:
+  `packages/core/lib/src/interpreter/packages/integrations/google_sign_in_package_config.dart:20-35`). **Web Client
+  ID** "lets your backend check who signed in" (Google: the server client ID, a **Web application** client, is
+  needed to get ID tokens for your backend, same page) and "Nowa only stores it" (no `applyTo`, `:36-45`).
+- The deep-links clash (P40) now points to a new section on `deep-links.md#with-google-sign-in` with a no-code fix.
+- R9: intro states the benefit (no new password); each section says why.
+
+Added (no old page; the Supabase auth page, B10, sends readers here to "create your Google client IDs"):
+- Client walk-through: **Google Auth Platform** → **Clients**; create a project / register the app when asked;
+  **CREATE CLIENT** → application type → **CREATE**; client secret shown only after creating:
+  https://support.google.com/cloud/answer/6158849. Types **Web application**, **iOS** (bundle ID), **Android**
+  (package name + SHA-1): same page and https://supabase.com/docs/guides/auth/social-login/auth-google ("Flutter
+  (iOS and Android)": create Android or iOS clients, different SHA-1 sets for testing and production, add all client
+  IDs to Supabase). Nowa's **Bundle Identifier** = bundle ID and Android package name (`docs/publish/index.md`,
+  `docs/publish/android.md`); SHA-1 with copy button on the Deployment page (`docs/publish/android.md#create-a-signing-key`).
+- Tip now says how to check (Problems, device test), per R5.
+
+For other pages:
+- `integrations/supabase/auth.md#google` (B10), step 3 lists client IDs only. Supabase's guide also asks for the Web
+  client's **Client Secret** on the Google provider page for the web/OAuth flow ("Click Create and make sure you save
+  the Client ID and Client Secret ... Add these values to the Google provider page"). If the page covers web
+  sign-in, it may want that sentence. Evidence: https://supabase.com/docs/guides/auth/social-login/auth-google (Web
+  section, steps 1-4).

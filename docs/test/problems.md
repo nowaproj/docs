@@ -5,7 +5,7 @@ sidebar_label: Problems
 keywords: [problems, errors, warnings, console, problems tab, fix, quick fix, fix with ai, explain with ai, code check, run code check, flutter analyze, from nowa, from code analysis, only nowagenerated, all files, navigate, copy, could not be loaded, missing package, status bar, red number]
 ---
 
-Nowa keeps an eye on your project while you work and lists anything that looks wrong in the **Problems** tab: a missing package, a screen pointing at something that no longer exists, a setting your app still needs. Many problems have a **Fix** button that solves them in one click, and Nowa AI can take care of most of the rest.
+Nowa keeps an eye on your project while you work and lists anything that looks wrong in the **Problems** tab: a missing package, a screen pointing at something that no longer exists, a setting your app still needs. Many problems have a **Fix** button that solves them in one click, and Nowa AI can help with the rest.
 
 ## Open the Problems tab
 
@@ -48,7 +48,7 @@ You don't have to understand a problem to get it fixed. Nowa AI can read the sam
 
 ## Fix problems that have no button
 
-For each of these, asking Nowa AI is the no-code way. Here's what each message means and how to solve it.
+Here's what each message means and how to solve it. Whenever a fix would mean changing code, ask Nowa AI to do it for you.
 
 - `'<package>' is a dev dependency, so Nowa does not load it. Move it to dependencies to use it in lib/.`: the package is set up as a tool for building and testing only, not as part of your app. Ask Nowa AI in **Agent** mode: "Move the package <name> from dev dependencies to dependencies." If you edit code yourself: in `pubspec.yaml`, move it from `dev_dependencies` to `dependencies`.
 - `'<package>' is installed but failed to load, so nothing it defines is available: <reason>`: the board can't draw anything from that package. Read the reason, and try another version under **Settings** → **Packages**. **Run** shows whether the real app still builds. See [Add packages](../code/packages.md).

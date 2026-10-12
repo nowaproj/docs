@@ -110,7 +110,7 @@ String readingTime(String article) {
 
 Without a `preview`, the board writes "calling: readingTime" to **Logs** and returns a stand-in value, such as `[...]` for text, `0` for a number or `false` for a true/false value. `preview` works on top-level functions. In **Run**, the real function runs.
 
-You can also put `@CustomFunction` on a method inside a class, including a screen or component that Nowa made. Nowa then keeps that method as code and doesn't run it on the board. `preview` is ignored there, so the board logs the call and uses a stand-in value. Use it for a method the board shouldn't run, such as one that talks to a device feature.
+You can also put `@CustomFunction` on a method inside a class, including a screen or component that Nowa made. Nowa then keeps that method as code and doesn't run it on the board. `preview` is ignored there, so the board logs the call and uses a stand-in value, or a placeholder if the method returns a widget. Use it for a method the board shouldn't run, such as one that talks to a device feature.
 
 ## Import Dart code {#import-dart-code}
 

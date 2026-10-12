@@ -2,7 +2,7 @@
 title: Known issues
 description: Platform limits and editor quirks you may run into when you use Nowa, why they happen, and the quickest way around each one.
 sidebar_label: Known issues
-keywords: [known issues, limitations, Windows, Firebase, Firestore, test query, Firebase console query builder, Apple sign-in, Google Maps, AdMob, CORS, desktop app, Linux, rename variable, Shift drag, slash, route path, detach component, app bar drag, Connect Apps, firebase_options, InvalidType, Figma, Waiting for Authorization, playground, AI chat grey box, Add context, Redirect Logic]
+keywords: [known issues, limitations, Windows, Firebase, Firestore, test query, Firebase console query builder, Apple sign-in, Google Maps, AdMob, CORS, desktop app, Linux, code download spinning, custom domain pending, remove custom domain, rename variable, Shift drag, slash, route path, detach component, app bar drag, Connect Apps, firebase_options, InvalidType, Figma, Waiting for Authorization, playground, AI chat grey box, Add context, Redirect Logic]
 ---
 
 A few things work differently depending on where you run Nowa or your app, and a few editor actions need a workaround
@@ -15,7 +15,7 @@ Queries isn't possible on Windows version", with the hint "Simply connect your q
 the app on a simulator, or use Nowa web or MacOS version". The Windows version of Nowa can't run Firestore queries
 itself, so it can't try them out for you.
 
-That doesn't stop you from building a Firebase app on Windows. Your queries still work in your app, you only check the
+That doesn't stop you from building a Firebase app on Windows. Your queries still work in your app. You only check the
 results another way:
 
 1. Connect the query to your UI (see [Use Cloud Firestore](../integrations/firebase/firestore.md)).
@@ -73,6 +73,14 @@ app behaves. See [Preview and test](../test/index.md).
 The Linux desktop app has no in-app preview yet. When you run your app, the preview pane says "Your app is running" and offers **Open in Browser**. Click it to open your app in your browser. See [Run your app](../test/run.md#choose-where-to-run).
 
 The Linux app doesn't update itself either. When a new version is out, the update message offers **Download v…** and **Skip**. To update, download the new archive and run `install.sh` again, as you did to install it. See [Install on Linux](../get-started/desktop-app.md#install-on-linux).
+
+## The code download keeps spinning in the web app {#code-download-spinner}
+
+After you click the zip in the **Code download** popup, its row keeps spinning and can't be clicked again. The download itself works, so check your browser's downloads. To download once more, close the popup and open it again. See [Download your code](../publish/download-code.md#download-the-zip).
+
+## A pending custom domain can't be removed {#pending-custom-domain}
+
+The trash icon in **Custom Domain** (**Remove custom domain**) appears only after Nowa has verified your domain. While it's still pending, you can't remove or change it yourself, so double-check the spelling before you click **Set**. If you need to change a pending domain, ask the Nowa team with **Chat with support**. See [Use your own domain](../publish/web.md#use-your-own-domain).
 
 ## Some letters don't type in the Variables list {#variables-list-rename}
 

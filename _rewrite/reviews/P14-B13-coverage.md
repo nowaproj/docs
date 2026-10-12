@@ -32,7 +32,7 @@ Status key: `covered` (page#section) / `added` (page#section) / `to add` (planne
 | Drawer: side panel with navigation options | covered | index#drawer, navigation#drawer | |
 | List Tile: one row made for lists | covered | index#listtile; details added in lists (see listtile.md) | |
 | Page View: one page at a time, sideways | covered | index#pageview, navigation#page-view | |
-| Index Stack: shows one child by index and keeps the others' state | added | navigation#indexed-stack (index#index-stack to add) | Flutter SDK `widgets/basic.dart:4815-4826` ("each keeping their respective states"; "as big as the largest child") |
+| Index Stack: shows one child by index and keeps the others' state | added | navigation#indexed-stack, index#index-stack | Flutter SDK `widgets/basic.dart:4815-4826` ("each keeping their respective states"; "as big as the largest child") |
 | Dropdown Menu: pick one of several options in a form | covered | index#dropdown-menu, forms#dropdown-menu | |
 | Admob Banner: show ads to earn money | covered | index#admob-banner, integrations/admob.md | |
 | Video Player: "supports a range of video formats" | not useful | | vague; formats depend on the device |
@@ -54,14 +54,14 @@ Status key: `covered` (page#section) / `added` (page#section) / `to add` (planne
 | A flexible widget with many design options | covered | index#container | |
 | Add it with the **Shape** tool or the widget picker | covered | design/add-widgets.md#draw-a-shape-or-text, index#container | |
 | **Color**: swatch, color picker, opacity | covered | design/properties.md#edit-a-value (color row) | |
-| **Border**: + next to it, then color and width | to add | index (Container settings) | `packages/core/lib/src/fields/basic_fields.dart:307,562-584` (Color, Width) |
-| **Radius**: one number, or each corner separately with the button next to it | to add | index (Container settings) | `basic_fields.dart:309-313`, BFBorderRadius (TL, TR, BL, BR) |
-| Fill with an image: + next to **Image**, web address or asset (pick or upload) | added | media#background-image; index (Container settings) to add | `basic_fields.dart:315` BFDecorationImage (Image, Fit; Fit starts `cover`); color row hidden while an image is set (`basic_fields.dart:331-336`) |
+| **Border**: + next to it, then color and width | added | index#container (Container settings) | `packages/core/lib/src/fields/basic_fields.dart:307,562-584` (Color, Width) |
+| **Radius**: one number, or each corner separately with the button next to it | added | index#container (Container settings) | `basic_fields.dart:309-313`, BFBorderRadius (TL, TR, BL, BR) |
+| Fill with an image: + next to **Image**, web address or asset (pick or upload) | added | media#background-image; index#container (Container settings) | `basic_fields.dart:315` BFDecorationImage (Image, Fit; Fit starts `cover`); color row hidden while an image is set (`basic_fields.dart:331-336`) |
 | The seven **Fit** options explained | added | media#fit | enum values in `packages/core/lib/src/interpreter/libraries/material_library.dart:82187-82197`, shown as-is by `basic_fields.dart:1511-1548`; meanings Flutter SDK `painting/box_fit.dart:23-78` |
-| **Shadow** for depth | to add | index (Container settings) | label **Shadows** (`basic_fields.dart:317`) |
+| **Shadow** for depth | added | index#container (Container settings) | label **Shadows** (`basic_fields.dart:317`) |
 | **Gradient** fill | covered | design/properties.md (Solid, Linear, Radial, Sweep) | also named in index Container settings |
 | "Add Widget" button at the top of a selected Container | obsolete | no such label in 3.13 (grep "Add Widget": none) | covered as the current way: design/add-widgets.md#put-a-widget-inside-a-container (**Empty** + **+**) |
-| Use case: a background behind an icon | to add | index#container ("use it for") | |
+| Use case: a background behind an icon | added | index#container ("use it for") | |
 | You can keep editing the Container after adding a child | not useful | | obvious |
 | Container as a wrapper (**Add Wrapper** → **Container**) | covered | reference/wrappers.md#container, index#container | |
 | Use case: a color or gradient on top of an image with a Container wrapper | obsolete | a Container paints its decoration behind its child (Flutter SDK `widgets/container.dart:334`); Nowa's Container editor lists only the fill, border, radius, image, shadows, alignment, padding, margin and properties that already have a value (`packages/designer/lib/src/details/widget_fields.dart:317-350`) | the working way to tint a picture (**Color** + **Blendmode** on the Image) goes on media |
@@ -72,17 +72,17 @@ Status key: `covered` (page#section) / `added` (page#section) / `to add` (planne
 | item | status | where / evidence | note |
 |---|---|---|---|
 | Add a text with the **Text** tool or the T key | covered | design/add-widgets.md#draw-a-shape-or-text, reference/shortcuts.md | |
-| One click: width and height **Auto**; click and drag: a size you draw | to add | index (Text settings) | click places with width/height null = **Auto** (`packages/designer/lib/src/widgets/designer_tools.dart:93-94`, `packages/designer/lib/src/details/layout_details.dart` null → Auto); a drag resizes it (`packages/designer/lib/src/design_experience/place_board.dart:100-113`) |
+| One click: width and height **Auto**; click and drag: a size you draw | added | index#text (Text settings) | click places with width/height null = **Auto** (`packages/designer/lib/src/widgets/designer_tools.dart:93-94`, `packages/designer/lib/src/details/layout_details.dart:116-122` null → Auto); a drag resizes it (`packages/designer/lib/src/design_experience/place_board.dart:100-113`) |
 | Added from the widget picker the size is "Fixed" | obsolete | Text is added with width and height null, so **Auto** (`widgets_to_add.dart:156-167`) | |
 | **Text**: what it says | covered | design/select-and-edit.md (double-click to edit), design/properties.md | |
-| **Text Align**: left, center, right, justify | to add | index (Text settings) | four buttons (`packages/core/lib/src/fields/text_fields.dart:336-363`) |
+| **Text Align**: left, center, right, justify | added | index#text (Text settings) | four buttons (`packages/core/lib/src/fields/text_fields.dart:336-363`) |
 | **Font Family**, custom fonts by drag and drop or the Files window | covered | design/fonts-icons.md#pick-a-font, #import-your-own-font | dropping font files from the computer doesn't import them in 3.13 (design/assets.md "Drag an asset onto the board") |
 | **Font Weight** options | covered | design/themes.md (text style fields) | |
 | **Decoration** (strikethrough, underline, overline) | covered | design/themes.md | |
 | **Font Size**, **Color**, **Background** | covered | design/themes.md | |
 | **Height** (line height), **Letter Spacing** | covered | design/themes.md ("letter spacing, line height") | |
 | **Shadow** | covered | design/themes.md (**Shadows**) | |
-| **Overflow** options: clip, ellipsis, fade, visible | to add | index (Text settings) | enum `material_library.dart:85218-85225`; field `widget_fields.dart:309` |
+| **Overflow** options: clip, ellipsis, fade, visible | added | index#text (Text settings) | enum `material_library.dart:85218-85225`; field `widget_fields.dart:309` |
 | Remove the overflow setting: right-click → **Reset to default** | covered | design/properties.md#reset-a-property | |
 | Link any text property to a variable | covered | design/properties.md#link-a-property-to-your-data, index#text (`$`) | |
 | One text's own style vs the theme | covered | design/theme-styles.md (CopyWith / Modify Style) | linked from index Text settings |
@@ -108,7 +108,7 @@ Status key: `covered` (page#section) / `added` (page#section) / `to add` (planne
 | The label is a Text inside: change words, font, color | covered | index#button | wording extended slightly |
 | **Enabled**: off = dimmed and can't be pressed | covered | logic/events.md (Enabled, "Disabling button will remove your function, use compute instead") | |
 | **On Pressed**, **On Long Press** open Circuit | covered | logic/events.md, index#button | |
-| **On Hover** (web and desktop) | to add | index#button | runs when a pointer moves onto or off the button (Flutter SDK `material/button_style_button.dart:118-122`); events.md only lists it |
+| **On Hover** (web and desktop) | added | index#button | runs when a pointer moves onto or off the button (Flutter SDK `material/button_style_button.dart:118-122`); events.md only lists it |
 | **Button Style** follows the theme (shape, color, padding, border) | covered | design/theme-styles.md (Button Style, Button Theme) | |
 | Tip: disable a button until a form is complete | covered | logic/events.md (**Compute**) | |
 | Tip: change colors from state | covered | design/properties.md#link-a-property-to-your-data | |
@@ -121,7 +121,7 @@ Status key: `covered` (page#section) / `added` (page#section) / `to add` (planne
 | **Size**, **Color** | covered | design/fonts-icons.md | |
 | **Fill**, **Weight**, **Grade**, **Optical Size** explained | not useful | Flutter SDK `widgets/icon.dart:113-127`: no effect unless the icon font supports that axis; the picker offers `MaterialIcons` only (`packages/core/lib/src/fields/icon_field.dart:128`), whose font has no variable axes (`MaterialIcons-Regular.otf` has no `fvar` table) | for other page: a one-line caveat on design/fonts-icons.md |
 | **Shadows** | covered | design/fonts-icons.md (advanced list) | |
-| **Semantic Label**: read by screen readers | to add | index#icon | `packages/core/lib/src/fields/button_fields.dart:52` |
+| **Semantic Label**: read by screen readers | added | index#icon | `packages/core/lib/src/fields/button_fields.dart:61` |
 | **Text Direction**: arrows and similar icons follow the reading direction | for other page | design/fonts-icons.md | Flutter `Icon.textDirection`; low priority |
 
 ## widget-desc/checkbox.md
@@ -144,11 +144,11 @@ Status key: `covered` (page#section) / `added` (page#section) / `to add` (planne
 | item | status | where / evidence | note |
 |---|---|---|---|
 | **Value**: empty spins; 0 to 1 shows progress | covered | index#loading-circular | |
-| **Background Color** | to add | index (Progress indicators) | params `material_library.dart:61150+` |
-| **Color** | to add | index | |
-| **Stroke Width** | to add | index | |
+| **Background Color** | added | index#loading-circular | params `material_library.dart:61150+` |
+| **Color** | added | index#loading-circular / index#linear-progress-indicator | |
+| **Stroke Width** | added | index#loading-circular / index#linear-progress-indicator | |
 | **Stroke Align** | not useful | | minor cosmetic setting |
-| **Semantics Label**, **Semantics Value** | to add | index | |
+| **Semantics Label**, **Semantics Value** | added | index#loading-circular / index#linear-progress-indicator | |
 
 ## widget-desc/linear-progress-indicator.md
 
@@ -158,11 +158,11 @@ Status key: `covered` (page#section) / `added` (page#section) / `to add` (planne
 | Position and size with drag, L/T/R/B, W/H | covered | design/layout.md, design/select-and-edit.md | |
 | Alignment tool | covered | design/layout.md | |
 | **Value** 0 to 1 | covered | index#linear-progress-indicator | |
-| **Background Color**, **Color** | to add | index | params `material_library.dart:61083+` |
-| Minimum height (thickness) | to add | index | label **Min Height** |
-| **Semantics Label** / **Semantics Value** | to add | index | |
-| **Radius** (rounded ends) | to add | index | label **Border Radius** in 3.13 |
-| Example: Value 0.4 = 40% | to add | index | |
+| **Background Color**, **Color** | added | index#loading-circular / index#linear-progress-indicator | params `material_library.dart:61083+` |
+| Minimum height (thickness) | added | index#loading-circular / index#linear-progress-indicator | label **Min Height** |
+| **Semantics Label** / **Semantics Value** | added | index#loading-circular / index#linear-progress-indicator | |
+| **Radius** (rounded ends) | added | index#loading-circular / index#linear-progress-indicator | label **Border Radius** in 3.13 |
+| Example: Value 0.4 = 40% | added | index#loading-circular / index#linear-progress-indicator | |
 
 ## widget-desc/listtile.md
 

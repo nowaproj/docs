@@ -54,3 +54,16 @@ code refs in the earlier writer notes W14 and W17). Relative links in the copied
   | **Web API Key** | A Google Maps script tag in the web `index.html`. |
 
 - [google-maps.md] Turn **Enabled** off to remove the package, your keys and their platform entries.
+
+## #google-sign-in
+
+- [google-sign-in.md] Turn on **Enabled**. Nowa adds the `google_sign_in` package.
+- [google-sign-in.md] What Nowa does with each field:
+
+  | Field | Used for | What Nowa does with it |
+  |---|---|---|
+  | **iOS Client ID** | Required for Google sign-in without Firebase. | Writes it to the iOS `Info.plist` as `GIDClientID` and adds the reversed ID as an iOS URL scheme. |
+  | **Web Client ID** | Also used as the server client ID on Android. | Saves it as the constant `AppConstants.webClientId` and lists it under **Constants**. It is not written to any platform file, and Nowa does not pass it to Google for you: your sign-in code reads it. |
+
+- [google-sign-in.md] If you also set a **URL Scheme** under [Deep links](./deep-links.md), check `Info.plist` as described there: both write a URL type to it.
+- [google-sign-in.md] Turn **Enabled** off to remove the package and the iOS entries Nowa added. The **Web Client ID** value stays in **Constants**, under **Custom Constants** as `webClientId`.

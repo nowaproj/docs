@@ -11,7 +11,7 @@ Your app's data lives in tables in your Supabase database, a bit like spreadshee
 
 - [Connect Supabase](connect.md). Nowa can create the Supabase project for you while you connect.
 - A table in Supabase. See [Create a table](#create-a-table).
-- If your table uses row-level security, a test user to sign in with. See [Sign users in with Supabase](auth.md).
+- If your table uses row-level security (rules for who can see which rows), a test user to sign in with. See [Sign users in with Supabase](auth.md).
 
 ## Create a table {#create-a-table}
 
@@ -65,7 +65,7 @@ Prefer clicking? In the **Table Editor**, click **New table**, enter a **Name** 
 
 Supabase is also rolling out a change: on newer projects, a new table doesn't let your app in until access is granted, and your tests show **RLS Policy Error** with "permission denied". The snippet above grants that access. For a table you made in the Table Editor, ask Nowa AI, for example: "Give signed-in users access to the shop_items table."
 
-Tables you make in the SQL Editor or the Table Editor aren't recorded as migrations, so **Pull Backend Files** can't save them into your project later. If you plan to share or copy your backend, ask Nowa AI to create the tables through migrations instead (see [Manage your Supabase backend](backend.md)).
+Tables you make in the SQL Editor or the Table Editor aren't recorded as migrations (the saved, step-by-step history of how your tables were built), so **Pull Backend Files** can't save them into your project later. If you plan to share or copy your backend, ask Nowa AI to create the tables through migrations instead (see [Manage your Supabase backend](backend.md)).
 
 ## Add a query from a template
 

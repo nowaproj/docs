@@ -9,7 +9,7 @@ Code refs are relative to `/home/user/nowa-master` (3.13.0, `3cb32031c`). Supaba
 
 | item | status | where / evidence | note |
 |---|---|---|---|
-| What Supabase is: sign-up and sign-in, file storage, a Postgres database with an API, row-level security | covered | connect.md intro and "What Supabase gives your app" table; RLS in "Keep your data safe" | Rewritten in plain words (tables like spreadsheets, buckets, RLS and policies explained) |
+| What Supabase is: sign-up and sign-in, file storage, a Postgres database with an API, row-level security | covered | connect.md intro and its table of Supabase's parts; RLS in connect.md#keep-your-data-safe | Rewritten in plain words (tables like spreadsheets, buckets, RLS and policies explained) |
 | Two ways to connect: automatically (pick or create a project in Nowa) or manually (URL and key) | covered | connect.md#choose-how-to-connect | |
 | Automatic steps: Supabase icon, **Connect**, pick the organization on Supabase's page, **Authorize Nowa** | added | connect.md#connect-with-your-supabase-account step 3 | **Authorize Nowa**: old page + live check (`captures/phase13/local.md:134`, `CAPTURE-PHASE13.md:30-31`); organization explained |
 | When to start a new Supabase project (clean database) vs connect an existing one (keep building on it) | added | connect.md step 4 | `project_selection_dialog.dart:105,197` |
@@ -102,5 +102,7 @@ Code refs are relative to `/home/user/nowa-master` (3.13.0, `3cb32031c`). Supaba
 | **total items** | **59** |
 
 Extra additions not from the old pages (brief, batch notes and verification): Use Keys can't read the table list since April 2026
-(connect.md, database.md); `anon` is a legacy key (connect.md); Google provider in the Supabase dashboard (auth.md); grants on
-newer Supabase projects (database.md). Evidence in `P14-B10-notes.md`.
+(connect.md, database.md); `anon` is a legacy key and where to find it (connect.md); Google provider in the Supabase dashboard (auth.md);
+grants on newer Supabase projects, dashboard-made tables leave no migration history, policies under **Database** → **Policies**
+(database.md); setting auth provider settings and **Edge Function Secrets** again after **Set up Backend** (backend.md). Evidence in
+`P14-B10-notes.md`.

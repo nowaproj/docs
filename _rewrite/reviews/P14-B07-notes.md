@@ -217,3 +217,32 @@ item is tapped" (about 480 words, explicit id `#open-a-detail-screen`, linked fr
 "Use the Navigator" (older projects only) next to "Switch an older project to GoRouter" on router.md.
 
 **Open questions**: the "Go back with a value" steps as a whole (not run live).
+
+## logic/router.md
+
+**Changed for the reader**
+- Intro (R9): "the map of your app". Keywords added: "stay signed in", "protect a screen", "login redirect".
+- **Remove # in URLs** now says what changes (the `#` leaves the web address, `/settings` instead of `/#/settings`):
+  the product's own help text "Removes the hash (#) symbol from the URLs in web applications for cleaner URLs."
+  (`packages/core/lib/src/editors/router_editor/router_block_view.dart:618-622`, toggles `usePathUrlStrategy();` at `:559-560`).
+- Sub-route example in words (a recipe's detail route inside the list's route) instead of a path, because a sub-route's
+  own **Path** is relative and **Full Path** shows the joined one.
+- **Screen** row: "opens the route's builder in Circuit" → "opens, in Circuit, the logic that builds the screen" (same
+  button, plain words). Route problems: "a route without a builder" → "a route without a screen to show" (same
+  problem, `packages/core/lib/src/editors/router_editor/router_problems.dart`).
+- **Redirect Logic** explained as "runs before the screen opens and answers one question"; `context` and `state` stay
+  because the top node shows them (closure params: `router_block_view.dart:460-468`), with `state` glossed.
+- Supabase step: kept the custom expression (typed inside the visual editor, no code file edited), explained it, and
+  pointed to the Nowa AI tip as the no-code option (R5). The tip no longer names `SupabaseService` (moved).
+- "Stay signed in between launches": dropped `lib/main.dart` (moved); the reader-facing fact stays ("Nowa starts
+  Supabase and Firebase for you as your app opens, before the first screen shows, with their standard settings").
+  Facts and refs unchanged from W20 (`reviews/W20-writer-notes.md`, Task 2).
+- "Switch an older project to GoRouter" opens with what switching brings, from the product's comparison page
+  (`packages/core/lib/src/editors/router_editor/router_migration_editor.dart:101-126`: deep linking, full URL support
+  with browser navigation, URL parameters and query strings, built-in redirect and guard support).
+- "That's it:" added before the result paragraph (R9). Steps, labels, the 3.13 workaround and both images unchanged.
+
+**Added from the old docs**: none (no old page maps here; the router content is new in the rewrite).
+
+**Open questions** (carried, not new): the Supabase custom expression in Redirect Logic has still not been run live
+(`reviews/W20-writer-notes.md`, `reviews/W22-writer-notes.md`).

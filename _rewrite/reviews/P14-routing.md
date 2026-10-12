@@ -22,3 +22,10 @@ Items a section agent or verifier found for a page outside its batch, and what h
 | 16 | B04 | `reference/glossary.md` (B14) | Five entries: Constraints, Group, Instance, Row/Column/Stack, Fixed/Auto/Expand. | sent to B14 |
 | 17 | B04 | `troubleshooting/known-issues.md` (B12) | Expand inside a Wrap (P14) only if a live run confirms the error; layout.md already says to use Fixed or Auto in a Wrap. | no action (unconfirmed live) |
 | 18 | B04 | `design/layout.md` (structure) | ~2,080 words; stack sections could become their own page. | decide after B04 verification |
+| 19 | B03 | `troubleshooting/known-issues.md` (B12) | New UX flag: double-click on the board doesn't work (and the board toolbar hides); turn the flag off. | sent to B12 |
+| 20 | B03 | `get-started/create-account.md` (B01) | Optional Terms and Privacy Policy links after the terms checkbox. | sent to B01 verifier |
+| 21 | B03 | `ai/index.md` (B02) | Optional link to `account/plans-and-usage.md#what-your-plan-includes`. | sent to B02 verifier |
+| 22 | B01 | `code/local-projects.md` (B15) | Local projects still need an internet connection (old docs promised offline work). | sent to B15 |
+| 23 | B01 | `troubleshooting/index.md` (B12) | Starting the desktop app offline may open the sign-in page instead of No Internet Connection (code reading, hedged). | sent to B12 |
+| 24 | B01 | `guides/complete-app.md` (structure) | ~2,300 words; writer proposes two parts. | decide after B01 verification |
+| 25 | B03 | product team | The load packages switch's description is out of date (3.13: it only gates Nowa AI adding packages). New UX flag breaks double-click. | for the report (product copy and bug) |

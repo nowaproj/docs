@@ -64,6 +64,12 @@ Nowa reads your Xano workspace with an access token for Xano's Metadata API. Cre
 5. Set its scopes. Nowa only reads your workspaces and API groups, so **R** (read) for **Content** and **API Groups** is enough.
 6. Copy the token right away: Xano shows it only once.
 
+This short video shows steps 3 to 6 in Xano. It leaves every scope ticked, but read access (step 5) is all Nowa needs:
+
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/docs/integrations/integrations-xano-access-token.mp4" type="video/mp4" />
+</video>
+
 Xano's [Metadata API guide](https://docs.xano.com/xano-features/metadata-api) has the details. Then, in Nowa:
 
 1. Choose **Import from Xano** and paste the token into **Enter Xano Bearer Token...**. Nowa loads your instances by itself.

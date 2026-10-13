@@ -61,7 +61,7 @@ create policy "Users can delete their own todos" on todos
 
 In plain words: it creates the table with an automatic ID, the time each row was created and the user it belongs to (filled in for you), lets signed-in users reach it (and the full-access key, which Nowa uses when it lists your tables), turns RLS on, and adds one policy each for reading, adding, changing and deleting, all limited to the user's own rows.
 
-This short video shows those steps in the Supabase dashboard, from the **SQL Editor** to the new `todos` table in the **Table Editor**:
+This short video shows those steps in the Supabase dashboard, from the **SQL Editor** to the new `todos` table in the **Table Editor**. It was recorded with an earlier version of the snippet, so paste the one above:
 
 <video controls playsInline preload="metadata" width="100%">
   <source src="/videos/supabase/db/create.mp4" type="video/mp4" />

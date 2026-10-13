@@ -23,6 +23,10 @@ The templates don't create buckets, so make one in Supabase first, or ask Nowa A
 4. Choose whether the bucket is public. Buckets are private unless you make them public.
 5. Click **Create Bucket**.
 
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/supabase/storage/createbucket.mp4" type="video/mp4" />
+</video>
+
 | | Public bucket | Private bucket |
 |---|---|---|
 | Who can view a file | Anyone who has its link | Only people your policies allow |

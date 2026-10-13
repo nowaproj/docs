@@ -37,6 +37,11 @@ Nowa can create a Supabase project for your app while you connect, so there's no
 1. Click the **Supabase** icon in the left sidebar. The **Supabase** panel opens.
 2. Click **Connect**. A Supabase page opens in your browser, and Nowa shows **Waiting for Authorization...** in the meantime.
 3. On the Supabase page, choose your organization (the space in your Supabase account that holds your projects) and click **Authorize Nowa**. Nowa notices and carries on by itself. To stop waiting, click **Cancel**.
+
+   <video controls playsInline preload="metadata" width="100%">
+     <source src="/videos/docs/integrations/integrations-supabase-authorize-nowa.mp4" type="video/mp4" />
+   </video>
+
 4. In the project list (titled **Projects in** and your organization's name), click **Create New Project** to give this app a fresh backend of its own, and fill in the form as described in [Create a new Supabase project](#create-a-new-supabase-project). Already have a Supabase project for this app? Click **Select** next to it instead, and you keep building on the data it already has.
 5. Wait for the "Connecting to ..." message. If the project came with backend files, Nowa offers to set them up (see [Manage your Supabase backend](backend.md)). Then the panel lists your Supabase functions, starting with sign-in, sign-up and sign-out.
 

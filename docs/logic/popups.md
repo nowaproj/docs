@@ -17,6 +17,7 @@ A snackbar is a short message that slides up at the bottom of the screen and goe
 2. In **Details**, click the brush next to **Content** and change the text, which starts as "Hello World". Type `$` to put a value inside it, such as `Deleted ${item.name}`. See [Put a value inside text](expressions.md#dollar).
 
    ![A showSnackBar node selected in Circuit. The Snack Bar section of Details is highlighted: Content with a text button and a brush, Background Color, Width, Elevation, Shape, the Show advanced options link, and Store result set to none.](/img/circuit/ui-popups/snackbar/snackbar-properties.png)
+
 3. Click **Play** on the screen and tap the button to see it.
 
 You can style the bar and change how it behaves:
@@ -99,8 +100,6 @@ A date picker shows a calendar so people can choose a day, and a time picker let
 1. In Circuit, click a **+** and choose **MATERIAL** → `showDatePicker`.
 2. Set the range people can choose from with **First Date** and **Last Date**. **Initial Date** is the day the calendar opens on. All three start as today, so until you change them, people can only pick today. To set a fixed day, click the date's label, choose **Custom Expression...** and type the year, month and day, such as `DateTime(2030, 12, 31)`.
 3. Turn on **await** and set **Store result** to **New Variable**. The variable holds the chosen date, or nothing if the picker was closed.
-
-![A showDatePicker node under onPressed, followed by Set date and setState. In Details, await is on (1), and Store result is set to New Variable, named selectedTime with the Type DateTime. The showDatePicker node shows a clock badge because it's awaited (2).](/img/circuit/ui-popups/date-picker/await-date-picker.png)
 
 To match your app's words or language, **Help Text** changes the title at the top of the picker, and **Cancel Text** and **Confirm Text** change its buttons.
 

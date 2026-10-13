@@ -61,7 +61,17 @@ create policy "Users can delete their own todos" on todos
 
 In plain words: it creates the table with an automatic ID, the time each row was created and the user it belongs to (filled in for you), lets signed-in users reach it (and the full-access key, which Nowa uses when it lists your tables), turns RLS on, and adds one policy each for reading, adding, changing and deleting, all limited to the user's own rows.
 
+This short video shows those steps in the Supabase dashboard, from the **SQL Editor** to the new `todos` table in the **Table Editor**:
+
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/supabase/db/create.mp4" type="video/mp4" />
+</video>
+
 Prefer clicking? In the **Table Editor**, click **New table**, enter a **Name** (lowercase, with underscores instead of spaces, such as `shop_items`), add your columns with **Add column**, and click **Save**. Supabase turns RLS on for you and adds `id` and `created_at` columns. Then ask Nowa AI for the policies, for example: "Add policies to the shop_items table so anyone can read it and only signed-in users can add rows."
+
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/supabase/db/visual.mp4" type="video/mp4" />
+</video>
 
 Supabase is also changing how new tables are shared: on newer projects, and on every project from 30 October 2026, a new table doesn't let your app in until access is granted. Without that access, tests show **RLS Policy Error** even when your policies are right. The snippet above grants that access. If a table you made in the Table Editor shows this, ask Nowa AI, for example: "Give signed-in users access to the shop_items table."
 

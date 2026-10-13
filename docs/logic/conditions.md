@@ -21,7 +21,7 @@ An If lets your app make a decision. It asks a yes-or-no question, the **conditi
 
 Steps below the If node run afterwards, whichever branch ran, unless that branch ends with a **Return**. For more than two outcomes, put another If inside a branch, or use a **Conditional** expression. There's no "else if" or switch node.
 
-![A function named getRemaining with one If inside another: the first If checks dailyGoal != 0 and its False branch ends with a Return. Its True branch holds a second If that checks todayWaterIntake! < dailyGoal!, with a Return in its False branch and, in its True branch, a calculation followed by a Return.](/img/circuit/control-flow/if/nested-if.png)
+![A function named getRemaining with one If inside another: the first If checks dailyGoal != 0 and its False branch ends with a Return. Its True branch holds a second If that checks whether todayWaterIntake! is less than dailyGoal!, with a Return in its False branch and, in its True branch, a calculation followed by a Return.](/img/circuit/control-flow/if/nested-if.png)
 
 ### Set the condition
 

@@ -16,7 +16,7 @@ A snackbar is a short message that slides up at the bottom of the screen and goe
 1. In Circuit, click a **+** and choose **GLOBALS** → **Show snackbar**.
 2. In **Details**, click the brush next to **Content** and change the text, which starts as "Hello World". Type `$` to put a value inside it, such as `Deleted ${item.name}`. See [Put a value inside text](expressions.md#dollar).
 
-![A showSnackBar node selected in Circuit. The Snack Bar section of Details is highlighted: Content with a text button and a brush, Background Color, Width, Elevation, Shape, the Show advanced options link, and Store result set to none.](/img/circuit/ui-popups/snackbar/snackbar-properties.png)
+   ![A showSnackBar node selected in Circuit. The Snack Bar section of Details is highlighted: Content with a text button and a brush, Background Color, Width, Elevation, Shape, the Show advanced options link, and Store result set to none.](/img/circuit/ui-popups/snackbar/snackbar-properties.png)
 3. Click **Play** on the screen and tap the button to see it.
 
 You can style the bar and change how it behaves:

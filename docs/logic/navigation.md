@@ -135,9 +135,9 @@ In a project that uses the Navigator, you pick the screen instead of typing a pa
 
 To pass data, click the brush icon next to the screen. A popup lists the screen's parameters. Type a value, or click a parameter's name to link a variable, a parameter or an expression. See [Expressions and conditions](./expressions.md).
 
-To bring a value back, follow [Go back with a value](#go-back-with-a-value) with a **Navigator** node: on the second screen, its **Type** `pop` has a **result type**, such as `String`, and a **result**.
+To bring a value back, follow [Go back with a value](#go-back-with-a-value) with a **Navigator** node: on the second screen, its **Type** `pop` has a **result type**, such as `String`, and a **result**. On the first screen, the `push` node waits for that value with **await** and keeps it with **Store result**.
 
-![A Navigator node with the Type push, selected in Circuit. In Details, to is set to the screen Empty4, await is on, and Store result is New Variable, named result with the Type String. The node shows the result variable it fills.](/img/circuit/common-functionalities/navigation/push-with-await.png)
+![A Navigator node with the Type push, selected in Circuit. In Details, to is set to the screen Empty4, await is on, and Store result is New Variable, named result with the Type String. The node shows the result variable it fills.](/img/circuit/common-functionalities/navigation/push-with-await-crop.png)
 
 Navigator and GoRouter nodes work in a screen's or a component's logic, such as an event or one of its functions, because they need to know which screen they start from. A global state's functions can't use them.
 

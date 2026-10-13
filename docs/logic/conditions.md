@@ -17,7 +17,7 @@ An If lets your app make a decision. It asks a yes-or-no question, the **conditi
 2. In **Details**, set the **Condition**, as described below.
 3. Click the dot in the **True** branch and in the **False** branch to add what happens in each. A branch can stay empty when nothing should happen.
 
-![A new If Statement in Circuit, with numbered markers: the If Statement node (1), the Condition switch in Details, here switched off so the node reads false (2), the dot in the True branch on the right (3), the dot in the False branch on the left (4), and the dot below, where both branches meet again (5).](/img/circuit/control-flow/if/ifstatement-sections.png)
+![A new If Statement in Circuit, with numbered markers: the If Statement node (1), the Condition switch in Details, here switched off so the node reads false (2), the dot in the True branch on the right (3), the dot in the False branch on the left (4), and the dot below, where both branches meet again (5).](/img/circuit/control-flow/if/ifstatement-sections-crop.png)
 
 Steps below the If node run afterwards, whichever branch ran, unless that branch ends with a **Return**. For more than two outcomes, put another If inside a branch, or use a **Conditional** expression. There's no "else if" or switch node.
 

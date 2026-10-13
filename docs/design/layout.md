@@ -80,7 +80,7 @@ A Row runs left to right and a Column runs top to bottom. Its settings place the
 | **Gap** | The space between widgets. It shows only with **Fixed** spacing and can't go below 0. |
 | **Children** | The widgets in the group, in order. Hover a row and drag its handle to reorder. Hover **Children** and click **+** to add a copy of the last widget, handy for repeating a card or a menu item. |
 
-![Three rows of three yellow boxes side by side, one for each spacing: Between puts the first and last boxes against the row's edges, Around leaves half-size spaces at the two ends, and Evenly makes every space the same, ends included.](/img/ui/layout/spacing.png)
+![Three panels side by side, labelled Between, Around and Evenly, each with a row of three yellow boxes: Between puts the first and last boxes against the row's edges, Around leaves half-size spaces at the two ends, and Evenly makes every space the same, ends included.](/img/ui/layout/spacing.png)
 
 You can also reorder by dragging widgets on the board or in the **Outline**, or select one and press an arrow key along the group's direction to move it one place earlier or later.
 
@@ -108,7 +108,7 @@ Constraints decide which edges a widget keeps its distance to when the stack cha
 
 Pick them in the two dropdowns, or click the bars in the constraints box: the bar on a side pins that side. <kbd>Shift</kbd>-click the opposite bar to pin both sides. The **+** in the middle removes every pin, the same as **Center** both ways. Constraints work on several selected widgets at once.
 
-![The constraints box in the Layout section of Details: the left and top bars are orange because the widget is pinned to those edges, the right and bottom bars are grey, the + sits in the middle, and the two dropdowns beside it read Left and Top.](/img/ui/layout/contraints-bg.png)
+![A close-up of the constraints box from the Layout section of Details: the left and top bars are orange because the widget is pinned to those edges, the right and bottom bars are grey, the + sits in the middle, and the two dropdowns beside it read Left and Top.](/img/ui/layout/contraints-bg.png)
 
 Two things to know about **Center**:
 

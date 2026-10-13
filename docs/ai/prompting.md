@@ -135,6 +135,8 @@ Keep the design simple, with a dark background and clear, bold text. The layout 
 Create a clean and simple mobile stopwatch app interface. Display "Stopwatch" as the title at the top with a turquoise stopwatch icon. Show the time in large, clear digits as "00:00:00" in the center. Below that, place a blue "Start" button with rounded corners. Use a white background with modern, legible text. Focus only on the stopwatch functionality with high readability and mobile-friendly button sizing.
 ```
 
+![One possible result of the stopwatch prompt: a turquoise stopwatch icon above the title Stopwatch, the time 00:00:00 in large digits on a white card, and a blue Start button with rounded corners](/img/ai/prompt2.png)
+
 Design mode builds the look without logic, so the stopwatch's "Start" button won't run the timer yet. Once you like the design, switch to **Agent** mode and ask: "Make the Start button start and stop the timer." [Get the best from Nowa AI](../guides/ai-tips.md) shows how to spell out behavior like this, case by case.
 
 :::tip

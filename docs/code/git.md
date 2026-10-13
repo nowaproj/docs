@@ -137,6 +137,8 @@ When a feature is finished, merge its branch in Nowa, or open a pull request on 
 
 Git shares work between a cloud project and a local one without overwriting either, unlike [Project Sync](local-projects.md#link-a-cloud-copy-with-project-sync), which copies every file one way. A common setup: the cloud project for **Deploy**, the local one for VS Code and your simulators, and the GitHub repository in the middle as the copy everyone shares.
 
+![A diagram of that setup: the GitHub repository (Remote Repo) at the top, linked to two copies below it, a cloud project (Cloud Repo, opened with Nowa in the cloud, for one-click deployment and access from anywhere) and a local project (Local Repo, opened with the desktop app, for working beside your editor and hot reload on simulators).](/img/git/git-setup-explanation.png)
+
 1. In the first project, commit your changes.
 2. Open **Manage Remotes** and create a GitHub repository. Nowa pushes your commits to it.
 3. Create the other kind of project with [Clone from GitHub](import.md#clone-from-github) and pick that repository. To make it a local project, tick **Local-only**.

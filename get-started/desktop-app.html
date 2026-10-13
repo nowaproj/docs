@@ -15,7 +15,7 @@
 <link rel="preconnect" href="https://us.i.posthog.com">
 <script>!function(t,e){var o,s,r,a;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,n,p){function c(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(r=t.createElement("script")).type="text/javascript",r.async=!0,r.src=n.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(a=t.getElementsByTagName("script")[0]).parentNode.insertBefore(r,a);var g=e;for(void 0!==p?g=e[p]=[]:p="posthog",g.people=g.people||[],g.toString=function(t){var e="posthog";return"posthog"!==p&&(e+="."+p),t||(e+=" (stub)"),e},g.people.toString=function(){return g.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys onSessionId".split(" "),s=0;s<o.length;s++)c(g,o[s]);e._i.push([i,n,p])},e.__SV=1)}(document,window.posthog||[]),posthog.init("phc_t9ByiL3PTqP8dTa6nWoqjoygz7nIuKOjLPXig1rxm6C",{api_host:"https://us.i.posthog.com",id:"default"})</script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css"><link rel="stylesheet" href="/assets/css/styles.e7fe9401.css">
-<script src="/assets/js/runtime~main.04bba05a.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.7d3c3c70.js" defer="defer"></script>
 <script src="/assets/js/main.5750c005.js" defer="defer"></script>
 </head>
 <body>
@@ -62,6 +62,7 @@
 <li class="">Click <strong>Settings</strong> in the dashboard sidebar. Inside a project, click your avatar in the top bar, then <strong>General Settings</strong>.</li>
 <li class="">Under <strong>Editor Settings</strong>, click <strong>Local Setup</strong>.</li>
 </ol>
+<p><img decoding="async" loading="lazy" alt="The Local Setup page, titled Environment, in the desktop app: the Automatic setup box with its Set up automatically button at the top, then the Flutter SDK Path, Default Projects Path and VS code Path fields, each with a Browse button." src="/assets/images/local-setup-panel-44645326984183fdb65442b7c0f74458.png" width="1516" height="690" class="img_ev3q"></p>
 <p>Nowa also sends you here when it needs Flutter: from <strong>Setup flutter SDK</strong> in the <strong>New project</strong> dialog, from <strong>Fix</strong> in the <strong>Clone from GitHub</strong> dialog, and from <strong>Local environment settings</strong> in the <strong>Run</strong> menu.</p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="macos-install-xcode">macOS: install Xcode first<a href="#macos-install-xcode" class="hash-link" aria-label="Direct link to macOS: install Xcode first" title="Direct link to macOS: install Xcode first" translate="no">​</a></h3>
 <p>On a Mac, Flutter needs Xcode, Apple&#x27;s free app for building Mac and iPhone apps. The setup dialog warns you: &quot;Xcode must be installed on macOS before setting up Flutter.&quot;</p>
@@ -74,16 +75,33 @@
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="let-nowa-install-flutter">Let Nowa install Flutter<a href="#let-nowa-install-flutter" class="hash-link" aria-label="Direct link to Let Nowa install Flutter" title="Direct link to Let Nowa install Flutter" translate="no">​</a></h3>
 <p>This is the quickest route, and Nowa handles the downloads for you.</p>
 <ol>
-<li class="">In <strong>Local Setup</strong>, under <strong>Automatic setup</strong>, click <strong>Set up automatically</strong>. The <strong>Set up local environment</strong> dialog opens. If Flutter is already installed and up to date, it starts on the <strong>Verify</strong> step: skip to step 6.</li>
-<li class="">On the <strong>Flutter</strong> step, check the <strong>Install location</strong>. Nowa installs about 10 GB of tools there, and the path must not contain spaces. The dialog puts the Flutter SDK download at about 1 GB. With the current Flutter release, it&#x27;s bigger: about 1.6 GB on Linux, 1.9 GB on Windows and 2.3 GB on macOS.</li>
-<li class="">Tick the box that accepts the licenses. Nowa downloads these tools from Google and the Eclipse Foundation.</li>
-<li class="">Click <strong>Install</strong> next to <strong>Flutter</strong>. Keep Nowa open while it downloads and unpacks Flutter. On Linux, Nowa may look frozen while it unpacks, which can take a while. If it takes too long, follow <a href="#use-a-flutter-sdk-you-already-have" class="">Use a Flutter SDK you already have</a> instead.</li>
-<li class="">When the row says <strong>Ready</strong>, click <strong>Next</strong>.</li>
-<li class="">On the <strong>Verify</strong> step, Nowa runs <code>flutter doctor</code>, Flutter&#x27;s own health check, and lists the devices you can run on. Fix anything it reports, then click <strong>Re-run checks</strong>. If it can&#x27;t find Chrome, you can leave that. You only need Chrome to run your app in Chrome, and Nowa&#x27;s preview works without it.</li>
-<li class="">To build for Android, click <strong>Download</strong> next to &quot;Android isn&#x27;t set up&quot;. On the next screen, tick the license box if it&#x27;s empty, then click <strong>Install</strong> next to <strong>Android toolchain</strong> (the tools that build Android apps). <strong>Android emulator</strong> is optional, and its <strong>Install</strong> unlocks once the toolchain is installed. If you want an emulator, install it in the same go: in Nowa 3.13 this screen only opens while the Android toolchain is missing (see <a class="" href="/test/devices#no-emulators-listed">No emulators listed?</a> for other ways to get one). Click <strong>Skip for now</strong> if you only target web or desktop. You can come back for the toolchain later from <strong>Local Setup</strong> (its page is titled <strong>Environment</strong>).</li>
-<li class="">Click <strong>Done</strong>.</li>
-</ol>
+<li class="">
+<p>In <strong>Local Setup</strong>, under <strong>Automatic setup</strong>, click <strong>Set up automatically</strong>. The <strong>Set up local environment</strong> dialog opens. If Flutter is already installed and up to date, it starts on the <strong>Verify</strong> step: skip to step 6.</p>
+</li>
+<li class="">
+<p>On the <strong>Flutter</strong> step, check the <strong>Install location</strong>. Nowa installs about 10 GB of tools there, and the path must not contain spaces. The dialog puts the Flutter SDK download at about 1 GB. With the current Flutter release, it&#x27;s bigger: about 1.6 GB on Linux, 1.9 GB on Windows and 2.3 GB on macOS.</p>
+</li>
+<li class="">
+<p>Tick the box that accepts the licenses. Nowa downloads these tools from Google and the Eclipse Foundation.</p>
+</li>
+<li class="">
+<p>Click <strong>Install</strong> next to <strong>Flutter</strong>. Keep Nowa open while it downloads and unpacks Flutter. On Linux, Nowa may look frozen while it unpacks, which can take a while. If it takes too long, follow <a href="#use-a-flutter-sdk-you-already-have" class="">Use a Flutter SDK you already have</a> instead.</p>
 <p><img decoding="async" loading="lazy" alt="The Set up local environment dialog on its Flutter step in the desktop app: the Install location field with Browse, the ticked license checkbox (highlighted) with its Android SDK Terms, Flutter license, Temurin JDK license and Privacy links, and the Flutter row marked Not installed with the Install button (highlighted)." src="/assets/images/get-started-desktop-app-2-194c1b0400e275420f8ee0d616a39108.png" width="528" height="483" class="img_ev3q"></p>
+</li>
+<li class="">
+<p>When the row says <strong>Ready</strong>, click <strong>Next</strong>.</p>
+</li>
+<li class="">
+<p>On the <strong>Verify</strong> step, Nowa runs <code>flutter doctor</code>, Flutter&#x27;s own health check, and lists the devices you can run on. Fix anything it reports, then click <strong>Re-run checks</strong>. If it can&#x27;t find Chrome, you can leave that. You only need Chrome to run your app in Chrome, and Nowa&#x27;s preview works without it.</p>
+</li>
+<li class="">
+<p>To build for Android, click <strong>Download</strong> next to &quot;Android isn&#x27;t set up&quot;. On the next screen, tick the license box if it&#x27;s empty, then click <strong>Install</strong> next to <strong>Android toolchain</strong> (the tools that build Android apps). <strong>Android emulator</strong> is optional, and its <strong>Install</strong> unlocks once the toolchain is installed. If you want an emulator, install it in the same go: in Nowa 3.13 this screen only opens while the Android toolchain is missing (see <a class="" href="/test/devices#no-emulators-listed">No emulators listed?</a> for other ways to get one). Click <strong>Skip for now</strong> if you only target web or desktop. You can come back for the toolchain later from <strong>Local Setup</strong> (its page is titled <strong>Environment</strong>).</p>
+<p><img decoding="async" loading="lazy" alt="The Android screen of the Set up local environment dialog: the ticked license checkbox, the Android toolchain row marked Not installed with its Install button, the Android emulator row with a greyed-out Install and the note Install the Android toolchain first, and Skip for now at the bottom right." src="/assets/images/android-toolchain-aada50330c5b824101eb6cf4ca983541.png" width="1060" height="590" class="img_ev3q"></p>
+</li>
+<li class="">
+<p>Click <strong>Done</strong>.</p>
+</li>
+</ol>
 <p><strong>You should see:</strong> each tool you installed with a <strong>Ready</strong> status. The <strong>Flutter</strong> and <strong>Android toolchain</strong> rows also say <strong>Managed by Nowa</strong> when Nowa installed them. If Nowa found a Flutter that was already installed on your computer, its row may say <strong>Found on PATH</strong> instead. If Flutter is installed but old, the button reads <strong>Update Flutter SDK</strong> next to &quot;Flutter SDK is outdated&quot;.</p>
 <p>If an install fails, the error shows in red under its row, and the button changes to <strong>Try again</strong>.</p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="use-a-flutter-sdk-you-already-have">Use a Flutter SDK you already have<a href="#use-a-flutter-sdk-you-already-have" class="hash-link" aria-label="Direct link to Use a Flutter SDK you already have" title="Direct link to Use a Flutter SDK you already have" translate="no">​</a></h3>

@@ -15,7 +15,7 @@
 <link rel="preconnect" href="https://us.i.posthog.com">
 <script>!function(t,e){var o,s,r,a;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,n,p){function c(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(r=t.createElement("script")).type="text/javascript",r.async=!0,r.src=n.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(a=t.getElementsByTagName("script")[0]).parentNode.insertBefore(r,a);var g=e;for(void 0!==p?g=e[p]=[]:p="posthog",g.people=g.people||[],g.toString=function(t){var e="posthog";return"posthog"!==p&&(e+="."+p),t||(e+=" (stub)"),e},g.people.toString=function(){return g.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys onSessionId".split(" "),s=0;s<o.length;s++)c(g,o[s]);e._i.push([i,n,p])},e.__SV=1)}(document,window.posthog||[]),posthog.init("phc_t9ByiL3PTqP8dTa6nWoqjoygz7nIuKOjLPXig1rxm6C",{api_host:"https://us.i.posthog.com",id:"default"})</script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css"><link rel="stylesheet" href="/assets/css/styles.e7fe9401.css">
-<script src="/assets/js/runtime~main.04bba05a.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.7d3c3c70.js" defer="defer"></script>
 <script src="/assets/js/main.5750c005.js" defer="defer"></script>
 </head>
 <body>
@@ -41,6 +41,7 @@
 <p>Hover the collection and click the gear icon. Whatever you set here applies to every request in the collection, so you only type it once.</p>
 <table><thead><tr><th>Setting</th><th>What it does</th></tr></thead><tbody><tr><td><strong>Name</strong></td><td>Renames the collection.</td></tr><tr><td><strong>Base URL</strong></td><td>The start of every address, for example <code>https://api.example.com</code>. Your requests then only need the endpoint.</td></tr><tr><td><strong>Auth Key</strong></td><td>The name under which your app saves each user&#x27;s sign-in token on their device. Leave it empty if the API doesn&#x27;t use user tokens.</td></tr><tr><td><strong>Headers</strong></td><td>Click <strong>Add header</strong> for headers every request needs. Type the header&#x27;s name under <strong>KEY</strong> and its value under <strong>VALUE</strong>.</td></tr></tbody></table>
 <p>For example, many APIs answer in JSON when you add the header <code>Accept</code> with the value <code>application/json</code>. Changes save when you leave a field. Click <strong>Close</strong> when you&#x27;re done.</p>
+<p><img decoding="async" loading="lazy" alt="The Edit collection details dialog for a collection named TheCatAPI: Base URL set to https://api.thecatapi.com/, Auth Key left empty, and one header under Headers with the KEY Accept and the VALUE application/json, above the Close button." src="/assets/images/collectionsettings-dialog-5a20717194f5f6413706713b92b250e0.png" width="870" height="688" class="img_ev3q"></p>
 <p>Use <strong>Auth Key</strong> when each person who signs in to your app gets their own token, for example from your login request. Save that token on the device right after sign-in with the <strong>SHARED PREFERENCES</strong> → <strong>set</strong> step in Circuit, using the same <strong>Key</strong> and the <strong>Type</strong> <code>string</code> (see <a class="" href="/logic/actions#save-values-on-the-device">Save values on the device</a>). From then on, every request in the collection sends it as <code>Authorization: Bearer</code> followed by the token, the format most APIs expect.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="add-an-api-key-or-token">Add an API key or token<a href="#add-an-api-key-or-token" class="hash-link" aria-label="Direct link to Add an API key or token" title="Direct link to Add an API key or token" translate="no">​</a></h2>
 <p>Most APIs want to know who&#x27;s calling. Their documentation tells you what to send, usually a header such as <code>Authorization: Bearer YOUR_KEY</code>. The text before the colon is the header&#x27;s key, and the text after it is the value.</p>
@@ -93,9 +94,16 @@
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="turn-the-response-into-a-model">Turn the response into a model<a href="#turn-the-response-into-a-model" class="hash-link" aria-label="Direct link to Turn the response into a model" title="Direct link to Turn the response into a model" translate="no">​</a></h2>
 <p>An answer often holds much more than you need. A model keeps the parts you pick and gives them names, so your widgets can show <code>title</code> or <code>price</code> instead of raw JSON. It also lets the board show placeholder values shaped like your data.</p>
 <ol>
-<li class="">Run a successful test, then click <strong>Generate Model</strong> in the right panel. The answer is already in the <strong>Content</strong> step. Click <strong>Next</strong>.</li>
-<li class="">In <strong>Select Data</strong>, untick the fields you don&#x27;t need. Click <strong>Next</strong>.</li>
-<li class="">In <strong>Generated Models</strong>, check the <strong>Name</strong> and the <strong>Path</strong> (the folder where the model is saved). Click <strong>Save</strong>.</li>
+<li class="">
+<p>Run a successful test, then click <strong>Generate Model</strong> in the right panel. The answer is already in the <strong>Content</strong> step. Click <strong>Next</strong>.</p>
+</li>
+<li class="">
+<p>In <strong>Select Data</strong>, untick the fields you don&#x27;t need. Click <strong>Next</strong>.</p>
+<p><img decoding="async" loading="lazy" alt="The Select Data step of the Generate Models dialog: Select All is unticked and only content (inside choices and message) is ticked on the left, so the preview on the right shows a DeepseekModel that keeps just choices, choicesItem and content." src="/assets/images/model-select-data-9f93971b157af20fbd596f41ea4631b6.jpg" width="1348" height="798" class="img_ev3q"></p>
+</li>
+<li class="">
+<p>In <strong>Generated Models</strong>, check the <strong>Name</strong> and the <strong>Path</strong> (the folder where the model is saved). Click <strong>Save</strong>.</p>
+</li>
 </ol>
 <p>The request now returns the model. Click <strong>Back to Request</strong>: the <strong>Model</strong> row in the right panel shows its name. <strong>Generate Model</strong> is hidden when the last test failed.</p>
 <p>Click the button next to <strong>Model</strong> for more choices:</p>

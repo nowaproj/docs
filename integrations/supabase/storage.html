@@ -15,7 +15,7 @@
 <link rel="preconnect" href="https://us.i.posthog.com">
 <script>!function(t,e){var o,s,r,a;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,n,p){function c(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(r=t.createElement("script")).type="text/javascript",r.async=!0,r.src=n.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(a=t.getElementsByTagName("script")[0]).parentNode.insertBefore(r,a);var g=e;for(void 0!==p?g=e[p]=[]:p="posthog",g.people=g.people||[],g.toString=function(t){var e="posthog";return"posthog"!==p&&(e+="."+p),t||(e+=" (stub)"),e},g.people.toString=function(){return g.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys onSessionId".split(" "),s=0;s<o.length;s++)c(g,o[s]);e._i.push([i,n,p])},e.__SV=1)}(document,window.posthog||[]),posthog.init("phc_t9ByiL3PTqP8dTa6nWoqjoygz7nIuKOjLPXig1rxm6C",{api_host:"https://us.i.posthog.com",id:"default"})</script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css"><link rel="stylesheet" href="/assets/css/styles.e7fe9401.css">
-<script src="/assets/js/runtime~main.04bba05a.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.7d3c3c70.js" defer="defer"></script>
 <script src="/assets/js/main.5750c005.js" defer="defer"></script>
 </head>
 <body>
@@ -33,11 +33,12 @@
 <p>The templates don&#x27;t create buckets, so make one in Supabase first, or ask Nowa AI to do it with the Supabase connector.</p>
 <ol>
 <li class="">In Nowa, click ⋮ in the <strong>Supabase</strong> panel, then <strong>Open Supabase</strong>.</li>
-<li class="">Open the <strong>Storage</strong> page and click <strong>New Bucket</strong>.</li>
+<li class="">Open the <strong>Storage</strong> page and click <strong>New bucket</strong>.</li>
 <li class="">Enter a name for the bucket, such as <code>avatars</code>.</li>
 <li class="">Choose whether the bucket is public. Buckets are private unless you make them public.</li>
-<li class="">Click <strong>Create Bucket</strong>.</li>
+<li class="">Click <strong>Create</strong>.</li>
 </ol>
+<video controls="" playsinline="" preload="metadata" width="100%"><source src="/videos/supabase/storage/createbucket.mp4" type="video/mp4"></video>
 <table><thead><tr><th></th><th>Public bucket</th><th>Private bucket</th></tr></thead><tbody><tr><td>Who can view a file</td><td>Anyone who has its link</td><td>Only people your policies allow</td></tr><tr><td>Good for</td><td>Profile pictures, product photos, blog images</td><td>Personal documents, such as invoices</td></tr><tr><td>Uploading and deleting</td><td>Needs a policy</td><td>Needs a policy</td></tr></tbody></table>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="policies">Let your app use the bucket<a href="#policies" class="hash-link" aria-label="Direct link to Let your app use the bucket" title="Direct link to Let your app use the bucket" translate="no">​</a></h2>
 <p>A new bucket starts locked: Supabase doesn&#x27;t allow any uploads until a policy says who may. That&#x27;s true even for a public bucket, which only makes files readable by their link, so without a policy that lets users upload, <code>uploadFile</code> fails with an <strong>RLS Policy Error</strong>. Each storage function needs its own permission:</p>

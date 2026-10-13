@@ -15,7 +15,7 @@
 <link rel="preconnect" href="https://us.i.posthog.com">
 <script>!function(t,e){var o,s,r,a;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,n,p){function c(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(r=t.createElement("script")).type="text/javascript",r.async=!0,r.src=n.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(a=t.getElementsByTagName("script")[0]).parentNode.insertBefore(r,a);var g=e;for(void 0!==p?g=e[p]=[]:p="posthog",g.people=g.people||[],g.toString=function(t){var e="posthog";return"posthog"!==p&&(e+="."+p),t||(e+=" (stub)"),e},g.people.toString=function(){return g.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys onSessionId".split(" "),s=0;s<o.length;s++)c(g,o[s]);e._i.push([i,n,p])},e.__SV=1)}(document,window.posthog||[]),posthog.init("phc_t9ByiL3PTqP8dTa6nWoqjoygz7nIuKOjLPXig1rxm6C",{api_host:"https://us.i.posthog.com",id:"default"})</script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css"><link rel="stylesheet" href="/assets/css/styles.e7fe9401.css">
-<script src="/assets/js/runtime~main.04bba05a.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.7d3c3c70.js" defer="defer"></script>
 <script src="/assets/js/main.5750c005.js" defer="defer"></script>
 </head>
 <body>
@@ -31,7 +31,9 @@
 <li class="">In <strong>Details</strong>, set the <strong>Condition</strong>, as described below.</li>
 <li class="">Click the dot in the <strong>True</strong> branch and in the <strong>False</strong> branch to add what happens in each. A branch can stay empty when nothing should happen.</li>
 </ol>
+<p><img decoding="async" loading="lazy" alt="A new If Statement in Circuit, with numbered markers: the If Statement node (1), the Condition switch in Details, here switched off so the node reads false (2), the dot in the True branch on the right (3), the dot in the False branch on the left (4), and the dot below, where both branches meet again (5)." src="/assets/images/ifstatement-sections-crop-3e9d9556445f8dc00c822ba8e65a496c.png" width="1596" height="1212" class="img_ev3q"></p>
 <p>Steps below the If node run afterwards, whichever branch ran, unless that branch ends with a <strong>Return</strong>. For more than two outcomes, put another If inside a branch, or use a <strong>Conditional</strong> expression. There&#x27;s no &quot;else if&quot; or switch node.</p>
+<p><img decoding="async" loading="lazy" alt="A function named getRemaining with one If inside another: the first If checks dailyGoal != 0 and its False branch ends with a Return. Its True branch holds a second If that checks whether todayWaterIntake! is less than dailyGoal!, with a Return in its False branch and, in its True branch, a calculation followed by a Return." src="/assets/images/nested-if-7f36c266f537a03ad2b6302ebd5f3997.png" width="1604" height="1178" class="img_ev3q"></p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="set-the-condition">Set the condition<a href="#set-the-condition" class="hash-link" aria-label="Direct link to Set the condition" title="Direct link to Set the condition" translate="no">​</a></h3>
 <p>The <strong>Condition</strong> starts as a switch that&#x27;s on, so the <strong>True</strong> branch always runs. Switch it off and the <strong>False</strong> branch always runs, which is handy for trying out each branch while you build. To make a real decision, click the <strong>Condition</strong> label and link it to something that&#x27;s true or false:</p>
 <ul>
@@ -52,6 +54,7 @@
 <li class="">In <strong>Details</strong>, <strong>Error name</strong> sets the name of the variable that holds the error. It&#x27;s <code>error</code> by default, and you find it under <strong>LOCALS</strong> in the <strong>On Error</strong> branch.</li>
 </ol>
 <p>Steps below the whole Try run afterwards, whether there was an error or not, unless the branch that ran ends with a <strong>Return</strong>. There&#x27;s one <strong>On Error</strong> branch, and it catches any error.</p>
+<p><img decoding="async" loading="lazy" alt="An onTap circuit with a Try node: loadData sits under the Try, with a clock badge because it&amp;#39;s awaited, and a showSnackBar sits in the On Error branch on the left. Both paths join again above a Navigator node that opens Settings, which runs either way." src="/assets/images/try-catch-8397deb7f0df4de9e6e71e78459c8c22.png" width="1590" height="1194" class="img_ev3q"></p>
 <p>Good things to put in <strong>On Error</strong>:</p>
 <ul>
 <li class=""><strong>Show snackbar</strong> (<strong>GLOBALS</strong>) with a friendly message. See <a class="" href="/logic/popups#show-a-snackbar">Show a snackbar</a>.</li>

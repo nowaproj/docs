@@ -15,7 +15,7 @@
 <link rel="preconnect" href="https://us.i.posthog.com">
 <script>!function(t,e){var o,s,r,a;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,n,p){function c(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(r=t.createElement("script")).type="text/javascript",r.async=!0,r.src=n.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(a=t.getElementsByTagName("script")[0]).parentNode.insertBefore(r,a);var g=e;for(void 0!==p?g=e[p]=[]:p="posthog",g.people=g.people||[],g.toString=function(t){var e="posthog";return"posthog"!==p&&(e+="."+p),t||(e+=" (stub)"),e},g.people.toString=function(){return g.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys onSessionId".split(" "),s=0;s<o.length;s++)c(g,o[s]);e._i.push([i,n,p])},e.__SV=1)}(document,window.posthog||[]),posthog.init("phc_t9ByiL3PTqP8dTa6nWoqjoygz7nIuKOjLPXig1rxm6C",{api_host:"https://us.i.posthog.com",id:"default"})</script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css"><link rel="stylesheet" href="/assets/css/styles.e7fe9401.css">
-<script src="/assets/js/runtime~main.04bba05a.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.7d3c3c70.js" defer="defer"></script>
 <script src="/assets/js/main.5750c005.js" defer="defer"></script>
 </head>
 <body>
@@ -27,9 +27,16 @@
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="show-a-snackbar">Show a snackbar<a href="#show-a-snackbar" class="hash-link" aria-label="Direct link to Show a snackbar" title="Direct link to Show a snackbar" translate="no">​</a></h2>
 <p>A snackbar is a short message that slides up at the bottom of the screen and goes away by itself. It&#x27;s perfect for quick feedback that needs no answer, such as &quot;Settings saved&quot;, &quot;Item deleted&quot; or &quot;Couldn&#x27;t save your changes&quot;.</p>
 <ol>
-<li class="">In Circuit, click a <strong>+</strong> and choose <strong>GLOBALS</strong> → <strong>Show snackbar</strong>.</li>
-<li class="">In <strong>Details</strong>, click the brush next to <strong>Content</strong> and change the text, which starts as &quot;Hello World&quot;. Type <code>$</code> to put a value inside it, such as <code>Deleted ${item.name}</code>. See <a class="" href="/logic/expressions#dollar">Put a value inside text</a>.</li>
-<li class="">Click <strong>Play</strong> on the screen and tap the button to see it.</li>
+<li class="">
+<p>In Circuit, click a <strong>+</strong> and choose <strong>GLOBALS</strong> → <strong>Show snackbar</strong>.</p>
+</li>
+<li class="">
+<p>In <strong>Details</strong>, click the brush next to <strong>Content</strong> and change the text, which starts as &quot;Hello World&quot;. Type <code>$</code> to put a value inside it, such as <code>Deleted ${item.name}</code>. See <a class="" href="/logic/expressions#dollar">Put a value inside text</a>.</p>
+<p><img decoding="async" loading="lazy" alt="A showSnackBar node selected in Circuit. The Snack Bar section of Details is highlighted: Content with a text button and a brush, Background Color, Width, Elevation, Shape, the Show advanced options link, and Store result set to none." src="/assets/images/snackbar-properties-3d58f1fcdbb0e4bbc84f83565b750737.png" width="1600" height="1198" class="img_ev3q"></p>
+</li>
+<li class="">
+<p>Click <strong>Play</strong> on the screen and tap the button to see it.</p>
+</li>
 </ol>
 <p>You can style the bar and change how it behaves:</p>
 <table><thead><tr><th>Option</th><th>What it does</th></tr></thead><tbody><tr><td><strong>Background Color</strong></td><td>The bar&#x27;s color.</td></tr><tr><td><strong>Elevation</strong></td><td>The size of its shadow.</td></tr><tr><td><strong>Shape</strong></td><td>Its outline, such as rounded corners.</td></tr><tr><td><strong>Action</strong></td><td>One button on the bar, such as <strong>Undo</strong> after a delete. It&#x27;s under <strong>Show advanced options</strong>. With an action, the bar no longer goes away by itself: it stays until someone taps the button or swipes the bar down.</td></tr><tr><td><strong>Duration</strong></td><td>How long a bar without an action stays. It&#x27;s 4 seconds unless you change it. Also under <strong>Show advanced options</strong>.</td></tr><tr><td><strong>Padding</strong>, <strong>On Visible</strong></td><td>Space inside the bar, and logic that runs once it&#x27;s visible. Also advanced.</td></tr><tr><td><strong>Width</strong>, <strong>Margin</strong></td><td>Leave these empty. They only work on a floating snackbar, which this step doesn&#x27;t offer.</td></tr></tbody></table>

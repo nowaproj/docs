@@ -15,7 +15,7 @@
 <link rel="preconnect" href="https://us.i.posthog.com">
 <script>!function(t,e){var o,s,r,a;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,n,p){function c(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(r=t.createElement("script")).type="text/javascript",r.async=!0,r.src=n.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(a=t.getElementsByTagName("script")[0]).parentNode.insertBefore(r,a);var g=e;for(void 0!==p?g=e[p]=[]:p="posthog",g.people=g.people||[],g.toString=function(t){var e="posthog";return"posthog"!==p&&(e+="."+p),t||(e+=" (stub)"),e},g.people.toString=function(){return g.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys onSessionId".split(" "),s=0;s<o.length;s++)c(g,o[s]);e._i.push([i,n,p])},e.__SV=1)}(document,window.posthog||[]),posthog.init("phc_t9ByiL3PTqP8dTa6nWoqjoygz7nIuKOjLPXig1rxm6C",{api_host:"https://us.i.posthog.com",id:"default"})</script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css"><link rel="stylesheet" href="/assets/css/styles.e7fe9401.css">
-<script src="/assets/js/runtime~main.04bba05a.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.7d3c3c70.js" defer="defer"></script>
 <script src="/assets/js/main.5750c005.js" defer="defer"></script>
 </head>
 <body>
@@ -63,6 +63,8 @@
 <li class="">Under <strong>Capabilities</strong>, tick the Apple features your app uses, such as push notifications or Apple Pay. <strong>In-App Purchase</strong> is already on. Not sure? Leave the rest off. You can turn capabilities on later: select the App ID, click <strong>Edit</strong>, then <strong>Save</strong>.</li>
 <li class="">Click <strong>Continue</strong>, check the details and click <strong>Register</strong>.</li>
 </ol>
+<p>This short video shows the whole thing in Apple Developer, from your account page to <strong>Register</strong>. Our Apple team ID is blurred:</p>
+<video controls="" playsinline="" preload="metadata" width="100%"><source src="/videos/docs/publish/publish-ios-register-app-id.mp4" type="video/mp4"></video>
 <p>Apple&#x27;s guide: <a href="https://developer.apple.com/help/account/identifiers/register-an-app-id" target="_blank" rel="noopener noreferrer" class="">Register an App ID</a>.</p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="create-your-app-in-app-store-connect">Create your app in App Store Connect<a href="#create-your-app-in-app-store-connect" class="hash-link" aria-label="Direct link to Create your app in App Store Connect" title="Direct link to Create your app in App Store Connect" translate="no">​</a></h3>
 <p>App Store Connect is Apple&#x27;s website for everything about your app on the store: its page, its builds, testing with TestFlight and App Review. Your app needs a place there before Nowa can send it builds. This needs the Account Holder, Admin or App Manager role, and the Account Holder must have signed Apple&#x27;s latest agreement in the <strong>Business</strong> section.</p>
@@ -75,6 +77,8 @@
 <ol start="4">
 <li class="">Click <strong>Create</strong>. If anything is missing, App Store Connect tells you.</li>
 </ol>
+<p>This short video shows these steps in App Store Connect. Notice the red message under <strong>Platforms</strong> until <strong>iOS</strong> is ticked:</p>
+<video controls="" playsinline="" preload="metadata" width="100%"><source src="/videos/docs/publish/publish-ios-new-app.mp4" type="video/mp4"></video>
 <p>Apple&#x27;s guide: <a href="https://developer.apple.com/help/app-store-connect/create-an-app-record/add-a-new-app" target="_blank" rel="noopener noreferrer" class="">Add a new app</a>.</p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="create-an-app-store-connect-api-key">Create an App Store Connect API key<a href="#create-an-app-store-connect-api-key" class="hash-link" aria-label="Direct link to Create an App Store Connect API key" title="Direct link to Create an App Store Connect API key" translate="no">​</a></h3>
 <p>An API key is a pass that lets Nowa work with your Apple account for you. During each build, Nowa uses it to fetch or create the signing files your app needs, then to upload the finished app. This needs the Account Holder or Admin role.</p>
@@ -86,8 +90,10 @@
 <li class="">Under <strong>Access</strong>, choose <strong>Admin</strong> or <strong>App Manager</strong>. Nowa recommends one of these, so the key can create your signing files and upload your app.</li>
 <li class="">Click <strong>Generate</strong>. The new key appears in the list.</li>
 <li class="">Copy two values into your note: the <strong>Issuer ID</strong>, shown above the list of keys, and the new key&#x27;s <strong>Key ID</strong>.</li>
-<li class="">Click <strong>Download API Key</strong> and save the file somewhere safe. It&#x27;s a <code>.p8</code> file: a small text file that holds the secret part of your key.</li>
+<li class="">Next to the new key, click <strong>Download</strong>, then click <strong>Download</strong> again in the <strong>Download API Key</strong> dialog. Save the file somewhere safe. It&#x27;s a <code>.p8</code> file: a small text file that holds the secret part of your key.</li>
 </ol>
+<p>This short video shows these steps in App Store Connect, for an account that already has API access, so step 2 isn&#x27;t in it. The Issuer ID and Key IDs are blurred:</p>
+<video controls="" playsinline="" preload="metadata" width="100%"><source src="/videos/docs/publish/publish-ios-api-key.mp4" type="video/mp4"></video>
 <div class="theme-admonition theme-admonition-warning admonition_xJq3 alert alert--warning"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>You can download the key only once</div><div class="admonitionContent_BuS1"><p>Apple doesn&#x27;t keep a copy of the <code>.p8</code> file. If you lose it, revoke the key on the same page (<strong>Edit</strong>, select the key, <strong>Revoke Key</strong>), generate a new one and save it in Nowa. Keep the file private, like a password.</p></div></div>
 <p>Use a team key like this one: the individual key on your profile can&#x27;t create signing files. You can&#x27;t change a key&#x27;s access later, so if you picked the wrong one, revoke the key and generate a new one. Apple&#x27;s guide: <a href="https://developer.apple.com/help/app-store-connect/get-started/app-store-connect-api" target="_blank" rel="noopener noreferrer" class="">App Store Connect API</a>.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="save-your-app-store-connect-credentials">Save your App Store Connect credentials<a href="#save-your-app-store-connect-credentials" class="hash-link" aria-label="Direct link to Save your App Store Connect credentials" title="Direct link to Save your App Store Connect credentials" translate="no">​</a></h2>

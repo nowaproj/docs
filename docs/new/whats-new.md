@@ -8,6 +8,57 @@ sidebar_position: 1
 
 ---
 
+### **3.14.0 (13 October 2026)**
+
+Nowa 3.14 is all about trust. 🛡️ We went through Nowa from end to end and fixed more than 140 issues, starting with anything that could cost you work: code Nowa doesn't understand now stays in your files, files Nowa didn't change stay exactly as you wrote them, and resolving Git conflicts keeps your own edits. This release also gives your Firestore collections and queries a home again, makes your Supabase and Stripe backends safer by default, and lets widgets on your board fit their content.
+
+#### **New in This Version ✨**
+
+- 🛡️ **Your Code Stays Yours**
+  Nowa now leaves alone everything it doesn't need to touch:
+  - **Code Nowa can't load stays in the file.** Typedefs, exports and functions Nowa doesn't support yet are kept exactly where you wrote them when Nowa saves the file.
+  - **Untouched code stays untouched.** Nowa formats Dart the way your project's SDK version does and edits `pubspec.yaml` in place, so your comments, quotes and layout survive and your diffs only show what actually changed.
+  - **Your own settings are kept.** Asset entries you added to `pubspec.yaml`, and changes you made by hand to `AndroidManifest.xml`, `Info.plist` or `build.gradle`, are no longer overwritten when you change the app name, permissions or bundle ID.
+  - **Deleting an imported local project keeps its folder.** Nowa removes it from your list and leaves your files where they are.
+  - **Removing a group keeps all its widgets**, not just the first one.
+
+- 🔥 **A Home for Firestore**
+  A new **Firestore** panel in the left sidebar shows your collections and queries, with **Add Main Collection** and **Add New Query** right there. They're loaded as soon as you open a project, so there's no need to click **Refresh** first anymore, and the query builder's **add** and **doc** steps now work. See [Firestore](../integrations/firebase/firestore.md).
+
+- 🔐 **Safer Backends by Default**
+  - **Supabase edge functions are private by default.** Nowa now deploys them with the JWT check on, and only Stripe's webhook stays public. The setup summary lists any function that's public.
+  - **Stripe**: a new **Environment** dropdown switches Google Pay between Test and Production, regenerating your payment code no longer touches the parts you edited, and a failed deploy now says so.
+  - **Firebase Authentication** now adds a `deleteAccount()` function, which the App Store requires for apps where people create an account. Google sign-in code works with the latest `google_sign_in`, and an expired Google sign-in no longer disconnects Firebase from your project.
+  - **RevenueCat**: new projects get `restorePurchases()`.
+
+- 📐 **Widgets That Fit Their Content**
+  Components on your board are no longer stuck at 400 × 400. A widget without a size is now as wide as its content (up to the device's width) and as tall as its content, and previews in the Library are measured the same way. Screens keep the device's size.
+
+- 🌿 **Git That Does What It Says**
+  - **SSH keys**: local projects now let you pick **Access Token** or **SSH Key** for your credentials, and accept SSH remote URLs.
+  - **Conflicts keep your edits**: after **Bring my changes**, **Local** really is your version, and accepting one file no longer clears the others.
+  - **Revert makes a commit**, and Revert or Undo with uncommitted changes now asks you to commit or discard first instead of quietly doing nothing.
+  - **Clearer messages**: if your Git identity isn't set, Nowa tells you instead of showing a raw error, and **Clone from GitHub** asks you to connect GitHub instead of showing an empty box.
+
+- 🔗 **Deep Links and Routes That Work**
+  Deep links now reach your app's router, Android links are no longer tied to one fixed host, and saving a deep link field updates every platform file. In **Route Settings**, changes to a route's **Path** and to a parameter's **Default value** are now saved.
+
+- 🎨 **A More Consistent Nowa**
+  Menus across Nowa now share one design with search built in: type to filter, move with the arrow keys and press **Enter** to pick. Colors and text styles throughout the editor now come from one set of design tokens, so everything looks like it belongs together.
+
+- ✨ **Smaller Touches**
+  - **Lighter on your computer**: quitting Nowa now stops the Flutter processes it started, which could keep gigabytes of memory busy. Local projects start the preview only when you open it.
+  - **Typing `/`** in a Details field, like a route path, now types a slash instead of jumping to the AI chat.
+  - **Restore Checkpoint** now tells you how many AI requests it will undo.
+  - **Clearer errors**: messages no longer start with "Exception:" and stay on screen longer, and a failed Figma, Supabase or GitHub connection tells you why.
+  - **Signing key reminder**: the **Important!** dialog now has a **Later** button.
+  - **Status bar**: the warning and info counts now open **Logs**.
+  - **Forms and variables**: Min and Max length validators keep their number, and a variable created from a property starts at that property's value.
+
+➡️ If anything in Nowa still gets in your way, we want to know! Click the **? icon** to chat with us directly, or email us at `team@nowa.dev`. Happy building!
+
+---
+
 ### **3.13.0 (6 October 2026)**
 
 Nowa 3.13 gives everything in your project one home: the new **Library**. 📚 Find any screen, component or widget in a few keystrokes and add it to your board without reaching for the mouse. This release also brings a desktop app for Linux, quicker ways to move around your project, and your theme extension colors right in the color picker.

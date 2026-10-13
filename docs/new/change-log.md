@@ -7,6 +7,117 @@ sidebar_position: 2
 
 ---
 
+## **3.14.0 (13 October 2026)**
+
+#### **Added 🌟**
+- **Firestore panel**: a new **Firestore** panel in the left sidebar shows your collections and queries, with **Add Main Collection** and **Add New Query**.
+- **Delete account in Firebase Authentication**: Authentication now generates `Future<bool> deleteAccount()`, which returns false when no user is signed in or a recent login is required. Projects that already have Authentication on get it after turning Authentication off and on.
+- **Google Pay environment**: a new **Environment** dropdown in Stripe (**Test** or **Production**) sets the Google Pay mode.
+- **Restore purchases**: the RevenueCat service now includes `restorePurchases()`. Only new projects get it.
+- **SSH keys in local projects**: an **Access Token** | **SSH Key** tab bar for local Git credentials, and `ssh://` and `user@host:path` remote URLs are accepted. Keys are looked up in `HOME`, then `USERPROFILE`.
+- **Later on key reminders**: the **Important!** dialog for the Android signing key and the iOS certificate now has a **Later** button.
+- **Unsaved changes warning**: the web app asks before you leave while files are still unsaved (not in the playground or guest projects).
+
+#### **Improved ⚙️**
+- **Code Nowa can't load**: top-level code Nowa doesn't load (functions, typedefs, exports, extension types) is kept as written, with its comments and in file order, when Nowa rewrites the file. Only load failures are listed in Problems for that file.
+- **Files Nowa didn't change**: Dart is formatted with the package's SDK language version, as `dart format` does, so untouched code keeps its style. YAML is edited in place, keeping comments, quoting and layout. `nowa_runtime` and `nowa_mobile_ads` are only bumped when their constraint rules out the current version. New projects declare SDK `^3.8.0`.
+- **Pubspec assets**: refreshing the pubspec keeps the project's own `assets` entries (other folders, files, and `path:`, `flavors:` and `transformers:` entries) and only adds or drops Nowa's `assets/` folders.
+- **Platform files**: App Name, permissions and bundle ID now patch only Nowa's part of `AndroidManifest.xml`, `Info.plist` and `build.gradle(.kts)` instead of rewriting them.
+- **Widget sizes on the board**: a widget without a size fits its content instead of 400 × 400, up to the device's width. Content that can't be measured (scroll views, `LayoutBuilder`) takes the device's size. Library previews are measured the same way, and resizing a canvas no longer writes auto width or height into the widget's code.
+- **Supabase edge functions**: deployed with the JWT check on, and only `stripe-webhook` stays public. **Pull Backend Files** records each function's `verify_jwt` and **Set up Backend** uses it, and the setup summary lists public functions. A public function in a bundle pulled before 3.14 gets the check on its next deploy, so pull the bundle again to keep it public.
+- **Stripe**: regenerating the payment service only touches Nowa's own members and skips any you edited. Each migration, deploy and secret step reports its own error. The webhook returns 500 when `STRIPE_WEBHOOK_SECRET` isn't set.
+- **Firebase Connect Apps**: can be retried after a failure, shows the real error (the app limit only for quota errors), stops waiting after about 5 minutes, and saves the project right away when auto save is on.
+- **Firebase clean-up**: disconnecting removes `google_sign_in` (including its iOS config), and turning Email/Password off removes `sendPasswordResetEmail()`.
+- **Deep links**: Flutter's deep link handling stays on so links reach the router, the fixed `open.my.app` host is removed (**Host** is for Android App Links only), saving a field updates every platform file, and `Info.plist` holds `CFBundleURLTypes` once. If your project has its own `app_links` listener, switch Flutter's deep link handling off by hand.
+- **Package versions**: the **Enabled** switch installs the integration's pinned version, so packages like RevenueCat's no longer clash. The Version of a git or path package is read-only.
+- **Library**: search results are grouped Project, Built-in, Packages, Assets, so **Enter** picks a built-in widget before a package one. **New Model** and **New Global State** open the new file, View Only members can't edit through the Library, and adding a template to an existing project adds its packages.
+- **Scaffold slots**: an App Bar, FAB, Bottom Navigation Bar or Drawer dropped on a screen goes into the Scaffold's slot.
+- **Assets**: renaming or moving an asset updates widgets that use its path, and undo puts them back.
+- **Missing packages**: the check covers the whole dropped tree, including drops from outside the board, and **Add Missing Dependencies** can always be cancelled and shows a failed install.
+- **Detach**: replaces the component's parameters with the values passed to it, or their defaults. A component that uses its own state can't be detached, and says so.
+- **Menus and search**: one menu design with a pinned search, fuzzy matching with highlighted matches, and arrow keys, **Enter** and **Esc**. The board, package and Git branch pickers use it, and a menu closes when what opened it is pressed again.
+- **New look**: colors and text styles across Nowa now come from one set of design tokens, and **Run** and **New project** are split buttons.
+- **Problems panel**: rebuilt, and the code editor's error banner opens the console's Problems tab. Guests and the playground see "Code check needs an account" instead of an error.
+- **Flutter processes**: Nowa stops the Flutter processes it started when it exits, even after a crash. Local projects start Nowa Run when the preview is opened, not when the project opens.
+- **Flutter SDK install**: extracting the SDK no longer freezes the window.
+- **Imported projects**: open on the package's first board instead of a new empty one.
+- **Run on**: devices and emulators are refreshed every time the menu opens, an emulator gets one retry after a timeout, and errors show in the menu.
+- **Restore Checkpoint**: says "Undo N Requests?" and lists the files of every request it undoes.
+- **Error messages**: no longer start with "Exception: " and stay on screen for 4 seconds.
+- **Status bar**: the error count opens Problems, and the warning and info counts open Logs.
+- **Server errors**: a 503 opens maintenance mode and other server errors open the server error screen, instead of sending you to sign in.
+- **Board requests**: in design mode, Dio requests get a mocked response, so the board no longer sends real requests.
+- **REST API**: an `x-www-form-urlencoded` body uses the plain text editor, **Ctrl/Cmd + Z** undoes request body edits, and **None** shows in the Select API, Supabase and Firestore pickers. The DOWNLOAD method is no longer offered (requests already using it still open).
+- **Circuit**: functions with `for`, `switch`, `break` or `continue` now open, with those statements shown as an **Edit in code mode** node.
+- **Dart support**: `try`/`catch` with `on` types, `if (x case ...)` with guards, and closures with named or optional parameters now run in the designer. A widget with only named constructors defaults to the first public one.
+- **iOS certificate key**: the key must be a PEM private key, the picker offers `.pem`, `.key` and `.p12`, and the download is a `.pem` file.
+- **Publishing**: a failed code check stops web publish instead of leaving it on Deploying, a failed build start no longer greys out **Deploy** and **Build**, and iOS builds use the project's current bundle ID.
+- **AI chat**: **Attach text file** works on the web, and **Auto-approve tools (all connectors)** is in the Supabase MCP menu too.
+- **Shortcuts**: the Shortcuts sheet matches the real keys, Windows and Linux show Ctrl hints, sidebar tooltips show the right numbers, and **Ctrl/Cmd + B** only opens the board picker in design mode.
+- **Passwords**: a new password needs at least 8 characters.
+- **New dialogs**: the suggested name is selected, so typing replaces it.
+- **Playground**: a playground too large to keep in the browser now says so instead of silently reverting to an older copy.
+- **Other touches**: a new Slider follows the theme's Primary color, the Empty Page template offers device sizes, View Only members get Copy and Export on the board, and only owners see member actions.
+
+#### **Fixed 🩹**
+- Fixed **Accept Local after Bring my changes** throwing away your own edits, because the Local and Remote panes were swapped.
+- Fixed **Accept Remote** sometimes writing the next file's text into the file you resolved.
+- Fixed **accepting one conflicted file** clearing every conflict.
+- Fixed **deleting an imported local project** deleting its folder. Older entries now name the folder in a **Delete Project and Files** dialog.
+- Fixed **Remove on a group** deleting every child but the first.
+- Fixed **local Revert** only staging the undo instead of committing it, and **Revert** and **Undo** doing nothing but reporting success when there were uncommitted changes.
+- Fixed **a missing Git identity** showing a raw error, and **local pulls** dropping conflicts and errors from their merge.
+- Fixed **Firestore collections and queries** missing from the pickers after reopening a project, until **Refresh** was clicked.
+- Fixed the **Firestore query builder**'s add and doc steps failing with "The function 'add' isn't defined", and clicking a query parameter blanking the builder.
+- Fixed **Firebase Google sign-in** code not compiling against `google_sign_in` 7.x.
+- Fixed **an expired Google sign-in** during **Send Test Notification** disconnecting Firebase from the project.
+- Fixed **the Firebase iOS app** being registered with a re-cased bundle ID.
+- Fixed **removing Google** keeping "Managed by Firebase", and the **phone auth** toggle not being saved.
+- Fixed **the `stripe-cancel-subscription` edge function** being generated with a syntax error.
+- Fixed **Supabase Connect** staying on "Waiting for Authorization..." when no organization was found.
+- Fixed **Supabase template functions** getting invalid names like `getAllTodo Items`.
+- Fixed **Fix with AI** saying the backend was already configured. The prompt now names the failed step, the error and the migration SQL.
+- Fixed **Open Supabase** doing nothing for some hosts, and the backend bundle being unknown after reopening a project.
+- Fixed **typing `/`** in a Details field focusing the AI chat, which saved paths like `/product/:id` as `product:id`.
+- Fixed **Create Variable...** on a property left at its default making a variable with no value.
+- Fixed **Min length and Max length** validators losing their number.
+- Fixed **Navigator, GoRouter, Media Query and Show snackbar** being offered in functions with no `context`.
+- Fixed **switching a screen's group** from Column to Row breaking its App Bar.
+- Fixed **Route Settings** dropping edits to a route's Path and a parameter's Default value, **Add Redirect Logic** still showing **+**, and **Full Path** keeping the old path.
+- Fixed **Google Maps and AdMob fields** missing after reopening a project.
+- Fixed **Import from curl** keeping only the path.
+- Fixed false **"Undefined name 'headers'"** problems in Dio interceptors.
+- Fixed **the Dropdown Value row** editing the wrong property, and **Create Param...** hitting a null check.
+- Fixed **void functions** missing from an event's link menu.
+- Fixed **a pending custom domain** that couldn't be removed.
+- Fixed **Attach all** on the shared preview throwing, and the **Single Screen Preview** warning showing on screens that have a route.
+- Fixed **playing another screen** still showing the first one.
+- Fixed **the AI chat toolbar** breaking in the playground when signed out.
+- Fixed **Linux** starting on a black window without NetworkManager, and **Browse** doing nothing without a file dialog portal.
+- Fixed **failed Figma, Supabase and GitHub connections** waiting without saying why.
+- Fixed **the Git panel** getting stuck on an error after opening a project.
+- Fixed **Clone from GitHub** showing an empty box when GitHub wasn't connected.
+- Fixed **New Folder...** in the Library doing nothing, and the Library search losing the first letter you typed.
+- Fixed **Expand** being offered to a child of a Wrap.
+- Fixed **Globals** hiding variables that aren't final.
+- Fixed **a big zoom step** breaking the board view, even after a reload.
+- Fixed **T, R and V** switching tools while renaming.
+- Fixed **a Bottom Navigation Bar** set through the Scaffold slot not being connected.
+- Fixed **a Shift-drag** leaving its screen, and **dragging across an app bar** turning Auto sizes into fixed ones.
+- Fixed **a canvas going blank** on a Row or Column emptied by its ifs, and **a board loading forever** when a file it depends on was moved or deleted.
+- Fixed **Add to board** on a variant putting its preview function inside the app.
+- Fixed **Cmd/Ctrl + K** needing a second click after clicking outside a text field.
+- Fixed **holding the mouse** on the board opening the context menu.
+- Fixed **Add Function** not selecting the new function, and the **component crumb** missing for a component's top widget.
+- Fixed **Details showing "Instance of 'PlaceData'"** after choosing Shape or Text, **pasting a BMP image** doing nothing, and **the breadcrumb** keeping "Stack" after changing a group to Column.
+- Fixed **Set up** on a Deploy row opening the Android tab, and **Download code** spinning forever.
+- Fixed **build logs** showing HTML entities, and **Explain with AI** sending raw HTML.
+- Fixed **picking a `$` variable** selecting the whole field.
+- Fixed **the feedback popup** coming back and stealing focus.
+- Fixed **the Web View documentation link**, the **Library filter** saying "Classs", **Create Theme Setup** naming the wrong files, and several labels and typos in dialogs.
+
+---
+
 ## **3.13.0 (6 October 2026)**
 
 #### **Added 🌟**

@@ -94,7 +94,7 @@ GitHub recommends fine-grained tokens, which you can limit to the repositories N
 5. Under **Expiration**, choose how long the token works. When it expires, push and pull stop working until you add a new token, because GitHub can't bring an expired token back.
 6. Under **Resource owner**, keep your own account, or pick the organization that owns the repository.
 7. Under **Repository access**, choose **Only select repositories** and pick your app's repository, or give the token all your repositories.
-8. Under **Permissions**, open **Repository permissions**, find **Contents** and choose **Read and write**. That's the permission that lets Nowa pull and push.
+8. Under **Permissions**, click **Add permissions**, find **Contents** (you can type it in the search box) and select it. Then set its access to **Read and write**. That's the permission that lets Nowa pull and push.
 9. Click **Generate token**, and confirm again if GitHub asks. Copy the token right away and keep it somewhere safe, such as a password manager: anyone who has it can change your code.
 
 Two cases need a little more:

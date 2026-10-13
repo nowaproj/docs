@@ -53,7 +53,7 @@ Apple needs your bundle ID registered, as an App ID, before you can create your 
 7. Under **Capabilities**, tick the Apple features your app uses, such as push notifications or Apple Pay. **In-App Purchase** is already on. Not sure? Leave the rest off. You can turn capabilities on later: select the App ID, click **Edit**, then **Save**.
 8. Click **Continue**, check the details and click **Register**.
 
-This short video shows the whole thing in Apple Developer, from your account page to **Register**. The Team ID is blurred:
+This short video shows the whole thing in Apple Developer, from your account page to **Register**. Our Apple team ID is blurred:
 
 <video controls playsInline preload="metadata" width="100%">
   <source src="/videos/docs/publish/publish-ios-register-app-id.mp4" type="video/mp4" />
@@ -80,7 +80,7 @@ App Store Connect is Apple's website for everything about your app on the store:
 
 4. Click **Create**. If anything is missing, App Store Connect tells you.
 
-This short video shows it in App Store Connect. Notice the red message under **Platforms** until **iOS** is ticked:
+This short video shows these steps in App Store Connect. Notice the red message under **Platforms** until **iOS** is ticked:
 
 <video controls playsInline preload="metadata" width="100%">
   <source src="/videos/docs/publish/publish-ios-new-app.mp4" type="video/mp4" />
@@ -99,7 +99,7 @@ An API key is a pass that lets Nowa work with your Apple account for you. During
 5. Under **Access**, choose **Admin** or **App Manager**. Nowa recommends one of these, so the key can create your signing files and upload your app.
 6. Click **Generate**. The new key appears in the list.
 7. Copy two values into your note: the **Issuer ID**, shown above the list of keys, and the new key's **Key ID**.
-8. Click **Download API Key** and save the file somewhere safe. It's a `.p8` file: a small text file that holds the secret part of your key.
+8. Next to the new key, click **Download**, then click **Download** again in the **Download API Key** dialog. Save the file somewhere safe. It's a `.p8` file: a small text file that holds the secret part of your key.
 
 This short video shows these steps in App Store Connect, for an account that already has API access, so step 2 isn't in it. The Issuer ID and Key IDs are blurred:
 

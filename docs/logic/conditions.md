@@ -17,7 +17,11 @@ An If lets your app make a decision. It asks a yes-or-no question, the **conditi
 2. In **Details**, set the **Condition**, as described below.
 3. Click the dot in the **True** branch and in the **False** branch to add what happens in each. A branch can stay empty when nothing should happen.
 
+![A new If Statement in Circuit, with numbered markers: the If Statement node (1), the Condition switch in Details, here switched off so the node reads false (2), the dot in the True branch on the right (3), the dot in the False branch on the left (4), and the dot below, where both branches meet again (5).](/img/circuit/control-flow/if/ifstatement-sections-crop.png)
+
 Steps below the If node run afterwards, whichever branch ran, unless that branch ends with a **Return**. For more than two outcomes, put another If inside a branch, or use a **Conditional** expression. There's no "else if" or switch node.
+
+![A function named getRemaining with one If inside another: the first If checks dailyGoal != 0 and its False branch ends with a Return. Its True branch holds a second If that checks whether todayWaterIntake! is less than dailyGoal!, with a Return in its False branch and, in its True branch, a calculation followed by a Return.](/img/circuit/control-flow/if/nested-if.png)
 
 ### Set the condition
 
@@ -43,6 +47,8 @@ A **Try** node is that plan: try these steps, and if one of them fails, run the 
 4. In **Details**, **Error name** sets the name of the variable that holds the error. It's `error` by default, and you find it under **LOCALS** in the **On Error** branch.
 
 Steps below the whole Try run afterwards, whether there was an error or not, unless the branch that ran ends with a **Return**. There's one **On Error** branch, and it catches any error.
+
+![An onTap circuit with a Try node: loadData sits under the Try, with a clock badge because it's awaited, and a showSnackBar sits in the On Error branch on the left. Both paths join again above a Navigator node that opens Settings, which runs either way.](/img/circuit/control-flow/try/try-catch.png)
 
 Good things to put in **On Error**:
 

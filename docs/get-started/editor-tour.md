@@ -93,6 +93,8 @@ Circuit is where you decide what your app does, for example what happens when so
 
 Circuit opens as a floating panel. The usual way in is an event: select a button, then in **Details** click the button next to an event such as **On Pressed**. It reads **+** or **Edit**, and either one opens Circuit. You can also open a function from the **Variables** panel.
 
+![Circuit open for the onPressed event of an ElevatedButton: the event at the top, then the showDialog and openUrl steps stacked under it. The selected openUrl step is outlined, and the Details box on the right shows Expression: openUrl(...) and its Url field set to https://nowa.dev.](/img/exploreinterface/circle.png)
+
 Logic that Nowa AI builds in **Agent** mode lands in the same events and functions, so you can open most of it in Circuit to check the steps and adjust them. A few kinds of steps, such as some loops, can't be shown there. See [Build logic in Circuit](../logic/circuit.md).
 
 ## Status bar and Console

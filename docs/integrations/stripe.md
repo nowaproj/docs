@@ -91,6 +91,9 @@ Skip this section if you only chose **Subscription**.
 
 1. Under **3. Business Table**, open **Table** and pick the table that holds your items, such as `products`. If you see "No tables found", click **Refresh**. After you add a table in Supabase, click the refresh icon (**Refresh tables**) next to **Table**.
 2. Under **4. Map Fields**, which appears once you pick a table, set **ID Field** to the column that identifies each row and **Amount Field** to the column with the price.
+
+   ![The first columns of a products table in the Supabase dashboard (Database, Tables): id (uuid, primary key), name, description and price (float8). For this table, ID Field is id and Amount Field is price.](/img/docs/integrations/stripe-supabase-products-table.png)
+
 3. Set **Currency** to **From Column** and pick a **Currency Column**, or to **Fixed Value** and type a **Fixed Currency**. Currencies use three-letter codes, such as `USD`, `EUR` or `AED`. If all your items share one currency, **Fixed Value** is the simplest choice. In a currency column, write the codes in lowercase (`usd`): Stripe asks for lowercase codes, and Nowa passes the column's value on as it is.
 
 If you leave the page before you deploy, pick the table and fields again.

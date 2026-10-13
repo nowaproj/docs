@@ -53,6 +53,9 @@ If you have a sample of the data, such as an answer from an API, Nowa can build 
 1. In the **Library**, click **Add** (+), then **Generate Models From Json...**. The **Generate Models** dialog opens.
 2. In **Content**, paste your JSON. The editor's three-dots menu has **Wrap**, **Compress** and **Prettify**, to make long JSON easier to read. Click **Next**. The button stays disabled while the JSON isn't valid.
 3. In **Select Data**, tick the fields to keep. For long data, use the **Select All** checkbox or the **Collapse All** and **Expand All** icons. Click **Next**.
+
+   ![The Select Data step of the Generate Models dialog: Select All is unticked and only content is ticked on the left, so the preview on the right shows a DeepseekModel that keeps just choices, choicesItem and content.](/img/api2/post/model-select-data.jpg)
+
 4. In **Generated Models**, set the **Name** of the main model, such as `Product` (it starts as `Root`). Leave **Path** as it is: it starts as `lib/models` and must stay inside `lib`. Click **Save and Open**.
 
 Each nested object in your JSON becomes a model of its own, and text, number and true/false fields can be empty. If the JSON has no fields to turn into a model, such as a list of plain values, Nowa shows a message and stops.
@@ -67,6 +70,12 @@ Once a model exists, it shows up wherever you choose a type.
 2. Tick **As List** first if you want a list of models, such as all the tasks.
 3. Search for the model's name, or click **show more...** and pick it.
 4. Fill in **Default Value** to preview your design with realistic data. For a list, click **+** to add items and set each item's fields.
+
+This short video turns a variable named `taskList` into a list of `Task` models and gives it three items:
+
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/docs/logic/logic-models-2.mp4" type="video/mp4" />
+</video>
 
 The default is only a starting value. Data your logic sets while the app runs replaces it. The same picker works for [params](./parameters.md), function inputs and a function's **Return Type**.
 

@@ -18,10 +18,14 @@ Supabase Storage keeps your app's files, such as profile photos, product picture
 The templates don't create buckets, so make one in Supabase first, or ask Nowa AI to do it with the Supabase connector.
 
 1. In Nowa, click ⋮ in the **Supabase** panel, then **Open Supabase**.
-2. Open the **Storage** page and click **New Bucket**.
+2. Open the **Storage** page and click **New bucket**.
 3. Enter a name for the bucket, such as `avatars`.
 4. Choose whether the bucket is public. Buckets are private unless you make them public.
-5. Click **Create Bucket**.
+5. Click **Create**.
+
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/supabase/storage/createbucket.mp4" type="video/mp4" />
+</video>
 
 | | Public bucket | Private bucket |
 |---|---|---|

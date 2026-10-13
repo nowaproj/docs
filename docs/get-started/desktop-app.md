@@ -61,6 +61,8 @@ Let Nowa install Flutter for you, or point Nowa to a copy you already have. Eith
 1. Click **Settings** in the dashboard sidebar. Inside a project, click your avatar in the top bar, then **General Settings**.
 2. Under **Editor Settings**, click **Local Setup**.
 
+![The Local Setup page, titled Environment, in the desktop app: the Automatic setup box with its Set up automatically button at the top, then the Flutter SDK Path, Default Projects Path and VS code Path fields, each with a Browse button.](/img/nowadesktop/autosetup/local-setup-panel.png)
+
 Nowa also sends you here when it needs Flutter: from **Setup flutter SDK** in the **New project** dialog, from **Fix** in the **Clone from GitHub** dialog, and from **Local environment settings** in the **Run** menu.
 
 ### macOS: install Xcode first {#macos-install-xcode}
@@ -84,6 +86,9 @@ This is the quickest route, and Nowa handles the downloads for you.
 5. When the row says **Ready**, click **Next**.
 6. On the **Verify** step, Nowa runs `flutter doctor`, Flutter's own health check, and lists the devices you can run on. Fix anything it reports, then click **Re-run checks**. If it can't find Chrome, you can leave that. You only need Chrome to run your app in Chrome, and Nowa's preview works without it.
 7. To build for Android, click **Download** next to "Android isn't set up". On the next screen, tick the license box if it's empty, then click **Install** next to **Android toolchain** (the tools that build Android apps). **Android emulator** is optional, and its **Install** unlocks once the toolchain is installed. If you want an emulator, install it in the same go: in Nowa 3.13 this screen only opens while the Android toolchain is missing (see [No emulators listed?](../test/devices.md#no-emulators-listed) for other ways to get one). Click **Skip for now** if you only target web or desktop. You can come back for the toolchain later from **Local Setup** (its page is titled **Environment**).
+
+   ![The Android screen of the Set up local environment dialog, on the Verify step: the ticked license checkbox, the Android toolchain row marked Not installed with its Install button, the Android emulator row with a greyed-out Install and the note Install the Android toolchain first, and Skip for now at the bottom right.](/img/nowadesktop/autosetup/android-toolchain.png)
+
 8. Click **Done**.
 
 ![The Set up local environment dialog on its Flutter step in the desktop app: the Install location field with Browse, the ticked license checkbox (highlighted) with its Android SDK Terms, Flutter license, Temurin JDK license and Privacy links, and the Flutter row marked Not installed with the Install button (highlighted).](/img/docs/get-started/get-started-desktop-app-2.png)

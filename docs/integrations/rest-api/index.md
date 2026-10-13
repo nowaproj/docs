@@ -51,6 +51,8 @@ Hover the collection and click the gear icon. Whatever you set here applies to e
 
 For example, many APIs answer in JSON when you add the header `Accept` with the value `application/json`. Changes save when you leave a field. Click **Close** when you're done.
 
+![The Edit collection details dialog for a collection named TheCatAPI: Base URL set to https://api.thecatapi.com/, Auth Key left empty, and one header under Headers with the KEY Accept and the VALUE application/json, above the Close button.](/img/api2/post/collectionsettings-dialog.png)
+
 Use **Auth Key** when each person who signs in to your app gets their own token, for example from your login request. Save that token on the device right after sign-in with the **SHARED PREFERENCES** → **set** step in Circuit, using the same **Key** and the **Type** `string` (see [Save values on the device](../../logic/actions.md#save-values-on-the-device)). From then on, every request in the collection sends it as `Authorization: Bearer` followed by the token, the format most APIs expect.
 
 ## Add an API key or token
@@ -134,6 +136,9 @@ An answer often holds much more than you need. A model keeps the parts you pick 
 
 1. Run a successful test, then click **Generate Model** in the right panel. The answer is already in the **Content** step. Click **Next**.
 2. In **Select Data**, untick the fields you don't need. Click **Next**.
+
+   ![The Select Data step of the Generate Models dialog: Select All is unticked and only content (inside choices and message) is ticked on the left, so the preview on the right shows a DeepseekModel that keeps just choices, choicesItem and content.](/img/api2/post/model-select-data.jpg)
+
 3. In **Generated Models**, check the **Name** and the **Path** (the folder where the model is saved). Click **Save**.
 
 The request now returns the model. Click **Back to Request**: the **Model** row in the right panel shows its name. **Generate Model** is hidden when the last test failed.

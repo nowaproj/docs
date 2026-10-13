@@ -68,6 +68,12 @@ Once a model exists, it shows up wherever you choose a type.
 3. Search for the model's name, or click **show more...** and pick it.
 4. Fill in **Default Value** to preview your design with realistic data. For a list, click **+** to add items and set each item's fields.
 
+This short video turns a variable named `taskList` into a list of `Task` models and gives it three items:
+
+<video controls playsInline preload="metadata" width="100%">
+  <source src="/videos/docs/logic/logic-models-2.mp4" type="video/mp4" />
+</video>
+
 The default is only a starting value. Data your logic sets while the app runs replaces it. The same picker works for [params](./parameters.md), function inputs and a function's **Return Type**.
 
 To show a field in a widget, link the property to the variable, click the **+** after it, and pick the field, such as `title`. See [Expressions and conditions](./expressions.md).

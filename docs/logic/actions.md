@@ -16,6 +16,8 @@ Dialogs, sheets, snackbars and pickers have their own page: [Show dialogs, sheet
 1. Choose **NOWA_RUNTIME** → `openUrl`.
 2. Type the full address in **Url**, starting with `https://`. It starts as `https://nowa.dev`. To use a value, such as a product's own page, click **Url** and link it, or type `$` inside the text.
 
+![The Circuit panel for onPressed with an openUrl node added and selected (1). In Details, the Url field holds https://nowa.dev (2).](/img/circuit/common-functionalities/others/openurl.png)
+
 In a web app, the page opens in a new browser tab. On a phone, it opens in a browser view on top of your app, and people are back in your app when they close it.
 
 Other kinds of links open the matching app, if the device has one: `mailto:` starts an email (`mailto:hello@example.com`), `tel:` starts a phone call and `sms:` a text message. That's handy for a "Contact us" button.

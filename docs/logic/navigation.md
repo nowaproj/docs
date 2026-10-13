@@ -137,6 +137,8 @@ To pass data, click the brush icon next to the screen. A popup lists the screen'
 
 To bring a value back, follow [Go back with a value](#go-back-with-a-value) with a **Navigator** node: on the second screen, its **Type** `pop` has a **result type**, such as `String`, and a **result**.
 
+![A Navigator node with the Type push, selected in Circuit. In Details, to is set to the screen Empty4, await is on, and Store result is New Variable, named result with the Type String. The node shows the result variable it fills.](/img/circuit/common-functionalities/navigation/push-with-await.png)
+
 Navigator and GoRouter nodes work in a screen's or a component's logic, such as an event or one of its functions, because they need to know which screen they start from. A global state's functions can't use them.
 
 ## Set up routes in the Router panel {#manage-routes-in-the-router-panel}

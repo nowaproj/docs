@@ -83,15 +83,16 @@ This is the quickest route, and Nowa handles the downloads for you.
 2. On the **Flutter** step, check the **Install location**. Nowa installs about 10 GB of tools there, and the path must not contain spaces. The dialog puts the Flutter SDK download at about 1 GB. With the current Flutter release, it's bigger: about 1.6 GB on Linux, 1.9 GB on Windows and 2.3 GB on macOS.
 3. Tick the box that accepts the licenses. Nowa downloads these tools from Google and the Eclipse Foundation.
 4. Click **Install** next to **Flutter**. Keep Nowa open while it downloads and unpacks Flutter. On Linux, Nowa may look frozen while it unpacks, which can take a while. If it takes too long, follow [Use a Flutter SDK you already have](#use-a-flutter-sdk-you-already-have) instead.
+
+   ![The Set up local environment dialog on its Flutter step in the desktop app: the Install location field with Browse, the ticked license checkbox (highlighted) with its Android SDK Terms, Flutter license, Temurin JDK license and Privacy links, and the Flutter row marked Not installed with the Install button (highlighted).](/img/docs/get-started/get-started-desktop-app-2.png)
+
 5. When the row says **Ready**, click **Next**.
 6. On the **Verify** step, Nowa runs `flutter doctor`, Flutter's own health check, and lists the devices you can run on. Fix anything it reports, then click **Re-run checks**. If it can't find Chrome, you can leave that. You only need Chrome to run your app in Chrome, and Nowa's preview works without it.
 7. To build for Android, click **Download** next to "Android isn't set up". On the next screen, tick the license box if it's empty, then click **Install** next to **Android toolchain** (the tools that build Android apps). **Android emulator** is optional, and its **Install** unlocks once the toolchain is installed. If you want an emulator, install it in the same go: in Nowa 3.13 this screen only opens while the Android toolchain is missing (see [No emulators listed?](../test/devices.md#no-emulators-listed) for other ways to get one). Click **Skip for now** if you only target web or desktop. You can come back for the toolchain later from **Local Setup** (its page is titled **Environment**).
 
-   ![The Android screen of the Set up local environment dialog, on the Verify step: the ticked license checkbox, the Android toolchain row marked Not installed with its Install button, the Android emulator row with a greyed-out Install and the note Install the Android toolchain first, and Skip for now at the bottom right.](/img/nowadesktop/autosetup/android-toolchain.png)
+   ![The Android screen of the Set up local environment dialog: the ticked license checkbox, the Android toolchain row marked Not installed with its Install button, the Android emulator row with a greyed-out Install and the note Install the Android toolchain first, and Skip for now at the bottom right.](/img/nowadesktop/autosetup/android-toolchain.png)
 
 8. Click **Done**.
-
-![The Set up local environment dialog on its Flutter step in the desktop app: the Install location field with Browse, the ticked license checkbox (highlighted) with its Android SDK Terms, Flutter license, Temurin JDK license and Privacy links, and the Flutter row marked Not installed with the Install button (highlighted).](/img/docs/get-started/get-started-desktop-app-2.png)
 
 **You should see:** each tool you installed with a **Ready** status. The **Flutter** and **Android toolchain** rows also say **Managed by Nowa** when Nowa installed them. If Nowa found a Flutter that was already installed on your computer, its row may say **Found on PATH** instead. If Flutter is installed but old, the button reads **Update Flutter SDK** next to "Flutter SDK is outdated".
 

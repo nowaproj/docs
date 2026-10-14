@@ -15,7 +15,7 @@
 <link rel="preconnect" href="https://us.i.posthog.com">
 <script>!function(t,e){var o,s,r,a;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,n,p){function c(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(r=t.createElement("script")).type="text/javascript",r.async=!0,r.src=n.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(a=t.getElementsByTagName("script")[0]).parentNode.insertBefore(r,a);var g=e;for(void 0!==p?g=e[p]=[]:p="posthog",g.people=g.people||[],g.toString=function(t){var e="posthog";return"posthog"!==p&&(e+="."+p),t||(e+=" (stub)"),e},g.people.toString=function(){return g.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys onSessionId".split(" "),s=0;s<o.length;s++)c(g,o[s]);e._i.push([i,n,p])},e.__SV=1)}(document,window.posthog||[]),posthog.init("phc_t9ByiL3PTqP8dTa6nWoqjoygz7nIuKOjLPXig1rxm6C",{api_host:"https://us.i.posthog.com",id:"default"})</script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css"><link rel="stylesheet" href="/assets/css/styles.e7fe9401.css">
-<script src="/assets/js/runtime~main.8b33d639.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.3f538e68.js" defer="defer"></script>
 <script src="/assets/js/main.5750c005.js" defer="defer"></script>
 </head>
 <body>
@@ -29,6 +29,7 @@
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="3140-13-october-2026"><strong>3.14.0 (13 October 2026)</strong><a href="#3140-13-october-2026" class="hash-link" aria-label="Direct link to 3140-13-october-2026" title="Direct link to 3140-13-october-2026" translate="no">​</a></h2>
 <h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="added-"><strong>Added 🌟</strong><a href="#added-" class="hash-link" aria-label="Direct link to added-" title="Direct link to added-" translate="no">​</a></h4>
 <ul>
+<li class=""><strong>Linux desktop app</strong>: the Nowa desktop app now runs on Linux, alongside Mac and Windows. Choose <strong>Linux</strong> when you download Nowa to get the 64-bit version, with an install script that adds Nowa to your app menu.</li>
 <li class=""><strong>Firestore panel</strong>: a new <strong>Firestore</strong> panel in the left sidebar shows your collections and queries, with <strong>Add Main Collection</strong> and <strong>Add New Query</strong>.</li>
 <li class=""><strong>Delete account in Firebase Authentication</strong>: Authentication now generates <code>Future&lt;bool&gt; deleteAccount()</code>, which returns false when no user is signed in or a recent login is required. Projects that already have Authentication on get it after turning Authentication off and on.</li>
 <li class=""><strong>Google Pay environment</strong>: a new <strong>Environment</strong> dropdown in Stripe (<strong>Test</strong> or <strong>Production</strong>) sets the Google Pay mode.</li>

@@ -10,7 +10,7 @@ sidebar_position: 1
 
 ### **3.14.0 (13 October 2026)**
 
-Nowa 3.14 helps you take your app from idea to launch. 🚀 We tested Nowa intensively and polished it from end to end, focusing on what matters most for a real product: your data, your payments, and getting into the App Store and Google Play. Our docs are also brand new, with a guide for every step.
+Nowa 3.14 helps you take your app from idea to launch. 🚀 We tested Nowa intensively and polished it from end to end, focusing on what matters most for a real product: your data, your payments, and getting into the App Store and Google Play. Our docs are also brand new, with a guide for every step, and Nowa now runs on Linux too. 🐧
 
 📋 Check all the details of this release in the [changelog](./change-log.md#3140-13-october-2026).
 
@@ -18,6 +18,9 @@ Nowa 3.14 helps you take your app from idea to launch. 🚀 We tested Nowa inten
 
 - 📚 **Brand-New Docs**
   We rewrote our docs from scratch. They now cover everything you need to build a great app with Nowa, from A to Z. Start with the new [Build a great app](../guides/index.md) section for tips and tricks, then explore Nowa AI, Firebase (including push notifications), payments, maps, ads, and step-by-step publishing to Google Play and the App Store. [Check them out](../index.md)!
+
+- 🐧 **Nowa Is on Linux**
+  The Nowa desktop app now runs on Linux, alongside Mac and Windows, so you can build on whichever computer you prefer. Download the 64-bit version, and the install script adds Nowa to your app menu for you. [Get it here](../get-started/desktop-app.md).
 
 - 🔥 **Build Your Database Visually**
   The new **Firestore** panel in the left sidebar shows all your collections and queries. Add a collection or a query in one click, and build queries that add and read documents without writing any code. See [Firestore](../integrations/firebase/firestore.md).

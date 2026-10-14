@@ -10,6 +10,7 @@ sidebar_position: 2
 ## **3.14.0 (13 October 2026)**
 
 #### **Added 🌟**
+- **Linux desktop app**: the Nowa desktop app now runs on Linux, alongside Mac and Windows. Choose **Linux** when you download Nowa to get the 64-bit version, with an install script that adds Nowa to your app menu.
 - **Firestore panel**: a new **Firestore** panel in the left sidebar shows your collections and queries, with **Add Main Collection** and **Add New Query**.
 - **Delete account in Firebase Authentication**: Authentication now generates `Future<bool> deleteAccount()`, which returns false when no user is signed in or a recent login is required. Projects that already have Authentication on get it after turning Authentication off and on.
 - **Google Pay environment**: a new **Environment** dropdown in Stripe (**Test** or **Production**) sets the Google Pay mode.

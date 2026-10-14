@@ -15,7 +15,7 @@
 <link rel="preconnect" href="https://us.i.posthog.com">
 <script>!function(t,e){var o,s,r,a;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,n,p){function c(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(r=t.createElement("script")).type="text/javascript",r.async=!0,r.src=n.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(a=t.getElementsByTagName("script")[0]).parentNode.insertBefore(r,a);var g=e;for(void 0!==p?g=e[p]=[]:p="posthog",g.people=g.people||[],g.toString=function(t){var e="posthog";return"posthog"!==p&&(e+="."+p),t||(e+=" (stub)"),e},g.people.toString=function(){return g.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys onSessionId".split(" "),s=0;s<o.length;s++)c(g,o[s]);e._i.push([i,n,p])},e.__SV=1)}(document,window.posthog||[]),posthog.init("phc_t9ByiL3PTqP8dTa6nWoqjoygz7nIuKOjLPXig1rxm6C",{api_host:"https://us.i.posthog.com",id:"default"})</script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css"><link rel="stylesheet" href="/assets/css/styles.e7fe9401.css">
-<script src="/assets/js/runtime~main.56852561.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.8b33d639.js" defer="defer"></script>
 <script src="/assets/js/main.5750c005.js" defer="defer"></script>
 </head>
 <body>
@@ -28,69 +28,74 @@
 </blockquote>
 <hr>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3140-13-october-2026"><strong>3.14.0 (13 October 2026)</strong><a href="#3140-13-october-2026" class="hash-link" aria-label="Direct link to 3140-13-october-2026" title="Direct link to 3140-13-october-2026" translate="no">​</a></h3>
-<p>Nowa 3.14 is our most polished release yet. ✨ We went through Nowa from end to end and made more than 140 improvements, so it fits even more smoothly around your code, your projects and your backend. This release also adds a <strong>Firestore</strong> panel, keeps your Supabase edge functions private by default, lets widgets on your board fit their content, and makes Nowa lighter on your computer.</p>
+<p>Nowa 3.14 helps you take your app from idea to launch. 🚀 We tested Nowa intensively and polished it from end to end, focusing on what matters most for a real product: your data, your payments, and getting into the App Store and Google Play. Our docs are also brand new, with a guide for every step.</p>
 <p>📋 Check all the details of this release in the <a class="" href="/new/change-log#3140-13-october-2026">changelog</a>.</p>
 <h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="new-in-this-version-"><strong>New in This Version ✨</strong><a href="#new-in-this-version-" class="hash-link" aria-label="Direct link to new-in-this-version-" title="Direct link to new-in-this-version-" translate="no">​</a></h4>
 <ul>
 <li class="">
-<p>📚 <strong>Brand-New Docs, from A to Z</strong>
-We rewrote our docs from scratch to cover everything you need to build a great app with Nowa. Highlights include a new <a class="" href="/guides">Build a great app</a> section full of tips and tricks, Nowa AI fully explained, Firebase from start to finish (push notifications included), new guides for RevenueCat, AdMob, Google Maps and deep links, and step-by-step publishing to Google Play and the App Store. <a class="" href="/">Check them out</a>!</p>
+<p>📚 <strong>Brand-New Docs</strong>
+We rewrote our docs from scratch. They now cover everything you need to build a great app with Nowa, from A to Z. Start with the new <a class="" href="/guides">Build a great app</a> section for tips and tricks, then explore Nowa AI, Firebase (including push notifications), payments, maps, ads, and step-by-step publishing to Google Play and the App Store. <a class="" href="/">Check them out</a>!</p>
 </li>
 <li class="">
-<p>🤝 <strong>Nowa Works Hand in Hand with Your Code</strong>
-Nowa now fits even more naturally around the code and setup you already have:</p>
+<p>🔥 <strong>Build Your Database Visually</strong>
+The new <strong>Firestore</strong> panel in the left sidebar shows all your collections and queries. Add a collection or a query in one click, and build queries that add and read documents without writing any code. See <a class="" href="/integrations/firebase/firestore">Firestore</a>.</p>
+</li>
+<li class="">
+<p>🏪 <strong>Ready for the App Store and Google Play</strong></p>
 <ul>
-<li class=""><strong>Every line in its place</strong>: typedefs, exports and code Nowa doesn&#x27;t edit visually stay exactly where you wrote them, every time Nowa saves.</li>
-<li class=""><strong>Cleaner diffs</strong>: Nowa formats Dart the same way your project&#x27;s SDK does and edits <code>pubspec.yaml</code> in place, keeping your comments, quotes and layout, so your diffs only show what you actually changed.</li>
-<li class=""><strong>Your setup, respected</strong>: when you change the app name, permissions or bundle ID, Nowa updates just the lines it needs in <code>AndroidManifest.xml</code>, <code>Info.plist</code> and <code>build.gradle</code>, and keeps your own asset entries in <code>pubspec.yaml</code>.</li>
+<li class=""><strong>Account deletion</strong>: Apple and Google require apps with sign-up to let people delete their account. Firebase Authentication now adds this for you.</li>
+<li class=""><strong>Restore purchases</strong>: new RevenueCat projects include it, so subscribers keep what they paid for on a new phone.</li>
+<li class=""><strong>iOS builds</strong> always use your app&#x27;s latest bundle ID.</li>
 </ul>
 </li>
 <li class="">
-<p>🔥 <strong>A Home for Firestore</strong>
-A new <strong>Firestore</strong> panel in the left sidebar shows your collections and queries, with <strong>Add Main Collection</strong> and <strong>Add New Query</strong> right there. Everything is ready as soon as you open your project, and the query builder now supports <strong>add</strong> and <strong>doc</strong> steps too. See <a class="" href="/integrations/firebase/firestore">Firestore</a>.</p>
+<p>💳 <strong>Ready to Get Paid</strong>
+Switch Google Pay from <strong>Test</strong> to <strong>Production</strong> with the new <strong>Environment</strong> setting in Stripe, and start taking real payments. Your own changes to the payment code stay in place when Nowa updates it.</p>
 </li>
 <li class="">
-<p>🔐 <strong>Secure Backends by Default</strong></p>
+<p>🔐 <strong>A Secure Backend by Default</strong>
+Nowa deploys your Supabase edge functions with Supabase&#x27;s security check turned on. Only Stripe&#x27;s webhook stays public, and the setup summary shows which functions are public.</p>
+</li>
+<li class="">
+<p>🎨 <strong>Easier Visual Building</strong></p>
 <ul>
-<li class=""><strong>Supabase edge functions are private by default</strong>: Nowa deploys them with the JWT check on, and only Stripe&#x27;s webhook stays public. The setup summary shows which functions are public at a glance.</li>
-<li class=""><strong>Stripe</strong>: a new <strong>Environment</strong> dropdown switches Google Pay between Test and Production, regenerating your payment code keeps your own edits, and every deploy step reports exactly how it went.</li>
-<li class=""><strong>Firebase Authentication</strong> now adds a <code>deleteAccount()</code> function, which the App Store requires for apps where people create an account. Google sign-in is ready for the latest <code>google_sign_in</code>, and if your Google session expires, Nowa simply asks you to sign in again.</li>
-<li class=""><strong>RevenueCat</strong>: new projects get <code>restorePurchases()</code> built in.</li>
+<li class=""><strong>Widgets fit their content</strong> on the board, the same as in your app.</li>
+<li class=""><strong>App bars, floating buttons, bottom navigation bars and drawers</strong> go straight to the right place when you drop them on a screen.</li>
+<li class=""><strong>Templates</strong> add the packages they need.</li>
+<li class=""><strong>Renaming an image</strong> updates every widget that uses it.</li>
+<li class=""><strong>New sliders</strong> use your theme&#x27;s colors, and the <strong>Empty Page</strong> template lets you pick a device size.</li>
 </ul>
 </li>
 <li class="">
-<p>📐 <strong>Widgets That Fit Their Content</strong>
-Components on your board now size themselves to their content: as wide as they need (up to the device&#x27;s width) and as tall as their content. Previews in the Library are measured the same way, and screens keep the device&#x27;s size.</p>
-</li>
-<li class="">
-<p>🌿 <strong>More Git Power for Local Projects</strong></p>
+<p>🤖 <strong>Smarter AI Help</strong></p>
 <ul>
-<li class=""><strong>SSH keys</strong>: choose <strong>Access Token</strong> or <strong>SSH Key</strong> for your credentials, and use SSH remote URLs.</li>
-<li class=""><strong>Smoother conflict resolution</strong>: resolve conflicts one file at a time, with your own edits always shown as <strong>Local</strong>.</li>
-<li class=""><strong>Revert creates a commit</strong> for you, and Nowa lets you know when to commit or discard your changes first.</li>
-<li class=""><strong>Helpful guidance</strong>: Nowa tells you when to set your Git identity, and <strong>Clone from GitHub</strong> helps you connect your GitHub account right from the list.</li>
+<li class=""><strong>Restore Checkpoint</strong> shows how many AI requests it will undo.</li>
+<li class=""><strong>Fix with AI</strong> knows which step of your Supabase setup needs attention.</li>
+<li class=""><strong>Explain with AI</strong> gives clearer answers about your build logs.</li>
+<li class=""><strong>Attach text files</strong> to the AI chat on the web too.</li>
 </ul>
 </li>
 <li class="">
-<p>🔗 <strong>Better Deep Links and Routes</strong>
-Deep links now go straight to your app&#x27;s router, scheme links on Android work with any host, and one save updates every platform file. Editing routes in <strong>Route Settings</strong> is smoother too.</p>
-</li>
-<li class="">
-<p>🎨 <strong>A Fresh, Consistent Look</strong>
-Menus across Nowa now share one design with search built in: type to filter, move with the arrow keys and press <strong>Enter</strong> to pick. Colors and text styles throughout the editor now come from one set of design tokens, so everything looks like it belongs together.</p>
+<p>🔗 <strong>Deep Links Open the Right Screen</strong>
+A link from an email, an ad or a message now opens the right screen in your app.</p>
 </li>
 <li class="">
 <p>✨ <strong>Smaller Touches</strong></p>
 <ul>
-<li class=""><strong>Lighter on your computer</strong>: Nowa now uses much less memory, and local projects start their preview only when you open it.</li>
-<li class=""><strong>Restore Checkpoint</strong> now tells you how many AI requests it will undo.</li>
-<li class=""><strong>Clearer messages</strong>: errors are easier to read and stay on screen longer, and connecting Figma, Supabase or GitHub always tells you how it went.</li>
-<li class=""><strong>Signing key reminder</strong>: the <strong>Important!</strong> dialog now has a <strong>Later</strong> button.</li>
-<li class=""><strong>Status bar</strong>: the warning and info counts now open <strong>Logs</strong>.</li>
-<li class=""><strong>Variables</strong>: a variable created from a property starts at that property&#x27;s value.</li>
+<li class=""><strong>Lighter on your computer</strong>: Nowa now uses much less memory.</li>
+<li class=""><strong>A fresh look</strong>: menus share one clean design with built-in search.</li>
+<li class=""><strong>Sample data while you design</strong>: the board shows sample responses for your API requests, so your live data isn&#x27;t touched.</li>
+<li class=""><strong>View Only members</strong> can copy widgets and export them as images.</li>
+<li class=""><strong>Clearer messages</strong> that stay on screen longer.</li>
 </ul>
 </li>
+<li class="">
+<p>💻 <strong>For Those Who Code</strong>
+Nowa keeps your code, comments and formatting the way you wrote them. Local projects also support SSH keys and easier Git conflict resolution.</p>
+</li>
 </ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="bug-fixes-"><strong>Bug Fixes 🩹</strong><a href="#bug-fixes-" class="hash-link" aria-label="Direct link to bug-fixes-" title="Direct link to bug-fixes-" translate="no">​</a></h4>
+<p>We fixed more than 150 bugs across the visual designer and board, the Library, Nowa AI, Firebase, Supabase, Stripe and RevenueCat, REST APIs, navigation and deep links, Instant Play and sharing, publishing and cloud builds, Git and local projects, and the desktop app. See every fix in the <a class="" href="/new/change-log#3140-13-october-2026">changelog</a>.</p>
 <p>➡️ We&#x27;d love to hear how Nowa 3.14 feels! Click the <strong>? icon</strong> to chat with us directly, or email us at <code>team@nowa.dev</code>. Happy building!</p>
 <hr>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3130-6-october-2026"><strong>3.13.0 (6 October 2026)</strong><a href="#3130-6-october-2026" class="hash-link" aria-label="Direct link to 3130-6-october-2026" title="Direct link to 3130-6-october-2026" translate="no">​</a></h3>
@@ -318,7 +323,7 @@ Your own widgets can now be used as a screen&#x27;s app bar, so a custom header 
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="gemini-37-flash-upgrade-13-august-2026"><strong>Gemini 3.7 Flash Upgrade (13 August 2026)</strong><a href="#gemini-37-flash-upgrade-13-august-2026" class="hash-link" aria-label="Direct link to gemini-37-flash-upgrade-13-august-2026" title="Direct link to gemini-37-flash-upgrade-13-august-2026" translate="no">​</a></h3>
 <p><img decoding="async" loading="lazy" alt="Nowa&amp;#39;s AI agent now runs on Gemini 3.7 Flash — smarter agent, double the limits" src="/assets/images/Nowa-Gemini-3.7-Flash-9c03c7f1c75cec8b09b8f53b50566a2e.png" width="2400" height="1260" class="img_ev3q"></p>
 <p>Google released <strong>Gemini 3.7 Flash</strong> today, and Nowa&#x27;s AI agent is already running on it. 🚀 The agent is noticeably better at building UIs, following a design, and finishing long multi-step tasks — and because the new model costs <strong>50% less</strong> than the one it replaces, we&#x27;re passing that saving straight to you as <strong>double the daily limits on every plan</strong>, at the same price.</p>
-<p>  📋 Check all the details of this release in the <a class="" href="/new/change-log#gemini-37-flash-upgrade-13-august-2026">changelog</a>.</p>
+<p>📋 Check all the details of this release in the <a class="" href="/new/change-log#gemini-37-flash-upgrade-13-august-2026">changelog</a>.</p>
 <h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="new-in-this-version--5"><strong>New in This Version ✨</strong><a href="#new-in-this-version--5" class="hash-link" aria-label="Direct link to new-in-this-version--5" title="Direct link to new-in-this-version--5" translate="no">​</a></h4>
 <ul>
 <li class="">
@@ -967,7 +972,7 @@ Compare to deploying to Web, this allows you to share without even the need for 
 <h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixes--improvements-"><strong>Fixes &amp; Improvements 🛠</strong><a href="#fixes--improvements-" class="hash-link" aria-label="Direct link to fixes--improvements-" title="Direct link to fixes--improvements-" translate="no">​</a></h4>
 <ul>
 <li class="">🧩 Added <strong>new stunning templates</strong> that match the quality of Nowa 3.0 — replacing the old ones with fresh, modern designs.</li>
-<li class="">🎨 Removed the older way of changing themes to simplify the workflow.</li>
+<li class=""> 🎨 Removed the older way of changing themes to simplify the workflow.</li>
 <li class="">⚠️ Error build design is now clearer and clickable, so you can quickly access build logs when needed.</li>
 <li class="">📑 Added the option to <strong>include cloud build logs</strong> when submitting bug reports — making issue reporting faster and debugging easier.</li>
 </ul>

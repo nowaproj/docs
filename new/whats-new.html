@@ -15,7 +15,7 @@
 <link rel="preconnect" href="https://us.i.posthog.com">
 <script>!function(t,e){var o,s,r,a;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,n,p){function c(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(r=t.createElement("script")).type="text/javascript",r.async=!0,r.src=n.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(a=t.getElementsByTagName("script")[0]).parentNode.insertBefore(r,a);var g=e;for(void 0!==p?g=e[p]=[]:p="posthog",g.people=g.people||[],g.toString=function(t){var e="posthog";return"posthog"!==p&&(e+="."+p),t||(e+=" (stub)"),e},g.people.toString=function(){return g.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys onSessionId".split(" "),s=0;s<o.length;s++)c(g,o[s]);e._i.push([i,n,p])},e.__SV=1)}(document,window.posthog||[]),posthog.init("phc_t9ByiL3PTqP8dTa6nWoqjoygz7nIuKOjLPXig1rxm6C",{api_host:"https://us.i.posthog.com",id:"default"})</script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css"><link rel="stylesheet" href="/assets/css/styles.e7fe9401.css">
-<script src="/assets/js/runtime~main.e4f5e3a1.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.73398220.js" defer="defer"></script>
 <script src="/assets/js/main.5750c005.js" defer="defer"></script>
 </head>
 <body>
@@ -28,68 +28,65 @@
 </blockquote>
 <hr>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3140-13-october-2026"><strong>3.14.0 (13 October 2026)</strong><a href="#3140-13-october-2026" class="hash-link" aria-label="Direct link to 3140-13-october-2026" title="Direct link to 3140-13-october-2026" translate="no">​</a></h3>
-<p>Nowa 3.14 is all about trust. 🛡️ We went through Nowa from end to end and fixed more than 140 issues, starting with anything that could cost you work: code Nowa doesn&#x27;t understand now stays in your files, files Nowa didn&#x27;t change stay exactly as you wrote them, and resolving Git conflicts keeps your own edits. This release also gives your Firestore collections and queries a home again, makes your Supabase and Stripe backends safer by default, and lets widgets on your board fit their content.</p>
+<p>Nowa 3.14 is our most polished release yet. ✨ We went through Nowa from end to end and made more than 140 improvements, so it fits even more smoothly around your code, your projects and your backend. This release also adds a <strong>Firestore</strong> panel, keeps your Supabase edge functions private by default, lets widgets on your board fit their content, and makes Nowa lighter on your computer.</p>
 <h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="new-in-this-version-"><strong>New in This Version ✨</strong><a href="#new-in-this-version-" class="hash-link" aria-label="Direct link to new-in-this-version-" title="Direct link to new-in-this-version-" translate="no">​</a></h4>
 <ul>
 <li class="">
-<p>🛡️ <strong>Your Code Stays Yours</strong>
-Nowa now leaves alone everything it doesn&#x27;t need to touch:</p>
+<p>🤝 <strong>Nowa Works Hand in Hand with Your Code</strong>
+Nowa now fits even more naturally around the code and setup you already have:</p>
 <ul>
-<li class=""><strong>Code Nowa can&#x27;t load stays in the file.</strong> Typedefs, exports and functions Nowa doesn&#x27;t support yet are kept exactly where you wrote them when Nowa saves the file.</li>
-<li class=""><strong>Untouched code stays untouched.</strong> Nowa formats Dart the way your project&#x27;s SDK version does and edits <code>pubspec.yaml</code> in place, so your comments, quotes and layout survive and your diffs only show what actually changed.</li>
-<li class=""><strong>Your own settings are kept.</strong> Asset entries you added to <code>pubspec.yaml</code>, and changes you made by hand to <code>AndroidManifest.xml</code>, <code>Info.plist</code> or <code>build.gradle</code>, are no longer overwritten when you change the app name, permissions or bundle ID.</li>
-<li class=""><strong>Deleting an imported local project keeps its folder.</strong> Nowa removes it from your list and leaves your files where they are.</li>
-<li class=""><strong>Removing a group keeps all its widgets</strong>, not just the first one.</li>
+<li class=""><strong>Every line in its place</strong>: typedefs, exports and code Nowa doesn&#x27;t edit visually stay exactly where you wrote them, every time Nowa saves.</li>
+<li class=""><strong>Cleaner diffs</strong>: Nowa formats Dart the same way your project&#x27;s SDK does and edits <code>pubspec.yaml</code> in place, keeping your comments, quotes and layout, so your diffs only show what you actually changed.</li>
+<li class=""><strong>Your setup, respected</strong>: when you change the app name, permissions or bundle ID, Nowa updates just the lines it needs in <code>AndroidManifest.xml</code>, <code>Info.plist</code> and <code>build.gradle</code>, and keeps your own asset entries in <code>pubspec.yaml</code>.</li>
 </ul>
 </li>
 <li class="">
 <p>🔥 <strong>A Home for Firestore</strong>
-A new <strong>Firestore</strong> panel in the left sidebar shows your collections and queries, with <strong>Add Main Collection</strong> and <strong>Add New Query</strong> right there. They&#x27;re loaded as soon as you open a project, so there&#x27;s no need to click <strong>Refresh</strong> first anymore, and the query builder&#x27;s <strong>add</strong> and <strong>doc</strong> steps now work. See <a class="" href="/integrations/firebase/firestore">Firestore</a>.</p>
+A new <strong>Firestore</strong> panel in the left sidebar shows your collections and queries, with <strong>Add Main Collection</strong> and <strong>Add New Query</strong> right there. Everything is ready as soon as you open your project, and the query builder now supports <strong>add</strong> and <strong>doc</strong> steps too. See <a class="" href="/integrations/firebase/firestore">Firestore</a>.</p>
 </li>
 <li class="">
-<p>🔐 <strong>Safer Backends by Default</strong></p>
+<p>🔐 <strong>Secure Backends by Default</strong></p>
 <ul>
-<li class=""><strong>Supabase edge functions are private by default.</strong> Nowa now deploys them with the JWT check on, and only Stripe&#x27;s webhook stays public. The setup summary lists any function that&#x27;s public.</li>
-<li class=""><strong>Stripe</strong>: a new <strong>Environment</strong> dropdown switches Google Pay between Test and Production, regenerating your payment code no longer touches the parts you edited, and a failed deploy now says so.</li>
-<li class=""><strong>Firebase Authentication</strong> now adds a <code>deleteAccount()</code> function, which the App Store requires for apps where people create an account. Google sign-in code works with the latest <code>google_sign_in</code>, and an expired Google sign-in no longer disconnects Firebase from your project.</li>
-<li class=""><strong>RevenueCat</strong>: new projects get <code>restorePurchases()</code>.</li>
+<li class=""><strong>Supabase edge functions are private by default</strong>: Nowa deploys them with the JWT check on, and only Stripe&#x27;s webhook stays public. The setup summary shows which functions are public at a glance.</li>
+<li class=""><strong>Stripe</strong>: a new <strong>Environment</strong> dropdown switches Google Pay between Test and Production, regenerating your payment code keeps your own edits, and every deploy step reports exactly how it went.</li>
+<li class=""><strong>Firebase Authentication</strong> now adds a <code>deleteAccount()</code> function, which the App Store requires for apps where people create an account. Google sign-in is ready for the latest <code>google_sign_in</code>, and if your Google session expires, Nowa simply asks you to sign in again.</li>
+<li class=""><strong>RevenueCat</strong>: new projects get <code>restorePurchases()</code> built in.</li>
 </ul>
 </li>
 <li class="">
 <p>📐 <strong>Widgets That Fit Their Content</strong>
-Components on your board are no longer stuck at 400 × 400. A widget without a size is now as wide as its content (up to the device&#x27;s width) and as tall as its content, and previews in the Library are measured the same way. Screens keep the device&#x27;s size.</p>
+Components on your board now size themselves to their content: as wide as they need (up to the device&#x27;s width) and as tall as their content. Previews in the Library are measured the same way, and screens keep the device&#x27;s size.</p>
 </li>
 <li class="">
-<p>🌿 <strong>Git That Does What It Says</strong></p>
+<p>🌿 <strong>More Git Power for Local Projects</strong></p>
 <ul>
-<li class=""><strong>SSH keys</strong>: local projects now let you pick <strong>Access Token</strong> or <strong>SSH Key</strong> for your credentials, and accept SSH remote URLs.</li>
-<li class=""><strong>Conflicts keep your edits</strong>: after <strong>Bring my changes</strong>, <strong>Local</strong> really is your version, and accepting one file no longer clears the others.</li>
-<li class=""><strong>Revert makes a commit</strong>, and Revert or Undo with uncommitted changes now asks you to commit or discard first instead of quietly doing nothing.</li>
-<li class=""><strong>Clearer messages</strong>: if your Git identity isn&#x27;t set, Nowa tells you instead of showing a raw error, and <strong>Clone from GitHub</strong> asks you to connect GitHub instead of showing an empty box.</li>
+<li class=""><strong>SSH keys</strong>: choose <strong>Access Token</strong> or <strong>SSH Key</strong> for your credentials, and use SSH remote URLs.</li>
+<li class=""><strong>Smoother conflict resolution</strong>: resolve conflicts one file at a time, with your own edits always shown as <strong>Local</strong>.</li>
+<li class=""><strong>Revert creates a commit</strong> for you, and Nowa lets you know when to commit or discard your changes first.</li>
+<li class=""><strong>Helpful guidance</strong>: Nowa tells you when to set your Git identity, and <strong>Clone from GitHub</strong> helps you connect your GitHub account right from the list.</li>
 </ul>
 </li>
 <li class="">
-<p>🔗 <strong>Deep Links and Routes That Work</strong>
-Deep links now reach your app&#x27;s router, Android links are no longer tied to one fixed host, and saving a deep link field updates every platform file. In <strong>Route Settings</strong>, changes to a route&#x27;s <strong>Path</strong> and to a parameter&#x27;s <strong>Default value</strong> are now saved.</p>
+<p>🔗 <strong>Better Deep Links and Routes</strong>
+Deep links now go straight to your app&#x27;s router, scheme links on Android work with any host, and one save updates every platform file. Editing routes in <strong>Route Settings</strong> is smoother too.</p>
 </li>
 <li class="">
-<p>🎨 <strong>A More Consistent Nowa</strong>
+<p>🎨 <strong>A Fresh, Consistent Look</strong>
 Menus across Nowa now share one design with search built in: type to filter, move with the arrow keys and press <strong>Enter</strong> to pick. Colors and text styles throughout the editor now come from one set of design tokens, so everything looks like it belongs together.</p>
 </li>
 <li class="">
 <p>✨ <strong>Smaller Touches</strong></p>
 <ul>
-<li class=""><strong>Lighter on your computer</strong>: quitting Nowa now stops the Flutter processes it started, which could keep gigabytes of memory busy. Local projects start the preview only when you open it.</li>
-<li class=""><strong>Typing <code>/</code></strong> in a Details field, like a route path, now types a slash instead of jumping to the AI chat.</li>
+<li class=""><strong>Lighter on your computer</strong>: Nowa now uses much less memory, and local projects start their preview only when you open it.</li>
 <li class=""><strong>Restore Checkpoint</strong> now tells you how many AI requests it will undo.</li>
-<li class=""><strong>Clearer errors</strong>: messages no longer start with &quot;Exception:&quot; and stay on screen longer, and a failed Figma, Supabase or GitHub connection tells you why.</li>
+<li class=""><strong>Clearer messages</strong>: errors are easier to read and stay on screen longer, and connecting Figma, Supabase or GitHub always tells you how it went.</li>
 <li class=""><strong>Signing key reminder</strong>: the <strong>Important!</strong> dialog now has a <strong>Later</strong> button.</li>
 <li class=""><strong>Status bar</strong>: the warning and info counts now open <strong>Logs</strong>.</li>
-<li class=""><strong>Forms and variables</strong>: Min and Max length validators keep their number, and a variable created from a property starts at that property&#x27;s value.</li>
+<li class=""><strong>Variables</strong>: a variable created from a property starts at that property&#x27;s value.</li>
 </ul>
 </li>
 </ul>
-<p>➡️ If anything in Nowa still gets in your way, we want to know! Click the <strong>? icon</strong> to chat with us directly, or email us at <code>team@nowa.dev</code>. Happy building!</p>
+<p>➡️ We&#x27;d love to hear how Nowa 3.14 feels! Click the <strong>? icon</strong> to chat with us directly, or email us at <code>team@nowa.dev</code>. Happy building!</p>
 <hr>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3130-6-october-2026"><strong>3.13.0 (6 October 2026)</strong><a href="#3130-6-october-2026" class="hash-link" aria-label="Direct link to 3130-6-october-2026" title="Direct link to 3130-6-october-2026" translate="no">​</a></h3>
 <p>Nowa 3.13 gives everything in your project one home: the new <strong>Library</strong>. 📚 Find any screen, component or widget in a few keystrokes and add it to your board without reaching for the mouse. This release also brings a desktop app for Linux, quicker ways to move around your project, and your theme extension colors right in the color picker.</p>
@@ -470,7 +467,7 @@ Not a mockup or a rendered guess. <strong>Tap, scroll, fill in forms, and test y
 Third-party packages now <strong>run for real instead of being mocked</strong>, so you see their true behavior right in the preview.</p>
 </li>
 <li class="">
-<p>⚡ <strong>Edits Show Up in Seconds</strong>
+<p>  ⚡ <strong>Edits Show Up in Seconds</strong>
 Change something in the builder and the preview updates <strong>almost instantly</strong> — no manual refresh.</p>
 </li>
 <li class="">
@@ -595,7 +592,7 @@ Building should never feel lonely. Click the <strong>? icon</strong> in the bott
 New tutorials, updates, and tips — we&#x27;ll now <strong>notify you right inside Nowa</strong> so you always have what you need to level up your apps.</p>
 </li>
 <li class="">
-<p>🤖 <strong>AI Project Fixer</strong>
+<p>  🤖 <strong>AI Project Fixer</strong>
 Bugs slowing you down? Just say <strong>&quot;Fix problems in my project&quot;</strong> and let the AI do a full scan and fix issues before you deploy. Smoother builds, fewer headaches.</p>
 </li>
 <li class="">
@@ -809,7 +806,7 @@ Starting a new project? You&#x27;ll now get a guided <strong>onboarding experien
 <!-- -->The AI can now <strong>fetch and use packages directly from pub.dev</strong>, reading their docs, understanding their APIs, and implementing them automatically in your project — even if they aren’t built into Nowa.</p>
 <blockquote>
 <p>⚙️ Enabled by default for new projects<br>
-<!-- -->🧪 For existing ones: Go to <code>Settings → Packages → Enable “Load Packages (Experimental)  ”</code></p>
+<!-- -->🧪 For existing ones: Go to <code>Settings → Packages → Enable “Load Packages (Experimental)”</code></p>
 </blockquote>
 </li>
 <li class="">

@@ -12,6 +12,8 @@ sidebar_position: 1
 
 Nowa 3.14 is our most polished release yet. ✨ We went through Nowa from end to end and made more than 140 improvements, so it fits even more smoothly around your code, your projects and your backend. This release also adds a **Firestore** panel, keeps your Supabase edge functions private by default, lets widgets on your board fit their content, and makes Nowa lighter on your computer.
 
+📋 Check all the details of this release in the [changelog](./change-log.md#3140-13-october-2026).
+
 #### **New in This Version ✨**
 
 - 🤝 **Nowa Works Hand in Hand with Your Code**
@@ -52,8 +54,6 @@ Nowa 3.14 is our most polished release yet. ✨ We went through Nowa from end to
   - **Status bar**: the warning and info counts now open **Logs**.
   - **Variables**: a variable created from a property starts at that property's value.
 
-📋 Check all the details of this release in the [changelog](./change-log.md#3140-13-october-2026).
-
 ➡️ We'd love to hear how Nowa 3.14 feels! Click the **? icon** to chat with us directly, or email us at `team@nowa.dev`. Happy building!
 
 ---
@@ -61,6 +61,8 @@ Nowa 3.14 is our most polished release yet. ✨ We went through Nowa from end to
 ### **3.13.0 (6 October 2026)**
 
 Nowa 3.13 gives everything in your project one home: the new **Library**. 📚 Find any screen, component or widget in a few keystrokes and add it to your board without reaching for the mouse. This release also brings a desktop app for Linux, quicker ways to move around your project, and your theme extension colors right in the color picker.
+
+📋 Check all the details of this release in the [changelog](./change-log.md#3130-6-october-2026).
 
 #### **New in This Version ✨**
 
@@ -101,8 +103,6 @@ Nowa 3.13 gives everything in your project one home: the new **Library**. 📚 F
   - **Tidier boards**: each screen stays inside its frame, and snap guides line up at any zoom.
   - **Quieter Git history**: opening a project in a newer Nowa no longer changes `.nowa/settings.json`.
 
-📋 Check all the details of this release in the [changelog](./change-log.md#3130-6-october-2026).
-
 ➡️ Tell us how the Library feels! Click the **? icon** to chat with us directly, or email us at `team@nowa.dev`. Happy building!
 
 ---
@@ -110,6 +110,8 @@ Nowa 3.13 gives everything in your project one home: the new **Library**. 📚 F
 ### **3.12.5 (25 September 2026)**
 
 Nowa 3.12.5 makes big projects feel light again. ⚡ Boards with lots of screens are now **up to 50x faster** to move around and work in, projects reopen faster, and Instant Play can now play anything on your board. This release also lets you switch Git branches without committing first, gives your connected agent a way to bring images (including the ones in your Figma designs) into your project, and helps Nowa understand even more of the Flutter code you write yourself.
+
+📋 Check all the details of this release in the [changelog](./change-log.md#3125-25-september-2026).
 
 #### **New in This Version ✨**
 
@@ -143,8 +145,6 @@ Nowa 3.12.5 makes big projects feel light again. ⚡ Boards with lots of screens
   - **More precise snapping** when you move or resize widgets, and resizing only snaps the edge you're dragging.
   - **A lighter Widgets panel**: previews play their animations for a moment, then settle.
 
-📋 Check all the details of this release in the [changelog](./change-log.md#3125-25-september-2026).
-
 ➡️ We'd love to hear how your biggest projects feel now! Click the **? icon** to chat with us directly, or email us at `team@nowa.dev`. Happy building!
 
 ---
@@ -152,6 +152,8 @@ Nowa 3.12.5 makes big projects feel light again. ⚡ Boards with lots of screens
 ### **3.12.3 (22 September 2026)**
 
 Nowa AI now works with **Figma**! 🎨 Connect your Figma account and the AI can bring your images, icons, colors and text styles straight into your project, so the app you build matches the design you made. The Figma MCP has been on our "coming soon" list for a while, and now it's here for everyone. This release also helps Nowa understand much more of the Flutter code you write yourself, cuts down on false alarms, and makes the board smoother to move around.
+
+📋 Check all the details of this release in the [changelog](./change-log.md#3123-22-september-2026).
 
 #### **New in This Version ✨**
 
@@ -191,8 +193,6 @@ Nowa AI now works with **Figma**! 🎨 Connect your Figma account and the AI can
 
   Connecting your own agent is still **Enterprise only**. If you'd like access, email us at `team@nowa.dev` and we'll get you set up.
 
-📋 Check all the details of this release in the [changelog](./change-log.md#3123-22-september-2026).
-
 ➡️ We can't wait to see what you build from your Figma designs! Click the **? icon** to chat with us directly, or email us at `team@nowa.dev`. Happy building!
 
 ---
@@ -200,6 +200,8 @@ Nowa AI now works with **Figma**! 🎨 Connect your Figma account and the AI can
 ### **3.12.0 (15 September 2026)**
 
 Nowa 3.12 lets your AI coding agent work inside your project. Connect **Claude Code, Claude Desktop, or Cursor** to Nowa and it can open your projects, see what's on your canvas, and build using Nowa's own tools while your board updates in front of you. 🔌 This release also adds **workspace and monorepo support**, **Sign in with Apple**, **Git over SSH**, and a tidier interface throughout.
+
+📋 Check all the details of this release in the [changelog](./change-log.md#3120-15-september-2026).
 
 #### **New in This Version ✨**
 
@@ -244,8 +246,6 @@ Nowa 3.12 lets your AI coding agent work inside your project. Connect **Claude C
 - 🧩 **Custom App Bars**
   Your own widgets can now be used as a screen's app bar, so a custom header you built once works everywhere a Flutter app bar does.
 
-📋 Check all the details of this release in the [changelog](./change-log.md#3120-15-september-2026).
-
 ➡️ We'd love to hear what you think of Nowa 3.12! Click the **? icon** to chat with us directly, or email us at `team@nowa.dev`. Happy building!
 
 ---
@@ -255,6 +255,8 @@ Nowa 3.12 lets your AI coding agent work inside your project. Connect **Claude C
 ![Nowa's AI agent now runs on Gemini 3.7 Flash — smarter agent, double the limits](/img/whats_new/Nowa-Gemini-3.7-Flash.png)
 
 Google released **Gemini 3.7 Flash** today, and Nowa's AI agent is already running on it. 🚀 The agent is noticeably better at building UIs, following a design, and finishing long multi-step tasks — and because the new model costs **50% less** than the one it replaces, we're passing that saving straight to you as **double the daily limits on every plan**, at the same price.
+
+📋 Check all the details of this release in the [changelog](./change-log.md#gemini-37-flash-upgrade-13-august-2026).
 
 #### **New in This Version ✨**
 
@@ -271,8 +273,6 @@ Google released **Gemini 3.7 Flash** today, and Nowa's AI agent is already runni
 - 🎨 **Agent improvements, focused on UI generation**
   Alongside the model swap, we shipped a round of improvements to the agent itself with a particular focus on UI generation. Between our updates and the new model, this is the biggest single-day jump in quality the Nowa agent has ever had.
 
-📋 Check all the details of this release in the [changelog](./change-log.md#gemini-37-flash-upgrade-13-august-2026).
-
 ➡️ We'd love to hear what you build with the new agent! Click the **? icon** to chat with us directly, or email us at `team@nowa.dev`. Happy building!
 
 ---
@@ -282,6 +282,8 @@ Google released **Gemini 3.7 Flash** today, and Nowa's AI agent is already runni
 ![Nowa 3.10.5 brings full mobile browser support](/img/whats_new/Nowa-3.10.5-Mobile.png)
 
 Nowa 3.10.5 brings the full Nowa experience to your phone! 📱 You can now open [Nowa](https://app.nowa.com/) in your mobile browser to check projects, make quick updates, and even deploy while you're on the go. This release also improves workspaces, introduces a post-launch support package, and fixes Git issues on Windows.
+
+📋 Check all the details of this release in the [changelog](./change-log.md#3105-14-july-2026).
 
 #### **New in This Version ✨**
 - 📱 **Full Mobile Browser Support**
@@ -305,8 +307,6 @@ Nowa 3.10.5 brings the full Nowa experience to your phone! 📱 You can now open
 
 #### **More Updates 📢**
 - 🧪 **Nowa GO** — our dedicated Android and iOS app is still in private beta.
-
-📋 Check all the details of this release in the [changelog](./change-log.md#3105-14-july-2026).
 
 ➡️ We'd love to hear what you think of building with Nowa from your phone! Click the **? icon** to chat with us directly, or email us at `team@nowa.dev`. Happy building!
 
@@ -346,6 +346,8 @@ Nowa 3.10 transforms how you test and deploy your apps. You can now run cloud pr
 ### **3.9 (13 June 2026)**
 Nowa 3.9 is our most powerful release yet. 🚀 It's the first version where building complex, top-tier apps with AI feels genuinely easy and efficient — powered by a **fully rebuilt AI system** and real in-app compiling with **App Run**. Together with a refreshed layout and a long list of improvements, this is where you can confidently build world-class apps, no matter the complexity, faster and easier than ever.
 
+📋 Check all the details of this release in the [changelog](./change-log.md#39-13-june-2026).
+
 #### **New in This Version ✨**
 - 🤖 **A Fully Rebuilt AI System**
   We rebuilt our AI from the ground up into a **multi-agent system**, where several subagents work on your project in parallel — coordinating to plan, build, and refine your app at the same time. The result is **exceptional UI/UX** out of the box, **complex logic built reliably** even across large projects, smooth handling of **external pub.dev packages** (including any platform-file setup), and **smart context fetching** that reads exactly what's needed without over- or under-reading. Because it's so efficient, you get far more done **per credit** than ever before. This is the first version of our AI you can fully rely on for any use case.
@@ -374,8 +376,6 @@ Nowa 3.9 is our most powerful release yet. 🚀 It's the first version where bui
 
 #### **More Updates 📢**
 - 🆓 **Nowa Free Weekend** — this coming **Saturday and Sunday**, Nowa is **completely free** to use. If there's something you've been waiting to build, now's the perfect time to dive in.
-
-📋 Check all the details of this release in the [changelog](./change-log.md#39-13-june-2026).
 
 ➡️ We'd love to hear what you think once you've taken Nowa 3.9 for a spin — your feedback shapes where we go next. Click the **? icon** to chat with us directly, or email us at `team@nowa.dev`. Happy building!
 
@@ -444,6 +444,8 @@ Nowa 3.8 is here, and it's a big one! 🚀 Say hello to **Nowa Agent 4**, our be
 ### **3.7.3 (26 April 2026)**
 Nowa 3.7.3 brings **localisation support**, **AI font downloads**, and **smarter package conflict handling** — making it easier to ship apps in multiple languages and match designs pixel-perfect.
 
+📋 Check all the details of this release in the [changelog](./change-log.md#373-26-april-2026).
+
 #### **New in This Version ✨**
 - 🌍 **Localisation Support**
   You asked, we delivered! You can now make your app run in **multiple languages** with ease. Just ask Nowa AI to set it up and it'll handle everything for you, end to end.
@@ -457,14 +459,14 @@ Nowa 3.7.3 brings **localisation support**, **AI font downloads**, and **smarter
 #### **More Updates 📢**
 - 📱 **Nowa GO is already rolling out in batches!** If you haven't signed up yet and want to give it a shot, now's the time. Build on your phone or tablet, anywhere you go.
 
-📋 Check all the details of this release in the [changelog](./change-log.md#373-26-april-2026).
-
 ➡️ If you face any issue, click the **? icon** to chat with us directly, or email us at `team@nowa.dev`.
 
 ---
 
 ### **3.7.2 (23 April 2026)**
 Nowa 3.7.2 is a big step forward — **packages are now way more stable**, the **experimental UI** is getting closer to a whole new way of building, and we solved some important issues along the way.
+
+📋 Check all the details of this release in the [changelog](./change-log.md#372-23-april-2026).
 
 #### **New in This Version ✨**
 - 📦 **New Packaging System**
@@ -482,8 +484,6 @@ Nowa 3.7.2 is a big step forward — **packages are now way more stable**, the *
 - 🧠 **A new AI system** that delivers much better results while cutting credit costs by **5–15x**
 - 🚀 **A major deployment upgrade**, making deployments easier and clearer than ever
 - 🎨 **More experimental UI updates** on the way
-
-📋 Check all the details of this release in the [changelog](./change-log.md#372-23-april-2026).
 
 
 ---
@@ -532,6 +532,8 @@ Nowa 3.6 brings a big boost to what you can do. Now you can offer **in-app purch
 Want to see everything in action? Watch the Dev Diary:
   <iframe width="767" height="431" src="https://www.youtube.com/embed/dLsO05crdSk" title="Nowa 3.6 | Dev Diary" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
+📋 Check all the details of this release in the [changelog](./change-log.md#36-6-march-2026).
+
 #### **New in This Version ✨**
 - 💰 **In-App Purchases with RevenueCat**
   You can now add in-app purchases to your iOS and Android apps with just a few clicks through **RevenueCat**. If you've been wanting to monetize your app, this is the easiest way to get started. A step-by-step tutorial is coming in the next few days.
@@ -563,14 +565,14 @@ Want to see everything in action? Watch the Dev Diary:
 - 🇸🇪 **[Klubbrabatten](https://klubbrabatten.se/)** — Sweden's biggest loyalty rewards program, giving users discounts across restaurants and places all over the country. Used by over **150,000 users** and built entirely with Nowa and Supabase.
 - 🏋️ **[Zero-Trust Fitness App](https://github.com/EdoSag/Zero-Trust-Fitness)** — an open-source, privacy-first alternative to Google Fit that encrypts all your health data, built by **Edo**. Want to contribute? Clone the project and jump in!
 
-📋 Check all the details of this release in the [changelog](./change-log.md#36-6-march-2026).
-
 ➡️ If you face any issue, use the **"Problem"** button to report it (attach a project snapshot if needed), or email us at `team@nowa.dev`.
 
 ---
 
 ### **3.5 (9 February 2026)**
 Nowa 3.5 is a big step forward. In this release, you’ll get **Nowa Agent V3** (a new AI foundation), a new routing system powered by **GoRouter**, **Git support for Local Projects**, and smoother performance across the editor.  
+
+📋 Check all the details of this release in the [changelog](./change-log.md#35-9-february-2026).
 
 #### **New in This Version ✨**
 - 🤖 **Nowa Agent V3 (4 modes)**  
@@ -604,14 +606,14 @@ Nowa 3.5 is a big step forward. In this release, you’ll get **Nowa Agent V3** 
   Share a **complete app** you built and deployed with Nowa on **LinkedIn or X**, tag us, and you’ll get **50 free AI credits**.  
   The **top 5 apps** shared will get **1 month free on the Scale plan** (and if you’re already on Scale, you’ll get a refund for that month).  
 
-📋 Check all the details of this release in the [changelog](./change-log.md#35-9-february-2026).
-
 ➡️ If you face any issue, use the **"Problem"** button to report it (attach a project snapshot if needed), or email us at `team@nowa.dev`.  
 
 ---
 
 ### **3.4 (19 January 2026)**  
 This is one of our biggest releases yet — introducing **Supabase MCP** and a new **Agent Creation Summary** for faster, clearer AI workflows.  
+
+📋 Check all the details of this release in the [changelog](./change-log.md#34-19-january-2026).
 
 #### **New in This Version ✨**
 - 🧠 **Supabase MCP (Frontend + Backend from one panel)**  
@@ -634,12 +636,12 @@ We have released the following new tutorials on YouTube:
   - Google Maps integration: https://www.youtube.com/watch?v=1aqqNMtRKQU  
   - Instant preview sharing (testing & feedback): https://www.youtube.com/watch?v=ORa4ohpK4pQ  
 
-📋 Check all the details of this release in the [changelog](./change-log.md#34-19-january-2026).
-
 ---
 
 ### **3.3.5 (30 December 2025)**  
 Say hi to **Commit History, one‑click GitHub integration, and faster loading for local projects**. Let's get into details:
+
+📋 Check all the details of this release in the [changelog](./change-log.md#335-30-december-2025).
 
 #### **New in This Version ✨**
 - 🕒 **Commit History in Nowa**  
@@ -660,12 +662,12 @@ Say hi to **Commit History, one‑click GitHub integration, and faster loading f
   - Nowa 3.3.5 uses your **local Flutter SDK** to resolve dependencies  
   - This removes the need to fetch them all again from `pub.dev`, especially for large projects  
 
-📋 Check all the details of this release in the [changelog](./change-log.md#335-30-december-2025).
-
 ---
 
 ### **3.3.2 (10 December 2025)**  
 Say hello to **Google Maps in Nowa!** This update brings new power to your apps with built-in Maps support, along with smoother performance across the board.  
+
+📋 Check all the details of this release in the [changelog](./change-log.md#332-10-december-2025).
 
 #### **New in This Version ✨**
 - 🗺️ **Google Maps Widget**  
@@ -683,12 +685,12 @@ Say hello to **Google Maps in Nowa!** This update brings new power to your apps 
 - ⚙️ **AI Upgrade:** Faster, smarter, and more context-aware AI generation.  
 - 🎥 **New Video Series:** Full onboarding and crash course for new users.  
 
-📋 Check all the details of this release in the [changelog](./change-log.md#332-10-december-2025).
-
 ---
 
 ### **3.2.0 (14 Novemeber 2025)**  
 This update makes Nowa’s AI **smarter, more capable, and fully connected to the Flutter ecosystem** — introducing **AI that can use custom packages from pub.dev!**  
+
+📋 Check all the details of this release in the [changelog](./change-log.md#320-14-november-2025).
 
 #### **New in This Version ✨**
 - 🧠 **AI That Uses Custom Packages**  
@@ -709,12 +711,12 @@ This update makes Nowa’s AI **smarter, more capable, and fully connected to th
 - ⚙️ **AI Core Boost:** Improving reasoning, context awareness, and result accuracy.  
 - 🎥 **Nowa Onboarding Video:** Learn the platform in under 15 minutes.  
 
-📋 Check all the details of this release in the [changelog](./change-log.md#320-14-november-2025).
-
 ---
 
 ### **3.1.2 (25 October 2025)**  
 A quick update following the 3.1 release, improving the **AI agent experience and reliability** to make working with it smoother and more stable.  
+
+📋 Check all the details of this release in the [changelog](./change-log.md#312-25-october-2025).
 
 #### **New in This Version ✨**
 - 🧠 **Improved AI Stability**  
@@ -730,8 +732,6 @@ A quick update following the 3.1 release, improving the **AI agent experience an
 - 🎥 **AI Quick Guide:** Short video on how to use the new AI agent.  
 - 🚀 **Onboarding Walkthrough:** Learn everything new in Nowa 3.1 in minutes.  
 
-📋 Check all the details of this release in the [changelog](./change-log.md#312-25-october-2025).
-
 ---
 
 ### **3.1.0 (21 October 2025)**  
@@ -739,6 +739,8 @@ This is our biggest update since V3.0 - with a brand‑new AI agent, Cloud Local
 
 ![](/img/whats_new/nowa3_1.png)
 
+
+📋 Check all the details of this release in the [changelog](./change-log.md#310-21-october-2025).
 
 #### **New in This Version ✨**
 - 🧠 **New AI System**  
@@ -770,14 +772,14 @@ This is our biggest update since V3.0 - with a brand‑new AI agent, Cloud Local
 - 📥 Importer V2: You will be able to import any Flutter project even the ones built outside Nowa  
 - 🧠 AI Planning Mode: the AI agent will be able to make a dynamic plan for complex prompts for better results when it comes to app-level prompts.  
 
-📋 Check all the details of this release in the [changelog](./change-log.md#310-21-october-2025).
-
 ➡️ Please keep using the in‑app Feedback button to report issues or share ideas — it helps us make Nowa better much faster :)  
 
 ---
 
 ### **3.0.10 (7 October 2025)**  
 We excited to introduce two powerful new features — **Notifications** and **Supabase Storage** — plus a brand-new syncing system between Nowa and your code files, that makes building smoother than ever.  
+
+📋 Check all the details of this release in the [changelog](./change-log.md#3010-7-october-2025).
 
 #### **New in This Version ✨**
 - 🔔 **Firebase Notifications:**  
@@ -802,8 +804,6 @@ We excited to introduce two powerful new features — **Notifications** and **Su
 - 🚀 **Nowa 3.1:** Our biggest update since 3.0 — featuring a more stable AI, restore points, chat history, a token-based credit system, and instant Cloud + Local sync.  
 - 🌟 **Showcase Page:** Discover real apps built with Nowa, complete with live demos.  
 - 🏢 **Agency Program:** Special deals and support for development agencies — reach out to `team@nowa.dev` to know more!  
-
-📋 Check all the details of this release in the [changelog](./change-log.md#3010-7-october-2025).
 
 ➡️ If you encounter any issues, please report them using the **in-app Feedback** button — it helps us improve it for you pretty fast.  
 
@@ -906,6 +906,8 @@ Nowa 3.0.2 is a stability-focused update, fixing several important issues to mak
 ### **3.0.1 (11 August 2025)**  
 Nowa 3.0.1 focuses on **improving stability, fixing key issues, and adding new resources** to help you get the most from Nowa AI.  
 
+📋 Check all the details of this release in the [changelog](./change-log.md#301-11-august-2025).
+
 #### **Fixes & Improvements 🛠**  
 
 💻 **Desktop App Access Restored**  
@@ -929,14 +931,14 @@ Learn practical techniques to get **more accurate, connected, and production-rea
 🤝 **Cobuild & Launch:** We’ll help you **build and launch** your app — from idea to production.  
 
 
-📋 Check all the details of this release in the [changelog](./change-log.md#301-11-august-2025).
-
 ➡️ If you encounter any issues, please report them using the **in-app Feedback** button. Including your project (and AI history if relevant) gives us the best context to fix them quickly.  
 
 ---
 
 ### **3.0.0 BETA (4 August 2025)**  
 Nowa 3.0 is our biggest release ever — packed with powerful AI features, backend upgrades, and a refreshed builder experience. Let’s dive into what’s new!
+
+📋 Check all the details of this release in the [changelog](./change-log.md#300-beta-4-august-2025).
 
 #### **New ✨**
 
@@ -991,14 +993,14 @@ We’ve made our pricing more accessible — with powerful features available to
 🤝 **Cobuild & Launch (for Scale users):** Our team helps you build and launch your app — step-by-step, no extra cost
 
 
-📋 Check all the details of this release in the [changelog](./change-log.md#300-beta-4-august-2025).
-
 ➡️ Found a bug in the BETA? Report it using the in-app Feedback button and earn **extra AI credits** as a thank you!
 
 ---
 
 ### **2.0.21 (27 May 2025)**  
 This update makes managing APIs faster than ever, squashes critical bugs, and sets the stage for the AI-powered future of Nowa. Let’s dive in!
+
+📋 Check all the details of this release in the [changelog](./change-log.md#2021-27-may-2025).
 
 #### **New ✨**  
 
@@ -1026,11 +1028,11 @@ The early results are astonishing—combining visual editing and AI is proving i
 
 👉 [Sign Up for Early Access](https://forms.gle/xNUR7nsYRUz8kpJ67)
 
-📋 Check all the details of this release in the [changelog](./change-log.md#2021-27-may-2025).
-
 ---
 ### **2.0.20 (23 April 2025)**  
 This update brings a whole new API workflow, smarter debugging in Play mode, and better defaults across the board. Let’s dig in!
+
+📋 Check all the details of this release in the [changelog](./change-log.md#2020-23-april-2025).
 
 #### **New ✨**  
 
@@ -1068,12 +1070,12 @@ Got custom functions or widgets? You’ll now see a **warning** when using Play 
 - Even more **API upgrades**  
 - And… something **BIG** is coming soon 👀
 
-📋 Check all the details of this release in the [changelog](./change-log.md#2020-23-april-2025).
-
 ---
 
 ### **2.0.19 (6 April 2025)**  
 Nowa Marketplace is finally here! 🚀 This update brings you a faster way to build with sample projects, a powerful Git integration, a fresh button widget, and better error handling—all designed to supercharge your workflow.
+
+📋 Check all the details of this release in the [changelog](./change-log.md#2019-6-april-2025).
 
 #### **New ✨**
 
@@ -1111,8 +1113,6 @@ Customize your buttons with the all-new `ButtonStyle`:
 📱 More sample projects  
 🎥 Tutorial on building advanced features in the AI Chat App
 
-📋 Check all the details of this release in the [changelog](./change-log.md#2019-6-april-2025).
-
 ### **New learning resources**
 We’ve added new docs to help you learn and master building with Nowa:
 
@@ -1142,6 +1142,8 @@ We’ve added new docs to help you learn and master building with Nowa:
 ### **2.0.18 (12 March 2025)**  
 This update introduces our newest built-in template—**AI Chat**—allowing you to quickly build your own chat-based apps. Plus, we've made navigating your project logic faster and easier!
 
+📋 Check all the details of this release in the [changelog](./change-log.md#2018-beta-12-march-2025).
+
 #### **New ✨**  
 
 🤖 **Chat Template**  
@@ -1159,11 +1161,11 @@ We've enhanced your workflow in Circuit with **quick navigation**:
 #### **Coming Soon 🔜**  
 - **Sample Projects**: AI Chatbot, To-Do app, and a Water Tracker App!
 
-📋 Check all the details of this release in the [changelog](./change-log.md#2018-beta-12-march-2025).
-
 
 ### **2.0.17 (4 March 2025)**  
 This update introduces a major new capability—**Web Deployment**—allowing you to **publish and share your web apps with a single click**. Plus, we've added **new widgets**, improved the dashboard, and enhanced audio support!
+
+📋 Check all the details of this release in the [changelog](./change-log.md#2017-beta-5-march-2025).
 
 #### **New ✨**  
 
@@ -1196,10 +1198,10 @@ Check out the **[full guide on web deployment](../publish/web.md)** to get start
 #### **Coming Soon 🔜**  
 - **Sample Projects**: including a AI-Chatgot, To-Do app, and a Water Tracker App
 
-📋 Check all the details of this release in the [changelog](./change-log.md#2017-beta-5-march-2025).
-
 ### **2.0.15 (12 Feb 2025)**  
 This update brings exciting new widgets and important improvements to Nowa, including **Swipeable Stack**, **Time Picker**, and various bug fixes.  
+
+📋 Check all the details of this release in the [changelog](./change-log.md#2015-beta-12-feb-2025).
 
 #### **New ✨**  
 
@@ -1225,12 +1227,12 @@ This update brings exciting new widgets and important improvements to Nowa, incl
 - **VS Code Integration (Planned)**  
   Work with Nowa **inside VS Code** for a seamless hybrid workflow, combining **visual building and coding** in one place.  
 
-📋 Check all the details of this release in the [changelog](./change-log.md#2015-beta-12-feb-2025).
-
 ---
 
 ### **2.0.14 (29 Jan 2025)**  
 This update brings a **brand-new dashboard design** and support for the **Intl package for date/time formatting**, improving both usability and localization capabilities.  
+
+📋 Check all the details of this release in the [changelog](./change-log.md#2014-29-jan-2025).
 
 #### **New ✨**  
 
@@ -1244,12 +1246,12 @@ This update brings a **brand-new dashboard design** and support for the **Intl p
   - **Format dates, times, and numbers** based on locale preferences.  
   - Easily localize your app with **region-specific date formats, timezone adjustments, currency formatting, and pluralization rules**.  
 
-📋 Check all the details of this release in the [changelog](./change-log.md#2014-29-jan-2025).
-
   ---
 
 ### **2.0.13 (4 Feb 2025)**  
 This update brings major improvements to Nowa, including **Git integration**, **media picking**, **account management**, and a **new package management system**.  
+
+📋 Check all the details of this release in the [changelog](./change-log.md#2013-beta-4-feb-2025).
 
 #### **New ✨**  
 
@@ -1265,12 +1267,12 @@ This update brings major improvements to Nowa, including **Git integration**, **
 - **Package Management System**  
   View, add, remove, and update all **packages in your project** effortlessly from one place.  
 
-📋 Check all the details of this release in the [changelog](./change-log.md#2013-beta-4-feb-2025).
-
 ---
 
 ### **2.0.11 (6 Jan 2025)**  
 This version introduces powerful new features, improvements, and essential bug fixes to enhance your experience.
+
+📋 Check all the details of this release in the [changelog](./change-log.md#2011-beta-7-jan-2025).
 
 #### **New ✨**  
 - **Expansion Tile Widget:**  
@@ -1296,13 +1298,13 @@ This version comes with important enhancements and fixes to make your experience
 - Added Compute Option: Use “Compute” to create a function that computes the value of a field, just like in Version 1.
 - Upgraded to Flutter 3.27: Your apps now run on the latest Flutter version for better performance and compatibility.
 
-📋 Check all the details of this release in the [changelog](./change-log.md#2011-beta-7-jan-2025).
-
 ### **2.0.8-beta (28 Nov 2024)**
 
 Nowa V2 is here! After 7 weeks of exclusive testing with hand-picked users, we’re happy to open Nowa V2 to everyone!
 
 This version introduces groundbreaking new features, an improved workflow, and an enhanced overall experience. Let’s dive into the details.
+
+📋 Check all the details of this release in the [changelog](./change-log.md#208-beta-28-nov-2024).
 
 #### **New ✨**
 
@@ -1344,5 +1346,3 @@ This version introduces groundbreaking new features, an improved workflow, and a
 #### New Learning Resources 📚
 
 - [Nowa V2 Playlist](https://youtube.com/playlist?list=PLVhnHv8Cdhz8rAHO0Z-xdUmATgB91458t&si=YXy_9oAzLmC-57Wx): Explore Nowa V2 with our new Youtube playlist for Nowa V2.
-
-📋 Check all the details of this release in the [changelog](./change-log.md#208-beta-28-nov-2024).

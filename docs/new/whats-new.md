@@ -10,52 +10,58 @@ sidebar_position: 1
 
 ### **3.14.0 (13 October 2026)**
 
-Nowa 3.14 is our most polished release yet. ✨ We went through Nowa from end to end and made more than 140 improvements, so it fits even more smoothly around your code, your projects and your backend. This release also adds a **Firestore** panel, keeps your Supabase edge functions private by default, lets widgets on your board fit their content, and makes Nowa lighter on your computer.
+Nowa 3.14 helps you take your app from idea to launch. 🚀 We tested Nowa intensively and polished it from end to end, focusing on what matters most for a real product: your data, your payments, and getting into the App Store and Google Play. Our docs are also brand new, with a guide for every step.
 
 📋 Check all the details of this release in the [changelog](./change-log.md#3140-13-october-2026).
 
 #### **New in This Version ✨**
 
-- 📚 **Brand-New Docs, from A to Z**
-  We rewrote our docs from scratch to cover everything you need to build a great app with Nowa. Highlights include a new [Build a great app](../guides/index.md) section full of tips and tricks, Nowa AI fully explained, Firebase from start to finish (push notifications included), new guides for RevenueCat, AdMob, Google Maps and deep links, and step-by-step publishing to Google Play and the App Store. [Check them out](../index.md)!
+- 📚 **Brand-New Docs**
+  We rewrote our docs from scratch. They now cover everything you need to build a great app with Nowa, from A to Z. Start with the new [Build a great app](../guides/index.md) section for tips and tricks, then explore Nowa AI, Firebase (including push notifications), payments, maps, ads, and step-by-step publishing to Google Play and the App Store. [Check them out](../index.md)!
 
-- 🤝 **Nowa Works Hand in Hand with Your Code**
-  Nowa now fits even more naturally around the code and setup you already have:
-  - **Every line in its place**: typedefs, exports and code Nowa doesn't edit visually stay exactly where you wrote them, every time Nowa saves.
-  - **Cleaner diffs**: Nowa formats Dart the same way your project's SDK does and edits `pubspec.yaml` in place, keeping your comments, quotes and layout, so your diffs only show what you actually changed.
-  - **Your setup, respected**: when you change the app name, permissions or bundle ID, Nowa updates just the lines it needs in `AndroidManifest.xml`, `Info.plist` and `build.gradle`, and keeps your own asset entries in `pubspec.yaml`.
+- 🔥 **Build Your Database Visually**
+  The new **Firestore** panel in the left sidebar shows all your collections and queries. Add a collection or a query in one click, and build queries that add and read documents without writing any code. See [Firestore](../integrations/firebase/firestore.md).
 
-- 🔥 **A Home for Firestore**
-  A new **Firestore** panel in the left sidebar shows your collections and queries, with **Add Main Collection** and **Add New Query** right there. Everything is ready as soon as you open your project, and the query builder now supports **add** and **doc** steps too. See [Firestore](../integrations/firebase/firestore.md).
+- 🏪 **Ready for the App Store and Google Play**
+  - **Account deletion**: Apple and Google require apps with sign-up to let people delete their account. Firebase Authentication now adds this for you.
+  - **Restore purchases**: new RevenueCat projects include it, so subscribers keep what they paid for on a new phone.
+  - **iOS builds** always use your app's latest bundle ID.
 
-- 🔐 **Secure Backends by Default**
-  - **Supabase edge functions are private by default**: Nowa deploys them with the JWT check on, and only Stripe's webhook stays public. The setup summary shows which functions are public at a glance.
-  - **Stripe**: a new **Environment** dropdown switches Google Pay between Test and Production, regenerating your payment code keeps your own edits, and every deploy step reports exactly how it went.
-  - **Firebase Authentication** now adds a `deleteAccount()` function, which the App Store requires for apps where people create an account. Google sign-in is ready for the latest `google_sign_in`, and if your Google session expires, Nowa simply asks you to sign in again.
-  - **RevenueCat**: new projects get `restorePurchases()` built in.
+- 💳 **Ready to Get Paid**
+  Switch Google Pay from **Test** to **Production** with the new **Environment** setting in Stripe, and start taking real payments. Your own changes to the payment code stay in place when Nowa updates it.
 
-- 📐 **Widgets That Fit Their Content**
-  Components on your board now size themselves to their content: as wide as they need (up to the device's width) and as tall as their content. Previews in the Library are measured the same way, and screens keep the device's size.
+- 🔐 **A Secure Backend by Default**
+  Nowa deploys your Supabase edge functions with Supabase's security check turned on. Only Stripe's webhook stays public, and the setup summary shows which functions are public.
 
-- 🌿 **More Git Power for Local Projects**
-  - **SSH keys**: choose **Access Token** or **SSH Key** for your credentials, and use SSH remote URLs.
-  - **Smoother conflict resolution**: resolve conflicts one file at a time, with your own edits always shown as **Local**.
-  - **Revert creates a commit** for you, and Nowa lets you know when to commit or discard your changes first.
-  - **Helpful guidance**: Nowa tells you when to set your Git identity, and **Clone from GitHub** helps you connect your GitHub account right from the list.
+- 🎨 **Easier Visual Building**
+  - **Widgets fit their content** on the board, the same as in your app.
+  - **App bars, floating buttons, bottom navigation bars and drawers** go straight to the right place when you drop them on a screen.
+  - **Templates** add the packages they need.
+  - **Renaming an image** updates every widget that uses it.
+  - **New sliders** use your theme's colors, and the **Empty Page** template lets you pick a device size.
 
-- 🔗 **Better Deep Links and Routes**
-  Deep links now go straight to your app's router, scheme links on Android work with any host, and one save updates every platform file. Editing routes in **Route Settings** is smoother too.
+- 🤖 **Smarter AI Help**
+  - **Restore Checkpoint** shows how many AI requests it will undo.
+  - **Fix with AI** knows which step of your Supabase setup needs attention.
+  - **Explain with AI** gives clearer answers about your build logs.
+  - **Attach text files** to the AI chat on the web too.
 
-- 🎨 **A Fresh, Consistent Look**
-  Menus across Nowa now share one design with search built in: type to filter, move with the arrow keys and press **Enter** to pick. Colors and text styles throughout the editor now come from one set of design tokens, so everything looks like it belongs together.
+- 🔗 **Deep Links Open the Right Screen**
+  A link from an email, an ad or a message now opens the right screen in your app.
 
 - ✨ **Smaller Touches**
-  - **Lighter on your computer**: Nowa now uses much less memory, and local projects start their preview only when you open it.
-  - **Restore Checkpoint** now tells you how many AI requests it will undo.
-  - **Clearer messages**: errors are easier to read and stay on screen longer, and connecting Figma, Supabase or GitHub always tells you how it went.
-  - **Signing key reminder**: the **Important!** dialog now has a **Later** button.
-  - **Status bar**: the warning and info counts now open **Logs**.
-  - **Variables**: a variable created from a property starts at that property's value.
+  - **Lighter on your computer**: Nowa now uses much less memory.
+  - **A fresh look**: menus share one clean design with built-in search.
+  - **Sample data while you design**: the board shows sample responses for your API requests, so your live data isn't touched.
+  - **View Only members** can copy widgets and export them as images.
+  - **Clearer messages** that stay on screen longer.
+
+- 💻 **For Those Who Code**
+  Nowa keeps your code, comments and formatting the way you wrote them. Local projects also support SSH keys and easier Git conflict resolution.
+
+#### **Bug Fixes 🩹**
+
+We fixed more than 150 bugs across the visual designer and board, the Library, Nowa AI, Firebase, Supabase, Stripe and RevenueCat, REST APIs, navigation and deep links, Instant Play and sharing, publishing and cloud builds, Git and local projects, and the desktop app. See every fix in the [changelog](./change-log.md#3140-13-october-2026).
 
 ➡️ We'd love to hear how Nowa 3.14 feels! Click the **? icon** to chat with us directly, or email us at `team@nowa.dev`. Happy building!
 

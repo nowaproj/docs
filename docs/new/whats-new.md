@@ -16,6 +16,9 @@ Nowa 3.14 is our most polished release yet. ✨ We went through Nowa from end to
 
 #### **New in This Version ✨**
 
+- 📚 **Brand-New Docs, from A to Z**
+  We rewrote our docs from scratch to cover everything you need to build a great app with Nowa. Highlights include a new [Build a great app](../guides/index.md) section full of tips and tricks, Nowa AI fully explained, Firebase from start to finish (push notifications included), new guides for RevenueCat, AdMob, Google Maps and deep links, and step-by-step publishing to Google Play and the App Store. [Check them out](../index.md)!
+
 - 🤝 **Nowa Works Hand in Hand with Your Code**
   Nowa now fits even more naturally around the code and setup you already have:
   - **Every line in its place**: typedefs, exports and code Nowa doesn't edit visually stay exactly where you wrote them, every time Nowa saves.

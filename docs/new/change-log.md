@@ -7,6 +7,86 @@ sidebar_position: 2
 
 ---
 
+## **3.14.1 (15 October 2026)**
+
+#### **Added 🌟**
+- **Library grid view**: a **View** menu at the top of the Library switches between **Tree**, **List** and **Grid**. Grid shows each folder's widgets as preview tiles, without the details popup.
+- **Zoom menu**: click the zoom level in the board toolbar for **Zoom in**, **Zoom out**, **Zoom to fit**, **Zoom to selection** and **Zoom to 100%**. Zoom goes from 5% to 1000%.
+- **Figma's keys on the board**: **+** and **-** zoom in and out, **Shift + 1** zooms to fit, **Shift + 2** to the selection and **Shift + 0** to 100%. **Enter** selects the layers inside, **Shift + Enter** the layer above, **Esc** goes up a layer and then deselects, a double-click selects one layer deeper and **Ctrl/Cmd + Click** the deepest layer. The Shortcuts sheet has new **Zoom** and **Layers** groups.
+- **Paste to replace**: right-click a widget and choose **Paste to replace** to swap it for the widget you copied. It keeps the target's place and layout and is one undo step. Offered when one widget is selected and it isn't the root of a board item.
+- **Must match validator**: **+ Add validator** offers **Must match validator**, with **Message** and **Must equal** fields, for checks like "Repeat password". A `!=` rule written in code loads as **Must match**.
+- **Edit approval for agents**: when an AI agent, Nowa's own or one connected over MCP, is about to change a file outside the package open in Nowa, a dialog names the file. **Cancel** leaves it unchanged and tells the agent, and **Allow** lets the change through without asking about that file again until the project is closed.
+- **UI packages for agents**: in a team's UI package (a workspace package with no `lib/main.dart`, or with a `design/` folder), an agent's previews, mock data and prototypes go to `design/<feature>.dart`, and only the widgets and their contract go to `lib/`. Each new widget lands on the open board in a row of its own, with its states in the order they're written and, for a screen, its prototype. A widget whose UI is built by helper methods gets a "Sealed box" warning.
+- **New MCP tools and options**: `list_boards`, `get_board` and `place_on_board`; `open_project` takes a `package` (name or path) and lists the workspace's packages; `screenshot` with a `declaration` shows a widget's `@Preview` states two to a row.
+- **AdMob App ID check**: a problem is listed when the app uses AdMob but its Android or iOS App ID isn't set, with a way to the AdMob settings.
+- **Await check**: a warning when `await` is used on a call that no longer returns a `Future`, with a one-click fix that removes it.
+- **New File and New Folder** in a folder's right-click menu in **Files** (code mode).
+- **Arrow keys in number fields**: **Up** and **Down** change the value by 1, and by 10 with **Shift**.
+
+#### **Improved ⚙️**
+- **App icons**: Nowa writes only the icon files the Flutter template uses (15 for iOS, 7 for macOS) and gives iOS icons a white background, because the App Store rejects icons with transparency. Platforms without a folder in the project are skipped, and `AndroidManifest.xml`, `project.pbxproj`, `web/manifest.json` and the `Contents.json` files are no longer rewritten. Icons are drawn off the main thread, so the editor stays responsive.
+- **Local notifications on Android**: apps using `flutter_local_notifications` get core library desugaring turned on in their Android build.
+- **SHA-1 keys**: the Firebase Auth panel recognises SHA-1 keys with or without colons and extra spaces.
+- **Models from JSON**: generated `fromJson` uses a field's default value when an object or list is missing from the response.
+- **Supabase**: generated insert and update functions leave out null fields.
+- **AI with several widgets selected**: every selected widget is attached to the prompt.
+- **AI turns that go quiet**: a turn whose stream stops sending is ended and retried.
+- **Agent tool errors**: a tool call with wrong arguments now names the missing, unknown or mistyped ones and lists what the tool takes.
+- **Team packages**: Nowa adds `nowa_runtime` to a workspace package the first time a saved file needs it, declares fonts relative to the package, and `download_font` returns the `TextStyle` with the font's `package`. Fonts declared from the workspace root by older versions move into the package.
+- **Agent guidance for UI packages**: sample content stays in `design/`, each component gets its own file, a task ends with a screenshot of every screen and component, and `get_theme` in a package without a theme asks for `lightTheme` and `darkTheme` in `lib/globals/themes.dart`, with brand tokens in a ThemeExtension.
+- **Outline**: layers are named by what they show (the data a text reads, an icon's name, an image's file), and right-clicking one of several selected rows keeps them all selected.
+- **Text properties**: the font and size fields show what the text is drawn with, including a theme text style's font and size.
+- **Circuit**: node titles show the object a method is called on, like `emailController.clear`.
+- **New screens** are placed in the middle of the view.
+- **Pasting SVG**: SVG markup copied from another app is added as an SVG image in your assets.
+- **Undo**: renaming a component from **Details** can be undone.
+- **Menus**: action and right-click menus show every entry up to the screen's height (menus with a search field keep their cap), and menus round to 8 px.
+- **Help popups**: one help component across Nowa, with selectable text so IDs, URLs and keys can be copied.
+- **Library previews**: show after 100 ms instead of 400 ms.
+- **Status bar**: one line per log, and every count opens Problems.
+- **Clone to local**: cloning a cloud project to your computer no longer needs the Flutter SDK, and the steps that do need it lead to the Flutter SDK setup.
+- **Git panel**: refreshes when Nowa regains focus, so commits and checkouts made in a terminal or another editor show up without saving first.
+- **Updates on Mac**: Nowa swaps in the new app before it restarts, and the update dialog shows an error if the new version can't be put in place.
+- **Feedback**: the project snapshot attached to feedback leaves out assets to stay under the 10 MB limit, and the message is sent even when the snapshot can't be attached.
+- **Rating prompt**: asked only from the third day you use Nowa, as you come back to the dashboard after a work session, never on sign-in.
+- **Environment setup**: the setup wizard's notes, like the Xcode requirement and the low-space warning, are clearer callouts.
+
+#### **Fixed 🩹**
+- Fixed **apps failing to build after editing a widget** given an enum-typed field, parameter or property, because Nowa wrote `const` in front of it.
+- Fixed **a change made while its file was being saved** being lost, such as the imports an agent's code needs.
+- Fixed **updates on Mac** sometimes restarting into the old version and showing the update prompt again.
+- Fixed **generated Supabase insert and update functions** sending null fields, which made them fail on phones.
+- Fixed **AI prompts with several widgets selected** only changing the first one.
+- Fixed **the AI** staying stuck when its connection went quiet in the middle of a task.
+- Fixed **AI chat** breaking on Arabic, emoji and other multi-byte text arriving in pieces, and background errors piling up while offline.
+- Fixed **the AI's file tools** opening and overwriting Nowa's cache files in `.nowa/temp`.
+- Fixed **fonts and components an agent adds to a team's package** failing the team's checks and build, because `nowa_runtime` wasn't added and fonts were declared from the workspace root.
+- Fixed **Android builds** failing for apps that use local notifications.
+- Fixed **SHA-1 keys** not being recognised in the Firebase Auth panel.
+- Fixed **generated `fromJson`** leaving objects and lists empty, or crashing, when the response left them out.
+- Fixed **"not equal" validator rules** written in code turning into a **Required** rule after any edit to the validators.
+- Fixed **Copy as new widget** leaving the copy linked to the original, so editing or deleting widgets in the original broke the copy.
+- Fixed **turning on await** for a call with an **On Value** leaving both in the code.
+- Fixed **pasting SVG markup** from another app pasting its code as text.
+- Fixed **Create component** being offered for function and variable widgets, where it couldn't work.
+- Fixed **new screens** being placed off to the side of the view.
+- Fixed **right-clicking in the Outline** dropping a multi-selection.
+- Fixed **renaming a component from Details** not being undoable.
+- Fixed **timers started in Play** running on after Play stopped.
+- Fixed **sending feedback** getting stuck in local projects with large assets.
+- Fixed **cloning a project to local** failing with a bare error when the Flutter SDK wasn't set up.
+- Fixed **the Outline** red-screening while a component rebuilt, and an error anywhere in the editor failing the canvas mounted last so that **Reload** couldn't bring it back.
+- Fixed **the Outline** missing the rows of calls into files written at the same time, until the class changed.
+- Fixed **a board's theme** only applying once something else rebuilt the canvases, in projects whose app has no theme.
+- Fixed **adjacent string literals** like `'a ' 'b'` showing their quotes on the canvas.
+- Fixed **functions that return from several places** showing only their last return on the board.
+- Fixed **drag and drop** choosing the dragged widgets or a component's insides as the drop target.
+- Fixed **a running design** using the editor's snackbars and navigator instead of its own.
+- Fixed **theme tokens** like `colors.inverse.textPrimary` showing as the plain token.
+- Fixed **Create Variable** missing from a button's link menu, and **undo** for files dropped on the board.
+
+---
+
 ## **3.14.0 (13 October 2026)**
 
 #### **Added 🌟**

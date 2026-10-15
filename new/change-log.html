@@ -15,7 +15,7 @@
 <link rel="preconnect" href="https://us.i.posthog.com">
 <script>!function(t,e){var o,s,r,a;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,n,p){function c(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(r=t.createElement("script")).type="text/javascript",r.async=!0,r.src=n.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(a=t.getElementsByTagName("script")[0]).parentNode.insertBefore(r,a);var g=e;for(void 0!==p?g=e[p]=[]:p="posthog",g.people=g.people||[],g.toString=function(t){var e="posthog";return"posthog"!==p&&(e+="."+p),t||(e+=" (stub)"),e},g.people.toString=function(){return g.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys onSessionId".split(" "),s=0;s<o.length;s++)c(g,o[s]);e._i.push([i,n,p])},e.__SV=1)}(document,window.posthog||[]),posthog.init("phc_t9ByiL3PTqP8dTa6nWoqjoygz7nIuKOjLPXig1rxm6C",{api_host:"https://us.i.posthog.com",id:"default"})</script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css"><link rel="stylesheet" href="/assets/css/styles.e7fe9401.css">
-<script src="/assets/js/runtime~main.3f538e68.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.1fb511c8.js" defer="defer"></script>
 <script src="/assets/js/main.5750c005.js" defer="defer"></script>
 </head>
 <body>
@@ -26,8 +26,89 @@
 <p>Detailed log of all updates, improvements, and bug fixes for each version.</p>
 </blockquote>
 <hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="3140-13-october-2026"><strong>3.14.0 (13 October 2026)</strong><a href="#3140-13-october-2026" class="hash-link" aria-label="Direct link to 3140-13-october-2026" title="Direct link to 3140-13-october-2026" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="3141-15-october-2026"><strong>3.14.1 (15 October 2026)</strong><a href="#3141-15-october-2026" class="hash-link" aria-label="Direct link to 3141-15-october-2026" title="Direct link to 3141-15-october-2026" translate="no">​</a></h2>
 <h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="added-"><strong>Added 🌟</strong><a href="#added-" class="hash-link" aria-label="Direct link to added-" title="Direct link to added-" translate="no">​</a></h4>
+<ul>
+<li class=""><strong>Library grid view</strong>: a <strong>View</strong> menu at the top of the Library switches between <strong>Tree</strong>, <strong>List</strong> and <strong>Grid</strong>. Grid shows each folder&#x27;s widgets as preview tiles, without the details popup.</li>
+<li class=""><strong>Zoom menu</strong>: click the zoom level in the board toolbar for <strong>Zoom in</strong>, <strong>Zoom out</strong>, <strong>Zoom to fit</strong>, <strong>Zoom to selection</strong> and <strong>Zoom to 100%</strong>. Zoom goes from 5% to 1000%.</li>
+<li class=""><strong>Figma&#x27;s keys on the board</strong>: <strong>+</strong> and <strong>-</strong> zoom in and out, <strong>Shift + 1</strong> zooms to fit, <strong>Shift + 2</strong> to the selection and <strong>Shift + 0</strong> to 100%. <strong>Enter</strong> selects the layers inside, <strong>Shift + Enter</strong> the layer above, <strong>Esc</strong> goes up a layer and then deselects, a double-click selects one layer deeper and <strong>Ctrl/Cmd + Click</strong> the deepest layer. The Shortcuts sheet has new <strong>Zoom</strong> and <strong>Layers</strong> groups.</li>
+<li class=""><strong>Paste to replace</strong>: right-click a widget and choose <strong>Paste to replace</strong> to swap it for the widget you copied. It keeps the target&#x27;s place and layout and is one undo step. Offered when one widget is selected and it isn&#x27;t the root of a board item.</li>
+<li class=""><strong>Must match validator</strong>: <strong>+ Add validator</strong> offers <strong>Must match validator</strong>, with <strong>Message</strong> and <strong>Must equal</strong> fields, for checks like &quot;Repeat password&quot;. A <code>!=</code> rule written in code loads as <strong>Must match</strong>.</li>
+<li class=""><strong>Edit approval for agents</strong>: when an AI agent, Nowa&#x27;s own or one connected over MCP, is about to change a file outside the package open in Nowa, a dialog names the file. <strong>Cancel</strong> leaves it unchanged and tells the agent, and <strong>Allow</strong> lets the change through without asking about that file again until the project is closed.</li>
+<li class=""><strong>UI packages for agents</strong>: in a team&#x27;s UI package (a workspace package with no <code>lib/main.dart</code>, or with a <code>design/</code> folder), an agent&#x27;s previews, mock data and prototypes go to <code>design/&lt;feature&gt;.dart</code>, and only the widgets and their contract go to <code>lib/</code>. Each new widget lands on the open board in a row of its own, with its states in the order they&#x27;re written and, for a screen, its prototype. A widget whose UI is built by helper methods gets a &quot;Sealed box&quot; warning.</li>
+<li class=""><strong>New MCP tools and options</strong>: <code>list_boards</code>, <code>get_board</code> and <code>place_on_board</code>; <code>open_project</code> takes a <code>package</code> (name or path) and lists the workspace&#x27;s packages; <code>screenshot</code> with a <code>declaration</code> shows a widget&#x27;s <code>@Preview</code> states two to a row.</li>
+<li class=""><strong>AdMob App ID check</strong>: a problem is listed when the app uses AdMob but its Android or iOS App ID isn&#x27;t set, with a way to the AdMob settings.</li>
+<li class=""><strong>Await check</strong>: a warning when <code>await</code> is used on a call that no longer returns a <code>Future</code>, with a one-click fix that removes it.</li>
+<li class=""><strong>New File and New Folder</strong> in a folder&#x27;s right-click menu in <strong>Files</strong> (code mode).</li>
+<li class=""><strong>Arrow keys in number fields</strong>: <strong>Up</strong> and <strong>Down</strong> change the value by 1, and by 10 with <strong>Shift</strong>.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="improved-️"><strong>Improved ⚙️</strong><a href="#improved-️" class="hash-link" aria-label="Direct link to improved-️" title="Direct link to improved-️" translate="no">​</a></h4>
+<ul>
+<li class=""><strong>App icons</strong>: Nowa writes only the icon files the Flutter template uses (15 for iOS, 7 for macOS) and gives iOS icons a white background, because the App Store rejects icons with transparency. Platforms without a folder in the project are skipped, and <code>AndroidManifest.xml</code>, <code>project.pbxproj</code>, <code>web/manifest.json</code> and the <code>Contents.json</code> files are no longer rewritten. Icons are drawn off the main thread, so the editor stays responsive.</li>
+<li class=""><strong>Local notifications on Android</strong>: apps using <code>flutter_local_notifications</code> get core library desugaring turned on in their Android build.</li>
+<li class=""><strong>SHA-1 keys</strong>: the Firebase Auth panel recognises SHA-1 keys with or without colons and extra spaces.</li>
+<li class=""><strong>Models from JSON</strong>: generated <code>fromJson</code> uses a field&#x27;s default value when an object or list is missing from the response.</li>
+<li class=""><strong>Supabase</strong>: generated insert and update functions leave out null fields.</li>
+<li class=""><strong>AI with several widgets selected</strong>: every selected widget is attached to the prompt.</li>
+<li class=""><strong>AI turns that go quiet</strong>: a turn whose stream stops sending is ended and retried.</li>
+<li class=""><strong>Agent tool errors</strong>: a tool call with wrong arguments now names the missing, unknown or mistyped ones and lists what the tool takes.</li>
+<li class=""><strong>Team packages</strong>: Nowa adds <code>nowa_runtime</code> to a workspace package the first time a saved file needs it, declares fonts relative to the package, and <code>download_font</code> returns the <code>TextStyle</code> with the font&#x27;s <code>package</code>. Fonts declared from the workspace root by older versions move into the package.</li>
+<li class=""><strong>Agent guidance for UI packages</strong>: sample content stays in <code>design/</code>, each component gets its own file, a task ends with a screenshot of every screen and component, and <code>get_theme</code> in a package without a theme asks for <code>lightTheme</code> and <code>darkTheme</code> in <code>lib/globals/themes.dart</code>, with brand tokens in a ThemeExtension.</li>
+<li class=""><strong>Outline</strong>: layers are named by what they show (the data a text reads, an icon&#x27;s name, an image&#x27;s file), and right-clicking one of several selected rows keeps them all selected.</li>
+<li class=""><strong>Text properties</strong>: the font and size fields show what the text is drawn with, including a theme text style&#x27;s font and size.</li>
+<li class=""><strong>Circuit</strong>: node titles show the object a method is called on, like <code>emailController.clear</code>.</li>
+<li class=""><strong>New screens</strong> are placed in the middle of the view.</li>
+<li class=""><strong>Pasting SVG</strong>: SVG markup copied from another app is added as an SVG image in your assets.</li>
+<li class=""><strong>Undo</strong>: renaming a component from <strong>Details</strong> can be undone.</li>
+<li class=""><strong>Menus</strong>: action and right-click menus show every entry up to the screen&#x27;s height (menus with a search field keep their cap), and menus round to 8 px.</li>
+<li class=""><strong>Help popups</strong>: one help component across Nowa, with selectable text so IDs, URLs and keys can be copied.</li>
+<li class=""><strong>Library previews</strong>: show after 100 ms instead of 400 ms.</li>
+<li class=""><strong>Status bar</strong>: one line per log, and every count opens Problems.</li>
+<li class=""><strong>Clone to local</strong>: cloning a cloud project to your computer no longer needs the Flutter SDK, and the steps that do need it lead to the Flutter SDK setup.</li>
+<li class=""><strong>Git panel</strong>: refreshes when Nowa regains focus, so commits and checkouts made in a terminal or another editor show up without saving first.</li>
+<li class=""><strong>Updates on Mac</strong>: Nowa swaps in the new app before it restarts, and the update dialog shows an error if the new version can&#x27;t be put in place.</li>
+<li class=""><strong>Feedback</strong>: the project snapshot attached to feedback leaves out assets to stay under the 10 MB limit, and the message is sent even when the snapshot can&#x27;t be attached.</li>
+<li class=""><strong>Rating prompt</strong>: asked only from the third day you use Nowa, as you come back to the dashboard after a work session, never on sign-in.</li>
+<li class=""><strong>Environment setup</strong>: the setup wizard&#x27;s notes, like the Xcode requirement and the low-space warning, are clearer callouts.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed-"><strong>Fixed 🩹</strong><a href="#fixed-" class="hash-link" aria-label="Direct link to fixed-" title="Direct link to fixed-" translate="no">​</a></h4>
+<ul>
+<li class="">Fixed <strong>apps failing to build after editing a widget</strong> given an enum-typed field, parameter or property, because Nowa wrote <code>const</code> in front of it.</li>
+<li class="">Fixed <strong>a change made while its file was being saved</strong> being lost, such as the imports an agent&#x27;s code needs.</li>
+<li class="">Fixed <strong>updates on Mac</strong> sometimes restarting into the old version and showing the update prompt again.</li>
+<li class="">Fixed <strong>generated Supabase insert and update functions</strong> sending null fields, which made them fail on phones.</li>
+<li class="">Fixed <strong>AI prompts with several widgets selected</strong> only changing the first one.</li>
+<li class="">Fixed <strong>the AI</strong> staying stuck when its connection went quiet in the middle of a task.</li>
+<li class="">Fixed <strong>AI chat</strong> breaking on Arabic, emoji and other multi-byte text arriving in pieces, and background errors piling up while offline.</li>
+<li class="">Fixed <strong>the AI&#x27;s file tools</strong> opening and overwriting Nowa&#x27;s cache files in <code>.nowa/temp</code>.</li>
+<li class="">Fixed <strong>fonts and components an agent adds to a team&#x27;s package</strong> failing the team&#x27;s checks and build, because <code>nowa_runtime</code> wasn&#x27;t added and fonts were declared from the workspace root.</li>
+<li class="">Fixed <strong>Android builds</strong> failing for apps that use local notifications.</li>
+<li class="">Fixed <strong>SHA-1 keys</strong> not being recognised in the Firebase Auth panel.</li>
+<li class="">Fixed <strong>generated <code>fromJson</code></strong> leaving objects and lists empty, or crashing, when the response left them out.</li>
+<li class="">Fixed <strong>&quot;not equal&quot; validator rules</strong> written in code turning into a <strong>Required</strong> rule after any edit to the validators.</li>
+<li class="">Fixed <strong>Copy as new widget</strong> leaving the copy linked to the original, so editing or deleting widgets in the original broke the copy.</li>
+<li class="">Fixed <strong>turning on await</strong> for a call with an <strong>On Value</strong> leaving both in the code.</li>
+<li class="">Fixed <strong>pasting SVG markup</strong> from another app pasting its code as text.</li>
+<li class="">Fixed <strong>Create component</strong> being offered for function and variable widgets, where it couldn&#x27;t work.</li>
+<li class="">Fixed <strong>new screens</strong> being placed off to the side of the view.</li>
+<li class="">Fixed <strong>right-clicking in the Outline</strong> dropping a multi-selection.</li>
+<li class="">Fixed <strong>renaming a component from Details</strong> not being undoable.</li>
+<li class="">Fixed <strong>timers started in Play</strong> running on after Play stopped.</li>
+<li class="">Fixed <strong>sending feedback</strong> getting stuck in local projects with large assets.</li>
+<li class="">Fixed <strong>cloning a project to local</strong> failing with a bare error when the Flutter SDK wasn&#x27;t set up.</li>
+<li class="">Fixed <strong>the Outline</strong> red-screening while a component rebuilt, and an error anywhere in the editor failing the canvas mounted last so that <strong>Reload</strong> couldn&#x27;t bring it back.</li>
+<li class="">Fixed <strong>the Outline</strong> missing the rows of calls into files written at the same time, until the class changed.</li>
+<li class="">Fixed <strong>a board&#x27;s theme</strong> only applying once something else rebuilt the canvases, in projects whose app has no theme.</li>
+<li class="">Fixed <strong>adjacent string literals</strong> like <code>&#x27;a &#x27; &#x27;b&#x27;</code> showing their quotes on the canvas.</li>
+<li class="">Fixed <strong>functions that return from several places</strong> showing only their last return on the board.</li>
+<li class="">Fixed <strong>drag and drop</strong> choosing the dragged widgets or a component&#x27;s insides as the drop target.</li>
+<li class="">Fixed <strong>a running design</strong> using the editor&#x27;s snackbars and navigator instead of its own.</li>
+<li class="">Fixed <strong>theme tokens</strong> like <code>colors.inverse.textPrimary</code> showing as the plain token.</li>
+<li class="">Fixed <strong>Create Variable</strong> missing from a button&#x27;s link menu, and <strong>undo</strong> for files dropped on the board.</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="3140-13-october-2026"><strong>3.14.0 (13 October 2026)</strong><a href="#3140-13-october-2026" class="hash-link" aria-label="Direct link to 3140-13-october-2026" title="Direct link to 3140-13-october-2026" translate="no">​</a></h2>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="added--1"><strong>Added 🌟</strong><a href="#added--1" class="hash-link" aria-label="Direct link to added--1" title="Direct link to added--1" translate="no">​</a></h4>
 <ul>
 <li class=""><strong>Linux desktop app</strong>: the Nowa desktop app now runs on Linux, alongside Mac and Windows. Choose <strong>Linux</strong> when you download Nowa to get the 64-bit version, with an install script that adds Nowa to your app menu.</li>
 <li class=""><strong>Firestore panel</strong>: a new <strong>Firestore</strong> panel in the left sidebar shows your collections and queries, with <strong>Add Main Collection</strong> and <strong>Add New Query</strong>.</li>
@@ -38,7 +119,7 @@
 <li class=""><strong>Later on key reminders</strong>: the <strong>Important!</strong> dialog for the Android signing key and the iOS certificate now has a <strong>Later</strong> button.</li>
 <li class=""><strong>Unsaved changes warning</strong>: the web app asks before you leave while files are still unsaved (not in the playground or guest projects).</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="improved-️"><strong>Improved ⚙️</strong><a href="#improved-️" class="hash-link" aria-label="Direct link to improved-️" title="Direct link to improved-️" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="improved-️-1"><strong>Improved ⚙️</strong><a href="#improved-️-1" class="hash-link" aria-label="Direct link to improved-️-1" title="Direct link to improved-️-1" translate="no">​</a></h4>
 <ul>
 <li class=""><strong>Code Nowa can&#x27;t load</strong>: top-level code Nowa doesn&#x27;t load (functions, typedefs, exports, extension types) is kept as written, with its comments and in file order, when Nowa rewrites the file. Only load failures are listed in Problems for that file.</li>
 <li class=""><strong>Files Nowa didn&#x27;t change</strong>: Dart is formatted with the package&#x27;s SDK language version, as <code>dart format</code> does, so untouched code keeps its style. YAML is edited in place, keeping comments, quoting and layout. <code>nowa_runtime</code> and <code>nowa_mobile_ads</code> are only bumped when their constraint rules out the current version. New projects declare SDK <code>^3.8.0</code>.</li>
@@ -80,7 +161,7 @@
 <li class=""><strong>Playground</strong>: a playground too large to keep in the browser now says so instead of silently reverting to an older copy.</li>
 <li class=""><strong>Other touches</strong>: a new Slider follows the theme&#x27;s Primary color, the Empty Page template offers device sizes, View Only members get Copy and Export on the board, and only owners see member actions.</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed-"><strong>Fixed 🩹</strong><a href="#fixed-" class="hash-link" aria-label="Direct link to fixed-" title="Direct link to fixed-" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--1"><strong>Fixed 🩹</strong><a href="#fixed--1" class="hash-link" aria-label="Direct link to fixed--1" title="Direct link to fixed--1" translate="no">​</a></h4>
 <ul>
 <li class="">Fixed <strong>Accept Local after Bring my changes</strong> throwing away your own edits, because the Local and Remote panes were swapped.</li>
 <li class="">Fixed <strong>Accept Remote</strong> sometimes writing the next file&#x27;s text into the file you resolved.</li>
@@ -140,7 +221,7 @@
 </ul>
 <hr>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="3130-6-october-2026"><strong>3.13.0 (6 October 2026)</strong><a href="#3130-6-october-2026" class="hash-link" aria-label="Direct link to 3130-6-october-2026" title="Direct link to 3130-6-october-2026" translate="no">​</a></h2>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="added--1"><strong>Added 🌟</strong><a href="#added--1" class="hash-link" aria-label="Direct link to added--1" title="Direct link to added--1" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="added--2"><strong>Added 🌟</strong><a href="#added--2" class="hash-link" aria-label="Direct link to added--2" title="Direct link to added--2" translate="no">​</a></h4>
 <ul>
 <li class=""><strong>Library panel</strong>: replaces the Widgets panel. One searchable list of your screens, components, models, global states, classes, functions and variables, the widgets in your packages, Nowa&#x27;s built-in widgets and Flutter&#x27;s libraries, and your assets. Filter it by kind, turn sources on and off with the <strong>Project</strong>, <strong>Packages</strong>, <strong>Built-in</strong> and <strong>Assets</strong> chips, insert with drag and drop or <strong>Ctrl/Cmd + Enter</strong>, and jump to the code with <strong>Show in code</strong>.</li>
 <li class=""><strong>Add and go to from the keyboard</strong>: <strong>Ctrl/Cmd + K</strong> and the toolbar&#x27;s <strong>Widget</strong> tool open the Library ready to add a widget. In the designer, <strong>Ctrl/Cmd + O</strong> opens it to go to one.</li>
@@ -153,7 +234,7 @@
 <li class=""><strong>Branch search</strong> in the Git branch menu.</li>
 <li class=""><strong>Package support</strong>: <code>gap</code>, <code>flutter_animate</code>, <code>google_fonts</code> and <code>smooth_page_indicator</code> now work in the designer.</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="improved-️-1"><strong>Improved ⚙️</strong><a href="#improved-️-1" class="hash-link" aria-label="Direct link to improved-️-1" title="Direct link to improved-️-1" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="improved-️-2"><strong>Improved ⚙️</strong><a href="#improved-️-2" class="hash-link" aria-label="Direct link to improved-️-2" title="Direct link to improved-️-2" translate="no">​</a></h4>
 <ul>
 <li class=""><strong>Files panel</strong>: now in code mode only, with keyboard navigation, and several selected files drag into a folder together.</li>
 <li class=""><strong>Menus and shortcuts</strong>: <strong>Bring forward</strong>, <strong>Send backward</strong>, <strong>Bring to front</strong> and <strong>Send to back</strong> replace the old move entries, and <strong>Ctrl/Cmd + Alt/Option + ]</strong> or <strong>[</strong> moves a widget all the way. Key hints list modifiers in Mac order (⌃⌥⇧⌘), and menus close when the board pans or zooms.</li>
@@ -166,7 +247,7 @@
 <li class=""><strong>New look</strong>: refreshed buttons, lists, trees and menus.</li>
 <li class=""><strong>Announcements</strong>: at most two banners at a time, and expired announcements no longer show as banners.</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--1"><strong>Fixed 🩹</strong><a href="#fixed--1" class="hash-link" aria-label="Direct link to fixed--1" title="Direct link to fixed--1" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--2"><strong>Fixed 🩹</strong><a href="#fixed--2" class="hash-link" aria-label="Direct link to fixed--2" title="Direct link to fixed--2" translate="no">​</a></h4>
 <ul>
 <li class="">Fixed <strong>edits made in another editor right after Nowa saved</strong> being ignored in local projects.</li>
 <li class="">Fixed <strong><code>part</code> and <code>library</code> lines</strong> being dropped when Nowa saved a file.</li>
@@ -182,14 +263,14 @@
 </ul>
 <hr>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="3125-25-september-2026"><strong>3.12.5 (25 September 2026)</strong><a href="#3125-25-september-2026" class="hash-link" aria-label="Direct link to 3125-25-september-2026" title="Direct link to 3125-25-september-2026" translate="no">​</a></h2>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="added--2"><strong>Added 🌟</strong><a href="#added--2" class="hash-link" aria-label="Direct link to added--2" title="Direct link to added--2" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="added--3"><strong>Added 🌟</strong><a href="#added--3" class="hash-link" aria-label="Direct link to added--3" title="Direct link to added--3" translate="no">​</a></h4>
 <ul>
 <li class=""><strong>Play any board item</strong>: Instant Play now works on any item on the board, including plain widgets and wrapped components, not only screens and components. Right-click a widget and choose <strong>Play</strong> to play the item it belongs to, and while something plays, select another item to play that one instead.</li>
 <li class=""><strong>Switch branches with local changes</strong>: switch or create a Git branch without committing first. Changes that don&#x27;t clash with the other branch come along automatically. When they do clash, Nowa asks before bringing them along and opens the conflict resolver if they don&#x27;t apply cleanly. Unsaved edits are saved before switching. Works in local and cloud projects.</li>
 <li class=""><strong>Images for connected agents</strong>: the new <code>add_image_assets</code> tool lets Claude Code, Claude Desktop, and Cursor add images from links (like the asset links Figma&#x27;s MCP returns) or from local files. Nowa downloads them into <code>assets/images/</code> and registers them in <code>pubspec.yaml</code>. Supports PNG, JPG, GIF, WebP, BMP, and SVG.</li>
 <li class=""><strong>Package support</strong>: <code>equatable</code> (classes extending <code>Equatable</code> or using <code>EquatableMixin</code> compare by their <code>props</code>), <code>auto_size_text</code>, and <code>package:collection</code> iterable extensions like <code>mapIndexed</code> and <code>flattened</code> now work in the designer.</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="improved-️-2"><strong>Improved ⚙️</strong><a href="#improved-️-2" class="hash-link" aria-label="Direct link to improved-️-2" title="Direct link to improved-️-2" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="improved-️-3"><strong>Improved ⚙️</strong><a href="#improved-️-3" class="hash-link" aria-label="Direct link to improved-️-3" title="Direct link to improved-️-3" translate="no">​</a></h4>
 <ul>
 <li class=""><strong>Big board performance</strong>: up to 50x faster on big boards. Canvases build one per frame with the visible ones first, off-screen canvases hold their rebuilds until they&#x27;re back in view, animations and timers only run on the canvas you&#x27;re hovering, selecting, or playing, and when more than 8 canvases are in view the rest are drawn from a snapshot. Panning no longer rebuilds canvas titles.</li>
 <li class=""><strong>Faster project opening</strong>: the analysis of packages from the pub cache is now saved on disk and reused across sessions, only each package&#x27;s API is read, and packages are analyzed one at a time so they no longer wait on each other.</li>
@@ -198,7 +279,7 @@
 <li class=""><strong>FlutterFlow projects</strong>: pages calling <code>safeSetState</code>, custom functions called through an import prefix, streams of Firestore records, and flags written as <code>flag!</code> now render in the designer with placeholder data. A field whose stream can&#x27;t start without Firebase no longer stops the whole page from rendering.</li>
 <li class=""><strong>Placeholder widgets</strong>: a widget the designer has no value for now shows as a small slot instead of taking over the layout.</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--2"><strong>Fixed 🩹</strong><a href="#fixed--2" class="hash-link" aria-label="Direct link to fixed--2" title="Direct link to fixed--2" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--3"><strong>Fixed 🩹</strong><a href="#fixed--3" class="hash-link" aria-label="Direct link to fixed--3" title="Direct link to fixed--3" translate="no">​</a></h4>
 <ul>
 <li class="">Fixed <strong>projects that import the same files from nearly everywhere</strong>, like the theme and utility files in FlutterFlow exports, hanging while loading their dependencies.</li>
 <li class="">Fixed <strong>screens that import a design system through a single file that re-exports it</strong> rendering before the theme it re-exports had loaded.</li>
@@ -219,7 +300,7 @@
 </ul>
 <hr>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="3123-22-september-2026"><strong>3.12.3 (22 September 2026)</strong><a href="#3123-22-september-2026" class="hash-link" aria-label="Direct link to 3123-22-september-2026" title="Direct link to 3123-22-september-2026" translate="no">​</a></h2>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="added--3"><strong>Added 🌟</strong><a href="#added--3" class="hash-link" aria-label="Direct link to added--3" title="Direct link to added--3" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="added--4"><strong>Added 🌟</strong><a href="#added--4" class="hash-link" aria-label="Direct link to added--4" title="Direct link to added--4" translate="no">​</a></h4>
 <ul>
 <li class=""><strong>Figma MCP</strong>: connect your Figma account and Nowa AI can bring your images and icons (SVGs included) into your project as assets, and turn your Figma colors and text styles into your app&#x27;s theme. Turn it on from the <strong>Figma icon</strong> in the AI chat, and connect or disconnect anytime from <strong>Account Details → Connected Accounts</strong>. Works in cloud and local projects, and is available to everyone.</li>
 <li class=""><strong>One-click web support</strong>: when the in-app preview can&#x27;t run because your app has no <code>web/</code> folder, Nowa explains why and can add web support for you.</li>
@@ -228,7 +309,7 @@
 <li class=""><strong>Permissions for connected agents</strong>: Claude Code, Claude Desktop, and Cursor can now add or remove platform permissions through Nowa&#x27;s settings, the same way the Permissions panel does.</li>
 <li class=""><strong>Claude Code setup command</strong>: the <strong>Connect External Agent</strong> dialog now includes a ready-made Claude Code command to copy and run.</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="improved-️-3"><strong>Improved ⚙️</strong><a href="#improved-️-3" class="hash-link" aria-label="Direct link to improved-️-3" title="Direct link to improved-️-3" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="improved-️-4"><strong>Improved ⚙️</strong><a href="#improved-️-4" class="hash-link" aria-label="Direct link to improved-️-4" title="Direct link to improved-️-4" translate="no">​</a></h4>
 <ul>
 <li class=""><strong>Dart support</strong>: Nowa now opens and renders much more hand-written Flutter code, including Dart 3 patterns in <code>switch</code> expressions and destructuring, InheritedWidgets, mixins, enhanced enums, redirecting constructors, <code>super.</code> parameters, widgets that extend other widgets (your own or Flutter&#x27;s), and generic function references like <code>identity&lt;int&gt;</code>.</li>
 <li class=""><strong>Theme extensions</strong>: themes can now hold up to 8 theme extensions, up from 5.</li>
@@ -245,7 +326,7 @@
 <li class=""><strong>Agent screenshots</strong>: now report widgets that failed to build, overflows, and placeholder values, so agents can find and fix layout issues themselves.</li>
 <li class=""><strong>Agent safeguards</strong>: edits based on an outdated widget reference are refused instead of landing on a neighboring widget, and switching projects is blocked while the current one has failed to save.</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--3"><strong>Fixed 🩹</strong><a href="#fixed--3" class="hash-link" aria-label="Direct link to fixed--3" title="Direct link to fixed--3" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--4"><strong>Fixed 🩹</strong><a href="#fixed--4" class="hash-link" aria-label="Direct link to fixed--4" title="Direct link to fixed--4" translate="no">​</a></h4>
 <ul>
 <li class="">Fixed the <strong>board not updating</strong> when changing its color or grid.</li>
 <li class="">Fixed the <strong>Libraries panel</strong> missing from the sidebar after the top bar was rebuilt.</li>
@@ -257,7 +338,7 @@
 </ul>
 <hr>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="3120-15-september-2026"><strong>3.12.0 (15 September 2026)</strong><a href="#3120-15-september-2026" class="hash-link" aria-label="Direct link to 3120-15-september-2026" title="Direct link to 3120-15-september-2026" translate="no">​</a></h2>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="added--4"><strong>Added 🌟</strong><a href="#added--4" class="hash-link" aria-label="Direct link to added--4" title="Direct link to added--4" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="added--5"><strong>Added 🌟</strong><a href="#added--5" class="hash-link" aria-label="Direct link to added--5" title="Direct link to added--5" translate="no">​</a></h4>
 <ul>
 <li class=""><strong>Connect your own AI agent</strong>: the Nowa desktop app can now be driven by <strong>Claude Code, Claude Desktop, or Cursor</strong>. Your agent can open and switch projects, see your screens, components, theme and current selection, build with Nowa&#x27;s own tools, open a screen or highlight a widget on the canvas, take a screenshot, and save, all while your board keeps up. <strong>Enterprise only for now</strong>, so email <code>team@nowa.dev</code> if you&#x27;d like access.</li>
 <li class=""><strong>Workspace and monorepo support</strong>: import a Flutter app that lives inside a bigger repository, choose which package Nowa edits, and switch packages from a chip in the top bar. Git keeps covering the whole repository.</li>
@@ -271,7 +352,7 @@
 <li class=""><strong>Cloning progress</strong>: see how far along a project is while it clones from GitHub.</li>
 <li class=""><strong>Custom app bars</strong>: your own widgets can now be used as a screen&#x27;s app bar.</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="improved-️-4"><strong>Improved ⚙️</strong><a href="#improved-️-4" class="hash-link" aria-label="Direct link to improved-️-4" title="Direct link to improved-️-4" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="improved-️-5"><strong>Improved ⚙️</strong><a href="#improved-️-5" class="hash-link" aria-label="Direct link to improved-️-5" title="Direct link to improved-️-5" translate="no">​</a></h4>
 <ul>
 <li class=""><strong>A tidier interface</strong>: the top bar was rebuilt and the dashboard cleaned up.</li>
 <li class=""><strong>Code mode</strong>: switching to code now jumps to the code behind the widget you had selected, and the run and preview controls stay available while you&#x27;re there.</li>
@@ -281,7 +362,7 @@
 <li class=""><strong>Build quota</strong>: running out of builds now shows a clear message explaining what happened.</li>
 <li class=""><strong>Field initializers in the designer</strong>: widgets that set up their fields on creation now render and edit correctly.</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--4"><strong>Fixed 🩹</strong><a href="#fixed--4" class="hash-link" aria-label="Direct link to fixed--4" title="Direct link to fixed--4" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--5"><strong>Fixed 🩹</strong><a href="#fixed--5" class="hash-link" aria-label="Direct link to fixed--5" title="Direct link to fixed--5" translate="no">​</a></h4>
 <ul>
 <li class="">Fixed <strong><code>$</code> inside a text value</strong> breaking the text it sat in, so prices like <code>$20</code> stay as typed.</li>
 <li class="">Fixed <strong>variables inside loops</strong> losing their value.</li>
@@ -298,12 +379,12 @@
 </ul>
 <hr>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="gemini-37-flash-upgrade-13-august-2026"><strong>Gemini 3.7 Flash Upgrade (13 August 2026)</strong><a href="#gemini-37-flash-upgrade-13-august-2026" class="hash-link" aria-label="Direct link to gemini-37-flash-upgrade-13-august-2026" title="Direct link to gemini-37-flash-upgrade-13-august-2026" translate="no">​</a></h2>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="added--5"><strong>Added 🌟</strong><a href="#added--5" class="hash-link" aria-label="Direct link to added--5" title="Direct link to added--5" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="added--6"><strong>Added 🌟</strong><a href="#added--6" class="hash-link" aria-label="Direct link to added--6" title="Direct link to added--6" translate="no">​</a></h4>
 <ul>
 <li class=""><strong>Nowa AI now runs on Gemini 3.7 Flash</strong> — the agent moved to Google&#x27;s new model the day it launched, replacing Gemini 3.6 Flash.</li>
 <li class=""><strong>Double the daily limits on every plan</strong> — 3.7 Flash costs <strong>50% less</strong> than the model it replaces, and we passed the full saving on. Effective immediately, at the same price, with nothing to claim or upgrade.</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="improved-️-5"><strong>Improved ⚙️</strong><a href="#improved-️-5" class="hash-link" aria-label="Direct link to improved-️-5" title="Direct link to improved-️-5" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="improved-️-6"><strong>Improved ⚙️</strong><a href="#improved-️-6" class="hash-link" aria-label="Direct link to improved-️-6" title="Direct link to improved-️-6" translate="no">​</a></h4>
 <ul>
 <li class=""><strong>UI generation</strong> — 3.7 Flash is ranked <strong>#1 on Code Arena</strong> for building real, working interfaces, so screens come out right on the first try more often.</li>
 <li class=""><strong>Design fidelity</strong> — the agent follows a screenshot, image, or design system far more faithfully than before.</li>
@@ -314,22 +395,22 @@
 </ul>
 <hr>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="3105-14-july-2026"><strong>3.10.5 (14 July 2026)</strong><a href="#3105-14-july-2026" class="hash-link" aria-label="Direct link to 3105-14-july-2026" title="Direct link to 3105-14-july-2026" translate="no">​</a></h2>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="added--6"><strong>Added 🌟</strong><a href="#added--6" class="hash-link" aria-label="Direct link to added--6" title="Direct link to added--6" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="added--7"><strong>Added 🌟</strong><a href="#added--7" class="hash-link" aria-label="Direct link to added--7" title="Direct link to added--7" translate="no">​</a></h4>
 <ul>
 <li class=""><strong>Full mobile browser support</strong> — access Nowa from your smartphone to check projects, make quick updates, and deploy directly from your mobile browser.</li>
 <li class=""><strong>Post-launch support package</strong> — after successfully deploying an app, claim <strong>$25 in Nowa AI credits</strong>, direct support from the Nowa team, and help with exposure, monetization, feedback, and app improvements. The package is available from the deployment panel.</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="improved-️-6"><strong>Improved ⚙️</strong><a href="#improved-️-6" class="hash-link" aria-label="Direct link to improved-️-6" title="Direct link to improved-️-6" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="improved-️-7"><strong>Improved ⚙️</strong><a href="#improved-️-7" class="hash-link" aria-label="Direct link to improved-️-7" title="Direct link to improved-️-7" translate="no">​</a></h4>
 <ul>
 <li class=""><strong>Workspace experience</strong> — improved team invitations and collaboration, workspace organization, and project management.</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--5"><strong>Fixed 🩹</strong><a href="#fixed--5" class="hash-link" aria-label="Direct link to fixed--5" title="Direct link to fixed--5" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--6"><strong>Fixed 🩹</strong><a href="#fixed--6" class="hash-link" aria-label="Direct link to fixed--6" title="Direct link to fixed--6" translate="no">​</a></h4>
 <ul>
 <li class="">Fixed an issue that affected some <strong>Windows users working with Git in Nowa</strong>.</li>
 </ul>
 <hr>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="39-13-june-2026"><strong>3.9 (13 June 2026)</strong><a href="#39-13-june-2026" class="hash-link" aria-label="Direct link to 39-13-june-2026" title="Direct link to 39-13-june-2026" translate="no">​</a></h2>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="added--7"><strong>Added 🌟</strong><a href="#added--7" class="hash-link" aria-label="Direct link to added--7" title="Direct link to added--7" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="added--8"><strong>Added 🌟</strong><a href="#added--8" class="hash-link" aria-label="Direct link to added--8" title="Direct link to added--8" translate="no">​</a></h4>
 <ul>
 <li class=""><strong>Rebuilt multi-agent AI system</strong> — several subagents now work on your project in parallel to plan, build, and refine at once, delivering better UI/UX, reliable complex logic across large projects, and smooth pub.dev package handling (including platform-file setup).</li>
 <li class=""><strong>Smart context fetching</strong> — the AI reads exactly what it needs without over- or under-reading, keeping it fast and cost-efficient.</li>
@@ -341,14 +422,14 @@
 <li class=""><strong>New settings page</strong> — a cleaner, more organized home for your project settings.</li>
 <li class=""><strong>Refer a friend</strong> — you and your friend each get 15 free credits when they sign up.</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="improved-️-7"><strong>Improved ⚙️</strong><a href="#improved-️-7" class="hash-link" aria-label="Direct link to improved-️-7" title="Direct link to improved-️-7" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="improved-️-8"><strong>Improved ⚙️</strong><a href="#improved-️-8" class="hash-link" aria-label="Direct link to improved-️-8" title="Direct link to improved-️-8" translate="no">​</a></h4>
 <ul>
 <li class=""><strong>Smarter Planning Mode</strong> — presents a clear, readable plan anyone can follow and better matches what you want to build before work begins.</li>
 <li class=""><strong>Outline moved to the left side</strong> — out of the board and into the left-side options for a cleaner workspace.</li>
 <li class=""><strong>Files merged into code editing</strong> — the separate Files panel is gone; everything now lives alongside your code.</li>
 <li class=""><strong>Smarter logs</strong> — now cover both App Run and preview for full visibility.</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--6"><strong>Fixed 🩹</strong><a href="#fixed--6" class="hash-link" aria-label="Direct link to fixed--6" title="Direct link to fixed--6" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--7"><strong>Fixed 🩹</strong><a href="#fixed--7" class="hash-link" aria-label="Direct link to fixed--7" title="Direct link to fixed--7" translate="no">​</a></h4>
 <ul>
 <li class="">Fixed <strong>high AI costs</strong> — the new system is dramatically more efficient, so you get far more done per credit.</li>
 <li class="">Fixed <strong>AI struggling with complex tasks</strong> — it now handles long, intricate jobs across your project reliably.</li>
@@ -357,50 +438,50 @@
 </ul>
 <hr>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="373-26-april-2026"><strong>3.7.3 (26 April 2026)</strong><a href="#373-26-april-2026" class="hash-link" aria-label="Direct link to 373-26-april-2026" title="Direct link to 373-26-april-2026" translate="no">​</a></h2>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="added--8"><strong>Added 🌟</strong><a href="#added--8" class="hash-link" aria-label="Direct link to added--8" title="Direct link to added--8" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="added--9"><strong>Added 🌟</strong><a href="#added--9" class="hash-link" aria-label="Direct link to added--9" title="Direct link to added--9" translate="no">​</a></h4>
 <ul>
 <li class=""><strong>Localisation support</strong> — make your app run in multiple languages with ease. Just ask Nowa AI to set it up and it&#x27;ll handle everything end to end.</li>
 <li class=""><strong>AI font downloads</strong> — ask Nowa AI to set any font and, if it&#x27;s not already in your project, it&#x27;ll download and set it up automatically. Useful when importing designs from Figma or other tools.</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="improved-️-8"><strong>Improved ⚙️</strong><a href="#improved-️-8" class="hash-link" aria-label="Direct link to improved-️-8" title="Direct link to improved-️-8" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="improved-️-9"><strong>Improved ⚙️</strong><a href="#improved-️-9" class="hash-link" aria-label="Direct link to improved-️-9" title="Direct link to improved-️-9" translate="no">​</a></h4>
 <ul>
 <li class=""><strong>Package conflict handling</strong> — Nowa AI now automatically detects and resolves package conflicts, so you don&#x27;t have to dig through dependency errors yourself.</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--7"><strong>Fixed 🩹</strong><a href="#fixed--7" class="hash-link" aria-label="Direct link to fixed--7" title="Direct link to fixed--7" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--8"><strong>Fixed 🩹</strong><a href="#fixed--8" class="hash-link" aria-label="Direct link to fixed--8" title="Direct link to fixed--8" translate="no">​</a></h4>
 <ul>
 <li class="">Fixed an issue where the <strong>widget menu wasn&#x27;t working</strong> on the web version.</li>
 </ul>
 <hr>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="372-23-april-2026"><strong>3.7.2 (23 April 2026)</strong><a href="#372-23-april-2026" class="hash-link" aria-label="Direct link to 372-23-april-2026" title="Direct link to 372-23-april-2026" translate="no">​</a></h2>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="added--9"><strong>Added 🌟</strong><a href="#added--9" class="hash-link" aria-label="Direct link to added--9" title="Direct link to added--9" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="added--10"><strong>Added 🌟</strong><a href="#added--10" class="hash-link" aria-label="Direct link to added--10" title="Direct link to added--10" translate="no">​</a></h4>
 <ul>
 <li class=""><strong>New Packaging System</strong> — completely revamped integration with pub.dev packages for much greater stability and better handling by Nowa AI when working with external packages.</li>
 <li class=""><strong>Experimental UI Updates</strong> — AI has moved to a toolbar at the bottom of the board, accessible by hitting <strong>/</strong>, with project components visible in real-time. Enable it from <strong>App Settings → Project details → Experimentals → &quot;New UX&quot;</strong>.</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="improved-️-9"><strong>Improved ⚙️</strong><a href="#improved-️-9" class="hash-link" aria-label="Direct link to improved-️-9" title="Direct link to improved-️-9" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="improved-️-10"><strong>Improved ⚙️</strong><a href="#improved-️-10" class="hash-link" aria-label="Direct link to improved-️-10" title="Direct link to improved-️-10" translate="no">​</a></h4>
 <ul>
 <li class=""><strong>Faster project loading</strong> — packages now load after the project opens, so you can start working sooner.</li>
 <li class=""><strong>AI handling of external packages</strong> — Nowa AI is now significantly better at working with pub.dev packages across your projects.</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--8"><strong>Fixed 🩹</strong><a href="#fixed--8" class="hash-link" aria-label="Direct link to fixed--8" title="Direct link to fixed--8" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--9"><strong>Fixed 🩹</strong><a href="#fixed--9" class="hash-link" aria-label="Direct link to fixed--9" title="Direct link to fixed--9" translate="no">​</a></h4>
 <ul>
 <li class="">Fixed issues with <strong>missing imports</strong> — AI can now work with imports properly, resolving problems some users faced on certain projects.</li>
 <li class="">Fixed an issue with the <strong>Rive widget on Web</strong>.</li>
 <li class="">Fixed issues with <strong>AI integrating APIs</strong> — resolved problems some users ran into when asking the AI to connect to external APIs.</li>
 </ul>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="361-12-march-2026"><strong>3.6.1 (12 March 2026)</strong><a href="#361-12-march-2026" class="hash-link" aria-label="Direct link to 361-12-march-2026" title="Direct link to 361-12-march-2026" translate="no">​</a></h2>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="improved-️-10"><strong>Improved ⚙️</strong><a href="#improved-️-10" class="hash-link" aria-label="Direct link to improved-️-10" title="Direct link to improved-️-10" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="improved-️-11"><strong>Improved ⚙️</strong><a href="#improved-️-11" class="hash-link" aria-label="Direct link to improved-️-11" title="Direct link to improved-️-11" translate="no">​</a></h4>
 <ul>
 <li class=""><strong>Editable <code>main.dart</code></strong> — a new system now lets both you and the AI agent freely modify the <code>main.dart</code> file without running into issues.</li>
 <li class=""><strong>AI stability on weak connections</strong> — Nowa now handles weak and moderate internet connections much more gracefully, preventing unexpected disconnects mid-task.</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--9"><strong>Fixed 🩹</strong><a href="#fixed--9" class="hash-link" aria-label="Direct link to fixed--9" title="Direct link to fixed--9" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--10"><strong>Fixed 🩹</strong><a href="#fixed--10" class="hash-link" aria-label="Direct link to fixed--10" title="Direct link to fixed--10" translate="no">​</a></h4>
 <ul>
 <li class="">Fixed an issue where some projects weren&#x27;t loading correctly after the 3.6 update.</li>
 </ul>
 <hr>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="36-6-march-2026"><strong>3.6 (6 March 2026)</strong><a href="#36-6-march-2026" class="hash-link" aria-label="Direct link to 36-6-march-2026" title="Direct link to 36-6-march-2026" translate="no">​</a></h2>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="added--10"><strong>Added 🌟</strong><a href="#added--10" class="hash-link" aria-label="Direct link to added--10" title="Direct link to added--10" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="added--11"><strong>Added 🌟</strong><a href="#added--11" class="hash-link" aria-label="Direct link to added--11" title="Direct link to added--11" translate="no">​</a></h4>
 <ul>
 <li class=""><strong>RevenueCat Integration</strong> — monetize your iOS and Android apps with in-app purchases using RevenueCat, set up in just a few clicks.</li>
 <li class=""><strong>AI Planning Mode</strong> — the AI now deeply analyzes your project, asks clarifying questions, and presents a detailed plan before implementing. Review and refine the plan, then get results built correctly from the first shot with fewer credits.</li>
@@ -408,25 +489,25 @@
 <li class=""><strong>Google Sign-In with Supabase</strong> — ask Nowa AI to implement Google Sign-In with Supabase directly.</li>
 <li class=""><strong>Onboarding for New Projects</strong> — new projects now include a guided onboarding experience to help you get started.</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="improved-️-11"><strong>Improved ⚙️</strong><a href="#improved-️-11" class="hash-link" aria-label="Direct link to improved-️-11" title="Direct link to improved-️-11" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="improved-️-12"><strong>Improved ⚙️</strong><a href="#improved-️-12" class="hash-link" aria-label="Direct link to improved-️-12" title="Direct link to improved-️-12" translate="no">​</a></h4>
 <ul>
 <li class=""><strong>AI search &amp; project analysis</strong> — the agent searches across your project much faster and consumes far fewer credits. It can also trigger source-code analysis to catch issues Nowa might miss.</li>
 <li class=""><strong>Automatic AI issue reporting</strong> — the AI can automatically report issues it encounters (without private data) and provide a report ID for follow-up.</li>
 <li class="">General performance and stability improvements across the editor.</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--10"><strong>Fixed 🩹</strong><a href="#fixed--10" class="hash-link" aria-label="Direct link to fixed--10" title="Direct link to fixed--10" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--11"><strong>Fixed 🩹</strong><a href="#fixed--11" class="hash-link" aria-label="Direct link to fixed--11" title="Direct link to fixed--11" translate="no">​</a></h4>
 <ul>
 <li class="">Fixed an issue where the AI was adding incorrect package versions. Package versions are now managed by Nowa and default to the latest from pub.dev unless the AI has a specific reason not to.</li>
 </ul>
 <hr>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="35-9-february-2026"><strong>3.5 (9 February 2026)</strong><a href="#35-9-february-2026" class="hash-link" aria-label="Direct link to 35-9-february-2026" title="Direct link to 35-9-february-2026" translate="no">​</a></h2>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="added--11"><strong>Added 🌟</strong><a href="#added--11" class="hash-link" aria-label="Direct link to added--11" title="Direct link to added--11" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="added--12"><strong>Added 🌟</strong><a href="#added--12" class="hash-link" aria-label="Direct link to added--12" title="Direct link to added--12" translate="no">​</a></h4>
 <ul>
 <li class=""><strong>Nowa Agent V3</strong> — new AI foundation with 4 modes: Instant, Thinking, Deep Thinking, and Max.</li>
 <li class=""><strong>GoRouter by default</strong> — all new projects use GoRouter routing with screen paths and deep linking support.</li>
 <li class=""><strong>Git for Local Projects</strong> — Git is enabled by default for local projects (commit, history, push/pull).</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="improved-️-12"><strong>Improved ⚙️</strong><a href="#improved-️-12" class="hash-link" aria-label="Direct link to improved-️-12" title="Direct link to improved-️-12" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="improved-️-13"><strong>Improved ⚙️</strong><a href="#improved-️-13" class="hash-link" aria-label="Direct link to improved-️-13" title="Direct link to improved-️-13" translate="no">​</a></h4>
 <ul>
 <li class=""><strong>AI efficiency &amp; quality</strong> — new modes (except Max) use 5× fewer credits, run 4× faster, and produce 2–3× better results.</li>
 <li class=""><strong>Supabase workflows</strong> — stronger results when working with Supabase MCP.</li>
@@ -434,30 +515,30 @@
 </ul>
 <hr>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="34-19-january-2026"><strong>3.4 (19 January 2026)</strong><a href="#34-19-january-2026" class="hash-link" aria-label="Direct link to 34-19-january-2026" title="Direct link to 34-19-january-2026" translate="no">​</a></h2>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="added--12"><strong>Added 🌟</strong><a href="#added--12" class="hash-link" aria-label="Direct link to added--12" title="Direct link to added--12" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="added--13"><strong>Added 🌟</strong><a href="#added--13" class="hash-link" aria-label="Direct link to added--13" title="Direct link to added--13" translate="no">​</a></h4>
 <ul>
 <li class=""><strong>Supabase MCP</strong> — connect Supabase and let the AI agent build the frontend + backend (tables, RLS, triggers, and Edge Functions).</li>
 <li class=""><strong>Agent Creation Summary</strong> — a post‑chat summary box listing everything the agent created, with drag‑and‑drop to the board and file previews.</li>
 <li class=""><strong>New tutorials</strong> — Google Maps integration and instant preview sharing videos.</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="improved-️-13"><strong>Improved ⚙️</strong><a href="#improved-️-13" class="hash-link" aria-label="Direct link to improved-️-13" title="Direct link to improved-️-13" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="improved-️-14"><strong>Improved ⚙️</strong><a href="#improved-️-14" class="hash-link" aria-label="Direct link to improved-️-14" title="Direct link to improved-️-14" translate="no">​</a></h4>
 <ul>
 <li class="">Showing publishing errors so if App Store deployment failed at the publishing stage (last stage) you will know exactly why.</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--11"><strong>Fixed 🩹</strong><a href="#fixed--11" class="hash-link" aria-label="Direct link to fixed--11" title="Direct link to fixed--11" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--12"><strong>Fixed 🩹</strong><a href="#fixed--12" class="hash-link" aria-label="Direct link to fixed--12" title="Direct link to fixed--12" translate="no">​</a></h4>
 <ul>
 <li class="">Fixed “[AppState] not found” errors after AI changes.</li>
 <li class="">Improved generated code stability for more reliable outputs.</li>
 </ul>
 <hr>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="335-30-december-2025"><strong>3.3.5 (30 December 2025)</strong><a href="#335-30-december-2025" class="hash-link" aria-label="Direct link to 335-30-december-2025" title="Direct link to 335-30-december-2025" translate="no">​</a></h2>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="added--13"><strong>Added 🌟</strong><a href="#added--13" class="hash-link" aria-label="Direct link to added--13" title="Direct link to added--13" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="added--14"><strong>Added 🌟</strong><a href="#added--14" class="hash-link" aria-label="Direct link to added--14" title="Direct link to added--14" translate="no">​</a></h4>
 <ul>
 <li class=""><strong>Commit History in Nowa</strong> — view your full commit history directly in the Git panel, preview changed files line by line, and revert specific commits with a right‑click.</li>
 <li class=""><strong>One‑click GitHub integration</strong> — connect projects to GitHub from <code>Project Settings → Git → Connect to GitHub</code> without creating tokens manually.</li>
 <li class=""><strong>Faster local project loading</strong> — large local projects now load dependencies faster by using your local Flutter SDK instead of refetching everything from <code>pub.dev</code>.</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--12"><strong>Fixed 🩹</strong><a href="#fixed--12" class="hash-link" aria-label="Direct link to fixed--12" title="Direct link to fixed--12" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--13"><strong>Fixed 🩹</strong><a href="#fixed--13" class="hash-link" aria-label="Direct link to fixed--13" title="Direct link to fixed--13" translate="no">​</a></h4>
 <ul>
 <li class="">Fixed an issue where some <strong>imports disappeared</strong> when loading projects.</li>
 <li class="">Fixed cases of <strong>double <code>int</code> conversion</strong> when using AI, causing incorrect expressions.</li>
@@ -466,13 +547,13 @@
 </ul>
 <hr>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="333-15-december-2025"><strong>3.3.3 (15 December 2025)</strong><a href="#333-15-december-2025" class="hash-link" aria-label="Direct link to 333-15-december-2025" title="Direct link to 333-15-december-2025" translate="no">​</a></h2>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--13"><strong>Fixed 🩹</strong><a href="#fixed--13" class="hash-link" aria-label="Direct link to fixed--13" title="Direct link to fixed--13" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--14"><strong>Fixed 🩹</strong><a href="#fixed--14" class="hash-link" aria-label="Direct link to fixed--14" title="Direct link to fixed--14" translate="no">​</a></h4>
 <ul>
 <li class="">Fixed an issue where <strong>some imports were not being saved correctly</strong>, causing inconsistencies in code generation and preview.</li>
 </ul>
 <hr>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="332-10-december-2025"><strong>3.3.2 (10 December 2025)</strong><a href="#332-10-december-2025" class="hash-link" aria-label="Direct link to 332-10-december-2025" title="Direct link to 332-10-december-2025" translate="no">​</a></h2>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="added--14"><strong>Added 🌟</strong><a href="#added--14" class="hash-link" aria-label="Direct link to added--14" title="Direct link to added--14" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="added--15"><strong>Added 🌟</strong><a href="#added--15" class="hash-link" aria-label="Direct link to added--15" title="Direct link to added--15" translate="no">​</a></h4>
 <ul>
 <li class=""><strong>Google Maps Widget</strong> — use Google Maps directly inside Nowa without writing custom code.<!-- -->
 <ul>
@@ -482,13 +563,13 @@
 </ul>
 </li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="improved-️-14"><strong>Improved ⚙️</strong><a href="#improved-️-14" class="hash-link" aria-label="Direct link to improved-️-14" title="Direct link to improved-️-14" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="improved-️-15"><strong>Improved ⚙️</strong><a href="#improved-️-15" class="hash-link" aria-label="Direct link to improved-️-15" title="Direct link to improved-️-15" translate="no">​</a></h4>
 <ul>
 <li class="">Added loading indicators to show progress when opening projects.</li>
 <li class="">Improved UI rendering and consistency across screens and previewer.</li>
 <li class="">Enhanced performance for a smoother experience when switching between views.</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--14"><strong>Fixed 🩹</strong><a href="#fixed--14" class="hash-link" aria-label="Direct link to fixed--14" title="Direct link to fixed--14" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--15"><strong>Fixed 🩹</strong><a href="#fixed--15" class="hash-link" aria-label="Direct link to fixed--15" title="Direct link to fixed--15" translate="no">​</a></h4>
 <ul>
 <li class="">Fixed <strong>false error logs</strong> caused by <code>print</code> statements in code.</li>
 <li class="">Fixed <strong>previewer issues</strong> where some screens failed to render.</li>
@@ -498,7 +579,7 @@
 </ul>
 <hr>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="320-14-november-2025"><strong>3.2.0 (14 November 2025)</strong><a href="#320-14-november-2025" class="hash-link" aria-label="Direct link to 320-14-november-2025" title="Direct link to 320-14-november-2025" translate="no">​</a></h2>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="added--15"><strong>Added 🌟</strong><a href="#added--15" class="hash-link" aria-label="Direct link to added--15" title="Direct link to added--15" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="added--16"><strong>Added 🌟</strong><a href="#added--16" class="hash-link" aria-label="Direct link to added--16" title="Direct link to added--16" translate="no">​</a></h4>
 <ul>
 <li class=""><strong>AI That Uses Custom Packages</strong> — the AI can now fetch and use packages directly from <strong>pub.dev</strong>, reading documentation and applying them automatically.<!-- -->
 <ul>
@@ -508,7 +589,7 @@
 </li>
 <li class=""><strong>Cloud Git Integration</strong> — all cloud projects now come with Git pre-configured, with a badge showing pending changes and in-app commit support.</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="improved-️-15"><strong>Improved ⚙️</strong><a href="#improved-️-15" class="hash-link" aria-label="Direct link to improved-️-15" title="Direct link to improved-️-15" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="improved-️-16"><strong>Improved ⚙️</strong><a href="#improved- ️-16" class="hash-link" aria-label="Direct link to improved-️-16" title="Direct link to improved-️-16" translate="no">​</a></h4>
 <ul>
 <li class="">Major upgrades to the AI’s reasoning and design capabilities.<!-- -->
 <ul>
@@ -518,7 +599,7 @@
 </ul>
 </li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--15"><strong>Fixed 🩹</strong><a href="#fixed--15" class="hash-link" aria-label="Direct link to fixed--15" title="Direct link to fixed--15" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--16"><strong>Fixed 🩹</strong><a href="#fixed--16" class="hash-link" aria-label="Direct link to fixed--16" title="Direct link to fixed--16" translate="no">​</a></h4>
 <ul>
 <li class="">Fixed AI error: <code>litellm.BadRequestError ... Unterminated string...</code>.</li>
 <li class="">Fixed <strong>missing imports</strong> appearing in code view.</li>
@@ -528,14 +609,14 @@
 </ul>
 <hr>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="312-25-october-2025"><strong>3.1.2 (25 October 2025)</strong><a href="#312-25-october-2025" class="hash-link" aria-label="Direct link to 312-25-october-2025" title="Direct link to 312-25-october-2025" translate="no">​</a></h2>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="improved-️-16"><strong>Improved ⚙️</strong><a href="#improved-️-16" class="hash-link" aria-label="Direct link to improved-️-16" title="Direct link to improved-️-16" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="improved-️-17"><strong>Improved ⚙️</strong><a href="#improved-️-17" class="hash-link" aria-label="Direct link to improved-️-17" title="Direct link to improved-️-17" translate="no">​</a></h4>
 <ul>
 <li class="">Enhanced <strong>AI agent stability</strong> and reliability during long prompt sessions.</li>
 <li class="">Improved <strong>streaming performance</strong> to reduce delays and errors.</li>
 <li class="">Better <strong>bug reporting flow</strong>, capturing more context for faster fixes.</li>
 <li class="">Improved <strong>public preview handling</strong> for smoother link sharing.</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--16"><strong>Fixed 🩹</strong><a href="#fixed--16" class="hash-link" aria-label="Direct link to fixed--16" title="Direct link to fixed--16" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--17"><strong>Fixed 🩹</strong><a href="#fixed--17" class="hash-link" aria-label="Direct link to fixed--17" title="Direct link to fixed--17" translate="no">​</a></h4>
 <ul>
 <li class="">Fixed <strong>invalid argument errors</strong> caused by malformed AI JSON responses.</li>
 <li class="">Fixed issue with <code>write_top_level_code</code> tool execution.</li>
@@ -546,7 +627,7 @@
 </ul>
 <p>--</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="310-21-october-2025"><strong>3.1.0 (21 October 2025)</strong><a href="#310-21-october-2025" class="hash-link" aria-label="Direct link to 310-21-october-2025" title="Direct link to 310-21-october-2025" translate="no">​</a></h2>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="added--16"><strong>Added 🌟</strong><a href="#added--16" class="hash-link" aria-label="Direct link to added--16" title="Direct link to added--16" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="added--17"><strong>Added 🌟</strong><a href="#added--17" class="hash-link" aria-label="Direct link to added--17" title="Direct link to added--17" translate="no">​</a></h4>
 <ul>
 <li class=""><strong>New AI System</strong> — rebuilt for speed and quality<!-- -->
 <ul>
@@ -560,24 +641,24 @@
 <li class=""><strong>Cloud + Local Sync</strong> — keep a project in both places with one‑click sync (no Git needed)</li>
 <li class=""><strong>Instant Preview Sharing</strong> — generate private or public links to your live preview directly from Play Mode</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="improved-️-17"><strong>Improved ⚙️</strong><a href="#improved-️-17" class="hash-link" aria-label="Direct link to improved-️-17" title="Direct link to improved-️-17" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="improved-️-18"><strong>Improved ⚙️</strong><a href="#improved-️-18" class="hash-link" aria-label="Direct link to improved-️-18" title="Direct link to improved-️-18" translate="no">​</a></h4>
 <ul>
 <li class="">Moved from per‑prompt to a <strong>credit‑based system</strong> for fairer, more flexible AI usage (consumption scales with prompt size; small tasks ~0.1 credit, full screens ~1 credit)</li>
 <li class="">Major performance and stability improvements across the builder and AI execution</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--17"><strong>Fixed 🩹</strong><a href="#fixed--17" class="hash-link" aria-label="Direct link to fixed--17" title="Direct link to fixed--17" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--18"><strong>Fixed 🩹</strong><a href="#fixed--18" class="hash-link" aria-label="Direct link to fixed--18" title="Direct link to fixed--18" translate="no">​</a></h4>
 <ul>
 <li class="">Various reliability fixes to improve the instant preview, code generation, and runtime flows when building with AI</li>
 </ul>
 <hr>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="3010-7-october-2025"><strong>3.0.10 (7 October 2025)</strong><a href="#3010-7-october-2025" class="hash-link" aria-label="Direct link to 3010-7-october-2025" title="Direct link to 3010-7-october-2025" translate="no">​</a></h2>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="added--17"><strong>Added 🌟</strong><a href="#added--17" class="hash-link" aria-label="Direct link to added--17" title="Direct link to added--17" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="added--18"><strong>Added 🌟</strong><a href="#added--18" class="hash-link" aria-label="Direct link to added--18" title="Direct link to added--18" translate="no">​</a></h4>
 <ul>
 <li class=""><strong>Firebase Cloud Messaging</strong> support — enable notifications from your project settings and send them from Firebase, Nowa, or any API (like Supabase Cloud Functions).</li>
 <li class=""><strong>Supabase Storage</strong> integration — upload, store, and retrieve files directly from Supabase.</li>
 <li class=""><strong>New Code Sync System</strong> — edits in code now sync instantly with the UI without refreshing or repositioning the board.</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--18"><strong>Fixed 🩹</strong><a href="#fixed--18" class="hash-link" aria-label="Direct link to fixed--18" title="Direct link to fixed--18" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--19"><strong>Fixed 🩹</strong><a href="#fixed--19" class="hash-link" aria-label="Direct link to fixed--19" title="Direct link to fixed--19" translate="no">​</a></h4>
 <ul>
 <li class="">Nullability issues that caused build errors in certain cases.</li>
 <li class="">Crashes when using lists of widgets as variables in screens or components.</li>
@@ -589,7 +670,7 @@
 <li class="">Editing issues with index expressions such as <code>List[0]</code> in the details panel.</li>
 <li class="">Errors caused by <code>WidgetStateProperty</code> breaking the Switch widget.</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="improved-️-18"><strong>Improved ⚙️</strong><a href="#improved-️-18" class="hash-link" aria-label="Direct link to improved-️-18" title="Direct link to improved-️-18" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="improved-️-19"><strong>Improved ⚙️</strong><a href="#improved-️-19" class="hash-link" aria-label="Direct link to improved-️-19" title="Direct link to improved-️-19" translate="no">​</a></h4>
 <ul>
 <li class="">Overall AI stability and error handling for rendering issues — only the affected widget now shows an error instead of the whole screen.</li>
 <li class="">Added <strong>TextInputAction</strong> support for TextFields for better keyboard control.</li>
@@ -598,7 +679,7 @@
 </ul>
 <hr>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="309-19-september-2025"><strong>3.0.9 (19 September 2025)</strong><a href="#309-19-september-2025" class="hash-link" aria-label="Direct link to 309-19-september-2025" title="Direct link to 309-19-september-2025" translate="no">​</a></h2>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--19"><strong>Fixed 🩹</strong><a href="#fixed--19" class="hash-link" aria-label="Direct link to fixed--19" title="Direct link to fixed--19" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--20"><strong>Fixed 🩹</strong><a href="#fixed--20" class="hash-link" aria-label="Direct link to fixed--20" title="Direct link to fixed--20" translate="no">​</a></h4>
 <ul>
 <li class="">Scale plan now shows the <strong>actual credit number</strong> instead of displaying 99+.</li>
 <li class="">Fixed issue where <strong>adding headers stopped working</strong> after changing the API type.</li>
@@ -606,7 +687,7 @@
 </ul>
 <hr>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="308-17-september-2025"><strong>3.0.8 (17 September 2025)</strong><a href="#308-17-september-2025" class="hash-link" aria-label="Direct link to 308-17-september-2025" title="Direct link to 308-17-september-2025" translate="no">​</a></h2>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--20"><strong>Fixed 🩹</strong><a href="#fixed--20" class="hash-link" aria-label="Direct link to fixed--20" title="Direct link to fixed--20" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--21"><strong>Fixed 🩹</strong><a href="#fixed--21" class="hash-link" aria-label="Direct link to fixed--21" title="Direct link to fixed--21" translate="no">​</a></h4>
 <ul>
 <li class="">Old templates updated and replaced with new ones matching Nowa 3.0 standards.</li>
 <li class="">Older way of changing themes removed to simplify theming workflow.</li>
@@ -615,7 +696,7 @@
 </ul>
 <hr>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="306-8-september-2025"><strong>3.0.6 (8 September 2025)</strong><a href="#306-8-september-2025" class="hash-link" aria-label="Direct link to 306-8-september-2025" title="Direct link to 306-8-september-2025" translate="no">​</a></h2>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--21"><strong>Fixed 🩹</strong><a href="#fixed--21" class="hash-link" aria-label="Direct link to fixed--21" title="Direct link to fixed--21" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--22"><strong>Fixed 🩹</strong><a href="#fixed--22" class="hash-link" aria-label="Direct link to fixed--22" title="Direct link to fixed--22" translate="no">​</a></h4>
 <ul>
 <li class="">Screens glitching or showing errors on the board when using <code>uid</code> from Supabase.</li>
 <li class="">Horizontal scroll shortcut (Shift + scroll) not working on the Web version.</li>
@@ -635,7 +716,7 @@
 </ul>
 <hr>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="304-29-august-2025"><strong>3.0.4 (29 August 2025)</strong><a href="#304-29-august-2025" class="hash-link" aria-label="Direct link to 304-29-august-2025" title="Direct link to 304-29-august-2025" translate="no">​</a></h2>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--22"><strong>Fixed 🩹</strong><a href="#fixed--22" class="hash-link" aria-label="Direct link to fixed--22" title="Direct link to fixed--22" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--23"><strong>Fixed 🩹</strong><a href="#fixed--23" class="hash-link" aria-label="Direct link to fixed--23" title="Direct link to fixed--23" translate="no">​</a></h4>
 <ul>
 <li class="">Issue with server error <code>500</code> when using the AI agent (<code>https://tools.ietf.org/html/rfc9110#section-15.6.1</code>).</li>
 <li class="">Issue with Android builds failing.</li>
@@ -656,7 +737,7 @@
 </ul>
 <hr>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="302-12-august-2025"><strong>3.0.2 (12 August 2025)</strong><a href="#302-12-august-2025" class="hash-link" aria-label="Direct link to 302-12-august-2025" title="Direct link to 302-12-august-2025" translate="no">​</a></h2>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--23"><strong>Fixed 🩹</strong><a href="#fixed--23" class="hash-link" aria-label="Direct link to fixed--23" title="Direct link to fixed--23" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--24"><strong>Fixed 🩹</strong><a href="#fixed--24" class="hash-link" aria-label="Direct link to fixed--24" title="Direct link to fixed--24" translate="no">​</a></h4>
 <ul>
 <li class="">Issue with building apps due to a package version conflict.</li>
 <li class="">Issue with iOS deployment preventing some apps from being published.</li>
@@ -665,7 +746,7 @@
 </ul>
 <hr>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="301-11-august-2025"><strong>3.0.1 (11 August 2025)</strong><a href="#301-11-august-2025" class="hash-link" aria-label="Direct link to 301-11-august-2025" title="Direct link to 301-11-august-2025" translate="no">​</a></h2>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--24"><strong>Fixed 🩹</strong><a href="#fixed--24" class="hash-link" aria-label="Direct link to fixed--24" title="Direct link to fixed--24" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--25"><strong>Fixed 🩹</strong><a href="#fixed--25" class="hash-link" aria-label="Direct link to fixed--25" title="Direct link to fixed--25" translate="no">​</a></h4>
 <ul>
 <li class="">Fixed <strong>Desktop App access</strong> not available for some plans.</li>
 <li class="">Fixed <strong>Board naming</strong> issue where new boards were created with <code>board*.board</code> instead of the assigned name.</li>
@@ -673,7 +754,7 @@
 </ul>
 <hr>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="300-beta-4-august-2025"><strong>3.0.0 BETA (4 August 2025)</strong><a href="#300-beta-4-august-2025" class="hash-link" aria-label="Direct link to 300-beta-4-august-2025" title="Direct link to 300-beta-4-august-2025" translate="no">​</a></h2>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="added--18"><strong>Added ✨</strong><a href="#added--18" class="hash-link" aria-label="Direct link to added--18" title="Direct link to added--18" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="added--19"><strong>Added ✨</strong><a href="#added--19" class="hash-link" aria-label="Direct link to added--19" title="Direct link to added--19" translate="no">​</a></h4>
 <ul>
 <li class="">
 <p><strong>AI Agent (Beta)</strong></p>
@@ -714,13 +795,13 @@
 </ul>
 </li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--25"><strong>Fixed 🩹</strong><a href="#fixed--25" class="hash-link" aria-label="Direct link to fixed--25" title="Direct link to fixed--25" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--26"><strong>Fixed 🩹</strong><a href="#fixed--26" class="hash-link" aria-label="Direct link to fixed--26" title="Direct link to fixed--26" translate="no">​</a></h4>
 <ul>
 <li class="">Many improvements for performance and stability across the builder</li>
 </ul>
 <hr>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="2021-27-may-2025"><strong>2.0.21 (27 May 2025)</strong><a href="#2021-27-may-2025" class="hash-link" aria-label="Direct link to 2021-27-may-2025" title="Direct link to 2021-27-may-2025" translate="no">​</a></h2>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="added--19"><strong>Added ✨</strong><a href="#added--19" class="hash-link" aria-label="Direct link to added--19" title="Direct link to added--19" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="added--20"><strong>Added ✨</strong><a href="#added--20" class="hash-link" aria-label="Direct link to added--20" title="Direct link to added--20" translate="no">​</a></h4>
 <ul>
 <li class=""><strong>API Import from Postman, Swagger, and Xano</strong>:<!-- -->
 <ul>
@@ -735,7 +816,7 @@
 </ul>
 </li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--26"><strong>Fixed 🩹</strong><a href="#fixed--26" class="hash-link" aria-label="Direct link to fixed--26" title="Direct link to fixed--26" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--27"><strong>Fixed 🩹</strong><a href="#fixed--27" class="hash-link" aria-label="Direct link to fixed--27" title="Direct link to fixed--27" translate="no">​</a></h4>
 <ul>
 <li class="">Fixed issue with having the <strong>same declaration name in different files</strong></li>
 <li class="">Fixed bug where <strong>TextFields inside WebViews</strong> didn’t respond to some keys</li>
@@ -744,7 +825,7 @@
 </ul>
 <hr>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="2020-23-april-2025"><strong>2.0.20 (23 April 2025)</strong><a href="#2020-23-april-2025" class="hash-link" aria-label="Direct link to 2020-23-april-2025" title="Direct link to 2020-23-april-2025" translate="no">​</a></h2>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="added--20"><strong>Added ✨</strong><a href="#added--20" class="hash-link" aria-label="Direct link to added--20" title="Direct link to added--20" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="added--21"><strong>Added ✨</strong><a href="#added--21" class="hash-link" aria-label="Direct link to added--21" title="Direct link to added--21" translate="no">​</a></h4>
 <ul>
 <li class=""><strong>New API Editor</strong>:<!-- -->
 <ul>
@@ -772,7 +853,7 @@
 </li>
 <li class=""><strong>Play Mode Warning for Custom Code</strong> when custom functions or widgets are present</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--27"><strong>Fixed 🩹</strong><a href="#fixed--27" class="hash-link" aria-label="Direct link to fixed--27" title="Direct link to fixed--27" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--28"><strong>Fixed 🩹</strong><a href="#fixed--28" class="hash-link" aria-label="Direct link to fixed--28" title="Direct link to fixed--28" translate="no">​</a></h4>
 <ul>
 <li class="">Resolved iOS deployment issues</li>
 <li class="">Icon Button now wraps icon content correctly</li>
@@ -780,7 +861,7 @@
 </ul>
 <hr>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="2019-6-april-2025"><strong>2.0.19 (6 April 2025)</strong><a href="#2019-6-april-2025" class="hash-link" aria-label="Direct link to 2019-6-april-2025" title="Direct link to 2019-6-april-2025" translate="no">​</a></h2>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="added--21"><strong>Added ✨</strong><a href="#added--21" class="hash-link" aria-label="Direct link to added--21" title="Direct link to added--21" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="added--22"><strong>Added ✨</strong><a href="#added--22" class="hash-link" aria-label="Direct link to added--22" title="Direct link to added--22" translate="no">​</a></h4>
 <ul>
 <li class=""><strong>Nowa Marketplace</strong>: Browse and add editable sample projects from the dashboard, starting with:<!-- -->
 <ul>
@@ -811,7 +892,7 @@
 </ul>
 </li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--28"><strong>Fixed 🩹</strong><a href="#fixed--28" class="hash-link" aria-label="Direct link to fixed--28" title="Direct link to fixed--28" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--29"><strong>Fixed 🩹</strong><a href="#fixed--29" class="hash-link" aria-label="Direct link to fixed--29" title="Direct link to fixed--29" translate="no">​</a></h4>
 <ul>
 <li class="">Fixed some cloud projects not opening</li>
 <li class="">Fixed feedback dialog popping up repeatedly</li>
@@ -820,12 +901,12 @@
 <li class="">Fixed TextFields in global state not responding</li>
 </ul>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="2018-beta-12-march-2025"><strong>2.0.18-beta (12 March 2025)</strong><a href="#2018-beta-12-march-2025" class="hash-link" aria-label="Direct link to 2018-beta-12-march-2025" title="Direct link to 2018-beta-12-march-2025" translate="no">​</a></h2>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="added--22"><strong>Added ✨</strong><a href="#added--22" class="hash-link" aria-label="Direct link to added--22" title="Direct link to added--22" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="added--23"><strong>Added ✨</strong><a href="#added--23" class="hash-link" aria-label="Direct link to added--23" title="Direct link to added--23" translate="no">​</a></h4>
 <ul>
 <li class=""><strong>AI Chat Template</strong>: Quickly build chat-based apps using the built-in, fully functional chat template, complete with chat bubbles and logic. <a class="" href="/legacy/tutorials/chat-template">Read more</a></li>
 <li class=""><strong>Quick Navigation to Functions &amp; APIs</strong>: New &quot;open&quot; icon next to functions and API requests to instantly jump directly to their definitions.</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--29"><strong>Fixed 🩹</strong><a href="#fixed--29" class="hash-link" aria-label="Direct link to fixed--29" title="Direct link to fixed--29" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--30"><strong>Fixed 🩹</strong><a href="#fixed--30" class="hash-link" aria-label="Direct link to fixed--30" title="Direct link to fixed--30" translate="no">​</a></h4>
 <ul>
 <li class="">Fixed details panel not showing edit button for some custom expressions.</li>
 <li class="">Fixed web deployment issue causing older projects to deploy an empty app.</li>
@@ -834,7 +915,7 @@
 <li class="">Fixed OnValue not opening for API requests in Circuit.</li>
 </ul>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="2017-beta-5-march-2025"><strong>2.0.17-beta (5 March 2025)</strong><a href="#2017-beta-5-march-2025" class="hash-link" aria-label="Direct link to 2017-beta-5-march-2025" title="Direct link to 2017-beta-5-march-2025" translate="no">​</a></h2>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="added--23"><strong>Added ✨</strong><a href="#added--23" class="hash-link" aria-label="Direct link to added--23" title="Direct link to added--23" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="added--24"><strong>Added ✨</strong><a href="#added--24" class="hash-link" aria-label="Direct link to added--24" title="Direct link to added--24" translate="no">​</a></h4>
 <ul>
 <li class=""><strong>Web Deployment</strong>: Deploy your web apps online directly from Nowa in development or production mode, with an option to download build files for external hosting. <a class="" href="/publish/web">Read more</a></li>
 <li class=""><strong>Added a Badge Wrapper</strong></li>
@@ -843,7 +924,7 @@
 <li class=""><strong>Audio Source Enhancements</strong>: Now supports playing audio from bytes.</li>
 <li class=""><strong>Request Templates Directly from the Panel</strong>: Easily request new app templates within Nowa.</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--30"><strong>Fixed 🩹</strong><a href="#fixed--30" class="hash-link" aria-label="Direct link to fixed--30" title="Direct link to fixed--30" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--31"><strong>Fixed 🩹</strong><a href="#fixed--31" class="hash-link" aria-label="Direct link to fixed--31" title="Direct link to fixed--31" translate="no">​</a></h4>
 <ul>
 <li class="">Fixed widget picker drag and drop issue when widgets had dependencies.</li>
 <li class="">Fixed set state functions not executing properly.</li>
@@ -851,7 +932,7 @@
 <li class="">Fixed Flutter SDK setting issue in the desktop version that appeared in the latest release.</li>
 </ul>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="2015-beta-12-feb-2025"><strong>2.0.15-beta (12 Feb 2025)</strong><a href="#2015-beta-12-feb-2025" class="hash-link" aria-label="Direct link to 2015-beta-12-feb-2025" title="Direct link to 2015-beta-12-feb-2025" translate="no">​</a></h2>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="added--24"><strong>Added ✨</strong><a href="#added--24" class="hash-link" aria-label="Direct link to added--24" title="Direct link to added--24" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="added--25"><strong>Added ✨</strong><a href="#added--25" class="hash-link" aria-label="Direct link to added--25" title="Direct link to added--25" translate="no">​</a></h4>
 <ul>
 <li class="">
 <p><strong>Swipeable Stack Widget</strong></p>
@@ -868,7 +949,7 @@
 </ul>
 </li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--31"><strong>Fixed 🩹</strong><a href="#fixed--31" class="hash-link" aria-label="Direct link to fixed--31" title="Direct link to fixed--31" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--32"><strong>Fixed 🩹</strong><a href="#fixed--32" class="hash-link" aria-label="Direct link to fixed--32" title="Direct link to fixed--32" translate="no">​</a></h4>
 <ul>
 <li class="">Fixed an issue where <strong>text fields in the details panel</strong> didn’t accept input.</li>
 <li class=""><strong>MacOS version now starts in full screen</strong> by default.</li>
@@ -877,7 +958,7 @@
 </ul>
 <hr>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="2014-29-jan-2025"><strong>2.0.14 (29 Jan 2025)</strong><a href="#2014-29-jan-2025" class="hash-link" aria-label="Direct link to 2014-29-jan-2025" title="Direct link to 2014-29-jan-2025" translate="no">​</a></h2>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="added--25"><strong>Added ✨</strong><a href="#added--25" class="hash-link" aria-label="Direct link to added--25" title="Direct link to added--25" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="added--26"><strong>Added ✨</strong><a href="#added--26" class="hash-link" aria-label="Direct link to added--26" title="Direct link to added--26" translate="no">​</a></h4>
 <ul>
 <li class="">
 <p><strong>New Dashboard Design</strong></p>
@@ -896,13 +977,13 @@
 </ul>
 </li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--32"><strong>Fixed 🩹</strong><a href="#fixed--32" class="hash-link" aria-label="Direct link to fixed--32" title="Direct link to fixed--32" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--33"><strong>Fixed 🩹</strong><a href="#fixed--33" class="hash-link" aria-label="Direct link to fixed--33" title="Direct link to fixed--33" translate="no">​</a></h4>
 <ul>
 <li class="">Fixed a <strong>deployment issue for apps</strong> caused by an outdated package.</li>
 </ul>
 <hr>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="2013-beta-4-feb-2025"><strong>2.0.13-beta (4 Feb 2025)</strong><a href="#2013-beta-4-feb-2025" class="hash-link" aria-label="Direct link to 2013-beta-4-feb-2025" title="Direct link to 2013-beta-4-feb-2025" translate="no">​</a></h2>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="added--26"><strong>Added ✨</strong><a href="#added--26" class="hash-link" aria-label="Direct link to added--26" title="Direct link to added--26" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="added--27"><strong>Added ✨</strong><a href="#added--27" class="hash-link" aria-label="Direct link to added--27" title="Direct link to added--27" translate="no">​</a></h4>
 <ul>
 <li class="">
 <p><strong>Git Integration for Cloud Projects (Web &amp; Windows)</strong></p>
@@ -934,7 +1015,7 @@
 </ul>
 </li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--33"><strong>Fixed 🩹</strong><a href="#fixed--33" class="hash-link" aria-label="Direct link to fixed--33" title="Direct link to fixed--33" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--34"><strong>Fixed 🩹</strong><a href="#fixed--34" class="hash-link" aria-label="Direct link to fixed--34" title="Direct link to fixed--34" translate="no">​</a></h4>
 <ul>
 <li class="">Fixed an issue causing <strong>App Preview to break when using multiple global states</strong>.</li>
 <li class="">Fixed <strong>Expansion Tile</strong> issues affecting UI behavior.</li>
@@ -942,7 +1023,7 @@
 </ul>
 <hr>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="2011-beta-7-jan-2025"><strong>2.0.11-beta (7 Jan 2025)</strong><a href="#2011-beta-7-jan-2025" class="hash-link" aria-label="Direct link to 2011-beta-7-jan-2025" title="Direct link to 2011-beta-7-jan-2025" translate="no">​</a></h2>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="added--27"><strong>Added ✨</strong><a href="#added--27" class="hash-link" aria-label="Direct link to added--27" title="Direct link to added--27" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="added--28"><strong>Added ✨</strong><a href="#added--28" class="hash-link" aria-label="Direct link to added--28" title="Direct link to added--28" translate="no">​</a></h4>
 <ul>
 <li class="">
 <p><strong>Expansion Tile Widget:</strong><br>
@@ -957,7 +1038,7 @@
 <!-- -->Simplify TextField styling by defining it once in your app theme. Each new TextField inherits the defined style automatically, streamlining UI consistency.</p>
 </li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--34"><strong>Fixed 🩹</strong><a href="#fixed--34" class="hash-link" aria-label="Direct link to fixed--34" title="Direct link to fixed--34" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--35"><strong>Fixed 🩹</strong><a href="#fixed--35" class="hash-link" aria-label="Direct link to fixed--35" title="Direct link to fixed--35" translate="no">​</a></h4>
 <ul>
 <li class="">Fixed an issue where widgets were being wrongly displaced on the board.</li>
 <li class="">Fixed the link menu not closing after an expression was chosen.</li>
@@ -966,7 +1047,7 @@
 </ul>
 <hr>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="2010-beta-16-dec-2024"><strong>2.0.10-beta (16 Dec 2024)</strong><a href="#2010-beta-16-dec-2024" class="hash-link" aria-label="Direct link to 2010-beta-16-dec-2024" title="Direct link to 2010-beta-16-dec-2024" translate="no">​</a></h2>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="added--28"><strong>Added ✨</strong><a href="#added--28" class="hash-link" aria-label="Direct link to added--28" title="Direct link to added--28" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="added--29"><strong>Added ✨</strong><a href="#added--29" class="hash-link" aria-label="Direct link to added--29" title="Direct link to added--29" translate="no">​</a></h4>
 <ul>
 <li class="">
 <p><strong>Play Mode on the Board:</strong><br>
@@ -993,7 +1074,7 @@
 <!-- -->Apps now run on the latest Flutter version, improving performance and stability.</p>
 </li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--35"><strong>Fixed 🩹</strong><a href="#fixed--35" class="hash-link" aria-label="Direct link to fixed--35" title="Direct link to fixed--35" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--36"><strong>Fixed 🩹</strong><a href="#fixed--36" class="hash-link" aria-label="Direct link to fixed--36" title="Direct link to fixed--36" translate="no">​</a></h4>
 <ul>
 <li class="">Fixed deployment failures on Android caused by file conflicts.</li>
 <li class="">Resolved “Screen or Component Not Found” errors caused by improper loading.</li>
@@ -1005,7 +1086,7 @@
 </ul>
 <hr>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="208-beta-28-nov-2024"><strong>2.0.8-beta (28 Nov 2024)</strong><a href="#208-beta-28-nov-2024" class="hash-link" aria-label="Direct link to 208-beta-28-nov-2024" title="Direct link to 208-beta-28-nov-2024" translate="no">​</a></h2>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="added--29"><strong>Added ✨</strong><a href="#added--29" class="hash-link" aria-label="Direct link to added--29" title="Direct link to added--29" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="added--30"><strong>Added ✨</strong><a href="#added--30" class="hash-link" aria-label="Direct link to added--30" title="Direct link to added--30" translate="no">​</a></h4>
 <ul>
 <li class="">
 <p><strong>New Workflow:</strong> Simplified navigation and improved productivity with features like:</p>
@@ -1053,10 +1134,10 @@
 <li class=""><strong>Generated Code Quality:</strong> Significant enhancements for cleaner, faster, and more maintainable Flutter code.</li>
 <li class=""><strong>Performance:</strong> Optimized performance for smoother navigation and faster response times.</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--36"><strong>Fixed 🩹</strong><a href="#fixed--36" class="hash-link" aria-label="Direct link to fixed--36" title="Direct link to fixed--36" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--37"><strong>Fixed 🩹</strong><a href="#fixed--37" class="hash-link" aria-label="Direct link to fixed--37" title="Direct link to fixed--37" translate="no">​</a></h4>
 <ul>
 <li class="">Various bug fixes reported during private testing.</li>
 <li class="">Usability improvments.</li>
-</ul></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/new/whats-new"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">What&#x27;s new</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/legacy"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Legacy tutorials</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#3140-13-october-2026" class="table-of-contents__link toc-highlight"><strong>3.14.0 (13 October 2026)</strong></a></li><li><a href="#3130-6-october-2026" class="table-of-contents__link toc-highlight"><strong>3.13.0 (6 October 2026)</strong></a></li><li><a href="#3125-25-september-2026" class="table-of-contents__link toc-highlight"><strong>3.12.5 (25 September 2026)</strong></a></li><li><a href="#3123-22-september-2026" class="table-of-contents__link toc-highlight"><strong>3.12.3 (22 September 2026)</strong></a></li><li><a href="#3120-15-september-2026" class="table-of-contents__link toc-highlight"><strong>3.12.0 (15 September 2026)</strong></a></li><li><a href="#gemini-37-flash-upgrade-13-august-2026" class="table-of-contents__link toc-highlight"><strong>Gemini 3.7 Flash Upgrade (13 August 2026)</strong></a></li><li><a href="#3105-14-july-2026" class="table-of-contents__link toc-highlight"><strong>3.10.5 (14 July 2026)</strong></a></li><li><a href="#39-13-june-2026" class="table-of-contents__link toc-highlight"><strong>3.9 (13 June 2026)</strong></a></li><li><a href="#373-26-april-2026" class="table-of-contents__link toc-highlight"><strong>3.7.3 (26 April 2026)</strong></a></li><li><a href="#372-23-april-2026" class="table-of-contents__link toc-highlight"><strong>3.7.2 (23 April 2026)</strong></a></li><li><a href="#361-12-march-2026" class="table-of-contents__link toc-highlight"><strong>3.6.1 (12 March 2026)</strong></a></li><li><a href="#36-6-march-2026" class="table-of-contents__link toc-highlight"><strong>3.6 (6 March 2026)</strong></a></li><li><a href="#35-9-february-2026" class="table-of-contents__link toc-highlight"><strong>3.5 (9 February 2026)</strong></a></li><li><a href="#34-19-january-2026" class="table-of-contents__link toc-highlight"><strong>3.4 (19 January 2026)</strong></a></li><li><a href="#335-30-december-2025" class="table-of-contents__link toc-highlight"><strong>3.3.5 (30 December 2025)</strong></a></li><li><a href="#333-15-december-2025" class="table-of-contents__link toc-highlight"><strong>3.3.3 (15 December 2025)</strong></a></li><li><a href="#332-10-december-2025" class="table-of-contents__link toc-highlight"><strong>3.3.2 (10 December 2025)</strong></a></li><li><a href="#320-14-november-2025" class="table-of-contents__link toc-highlight"><strong>3.2.0 (14 November 2025)</strong></a></li><li><a href="#312-25-october-2025" class="table-of-contents__link toc-highlight"><strong>3.1.2 (25 October 2025)</strong></a></li><li><a href="#310-21-october-2025" class="table-of-contents__link toc-highlight"><strong>3.1.0 (21 October 2025)</strong></a></li><li><a href="#3010-7-october-2025" class="table-of-contents__link toc-highlight"><strong>3.0.10 (7 October 2025)</strong></a></li><li><a href="#309-19-september-2025" class="table-of-contents__link toc-highlight"><strong>3.0.9 (19 September 2025)</strong></a></li><li><a href="#308-17-september-2025" class="table-of-contents__link toc-highlight"><strong>3.0.8 (17 September 2025)</strong></a></li><li><a href="#306-8-september-2025" class="table-of-contents__link toc-highlight"><strong>3.0.6 (8 September 2025)</strong></a></li><li><a href="#304-29-august-2025" class="table-of-contents__link toc-highlight"><strong>3.0.4 (29 August 2025)</strong></a></li><li><a href="#302-12-august-2025" class="table-of-contents__link toc-highlight"><strong>3.0.2 (12 August 2025)</strong></a></li><li><a href="#301-11-august-2025" class="table-of-contents__link toc-highlight"><strong>3.0.1 (11 August 2025)</strong></a></li><li><a href="#300-beta-4-august-2025" class="table-of-contents__link toc-highlight"><strong>3.0.0 BETA (4 August 2025)</strong></a></li><li><a href="#2021-27-may-2025" class="table-of-contents__link toc-highlight"><strong>2.0.21 (27 May 2025)</strong></a></li><li><a href="#2020-23-april-2025" class="table-of-contents__link toc-highlight"><strong>2.0.20 (23 April 2025)</strong></a></li><li><a href="#2019-6-april-2025" class="table-of-contents__link toc-highlight"><strong>2.0.19 (6 April 2025)</strong></a></li><li><a href="#2018-beta-12-march-2025" class="table-of-contents__link toc-highlight"><strong>2.0.18-beta (12 March 2025)</strong></a></li><li><a href="#2017-beta-5-march-2025" class="table-of-contents__link toc-highlight"><strong>2.0.17-beta (5 March 2025)</strong></a></li><li><a href="#2015-beta-12-feb-2025" class="table-of-contents__link toc-highlight"><strong>2.0.15-beta (12 Feb 2025)</strong></a></li><li><a href="#2014-29-jan-2025" class="table-of-contents__link toc-highlight"><strong>2.0.14 (29 Jan 2025)</strong></a></li><li><a href="#2013-beta-4-feb-2025" class="table-of-contents__link toc-highlight"><strong>2.0.13-beta (4 Feb 2025)</strong></a></li><li><a href="#2011-beta-7-jan-2025" class="table-of-contents__link toc-highlight"><strong>2.0.11-beta (7 Jan 2025)</strong></a></li><li><a href="#2010-beta-16-dec-2024" class="table-of-contents__link toc-highlight"><strong>2.0.10-beta (16 Dec 2024)</strong></a></li><li><a href="#208-beta-28-nov-2024" class="table-of-contents__link toc-highlight"><strong>2.0.8-beta (28 Nov 2024)</strong></a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Product</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://nowa.dev" target="_blank" rel="noopener noreferrer" class="footer__link-item">Main website<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://app.nowa.dev/signup" target="_blank" rel="noopener noreferrer" class="footer__link-item">Get started with Nowa<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://app.nowa.dev" target="_blank" rel="noopener noreferrer" class="footer__link-item">Sign In<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Resources &amp; Communities</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://www.youtube.com/channel/UCvP7LKeb2sW1yTUqHAFEKOw" target="_blank" rel="noopener noreferrer" class="footer__link-item">Youtube<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://discord.gg/ByKfn3H7gX" target="_blank" rel="noopener noreferrer" class="footer__link-item">Discord<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://www.reddit.com/r/nowa/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Reddit<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://community.nowa.dev/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Community forum<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://www.instagram.com/nowa.dev/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Instagram<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://www.linkedin.com/company/nowaengine/" target="_blank" rel="noopener noreferrer" class="footer__link-item">LinkedIn<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://twitter.com/nowa_dev" target="_blank" rel="noopener noreferrer" class="footer__link-item">Twitter<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 Nowa. All rights reserved</div></div></div></footer></div>
+</ul></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/new/whats-new"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">What&#x27;s new</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/legacy"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Legacy tutorials</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#3141-15-october-2026" class="table-of-contents__link toc-highlight"><strong>3.14.1 (15 October 2026)</strong></a></li><li><a href="#3140-13-october-2026" class="table-of-contents__link toc-highlight"><strong>3.14.0 (13 October 2026)</strong></a></li><li><a href="#3130-6-october-2026" class="table-of-contents__link toc-highlight"><strong>3.13.0 (6 October 2026)</strong></a></li><li><a href="#3125-25-september-2026" class="table-of-contents__link toc-highlight"><strong>3.12.5 (25 September 2026)</strong></a></li><li><a href="#3123-22-september-2026" class="table-of-contents__link toc-highlight"><strong>3.12.3 (22 September 2026)</strong></a></li><li><a href="#3120-15-september-2026" class="table-of-contents__link toc-highlight"><strong>3.12.0 (15 September 2026)</strong></a></li><li><a href="#gemini-37-flash-upgrade-13-august-2026" class="table-of-contents__link toc-highlight"><strong>Gemini 3.7 Flash Upgrade (13 August 2026)</strong></a></li><li><a href="#3105-14-july-2026" class="table-of-contents__link toc-highlight"><strong>3.10.5 (14 July 2026)</strong></a></li><li><a href="#39-13-june-2026" class="table-of-contents__link toc-highlight"><strong>3.9 (13 June 2026)</strong></a></li><li><a href="#373-26-april-2026" class="table-of-contents__link toc-highlight"><strong>3.7.3 (26 April 2026)</strong></a></li><li><a href="#372-23-april-2026" class="table-of-contents__link toc-highlight"><strong>3.7.2 (23 April 2026)</strong></a></li><li><a href="#361-12-march-2026" class="table-of-contents__link toc-highlight"><strong>3.6.1 (12 March 2026)</strong></a></li><li><a href="#36-6-march-2026" class="table-of-contents__link toc-highlight"><strong>3.6 (6 March 2026)</strong></a></li><li><a href="#35-9-february-2026" class="table-of-contents__link toc-highlight"><strong>3.5 (9 February 2026)</strong></a></li><li><a href="#34-19-january-2026" class="table-of-contents__link toc-highlight"><strong>3.4 (19 January 2026)</strong></a></li><li><a href="#335-30-december-2025" class="table-of-contents__link toc-highlight"><strong>3.3.5 (30 December 2025)</strong></a></li><li><a href="#333-15-december-2025" class="table-of-contents__link toc-highlight"><strong>3.3.3 (15 December 2025)</strong></a></li><li><a href="#332-10-december-2025" class="table-of-contents__link toc-highlight"><strong>3.3.2 (10 December 2025)</strong></a></li><li><a href="#320-14-november-2025" class="table-of-contents__link toc-highlight"><strong>3.2.0 (14 November 2025)</strong></a></li><li><a href="#312-25-october-2025" class="table-of-contents__link toc-highlight"><strong>3.1.2 (25 October 2025)</strong></a></li><li><a href="#310-21-october-2025" class="table-of-contents__link toc-highlight"><strong>3.1.0 (21 October 2025)</strong></a></li><li><a href="#3010-7-october-2025" class="table-of-contents__link toc-highlight"><strong>3.0.10 (7 October 2025)</strong></a></li><li><a href="#309-19-september-2025" class="table-of-contents__link toc-highlight"><strong>3.0.9 (19 September 2025)</strong></a></li><li><a href="#308-17-september-2025" class="table-of-contents__link toc-highlight"><strong>3.0.8 (17 September 2025)</strong></a></li><li><a href="#306-8-september-2025" class="table-of-contents__link toc-highlight"><strong>3.0.6 (8 September 2025)</strong></a></li><li><a href="#304-29-august-2025" class="table-of-contents__link toc-highlight"><strong>3.0.4 (29 August 2025)</strong></a></li><li><a href="#302-12-august-2025" class="table-of-contents__link toc-highlight"><strong>3.0.2 (12 August 2025)</strong></a></li><li><a href="#301-11-august-2025" class="table-of-contents__link toc-highlight"><strong>3.0.1 (11 August 2025)</strong></a></li><li><a href="#300-beta-4-august-2025" class="table-of-contents__link toc-highlight"><strong>3.0.0 BETA (4 August 2025)</strong></a></li><li><a href="#2021-27-may-2025" class="table-of-contents__link toc-highlight"><strong>2.0.21 (27 May 2025)</strong></a></li><li><a href="#2020-23-april-2025" class="table-of-contents__link toc-highlight"><strong>2.0.20 (23 April 2025)</strong></a></li><li><a href="#2019-6-april-2025" class="table-of-contents__link toc-highlight"><strong>2.0.19 (6 April 2025)</strong></a></li><li><a href="#2018-beta-12-march-2025" class="table-of-contents__link toc-highlight"><strong>2.0.18-beta (12 March 2025)</strong></a></li><li><a href="#2017-beta-5-march-2025" class="table-of-contents__link toc-highlight"><strong>2.0.17-beta (5 March 2025)</strong></a></li><li><a href="#2015-beta-12-feb-2025" class="table-of-contents__link toc-highlight"><strong>2.0.15-beta (12 Feb 2025)</strong></a></li><li><a href="#2014-29-jan-2025" class="table-of-contents__link toc-highlight"><strong>2.0.14 (29 Jan 2025)</strong></a></li><li><a href="#2013-beta-4-feb-2025" class="table-of-contents__link toc-highlight"><strong>2.0.13-beta (4 Feb 2025)</strong></a></li><li><a href="#2011-beta-7-jan-2025" class="table-of-contents__link toc-highlight"><strong>2.0.11-beta (7 Jan 2025)</strong></a></li><li><a href="#2010-beta-16-dec-2024" class="table-of-contents__link toc-highlight"><strong>2.0.10-beta (16 Dec 2024)</strong></a></li><li><a href="#208-beta-28-nov-2024" class="table-of-contents__link toc-highlight"><strong>2.0.8-beta (28 Nov 2024)</strong></a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Product</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://nowa.dev" target="_blank" rel="noopener noreferrer" class="footer__link-item">Main website<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://app.nowa.dev/signup" target="_blank" rel="noopener noreferrer" class="footer__link-item">Get started with Nowa<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://app.nowa.dev" target="_blank" rel="noopener noreferrer" class="footer__link-item">Sign In<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Resources &amp; Communities</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://www.youtube.com/channel/UCvP7LKeb2sW1yTUqHAFEKOw" target="_blank" rel="noopener noreferrer" class="footer__link-item">Youtube<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://discord.gg/ByKfn3H7gX" target="_blank" rel="noopener noreferrer" class="footer__link-item">Discord<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://www.reddit.com/r/nowa/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Reddit<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://community.nowa.dev/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Community forum<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://www.instagram.com/nowa.dev/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Instagram<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://www.linkedin.com/company/nowaengine/" target="_blank" rel="noopener noreferrer" class="footer__link-item">LinkedIn<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://twitter.com/nowa_dev" target="_blank" rel="noopener noreferrer" class="footer__link-item">Twitter<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 Nowa. All rights reserved</div></div></div></footer></div>
 </body>
 </html>

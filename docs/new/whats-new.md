@@ -10,7 +10,7 @@ sidebar_position: 1
 
 ### **3.14.1 (15 October 2026)**
 
-Nowa 3.14.1 makes designing faster and brings your app closer to the stores. 🎨 The board now works like Figma, with a zoom menu and Figma's shortcuts, the Library can show your widgets as a grid of previews, and you can swap any widget for one you copied. Your app icons and Android builds are also readier for the App Store and Google Play, and your forms can check that two fields match.
+Nowa 3.14.1 makes designing faster and brings your app closer to the stores. 🎨 The board now works like the design tools you know, with a zoom menu and familiar shortcuts, the Library can show your widgets as a grid of previews, and you can swap any widget for one you copied. Your app icons and Android builds are also readier for the App Store and Google Play, and your forms can check that two fields match.
 
 📋 Check all the details of this release in the [changelog](./change-log.md#3141-15-october-2026).
 
@@ -29,9 +29,9 @@ Nowa 3.14.1 makes designing faster and brings your app closer to the stores. �
 
   ![The + Add validator menu of a Text Field's validator in Details, with Min length, Max length, Email, Phone, Regex and the new Must match validator (highlighted)](/img/whats_new/3.14.1-must-match.png)
 
-- 🎨 **Move Around Your Board Like in Figma**
+- 🎨 **Move Around Your Board Like in a Design Tool**
   - **A zoom menu**: click the zoom level in the board toolbar to zoom in or out, fit everything, zoom to your selection or go back to 100%.
-  - **Figma's shortcuts**: **+** and **-** zoom in and out, **Shift + 1** fits everything, **Shift + 2** zooms to your selection and **Shift + 0** goes to 100%. Double-click to go one layer deeper, press **Enter** to select the layers inside, and press **Shift + Enter** or **Esc** to go back up. See [Keyboard shortcuts](../reference/shortcuts.md).
+  - **Familiar shortcuts**: **+** and **-** zoom in and out, **Shift + 1** fits everything, **Shift + 2** zooms to your selection and **Shift + 0** goes to 100%. Double-click to go one layer deeper, press **Enter** to select the layers inside, and press **Shift + Enter** or **Esc** to go back up. See [Keyboard shortcuts](../reference/shortcuts.md).
   - **Clear layer names**: the Outline names each layer by what it shows, such as an icon's name or an image's file.
 
   ![The board toolbar with its zoom level (100%) clicked: a menu above it lists Zoom in (+), Zoom out (-), Zoom to fit (Shift 1), Zoom to selection (Shift 2) and Zoom to 100% (Shift 0)](/img/whats_new/3.14.1-zoom-menu.png)

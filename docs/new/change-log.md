@@ -7,6 +7,119 @@ sidebar_position: 2
 
 ---
 
+## **3.15.0 (20 October 2026)**
+
+#### **Added 🌟**
+- **Padding and margin handles**: point at a selected widget's padding to see its bands and drag them. Each padding and margin is its own ring, and when a widget has several, each handle names its own, like **Padding 16** or **Container margin 8**. Handles show on padding that's set, and new padding is added in **Details**.
+- **Gap handles**: drag the space between the children of a row, a column or a wrap to set its `spacing`, and a wrap's `runSpacing`. A row that spreads its children out (space between, around or evenly) gets a fixed spacing once dragged.
+- **Corner handles**: a dot inside each corner rounds all four corners, or only its own with **Alt** (**Option** on Mac). The radius goes where it's already written, like a `ClipRRect`, a `BoxDecoration` or a card's shape.
+- **Rotate and flip**: turn a widget from just outside its corners, in 15° steps with **Shift**. **Shift + H** and **Shift + V** flip it, and so does **Flip** in the right-click menu.
+- **Shadow handle**: a widget with a shadow shows a handle where its shadow falls. Drag it to move the shadow.
+- **Gradient editor**: **Edit gradient** in the right-click menu shows a gradient's ends, center, radius and color stops on the board, as a design tool's gradient editor does. Ends snap to the box's edges and middle, **Shift** keeps the line to 45° steps, and **Esc** finishes.
+- **Size label**: the selection's size shows under it, like `120 × 48`, with **Auto** or **Expand** for a side that fits its content or fills the space.
+- **Measuring**: hold **Alt** (**Option** on Mac) to see the distances from the selection to the widget under the pointer, or to what holds it.
+- **Align and distribute**: for widgets placed freely, in a stack or on the board, design-tool keys: **Alt + A**, **Alt + H** and **Alt + D** align left, center and right, **Alt + W**, **Alt + V** and **Alt + S** align top, middle and bottom, and **Alt + Shift + H** or **Alt + Shift + V** distribute three or more (**Option** on Mac). They're also under **Align** in the right-click menu.
+- **Spacing handles**: several widgets placed freely side by side, in the same stack or on the board, show the gaps between them, and dragging one sets them all.
+- **Auto layout**: **Shift + A** puts the selected widgets in a row or a column, spaced as they were, and **Shift + Alt + A** (**Shift + Option + A** on Mac) turns a row or a column back into a stack, its children staying where they are. The children of a row or a column get dotted outlines on hover.
+- **Wrappers on the board**: a selected widget with wrappers shows them as chips on top of it, outermost first. Pointing at a chip outlines that layer and the padding it adds, and holding **Ctrl** (**Control** on Mac) shows every layer of the widget under the pointer.
+- **One frame per widget**: when a handle has nowhere to write yet, like a turn, or rounded corners on an image, it adds one Container around the widget, which later handles write into too. What's already written somewhere, like your own Padding or ClipRRect, is edited where it is.
+- **Simplify wrappers**: in the right-click menu, folds a widget's stack of wrappers into one Container wherever it looks the same, in one undo step.
+- **Components like design-tool instances**: a component stays closed until you edit it. Double-click enters it at its top layer, the rest of the board dims around an **Editing** label, and an **Editing … Done** bar sits at the top of **Details**.
+- **List items**: clicking a widget a loop builds selects that item. The 12 nearest other items are outlined, and the size label says which one it is, like `2 of 3`.
+- **Notes in Details**: under a widget's name, **Details** says what the code around it does, like "For each product in products", "Shown when product.isNew", "Rebuilds when counter changes", "Built by _build()" or "From badge". Screens built through a builder are shown through it, and when a helper can't be shown, Details says why.
+- **Variant section**: a widget with `@Preview` variants switches between them from **Details**, and the switch can be undone.
+- **Helpers and variables in Details**: a helper's call shows its name with a field for each argument and **Edit** to go inside, a variable shows its name and **Edit**, and a child taken from a variable is a **Child** row that selects it.
+- **Selection colors**: a selection of many layers lists its colors in **Details**, and marks the ones written as values instead of taken from the theme.
+- **Every widget theme**: the **Themes** panel covers all of `ThemeData`'s widget themes (more than 50), grouped and searchable, each with a preview and an editor.
+- **Text styles**: a real text style editor, and a text style picker that draws each style, with a tab for each theme extension.
+- **Activity line in the AI chat**: the agent's work shows as one line. While it works, the line says what the agent is doing ("Looking at the Home page…", "Thinking…"), and after 20 seconds how long it has been at it. When it's done, the line sums it up, like "Built the Login screen and updated the Home page". Tap it to list each step and open the file, screen or component a change made.
+- **Credit limit pause**: when one request hits your plan's limit, the chat says "Nowa paused: this request hit your plan's limit. You still have credits left." with a **Continue** button.
+- **Organizations**: if you belong to an organization, the dashboard sidebar has an organization picker that scopes your workspaces, billing, usage and AI credits to it. With an organization picked, account settings get an **Organization** tab with seats, members, invites, roles and the organization's workspaces, which are open to everyone in it. While an organization is picked, Nowa AI uses its credits, also in your personal projects.
+- **Run settings**: in local projects, extra `flutter run` arguments go in `.nowa/run.local`, one per line (`#` skips one), which Git ignores. Project settings get a **Run** page with a switch for each argument, and the **Run** tooltip names them.
+- **Git sync in the status bar**: the branch shows a `*` when you have local changes, and its ↓behind ↑ahead counts now show whenever the branch has an upstream, even with local changes. Click them to sync. They spin while Nowa syncs or fetches, and the tooltip names the upstream and when it was last fetched.
+
+#### **Improved ⚙️**
+- **Smart guides**: snapping reaches 6 px on screen at any zoom. Guides are red, with a cross where each edge or center meets them and the distance to what you line up with, and a widget also snaps to its neighbors' spacing, with the equal gaps marked.
+- **Locked values**: a handle whose value comes from a constant or from data shows as locked and says where the value comes from, and a move that can't happen says why beside the pointer.
+- **Themes panel**: edits any theme however it's written, following variables, getters, functions, `copyWith`, `merge` and lists to where each value is set. It adds values that aren't set yet, and says why when one can't be written. A theme extension's `onX` colors show paired with their `x`.
+- **Board themes**: boards use the package's own theme. When `main.dart` has none, the theme you pick in **Themes** is used and remembered in `.nowa/settings.json`, and board settings no longer have a theme switcher.
+- **Pickers**: open beside their panel, level with their row, sized to what they show, and close with **Esc** or a click outside.
+- **Theme edits on big boards**: only the widgets that read the theme rebuild, boards out of view catch up when they're back in view, changes apply without animating, and the panel does less work on each step of a color drag.
+- **Wrappers in Details**: each wrapper is its own section under the widget. It starts closed and shows its name and what it sets, like "Padding 16" or "Margin 8 · Color #FF0000 · Radius 12". Hovering highlights it, and wrappers stay out of the breadcrumbs.
+- **Row and Column padding**: a Row or a Column no longer has its own padding field. Its padding shows as a Padding wrapper section, and the onboarding's padding step points at **Add Wrapper**.
+- **Right-click menus**: short and grouped, as in a design tool: copy and paste, then order (with **Order** for one step at a time), then grouping and auto layout, then **Align**, **Edit gradient** and **Flip**, then components and replacing. **Add auto layout** shows only for several widgets, and components no longer offer **Create component**.
+- **Board panels**: the panels on a board fold into chips, and an open panel is a card. Cards on one side share a width you can drag, and with a card open, the closed panels are buttons in its header. The **Outline** is docked on every board and starts closed instead of sitting in the side bar, and opening it unfolds to the selected widget. With the Outline out of the side bar, **Ctrl/Cmd + 6** now opens **Api**, and the panels after it move up one.
+- **AI chat**: the activity line replaces the typing indicator and the code cards. Code cards can no longer be dragged onto the board: each change is a step with an open button, and the raw call is under the message's options. A response you stop ends with "You stopped this response."
+- **AI reliability**: failed requests are retried, short connection and server problems no longer end a run, and stopping or running out of credits keeps the work already done. Tool results match what happened: failed edits are rolled back and reported as failures.
+- **AI follow-through**: each request carries the run's open issues (failed steps, actions you declined and new errors), so the agent fixes or reports them instead of claiming success, and a task ticked with nothing changed gets a note.
+- **AI and credits**: a large selected or open screen goes as an outline, very large text attachments are trimmed, an unchanged selection isn't sent again, repeated reads with nothing changed in between are refused, several parts of a file are read in one step, and problem reports quote one line instead of a whole method. Each message uses fewer credits, and tasks take fewer steps.
+- **Render checks**: the built-in agents can check that the screens they build render without errors at phone and tablet sizes, with images in lists drawn and no false errors on chips, list tiles, date pickers and navigation bars.
+- **Errors the AI can act on**: a syntax error quotes its lines, each new problem names its line, and an edit that breaks a YAML, ARB or XML file says so.
+- **AI modes**: each mode keeps to its own tools, so **Plan** mode can read your database but can't change your project. The database switch is remembered for each project, and a project reopens on its latest chat.
+- **AI and Supabase**: the agent uses your connected Supabase tools, and is guided to turn on row-level security for every table it creates or changes, with rows scoped to their owner when your app has sign-in.
+- **AI and permissions**: the agent adds app permissions through Nowa's settings, and no longer edits `Info.plist`, `AndroidManifest.xml` or the `.nowa` folder directly.
+- **Design mode**: runs no longer end with a "Your app design is complete" card.
+- **AI on cloud projects**: the agent saves its changes much faster, also while the tab is in the background.
+- **Saving code**: const constructors, class modifiers and type parameters, widget mixins, const maps, typedefs and the order of declarations are kept as written, and replaced code keeps its place in the file.
+- **Loading screens**: screens with small functions that return numbers load and save faster.
+- **Running your app**: hot reload and restart show their progress. The restart button spins while Flutter reloads and turns red with the reason when a reload is rejected. Edits from outside Nowa, like an agent's, hot reload the running app once the writes settle, and a `pubspec.yaml` change asks for a new run. Without a Flutter SDK, the run picker says so and offers the setup.
+- **Git panel**: refresh is now **Fetch**, the branches menu shows how long ago each branch's last commit was, most recent first, and changed files get an **Open file** button.
+- **Editors**: a text file's edits save in any mode, a Dart file opens on its first widget, the logs open scrolled to the end, and **Files** shows folders like `.nowa` and `.vscode`.
+- **Menus**: entries use regular body text, and the command palette's labels are regular weight again.
+- **Welcome tour**: waits until the AI has finished building your new app.
+
+#### **Fixed 🩹**
+- Fixed **a common cause of "No response" errors** from Nowa AI in the web app.
+- Fixed **widgets that take both an icon and a child** turning the canvas grey.
+- Fixed **a false "Too many positional arguments" error** on valid code, like calling `setState` inside a `StatefulBuilder`, which made the AI rewrite code that worked.
+- Fixed **a false type error** when a function is passed where any `Function` is accepted, and a `StatefulBuilder`'s `setState` call missing its callback not being caught.
+- Fixed **the AI changing a different widget** than the one you selected, and chasing problems that were already fixed.
+- Fixed **the AI stopping on Supabase tasks** instead of using your connected Supabase tools.
+- Fixed **stopping the AI or running out of credits** losing the work it had already done.
+- Fixed **the AI losing helper code** when it wrote new files, and reporting a change as done when part of it didn't save.
+- Fixed **Enter sending a half-typed message** in the AI chat while typing Japanese or Chinese in the Mac app.
+- Fixed **Plan mode** being able to change your project, and the database switch turning off between visits.
+- Fixed **app permissions the AI added** being lost.
+- Fixed **screens on the board** not updating after the AI edited them until you clicked them.
+- Fixed **a stateful widget on the board** showing bare default values, or an error box for a `late` controller, after you changed one of its fields.
+- Fixed **the AI's highlight** on the widgets it works on not following a switch between light and dark.
+- Fixed **false "View.of()" and null-check errors** in the Logs panel and in Play after Nowa AI checked a screen with images in a list.
+- Fixed **screens that failed to render** staying broken until **Reload screen**, even after the next change fixed them.
+- Fixed **the preview stopping** on "Failed to start/restart session: 409".
+- Fixed **enabling RevenueCat or finishing the Stripe setup** replacing your own code in Android's `MainActivity.kt`.
+- Fixed **saved code** losing a `!` or `?.` you wrote, like `friendMap[authorId]!` becoming `friendMap[authorId!]`, or getting ones Dart doesn't need, including inside brackets.
+- Fixed **printing a value that can be null** being saved with a `!` that crashes when the value is null.
+- Fixed **closures** losing their parameter types, optional brackets and default values when saved.
+- Fixed **`final`, `const` and `late` variables set to `null`** losing their `= null`, so the code no longer compiled.
+- Fixed **extension members** being saved as `static`, like `safeSetState` and setters, or losing a `static` they had.
+- Fixed **generic extensions** losing their type parameters, like the `<T>` in `extension FirstOr<T> on List<T>`.
+- Fixed **annotations being removed** when Nowa saved code: `@pragma` (which Firebase background message handlers need in release builds), `@Deprecated`, a field's `@override`, package annotations like `@JsonSerializable`, `@JsonKey` and `@HiveType`, and annotations on extension members, enum values and widget constructors.
+- Fixed **decimal numbers like `1.0`** being saved as whole numbers in Nowa on the web, and lists of them written in code, like `stops: [0.0, 0.5, 1.0]`, being reported as errors.
+- Fixed **numbers in brackets**, like the `1` in `pressed ? 0.9 : (selected ? 1.1 : 1)`, being reported as the wrong type, and gradient stops written this way breaking the preview.
+- Fixed **map keys** being saved as the map's value type, like `scores[1]` becoming `scores[1.0]`, or with a `?` or `!` that broke the code.
+- Fixed **switching a property to another constructor** in the designer writing broken code like `Border.Border()`, and the switch undoing itself after the next change.
+- Fixed **false errors** on the results of `clamp` and `remainder`.
+- Fixed **dot shorthands** like `on ? .start : .center`, `(.start)` and `[.start]` showing a false "Undefined name" error and an error box on the canvas.
+- Fixed **`name.characters`** being reported as an error and failing in the preview.
+- Fixed **typed lists, sets and maps** like `<double>[0]` holding whole numbers in the preview.
+- Fixed **a function that returns a function**, or one that returns a shorthand like `.center`, failing to save.
+- Fixed **lists that mix kinds of items**, like dropdown items with a "None" item or text spans of different kinds, being reported as the wrong type.
+- Fixed **Copy as new widget** making code that didn't compile: getters, setters, operators, fields with defaults, `const` constructors and custom functions are now copied as they should be.
+- Fixed **radio buttons in a `RadioGroup`** not showing which one is selected on the canvas, or not responding to taps.
+- Fixed **code using a package Nowa can't fully read**, like file_picker's `pickFiles()`, being reported as using a `void` value in local projects.
+- Fixed **a false "undefined" error** after an `is!` check, like in `if (box is! RenderBox || !box.hasSize) return;`.
+- Fixed **a State's method passed as a builder**, like `builder: _buildMenu`, failing on the board with a null-check error.
+- Fixed **selecting a text with a variable in it**, like `'Hi, $userName'`, breaking its field and the board while a screen reader is on.
+- Fixed **undoing a change to a group on the board**, like turning a stack into a column from the group panel, failing with an error.
+- Fixed **the Fix and Undo buttons** on snackbars not being visible.
+- Fixed **loops and conditions** showing as "null" in widget lists.
+- Fixed **trackpad scrolling over a color picker** changing the color.
+- Fixed **a pull in a local project** overwriting your uncommitted changes. It now stops with "Your uncommitted changes would be overwritten. Commit them first, then sync again."
+- Fixed **text files in an unknown language** failing to open.
+- Fixed **package caches** not refreshing after an update on Windows.
+
+---
+
 ## **3.14.1 (15 October 2026)**
 
 #### **Added 🌟**

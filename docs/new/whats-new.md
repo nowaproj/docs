@@ -8,6 +8,91 @@ sidebar_position: 1
 
 ---
 
+### **3.15.0 (20 October 2026)**
+
+Nowa 3.15 turns your board into a real design tool. 🎨 Drag padding, gaps, corners and shadows right on your widgets, measure and line things up with familiar shortcuts, while a clearer Details panel tells you what each widget does. The Themes panel can now edit any theme, Nowa AI shows its work in one live line and is much more reliable, and teams get organizations with shared workspaces and credits.
+
+📋 Check all the details of this release in the [changelog](./change-log.md#3150-20-october-2026).
+
+#### **New in This Version ✨**
+
+- 🎨 **Design Right on the Board, Like in a Design Tool**
+  Select a widget and shape it right where you see it:
+  - **Padding and margins**: point at a widget's padding to see it, then drag its edge. Each padding and margin is its own ring, so you always know which one you're changing. New padding is still added in **Details**.
+  - **Gaps**: drag the space between the children of a row, a column or a wrap.
+  - **Corners, rotation and shadows**: drag the dot inside a corner to round the corners, turn a widget from just outside a corner, and drag a shadow to where it should fall. **Shift + H** and **Shift + V** flip a widget.
+  - **Gradients**: right-click a widget with a gradient and choose **Edit gradient** to drag its ends and color stops.
+
+  Handles show their value as you drag, and the padding, gap and corner handles work on several widgets at once. A value that comes from your code, like a constant, shows as locked and tells you where it comes from.
+
+  <video controls playsInline preload="metadata" width="100%" poster="/videos/whats-new/3.15.0-board-handles.jpg">
+    <source src="/videos/whats-new/3.15.0-board-handles.mp4" type="video/mp4" />
+  </video>
+
+- 📐 **Measure, Snap and Line Things Up**
+  - **Sizes at a glance**: the size of your selection shows under it, with **Auto** or **Expand** when a side fits its content or fills the space.
+  - **Measure**: hold **Alt** (**Option** on Mac) and point at another widget to see how far apart they are.
+  - **Smarter snapping**: guides now show the distance to what you line up with, and widgets also snap to equal gaps, which are marked.
+  - **Align and space**: for widgets placed freely, in a stack or on the board, familiar keys work, like **Alt + A** to align left and **Alt + Shift + H** to space three or more evenly (**Option** instead of **Alt** on Mac). Select a few and drag the gap between them to space them all the same.
+  - **Auto layout**: press **Shift + A** to put the selected widgets in a row or a column, and **Shift + Alt + A** to turn a row or a column back into freely placed widgets.
+
+  <video controls playsInline preload="metadata" width="100%" poster="/videos/whats-new/3.15.0-measure-snap.jpg">
+    <source src="/videos/whats-new/3.15.0-measure-snap.mp4" type="video/mp4" />
+  </video>
+
+- 🧩 **Components, Wrappers and Lists, the Way You Expect**
+  - **Components work like instances in a design tool**: a component stays closed until you double-click it. While you edit it, the rest of the board dims, and **Done** in **Details** takes you back out.
+  - **Wrappers at a glance**: a widget's wrappers, like a **Padding** or a **Container**, show as chips on top of it. Point at one to see what it adds, or hold **Ctrl** (**Control**, not Cmd, on Mac) to see every layer.
+  - **Fewer wrappers**: turns and rounded image corners you add on the board go into one Container, and **Simplify wrappers** in the right-click menu folds an existing stack of wrappers into one.
+  - **Lists**: click an item in a list to select that one, and the size label tells you which it is, like **2 of 3**.
+
+  <video controls playsInline preload="metadata" width="100%" poster="/videos/whats-new/3.15.0-components-wrappers.jpg">
+    <source src="/videos/whats-new/3.15.0-components-wrappers.mp4" type="video/mp4" />
+  </video>
+
+- 🗂️ **A Details Panel That Explains Itself**
+  Under a widget's name, **Details** now says what the code around it does, like *For each product in products* or *Shown when product.isNew*. Each wrapper is a tidy section with a one-line summary, like **Padding 16**, and a row's or column's padding now shows as a Padding wrapper too. Widgets with `@Preview` variants switch between them from the new **Variant** section.
+
+- 🎨 **A Themes Panel That Edits Any Theme**
+  The **Themes** panel now works with any theme, however it's written in your code, and tells you why when something can't be changed.
+  - **Every widget's theme**: all of Flutter's widget themes, more than 50, grouped, searchable and each with a preview.
+  - **Better text styles**: a real text style editor, and a picker that shows each style, with a tab for each theme extension.
+  - **Quicker to use**: pickers open right beside the panel, color changes apply faster on big projects, and your boards use your project's own theme.
+
+- 🤖 **Nowa AI Shows Its Work, and Gets It Done**
+  - **One live line**: while Nowa AI works, the chat shows one line that says what it's doing right now. When it's done, the line sums up what it did, like *Built the Login screen and updated the Home page*. Tap it to see every step and open what changed.
+  - **Much more reliable**: the AI gets past connection hiccups on its own, keeps its work when you stop it or run out of credits, can check that the screens it builds show without errors on phones and tablets, and tells you when a change didn't save.
+  - **Fewer credits for the same work**: it reads your project smarter and stops repeating itself, so tasks finish sooner and each message costs less.
+  - **Safer with your app and data**: **Plan** mode can read your database but never changes your app, and with Supabase, the AI uses your connected tools and is more careful to keep your data private.
+
+  <video controls playsInline preload="metadata" width="100%" poster="/videos/whats-new/3.15.0-ai-activity-line.jpg">
+    <source src="/videos/whats-new/3.15.0-ai-activity-line.mp4" type="video/mp4" />
+  </video>
+
+- 👥 **Organizations for Teams**
+  Teams on an organization plan can switch to their organization from the dashboard sidebar to share its workspaces, billing and AI credits. With your organization picked, the new **Organization** tab in your account settings handles seats, members, invites and roles.
+
+- 📖 **Your Code Stays as You Wrote It**
+  When Nowa saves your code, it now keeps your annotations, like `@pragma` (so Firebase background messages keep working in release builds) and `@JsonSerializable`, and every `!` and `?.` right where you put them. **Copy as new widget** now makes code that compiles, and many false errors are gone, like the ones on dot shorthands, `clamp` and lists that mix kinds of items.
+
+- ✨ **Smaller Touches**
+  - **The Outline lives on your board**: the panels on your board fold into small chips, and the Outline opens right at the widget you selected.
+  - **Shorter right-click menus**, grouped like a design tool's, with **Align**, **Flip** and **Edit gradient** right there.
+  - **Clear credit limits**: when one request hits your plan's limit, Nowa pauses and tells you, and you can **Continue** with the credits you have left.
+  - **Screens fix themselves**: a screen that failed to show comes back after your next change, and screens update as soon as Nowa AI edits them.
+  - **The welcome tour** waits until Nowa AI has built your new app.
+
+- 💻 **For Those Who Code**
+  When you run your app on a device or simulator, the restart button shows when a reload is under way and why one failed, and edits from outside Nowa (like your own AI agent's) hot reload the running app. In local projects, the new **Run** page in your project settings holds your own `flutter run` arguments. In Git, the branch in the status bar marks local changes with `*` and syncs in one click, the branch menu shows how long ago each branch was last committed to, and in local projects a pull never overwrites your uncommitted changes.
+
+#### **Bug Fixes 🩹**
+
+We fixed more than 45 bugs across the visual designer, saving your code, Nowa AI, the preview, the Themes panel, RevenueCat and Stripe on Android, Git, and updates on Windows. See every fix in the [changelog](./change-log.md#3150-20-october-2026).
+
+➡️ We'd love to hear how designing on the board feels now! Click the **? icon** to chat with us directly, or email us at `team@nowa.dev`. Happy building!
+
+---
+
 ### **3.14.1 (15 October 2026)**
 
 Nowa 3.14.1 makes designing faster and brings your app closer to the stores. 🎨 The board now works like the design tools you know, with a zoom menu and familiar shortcuts, the Library can show your widgets as a grid of previews, and you can swap any widget for one you copied. Your app icons and Android builds are also readier for the App Store and Google Play, and your forms can check that two fields match.

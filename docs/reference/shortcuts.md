@@ -70,9 +70,8 @@ Press <kbd>Ctrl</kbd> (<kbd>Cmd</kbd> on macOS) and a number to open a panel. Pr
 | **Themes** | <kbd>Ctrl</kbd> + <kbd>3</kbd> | <kbd>Cmd</kbd> + <kbd>3</kbd> |
 | **Search** | <kbd>Ctrl</kbd> + <kbd>4</kbd> or <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd> | <kbd>Cmd</kbd> + <kbd>4</kbd> or <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd> |
 | **Git** | <kbd>Ctrl</kbd> + <kbd>5</kbd> | <kbd>Cmd</kbd> + <kbd>5</kbd> |
-| **Outline** | <kbd>Ctrl</kbd> + <kbd>6</kbd> | <kbd>Cmd</kbd> + <kbd>6</kbd> |
-| **Api** | <kbd>Ctrl</kbd> + <kbd>7</kbd> | <kbd>Cmd</kbd> + <kbd>7</kbd> |
-| **Supabase** | <kbd>Ctrl</kbd> + <kbd>8</kbd> | <kbd>Cmd</kbd> + <kbd>8</kbd> |
+| **Api** | <kbd>Ctrl</kbd> + <kbd>6</kbd> | <kbd>Cmd</kbd> + <kbd>6</kbd> |
+| **Supabase** | <kbd>Ctrl</kbd> + <kbd>7</kbd> | <kbd>Cmd</kbd> + <kbd>7</kbd> |
 
 **Router** has no shortcut. In the playground, and in a public project you open as a guest, there's no **Git** panel, so the panels after **Search** move up one number.
 

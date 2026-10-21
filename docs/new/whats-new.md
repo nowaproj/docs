@@ -10,7 +10,7 @@ sidebar_position: 1
 
 ### **3.15.0 (20 October 2026)**
 
-Nowa 3.15 turns your board into a real design tool. 🎨 Drag padding, gaps, corners and shadows right on your widgets, snap to smart guides and line things up with familiar shortcuts, while a clearer Details panel tells you what each widget does. The Themes panel can now edit any theme, Nowa AI shows its work in one live line and is much more reliable, and teams get organizations with shared workspaces and credits.
+Nowa 3.15 turns your board into a real design tool. 🎨 Drag padding, gaps, corners and shadows right on your widgets, measure and line things up with familiar shortcuts, while a clearer Details panel tells you what each widget does. The Themes panel can now edit any theme, Nowa AI shows its work in one live line and is much more reliable, and teams get organizations with shared workspaces and credits.
 
 📋 Check all the details of this release in the [changelog](./change-log.md#3150-20-october-2026).
 
@@ -18,12 +18,12 @@ Nowa 3.15 turns your board into a real design tool. 🎨 Drag padding, gaps, cor
 
 - 🎨 **Design Right on the Board, Like in a Design Tool**
   Select a widget and shape it right where you see it:
-  - **Padding and margins**: point at a widget's padding to see it, then drag its edge. Each padding and margin is its own ring, so you always know which one you're changing.
+  - **Padding and margins**: point at a widget's padding to see it, then drag its edge. Each padding and margin is its own ring, so you always know which one you're changing. New padding is still added in **Details**.
   - **Gaps**: drag the space between the children of a row, a column or a wrap.
   - **Corners, rotation and shadows**: drag the dot inside a corner to round the corners, turn a widget from just outside a corner, and drag a shadow to where it should fall. **Shift + H** and **Shift + V** flip a widget.
   - **Gradients**: right-click a widget with a gradient and choose **Edit gradient** to drag its ends and color stops.
 
-  Handles show their value as you drag, and most of them work on several widgets at once. A value that comes from your code, like a constant, shows as locked and tells you where it comes from.
+  Handles show their value as you drag, and the padding, gap and corner handles work on several widgets at once. A value that comes from your code, like a constant, shows as locked and tells you where it comes from.
 
   <video controls playsInline preload="metadata" width="100%" poster="/videos/whats-new/3.15.0-board-handles.jpg">
     <source src="/videos/whats-new/3.15.0-board-handles.mp4" type="video/mp4" />
@@ -32,9 +32,9 @@ Nowa 3.15 turns your board into a real design tool. 🎨 Drag padding, gaps, cor
 - 📐 **Measure, Snap and Line Things Up**
   - **Sizes at a glance**: the size of your selection shows under it, with **Auto** or **Expand** when a side fits its content or fills the space.
   - **Measure**: hold **Alt** (**Option** on Mac) and point at another widget to see how far apart they are.
-  - **Smart guides**: widgets snap to the edges and centers around them as you move them, and equal gaps are marked.
-  - **Align and space**: familiar keys work, like **Alt + A** to align left and **Alt + Shift + H** to space widgets evenly (**Option** instead of **Alt** on Mac). Select a few widgets and drag the gap between them to space them all the same.
-  - **Auto layout**: press **Shift + A** to put the selected widgets in a row or a column, and **Shift + Alt + A** to take them out again.
+  - **Smarter snapping**: guides now show the distance to what you line up with, and widgets also snap to equal gaps, which are marked.
+  - **Align and space**: for widgets placed freely, in a stack or on the board, familiar keys work, like **Alt + A** to align left and **Alt + Shift + H** to space three or more evenly (**Option** instead of **Alt** on Mac). Select a few and drag the gap between them to space them all the same.
+  - **Auto layout**: press **Shift + A** to put the selected widgets in a row or a column, and **Shift + Alt + A** to turn a row or a column back into freely placed widgets.
 
   <video controls playsInline preload="metadata" width="100%" poster="/videos/whats-new/3.15.0-measure-snap.jpg">
     <source src="/videos/whats-new/3.15.0-measure-snap.mp4" type="video/mp4" />
@@ -42,8 +42,8 @@ Nowa 3.15 turns your board into a real design tool. 🎨 Drag padding, gaps, cor
 
 - 🧩 **Components, Wrappers and Lists, the Way You Expect**
   - **Components work like instances in a design tool**: a component stays closed until you double-click it. While you edit it, the rest of the board dims, and **Done** in **Details** takes you back out.
-  - **Wrappers at a glance**: a widget's wrappers, like a **Padding** or a **Container**, show as chips on top of it. Point at one to see what it adds, or hold **Ctrl** to see every layer.
-  - **Fewer wrappers**: padding, corners and turns you add on the board go into one Container, and **Simplify wrappers** in the right-click menu folds an existing stack of wrappers into one.
+  - **Wrappers at a glance**: a widget's wrappers, like a **Padding** or a **Container**, show as chips on top of it. Point at one to see what it adds, or hold **Ctrl** (**Control**, not Cmd, on Mac) to see every layer.
+  - **Fewer wrappers**: turns and rounded image corners you add on the board go into one Container, and **Simplify wrappers** in the right-click menu folds an existing stack of wrappers into one.
   - **Lists**: click an item in a list to select that one, and the size label tells you which it is, like **2 of 3**.
 
   <video controls playsInline preload="metadata" width="100%" poster="/videos/whats-new/3.15.0-components-wrappers.jpg">
@@ -61,7 +61,7 @@ Nowa 3.15 turns your board into a real design tool. 🎨 Drag padding, gaps, cor
 
 - 🤖 **Nowa AI Shows Its Work, and Gets It Done**
   - **One live line**: while Nowa AI works, the chat shows one line that says what it's doing right now. When it's done, the line sums up what it did, like *Built the Login screen and updated the Home page*. Tap it to see every step and open what changed.
-  - **Much more reliable**: the AI gets past connection hiccups on its own, keeps its work when you stop it or run out of credits, checks that the screens it builds show without errors on phones and tablets, and tells you when a change didn't save.
+  - **Much more reliable**: the AI gets past connection hiccups on its own, keeps its work when you stop it or run out of credits, can check that the screens it builds show without errors on phones and tablets, and tells you when a change didn't save.
   - **Fewer credits for the same work**: it reads your project smarter and stops repeating itself, so tasks finish sooner and each message costs less.
   - **Safer with your app and data**: **Plan** mode can read your database but never changes your app, and with Supabase, the AI uses your connected tools and is more careful to keep your data private.
 
@@ -70,7 +70,7 @@ Nowa 3.15 turns your board into a real design tool. 🎨 Drag padding, gaps, cor
   </video>
 
 - 👥 **Organizations for Teams**
-  Teams on an organization plan can switch to their organization from the dashboard sidebar to share its workspaces, billing and AI credits. The new **Organization** tab in your account settings handles seats, members, invites and roles.
+  Teams on an organization plan can switch to their organization from the dashboard sidebar to share its workspaces, billing and AI credits. With your organization picked, the new **Organization** tab in your account settings handles seats, members, invites and roles.
 
 - 📖 **Your Code Stays as You Wrote It**
   When Nowa saves your code, it now keeps your annotations, like `@pragma` (so Firebase background messages keep working in release builds) and `@JsonSerializable`, and every `!` and `?.` right where you put them. **Copy as new widget** now makes code that compiles, and many false errors are gone, like the ones on dot shorthands, `clamp` and lists that mix kinds of items.
@@ -83,7 +83,7 @@ Nowa 3.15 turns your board into a real design tool. 🎨 Drag padding, gaps, cor
   - **The welcome tour** waits until Nowa AI has built your new app.
 
 - 💻 **For Those Who Code**
-  When you run your app on a device or simulator, the restart button shows when a reload is under way and why one failed, edits from outside Nowa (like your own AI agent's) hot reload the running app, and the new **Run** page in your project settings holds your own `flutter run` arguments. In Git, the status bar shows your branch and syncs it in one click, the branch menu shows each branch's last commit, and in local projects a pull never overwrites your uncommitted changes.
+  When you run your app on a device or simulator, the restart button shows when a reload is under way and why one failed, and edits from outside Nowa (like your own AI agent's) hot reload the running app. In local projects, the new **Run** page in your project settings holds your own `flutter run` arguments. In Git, the branch in the status bar marks local changes with `*` and syncs in one click, the branch menu shows how long ago each branch was last committed to, and in local projects a pull never overwrites your uncommitted changes.
 
 #### **Bug Fixes 🩹**
 

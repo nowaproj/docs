@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://us.i.posthog.com">
 <script>!function(t,e){var o,s,r,a;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,n,p){function c(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(r=t.createElement("script")).type="text/javascript",r.async=!0,r.src=n.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(a=t.getElementsByTagName("script")[0]).parentNode.insertBefore(r,a);var g=e;for(void 0!==p?g=e[p]=[]:p="posthog",g.people=g.people||[],g.toString=function(t){var e="posthog";return"posthog"!==p&&(e+="."+p),t||(e+=" (stub)"),e},g.people.toString=function(){return g.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys onSessionId".split(" "),s=0;s<o.length;s++)c(g,o[s]);e._i.push([i,n,p])},e.__SV=1)}(document,window.posthog||[]),posthog.init("phc_t9ByiL3PTqP8dTa6nWoqjoygz7nIuKOjLPXig1rxm6C",{api_host:"https://us.i.posthog.com",id:"default"})</script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css"><link rel="stylesheet" href="/assets/css/styles.cfb09f84.css">
-<script src="/assets/js/runtime~main.49889535.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.a2d00f0e.js" defer="defer"></script>
 <script src="/assets/js/main.19675f5c.js" defer="defer"></script>
 </head>
 <body>
@@ -32,27 +32,31 @@
 <p>📰 See the highlights of this release in <a class="" href="/new/whats-new/3-16-1">What&#x27;s new</a>.</p>
 <h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="added-"><strong>Added 🌟</strong><a href="#added-" class="hash-link" aria-label="Direct link to added-" title="Direct link to added-" translate="no">​</a></h4>
 <ul>
-<li class=""><strong>Instant play</strong>: a new target in the <strong>Run on</strong> menu (the arrow next to <strong>Run</strong>). Your app runs in place of the board, as on a device, with no build, in a <strong>Phone</strong>, <strong>Tablet</strong>, <strong>Desktop</strong> or <strong>Full screen</strong> frame picked from the left of the top bar. Edits start it again with the change, and <strong>Start over</strong> runs it from the beginning, with the app&#x27;s global state reset. In the playground and templates, a <strong>Run</strong> button next to <strong>Save</strong> opens it.</li>
-<li class=""><strong>Select in Instant play</strong>: <strong>Select</strong> (<strong>V</strong>) selects the widget you click, with the board&#x27;s selection box, size and layer chips, and opens its <strong>Details</strong> beside the app so you can edit it. <strong>Shift</strong> adds to the selection. While Select is on, each message to Nowa AI says which screen is on top and what&#x27;s selected. <strong>Esc</strong> goes back to using the app, and the selection waits, unseen, until Select is back.</li>
+<li class=""><strong>Instant play</strong>: a new target in the <strong>Run on</strong> menu (the arrow next to <strong>Run</strong>). Your app runs in place of the board, as on a device, with no build, in a <strong>Phone</strong>, <strong>Tablet</strong>, <strong>Desktop</strong> or <strong>Full screen</strong> frame picked from the left of the top bar (the embedded preview gets these sizes too). It plays your app from its home screen, or a prototype from your design folder, and the name next to the frame shows what plays: click it to play one screen on its own, with placeholder inputs, or another prototype. Edits start it again with the change, and <strong>Start over</strong> runs it from the beginning, with the app&#x27;s global state reset. In the playground and templates, a <strong>Run</strong> button next to <strong>Save</strong> opens it.</li>
+<li class=""><strong>Select in Instant play</strong>: <strong>Select</strong> (<strong>V</strong>) selects the widget you click, with the board&#x27;s selection box, size and layer chips. Open <strong>Details</strong> beside the app to edit it. <strong>Shift</strong> adds to the selection. While Select is on, each message to Nowa AI says which screen is on top and what&#x27;s selected. <strong>Esc</strong> goes back to using the app, and the selection waits, unseen, until Select is back.</li>
 <li class=""><strong>Comments in Instant play</strong>: <strong>Comment</strong> (<strong>C</strong>) pins a comment where you click. The <strong>Comments</strong> panel lists them with their author, time and screen. A comment can be resolved and reopened, deleted by its author, or sent to Nowa AI with <strong>Fix with AI</strong>. Comments are saved in the project, in <code>.nowa/comments.json</code>.</li>
 <li class=""><strong>Share in Instant play</strong>: <strong>Share</strong> in the top bar copies a link that opens your app with its comments, for the project&#x27;s members, or for anyone when the project is public. Signed-in viewers can leave comments. A local project has to be synced to the cloud first, and in the playground you save the app first.</li>
-<li class=""><strong>Data panel</strong>: one <strong>Data</strong> side panel, with a tab each for APIs, Supabase and Firestore, that opens on the tab you used last. Every tab has search, and clear loading, not connected, failed and empty states.</li>
+<li class=""><strong>Data panel</strong>: one <strong>Data</strong> side panel, with a tab each for APIs, Supabase and Firestore, that opens on the tab you used last. Every tab has search, and clear loading, not connected, failed and empty states. <strong>Ctrl/Cmd + 6</strong> opens it (<strong>Ctrl/Cmd + 5</strong> in the playground, where there&#x27;s no Git panel), and if you had pinned one of the old panels, the pin carries over.</li>
 <li class=""><strong>Run a Supabase function from the Data panel</strong>: point at a function and click its run button to open its test panel and run it.</li>
 <li class=""><strong>Hot reload for device runs</strong>: when your app runs on a device or an emulator, <strong>Hot reload</strong> sits next to <strong>Hot restart</strong>. Both save first, and each spins while its own reload runs.</li>
-<li class=""><strong>Help menu</strong>: <strong>Docs</strong>, <strong>Talk to an expert</strong>, <strong>Support</strong> and <strong>Shortcuts</strong>, at the bottom of the side bar.</li>
+<li class=""><strong>Help menu</strong>: <strong>Docs</strong>, <strong>Talk to an expert</strong>, <strong>Support</strong> and <strong>Shortcuts</strong> (<strong>Ctrl/Cmd + .</strong>), at the bottom of the side bar.</li>
 </ul>
 <h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="improved-️"><strong>Improved ⚙️</strong><a href="#improved-️" class="hash-link" aria-label="Direct link to improved-️" title="Direct link to improved-️" translate="no">​</a></h4>
 <ul>
-<li class=""><strong>Fewer tokens per message</strong>: Nowa AI reads the project&#x27;s overview with a tool when it needs it, usually once a chat, instead of receiving it with every message. Attached code over 4,000 characters goes as a one-line reference the agent reads only if the request needs it. A widget selected on the board always goes in full.</li>
+<li class=""><strong>Fewer tokens per message</strong>: Nowa AI reads the project&#x27;s overview with a tool when it needs it, usually once a chat, instead of receiving it with every message. Attached code over 4,000 characters goes as a one-line reference the agent reads only if the request needs it. A widget selected on the board always goes in full. In team packages built with pureUI, the AI reads the pureUI rules once a chat, and the rules are shorter.</li>
 <li class=""><strong>Themes for Nowa AI</strong>: Nowa AI lists themes written as getters of a class, like <code>AppTheme.lightTheme</code>, and knows which theme your boards use, instead of answering that the project has no theme and adding a second one.</li>
+<li class=""><strong>Design mode in imported apps</strong>: Nowa AI styles your screens with the theme your app&#x27;s <code>MaterialApp</code> already uses. Only when your app has no theme does it add <code>lightTheme</code> and <code>darkTheme</code> to <code>lib/globals/themes.dart</code>.</li>
 <li class=""><strong>AI chat header in one row</strong>: chat history, the chat&#x27;s title, an info button with the tokens in and out, <strong>New chat</strong> and <strong>Options</strong>. Credits and the free weekend show in a slim strip above the message field, only when they matter, and a past chat you open shows its title.</li>
 <li class=""><strong>MCP button</strong>: the Figma and Supabase logos on the message field&#x27;s MCP button follow the icon theme until the MCP is on.</li>
-<li class=""><strong>Supabase tab</strong>: <strong>Connect</strong> or <strong>Use API keys</strong> when not connected, Auth, Queries, Storage, RPC and Edge functions in one searchable tree, and <strong>Try again</strong> when a saved connection fails.</li>
+<li class=""><strong>Supabase tab</strong>: <strong>Connect</strong> or <strong>Use API keys</strong> when not connected, Auth, Queries, Storage, RPC and Edge functions in one searchable tree, and <strong>Try again</strong> when a saved connection fails. Each query shows its kind as a tag, <strong>Auth</strong> shows who you&#x27;re testing as, and pointing at anything in the list shows <strong>Run</strong>.</li>
 <li class=""><strong>Firestore tab</strong>: collections and queries in one searchable tree, a way to the Firebase settings when it isn&#x27;t connected, and <strong>Add collection</strong> in an empty project.</li>
-<li class=""><strong>APIs tab</strong>: search matches collection names, a failed load shows <strong>Try again</strong>, and an empty project shows <strong>Add collection</strong>.</li>
-<li class=""><strong>Side bar</strong>: your notifications and the account menu, which now opens <strong>Project settings</strong>, moved to the bottom of the side bar. The <strong>Router</strong> entry is gone: open the Router from a screen&#x27;s <strong>Details</strong> panel.</li>
+<li class=""><strong>APIs tab</strong>: search matches collection names, a failed load shows <strong>Try again</strong>, and an empty project shows <strong>Add collection</strong>. Point at a request and click <strong>Run request</strong> to run it.</li>
+<li class=""><strong>Side bar</strong>: your notifications and the account menu, which now opens <strong>Project settings</strong>, moved to the bottom of the side bar, and the floating support button is gone. The <strong>Router</strong> entry is gone too: select a screen and click the route icon (<strong>Open Router Editor</strong>) under <strong>Route Settings</strong> in its <strong>Details</strong>.</li>
 <li class=""><strong>Project settings</strong> open as a popup over your project.</li>
 <li class=""><strong>Back and forward</strong> in the top bar step in and out of Instant play and the embedded preview.</li>
+<li class=""><strong>Run controls</strong>: while your app plays, its controls stand in the top bar where <strong>Run</strong> was, and <strong>Back to board</strong> gave way to the top bar&#x27;s back arrow.</li>
+<li class=""><strong>Experimental settings</strong>: the experimental features dialog is gone, and Nowa AI adds packages for you without an experimental setting to turn on first.</li>
+<li class=""><strong>Buttons</strong>: one set of sizes across the editor, and <strong>Run</strong>, <strong>Deploy</strong> and the code toggle share the same height and look.</li>
 </ul>
 <h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed-"><strong>Fixed 🩹</strong><a href="#fixed-" class="hash-link" aria-label="Direct link to fixed-" title="Direct link to fixed-" translate="no">​</a></h4>
 <ul>
@@ -61,6 +65,8 @@
 <li class="">Fixed <strong>apps made only for Android</strong> getting an error for a missing iOS AdMob App ID. One of the two App IDs is enough now, and the AdMob settings say when one can be left empty.</li>
 <li class="">Fixed <strong>methods that return a widget</strong>, like <code>_buildHeader()</code>, being reported as &quot;sealed boxes&quot; the designer can&#x27;t edit.</li>
 <li class="">Fixed <strong>Git Sync</strong> pulling and pushing a branch checked out in another worktree of the repository instead of the branch you&#x27;re on.</li>
+<li class="">Fixed <strong>Details</strong> showing no fields for a wrapper in the middle of a chain.</li>
+<li class="">Fixed <strong>button labels</strong> using your system&#x27;s font instead of Nowa&#x27;s.</li>
 </ul>
 <hr>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="3150-20-october-2026"><strong>3.15.0 (20 October 2026)</strong><a href="#3150-20-october-2026" class="hash-link" aria-label="Direct link to 3150-20-october-2026" title="Direct link to 3150-20-october-2026" translate="no">​</a></h2>
@@ -224,7 +230,7 @@
 <li class=""><strong>Rating prompt</strong>: asked only from the third day you use Nowa, as you come back to the dashboard after a work session, never on sign-in.</li>
 <li class=""><strong>Environment setup</strong>: the setup wizard&#x27;s notes, like the Xcode requirement and the low-space warning, are clearer callouts.</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--2"><strong>Fixed 🩹</strong><a href="#fixed--2" class="hash-link" aria-label="Direct link to fixed--2" title="Direct link to fixed--2" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed--2"><strong>Fixed 🩹</strong><a href="#fixed--2" class="hash-link" aria-label="Direct link to fixed--2" title="Direct link to fixed--2" translate="no">  ​</a></h4>
 <ul>
 <li class="">Fixed <strong>apps failing to build after editing a widget</strong> given an enum-typed field, parameter or property, because Nowa wrote <code>const</code> in front of it.</li>
 <li class="">Fixed <strong>a change made while its file was being saved</strong> being lost, such as the imports an agent&#x27;s code needs.</li>
@@ -656,7 +662,7 @@
 </ul>
 <h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="improved-️-14"><strong>Improved ⚙️</strong><a href="#improved-️-14" class="hash-link" aria-label="Direct link to improved-️-14" title="Direct link to improved-️-14" translate="no">​</a></h4>
 <ul>
-<li class=""><strong>AI search &amp; project analysis</strong> — the agent searches across your project much faster and consumes far fewer credits. It can also trigger source-code analysis to catch issues Nowa might miss.</li>
+<li class=""><strong>AI search &amp; project analysis</strong>   — the agent searches across your project much faster and consumes far fewer credits. It can also trigger source-code analysis to catch issues Nowa might miss.</li>
 <li class=""><strong>Automatic AI issue reporting</strong> — the AI can automatically report issues it encounters (without private data) and provide a report ID for follow-up.</li>
 <li class="">General performance and stability improvements across the editor.</li>
 </ul>
@@ -673,7 +679,7 @@
 <li class=""><strong>GoRouter by default</strong> — all new projects use GoRouter routing with screen paths and deep linking support.</li>
 <li class=""><strong>Git for Local Projects</strong> — Git is enabled by default for local projects (commit, history, push/pull).</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="improved-️-15"><strong>Improved ⚙️</strong><a href="#improved-️-15" class="hash-link" aria-label="Direct link to improved-️-15" title="Direct link to improved-️-15" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="improved-️-15"><strong>Improved ⚙️</strong><a href="#improved-  ️-15" class="hash-link" aria-label="Direct link to improved-️-15" title="Direct link to improved-️-15" translate="no">​</a></h4>
 <ul>
 <li class=""><strong>AI efficiency &amp; quality</strong> — new modes (except Max) use 5× fewer credits, run 4× faster, and produce 2–3× better results.</li>
 <li class=""><strong>Supabase workflows</strong> — stronger results when working with Supabase MCP.</li>
@@ -843,7 +849,7 @@
 <li class="">Editing issues with index expressions such as <code>List[0]</code> in the details panel.</li>
 <li class="">Errors caused by <code>WidgetStateProperty</code> breaking the Switch widget.</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="improved-️-21"><strong>Improved ⚙ ️</strong><a href="#improved-️-21" class="hash-link" aria-label="Direct link to improved-️-21" title="Direct link to improved-️-21" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="improved-️-21"><strong>Improved ⚙️</strong><a href="#improved-️-21" class="hash-link" aria-label="Direct link to improved-️-21" title="Direct link to improved-️-21" translate="no">​</a></h4>
 <ul>
 <li class="">Overall AI stability and error handling for rendering issues — only the affected widget now shows an error instead of the whole screen.</li>
 <li class="">Added <strong>TextInputAction</strong> support for TextFields for better keyboard control.</li>

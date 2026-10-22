@@ -1,7 +1,7 @@
 ---
 title: Keyboard shortcuts
 description: The keyboard shortcuts and mouse gestures of the Nowa editor, with the keys for Windows, Linux and macOS.
-keywords: [keyboard shortcuts, hotkeys, key bindings, cheat sheet, shortcuts sheet, undo, redo, copy, paste, duplicate, delete, zoom, pan, group, layer order, bring to front, bring forward, send backward, send to back, widget picker, library, add a widget, go to a widget, back, forward, boards, run, save, embedded preview, hot reload, hot restart, open widget picker, ungroup, Ctrl, Cmd, Option, Alt, Mac, Windows, Linux]
+keywords: [keyboard shortcuts, hotkeys, instant play, comment, key bindings, cheat sheet, shortcuts sheet, undo, redo, copy, paste, duplicate, delete, zoom, pan, group, layer order, bring to front, bring forward, send backward, send to back, widget picker, library, add a widget, go to a widget, back, forward, boards, run, save, embedded preview, hot reload, hot restart, open widget picker, ungroup, Ctrl, Cmd, Option, Alt, Mac, Windows, Linux]
 ---
 
 Keep your hands on the keyboard while you build: add a widget, group a few, run your app or undo a mistake without reaching for the mouse. This page lists the editor's shortcuts, grouped by where you use them. You don't need to learn them all at once. Start with these five:
@@ -22,7 +22,7 @@ Hover a board tool, or open a right-click menu, to see its shortcut next to the 
 
 The editor has a built-in cheat sheet with common shortcuts, handy while you're still learning them.
 
-1. Click the keyboard icon (**Shortcuts**) at the bottom of the left sidebar, or press <kbd>Ctrl</kbd> + <kbd>.</kbd> (<kbd>Cmd</kbd> + <kbd>.</kbd> on macOS). The sheet opens over the editor.
+1. Click **?** (**Help**) at the bottom of the left sidebar and choose **Shortcuts**, or press <kbd>Ctrl</kbd> + <kbd>.</kbd> (<kbd>Cmd</kbd> + <kbd>.</kbd> on macOS). The sheet opens over the editor.
 2. Close it with the same keys, the close button, <kbd>Esc</kbd> or a click outside the sheet.
 
 The sheet shows its shortcuts in four groups, **General**, **Tab Actions**, **Widgets** and **Designer**, and leaves out many that are on this page. **Tab Actions** holds **Back**, **Forward** and **Boards**. **Designer** holds **Add a widget** and **Go to a widget**. **Widgets** holds **Bring forward**, **Send backward**, **Bring to front** and **Send to back**.
@@ -55,7 +55,7 @@ These work across the project editor. Some act on the area you're in.
 | **Back**: go back to the editor you were in before, like a browser's back button | <kbd>Ctrl</kbd> + <kbd>-</kbd> | <kbd>Control</kbd> + <kbd>-</kbd> |
 | **Forward**: go forward again | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>-</kbd> | <kbd>Control</kbd> + <kbd>Shift</kbd> + <kbd>-</kbd> |
 
-The Library has no <kbd>Delete</kbd> key: right-click a row and choose **Delete**. **Back** and **Forward** step through the editors you opened and keep your last 50 places. The **Back** and **Forward** arrows in the top bar do the same and grey out when there's nowhere to go. They're hidden in code mode and in the Run view, where the keys still work.
+The Library has no <kbd>Delete</kbd> key: right-click a row and choose **Delete**. **Back** and **Forward** step through the editors you opened and keep your last 50 places. The **Back** and **Forward** arrows in the top bar do the same and grey out when there's nowhere to go. They're hidden in code mode, where the keys still work. While your app plays in Instant play or the **Embedded preview**, **Back** takes you to the board and **Forward** takes you back to your app.
 
 Undo and Redo work on the area you're in, and each area keeps its own history: every board or open screen, the **Library**, **Files** (code mode), **Themes**, **Api**, the **Router** editor and **Circuit**. So undoing in Circuit doesn't touch your design on the board. **Action History** lists the changes of that area. Click an entry to undo it and every change after it.
 
@@ -70,10 +70,9 @@ Press <kbd>Ctrl</kbd> (<kbd>Cmd</kbd> on macOS) and a number to open a panel. Pr
 | **Themes** | <kbd>Ctrl</kbd> + <kbd>3</kbd> | <kbd>Cmd</kbd> + <kbd>3</kbd> |
 | **Search** | <kbd>Ctrl</kbd> + <kbd>4</kbd> or <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd> | <kbd>Cmd</kbd> + <kbd>4</kbd> or <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd> |
 | **Git** | <kbd>Ctrl</kbd> + <kbd>5</kbd> | <kbd>Cmd</kbd> + <kbd>5</kbd> |
-| **Api** | <kbd>Ctrl</kbd> + <kbd>6</kbd> | <kbd>Cmd</kbd> + <kbd>6</kbd> |
-| **Supabase** | <kbd>Ctrl</kbd> + <kbd>7</kbd> | <kbd>Cmd</kbd> + <kbd>7</kbd> |
+| **Data** (**Api**, **Firestore** and **Supabase**) | <kbd>Ctrl</kbd> + <kbd>6</kbd> | <kbd>Cmd</kbd> + <kbd>6</kbd> |
 
-**Router** has no shortcut. In the playground, and in a public project you open as a guest, there's no **Git** panel, so the panels after **Search** move up one number.
+The **Router** isn't in the sidebar: select a screen and click the route icon (**Open Router Editor**) under **Route Settings** in its **Details**. In the playground, and in a public project you open as a guest, there's no **Git** panel, so the panels after **Search** move up one number.
 
 ## Design on the board
 
@@ -132,8 +131,11 @@ Snapping is off while you hold <kbd>Shift</kbd> or <kbd>Alt</kbd>/<kbd>Option</k
 | Run your app in the **Embedded preview** (from a board or an open screen or component) | <kbd>Ctrl</kbd> + <kbd>P</kbd> | <kbd>Cmd</kbd> + <kbd>P</kbd> |
 | Restart the app while the **Embedded preview** is open | <kbd>Shift</kbd> + <kbd>R</kbd> | <kbd>Shift</kbd> + <kbd>R</kbd> |
 | Show the app fullscreen while the **Embedded preview** is open | <kbd>Ctrl</kbd> + <kbd>F</kbd> | <kbd>Cmd</kbd> + <kbd>F</kbd> |
+| Turn **Select** on or off while your app plays in **Instant play** | <kbd>V</kbd> | <kbd>V</kbd> |
+| Turn **Comment** on or off in **Instant play** | <kbd>C</kbd> | <kbd>C</kbd> |
+| Go back to using your app in **Instant play** | <kbd>Esc</kbd> | <kbd>Esc</kbd> |
 
-The restart key does what the restart button in the top bar does: it puts your latest saved changes into the running app. In a local project that's **Hot Reload**, which updates the app in place. In a cloud project it's **Hot Restart**, which starts the app again. Instant **Play** has no shortcut: hover a screen's title and click **Play**. See [Run your app](../test/run.md) and [Play your app on the board](../test/instant-play.md).
+The restart key does what the restart button in the top bar does: it puts your latest saved changes into the running app. In a local project that's **Hot Reload**, which updates the app in place. In a cloud project it's **Hot Restart**, which starts the app again. Playing a single screen on the board has no shortcut: hover the screen's title and click **Play**. See [Run your app](../test/run.md) and [Play your app on the board](../test/instant-play.md).
 
 ## Chat with Nowa AI
 

@@ -9,6 +9,8 @@ sidebar_position: 2
 
 ## **3.15.0 (20 October 2026)**
 
+📰 See the highlights of this release in [What's new](/new/whats-new/3-15).
+
 #### **Added 🌟**
 - **Padding and margin handles**: point at a selected widget's padding to see its bands and drag them. Each padding and margin is its own ring, and when a widget has several, each handle names its own, like **Padding 16** or **Container margin 8**. Handles show on padding that's set, and new padding is added in **Details**.
 - **Gap handles**: drag the space between the children of a row, a column or a wrap to set its `spacing`, and a wrap's `runSpacing`. A row that spreads its children out (space between, around or evenly) gets a fixed spacing once dragged.
@@ -122,6 +124,8 @@ sidebar_position: 2
 
 ## **3.14.1 (15 October 2026)**
 
+📰 See the highlights of this release in [What's new](/new/whats-new/3-14-1).
+
 #### **Added 🌟**
 - **Library grid view**: a **View** menu at the top of the Library switches between **Tree**, **List** and **Grid**. Grid shows each folder's widgets as preview tiles, without the details popup.
 - **Zoom menu**: click the zoom level in the board toolbar for **Zoom in**, **Zoom out**, **Zoom to fit**, **Zoom to selection** and **Zoom to 100%**. Zoom goes from 5% to 1000%.
@@ -201,6 +205,8 @@ sidebar_position: 2
 ---
 
 ## **3.14.0 (13 October 2026)**
+
+📰 See the highlights of this release in [What's new](/new/whats-new/3-14).
 
 #### **Added 🌟**
 - **Linux desktop app**: the Nowa desktop app now runs on Linux, alongside Mac and Windows. Choose **Linux** when you download Nowa to get the 64-bit version, with an install script that adds Nowa to your app menu.
@@ -314,6 +320,8 @@ sidebar_position: 2
 
 ## **3.13.0 (6 October 2026)**
 
+📰 See the highlights of this release in [What's new](/new/whats-new/3-13).
+
 #### **Added 🌟**
 - **Library panel**: replaces the Widgets panel. One searchable list of your screens, components, models, global states, classes, functions and variables, the widgets in your packages, Nowa's built-in widgets and Flutter's libraries, and your assets. Filter it by kind, turn sources on and off with the **Project**, **Packages**, **Built-in** and **Assets** chips, insert with drag and drop or **Ctrl/Cmd + Enter**, and jump to the code with **Show in code**.
 - **Add and go to from the keyboard**: **Ctrl/Cmd + K** and the toolbar's **Widget** tool open the Library ready to add a widget. In the designer, **Ctrl/Cmd + O** opens it to go to one.
@@ -355,6 +363,8 @@ sidebar_position: 2
 
 ## **3.12.5 (25 September 2026)**
 
+📰 See the highlights of this release in [What's new](/new/whats-new/3-12-5).
+
 #### **Added 🌟**
 - **Play any board item**: Instant Play now works on any item on the board, including plain widgets and wrapped components, not only screens and components. Right-click a widget and choose **Play** to play the item it belongs to, and while something plays, select another item to play that one instead.
 - **Switch branches with local changes**: switch or create a Git branch without committing first. Changes that don't clash with the other branch come along automatically. When they do clash, Nowa asks before bringing them along and opens the conflict resolver if they don't apply cleanly. Unsaved edits are saved before switching. Works in local and cloud projects.
@@ -390,6 +400,8 @@ sidebar_position: 2
 ---
 
 ## **3.12.3 (22 September 2026)**
+
+📰 See the highlights of this release in [What's new](/new/whats-new/3-12-3).
 
 #### **Added 🌟**
 - **Figma MCP**: connect your Figma account and Nowa AI can bring your images and icons (SVGs included) into your project as assets, and turn your Figma colors and text styles into your app's theme. Turn it on from the **Figma icon** in the AI chat, and connect or disconnect anytime from **Account Details → Connected Accounts**. Works in cloud and local projects, and is available to everyone.
@@ -427,6 +439,8 @@ sidebar_position: 2
 ---
 
 ## **3.12.0 (15 September 2026)**
+
+📰 See the highlights of this release in [What's new](/new/whats-new/3-12).
 
 #### **Added 🌟**
 - **Connect your own AI agent**: the Nowa desktop app can now be driven by **Claude Code, Claude Desktop, or Cursor**. Your agent can open and switch projects, see your screens, components, theme and current selection, build with Nowa's own tools, open a screen or highlight a widget on the canvas, take a screenshot, and save, all while your board keeps up. **Enterprise only for now**, so email `team@nowa.dev` if you'd like access.
@@ -468,6 +482,8 @@ sidebar_position: 2
 
 ## **Gemini 3.7 Flash Upgrade (13 August 2026)**
 
+📰 See the highlights of this release in [What's new](/new/whats-new/gemini-3-7-flash).
+
 #### **Added 🌟**
 
 - **Nowa AI now runs on Gemini 3.7 Flash** — the agent moved to Google's new model the day it launched, replacing Gemini 3.6 Flash.
@@ -486,6 +502,8 @@ sidebar_position: 2
 
 ## **3.10.5 (14 July 2026)**
 
+📰 See the highlights of this release in [What's new](/new/whats-new/3-10-5).
+
 #### **Added 🌟**
 - **Full mobile browser support** — access Nowa from your smartphone to check projects, make quick updates, and deploy directly from your mobile browser.
 - **Post-launch support package** — after successfully deploying an app, claim **$25 in Nowa AI credits**, direct support from the Nowa team, and help with exposure, monetization, feedback, and app improvements. The package is available from the deployment panel.
@@ -499,6 +517,8 @@ sidebar_position: 2
 ---
 
 ## **3.9 (13 June 2026)**
+
+📰 See the highlights of this release in [What's new](/new/whats-new/3-9).
 
 #### **Added 🌟**
 - **Rebuilt multi-agent AI system** — several subagents now work on your project in parallel to plan, build, and refine at once, delivering better UI/UX, reliable complex logic across large projects, and smooth pub.dev package handling (including platform-file setup).
@@ -527,6 +547,8 @@ sidebar_position: 2
 
 ## **3.7.3 (26 April 2026)**
 
+📰 See the highlights of this release in [What's new](/new/whats-new/3-7-3).
+
 #### **Added 🌟**
 - **Localisation support** — make your app run in multiple languages with ease. Just ask Nowa AI to set it up and it'll handle everything end to end.
 - **AI font downloads** — ask Nowa AI to set any font and, if it's not already in your project, it'll download and set it up automatically. Useful when importing designs from Figma or other tools.
@@ -540,6 +562,8 @@ sidebar_position: 2
 ---
 
 ## **3.7.2 (23 April 2026)**
+
+📰 See the highlights of this release in [What's new](/new/whats-new/3-7-2).
 
 #### **Added 🌟**
 - **New Packaging System** — completely revamped integration with pub.dev packages for much greater stability and better handling by Nowa AI when working with external packages.
@@ -557,6 +581,8 @@ sidebar_position: 2
 
 ## **3.6.1 (12 March 2026)**
 
+📰 See the highlights of this release in [What's new](/new/whats-new/3-6-1).
+
 #### **Improved ⚙️**
 - **Editable `main.dart`** — a new system now lets both you and the AI agent freely modify the `main.dart` file without running into issues.
 - **AI stability on weak connections** — Nowa now handles weak and moderate internet connections much more gracefully, preventing unexpected disconnects mid-task.
@@ -567,6 +593,8 @@ sidebar_position: 2
 ---
 
 ## **3.6 (6 March 2026)**
+
+📰 See the highlights of this release in [What's new](/new/whats-new/3-6).
 
 #### **Added 🌟**
 - **RevenueCat Integration** — monetize your iOS and Android apps with in-app purchases using RevenueCat, set up in just a few clicks.
@@ -587,6 +615,8 @@ sidebar_position: 2
 
 ## **3.5 (9 February 2026)**
 
+📰 See the highlights of this release in [What's new](/new/whats-new/3-5).
+
 #### **Added 🌟**  
 - **Nowa Agent V3** — new AI foundation with 4 modes: Instant, Thinking, Deep Thinking, and Max.  
 - **GoRouter by default** — all new projects use GoRouter routing with screen paths and deep linking support.  
@@ -600,6 +630,8 @@ sidebar_position: 2
 ---
 
 ## **3.4 (19 January 2026)**  
+
+📰 See the highlights of this release in [What's new](/new/whats-new/3-4).
 
 #### **Added 🌟**  
 - **Supabase MCP** — connect Supabase and let the AI agent build the frontend + backend (tables, RLS, triggers, and Edge Functions).  
@@ -617,6 +649,8 @@ sidebar_position: 2
 
 
 ## **3.3.5 (30 December 2025)**  
+
+📰 See the highlights of this release in [What's new](/new/whats-new/3-3-5).
 
 #### **Added 🌟**  
 - **Commit History in Nowa** — view your full commit history directly in the Git panel, preview changed files line by line, and revert specific commits with a right‑click.  
@@ -641,6 +675,8 @@ sidebar_position: 2
 
 ## **3.3.2 (10 December 2025)**
 
+📰 See the highlights of this release in [What's new](/new/whats-new/3-3-2).
+
 #### **Added 🌟**  
 - **Google Maps Widget** — use Google Maps directly inside Nowa without writing custom code.  
   - Add it from the **Widget Picker**  
@@ -662,6 +698,8 @@ sidebar_position: 2
 ---
 
 ## **3.2.0 (14 November 2025)**
+
+📰 See the highlights of this release in [What's new](/new/whats-new/3-2).
 
 #### **Added 🌟**  
 - **AI That Uses Custom Packages** — the AI can now fetch and use packages directly from **pub.dev**, reading documentation and applying them automatically.  
@@ -686,6 +724,8 @@ sidebar_position: 2
 
 ## **3.1.2 (25 October 2025)**
 
+📰 See the highlights of this release in [What's new](/new/whats-new/3-1-2).
+
 #### **Improved ⚙️**  
 - Enhanced **AI agent stability** and reliability during long prompt sessions.  
 - Improved **streaming performance** to reduce delays and errors.  
@@ -703,6 +743,8 @@ sidebar_position: 2
 --
 
 ## **3.1.0 (21 October 2025)**
+
+📰 See the highlights of this release in [What's new](/new/whats-new/3-1).
 
 #### **Added 🌟**  
 - **New AI System** — rebuilt for speed and quality  
@@ -724,6 +766,8 @@ sidebar_position: 2
 ---
 
 ## **3.0.10 (7 October 2025)**
+
+📰 See the highlights of this release in [What's new](/new/whats-new/3-0-10).
 
 #### **Added 🌟**  
 - **Firebase Cloud Messaging** support — enable notifications from your project settings and send them from Firebase, Nowa, or any API (like Supabase Cloud Functions).  
@@ -751,6 +795,8 @@ sidebar_position: 2
 
 ## **3.0.9 (19 September 2025)**
 
+📰 See the highlights of this release in [What's new](/new/whats-new/3-0-9).
+
 #### **Fixed 🩹**  
 - Scale plan now shows the **actual credit number** instead of displaying 99+.  
 - Fixed issue where **adding headers stopped working** after changing the API type.  
@@ -759,6 +805,8 @@ sidebar_position: 2
 ---
 
 ## **3.0.8 (17 September 2025)**
+
+📰 See the highlights of this release in [What's new](/new/whats-new/3-0-8).
 
 #### **Fixed 🩹**  
 - Old templates updated and replaced with new ones matching Nowa 3.0 standards.  
@@ -769,6 +817,8 @@ sidebar_position: 2
 ---
 
 ## **3.0.6 (8 September 2025)**
+
+📰 See the highlights of this release in [What's new](/new/whats-new/3-0-6).
 
 #### **Fixed 🩹**  
 - Screens glitching or showing errors on the board when using `uid` from Supabase.  
@@ -790,6 +840,8 @@ sidebar_position: 2
 ---
 
 ## **3.0.4 (29 August 2025)**
+
+📰 See the highlights of this release in [What's new](/new/whats-new/3-0-4).
 
 #### **Fixed 🩹**  
 - Issue with server error `500` when using the AI agent (`https://tools.ietf.org/html/rfc9110#section-15.6.1`).  
@@ -814,6 +866,8 @@ sidebar_position: 2
 
 ## **3.0.2 (12 August 2025)**
 
+📰 See the highlights of this release in [What's new](/new/whats-new/3-0-2).
+
 #### **Fixed 🩹**  
 - Issue with building apps due to a package version conflict.  
 - Issue with iOS deployment preventing some apps from being published.  
@@ -824,6 +878,8 @@ sidebar_position: 2
 
 ## **3.0.1 (11 August 2025)**
 
+📰 See the highlights of this release in [What's new](/new/whats-new/3-0-1).
+
 #### **Fixed 🩹**  
 - Fixed **Desktop App access** not available for some plans.  
 - Fixed **Board naming** issue where new boards were created with `board*.board` instead of the assigned name.  
@@ -832,6 +888,8 @@ sidebar_position: 2
 ---
 
 ## **3.0.0 BETA (4 August 2025)**
+
+📰 See the highlights of this release in [What's new](/new/whats-new/3-0-beta).
 
 #### **Added ✨**  
 - **AI Agent (Beta)**  
@@ -865,6 +923,8 @@ sidebar_position: 2
 
 ## **2.0.21 (27 May 2025)**
 
+📰 See the highlights of this release in [What's new](/new/whats-new/2-0-21).
+
 #### **Added ✨**  
 - **API Import from Postman, Swagger, and Xano**:  
   - Instantly import multiple requests at once  
@@ -882,6 +942,8 @@ sidebar_position: 2
 ---
 
 ## **2.0.20 (23 April 2025)**
+
+📰 See the highlights of this release in [What's new](/new/whats-new/2-0-20).
 
 #### **Added ✨**  
 - **New API Editor**:
@@ -910,6 +972,8 @@ sidebar_position: 2
 
 ## **2.0.19 (6 April 2025)**  
 
+📰 See the highlights of this release in [What's new](/new/whats-new/2-0-19).
+
 #### **Added ✨**  
 - **Nowa Marketplace**: Browse and add editable sample projects from the dashboard, starting with:
   - Water Tracker App ([Used in this tutorial](https://www.youtube.com/playlist?list=PLVhnHv8Cdhz87lklVjSao4Y0EHdlq2j5a))
@@ -937,6 +1001,8 @@ sidebar_position: 2
 
 ## **2.0.18-beta (12 March 2025)**  
 
+📰 See the highlights of this release in [What's new](/new/whats-new/2-0-18).
+
 #### **Added ✨**  
 - **AI Chat Template**: Quickly build chat-based apps using the built-in, fully functional chat template, complete with chat bubbles and logic. [Read more](../legacy/tutorials/chat-template.mdx)
 - **Quick Navigation to Functions & APIs**: New "open" icon next to functions and API requests to instantly jump directly to their definitions.
@@ -950,6 +1016,8 @@ sidebar_position: 2
 
 
 ## **2.0.17-beta (5 March 2025)**  
+
+📰 See the highlights of this release in [What's new](/new/whats-new/2-0-17).
 
 #### **Added ✨**  
 - **Web Deployment**: Deploy your web apps online directly from Nowa in development or production mode, with an option to download build files for external hosting. [Read more](../publish/web.md)
@@ -967,6 +1035,8 @@ sidebar_position: 2
 
 
 ## **2.0.15-beta (12 Feb 2025)**  
+
+📰 See the highlights of this release in [What's new](/new/whats-new/2-0-15).
 
 #### **Added ✨**  
 - **Swipeable Stack Widget**  
@@ -987,6 +1057,8 @@ sidebar_position: 2
 
 ## **2.0.14 (29 Jan 2025)**  
 
+📰 See the highlights of this release in [What's new](/new/whats-new/2-0-14).
+
 #### **Added ✨**  
 - **New Dashboard Design**  
   - Redesigned for a **smoother and more intuitive experience**.  
@@ -1004,6 +1076,8 @@ sidebar_position: 2
 ---
 
 ## **2.0.13-beta (4 Feb 2025)**  
+
+📰 See the highlights of this release in [What's new](/new/whats-new/2-0-13).
 
 #### **Added ✨**  
 - **Git Integration for Cloud Projects (Web & Windows)**  
@@ -1032,6 +1106,8 @@ sidebar_position: 2
 
 ## **2.0.11-beta (7 Jan 2025)**
 
+📰 See the highlights of this release in [What's new](/new/whats-new/2-0-11).
+
 #### **Added ✨**  
 - **Expansion Tile Widget:**  
   Easily reveal or hide additional content by adding collapsible sections to your app. Ideal for creating organized and dynamic layouts. [Learn more](../reference/widgets/index.md#expansion-tile) 
@@ -1051,6 +1127,8 @@ sidebar_position: 2
 ---
 
 ## **2.0.10-beta (16 Dec 2024)**
+
+📰 See the highlights of this release in [What's new](/new/whats-new/2-0-10).
 
 #### **Added ✨**  
 
@@ -1086,6 +1164,8 @@ sidebar_position: 2
 
 
 ## **2.0.8-beta (28 Nov 2024)**
+
+📰 See the highlights of this release in [What's new](/new/whats-new/2-0-8-beta).
 
 #### **Added ✨**
 

@@ -28,3 +28,16 @@
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+/* What's new (whats-new/): release titles in the list stay smaller than the page title... */
+.plugin-id-whats-new.blog-list-page article header h2,
+.plugin-id-whats-new.blog-tags-post-list-page article header h2 {
+  font-size: 2rem;
+}
+
+/* ...and YouTube embeds keep their 16:9 shape and fit the column on small screens. */
+.plugin-id-whats-new iframe[src*='youtube.com/embed'] {
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+}

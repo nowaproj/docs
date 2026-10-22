@@ -7,7 +7,10 @@ const repositoryRoot = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),
   '..',
 );
-const docsDirectory = path.join(repositoryRoot, 'docs');
+// The docs and the What's new release pages.
+const contentDirectories = ['docs', 'whats-new'].map((directory) =>
+  path.join(repositoryRoot, directory),
+);
 const staticDirectory = path.join(repositoryRoot, 'static');
 const errors = [];
 
@@ -94,7 +97,11 @@ const staticFilesByLowercase = new Map(
 const referencedVideos = new Map();
 let videoEmbedCount = 0;
 
-for (const documentPath of walk(docsDirectory).filter((filePath) => /\.mdx?$/.test(filePath))) {
+const documentPaths = contentDirectories
+  .flatMap((directory) => walk(directory))
+  .filter((filePath) => /\.mdx?$/.test(filePath));
+
+for (const documentPath of documentPaths) {
   const content = fs.readFileSync(documentPath, 'utf8');
   const relativeDocumentPath = toPosix(path.relative(repositoryRoot, documentPath));
   const videoPattern = /<video\b([^>]*?)(?:\/>|>([\s\S]*?)<\/video>)/gi;

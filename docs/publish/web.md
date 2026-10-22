@@ -71,7 +71,7 @@ Serve your site from an address you own, such as `example.com`, instead of the o
 Once **Set** turns into **DNS**, the domain and the **Also www.** switch can't be changed. After Nowa verifies the domain, a trash icon appears in the field (**Remove custom domain**): click it to remove the domain and start again. There's no way to remove a domain that's still pending, so double-check the spelling and the switch before you click **Set**. If you need to change a pending domain, ask the Nowa team with **Chat with support**. See [Get help](../account/help.md).
 
 :::note
-Each project has one live site. The separate Development mode from older versions is gone, as [What's New](../new/whats-new.md) explains.
+Each project has one live site. The separate Development mode from older versions is gone, as [What's New](/new/whats-new/3-8-2) explains.
 :::
 
 ## Next steps

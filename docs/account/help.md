@@ -50,7 +50,7 @@ Want hands-on help from someone who knows Nowa well? Click **Hire an Expert** in
 
 - **Learning Resources** in the dashboard sidebar opens these docs.
 - **Documentation** and **YouTube Channel** in the support panel open the docs and the [Nowa YouTube channel](https://www.youtube.com/@nowadev).
-- [What's new](../new/whats-new.md) shows what each version added.
+- [What's new](/new/whats-new) shows what each version added.
 
 ## Stay up to date {#notifications}
 

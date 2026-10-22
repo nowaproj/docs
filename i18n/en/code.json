@@ -1,0 +1,34 @@
+{
+  "theme.blog.post.paginator.newerPost": {
+    "message": "Newer release",
+    "description": "What's new: the link to the next release at the bottom of a release page"
+  },
+  "theme.blog.post.paginator.olderPost": {
+    "message": "Older release",
+    "description": "What's new: the link to the previous release at the bottom of a release page"
+  },
+  "theme.blog.post.paginator.navAriaLabel": {
+    "message": "Release navigation",
+    "description": "What's new: the ARIA label for the newer and older release links"
+  },
+  "theme.blog.paginator.newerEntries": {
+    "message": "Newer releases",
+    "description": "What's new: the link to the previous page of the release list"
+  },
+  "theme.blog.paginator.olderEntries": {
+    "message": "Older releases",
+    "description": "What's new: the link to the next page of the release list"
+  },
+  "theme.blog.paginator.navAriaLabel": {
+    "message": "Release list navigation",
+    "description": "What's new: the ARIA label for the release list pages"
+  },
+  "theme.blog.post.plurals": {
+    "message": "One release|{count} releases",
+    "description": "What's new: the release count on a tag page, like \"12 releases tagged with Nowa AI\""
+  },
+  "theme.blog.sidebar.navAriaLabel": {
+    "message": "All releases",
+    "description": "What's new: the ARIA label for the list of releases in the sidebar"
+  }
+}

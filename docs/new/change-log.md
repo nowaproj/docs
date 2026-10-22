@@ -12,26 +12,30 @@ sidebar_position: 2
 📰 See the highlights of this release in [What's new](/new/whats-new/3-16-1).
 
 #### **Added 🌟**
-- **Instant play**: a new target in the **Run on** menu (the arrow next to **Run**). Your app runs in place of the board, as on a device, with no build, in a **Phone**, **Tablet**, **Desktop** or **Full screen** frame picked from the left of the top bar. Edits start it again with the change, and **Start over** runs it from the beginning, with the app's global state reset. In the playground and templates, a **Run** button next to **Save** opens it.
-- **Select in Instant play**: **Select** (**V**) selects the widget you click, with the board's selection box, size and layer chips, and opens its **Details** beside the app so you can edit it. **Shift** adds to the selection. While Select is on, each message to Nowa AI says which screen is on top and what's selected. **Esc** goes back to using the app, and the selection waits, unseen, until Select is back.
+- **Instant play**: a new target in the **Run on** menu (the arrow next to **Run**). Your app runs in place of the board, as on a device, with no build, in a **Phone**, **Tablet**, **Desktop** or **Full screen** frame picked from the left of the top bar (the embedded preview gets these sizes too). It plays your app from its home screen, or a prototype from your design folder, and the name next to the frame shows what plays: click it to play one screen on its own, with placeholder inputs, or another prototype. Edits start it again with the change, and **Start over** runs it from the beginning, with the app's global state reset. In the playground and templates, a **Run** button next to **Save** opens it.
+- **Select in Instant play**: **Select** (**V**) selects the widget you click, with the board's selection box, size and layer chips. Open **Details** beside the app to edit it. **Shift** adds to the selection. While Select is on, each message to Nowa AI says which screen is on top and what's selected. **Esc** goes back to using the app, and the selection waits, unseen, until Select is back.
 - **Comments in Instant play**: **Comment** (**C**) pins a comment where you click. The **Comments** panel lists them with their author, time and screen. A comment can be resolved and reopened, deleted by its author, or sent to Nowa AI with **Fix with AI**. Comments are saved in the project, in `.nowa/comments.json`.
 - **Share in Instant play**: **Share** in the top bar copies a link that opens your app with its comments, for the project's members, or for anyone when the project is public. Signed-in viewers can leave comments. A local project has to be synced to the cloud first, and in the playground you save the app first.
-- **Data panel**: one **Data** side panel, with a tab each for APIs, Supabase and Firestore, that opens on the tab you used last. Every tab has search, and clear loading, not connected, failed and empty states.
+- **Data panel**: one **Data** side panel, with a tab each for APIs, Supabase and Firestore, that opens on the tab you used last. Every tab has search, and clear loading, not connected, failed and empty states. **Ctrl/Cmd + 6** opens it (**Ctrl/Cmd + 5** in the playground, where there's no Git panel), and if you had pinned one of the old panels, the pin carries over.
 - **Run a Supabase function from the Data panel**: point at a function and click its run button to open its test panel and run it.
 - **Hot reload for device runs**: when your app runs on a device or an emulator, **Hot reload** sits next to **Hot restart**. Both save first, and each spins while its own reload runs.
-- **Help menu**: **Docs**, **Talk to an expert**, **Support** and **Shortcuts**, at the bottom of the side bar.
+- **Help menu**: **Docs**, **Talk to an expert**, **Support** and **Shortcuts** (**Ctrl/Cmd + .**), at the bottom of the side bar.
 
 #### **Improved ⚙️**
-- **Fewer tokens per message**: Nowa AI reads the project's overview with a tool when it needs it, usually once a chat, instead of receiving it with every message. Attached code over 4,000 characters goes as a one-line reference the agent reads only if the request needs it. A widget selected on the board always goes in full.
+- **Fewer tokens per message**: Nowa AI reads the project's overview with a tool when it needs it, usually once a chat, instead of receiving it with every message. Attached code over 4,000 characters goes as a one-line reference the agent reads only if the request needs it. A widget selected on the board always goes in full. In team packages built with pureUI, the AI reads the pureUI rules once a chat, and the rules are shorter.
 - **Themes for Nowa AI**: Nowa AI lists themes written as getters of a class, like `AppTheme.lightTheme`, and knows which theme your boards use, instead of answering that the project has no theme and adding a second one.
+- **Design mode in imported apps**: Nowa AI styles your screens with the theme your app's `MaterialApp` already uses. Only when your app has no theme does it add `lightTheme` and `darkTheme` to `lib/globals/themes.dart`.
 - **AI chat header in one row**: chat history, the chat's title, an info button with the tokens in and out, **New chat** and **Options**. Credits and the free weekend show in a slim strip above the message field, only when they matter, and a past chat you open shows its title.
 - **MCP button**: the Figma and Supabase logos on the message field's MCP button follow the icon theme until the MCP is on.
-- **Supabase tab**: **Connect** or **Use API keys** when not connected, Auth, Queries, Storage, RPC and Edge functions in one searchable tree, and **Try again** when a saved connection fails.
+- **Supabase tab**: **Connect** or **Use API keys** when not connected, Auth, Queries, Storage, RPC and Edge functions in one searchable tree, and **Try again** when a saved connection fails. Each query shows its kind as a tag, **Auth** shows who you're testing as, and pointing at anything in the list shows **Run**.
 - **Firestore tab**: collections and queries in one searchable tree, a way to the Firebase settings when it isn't connected, and **Add collection** in an empty project.
-- **APIs tab**: search matches collection names, a failed load shows **Try again**, and an empty project shows **Add collection**.
-- **Side bar**: your notifications and the account menu, which now opens **Project settings**, moved to the bottom of the side bar. The **Router** entry is gone: open the Router from a screen's **Details** panel.
+- **APIs tab**: search matches collection names, a failed load shows **Try again**, and an empty project shows **Add collection**. Point at a request and click **Run request** to run it.
+- **Side bar**: your notifications and the account menu, which now opens **Project settings**, moved to the bottom of the side bar, and the floating support button is gone. The **Router** entry is gone too: select a screen and click the route icon (**Open Router Editor**) under **Route Settings** in its **Details**.
 - **Project settings** open as a popup over your project.
 - **Back and forward** in the top bar step in and out of Instant play and the embedded preview.
+- **Run controls**: while your app plays, its controls stand in the top bar where **Run** was, and **Back to board** gave way to the top bar's back arrow.
+- **Experimental settings**: the experimental features dialog is gone, and Nowa AI adds packages for you without an experimental setting to turn on first.
+- **Buttons**: one set of sizes across the editor, and **Run**, **Deploy** and the code toggle share the same height and look.
 
 #### **Fixed 🩹**
 - Fixed **the color picker's eyedropper** not picking a color.
@@ -39,6 +43,8 @@ sidebar_position: 2
 - Fixed **apps made only for Android** getting an error for a missing iOS AdMob App ID. One of the two App IDs is enough now, and the AdMob settings say when one can be left empty.
 - Fixed **methods that return a widget**, like `_buildHeader()`, being reported as "sealed boxes" the designer can't edit.
 - Fixed **Git Sync** pulling and pushing a branch checked out in another worktree of the repository instead of the branch you're on.
+- Fixed **Details** showing no fields for a wrapper in the middle of a chain.
+- Fixed **button labels** using your system's font instead of Nowa's.
 
 ---
 

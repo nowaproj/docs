@@ -10,14 +10,16 @@
         <language>en</language>
         <copyright>Copyright © 2026 Nowa. All rights reserved</copyright>
         <item>
-            <title><![CDATA[Nowa 3.16.1: Try your app instantly]]></title>
+            <title><![CDATA[Nowa 3.16.1: Introducing Play-While-Edit]]></title>
             <link>https://docs.nowa.dev/new/whats-new/3-16-1</link>
             <guid>https://docs.nowa.dev/new/whats-new/3-16-1</guid>
             <pubDate>Thu, 22 Oct 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[Nowa 3.16.1 plays your app right inside the editor, with no build and no waiting, so you can test it, fix what you see and get feedback on it in one place.]]></description>
-            <content:encoded><![CDATA[<p>Nowa 3.16.1 lets you try your app the moment you change it. 🚀 It plays right inside the editor with no build and no waiting, so you can test it, fix what you see and get feedback on it without ever leaving your project.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="️-try-your-app-instantly">▶️ Try your app instantly<a href="https://docs.nowa.dev/new/whats-new/3-16-1#%EF%B8%8F-try-your-app-instantly" class="hash-link" aria-label="Direct link to ▶️ Try your app instantly" title="Direct link to ▶️ Try your app instantly" translate="no">​</a></h2>
-<p>Click the arrow next to <strong>Run</strong> and choose <strong>Instant play</strong>. Your app starts right where your board was, so you can tap through your screens, fill in your forms and check every flow the way your users will. There's nothing to build, so it's ready in a second. In the playground and in templates, just click <strong>Run</strong>.</p>
+            <description><![CDATA[Nowa 3.16.1 introduces Play-While-Edit: play and edit your app at once, right inside the editor, with no build and no waiting.]]></description>
+            <content:encoded><![CDATA[<p>With Nowa 3.16.1, you can use your app and change it at the same time. 🚀 Meet Play-While-Edit: your app plays right inside the editor with no build and no waiting, and you see your changes in it as you make them.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="️-play-while-edit-play-and-edit-your-app-at-once">▶️ Play-While-Edit: play and edit your app at once<a href="https://docs.nowa.dev/new/whats-new/3-16-1#%EF%B8%8F-play-while-edit-play-and-edit-your-app-at-once" class="hash-link" aria-label="Direct link to ▶️ Play-While-Edit: play and edit your app at once" title="Direct link to ▶️ Play-While-Edit: play and edit your app at once" translate="no">​</a></h2>
+<p>Your app plays right where your board was, so you can test a flow, spot what's off and fix it, all without leaving your running app.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="play-your-app-instantly">Play your app instantly<a href="https://docs.nowa.dev/new/whats-new/3-16-1#play-your-app-instantly" class="hash-link" aria-label="Direct link to Play your app instantly" title="Direct link to Play your app instantly" translate="no">​</a></h3>
+<p>Click the arrow next to <strong>Run</strong> and choose <strong>Instant play</strong>. Your app starts in a second, with nothing to build, so you can tap through your screens, fill in your forms and check every flow the way your users will. In the playground and in templates, just click <strong>Run</strong>.</p>
 <ul>
 <li class=""><strong>Check every screen size</strong>: switch between <strong>Phone</strong>, <strong>Tablet</strong>, <strong>Desktop</strong> and <strong>Full screen</strong> in the top bar.</li>
 <li class=""><strong>Start fresh</strong>: click <strong>Start over</strong> to run your app from the beginning, as if you had just opened it.</li>
@@ -25,7 +27,7 @@
 <li class=""><strong>Hop back to your board</strong> with the back arrow in the top bar. Forward takes you right back to your app.</li>
 </ul>
 <video controls="" playsinline="" preload="metadata" width="100%" poster="/videos/whats-new/3.16.1-instant-play.jpg"><source src="/videos/whats-new/3.16.1-instant-play.mp4" type="video/mp4"></video>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="-fix-what-you-see-while-it-plays">🎯 Fix what you see, while it plays<a href="https://docs.nowa.dev/new/whats-new/3-16-1#-fix-what-you-see-while-it-plays" class="hash-link" aria-label="Direct link to 🎯 Fix what you see, while it plays" title="Direct link to 🎯 Fix what you see, while it plays" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="fix-what-you-see-while-it-plays">Fix what you see, while it plays<a href="https://docs.nowa.dev/new/whats-new/3-16-1#fix-what-you-see-while-it-plays" class="hash-link" aria-label="Direct link to Fix what you see, while it plays" title="Direct link to Fix what you see, while it plays" translate="no">​</a></h3>
 <p>Spotted something that's off? Click <strong>Select</strong> in the top bar, or press <strong>V</strong>, and click it in your running app. Nowa outlines it just like on your board. Open <strong>Details</strong> beside your app to change its text, color or spacing, and watch your app update as you type. Hold <strong>Shift</strong> to pick a few things at once, and press <strong>Esc</strong> to go back to using your app.</p>
 <p>Nowa AI sees what you pick, too. Select a button, ask the <strong>Assistant</strong> to "make this button bigger", and it knows exactly which button you mean.</p>
 <video controls="" playsinline="" preload="metadata" width="100%" poster="/videos/whats-new/3.16.1-select-edit.jpg"><source src="/videos/whats-new/3.16.1-select-edit.mp4" type="video/mp4"></video>
@@ -48,7 +50,7 @@
 </ul>
 <hr>
 <p>That's the big stuff! 📋 For every fix and smaller improvement in this release, see the <a class="" href="https://docs.nowa.dev/new/change-log#3161-22-october-2026">3.16.1 changelog</a>.</p>
-<p>➡️ We'd love to hear how Instant play works for you. Click <strong>?</strong> at the bottom of the left sidebar and choose <strong>Support</strong> to message us, or email us at <code>team@nowa.dev</code>. Happy building!</p>]]></content:encoded>
+<p>➡️ We'd love to hear how Play-While-Edit works for you. Click <strong>?</strong> at the bottom of the left sidebar and choose <strong>Support</strong> to message us, or email us at <code>team@nowa.dev</code>. Happy building!</p>]]></content:encoded>
             <category>Preview and test</category>
             <category>Integrations</category>
             <category>Nowa AI</category>

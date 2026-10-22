@@ -7,6 +7,41 @@ sidebar_position: 2
 
 ---
 
+## **3.16.1 (22 October 2026)**
+
+📰 See the highlights of this release in [What's new](/new/whats-new/3-16-1).
+
+#### **Added 🌟**
+- **Instant play**: a new target in the **Run on** menu (the arrow next to **Run**). Your app runs in place of the board, as on a device, with no build, in a **Phone**, **Tablet**, **Desktop** or **Full screen** frame picked from the left of the top bar. Edits start it again with the change, and **Start over** runs it from the beginning, with the app's global state reset. In the playground and templates, a **Run** button next to **Save** opens it.
+- **Select in Instant play**: **Select** (**V**) selects the widget you click, with the board's selection box, size and layer chips, and opens its **Details** beside the app so you can edit it. **Shift** adds to the selection. While Select is on, each message to Nowa AI says which screen is on top and what's selected. **Esc** goes back to using the app, and the selection waits, unseen, until Select is back.
+- **Comments in Instant play**: **Comment** (**C**) pins a comment where you click. The **Comments** panel lists them with their author, time and screen. A comment can be resolved and reopened, deleted by its author, or sent to Nowa AI with **Fix with AI**. Comments are saved in the project, in `.nowa/comments.json`.
+- **Share in Instant play**: **Share** in the top bar copies a link that opens your app with its comments, for the project's members, or for anyone when the project is public. Signed-in viewers can leave comments. A local project has to be synced to the cloud first, and in the playground you save the app first.
+- **Data panel**: one **Data** side panel, with a tab each for APIs, Supabase and Firestore, that opens on the tab you used last. Every tab has search, and clear loading, not connected, failed and empty states.
+- **Run a Supabase function from the Data panel**: point at a function and click its run button to open its test panel and run it.
+- **Hot reload for device runs**: when your app runs on a device or an emulator, **Hot reload** sits next to **Hot restart**. Both save first, and each spins while its own reload runs.
+- **Help menu**: **Docs**, **Talk to an expert**, **Support** and **Shortcuts**, at the bottom of the side bar.
+
+#### **Improved ⚙️**
+- **Fewer tokens per message**: Nowa AI reads the project's overview with a tool when it needs it, usually once a chat, instead of receiving it with every message. Attached code over 4,000 characters goes as a one-line reference the agent reads only if the request needs it. A widget selected on the board always goes in full.
+- **Themes for Nowa AI**: Nowa AI lists themes written as getters of a class, like `AppTheme.lightTheme`, and knows which theme your boards use, instead of answering that the project has no theme and adding a second one.
+- **AI chat header in one row**: chat history, the chat's title, an info button with the tokens in and out, **New chat** and **Options**. Credits and the free weekend show in a slim strip above the message field, only when they matter, and a past chat you open shows its title.
+- **MCP button**: the Figma and Supabase logos on the message field's MCP button follow the icon theme until the MCP is on.
+- **Supabase tab**: **Connect** or **Use API keys** when not connected, Auth, Queries, Storage, RPC and Edge functions in one searchable tree, and **Try again** when a saved connection fails.
+- **Firestore tab**: collections and queries in one searchable tree, a way to the Firebase settings when it isn't connected, and **Add collection** in an empty project.
+- **APIs tab**: search matches collection names, a failed load shows **Try again**, and an empty project shows **Add collection**.
+- **Side bar**: your notifications and the account menu, which now opens **Project settings**, moved to the bottom of the side bar. The **Router** entry is gone: open the Router from a screen's **Details** panel.
+- **Project settings** open as a popup over your project.
+- **Back and forward** in the top bar step in and out of Instant play and the embedded preview.
+
+#### **Fixed 🩹**
+- Fixed **the color picker's eyedropper** not picking a color.
+- Fixed **the console** opening off screen instead of over the status bar.
+- Fixed **apps made only for Android** getting an error for a missing iOS AdMob App ID. One of the two App IDs is enough now, and the AdMob settings say when one can be left empty.
+- Fixed **methods that return a widget**, like `_buildHeader()`, being reported as "sealed boxes" the designer can't edit.
+- Fixed **Git Sync** pulling and pushing a branch checked out in another worktree of the repository instead of the branch you're on.
+
+---
+
 ## **3.15.0 (20 October 2026)**
 
 📰 See the highlights of this release in [What's new](/new/whats-new/3-15).

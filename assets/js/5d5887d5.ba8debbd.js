@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunknowa_docs=self.webpackChunknowa_docs||[]).push([[2709],{34934:s=>{s.exports=JSON.parse('{"blogBasePath":"/new/whats-new","blogTitle":"What\'s new","authorsListPath":"/new/whats-new/authors"}')}}]);

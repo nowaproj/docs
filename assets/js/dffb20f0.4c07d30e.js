@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunknowa_docs=self.webpackChunknowa_docs||[]).push([[3629],{56591:s=>{s.exports=JSON.parse('{"name":"docusaurus-plugin-content-blog","id":"whats-new"}')}}]);

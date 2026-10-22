@@ -1,0 +1,1066 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://docs.nowa.dev/new/whats-new</id>
+    <title>Nowa: What's new</title>
+    <updated>2026-10-20T00:00:00.000Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://docs.nowa.dev/new/whats-new"/>
+    <subtitle>New features and enhancements in each version of Nowa.</subtitle>
+    <icon>https://docs.nowa.dev/img/favicon.ico</icon>
+    <rights>Copyright © 2026 Nowa. All rights reserved</rights>
+    <entry>
+        <title type="html"><![CDATA[Nowa 3.15: Design right on the board]]></title>
+        <id>https://docs.nowa.dev/new/whats-new/3-15</id>
+        <link href="https://docs.nowa.dev/new/whats-new/3-15"/>
+        <updated>2026-10-20T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Nowa 3.15 turns your board into a real design tool. Drag padding, gaps, corners and shadows right on your widgets, measure and line things up with familiar shortcuts, while a clearer Details panel tells you what each widget does.]]></summary>
+        <content type="html"><![CDATA[<p>Nowa 3.15 turns your board into a real design tool. 🎨 Drag padding, gaps, corners and shadows right on your widgets, measure and line things up with familiar shortcuts, while a clearer Details panel tells you what each widget does. The Themes panel can now edit any theme, Nowa AI shows its work in one live line and is much more reliable, and teams get organizations with shared workspaces and credits.</p>
+<p>📋 Check all the details of this release in the <a class="" href="https://docs.nowa.dev/new/change-log#3150-20-october-2026">changelog</a>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="new-in-this-version-"><strong>New in This Version ✨</strong><a href="https://docs.nowa.dev/new/whats-new/3-15#new-in-this-version-" class="hash-link" aria-label="Direct link to new-in-this-version-" title="Direct link to new-in-this-version-" translate="no">​</a></h2>
+<ul>
+<li class="">
+<p>🎨 <strong>Design Right on the Board, Like in a Design Tool</strong>
+Select a widget and shape it right where you see it:</p>
+<ul>
+<li class=""><strong>Padding and margins</strong>: point at a widget's padding to see it, then drag its edge. Each padding and margin is its own ring, so you always know which one you're changing. New padding is still added in <strong>Details</strong>.</li>
+<li class=""><strong>Gaps</strong>: drag the space between the children of a row, a column or a wrap.</li>
+<li class=""><strong>Corners, rotation and shadows</strong>: drag the dot inside a corner to round the corners, turn a widget from just outside a corner, and drag a shadow to where it should fall. <strong>Shift + H</strong> and <strong>Shift + V</strong> flip a widget.</li>
+<li class=""><strong>Gradients</strong>: right-click a widget with a gradient and choose <strong>Edit gradient</strong> to drag its ends and color stops.</li>
+</ul>
+<p>Handles show their value as you drag, and the padding, gap and corner handles work on several widgets at once. A value that comes from your code, like a constant, shows as locked and tells you where it comes from.</p>
+<video controls="" playsinline="" preload="metadata" width="100%" poster="/videos/whats-new/3.15.0-board-handles.jpg"><source src="/videos/whats-new/3.15.0-board-handles.mp4" type="video/mp4"></video>
+</li>
+<li class="">
+<p>📐 <strong>Measure, Snap and Line Things Up</strong></p>
+<ul>
+<li class=""><strong>Sizes at a glance</strong>: the size of your selection shows under it, with <strong>Auto</strong> or <strong>Expand</strong> when a side fits its content or fills the space.</li>
+<li class=""><strong>Measure</strong>: hold <strong>Alt</strong> (<strong>Option</strong> on Mac) and point at another widget to see how far apart they are.</li>
+<li class=""><strong>Smarter snapping</strong>: guides now show the distance to what you line up with, and widgets also snap to equal gaps, which are marked.</li>
+<li class=""><strong>Align and space</strong>: for widgets placed freely, in a stack or on the board, familiar keys work, like <strong>Alt + A</strong> to align left and <strong>Alt + Shift + H</strong> to space three or more evenly (<strong>Option</strong> instead of <strong>Alt</strong> on Mac). Select a few and drag the gap between them to space them all the same.</li>
+<li class=""><strong>Auto layout</strong>: press <strong>Shift + A</strong> to put the selected widgets in a row or a column, and <strong>Shift + Alt + A</strong> to turn a row or a column back into freely placed widgets.</li>
+</ul>
+<video controls="" playsinline="" preload="metadata" width="100%" poster="/videos/whats-new/3.15.0-measure-snap.jpg"><source src="/videos/whats-new/3.15.0-measure-snap.mp4" type="video/mp4"></video>
+</li>
+<li class="">
+<p>🧩 <strong>Components, Wrappers and Lists, the Way You Expect</strong></p>
+<ul>
+<li class=""><strong>Components work like instances in a design tool</strong>: a component stays closed until you double-click it. While you edit it, the rest of the board dims, and <strong>Done</strong> in <strong>Details</strong> takes you back out.</li>
+<li class=""><strong>Wrappers at a glance</strong>: a widget's wrappers, like a <strong>Padding</strong> or a <strong>Container</strong>, show as chips on top of it. Point at one to see what it adds, or hold <strong>Ctrl</strong> (<strong>Control</strong>, not Cmd, on Mac) to see every layer.</li>
+<li class=""><strong>Fewer wrappers</strong>: turns and rounded image corners you add on the board go into one Container, and <strong>Simplify wrappers</strong> in the right-click menu folds an existing stack of wrappers into one.</li>
+<li class=""><strong>Lists</strong>: click an item in a list to select that one, and the size label tells you which it is, like <strong>2 of 3</strong>.</li>
+</ul>
+<video controls="" playsinline="" preload="metadata" width="100%" poster="/videos/whats-new/3.15.0-components-wrappers.jpg"><source src="/videos/whats-new/3.15.0-components-wrappers.mp4" type="video/mp4"></video>
+</li>
+<li class="">
+<p>🗂️ <strong>A Details Panel That Explains Itself</strong>
+Under a widget's name, <strong>Details</strong> now says what the code around it does, like <em>For each product in products</em> or <em>Shown when product.isNew</em>. Each wrapper is a tidy section with a one-line summary, like <strong>Padding 16</strong>, and a row's or column's padding now shows as a Padding wrapper too. Widgets with <code>@Preview</code> variants switch between them from the new <strong>Variant</strong> section.</p>
+</li>
+<li class="">
+<p>🎨 <strong>A Themes Panel That Edits Any Theme</strong>
+The <strong>Themes</strong> panel now works with any theme, however it's written in your code, and tells you why when something can't be changed.</p>
+<ul>
+<li class=""><strong>Every widget's theme</strong>: all of Flutter's widget themes, more than 50, grouped, searchable and each with a preview.</li>
+<li class=""><strong>Better text styles</strong>: a real text style editor, and a picker that shows each style, with a tab for each theme extension.</li>
+<li class=""><strong>Quicker to use</strong>: pickers open right beside the panel, color changes apply faster on big projects, and your boards use your project's own theme.</li>
+</ul>
+</li>
+<li class="">
+<p>🤖 <strong>Nowa AI Shows Its Work, and Gets It Done</strong></p>
+<ul>
+<li class=""><strong>One live line</strong>: while Nowa AI works, the chat shows one line that says what it's doing right now. When it's done, the line sums up what it did, like <em>Built the Login screen and updated the Home page</em>. Tap it to see every step and open what changed.</li>
+<li class=""><strong>Much more reliable</strong>: the AI gets past connection hiccups on its own, keeps its work when you stop it or run out of credits, can check that the screens it builds show without errors on phones and tablets, and tells you when a change didn't save.</li>
+<li class=""><strong>Fewer credits for the same work</strong>: it reads your project smarter and stops repeating itself, so tasks finish sooner and each message costs less.</li>
+<li class=""><strong>Safer with your app and data</strong>: <strong>Plan</strong> mode can read your database but never changes your app, and with Supabase, the AI uses your connected tools and is more careful to keep your data private.</li>
+</ul>
+<video controls="" playsinline="" preload="metadata" width="100%" poster="/videos/whats-new/3.15.0-ai-activity-line.jpg"><source src="/videos/whats-new/3.15.0-ai-activity-line.mp4" type="video/mp4"></video>
+</li>
+<li class="">
+<p>👥 <strong>Organizations for Teams</strong>
+Teams on an organization plan can switch to their organization from the dashboard sidebar to share its workspaces, billing and AI credits. With your organization picked, the new <strong>Organization</strong> tab in your account settings handles seats, members, invites and roles.</p>
+</li>
+<li class="">
+<p>📖 <strong>Your Code Stays as You Wrote It</strong>
+When Nowa saves your code, it now keeps your annotations, like <code>@pragma</code> (so Firebase background messages keep working in release builds) and <code>@JsonSerializable</code>, and every <code>!</code> and <code>?.</code> right where you put them. <strong>Copy as new widget</strong> now makes code that compiles, and many false errors are gone, like the ones on dot shorthands, <code>clamp</code> and lists that mix kinds of items.</p>
+</li>
+<li class="">
+<p>✨ <strong>Smaller Touches</strong></p>
+<ul>
+<li class=""><strong>The Outline lives on your board</strong>: the panels on your board fold into small chips, and the Outline opens right at the widget you selected.</li>
+<li class=""><strong>Shorter right-click menus</strong>, grouped like a design tool's, with <strong>Align</strong>, <strong>Flip</strong> and <strong>Edit gradient</strong> right there.</li>
+<li class=""><strong>Clear credit limits</strong>: when one request hits your plan's limit, Nowa pauses and tells you, and you can <strong>Continue</strong> with the credits you have left.</li>
+<li class=""><strong>Screens fix themselves</strong>: a screen that failed to show comes back after your next change, and screens update as soon as Nowa AI edits them.</li>
+<li class=""><strong>The welcome tour</strong> waits until Nowa AI has built your new app.</li>
+</ul>
+</li>
+<li class="">
+<p>💻 <strong>For Those Who Code</strong>
+When you run your app on a device or simulator, the restart button shows when a reload is under way and why one failed, and edits from outside Nowa (like your own AI agent's) hot reload the running app. In local projects, the new <strong>Run</strong> page in your project settings holds your own <code>flutter run</code> arguments. In Git, the branch in the status bar marks local changes with <code>*</code> and syncs in one click, the branch menu shows how long ago each branch was last committed to, and in local projects a pull never overwrites your uncommitted changes.</p>
+</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="bug-fixes-"><strong>Bug Fixes 🩹</strong><a href="https://docs.nowa.dev/new/whats-new/3-15#bug-fixes-" class="hash-link" aria-label="Direct link to bug-fixes-" title="Direct link to bug-fixes-" translate="no">​</a></h2>
+<p>We fixed more than 45 bugs across the visual designer, saving your code, Nowa AI, the preview, the Themes panel, RevenueCat and Stripe on Android, Git, and updates on Windows. See every fix in the <a class="" href="https://docs.nowa.dev/new/change-log#3150-20-october-2026">changelog</a>.</p>
+<p>➡️ We'd love to hear how designing on the board feels now! Click the <strong>? icon</strong> to chat with us directly, or email us at <code>team@nowa.dev</code>. Happy building!</p>]]></content>
+        <category label="Design" term="Design"/>
+        <category label="Nowa AI" term="Nowa AI"/>
+        <category label="Account and teams" term="Account and teams"/>
+        <category label="Code and Git" term="Code and Git"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Nowa 3.14.1: A smoother road to the stores]]></title>
+        <id>https://docs.nowa.dev/new/whats-new/3-14-1</id>
+        <link href="https://docs.nowa.dev/new/whats-new/3-14-1"/>
+        <updated>2026-10-15T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Nowa 3.14.1 makes designing faster and brings your app closer to the stores. The board now works like the design tools you know, with a zoom menu and familiar shortcuts, the Library can show your widgets as a grid of previews, and you can swap any widget for one you copied.]]></summary>
+        <content type="html"><![CDATA[<p>Nowa 3.14.1 makes designing faster and brings your app closer to the stores. 🎨 The board now works like the design tools you know, with a zoom menu and familiar shortcuts, the Library can show your widgets as a grid of previews, and you can swap any widget for one you copied. Your app icons and Android builds are also readier for the App Store and Google Play, and your forms can check that two fields match.</p>
+<p>📋 Check all the details of this release in the <a class="" href="https://docs.nowa.dev/new/change-log#3141-15-october-2026">changelog</a>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="new-in-this-version-"><strong>New in This Version ✨</strong><a href="https://docs.nowa.dev/new/whats-new/3-14-1#new-in-this-version-" class="hash-link" aria-label="Direct link to new-in-this-version-" title="Direct link to new-in-this-version-" translate="no">​</a></h2>
+<ul>
+<li class="">
+<p>🏪 <strong>Smoother Road to the App Store and Google Play</strong></p>
+<ul>
+<li class=""><strong>App Store-ready icons</strong>: Nowa gives your iOS app icon a white background, because Apple doesn't accept icons with transparency.</li>
+<li class=""><strong>Local notifications on Android</strong>: apps that use them build for Android right away. Nowa adds the setting they need for you.</li>
+<li class=""><strong>AdMob reminders</strong>: Nowa tells you when AdMob is missing its Android or iOS App ID, and takes you to its settings.</li>
+<li class=""><strong>SHA-1 keys</strong>: paste them into Firebase Authentication with or without colons.</li>
+</ul>
+</li>
+<li class="">
+<p>📝 <strong>Better Forms and Data</strong></p>
+<ul>
+<li class=""><strong>"Must match" check</strong>: make sure two fields match, like <strong>Repeat password</strong> and the password. Select the field, open its validator in <strong>Details</strong>, click <strong>+ Add validator</strong> and choose <strong>Must match validator</strong>. See <a class="" href="https://docs.nowa.dev/reference/widgets/forms#validators">Check what people type</a>.</li>
+<li class=""><strong>Default values</strong>: models built from your API use the defaults you set when a response leaves a field out.</li>
+<li class=""><strong>Supabase</strong>: your create and update functions send only the fields you filled in.</li>
+</ul>
+<p><img decoding="async" loading="lazy" alt="The + Add validator menu of a Text Field&amp;#39;s validator in Details, with Min length, Max length, Email, Phone, Regex and the new Must match validator (highlighted)" src="https://docs.nowa.dev/assets/images/3.14.1-must-match-89cb3b4b97b7a1fae72be0eaf4713824.png" width="454" height="410" class="img_ev3q"></p>
+</li>
+<li class="">
+<p>🎨 <strong>Move Around Your Board Like in a Design Tool</strong></p>
+<ul>
+<li class=""><strong>A zoom menu</strong>: click the zoom level in the board toolbar to zoom in or out, fit everything, zoom to your selection or go back to 100%.</li>
+<li class=""><strong>Familiar shortcuts</strong>: <strong>+</strong> and <strong>-</strong> zoom in and out, <strong>Shift + 1</strong> fits everything, <strong>Shift + 2</strong> zooms to your selection and <strong>Shift + 0</strong> goes to 100%. Double-click to go one layer deeper, press <strong>Enter</strong> to select the layers inside, and press <strong>Shift + Enter</strong> or <strong>Esc</strong> to go back up. See <a class="" href="https://docs.nowa.dev/reference/shortcuts">Keyboard shortcuts</a>.</li>
+<li class=""><strong>Clear layer names</strong>: the Outline names each layer by what it shows, such as an icon's name or an image's file.</li>
+</ul>
+<p><img decoding="async" loading="lazy" alt="The board toolbar with its zoom level (100%) clicked: a menu above it lists Zoom in (+), Zoom out (-), Zoom to fit (Shift 1), Zoom to selection (Shift 2) and Zoom to 100% (Shift 0)" src="https://docs.nowa.dev/assets/images/3.14.1-zoom-menu-da15678852e784f6a2bddb9da0c6c68a.png" width="549" height="367" class="img_ev3q"></p>
+</li>
+<li class="">
+<p>🗂️ <strong>See Your Library as a Grid</strong>
+Open the <strong>View</strong> menu at the top of the Library and choose <strong>Grid</strong> to see your widgets as a grid of previews. Choose <strong>Tree</strong> or <strong>List</strong> to switch back. See <a class="" href="https://docs.nowa.dev/design/library">Find and add things with the Library</a>.</p>
+<p><img decoding="async" loading="lazy" alt="The Library in Grid view, with the View menu open (Tree, List, Grid checked) and the Built-in widgets shown as previews: Button, Icon Button and Floating Button under Buttons, then Checkbox and Switch under Forms" src="https://docs.nowa.dev/assets/images/3.14.1-library-grid-ba7f4116bcc079bd24caf2aaa3fb43a7.png" width="545" height="878" class="img_ev3q"></p>
+</li>
+<li class="">
+<p>🔁 <strong>Paste to Replace</strong>
+Copy a widget, right-click another one and choose <strong>Paste to replace</strong>. Your copy takes its place and keeps its layout, and one undo brings the old one back.</p>
+<p><img decoding="async" loading="lazy" alt="The right-click menu of a text widget on a screen, with Paste to replace (highlighted) right after Cut" src="https://docs.nowa.dev/assets/images/3.14.1-paste-to-replace-0186d70dabc0b54dbd364d4aae1d3b27.png" width="441" height="604" class="img_ev3q"></p>
+</li>
+<li class="">
+<p>✏️ <strong>Quicker Edits</strong></p>
+<ul>
+<li class=""><strong>Paste SVGs from anywhere</strong>: an SVG copied from another app or a website becomes an image in your assets.</li>
+<li class=""><strong>Arrow keys in number fields</strong>: press <strong>Up</strong> or <strong>Down</strong> to change a value like the width by 1, or hold <strong>Shift</strong> to change it by 10.</li>
+<li class=""><strong>New screens appear in the middle</strong> of your view.</li>
+<li class=""><strong>Text shows its real font and size</strong> in <strong>Details</strong>, including the ones that come from your theme.</li>
+<li class=""><strong>Undo a rename</strong>: renaming a component in <strong>Details</strong> can be undone like any other change.</li>
+</ul>
+</li>
+<li class="">
+<p>🤖 <strong>Smarter AI Help</strong></p>
+<ul>
+<li class=""><strong>Several widgets at once</strong>: select a few widgets and ask Nowa AI for a change, and it changes all of them.</li>
+<li class=""><strong>Keeps going on its own</strong>: if the connection goes quiet in the middle of a task, Nowa AI picks it up again by itself.</li>
+</ul>
+</li>
+<li class="">
+<p>✨ <strong>Smaller Touches</strong></p>
+<ul>
+<li class=""><strong>Smoother updates on Mac</strong>: Nowa puts the new version in place before it restarts.</li>
+<li class=""><strong>Menus show every entry</strong>, up to the height of your screen.</li>
+<li class=""><strong>Copy from help</strong>: you can select and copy the text in help popups, handy for IDs and keys.</li>
+<li class=""><strong>Faster Library previews</strong> when you point at a widget.</li>
+<li class=""><strong>Clearer Circuit steps</strong>: each step shows what it acts on, such as <code>emailController.clear</code>, so similar steps are easy to tell apart.</li>
+</ul>
+</li>
+<li class="">
+<p>🤝 <strong>Your Own AI Agent, Working With Your Team</strong>
+When you connect Claude Code, Claude Desktop or Cursor to Nowa and design in your team's UI package (a package that holds your team's widgets and screens, without an app of its own), your agent works the way a designer would:</p>
+<ul>
+<li class=""><strong>A tidy board</strong>: each screen and component lands on your board in its own row, with its states (such as Loading, Empty and Error) beside it and, for a screen, its prototype at the end. Your agent checks every state before it says it's done.</li>
+<li class=""><strong>Sample data stays out of your app</strong>: previews, sample data and prototypes go to a <code>design/</code> folder, so your app only ships the real widgets.</li>
+<li class=""><strong>You stay in control</strong>: Nowa asks you before your agent changes a file outside the package, like your developers' app. Click <strong>Allow</strong> or <strong>Cancel</strong>.</li>
+<li class=""><strong>Builds on the first try</strong>: fonts and components your agent adds work in your team's app right away.</li>
+</ul>
+<p>Connecting your own agent is <strong>Enterprise only</strong>. See <a class="" href="https://docs.nowa.dev/ai/external-agent">Connect your own AI agent</a>.</p>
+<video controls="" playsinline="" preload="metadata" width="100%" poster="/videos/whats-new/3.14.1-agent-board-rows.jpg"><source src="/videos/whats-new/3.14.1-agent-board-rows.mp4" type="video/mp4"></video>
+</li>
+<li class="">
+<p>💻 <strong>For Those Who Code</strong>
+Clone a cloud project to your computer without installing Flutter first, and the Git panel picks up commits and branch changes you make outside Nowa as soon as you come back. In code mode, right-click a folder to create a file or folder inside it, and Nowa offers a one-click fix when you <code>await</code> a function that's no longer async.</p>
+</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="bug-fixes-"><strong>Bug Fixes 🩹</strong><a href="https://docs.nowa.dev/new/whats-new/3-14-1#bug-fixes-" class="hash-link" aria-label="Direct link to bug-fixes-" title="Direct link to bug-fixes-" translate="no">​</a></h2>
+<p>We fixed more than 30 bugs across the visual designer and board, the Outline, forms and validators, Nowa AI and connected agents, Firebase, Supabase, Android builds, Play mode, sending feedback and updates on Mac. See every fix in the <a class="" href="https://docs.nowa.dev/new/change-log#3141-15-october-2026">changelog</a>.</p>
+<p>➡️ We'd love to hear how the new board feels! Click the <strong>? icon</strong> to chat with us directly, or email us at <code>team@nowa.dev</code>. Happy building!</p>]]></content>
+        <category label="Publish" term="Publish"/>
+        <category label="Design" term="Design"/>
+        <category label="Nowa AI" term="Nowa AI"/>
+        <category label="Code and Git" term="Code and Git"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Nowa 3.14: From idea to launch]]></title>
+        <id>https://docs.nowa.dev/new/whats-new/3-14</id>
+        <link href="https://docs.nowa.dev/new/whats-new/3-14"/>
+        <updated>2026-10-13T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Nowa 3.14 helps you take your app from idea to launch. We tested Nowa intensively and polished it from end to end, focusing on what matters most for a real product: your data, your payments, and getting into the App Store and Google Play.]]></summary>
+        <content type="html"><![CDATA[<p>Nowa 3.14 helps you take your app from idea to launch. 🚀 We tested Nowa intensively and polished it from end to end, focusing on what matters most for a real product: your data, your payments, and getting into the App Store and Google Play. Our docs are also brand new, with a guide for every step, and Nowa now runs on Linux too. 🐧</p>
+<p>📋 Check all the details of this release in the <a class="" href="https://docs.nowa.dev/new/change-log#3140-13-october-2026">changelog</a>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="new-in-this-version-"><strong>New in This Version ✨</strong><a href="https://docs.nowa.dev/new/whats-new/3-14#new-in-this-version-" class="hash-link" aria-label="Direct link to new-in-this-version-" title="Direct link to new-in-this-version-" translate="no">​</a></h2>
+<ul>
+<li class="">
+<p>📚 <strong>Brand-New Docs</strong>
+We rewrote our docs from scratch. They now cover everything you need to build a great app with Nowa, from A to Z. Start with the new <a class="" href="https://docs.nowa.dev/guides">Build a great app</a> section for tips and tricks, then explore Nowa AI, Firebase (including push notifications), payments, maps, ads, and step-by-step publishing to Google Play and the App Store. <a class="" href="https://docs.nowa.dev/">Check them out</a>!</p>
+</li>
+<li class="">
+<p>🐧 <strong>Nowa Is on Linux</strong>
+The Nowa desktop app now runs on Linux, alongside Mac and Windows, so you can build on whichever computer you prefer. Download the 64-bit version, and the install script adds Nowa to your app menu for you. <a class="" href="https://docs.nowa.dev/get-started/desktop-app">Get it here</a>.</p>
+</li>
+<li class="">
+<p>🔥 <strong>Build Your Database Visually</strong>
+The new <strong>Firestore</strong> panel in the left sidebar shows all your collections and queries. Add a collection or a query in one click, and build queries that add and read documents without writing any code. See <a class="" href="https://docs.nowa.dev/integrations/firebase/firestore">Firestore</a>.</p>
+</li>
+<li class="">
+<p>🏪 <strong>Ready for the App Store and Google Play</strong></p>
+<ul>
+<li class=""><strong>Account deletion</strong>: Apple and Google require apps with sign-up to let people delete their account. Firebase Authentication now adds this for you.</li>
+<li class=""><strong>Restore purchases</strong>: new RevenueCat projects include it, so subscribers keep what they paid for on a new phone.</li>
+<li class=""><strong>iOS builds</strong> always use your app's latest bundle ID.</li>
+</ul>
+</li>
+<li class="">
+<p>💳 <strong>Ready to Get Paid</strong>
+Switch Google Pay from <strong>Test</strong> to <strong>Production</strong> with the new <strong>Environment</strong> setting in Stripe, and start taking real payments. Your own changes to the payment code stay in place when Nowa updates it.</p>
+</li>
+<li class="">
+<p>🔐 <strong>A Secure Backend by Default</strong>
+Nowa deploys your Supabase edge functions with Supabase's security check turned on. Only Stripe's webhook stays public, and the setup summary shows which functions are public.</p>
+</li>
+<li class="">
+<p>🎨 <strong>Easier Visual Building</strong></p>
+<ul>
+<li class=""><strong>Widgets fit their content</strong> on the board, the same as in your app.</li>
+<li class=""><strong>App bars, floating buttons, bottom navigation bars and drawers</strong> go straight to the right place when you drop them on a screen.</li>
+<li class=""><strong>Templates</strong> add the packages they need.</li>
+<li class=""><strong>Renaming an image</strong> updates every widget that uses it.</li>
+<li class=""><strong>New sliders</strong> use your theme's colors, and the <strong>Empty Page</strong> template lets you pick a device size.</li>
+</ul>
+</li>
+<li class="">
+<p>🤖 <strong>Smarter AI Help</strong></p>
+<ul>
+<li class=""><strong>Restore Checkpoint</strong> shows how many AI requests it will undo.</li>
+<li class=""><strong>Fix with AI</strong> knows which step of your Supabase setup needs attention.</li>
+<li class=""><strong>Explain with AI</strong> gives clearer answers about your build logs.</li>
+<li class=""><strong>Attach text files</strong> to the AI chat on the web too.</li>
+</ul>
+</li>
+<li class="">
+<p>🔗 <strong>Deep Links Open the Right Screen</strong>
+A link from an email, an ad or a message now opens the right screen in your app.</p>
+</li>
+<li class="">
+<p>✨ <strong>Smaller Touches</strong></p>
+<ul>
+<li class=""><strong>Lighter on your computer</strong>: Nowa now uses much less memory.</li>
+<li class=""><strong>A fresh look</strong>: menus share one clean design with built-in search.</li>
+<li class=""><strong>Sample data while you design</strong>: the board shows sample responses for your API requests, so your live data isn't touched.</li>
+<li class=""><strong>View Only members</strong> can copy widgets and export them as images.</li>
+<li class=""><strong>Clearer messages</strong> that stay on screen longer.</li>
+</ul>
+</li>
+<li class="">
+<p>💻 <strong>For Those Who Code</strong>
+Nowa keeps your code, comments and formatting the way you wrote them. Local projects also support SSH keys and easier Git conflict resolution.</p>
+</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="bug-fixes-"><strong>Bug Fixes 🩹</strong><a href="https://docs.nowa.dev/new/whats-new/3-14#bug-fixes-" class="hash-link" aria-label="Direct link to bug-fixes-" title="Direct link to bug-fixes-" translate="no">​</a></h2>
+<p>We fixed more than 150 bugs across the visual designer and board, the Library, Nowa AI, Firebase, Supabase, Stripe and RevenueCat, REST APIs, navigation and deep links, Instant Play and sharing, publishing and cloud builds, Git and local projects, and the desktop app. See every fix in the <a class="" href="https://docs.nowa.dev/new/change-log#3140-13-october-2026">changelog</a>.</p>
+<p>➡️ We'd love to hear how Nowa 3.14 feels! Click the <strong>? icon</strong> to chat with us directly, or email us at <code>team@nowa.dev</code>. Happy building!</p>]]></content>
+        <category label="Integrations" term="Integrations"/>
+        <category label="Publish" term="Publish"/>
+        <category label="Design" term="Design"/>
+        <category label="Nowa AI" term="Nowa AI"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Nowa 3.13: Your whole project in one Library]]></title>
+        <id>https://docs.nowa.dev/new/whats-new/3-13</id>
+        <link href="https://docs.nowa.dev/new/whats-new/3-13"/>
+        <updated>2026-10-06T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Nowa 3.13 gives everything in your project one home: the new Library. Find any screen, component or widget in a few keystrokes and add it to your board without reaching for the mouse.]]></summary>
+        <content type="html"><![CDATA[<p>Nowa 3.13 gives everything in your project one home: the new <strong>Library</strong>. 📚 Find any screen, component or widget in a few keystrokes and add it to your board without reaching for the mouse. This release also brings a desktop app for Linux, quicker ways to move around your project, and your theme extension colors right in the color picker.</p>
+<p>📋 Check all the details of this release in the <a class="" href="https://docs.nowa.dev/new/change-log#3130-6-october-2026">changelog</a>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="new-in-this-version-"><strong>New in This Version ✨</strong><a href="https://docs.nowa.dev/new/whats-new/3-13#new-in-this-version-" class="hash-link" aria-label="Direct link to new-in-this-version-" title="Direct link to new-in-this-version-" translate="no">​</a></h2>
+<ul>
+<li class="">
+<p>📚 <strong>The Library: Your Whole Project in One Place</strong>
+The <strong>Library</strong> replaces the Widgets panel. Your screens, components, models and global states, Nowa's built-in widgets, the widgets in your packages and your assets now live in one searchable list.</p>
+<ul>
+<li class=""><strong>Add anything fast</strong>: press <strong>Ctrl/Cmd + K</strong> (or click the <strong>Widget</strong> tool), type what you need and press <strong>Enter</strong> to drop it on your board.</li>
+<li class=""><strong>Go anywhere</strong>: press <strong>Ctrl/Cmd + O</strong>, type a name and press <strong>Enter</strong> to open it.</li>
+<li class=""><strong>Find your way around</strong>: filter by kind, choose which of your project, packages, built-in widgets and assets to show, and jump straight to the code with <strong>Show in code</strong>.</li>
+</ul>
+<p><strong>Files</strong> now lives in code mode only, where you can move through your project with the keyboard and drag several files into a folder at once. Learn more in <a class="" href="https://docs.nowa.dev/design/library">Find and add things with the Library</a>.</p>
+</li>
+<li class="">
+<p>↔️ <strong>Back, Forward and All Your Boards</strong>
+Two new arrows in the top bar take you back and forward through the screens and files you've opened, just like in a browser (<strong>Ctrl + -</strong> and <strong>Ctrl + Shift + -</strong>, with Control on macOS too). The board chip now lists every board in your project: press <strong>Ctrl/Cmd + B</strong>, type a name and press <strong>Enter</strong>, or create a new board right from the list.</p>
+</li>
+<li class="">
+<p>🐧 <strong>Nowa for Linux</strong>
+Nowa now has a desktop app for Linux. Choose <strong>Linux</strong> when you download Nowa to get a 64-bit archive with an install script that adds Nowa to your app menu. On Linux, you download updates from the update dialog, and your app's preview opens in your browser. See <a class="" href="https://docs.nowa.dev/get-started/desktop-app">Install the desktop app</a>.</p>
+</li>
+<li class="">
+<p>🎨 <strong>Your Theme Extensions in the Pickers</strong>
+If your theme uses theme extensions, the color picker now shows a tab for each one next to <strong>Material</strong>, and the text style picker lists their styles in their own groups. Pick a color and Nowa links it to your extension for you. See <a class="" href="https://docs.nowa.dev/design/themes#edit-theme-extensions">Edit theme extensions</a>.</p>
+</li>
+<li class="">
+<p>🧩 <strong>Widget Variants from <code>@Preview</code></strong>
+Add Flutter's <code>@Preview</code> to a function or constructor that builds your widget, and Nowa shows it as a named variant: next to the component when you open it, as a choice in the widget picker, and under the widget in the Library. See <a class="" href="https://docs.nowa.dev/code/custom-code#preview-variants">Preview a widget in several states</a>.</p>
+</li>
+<li class="">
+<p>📦 <strong>More of Your Code and Packages Just Work</strong></p>
+<ul>
+<li class=""><strong>Packages</strong>: <code>git:</code> and <code>path:</code> dependencies now load in local projects, <code>sdk:</code> dependencies like <code>flutter_localizations</code> count as installed, and <code>gap</code>, <code>flutter_animate</code>, <code>google_fonts</code> and <code>smooth_page_indicator</code> now work on the board.</li>
+<li class=""><strong>Your own Flutter code</strong>: much more hand-written code renders on the board, including switch patterns like <code>&gt; 5</code>, named arguments passed to <code>super(...)</code>, and <code>part</code> files, which now stay intact when Nowa saves. Screens from open-source apps like Flutter's compass_app and Wonderous render too.</li>
+<li class=""><strong>Smarter placeholders</strong>: a package widget Nowa can't draw is now a small box, and one that wraps another widget shows what it wraps.</li>
+<li class=""><strong>Page indicators</strong>: <code>nowa_runtime</code> no longer includes <code>smooth_page_indicator</code>. If your project uses page dots, Nowa offers to add the package to your pubspec in one click (<strong>Migrate</strong>).</li>
+</ul>
+</li>
+<li class="">
+<p>💻 <strong>Local Projects Stay in Sync</strong>
+Changes you make in another editor right after Nowa saves are no longer missed, and new dependencies you add to <code>pubspec.yaml</code> outside Nowa load on their own.</p>
+</li>
+<li class="">
+<p>✨ <strong>Smaller Touches</strong></p>
+<ul>
+<li class=""><strong>A fresh look</strong>: new buttons, lists and menus throughout, and the Albert Sans font is back.</li>
+<li class=""><strong>Design-tool words</strong>: <strong>Bring forward</strong>, <strong>Send backward</strong>, <strong>Bring to front</strong> and <strong>Send to back</strong> replace the old move entries. <strong>Ctrl/Cmd + Alt/Option + ]</strong> or <strong>[</strong> moves a widget all the way to the front or back.</li>
+<li class=""><strong>Default in dropdowns</strong>: the dropdown of a property that can be left empty now starts with <strong>Default</strong>, which keeps the widget's own default.</li>
+<li class=""><strong>Branch search</strong>: find a Git branch by typing in the branch menu.</li>
+<li class=""><strong>Tidier boards</strong>: each screen stays inside its frame, and snap guides line up at any zoom.</li>
+<li class=""><strong>Quieter Git history</strong>: opening a project in a newer Nowa no longer changes <code>.nowa/settings.json</code>.</li>
+</ul>
+</li>
+</ul>
+<p>➡️ Tell us how the Library feels! Click the <strong>? icon</strong> to chat with us directly, or email us at <code>team@nowa.dev</code>. Happy building!</p>]]></content>
+        <category label="Design" term="Design"/>
+        <category label="Code and Git" term="Code and Git"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Nowa 3.12.5: Big boards, up to 50x faster]]></title>
+        <id>https://docs.nowa.dev/new/whats-new/3-12-5</id>
+        <link href="https://docs.nowa.dev/new/whats-new/3-12-5"/>
+        <updated>2026-09-25T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Nowa 3.12.5 makes big projects feel light again. Boards with lots of screens are now up to 50x faster to move around and work in, projects reopen faster, and Instant Play can now play anything on your board.]]></summary>
+        <content type="html"><![CDATA[<p>Nowa 3.12.5 makes big projects feel light again. ⚡ Boards with lots of screens are now <strong>up to 50x faster</strong> to move around and work in, projects reopen faster, and Instant Play can now play anything on your board. This release also lets you switch Git branches without committing first, gives your connected agent a way to bring images (including the ones in your Figma designs) into your project, and helps Nowa understand even more of the Flutter code you write yourself.</p>
+<p>📋 Check all the details of this release in the <a class="" href="https://docs.nowa.dev/new/change-log#3125-25-september-2026">changelog</a>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="new-in-this-version-"><strong>New in This Version ✨</strong><a href="https://docs.nowa.dev/new/whats-new/3-12-5#new-in-this-version-" class="hash-link" aria-label="Direct link to new-in-this-version-" title="Direct link to new-in-this-version-" translate="no">​</a></h2>
+<ul>
+<li class="">
+<p>⚡ <strong>Big Boards, Up to 50x Faster</strong>
+Nowa no longer runs every screen on your board at once. Instead, it puts its effort where you are:</p>
+<ul>
+<li class=""><strong>What you're looking at loads first.</strong> Screens build one at a time, starting with the ones in view, so a big board opens without freezing the editor.</li>
+<li class=""><strong>Only the screen you're working on keeps moving.</strong> Animations and timers run on the screen you're hovering, selecting or playing, and pause everywhere else.</li>
+<li class=""><strong>Screens out of view wait.</strong> Changes to screens you've scrolled away from are applied when you come back to them.</li>
+<li class=""><strong>Crowded views stay smooth.</strong> When lots of screens are in view at once, the ones you're not working on are shown as a still picture until you need them.</li>
+</ul>
+<p>Reopening a project is faster too: Nowa now keeps its analysis of the packages your project uses, instead of redoing it every time you open the project.</p>
+</li>
+<li class="">
+<p>▶️ <strong>Play Anything on Your Board</strong>
+Instant Play now works on any item on your board, not only screens and components. Right-click any widget and choose <strong>Play</strong> to play the item it belongs to. While something is playing, just select another item to play that one instead.</p>
+</li>
+<li class="">
+<p>🌿 <strong>Switch Branches Without Committing First</strong>
+You no longer have to commit or discard your work before changing branches. Switch or create a branch and your changes come with you. If they touch files that are different on the other branch, Nowa asks before bringing them along, and if anything clashes, it opens the conflict resolver so you choose what to keep. Any unsaved edits are saved before the switch, so nothing gets left behind.</p>
+</li>
+<li class="">
+<p>🖼️ <strong>Your Connected Agent Can Add Images</strong>
+Claude Code, Claude Desktop, and Cursor can now add images to your project. Your agent hands Nowa image links, like the ones it gets from Figma's own MCP, or files from your computer, and Nowa downloads them into <code>assets/images/</code> and registers them for you. PNG, JPG, GIF, WebP, BMP and SVG all work.</p>
+<p>Connecting your own agent is still <strong>Enterprise only</strong>. If you'd like access, email us at <code>team@nowa.dev</code> and we'll get you set up.</p>
+</li>
+<li class="">
+<p>📖 <strong>Nowa Understands Even More of Your Code</strong>
+More of the Flutter code you bring into Nowa now renders on the board just the way you wrote it:</p>
+<ul>
+<li class=""><strong>More packages</strong>: <code>equatable</code>, <code>auto_size_text</code>, and <code>package:collection</code> helpers like <code>mapIndexed</code> and <code>flattened</code>.</li>
+<li class=""><strong>Projects exported from FlutterFlow</strong>: pages using <code>safeSetState</code>, custom functions, and Firestore records now render with placeholder data, even without a Firebase connection on the board.</li>
+<li class=""><strong>Smarter placeholders</strong>: a widget Nowa has no value for now shows as a small slot, instead of taking over your layout.</li>
+</ul>
+</li>
+<li class="">
+<p>✨ <strong>Smaller Touches</strong></p>
+<ul>
+<li class=""><strong>More precise snapping</strong> when you move or resize widgets, and resizing only snaps the edge you're dragging.</li>
+<li class=""><strong>A lighter Widgets panel</strong>: previews play their animations for a moment, then settle.</li>
+</ul>
+</li>
+</ul>
+<p>➡️ We'd love to hear how your biggest projects feel now! Click the <strong>? icon</strong> to chat with us directly, or email us at <code>team@nowa.dev</code>. Happy building!</p>]]></content>
+        <category label="Design" term="Design"/>
+        <category label="Preview and test" term="Preview and test"/>
+        <category label="Code and Git" term="Code and Git"/>
+        <category label="Nowa AI" term="Nowa AI"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Nowa 3.12.3: Nowa AI now works with Figma]]></title>
+        <id>https://docs.nowa.dev/new/whats-new/3-12-3</id>
+        <link href="https://docs.nowa.dev/new/whats-new/3-12-3"/>
+        <updated>2026-09-22T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Nowa AI now works with Figma! Connect your Figma account and the AI can bring your images, icons, colors and text styles straight into your project, so the app you build matches the design you made.]]></summary>
+        <content type="html"><![CDATA[<p>Nowa AI now works with <strong>Figma</strong>! 🎨 Connect your Figma account and the AI can bring your images, icons, colors and text styles straight into your project, so the app you build matches the design you made. The Figma MCP has been on our "coming soon" list for a while, and now it's here for everyone. This release also helps Nowa understand much more of the Flutter code you write yourself, cuts down on false alarms, and makes the board smoother to move around.</p>
+<p>📋 Check all the details of this release in the <a class="" href="https://docs.nowa.dev/new/change-log#3123-22-september-2026">changelog</a>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="new-in-this-version-"><strong>New in This Version ✨</strong><a href="https://docs.nowa.dev/new/whats-new/3-12-3#new-in-this-version-" class="hash-link" aria-label="Direct link to new-in-this-version-" title="Direct link to new-in-this-version-" translate="no">​</a></h2>
+<ul>
+<li class="">
+<p>🎨 <strong>Figma MCP Is Here</strong>
+Nowa AI can now connect to your Figma account and work with your designs. Once it's connected, just ask, and the AI can:</p>
+<ul>
+<li class=""><strong>Bring in your images and icons</strong> as project assets, SVGs included.</li>
+<li class=""><strong>Turn your Figma colors and text styles into your app's theme</strong>, so every screen stays true to your design.</li>
+</ul>
+<p>To connect, click the <strong>Figma icon</strong> in the AI chat, right next to the Supabase one, and approve access in the browser window that opens. That's it! You can connect or disconnect anytime from <strong>Account Details → Connected Accounts</strong> in your account settings. Figma works in both cloud and local projects, and the AI asks for your OK before each Figma action unless you turn on <strong>Auto-approve tools</strong> from the Figma icon's menu.</p>
+</li>
+<li class="">
+<p>📖 <strong>Nowa Understands More of Your Code</strong>
+Bringing your own Flutter project into Nowa? Much more of it now opens and renders on the board just the way you wrote it, including:</p>
+<ul>
+<li class=""><strong>Modern Dart patterns</strong>, like <code>switch</code> expressions that match on records and objects, and destructuring.</li>
+<li class=""><strong>Widgets that build on other widgets</strong>, whether they're your own (even from another file) or Flutter's, with <code>super.</code> parameters passing their values along.</li>
+<li class=""><strong>InheritedWidgets, mixins, enhanced enums and redirecting constructors</strong>, all working the way you'd expect.</li>
+<li class=""><strong>Up to 8 theme extensions</strong> in your theme, up from 5.</li>
+</ul>
+<p>And when Nowa meets a piece of code it can't read yet, it now skips just that part and tells you about it in the Problems panel, instead of giving up on the whole file.</p>
+</li>
+<li class="">
+<p>🔍 <strong>Fewer False Alarms, Clearer Answers</strong>
+Nowa is now better at telling a real problem from perfectly good code, and at telling you what to do next:</p>
+<ul>
+<li class="">Projects without a <code>main.dart</code> or a <code>web/</code> folder, like packages or mobile-only apps, are no longer flagged as broken.</li>
+<li class="">If the in-app preview can't run your app, Nowa explains why as soon as you hit <strong>Run</strong>. When all it needs is web support, one click on <strong>Add web support</strong> sets it up for you.</li>
+<li class="">The <strong>Problems panel</strong> waits for your packages to finish loading before it reports anything, and lists any package that didn't load along with the reason.</li>
+<li class="">A new filter in the Problems panel lets you check <strong>All files</strong>, not just the code Nowa generated.</li>
+</ul>
+</li>
+<li class="">
+<p>⚡ <strong>A Smoother Board</strong>
+Panning and zooming around the board feel smoother, and Nowa does less work behind the scenes as your project loads and as you edit. You'll notice it most in bigger projects.</p>
+</li>
+<li class="">
+<p>🔌 <strong>More Power for Your Connected Agent</strong>
+Using Claude Code, Claude Desktop, or Cursor with Nowa? Your agent just got better at the job:</p>
+<ul>
+<li class=""><strong>Connecting takes one command.</strong> The <strong>Connect External Agent</strong> dialog now gives you a ready-made Claude Code command to copy and run.</li>
+<li class=""><strong>It can set app permissions</strong>, like camera or location access, the same way the Permissions panel does.</li>
+<li class=""><strong>It knows Nowa's building rules</strong> from the moment it connects, so its changes fit right in.</li>
+<li class=""><strong>It can see layout problems.</strong> Screenshots now tell it about overflows and widgets that failed to build, so it can catch and fix them itself.</li>
+<li class=""><strong>Its edits are safer.</strong> Code that doesn't parse is refused instead of saved, and an edit can't land on the wrong widget if the design changed in the meantime.</li>
+</ul>
+<p>Connecting your own agent is still <strong>Enterprise only</strong>. If you'd like access, email us at <code>team@nowa.dev</code> and we'll get you set up.</p>
+</li>
+</ul>
+<p>➡️ We can't wait to see what you build from your Figma designs! Click the <strong>? icon</strong> to chat with us directly, or email us at <code>team@nowa.dev</code>. Happy building!</p>]]></content>
+        <category label="Nowa AI" term="Nowa AI"/>
+        <category label="Code and Git" term="Code and Git"/>
+        <category label="Design" term="Design"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Nowa 3.12: Connect your own AI agent]]></title>
+        <id>https://docs.nowa.dev/new/whats-new/3-12</id>
+        <link href="https://docs.nowa.dev/new/whats-new/3-12"/>
+        <updated>2026-09-15T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Nowa 3.12 lets your AI coding agent work inside your project. Connect Claude Code, Claude Desktop, or Cursor to Nowa and it can open your projects, see what's on your canvas, and build using Nowa's own tools while your board updates in front of you.]]></summary>
+        <content type="html"><![CDATA[<p>Nowa 3.12 lets your AI coding agent work inside your project. Connect <strong>Claude Code, Claude Desktop, or Cursor</strong> to Nowa and it can open your projects, see what's on your canvas, and build using Nowa's own tools while your board updates in front of you. 🔌 This release also adds <strong>workspace and monorepo support</strong>, <strong>Sign in with Apple</strong>, <strong>Git over SSH</strong>, and a tidier interface throughout.</p>
+<p>📋 Check all the details of this release in the <a class="" href="https://docs.nowa.dev/new/change-log#3120-15-september-2026">changelog</a>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="new-in-this-version-"><strong>New in This Version ✨</strong><a href="https://docs.nowa.dev/new/whats-new/3-12#new-in-this-version-" class="hash-link" aria-label="Direct link to new-in-this-version-" title="Direct link to new-in-this-version-" translate="no">​</a></h2>
+<ul>
+<li class="">
+<p>🔌 <strong>Connect Your Own AI Agent</strong>
+The Nowa desktop app can now talk to the coding agent you already use: <strong>Claude Code, Claude Desktop, or Cursor</strong>. Once it's connected, your agent can:</p>
+<ul>
+<li class=""><strong>Open and switch between your projects</strong> by name.</li>
+<li class=""><strong>See what you see</strong>: your screens and components, your theme and colours, the widget tree, and whatever you have selected on the canvas.</li>
+<li class=""><strong>Build with Nowa's own tools</strong>, so every change it makes is a real Nowa change and your board keeps up as it works.</li>
+<li class=""><strong>Point at things visually.</strong> Ask it to open a screen, highlight a widget, take a screenshot of the canvas, or save your project.</li>
+</ul>
+<p>This one is <strong>Enterprise only for now</strong>. If you'd like access, email us at <code>team@nowa.dev</code> and we'll get you set up.</p>
+</li>
+<li class="">
+<p>📦 <strong>Workspaces &amp; Monorepos</strong>
+Nowa can now open a Flutter app that lives inside a bigger repository. When you import a local project, Nowa reads the folder and lets you choose which package to edit. Once you're inside, a chip in the top bar switches between packages without leaving the project, and Git still covers the whole repository, so nothing about your setup has to change.</p>
+</li>
+<li class="">
+<p>🍎 <strong>Sign in with Apple</strong>
+You can now sign in to Nowa with your Apple ID on the web and on iOS, alongside Google and email.</p>
+</li>
+<li class="">
+<p>🔑 <strong>Git over SSH</strong>
+Local projects can now push and pull over SSH. Point Nowa at a key, or let it use the keys already loaded in your ssh-agent, so the setup you use in the terminal works here too.</p>
+</li>
+<li class="">
+<p>📝 <strong>Describe Your Components</strong>
+Your screens and components can now carry a short description, written in the details panel right next to their fields. It's a quick way to leave a note for your teammates, and for the AI, about what a component is for.</p>
+</li>
+<li class="">
+<p>🔗 <strong>Share a Preview of One Screen</strong>
+Hit play on a screen from the board and the share link now opens on that exact screen, so whoever you send it to lands where you wanted them to.</p>
+</li>
+<li class="">
+<p>🧭 <strong>Go to Definition in the Code Editor</strong>
+Hold <strong>⌘ (or Ctrl)</strong> and the name under your cursor turns into a link. Click it to jump straight to where it's defined.</p>
+</li>
+<li class="">
+<p>✨ <strong>A Tidier Interface</strong>
+We rebuilt the top bar and cleaned up the dashboard. A few smaller touches come with it:</p>
+<ul>
+<li class="">Switching to code mode now takes you to the code behind the widget you had selected, instead of the top of the file.</li>
+<li class="">Run and preview controls stay with you in code mode, so you don't have to switch back to play your app.</li>
+<li class="">The diff view has a navigator for moving between changes, so you're not scrolling to find them.</li>
+<li class="">Widgets that offer more than one constructor now let you pick the one you want.</li>
+<li class="">Cloning a project from GitHub shows progress, so it no longer looks stuck.</li>
+</ul>
+</li>
+<li class="">
+<p>🎯 <strong>Code That Looks Like Yours</strong>
+Nowa now follows your project's own formatting rules from <code>analysis_options.yaml</code>. Files it saves come back in the shape your project already uses, so your diffs only show what actually changed.</p>
+</li>
+<li class="">
+<p>🧩 <strong>Custom App Bars</strong>
+Your own widgets can now be used as a screen's app bar, so a custom header you built once works everywhere a Flutter app bar does.</p>
+</li>
+</ul>
+<p>➡️ We'd love to hear what you think of Nowa 3.12! Click the <strong>? icon</strong> to chat with us directly, or email us at <code>team@nowa.dev</code>. Happy building!</p>]]></content>
+        <category label="Nowa AI" term="Nowa AI"/>
+        <category label="Code and Git" term="Code and Git"/>
+        <category label="Account and teams" term="Account and teams"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Nowa 3.11.5: Smarter context, better designs]]></title>
+        <id>https://docs.nowa.dev/new/whats-new/3-11-5</id>
+        <link href="https://docs.nowa.dev/new/whats-new/3-11-5"/>
+        <updated>2026-08-23T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Smart context cleaning cuts the credits your prompts use by up to 75% in long sessions, Design mode is now the best place to start a new project, and running your app is more reliable.]]></summary>
+        <content type="html"><![CDATA[<p>Nowa 3.11.5 only moves the version number a little, but what's inside is not small at all. 🧹 Smart context cleaning cuts the credits your prompts use by up to 75% in long sessions, Design mode is now the best place to start a new project, and running your app is more reliable.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="new-in-this-version-"><strong>New in This Version ✨</strong><a href="https://docs.nowa.dev/new/whats-new/3-11-5#new-in-this-version-" class="hash-link" aria-label="Direct link to new-in-this-version-" title="Direct link to new-in-this-version-" translate="no">​</a></h2>
+<ul>
+<li class="">
+<p>🧹 <strong>Way Fewer Credits with Smart Context Cleaning</strong>
+When a chat with the AI gets long, older parts of the conversation get sent along with every new message. Every prompt gets more expensive, and the AI starts losing focus. Now, as the session grows, the agent removes the parts of the old context it no longer needs, while keeping everything that matters for the results and the overall picture of your app.</p>
+<ul>
+<li class=""><strong>Up to 75% fewer credits per prompt</strong>: in our testing, sessions that go beyond three or four prompts saw credit usage drop by up to 75%.</li>
+<li class=""><strong>Faster, better results</strong>: tasks run faster, and the AI stays focused on what actually matters.</li>
+</ul>
+<p>If the previous history isn't needed for your next task, starting a fresh chat is still the best way to go.</p>
+</li>
+<li class="">
+<p>🎨 <strong>Design Mode Is the Best Place to Start a New Project</strong>
+We now recommend starting every new project in <strong>Design</strong> mode. It follows the natural flow of building an app: you start with the design, focus fully on your screens and how people move through them, and leave the logic for later.</p>
+<ul>
+<li class=""><strong>Better designs</strong>: Design mode is now much more capable of creating modern designs that feel unique to your app instead of looking like a template.</li>
+<li class=""><strong>Five questions first</strong>: before it starts building, it asks about the look and feel, the tone, the user experience and how the app flows from one screen to the next. For the questions about user experience and flow, it highlights a recommended answer.</li>
+<li class=""><strong>Smarter next steps</strong>: once the first version of the design is ready, it's smarter about suggesting what to do next.</li>
+</ul>
+</li>
+<li class="">
+<p>▶️ <strong>Running Your App Is More Reliable</strong>
+Some of you saw the app fail to run for no clear reason, most of the time because the simulator was still booting while the AI was in the middle of its work. Now your simulator only shows an error or fails to run if your project actually contains errors, and you can fix them with <strong>one click using AI</strong>.</p>
+</li>
+<li class="">
+<p>✨ <strong>Smaller Touches</strong></p>
+<ul>
+<li class=""><strong>Uploaded images make it into your app</strong>: the AI adds the images you upload to your project's assets and uses them on its own.</li>
+<li class=""><strong>A smarter AI agent</strong>: it explores your project and edits files better, for better results, lower cost and faster execution.</li>
+<li class=""><strong>A better support chat</strong>: the support chat panel got a round of improvements.</li>
+</ul>
+</li>
+</ul>
+<p>Read the full story in <a href="https://nowa.dev/blog/nowa-3-11-5-release/" target="_blank" rel="noopener noreferrer" class="">Nowa 3.11.5: Smarter Context, Better Designs, and a Bunch of Fixes</a> on our blog.</p>
+<p>➡️ We can't wait to see what you build with this version! Click the <strong>? icon</strong> to chat with us directly, or email us at <code>team@nowa.dev</code>. Happy building!</p>]]></content>
+        <category label="Nowa AI" term="Nowa AI"/>
+        <category label="Design" term="Design"/>
+        <category label="Preview and test" term="Preview and test"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Design mode]]></title>
+        <id>https://docs.nowa.dev/new/whats-new/design-mode</id>
+        <link href="https://docs.nowa.dev/new/whats-new/design-mode"/>
+        <updated>2026-08-20T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Design mode is a new Nowa AI mode that does one thing only: design. It asks about your users and your style before it draws a single screen, and it never touches logic or real data.]]></summary>
+        <content type="html"><![CDATA[<p>We're excited to introduce <strong>Design mode</strong>, a new Nowa AI mode that does one thing only: design. 🎨 It asks about your users and your style before it draws a single screen, and it never touches logic or real data.</p>
+<iframe width="767" height="431" src="https://www.youtube.com/embed/t8y5S2T7O1A" title="Meet the Design Agent | Design Stunning Apps with AI, Before Any Logic" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="how-it-works-"><strong>How It Works ✨</strong><a href="https://docs.nowa.dev/new/whats-new/design-mode#how-it-works-" class="hash-link" aria-label="Direct link to how-it-works-" title="Direct link to how-it-works-" translate="no">​</a></h2>
+<ul>
+<li class="">
+<p>🎨 <strong>Pure Design, Sample Data, No Logic</strong>
+Until now, Agent mode did everything at once: the design, the logic and the data. That works, but when an agent thinks about all of that at the same time, the design often suffers. So design got its own mode. Design mode won't write logic and won't use real data. Its whole job is how your app looks and feels, and how people move through it.</p>
+</li>
+<li class="">
+<p>❓ <strong>It Asks Before It Draws</strong>
+Tell it about your app, and before it draws anything, it asks a few questions, the way good designers do:</p>
+<ul>
+<li class=""><strong>Who will use the app?</strong> The screens change completely depending on who's holding the phone.</li>
+<li class=""><strong>What look do you want?</strong> Playful, serious, minimal: the whole style follows from this.</li>
+<li class=""><strong>How should people move through it?</strong> Where they land, what they tap next, where they end up.</li>
+</ul>
+</li>
+<li class="">
+<p>🧭 <strong>The Workflow We Suggest</strong></p>
+<ul>
+<li class=""><strong>Start a project in Design mode</strong>: describe your app the way you'd describe it to a friend.</li>
+<li class=""><strong>Answer its questions</strong>: they're all about design and how people will use the app, nothing about code.</li>
+<li class=""><strong>Ask for a few versions if you're unsure</strong>: it makes 2 or 3 versions of your main screen and puts them on the board. Pick the one you like, and it deletes the rest and designs your other screens in that style.</li>
+<li class=""><strong>Make one part real</strong>: when it's done, it suggests next steps. Keep working on the design, or pick one part of the app to make real, and Nowa switches to Agent mode to build that part.</li>
+</ul>
+</li>
+<li class="">
+<p>🧪 <strong>Nothing to Break</strong>
+There's no logic behind anything yet, so you can play around without worry. Move stuff around and change your mind. Nothing breaks.</p>
+</li>
+</ul>
+<p>Learn how to use it in <a class="" href="https://docs.nowa.dev/ai/modes#design-mode">Design, Plan and Agent modes</a>, and read the full story in <a href="https://nowa.dev/blog/introducing-designer-mode/" target="_blank" rel="noopener noreferrer" class="">Introducing Designer Mode</a> on our blog.</p>
+<p>➡️ If something feels off or confusing, tell us! Click the <strong>? icon</strong> to chat with us directly, or email us at <code>team@nowa.dev</code>. Happy building!</p>]]></content>
+        <category label="Nowa AI" term="Nowa AI"/>
+        <category label="Design" term="Design"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Gemini 3.7 Flash upgrade]]></title>
+        <id>https://docs.nowa.dev/new/whats-new/gemini-3-7-flash</id>
+        <link href="https://docs.nowa.dev/new/whats-new/gemini-3-7-flash"/>
+        <updated>2026-08-13T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Google released Gemini 3.7 Flash today, and Nowa's AI agent is already running on it.]]></summary>
+        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Nowa&amp;#39;s AI agent now runs on Gemini 3.7 Flash — smarter agent, double the limits" src="https://docs.nowa.dev/assets/images/Nowa-Gemini-3.7-Flash-9c03c7f1c75cec8b09b8f53b50566a2e.png" width="2400" height="1260" class="img_ev3q"></p>
+<p>Google released <strong>Gemini 3.7 Flash</strong> today, and Nowa's AI agent is already running on it. 🚀 The agent is noticeably better at building UIs, following a design, and finishing long multi-step tasks — and because the new model costs <strong>50% less</strong> than the one it replaces, we're passing that saving straight to you as <strong>double the daily limits on every plan</strong>, at the same price.</p>
+<p>📋 Check all the details of this release in the <a class="" href="https://docs.nowa.dev/new/change-log#gemini-37-flash-upgrade-13-august-2026">changelog</a>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="new-in-this-version-"><strong>New in This Version ✨</strong><a href="https://docs.nowa.dev/new/whats-new/gemini-3-7-flash#new-in-this-version-" class="hash-link" aria-label="Direct link to new-in-this-version-" title="Direct link to new-in-this-version-" translate="no">​</a></h2>
+<ul>
+<li class="">
+<p>🧠 <strong>Nowa AI now runs on Gemini 3.7 Flash</strong>
+We switched the agent over the same day the model launched. What it means when you're building:</p>
+<ul>
+<li class=""><strong>Better screens on the first try</strong> — 3.7 Flash is currently ranked <strong>#1 on Code Arena</strong>, a public leaderboard where models go head-to-head on building real, working interfaces.</li>
+<li class=""><strong>Much better at following a design</strong> — give it a screenshot, an image, or a design system and it sticks to it far more faithfully than before.</li>
+<li class=""><strong>It doesn't lose the thread on long tasks</strong> — long, multi-step engineering work jumped from <strong>49% to 65%</strong> on the DeepSWE benchmark, so fewer retries and fewer moments where the agent forgets what you asked three steps ago.</li>
+<li class=""><strong>More correct code the first time</strong> — production code quality went from <strong>34.4% to 43.6%</strong> on FrontierCode, which means less debugging for you.</li>
+</ul>
+</li>
+<li class="">
+<p>⚡ <strong>Double the daily limits, same price</strong>
+The new model costs <strong>half</strong> of what the previous one did. Instead of keeping that saving, we doubled the daily limits on <strong>every plan</strong> — effective immediately, nothing to claim or upgrade. The new model is also more token-efficient, so it gets the same task done using fewer tokens: in day-to-day use it can feel like more than double. Any extra credits you buy now stretch across roughly twice the work too.</p>
+</li>
+<li class="">
+<p>🎨 <strong>Agent improvements, focused on UI generation</strong>
+Alongside the model swap, we shipped a round of improvements to the agent itself with a particular focus on UI generation. Between our updates and the new model, this is the biggest single-day jump in quality the Nowa agent has ever had.</p>
+</li>
+</ul>
+<p>➡️ We'd love to hear what you build with the new agent! Click the <strong>? icon</strong> to chat with us directly, or email us at <code>team@nowa.dev</code>. Happy building!</p>]]></content>
+        <category label="Nowa AI" term="Nowa AI"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Nowa 3.10.5: Full mobile browser support]]></title>
+        <id>https://docs.nowa.dev/new/whats-new/3-10-5</id>
+        <link href="https://docs.nowa.dev/new/whats-new/3-10-5"/>
+        <updated>2026-07-14T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Nowa 3.10.5 brings the full Nowa experience to your phone! You can now open Nowa in your mobile browser to check projects, make quick updates, and even deploy while you're on the go.]]></summary>
+        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Nowa 3.10.5 brings full mobile browser support" src="https://docs.nowa.dev/assets/images/Nowa-3.10.5-Mobile-f955c793a3c6e87f09f05ecdabb03d60.png" width="3840" height="2160" class="img_ev3q"></p>
+<p>Nowa 3.10.5 brings the full Nowa experience to your phone! 📱 You can now open <a href="https://app.nowa.dev/" target="_blank" rel="noopener noreferrer" class="">Nowa</a> in your mobile browser to check projects, make quick updates, and even deploy while you're on the go. This release also improves workspaces, introduces a post-launch support package, and fixes Git issues on Windows.</p>
+<p>📋 Check all the details of this release in the <a class="" href="https://docs.nowa.dev/new/change-log#3105-14-july-2026">changelog</a>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="new-in-this-version-"><strong>New in This Version ✨</strong><a href="https://docs.nowa.dev/new/whats-new/3-10-5#new-in-this-version-" class="hash-link" aria-label="Direct link to new-in-this-version-" title="Direct link to new-in-this-version-" translate="no">​</a></h2>
+<ul>
+<li class="">
+<p>📱 <strong>Full Mobile Browser Support</strong>
+Open Nowa directly from your smartphone and build smoothly from your mobile browser. Whether you're checking a project, making an update, or deploying your app, you can now do it from your pocket.</p>
+</li>
+<li class="">
+<p>📂 <strong>Improved Workspace Experience</strong>
+Workspaces are now easier to organize and manage, with improvements that help you:</p>
+<ul>
+<li class="">Invite and collaborate with team members.</li>
+<li class="">Organize your workspace.</li>
+<li class="">Manage your projects more efficiently.</li>
+</ul>
+</li>
+<li class="">
+<p>🎁 <strong>Post-Launch Support Package</strong>
+Successfully deployed an app with Nowa? You can now claim a special package directly from the <strong>deployment panel</strong> after launch. It includes:</p>
+<ul>
+<li class=""><strong>$25 in Nowa AI credits</strong>.</li>
+<li class="">Direct post-launch support from the Nowa team.</li>
+<li class="">Help with gaining exposure, monetization, collecting feedback, and improving your app.</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="whats-fixed-️"><strong>What's Fixed 🛠️</strong><a href="https://docs.nowa.dev/new/whats-new/3-10-5#whats-fixed-%EF%B8%8F" class="hash-link" aria-label="Direct link to whats-fixed-️" title="Direct link to whats-fixed-️" translate="no">​</a></h2>
+<ul>
+<li class="">🪟 <strong>Git on Windows</strong>
+Fixed an issue that affected some Windows users when working with Git in Nowa. Git should now work smoothly again.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="more-updates-"><strong>More Updates 📢</strong><a href="https://docs.nowa.dev/new/whats-new/3-10-5#more-updates-" class="hash-link" aria-label="Direct link to more-updates-" title="Direct link to more-updates-" translate="no">​</a></h2>
+<ul>
+<li class="">🧪 <strong>Nowa GO</strong> — our dedicated Android and iOS app is still in private beta.</li>
+</ul>
+<p>➡️ We'd love to hear what you think of building with Nowa from your phone! Click the <strong>? icon</strong> to chat with us directly, or email us at <code>team@nowa.dev</code>. Happy building!</p>]]></content>
+        <category label="Account and teams" term="Account and teams"/>
+        <category label="Publish" term="Publish"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Nowa 3.10: Local run for cloud projects]]></title>
+        <id>https://docs.nowa.dev/new/whats-new/3-10</id>
+        <link href="https://docs.nowa.dev/new/whats-new/3-10"/>
+        <updated>2026-07-02T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Nowa 3.10 transforms how you test and deploy your apps. You can now run cloud projects directly on a local simulator or physical device — no cloning, no switching to local projects, with hot reload included.]]></summary>
+        <content type="html"><![CDATA[<p>Nowa 3.10 transforms how you test and deploy your apps. You can now run cloud projects directly on a <strong>local simulator or physical device</strong> — no cloning, no switching to local projects, with hot reload included. Combined with a brand-new <strong>Run &amp; Deploy UI</strong> and major stability work, testing and shipping your apps has never been this simple.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="new-in-this-version-"><strong>New in This Version ✨</strong><a href="https://docs.nowa.dev/new/whats-new/3-10#new-in-this-version-" class="hash-link" aria-label="Direct link to new-in-this-version-" title="Direct link to new-in-this-version-" translate="no">​</a></h2>
+<ul>
+<li class="">
+<p>📱 <strong>Local Run for Cloud Projects</strong>
+This is the big one! You no longer need to create a local project or clone your cloud project just to test on a simulator or physical device. Nowa now <strong>generates temporary local files behind the scenes</strong>, so any cloud project can run locally — and <strong>hot reload works too</strong>. Every change you make in Nowa shows up on your device instantly.</p>
+</li>
+<li class="">
+<p>🚀 <strong>New Run &amp; Deploy UI</strong>
+Every project now has <strong>Run and Deploy buttons</strong> in the top right, putting the whole flow in one place:</p>
+<ul>
+<li class=""><strong>Run</strong> launches your app anywhere — inside Nowa, on a local simulator, or on your physical device.</li>
+<li class=""><strong>Deploy</strong> ships your app to any platform, all from the same UI.</li>
+</ul>
+</li>
+<li class="">
+<p>☁️ <strong>Redesigned Deployment</strong>
+All deployment options now live in one place. Once your setup is done, you can deploy to any platform from the main window with a <strong>single click</strong> — no more hunting through menus.</p>
+</li>
+<li class="">
+<p>🎨 <strong>A Cleaner Layout</strong>
+Two refinements to give you more room to build:</p>
+<ul>
+<li class=""><strong>Boards moved to the top right</strong>, making it easier to jump between boards and keeping the workspace cleaner.</li>
+<li class=""><strong>Toolbar moved to the bottom</strong>, freeing up more space above for your work.</li>
+</ul>
+</li>
+<li class="">
+<p>🛠️ <strong>Major Stability Improvements</strong>
+We've done significant work under the hood across the entire platform, so everything should feel smoother and more reliable.</p>
+</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="more-updates-"><strong>More Updates 📢</strong><a href="https://docs.nowa.dev/new/whats-new/3-10#more-updates-" class="hash-link" aria-label="Direct link to more-updates-" title="Direct link to more-updates-" translate="no">​</a></h2>
+<ul>
+<li class="">🙏 <strong>Thank you for the Free Weekend!</strong> We loved seeing what you built — some of you created genuinely impressive apps that simply weren't possible before, and your feedback is already shaping what comes next. There are big things on the way. 🔜</li>
+</ul>
+<p>➡️ We'd love to hear what you think of Nowa 3.10! Click the <strong>? icon</strong> to chat with us directly, or email us at <code>team@nowa.dev</code>. Happy building as always!</p>]]></content>
+        <category label="Preview and test" term="Preview and test"/>
+        <category label="Publish" term="Publish"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Nowa 3.9: A fully rebuilt AI system]]></title>
+        <id>https://docs.nowa.dev/new/whats-new/3-9</id>
+        <link href="https://docs.nowa.dev/new/whats-new/3-9"/>
+        <updated>2026-06-13T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Nowa 3.9 is our most powerful release yet. It's the first version where building complex, top-tier apps with AI feels genuinely easy and efficient — powered by a fully rebuilt AI system and real in-app compiling with App Run.]]></summary>
+        <content type="html"><![CDATA[<p>Nowa 3.9 is our most powerful release yet. 🚀 It's the first version where building complex, top-tier apps with AI feels genuinely easy and efficient — powered by a <strong>fully rebuilt AI system</strong> and real in-app compiling with <strong>App Run</strong>. Together with a refreshed layout and a long list of improvements, this is where you can confidently build world-class apps, no matter the complexity, faster and easier than ever.</p>
+<p>📋 Check all the details of this release in the <a class="" href="https://docs.nowa.dev/new/change-log#39-13-june-2026">changelog</a>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="new-in-this-version-"><strong>New in This Version ✨</strong><a href="https://docs.nowa.dev/new/whats-new/3-9#new-in-this-version-" class="hash-link" aria-label="Direct link to new-in-this-version-" title="Direct link to new-in-this-version-" translate="no">​</a></h2>
+<ul>
+<li class="">
+<p>🤖 <strong>A Fully Rebuilt AI System</strong>
+We rebuilt our AI from the ground up into a <strong>multi-agent system</strong>, where several subagents work on your project in parallel — coordinating to plan, build, and refine your app at the same time. The result is <strong>exceptional UI/UX</strong> out of the box, <strong>complex logic built reliably</strong> even across large projects, smooth handling of <strong>external pub.dev packages</strong> (including any platform-file setup), and <strong>smart context fetching</strong> that reads exactly what's needed without over- or under-reading. Because it's so efficient, you get far more done <strong>per credit</strong> than ever before. This is the first version of our AI you can fully rely on for any use case.</p>
+</li>
+<li class="">
+<p>🗺️ <strong>Smarter Planning Mode</strong>
+Planning mode now presents a clear, readable plan that anyone can follow — no technical skills required — and it's much better at matching what you actually want to build before any work begins.</p>
+</li>
+<li class="">
+<p>▶️ <strong>App Run — Compile &amp; Run Inside Nowa</strong>
+You can now <strong>compile and build your app directly inside Nowa</strong>. When you play your app, Nowa compiles and runs it for real — exactly as it'll behave on deployment, including every pub.dev package, custom code block, and native part. In other words: what you see in App Run is what you'll ship.</p>
+</li>
+<li class="">
+<p>🎬 <strong>App Preview Is Back — Now on the Board</strong>
+Many of you loved the instant play experience, so we brought it back and made it even more convenient. Just <strong>hover over any screen on the board</strong> and hit the play button to run your app right where you're working — no extra steps, no switching views.</p>
+</li>
+<li class="">
+<p>🎨 <strong>A Fresh, More Intuitive Layout</strong>
+We reworked the interface to make building more enjoyable and easier to navigate:</p>
+<ul>
+<li class=""><strong>New Assets panel</strong> for uploading and managing your assets.</li>
+<li class=""><strong>Outline moved to the left side</strong>, giving you a cleaner workspace.</li>
+<li class=""><strong>A dedicated code editor</strong> — click the <code>&lt;&gt;</code> icon in the top right to open the full code panel, and every change compiles automatically.</li>
+<li class=""><strong>Files merged into code editing</strong> — the separate Files panel is gone; everything now lives in one place alongside your code.</li>
+<li class=""><strong>New deployment UI</strong> with more detail and easier management.</li>
+<li class=""><strong>New settings page</strong> — a cleaner, more organized home for your project settings.</li>
+<li class=""><strong>Smarter logs</strong> that cover both App Run and preview, for full visibility into what's happening.</li>
+</ul>
+</li>
+<li class="">
+<p>🎁 <strong>Invite a Friend, Get 15 Credits Each</strong>
+You can now <strong>refer a friend</strong> to Nowa. When they sign up, you both receive <strong>15 free credits</strong> — and with the new AI system, those credits go a long way.</p>
+</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="more-updates-"><strong>More Updates 📢</strong><a href="https://docs.nowa.dev/new/whats-new/3-9#more-updates-" class="hash-link" aria-label="Direct link to more-updates-" title="Direct link to more-updates-" translate="no">​</a></h2>
+<ul>
+<li class="">🆓 <strong>Nowa Free Weekend</strong> — this coming <strong>Saturday and Sunday</strong>, Nowa is <strong>completely free</strong> to use. If there's something you've been waiting to build, now's the perfect time to dive in.</li>
+</ul>
+<p>➡️ We'd love to hear what you think once you've taken Nowa 3.9 for a spin — your feedback shapes where we go next. Click the <strong>? icon</strong> to chat with us directly, or email us at <code>team@nowa.dev</code>. Happy building!</p>]]></content>
+        <category label="Nowa AI" term="Nowa AI"/>
+        <category label="Preview and test" term="Preview and test"/>
+        <category label="Design" term="Design"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Nowa 3.8.2: Nowa Run, a live preview of your real app]]></title>
+        <id>https://docs.nowa.dev/new/whats-new/3-8-2</id>
+        <link href="https://docs.nowa.dev/new/whats-new/3-8-2"/>
+        <updated>2026-06-04T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Nowa 3.8.2 brings something we've wanted to ship for a long time: Nowa Run — a live, fully interactive preview of your real Flutter app, right inside your editor, updating as you build.]]></summary>
+        <content type="html"><![CDATA[<p>Nowa 3.8.2 brings something we've wanted to ship for a long time: <strong>Nowa Run</strong> ⚡ — a live, fully interactive preview of your real Flutter app, right inside your editor, updating as you build. No more picturing how your app will behave — just run it and watch. 👀</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="new-in-this-version-"><strong>New in This Version ✨</strong><a href="https://docs.nowa.dev/new/whats-new/3-8-2#new-in-this-version-" class="hash-link" aria-label="Direct link to new-in-this-version-" title="Direct link to new-in-this-version-" translate="no">​</a></h2>
+<ul>
+<li class="">
+<p>🎬 <strong>It's the Real App</strong>
+Not a mockup or a rendered guess. <strong>Tap, scroll, fill in forms, and test your logic</strong> — it behaves exactly like your shipped app, because it <em>is</em> the app.</p>
+</li>
+<li class="">
+<p>📦 <strong>Packages Actually Work</strong>
+Third-party packages now <strong>run for real instead of being mocked</strong>, so you see their true behavior right in the preview.</p>
+</li>
+<li class="">
+<p>⚡ <strong>Edits Show Up in Seconds</strong>
+Change something in the builder and the preview updates <strong>almost instantly</strong> — no manual refresh.</p>
+</li>
+<li class="">
+<p>📱 <strong>Preview on Your Phone</strong>
+Open the preview on your <strong>actual device</strong> and watch it update live as you make changes in Nowa. Build on your screen, see it on your phone.</p>
+</li>
+<li class="">
+<p>🔄 <strong>Resilient</strong>
+If a preview ever hits a snag, just <strong>restart it and keep going</strong> in the same session — never starting from scratch.</p>
+</li>
+</ul>
+<p>This is a big step toward making Nowa feel less like building blind and more like <strong>building with your app in the room</strong>. More on the way to make the loop even tighter. 🔜</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="whats-fixed-️"><strong>What's Fixed 🛠️</strong><a href="https://docs.nowa.dev/new/whats-new/3-8-2#whats-fixed-%EF%B8%8F" class="hash-link" aria-label="Direct link to whats-fixed-️" title="Direct link to whats-fixed-️" translate="no">​</a></h2>
+<ul>
+<li class="">🗂️ Fixed a bug where the editor would sometimes show <strong>"file not found"</strong> when compiling changes.</li>
+<li class="">🌐 Removed the <strong>Development environment</strong> for Web Preview/Deploy, as Nowa Run covers its use cases more efficiently.</li>
+</ul>
+<p>➡️ Built something in Nowa you're proud of? Show us — we love seeing what you make! Or click the <strong>? icon</strong> to chat with us directly, or email us at <code>team@nowa.dev</code>.</p>]]></content>
+        <category label="Preview and test" term="Preview and test"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Nowa 3.8: Meet Nowa Agent 4]]></title>
+        <id>https://docs.nowa.dev/new/whats-new/3-8</id>
+        <link href="https://docs.nowa.dev/new/whats-new/3-8"/>
+        <updated>2026-06-02T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Nowa 3.8 is here, and it's a big one! Say hello to Nowa Agent 4, our best AI agent ever. It runs multiple agents in parallel to take on longer, more complex tasks, consumes fewer credits, and now drops your new screens onto the board automatically.]]></summary>
+        <content type="html"><![CDATA[<p>Nowa 3.8 is here, and it's a big one! 🚀 Say hello to <strong>Nowa Agent 4</strong>, our best AI agent ever. It runs <strong>multiple agents in parallel</strong> to take on longer, more complex tasks, <strong>consumes fewer credits</strong>, and now drops your <strong>new screens onto the board automatically</strong>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="new-in-this-version-"><strong>New in This Version ✨</strong><a href="https://docs.nowa.dev/new/whats-new/3-8#new-in-this-version-" class="hash-link" aria-label="Direct link to new-in-this-version-" title="Direct link to new-in-this-version-" translate="no">​</a></h2>
+<ul>
+<li class="">
+<p>🤖 <strong>Meet Nowa Agent 4</strong>
+Our brand new AI agent works very differently from the previous ones. Instead of one agent doing everything, it can now run <strong>multiple agents in parallel</strong> on your project at once. That means it can take on longer, more complex tasks and still stay precise, while you keep full visual control.</p>
+</li>
+<li class="">
+<p>🎯 <strong>Better Results</strong>
+Agent 4 does noticeably better on things like <strong>multi-screen generation, complex bug fixing, advanced designs, and tricky logic</strong>. It can work for longer and split the work across subagents to get there.</p>
+</li>
+<li class="">
+<p>🪙 <strong>Fewer Credits</strong>
+It now handles <strong>reading and writing with separate agents</strong> instead of one. That makes it more efficient and brings your costs down.</p>
+</li>
+<li class="">
+<p>⚙️ <strong>Works with Platform Files</strong>
+Agent 4 can now touch <strong>platform files</strong>, not just Dart files. So it can <strong>set permissions, manage packages, and more</strong> — and you don't have to do that by hand anymore.</p>
+</li>
+<li class="">
+<p>⚡ <strong>Faster "Instant" Tasks</strong>
+Instant is now up to <strong>5x faster</strong>, and uses at least <strong>2x fewer credits</strong> than before.</p>
+</li>
+<li class="">
+<p>✅ <strong>See What the AI Did, Right Away</strong>
+New screens <strong>show up on your board automatically</strong> as Agent 4 adds them — no more dragging and dropping. 👀</p>
+</li>
+</ul>
+<blockquote>
+<p>⚠️ <strong>Heads up:</strong> You might lose access to your previous AI conversation history with this update. We recommend <strong>starting a new chat</strong>. If you need to fetch a previous history, just let us know.</p>
+</blockquote>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="whats-coming-next-"><strong>What's Coming Next 🔮</strong><a href="https://docs.nowa.dev/new/whats-new/3-8#whats-coming-next-" class="hash-link" aria-label="Direct link to whats-coming-next-" title="Direct link to whats-coming-next-" translate="no">​</a></h2>
+<ul>
+<li class="">🛠️ We've got <strong>another big Nowa update</strong> in the works to make building even smoother. More on that soon! 🔜</li>
+</ul>
+<p>➡️ If you've built something in Nowa and want us to take a look, just let us know — we'd love to see it! Or click the <strong>? icon</strong> to chat with us directly, or email us at <code>team@nowa.dev</code>.</p>]]></content>
+        <category label="Nowa AI" term="Nowa AI"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Nowa 3.7.3: Localisation support]]></title>
+        <id>https://docs.nowa.dev/new/whats-new/3-7-3</id>
+        <link href="https://docs.nowa.dev/new/whats-new/3-7-3"/>
+        <updated>2026-04-26T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Nowa 3.7.3 brings localisation support, AI font downloads, and smarter package conflict handling — making it easier to ship apps in multiple languages and match designs pixel-perfect.]]></summary>
+        <content type="html"><![CDATA[<p>Nowa 3.7.3 brings <strong>localisation support</strong>, <strong>AI font downloads</strong>, and <strong>smarter package conflict handling</strong> — making it easier to ship apps in multiple languages and match designs pixel-perfect.</p>
+<p>📋 Check all the details of this release in the <a class="" href="https://docs.nowa.dev/new/change-log#373-26-april-2026">changelog</a>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="new-in-this-version-"><strong>New in This Version ✨</strong><a href="https://docs.nowa.dev/new/whats-new/3-7-3#new-in-this-version-" class="hash-link" aria-label="Direct link to new-in-this-version-" title="Direct link to new-in-this-version-" translate="no">​</a></h2>
+<ul>
+<li class="">
+<p>🌍 <strong>Localisation Support</strong>
+You asked, we delivered! You can now make your app run in <strong>multiple languages</strong> with ease. Just ask Nowa AI to set it up and it'll handle everything for you, end to end.</p>
+</li>
+<li class="">
+<p>🔤 <strong>AI Can Now Download Fonts</strong>
+Ask Nowa AI to set any font you want, and if it's not already in your project, it'll <strong>download and set it up automatically</strong>. Super handy when you're importing designs from Figma or other tools and want Nowa AI to match them pixel-perfect.</p>
+</li>
+<li class="">
+<p>📦 <strong>Smarter Package Conflict Handling</strong>
+Another upgrade to our packaging system! If packages are clashing, Nowa AI now <strong>detects and resolves the conflict automatically</strong>, so you can stay focused on the big picture instead of digging through dependency errors.</p>
+</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="more-updates-"><strong>More Updates 📢</strong><a href="https://docs.nowa.dev/new/whats-new/3-7-3#more-updates-" class="hash-link" aria-label="Direct link to more-updates-" title="Direct link to more-updates-" translate="no">​</a></h2>
+<ul>
+<li class="">📱 <strong>Nowa GO is already rolling out in batches!</strong> If you haven't signed up yet and want to give it a shot, now's the time. Build on your phone or tablet, anywhere you go.</li>
+</ul>
+<p>➡️ If you face any issue, click the <strong>? icon</strong> to chat with us directly, or email us at <code>team@nowa.dev</code>.</p>]]></content>
+        <category label="Nowa AI" term="Nowa AI"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Nowa 3.7.2: A new packaging system]]></title>
+        <id>https://docs.nowa.dev/new/whats-new/3-7-2</id>
+        <link href="https://docs.nowa.dev/new/whats-new/3-7-2"/>
+        <updated>2026-04-23T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Nowa 3.7.2 is a big step forward — packages are now way more stable, the experimental UI is getting closer to a whole new way of building, and we solved some important issues along the way.]]></summary>
+        <content type="html"><![CDATA[<p>Nowa 3.7.2 is a big step forward — <strong>packages are now way more stable</strong>, the <strong>experimental UI</strong> is getting closer to a whole new way of building, and we solved some important issues along the way.</p>
+<p>📋 Check all the details of this release in the <a class="" href="https://docs.nowa.dev/new/change-log#372-23-april-2026">changelog</a>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="new-in-this-version-"><strong>New in This Version ✨</strong><a href="https://docs.nowa.dev/new/whats-new/3-7-2#new-in-this-version-" class="hash-link" aria-label="Direct link to new-in-this-version-" title="Direct link to new-in-this-version-" translate="no">​</a></h2>
+<ul>
+<li class="">
+<p>📦 <strong>New Packaging System</strong>
+We've massively improved how Nowa integrates with <strong>pub.dev packages</strong>. It's way more stable now, and Nowa AI handles external packages much better than before. Bonus: projects now load faster since packages load <em>after</em> the project opens ⚡</p>
+</li>
+<li class="">
+<p>🧪 <strong>Experimental UI Updates</strong>
+Big changes landed here. AI has moved to a <strong>toolbar at the bottom of the board</strong> — just hit <strong>/</strong> to start chatting, while seeing your project components in real-time on the side. This is a step toward a completely new experience that'll make building faster and easier. Enable it from <strong>App Settings → Project details → Experimentals</strong>, then turn on <strong>"New UX"</strong> 🚀</p>
+</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="whats-fixed-️"><strong>What's Fixed 🛠️</strong><a href="https://docs.nowa.dev/new/whats-new/3-7-2#whats-fixed-%EF%B8%8F" class="hash-link" aria-label="Direct link to whats-fixed-️" title="Direct link to whats-fixed-️" translate="no">​</a></h2>
+<ul>
+<li class="">🔗 <strong>Missing imports</strong> — AI can now work with imports properly, resolving issues some of you ran into on certain projects.</li>
+<li class="">🎞️ <strong>Rive widget on Web</strong> — Fixed.</li>
+<li class="">🌐 <strong>AI + APIs</strong> — We noticed some of you hit walls when asking AI to integrate APIs. That's sorted now.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="whats-coming-next-"><strong>What's Coming Next 🔮</strong><a href="https://docs.nowa.dev/new/whats-new/3-7-2#whats-coming-next-" class="hash-link" aria-label="Direct link to whats-coming-next-" title="Direct link to whats-coming-next-" translate="no">​</a></h2>
+<ul>
+<li class="">🧠 <strong>A new AI system</strong> that delivers much better results while cutting credit costs by <strong>5–15x</strong></li>
+<li class="">🚀 <strong>A major deployment upgrade</strong>, making deployments easier and clearer than ever</li>
+<li class="">🎨 <strong>More experimental UI updates</strong> on the way</li>
+</ul>]]></content>
+        <category label="Code and Git" term="Code and Git"/>
+        <category label="Nowa AI" term="Nowa AI"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Nowa 3.7: Stripe payments]]></title>
+        <id>https://docs.nowa.dev/new/whats-new/3-7</id>
+        <link href="https://docs.nowa.dev/new/whats-new/3-7"/>
+        <updated>2026-04-12T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Nowa 3.7 makes it easier than ever to build, monetize, and maintain your apps. This release brings Stripe payments, in-app support chat, in-app notifications, AI-powered project fixing, and a preview of Nowa's redesigned UI.]]></summary>
+        <content type="html"><![CDATA[<p>Nowa 3.7 makes it easier than ever to build, monetize, and maintain your apps. This release brings <strong>Stripe payments</strong>, <strong>in-app support chat</strong>, <strong>in-app notifications</strong>, <strong>AI-powered project fixing</strong>, and a <strong>preview of Nowa's redesigned UI</strong>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="new-in-this-version-"><strong>New in This Version ✨</strong><a href="https://docs.nowa.dev/new/whats-new/3-7#new-in-this-version-" class="hash-link" aria-label="Direct link to new-in-this-version-" title="Direct link to new-in-this-version-" translate="no">​</a></h2>
+<ul>
+<li class="">
+<p>💳 <strong>Stripe Payments Integration</strong>
+Want to monetize your app? Now you can! <strong>Stripe is fully integrated</strong> — whether it's subscriptions or one-time payments, Nowa sets everything up for you, including webhooks. You focus on your app, we handle the plumbing.
+Watch the tutorial here: <a href="https://www.youtube.com/watch?v=8QjTKvSBTdM" target="_blank" rel="noopener noreferrer" class="">https://www.youtube.com/watch?v=8QjTKvSBTdM</a></p>
+</li>
+<li class="">
+<p>💬 <strong>In-App Support Chat</strong>
+Building should never feel lonely. Click the <strong>? icon</strong> in the bottom-right corner to <strong>chat with us directly</strong> — ask questions, report issues, attach your project, and follow your report status from submitted all the way to done.</p>
+</li>
+<li class="">
+<p>🔔 <strong>In-App Notifications</strong>
+New tutorials, updates, and tips — we'll now <strong>notify you right inside Nowa</strong> so you always have what you need to level up your apps.</p>
+</li>
+<li class="">
+<p>🤖 <strong>AI Project Fixer</strong>
+Bugs slowing you down? Just say <strong>"Fix problems in my project"</strong> and let the AI do a full scan and fix issues before you deploy. Smoother builds, fewer headaches.</p>
+</li>
+<li class="">
+<p>✨ <strong>Redesigned UI (Preview)</strong>
+We're redesigning Nowa from the ground up to make building even more intuitive. Curious? Turn it on in <strong>Settings → Experiments</strong> and tell us what you think!</p>
+</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="more-updates-"><strong>More Updates 📢</strong><a href="https://docs.nowa.dev/new/whats-new/3-7#more-updates-" class="hash-link" aria-label="Direct link to more-updates-" title="Direct link to more-updates-" translate="no">​</a></h2>
+<ul>
+<li class="">🎥 <strong>New tutorial</strong> — Watch us build a <a href="https://www.youtube.com/watch?v=IWlPbIRTE9Y&amp;t=1528" target="_blank" rel="noopener noreferrer" class="">full CRM app for VCs</a> from scratch</li>
+<li class="">📱 <strong>Nowa GO is almost here</strong> — build on your phone or tablet, anywhere you go</li>
+<li class="">💰 <strong>Earn with Nowa</strong> — Content creators can earn commissions through <strong>Nowa Creators</strong>. Reach out at <code>team@nowa.dev</code></li>
+</ul>
+<p>➡️ If you face any issue, click the <strong>? icon</strong> to chat with us directly, or email us at <code>team@nowa.dev</code>.</p>]]></content>
+        <category label="Integrations" term="Integrations"/>
+        <category label="Nowa AI" term="Nowa AI"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Nowa 3.6.1: A fully editable main.dart]]></title>
+        <id>https://docs.nowa.dev/new/whats-new/3-6-1</id>
+        <link href="https://docs.nowa.dev/new/whats-new/3-6-1"/>
+        <updated>2026-03-12T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[A hotfix following 3.6 that makes main.dart fully editable — a new system now lets both you and the AI agent freely modify the main.dart file without running into issues.]]></summary>
+        <content type="html"><![CDATA[<p>A hotfix following 3.6 that makes <code>main.dart</code> fully editable — a new system now lets both you and the AI agent freely modify the <code>main.dart</code> file without running into issues.</p>
+<p>📋 Check all the details of this release in the <a class="" href="https://docs.nowa.dev/new/change-log#361-12-march-2026">changelog</a>.</p>
+<p>➡️ If you face any issue, use the <strong>"Problem"</strong> button to report it (attach a project snapshot if needed), or email us at <code>team@nowa.dev</code>.</p>]]></content>
+        <category label="Code and Git" term="Code and Git"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Nowa 3.6: In-app purchases with RevenueCat]]></title>
+        <id>https://docs.nowa.dev/new/whats-new/3-6</id>
+        <link href="https://docs.nowa.dev/new/whats-new/3-6"/>
+        <updated>2026-03-06T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Nowa 3.6 brings a big boost to what you can do. Now you can offer in-app purchases with RevenueCat, use Planning Mode to get much more accurate results from AI, get solid results for complex prompts in Agent Mode, and more improvements to make your day-to-day building smoother.]]></summary>
+        <content type="html"><![CDATA[<p>Nowa 3.6 brings a big boost to what you can do. Now you can offer <strong>in-app purchases with RevenueCat</strong>, use <strong>Planning Mode</strong> to get much more accurate results from AI, get solid results for complex prompts in <strong>Agent Mode</strong>, and more improvements to make your day-to-day building smoother.</p>
+<p>Want to see everything in action? Watch the Dev Diary:</p>
+<iframe width="767" height="431" src="https://www.youtube.com/embed/dLsO05crdSk" title="Nowa 3.6 | Dev Diary" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+<p>📋 Check all the details of this release in the <a class="" href="https://docs.nowa.dev/new/change-log#36-6-march-2026">changelog</a>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="new-in-this-version-"><strong>New in This Version ✨</strong><a href="https://docs.nowa.dev/new/whats-new/3-6#new-in-this-version-" class="hash-link" aria-label="Direct link to new-in-this-version-" title="Direct link to new-in-this-version-" translate="no">​</a></h2>
+<ul>
+<li class="">
+<p>💰 <strong>In-App Purchases with RevenueCat</strong>
+You can now add in-app purchases to your iOS and Android apps with just a few clicks through <strong>RevenueCat</strong>. If you've been wanting to monetize your app, this is the easiest way to get started. A step-by-step tutorial is coming in the next few days.</p>
+</li>
+<li class="">
+<p>🧠 <strong>AI Planning Mode</strong>
+Instead of jumping straight into implementation, <strong>Planning Mode</strong> takes the time to understand what you're trying to build, analyzes your project in depth, asks you the right questions, and lays out a clear plan for you to review before anything gets implemented.
+You can keep refining the plan until you're happy with it, then let it build — so you get what you actually wanted without the back and forth.</p>
+</li>
+<li class="">
+<p>✅ <strong>Todos in Agent Mode</strong>
+For complex requests and long prompts, the agent now creates its own <strong>internal todo list</strong> and works through tasks one by one, allowing it to stay focused and produce much better results along the way.</p>
+</li>
+<li class="">
+<p>🔍 <strong>Smarter Search</strong>
+The AI agent is now much more efficient at searching across your project, making your prompts <strong>faster</strong> and <strong>lighter on credits</strong>.</p>
+</li>
+<li class="">
+<p>🔬 <strong>Source-Code Analysis</strong>
+The agent can now trigger <strong>deep analysis</strong> directly on the source code to catch problems there, making it way more reliable at debugging and able to detect all kinds of issues.</p>
+</li>
+<li class="">
+<p>📋 <strong>Automatic Issue Reporting</strong>
+If the AI runs into something unexpected, it reports it directly to us and shares a <strong>report ID</strong> with you to follow up. No personal data is collected — this just helps us support you better if something happens.</p>
+</li>
+<li class="">
+<p>🔐 <strong>Google Sign-In with Supabase</strong>
+You can now implement Google Sign-In using Supabase easily. Just connect your project to Supabase and ask Nowa AI to set it up for you.</p>
+</li>
+<li class="">
+<p>🎓 <strong>Onboarding for New Projects</strong>
+Starting a new project? You'll now get a guided <strong>onboarding experience</strong> to help you get up and running quickly.</p>
+</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="community-highlights-"><strong>Community Highlights 🌟</strong><a href="https://docs.nowa.dev/new/whats-new/3-6#community-highlights-" class="hash-link" aria-label="Direct link to community-highlights-" title="Direct link to community-highlights-" translate="no">​</a></h2>
+<ul>
+<li class="">🇸🇪 <strong><a href="https://klubbrabatten.se/" target="_blank" rel="noopener noreferrer" class="">Klubbrabatten</a></strong> — Sweden's biggest loyalty rewards program, giving users discounts across restaurants and places all over the country. Used by over <strong>150,000 users</strong> and built entirely with Nowa and Supabase.</li>
+<li class="">🏋️ <strong><a href="https://github.com/EdoSag/Zero-Trust-Fitness" target="_blank" rel="noopener noreferrer" class="">Zero-Trust Fitness App</a></strong> — an open-source, privacy-first alternative to Google Fit that encrypts all your health data, built by <strong>Edo</strong>. Want to contribute? Clone the project and jump in!</li>
+</ul>
+<p>➡️ If you face any issue, use the <strong>"Problem"</strong> button to report it (attach a project snapshot if needed), or email us at <code>team@nowa.dev</code>.</p>]]></content>
+        <category label="Integrations" term="Integrations"/>
+        <category label="Nowa AI" term="Nowa AI"/>
+    </entry>
+</feed>

@@ -1,8 +1,9 @@
 // @ts-check
 
 /**
- * The docs sidebar, in the order a new user builds an app: get started, build with Nowa AI, design,
- * add logic, connect data, preview, publish, then code, account, troubleshooting and reference.
+ * The docs sidebar: Home and What's new first, then the order a new user builds an app: get started,
+ * build with Nowa AI, design, add logic, connect data, preview, publish, then code, account,
+ * troubleshooting and reference.
  * Every section opens on its overview page.
  *
  * @type {import('@docusaurus/plugin-content-docs').SidebarsConfig}
@@ -10,6 +11,8 @@
 const sidebars = {
   docs: [
     {type: 'doc', id: 'index', label: 'Home'},
+    // What's new is a release feed (whats-new/), not a doc, so it's a plain link here.
+    {type: 'link', label: "What's new", href: '/new/whats-new'},
     {
       type: 'category',
       label: 'Get started',
@@ -205,8 +208,6 @@ const sidebars = {
         'reference/glossary',
       ],
     },
-    // What's new is a release feed (whats-new/), not a doc, so it's a plain link here.
-    {type: 'link', label: "What's new", href: '/new/whats-new'},
     'new/change-log',
     {
       type: 'category',

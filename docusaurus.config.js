@@ -51,8 +51,37 @@ const config = {
     locales: ['en'],
   },
 
+  // Sends old links to a release on the single What's new page (/new/whats-new#3150-20-october-2026) to its release page.
+  clientModules: [require.resolve('./src/clientModules/whatsNewAnchors.js')],
+
   plugins: [
     ['@docusaurus/plugin-client-redirects', {redirects}],
+    [
+      // What's new: one page per release, written in whats-new/ (see README.md).
+      '@docusaurus/plugin-content-blog',
+      {
+        id: 'whats-new',
+        path: 'whats-new',
+        routeBasePath: 'new/whats-new',
+        blogTitle: "What's new",
+        blogDescription: 'Discover the latest features and enhancements for each version of Nowa.',
+        blogListComponent: '@site/src/components/WhatsNewListPage',
+        blogSidebarTitle: 'All releases',
+        blogSidebarCount: 'ALL',
+        showReadingTime: false,
+        tags: 'tags.yml',
+        onInlineTags: 'throw',
+        // A release that is only its intro has no truncate marker.
+        onUntruncatedBlogPosts: 'ignore',
+        feedOptions: {
+          type: ['rss', 'atom'],
+          title: "Nowa: What's new",
+          description: 'New features and enhancements in each version of Nowa.',
+          copyright: `Copyright © ${new Date().getFullYear()} Nowa. All rights reserved`,
+          language: 'en',
+        },
+      },
+    ],
     [
       "posthog-docusaurus",
       {
@@ -145,9 +174,16 @@ const config = {
         },
         items: [
           {
+            type: 'docSidebar',
+            sidebarId: 'docs',
+            label: 'Docs',
+            position: 'left',
+          },
+          {
             label: "What's new",
             position: 'left',
             to: '/new/whats-new',
+            activeBasePath: '/new/whats-new',
           },
           {
             label: 'Get Started',

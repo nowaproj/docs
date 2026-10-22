@@ -205,12 +205,9 @@ const sidebars = {
         'reference/glossary',
       ],
     },
-    {
-      type: 'category',
-      label: "What's new",
-      link: {type: 'doc', id: 'new/whats-new'},
-      items: ['new/change-log'],
-    },
+    // What's new is a release feed (whats-new/), not a doc, so it's a plain link here.
+    {type: 'link', label: "What's new", href: '/new/whats-new'},
+    'new/change-log',
     {
       type: 'category',
       label: 'Legacy tutorials',

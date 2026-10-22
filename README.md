@@ -44,6 +44,46 @@ Run `yarn check:videos` before committing a new or replaced video. The check als
 verifies exact filename case, URL separators, codec compatibility, and MP4 fast
 start metadata.
 
+### Adding a release to What's new
+
+What's new (`/new/whats-new`) is a feed with one page per release, built from the
+files in `whats-new/` by a second Docusaurus blog. The list, the sidebar, the tag
+pages and the RSS and Atom feeds update on their own. For each release:
+
+1. Add `whats-new/<date>-<slug>.md`, like `whats-new/2026-10-20-3-15.md`, with
+   this front matter:
+
+   ```md
+   ---
+   title: "Nowa 3.15: Design right on the board"
+   sidebar_label: "3.15 · Design right on the board"
+   description: "One or two sentences for search results and link previews."
+   slug: 3-15
+   date: 2026-10-20
+   tags: [design, nowa-ai]
+   image: /videos/whats-new/3.15.0-board-handles.jpg
+   ---
+   ```
+
+   The slug is the version with dots turned into dashes, leaving out a final
+   `.0` (3.15.0 is `3-15`, 3.14.1 is `3-14-1`). The page lives at
+   `/new/whats-new/<slug>`. Tags must be listed in `whats-new/tags.yml`. `image`
+   is the picture shown when someone shares the link, usually the poster of the
+   first video.
+2. Write the intro paragraph, then `<!-- truncate -->`. The list shows only
+   what's above that line, followed by **Read more**.
+3. Below it, add the changelog line, then the release notes with `##` section
+   headings (`## **New in This Version ✨**`, `## **Bug Fixes 🩹**`). Link to
+   docs and the changelog by URL, like `/new/change-log#3150-20-october-2026`,
+   not by file path.
+4. In `docs/new/change-log.md`, add a line under the version heading that links
+   back to the release page:
+   `📰 See the highlights of this release in [What's new](/new/whats-new/3-15).`
+
+Links to a release on the old single What's new page, like
+`/new/whats-new#3150-20-october-2026`, are sent to the release page by
+`src/clientModules/whatsNewAnchors.js`. New releases don't need an entry there.
+
 ### Deployment
 
 Using SSH:

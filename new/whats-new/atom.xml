@@ -2,12 +2,90 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://docs.nowa.dev/new/whats-new</id>
     <title>Nowa: What's new</title>
-    <updated>2026-10-20T00:00:00.000Z</updated>
+    <updated>2026-10-22T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://docs.nowa.dev/new/whats-new"/>
     <subtitle>New features and enhancements in each version of Nowa.</subtitle>
     <icon>https://docs.nowa.dev/img/favicon.ico</icon>
     <rights>Copyright © 2026 Nowa. All rights reserved</rights>
+    <entry>
+        <title type="html"><![CDATA[Nowa 3.16.1: Point at your app to change it]]></title>
+        <id>https://docs.nowa.dev/new/whats-new/3-16-1</id>
+        <link href="https://docs.nowa.dev/new/whats-new/3-16-1"/>
+        <updated>2026-10-22T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Nowa 3.16.1 brings Instant play: your app running right in Nowa, where you can point at any widget to edit it or ask Nowa AI about it, pin comments where something should change, and share a link for feedback. Your data sources now share one Data panel, and Nowa AI sends less with every message.]]></summary>
+        <content type="html"><![CDATA[<p>Nowa 3.16.1 brings <strong>Instant play</strong>: your app running right in Nowa, as it would on a device, with nothing to build. ▶️ Point at any widget to edit it or ask Nowa AI about it, pin comments where something should change, and share a link so others can try your app and comment too. Your APIs, Supabase and Firestore now share one <strong>Data</strong> panel, and Nowa AI sends less with every message, so long chats use fewer credits.</p>
+<p>📋 Check all the details of this release in the <a class="" href="https://docs.nowa.dev/new/change-log#3161-22-october-2026">changelog</a>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="new-in-this-version-"><strong>New in This Version ✨</strong><a href="https://docs.nowa.dev/new/whats-new/3-16-1#new-in-this-version-" class="hash-link" aria-label="Direct link to new-in-this-version-" title="Direct link to new-in-this-version-" translate="no">​</a></h2>
+<ul>
+<li class="">
+<p>▶️ <strong>Instant Play: Your App, Live in Nowa</strong>
+Click the arrow next to <strong>Run</strong> and choose <strong>Instant play</strong>. Your app takes the board's place and runs as it would on a device, with nothing to build or wait for.</p>
+<ul>
+<li class=""><strong>Any size</strong>: switch between <strong>Phone</strong>, <strong>Tablet</strong>, <strong>Desktop</strong> and <strong>Full screen</strong> from the menu on the left of the top bar.</li>
+<li class=""><strong>Your changes, right away</strong>: edit your app, and Instant play starts again with your change. <strong>Start over</strong> runs it from the beginning, as if you had just opened it.</li>
+<li class=""><strong>Back and forward</strong>: the top bar's back and forward buttons step in and out of Instant play and the embedded preview.</li>
+<li class=""><strong>In the playground and templates too</strong>: a <strong>Run</strong> button next to <strong>Save</strong> opens Instant play.</li>
+</ul>
+</li>
+<li class="">
+<p>🎯 <strong>Point at What You Want to Change</strong>
+Turn on <strong>Select</strong> (or press <strong>V</strong>) and click any widget in your running app. It gets the same selection box and size as on the board, and <strong>Details</strong> opens beside it, so you can change it right there. Hold <strong>Shift</strong> to select more than one.</p>
+<p>While <strong>Select</strong> is on, Nowa AI sees what you selected and which screen you're on, so you can simply ask it to "make this button bigger". Press <strong>Esc</strong> to use your app again. What you selected waits until you turn <strong>Select</strong> back on.</p>
+</li>
+<li class="">
+<p>💬 <strong>Comments Right on Your App</strong>
+Turn on <strong>Comment</strong> (or press <strong>C</strong>) and click anywhere on your app to pin a comment there. The <strong>Comments</strong> panel lists them with who wrote them and when. <strong>Resolve</strong> a comment once it's done, or click <strong>Fix with AI</strong>, and Nowa AI makes the change it asks for. Comments are saved in your project, each on the screen it was left on.</p>
+</li>
+<li class="">
+<p>🔗 <strong>Share Your App for Feedback</strong>
+Click <strong>Share</strong> in the top bar to copy a link to your app. It opens your app in a browser with its comments, so people can try it and, once signed in, leave comments of their own. The link opens for your project's members, or for anyone when your project is public. Sharing works in cloud projects. In the playground, save your app first.</p>
+</li>
+<li class="">
+<p>🗄️ <strong>One Data Panel for All Your Data</strong>
+Your APIs, Supabase and Firestore are now tabs of one <strong>Data</strong> panel in the side bar, which opens on the tab you used last. Every tab has a search field, and tells you clearly when something is loading, isn't connected or failed to load, with a way to fix it.</p>
+<ul>
+<li class=""><strong>Supabase</strong>: Auth, Queries, Storage, RPC and Edge functions in one list. Point at a function and click its run button to test it.</li>
+<li class=""><strong>Firestore</strong>: your collections and queries in one list.</li>
+<li class=""><strong>APIs</strong>: search finds your collections by name, and a failed load offers <strong>Try again</strong>.</li>
+</ul>
+<p>The <strong>Router</strong> has left the side bar. Open it from a screen's <strong>Details</strong> panel.</p>
+</li>
+<li class="">
+<p>🤖 <strong>Nowa AI Sends Less, and Its Chat Is Tidier</strong></p>
+<ul>
+<li class=""><strong>Fewer credits for long chats</strong>: Nowa AI now looks up your project's overview only when it needs it, instead of receiving it with every message. Large code you attach goes as a short reference that the AI reads only if your request needs it. A widget you select still goes in full, since Nowa AI almost always needs it.</li>
+<li class=""><strong>A one-row header</strong>: chat history, the chat's title, an info button with the tokens used, <strong>New chat</strong> and <strong>Options</strong>. Your credits show in a slim strip above the message field, only when they matter.</li>
+<li class=""><strong>Your themes, as you wrote them</strong>: Nowa AI now finds themes written as getters of a class, like <code>AppTheme.lightTheme</code>, and knows which one your boards use, so it no longer adds a second theme next to yours.</li>
+</ul>
+</li>
+<li class="">
+<p>🧭 <strong>A Tidier Workspace</strong></p>
+<ul>
+<li class="">The bottom of the side bar now holds <strong>Help</strong> (with <strong>Docs</strong>, <strong>Talk to an expert</strong>, <strong>Support</strong> and <strong>Shortcuts</strong>), your notifications and your account menu, which also opens <strong>Project settings</strong>.</li>
+<li class=""><strong>Project settings</strong> open as a popup over your project.</li>
+</ul>
+</li>
+<li class="">
+<p>💻 <strong>For Those Who Code</strong>
+When you run your app on a device or an emulator, a <strong>Hot reload</strong> button now sits next to <strong>Hot restart</strong>. Both save your project first, and each one spins while it works.</p>
+</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="bug-fixes-"><strong>Bug Fixes 🩹</strong><a href="https://docs.nowa.dev/new/whats-new/3-16-1#bug-fixes-" class="hash-link" aria-label="Direct link to bug-fixes-" title="Direct link to bug-fixes-" translate="no">​</a></h2>
+<ul>
+<li class="">The color picker's eyedropper picks colors again.</li>
+<li class="">The console opens over the status bar again.</li>
+<li class="">An app made only for Android is no longer asked for an iOS AdMob App ID.</li>
+<li class="">Widgets built by helper methods, like <code>_buildHeader()</code>, no longer get "sealed box" warnings.</li>
+<li class="">In Git, <strong>Sync</strong> pulls and pushes the branch you're on, even when your repository has other worktrees.</li>
+</ul>
+<p>See every change in the <a class="" href="https://docs.nowa.dev/new/change-log#3161-22-october-2026">changelog</a>.</p>
+<p>➡️ We'd love to hear how Instant play works for you! Open <strong>Help</strong> at the bottom of the side bar and choose <strong>Support</strong> to chat with us directly, or email us at <code>team@nowa.dev</code>. Happy building!</p>]]></content>
+        <category label="Preview and test" term="Preview and test"/>
+        <category label="Integrations" term="Integrations"/>
+        <category label="Nowa AI" term="Nowa AI"/>
+        <category label="Code and Git" term="Code and Git"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Nowa 3.15: Design right on the board]]></title>
         <id>https://docs.nowa.dev/new/whats-new/3-15</id>
@@ -1007,60 +1085,5 @@ We're redesigning Nowa from the ground up to make building even more intuitive. 
 <p>📋 Check all the details of this release in the <a class="" href="https://docs.nowa.dev/new/change-log#361-12-march-2026">changelog</a>.</p>
 <p>➡️ If you face any issue, use the <strong>"Problem"</strong> button to report it (attach a project snapshot if needed), or email us at <code>team@nowa.dev</code>.</p>]]></content>
         <category label="Code and Git" term="Code and Git"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Nowa 3.6: In-app purchases with RevenueCat]]></title>
-        <id>https://docs.nowa.dev/new/whats-new/3-6</id>
-        <link href="https://docs.nowa.dev/new/whats-new/3-6"/>
-        <updated>2026-03-06T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Nowa 3.6 brings a big boost to what you can do. Now you can offer in-app purchases with RevenueCat, use Planning Mode to get much more accurate results from AI, get solid results for complex prompts in Agent Mode, and more improvements to make your day-to-day building smoother.]]></summary>
-        <content type="html"><![CDATA[<p>Nowa 3.6 brings a big boost to what you can do. Now you can offer <strong>in-app purchases with RevenueCat</strong>, use <strong>Planning Mode</strong> to get much more accurate results from AI, get solid results for complex prompts in <strong>Agent Mode</strong>, and more improvements to make your day-to-day building smoother.</p>
-<p>Want to see everything in action? Watch the Dev Diary:</p>
-<iframe width="767" height="431" src="https://www.youtube.com/embed/dLsO05crdSk" title="Nowa 3.6 | Dev Diary" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
-<p>📋 Check all the details of this release in the <a class="" href="https://docs.nowa.dev/new/change-log#36-6-march-2026">changelog</a>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="new-in-this-version-"><strong>New in This Version ✨</strong><a href="https://docs.nowa.dev/new/whats-new/3-6#new-in-this-version-" class="hash-link" aria-label="Direct link to new-in-this-version-" title="Direct link to new-in-this-version-" translate="no">​</a></h2>
-<ul>
-<li class="">
-<p>💰 <strong>In-App Purchases with RevenueCat</strong>
-You can now add in-app purchases to your iOS and Android apps with just a few clicks through <strong>RevenueCat</strong>. If you've been wanting to monetize your app, this is the easiest way to get started. A step-by-step tutorial is coming in the next few days.</p>
-</li>
-<li class="">
-<p>🧠 <strong>AI Planning Mode</strong>
-Instead of jumping straight into implementation, <strong>Planning Mode</strong> takes the time to understand what you're trying to build, analyzes your project in depth, asks you the right questions, and lays out a clear plan for you to review before anything gets implemented.
-You can keep refining the plan until you're happy with it, then let it build — so you get what you actually wanted without the back and forth.</p>
-</li>
-<li class="">
-<p>✅ <strong>Todos in Agent Mode</strong>
-For complex requests and long prompts, the agent now creates its own <strong>internal todo list</strong> and works through tasks one by one, allowing it to stay focused and produce much better results along the way.</p>
-</li>
-<li class="">
-<p>🔍 <strong>Smarter Search</strong>
-The AI agent is now much more efficient at searching across your project, making your prompts <strong>faster</strong> and <strong>lighter on credits</strong>.</p>
-</li>
-<li class="">
-<p>🔬 <strong>Source-Code Analysis</strong>
-The agent can now trigger <strong>deep analysis</strong> directly on the source code to catch problems there, making it way more reliable at debugging and able to detect all kinds of issues.</p>
-</li>
-<li class="">
-<p>📋 <strong>Automatic Issue Reporting</strong>
-If the AI runs into something unexpected, it reports it directly to us and shares a <strong>report ID</strong> with you to follow up. No personal data is collected — this just helps us support you better if something happens.</p>
-</li>
-<li class="">
-<p>🔐 <strong>Google Sign-In with Supabase</strong>
-You can now implement Google Sign-In using Supabase easily. Just connect your project to Supabase and ask Nowa AI to set it up for you.</p>
-</li>
-<li class="">
-<p>🎓 <strong>Onboarding for New Projects</strong>
-Starting a new project? You'll now get a guided <strong>onboarding experience</strong> to help you get up and running quickly.</p>
-</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="community-highlights-"><strong>Community Highlights 🌟</strong><a href="https://docs.nowa.dev/new/whats-new/3-6#community-highlights-" class="hash-link" aria-label="Direct link to community-highlights-" title="Direct link to community-highlights-" translate="no">​</a></h2>
-<ul>
-<li class="">🇸🇪 <strong><a href="https://klubbrabatten.se/" target="_blank" rel="noopener noreferrer" class="">Klubbrabatten</a></strong> — Sweden's biggest loyalty rewards program, giving users discounts across restaurants and places all over the country. Used by over <strong>150,000 users</strong> and built entirely with Nowa and Supabase.</li>
-<li class="">🏋️ <strong><a href="https://github.com/EdoSag/Zero-Trust-Fitness" target="_blank" rel="noopener noreferrer" class="">Zero-Trust Fitness App</a></strong> — an open-source, privacy-first alternative to Google Fit that encrypts all your health data, built by <strong>Edo</strong>. Want to contribute? Clone the project and jump in!</li>
-</ul>
-<p>➡️ If you face any issue, use the <strong>"Problem"</strong> button to report it (attach a project snapshot if needed), or email us at <code>team@nowa.dev</code>.</p>]]></content>
-        <category label="Integrations" term="Integrations"/>
-        <category label="Nowa AI" term="Nowa AI"/>
     </entry>
 </feed>

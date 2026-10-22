@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunknowa_docs=self.webpackChunknowa_docs||[]).push([[3048],{40923:e=>{e.exports=JSON.parse('{"metadata":{"permalink":"/new/whats-new","page":1,"postsPerPage":10,"totalPages":5,"totalCount":46,"nextPage":"/new/whats-new/page/2","blogDescription":"Discover the latest features and enhancements for each version of Nowa.","blogTitle":"What\'s new"}}')}}]);

@@ -7,6 +7,92 @@ sidebar_position: 2
 
 ---
 
+## **3.16.4 (28 October 2026)**
+
+📰 See the highlights of this release in [What's new](/new/whats-new/3-16-4).
+
+#### **Added 🌟**
+- **Move and rename files with Nowa AI**: ask Nowa AI to move or rename a file or a folder. It uses the editor's own move, so every import and export that points to it follows, in `lib/`, `design/` and your tests, and undoing the request puts everything back.
+- **Save & Commit**: commit, pull, merge, checkout, revert and undo commit save your unsaved edits first, so nothing is left out of a commit or overwritten. A tile above your changes counts the unsaved files and saves them when you click it, and the main button reads **Save & Commit** while something isn't saved.
+
+#### **Improved ⚙️**
+- **Nowa AI takes fewer steps**: it reads several files in one call, and a file under 30,000 characters comes back whole, while a bigger Dart file comes back as an outline it reads parts of. A search can look for several things at once, and a search with 12 hits or fewer returns the code each hit sits in, the whole class for a hit on a class. After an edit, Nowa AI gets back only the lines Nowa saved differently, instead of the code it just sent. The explorer answers with places in your code and Nowa AI gets their exact text, minus what it already read for that request, and it checks all the screens it changed in one go. Fewer steps mean faster answers and fewer credits per request.
+- **Faster AI edits on cloud projects**: each edit Nowa AI makes waits for one request to the server instead of four or more, and the first edit after opening a project no longer loads every file first.
+- **Faster AI search in local projects**: Nowa AI searches a local project in about half a second while it works, where a search could take up to half a minute.
+- **Nowa AI needs 3.16.4**: Nowa AI's chat now works with Nowa 3.16.4 or later. An older version shows "This version of Nowa is no longer supported. Please update to version 3.16.4 or later." in the chat, and everything else keeps working.
+- **Components on the board**: pointing at a component shows its layout guides in the component color, and lists and grids get them too. Double-clicking into a component selects the layer under the pointer, and **Ctrl/Cmd + click** selects through nested components. On its own canvas, a component is open like a screen: its top layer shows in **Details** with padding, radius, gap and shadow handles on the board, and **Esc**, a click on a gap or its row in the **Outline** selects it. The **Outline** keeps a component you use collapsed when you select it, and **Details** lists a component's inputs before the layer it draws.
+- **Layers**: the layer chips over the selection are gone. **Details** lists a widget's layers, and holding **Ctrl** (**Control** on Mac, with **Cmd** for the deepest widget) shows the layers of the widget under the pointer. Selection colors show as swatches, named when you point at them.
+- **Translations on cloud projects**: an edited translation shows in about a second instead of five, and **Details** shows a spinner while a translation or a language is being saved.
+- **Instant play**: opens on the screen your board selection is in, remembers what you picked to play after you reopen the project, and waits for your project's packages before it plays, instead of showing errors while they load. Its picker finds a prototype by its class name, lists names that start with or contain what you type first, and offers prototypes built from other prototypes.
+- **AI chat**: the task list at the top of a response updates in place and shows where the tasks stand, and the labels of the activity line no longer overlap as they change.
+- **Dashboard**: project cards always say when they were edited, with dates like "Jan 11" (and the year when it isn't this one), and shimmer until their cover loads.
+- **Import project**: the dialog puts you in its folder field, and a workspace lists its packages as soon as you pause typing. A package opened from a workspace is listed under its own name in **Recents** and the status bar.
+- **Account settings**: your account details have a **Log out** button.
+
+#### **Fixed 🩹**
+- Fixed **a save the server refused** looking saved. Saving shows the error, a failed auto save shows it once, and **Save and close** stays open.
+- Fixed **saved code getting a `const` that doesn't compile**, like `const SizedBox(height: Spacing.md)`, or losing one it needs, like in a default value. Code keeps the `const` it was written with, and `const` is no longer repeated where Dart doesn't need it.
+- Fixed **`async*` and `sync*` functions and closures** being saved without their `*` or as the wrong kind.
+- Fixed **`for` loops and declarations that take records or objects apart**, like `for (final (i, (name, price)) in items.indexed)` or `for (final MapEntry(:key, :value) in map.entries)`, turning the whole method into a placeholder. Records also compare by their fields and match record patterns in `switch`.
+- Fixed **method tear-offs**, like `Timer.periodic(duration, _tick)`, failing with 'Method "_tick" is not found' after their file was edited.
+- Fixed **screens that fade in** staying invisible on the board until you pointed at them.
+- Fixed **custom painters** (`CustomPaint`) blocking taps and not repainting when they should, on the board and in Instant play.
+- Fixed **a prototype on the board** showing placeholders like "[label]" where its data is meant to be empty.
+- Fixed **adding a PageController's `nextPage`, `previousPage` or `animateTo` as an action** leaving `curve` empty, which didn't compile. It now gets `Curves.easeInOut`.
+- Fixed **moving files in Files** losing a file Nowa hadn't opened yet, and not updating the imports in hand-written code and tests.
+- Fixed **undoing Translate** leaving the new text in every language, and a double click on **Translate** adding it twice.
+- Fixed **the board's Language picker** showing in apps that are in one language.
+- Fixed **Nowa AI failing to remove a stateful widget**, which broke its later edits, and its screenshots of a screen's states showing placeholders.
+- Fixed **an error in the status bar** while Nowa AI rewrote a screen.
+- Fixed **Git Sync** stopping after a branch was renamed into a folder, like `feature` to `feature/login`.
+- Fixed **Git**: starting a repository failing when the files already listed `.git`, and a cancelled switch to a remote branch leaving a new local branch behind.
+- Fixed **Update in the web app** loading the old version again, so the update dialog came back.
+- Fixed **"Flutter isn't set up"** when Flutter is on your PATH and no SDK path is set in Nowa's settings.
+- Fixed **prices with cents** showing one decimal, like "$12.8" instead of "$12.80".
+- Fixed **the sign-in form** moving when an error appeared, so the next click missed.
+- Fixed **the Linux app** not seeing changes made outside Nowa in subfolders of a local project, and an error at start on a computer without a Documents folder.
+
+---
+
+## **3.16.3 (25 October 2026)**
+
+📰 See the highlights of this release in [What's new](/new/whats-new/3-16-4).
+
+#### **Added 🌟**
+- **Translate on the board**: in an app with several languages, select a text and **Details** shows it in the language your boards show, with the language and the message's name under it, and **not translated** until that language has its own text. Type to translate it. Double-click a translated text on the board and type over it to change it in that language. Right-to-left languages are typed right to left.
+- **Make a text translatable**: a text typed in place gets a **Translate** button in **Details** that makes it a message of your app, ready to translate into each language. **Use plain text** turns it back.
+- **Add and remove languages**: the board's **Language** picker lists the languages in your app and the ones you can add. Search by a language's own name or its English name, like "arab", and click one to add it. The trash icon removes a language.
+- **Nowa AI translates with ARB files**: ask for languages and Nowa AI sets your app up the way Flutter recommends, with ARB files and an `l10n.yaml`, for all your languages in one go. Ask it to and it moves your app's own translations to ARB files.
+- **Translations generated as you go**: whenever an ARB file changes, whether Nowa AI, the code editor, Git or you on the board changed it, Nowa writes your `AppLocalizations` code again right away, in cloud projects too, so the board shows the change at once. A broken ARB file shows as a problem.
+
+#### **Fixed 🩹**
+- Fixed **translated plurals, dates and numbers** on the board, and the board keeping old translations after an ARB file changed.
+- Fixed **an error on every change** ("VariableDeclImpl is not a subtype of BlockExpr") after Nowa AI rewrote a screen.
+- Fixed **Build in the project settings** doing nothing when a cloud build couldn't start. The popup now says why.
+- Fixed **the close button of the AI chat's session details** closing your project instead of the details.
+- Fixed **a loading overlay** closing the page under it when its task had already finished.
+
+---
+
+## **3.16.2 (24 October 2026)**
+
+📰 See the highlights of this release in [What's new](/new/whats-new/3-16-4).
+
+#### **Added 🌟**
+- **Preview your boards in any language**: in an app with several languages, pick a **Language** under **All boards** in **Details**, with nothing selected, and every board shows your app in it, right to left for languages such as Arabic. The pick is saved with your project and never written to your code.
+- **Several GitHub accounts**: connect more than one GitHub account, like your own and your organization's, and use the repositories of each. **GitHub Integration** lists every account, personal or organization, with how many repositories Nowa can use and **Manage**, and **Add account** connects another. New repositories you create from Nowa go to your personal account.
+- **Lottie previews**: Lottie animations in your assets play as their thumbnail in the **Library**.
+
+#### **Improved ⚙️**
+- **Deep Thinking on Gemini 4 Argon**: Deep Thinking, in **Agent** and **Design** mode, runs on Google's Gemini 4 Argon.
+- **Fewer false problems in imported apps**: an app that analyzes cleanly in Flutter shows far fewer false problems and red canvases in Nowa. Nowa finds your `MaterialApp` through helper methods and builders, reads themes returned by static functions, loads Flutter's localizations, and runs `async*` and `sync*` generators, `when` guards in switch cases and `await` inside spreads and cascades.
+- **No more blank web editor**: when the web app runs out of graphics memory, Nowa saves your project and reloads the page, back on your last chat, instead of going blank. Board cover screenshots also use much less memory.
+
+#### **Fixed 🩹**
+- Fixed **text fields on the board** drawing in their error state, when their error text is empty until something goes wrong.
+
+---
+
 ## **3.16.1 (22 October 2026)**
 
 📰 See the highlights of this release in [What's new](/new/whats-new/3-16-1).

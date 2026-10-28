@@ -2,12 +2,49 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://docs.nowa.dev/new/whats-new</id>
     <title>Nowa: What's new</title>
-    <updated>2026-10-22T00:00:00.000Z</updated>
+    <updated>2026-10-28T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://docs.nowa.dev/new/whats-new"/>
     <subtitle>New features and enhancements in each version of Nowa.</subtitle>
     <icon>https://docs.nowa.dev/img/favicon.ico</icon>
     <rights>Copyright © 2026 Nowa. All rights reserved</rights>
+    <entry>
+        <title type="html"><![CDATA[Nowa 3.16.4: Faster Nowa AI and Multilingual Apps]]></title>
+        <id>https://docs.nowa.dev/new/whats-new/3-16-4</id>
+        <link href="https://docs.nowa.dev/new/whats-new/3-16-4"/>
+        <updated>2026-10-28T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Nowa 3.16.4 makes Nowa AI faster and lighter on your credits, and lets you translate your app right on the board.]]></summary>
+        <content type="html"><![CDATA[<p>With Nowa 3.16.4, Nowa AI gets your requests done faster and with fewer credits, and you can translate your app right on the board. 🚀</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="-nowa-ai-faster-and-lighter-on-your-credits">⚡ Nowa AI: faster, and lighter on your credits<a href="https://docs.nowa.dev/new/whats-new/3-16-4#-nowa-ai-faster-and-lighter-on-your-credits" class="hash-link" aria-label="Direct link to ⚡ Nowa AI: faster, and lighter on your credits" title="Direct link to ⚡ Nowa AI: faster, and lighter on your credits" translate="no">​</a></h2>
+<p>Nowa AI now gets to the answer in fewer steps. It spends less time looking around your project and more time building, so your changes land sooner and each request uses fewer credits. Here's what changed:</p>
+<ul>
+<li class=""><strong>Fewer trips back and forth.</strong> Nowa AI reads several files at once and gets small files whole. When a search finds just a few places, it gets the code around each one right away, instead of going back for more.</li>
+<li class=""><strong>No reading the same code twice.</strong> After an edit, it hears only what Nowa changed, instead of reading the whole file again, and when it explores your project it skips the code it has already seen.</li>
+<li class=""><strong>Faster saves on cloud projects.</strong> Each edit Nowa AI makes waits for one trip to our servers, instead of four or more.</li>
+</ul>
+<p>There's something new it can do, too: ask Nowa AI to move or rename a file or a folder, and every import that points to it follows, in your code and in your tests.</p>
+<p>Taking on something big? <strong>Deep Thinking</strong>, the level for big features and tricky logic, now runs on Google's Gemini 4 Argon.</p>
+<p>Nowa AI now needs Nowa 3.16.4 or later. If you're on an older version, the chat will ask you to update.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="-translate-your-app-right-on-the-board">🌍 Translate your app right on the board<a href="https://docs.nowa.dev/new/whats-new/3-16-4#-translate-your-app-right-on-the-board" class="hash-link" aria-label="Direct link to 🌍 Translate your app right on the board" title="Direct link to 🌍 Translate your app right on the board" translate="no">​</a></h2>
+<p>Reach more people by speaking their language. Ask Nowa AI to add the languages you need, for example "Make my app available in English and Arabic", and it sets your app up the way Flutter recommends. Then you can see and polish every translation right on your board:</p>
+<ul>
+<li class=""><strong>See your screens in each language.</strong> Click an empty spot on the board, then pick a <strong>Language</strong> under <strong>All boards</strong> in <strong>Details</strong>. Every board switches to it, and languages like Arabic flow right to left.</li>
+<li class=""><strong>Add a language in a click.</strong> Search the same list by a language's name, in English or in its own script, and click it.</li>
+<li class=""><strong>Translate as you go.</strong> Select a text and <strong>Details</strong> shows it in the language your boards show. A text that's still missing says <strong>not translated</strong>, so you know exactly what's left. Type the translation and press <strong>Enter</strong>, or double-click the text on the board, type over it and press <strong>Esc</strong>.</li>
+<li class=""><strong>Make any text translatable.</strong> For a text you typed straight into a widget, click <strong>Translate</strong> next to it in <strong>Details</strong>.</li>
+</ul>
+<video controls="" playsinline="" preload="metadata" width="100%" poster="/videos/whats-new/3.16.4-languages.jpg"><source src="/videos/whats-new/3.16.4-languages.mp4" type="video/mp4"></video>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="-bring-all-your-github-accounts">👥 Bring all your GitHub accounts<a href="https://docs.nowa.dev/new/whats-new/3-16-4#-bring-all-your-github-accounts" class="hash-link" aria-label="Direct link to 👥 Bring all your GitHub accounts" title="Direct link to 👥 Bring all your GitHub accounts" translate="no">​</a></h2>
+<p>Your own repositories and your team's can now sit side by side. In the Git settings, under <strong>GitHub Integration</strong>, click <strong>Add account</strong> to connect another GitHub account. Each account shows whether it's personal or an organization and how many repositories Nowa can use, and <strong>Manage</strong> opens it on GitHub so you can pick them. See <a class="" href="https://docs.nowa.dev/code/github#connect-github">Connect GitHub</a>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="️-see-your-lottie-animations-in-the-library">🎞️ See your Lottie animations in the Library<a href="https://docs.nowa.dev/new/whats-new/3-16-4#%EF%B8%8F-see-your-lottie-animations-in-the-library" class="hash-link" aria-label="Direct link to 🎞️ See your Lottie animations in the Library" title="Direct link to 🎞️ See your Lottie animations in the Library" translate="no">​</a></h2>
+<p>Lottie animations in your assets now play right in their thumbnails in the <strong>Library</strong>, so you can find the one you want at a glance.</p>
+<hr>
+<p>That's the big stuff! 📋 For every fix and smaller improvement, see the changelog for <a class="" href="https://docs.nowa.dev/new/change-log#3164-28-october-2026">3.16.4</a>, <a class="" href="https://docs.nowa.dev/new/change-log#3163-25-october-2026">3.16.3</a> and <a class="" href="https://docs.nowa.dev/new/change-log#3162-24-october-2026">3.16.2</a>.</p>
+<p>➡️ We'd love to hear how the faster Nowa AI works for you. Click <strong>?</strong> at the bottom of the left sidebar and choose <strong>Support</strong> to message us, or email us at <code>team@nowa.dev</code>. Happy building!</p>]]></content>
+        <category label="Nowa AI" term="Nowa AI"/>
+        <category label="Design" term="Design"/>
+        <category label="Code and Git" term="Code and Git"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Nowa 3.16.1: Introducing Play-While-Edit]]></title>
         <id>https://docs.nowa.dev/new/whats-new/3-16-1</id>
@@ -1043,16 +1080,5 @@ We're redesigning Nowa from the ground up to make building even more intuitive. 
 <p>➡️ If you face any issue, click the <strong>? icon</strong> to chat with us directly, or email us at <code>team@nowa.dev</code>.</p>]]></content>
         <category label="Integrations" term="Integrations"/>
         <category label="Nowa AI" term="Nowa AI"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Nowa 3.6.1: A fully editable main.dart]]></title>
-        <id>https://docs.nowa.dev/new/whats-new/3-6-1</id>
-        <link href="https://docs.nowa.dev/new/whats-new/3-6-1"/>
-        <updated>2026-03-12T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[A hotfix following 3.6 that makes main.dart fully editable — a new system now lets both you and the AI agent freely modify the main.dart file without running into issues.]]></summary>
-        <content type="html"><![CDATA[<p>A hotfix following 3.6 that makes <code>main.dart</code> fully editable — a new system now lets both you and the AI agent freely modify the <code>main.dart</code> file without running into issues.</p>
-<p>📋 Check all the details of this release in the <a class="" href="https://docs.nowa.dev/new/change-log#361-12-march-2026">changelog</a>.</p>
-<p>➡️ If you face any issue, use the <strong>"Problem"</strong> button to report it (attach a project snapshot if needed), or email us at <code>team@nowa.dev</code>.</p>]]></content>
-        <category label="Code and Git" term="Code and Git"/>
     </entry>
 </feed>

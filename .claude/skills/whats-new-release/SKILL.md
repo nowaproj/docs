@@ -21,7 +21,7 @@ Read these as you go:
 
 ### 1. Pin down the release
 
-You get one of: a release PR (in `nowaproj/nowa` these are titled like "Staging 3.16.4" and merge `staging` into `master`), a branch, or a version number.
+You get one of: a release PR (in `nowaproj/nowa` these are titled like "Staging 3.16.4" and merge `staging` into `master`), a branch, or a version number. If you're only told that a new version is live, take the newest PR merged into `master` in `nowaproj/nowa`, and say which one you picked.
 
 - **The version** is `version:` in `pubspec.yaml` of `nowaproj/nowa` at the PR's head, without the `+build` part.
 - **The date** is the day the release PR merged. For a branch that hasn't shipped, use today and say in the PR that it's a draft for an unreleased version.

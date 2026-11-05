@@ -87,6 +87,8 @@ When no credits are left, the chat says "You ran out of credits." and tells you 
 - Click **Invite a friend** to earn more (below).
 - Wait for the reset. The banner shows how long it takes ("Resets in" a time).
 
+Once your credits are back, after the reset or a top-up, **Send** works again by itself, and the banner says "Your credits are available again." Click **Continue** to let Nowa AI pick up where it stopped.
+
 The usage row under the chat also has an **Upgrade** or **Buy credits** button. It opens the list of plans or the **Buy credits** page directly.
 
 ## Invite a friend {#invite-a-friend}

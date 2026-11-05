@@ -132,7 +132,6 @@ Snapping is off while you hold <kbd>Shift</kbd> or <kbd>Alt</kbd>/<kbd>Option</k
 | Restart the app while the **Embedded preview** is open | <kbd>Shift</kbd> + <kbd>R</kbd> | <kbd>Shift</kbd> + <kbd>R</kbd> |
 | Show the app fullscreen while the **Embedded preview** is open | <kbd>Ctrl</kbd> + <kbd>F</kbd> | <kbd>Cmd</kbd> + <kbd>F</kbd> |
 | Turn **Select** on or off while your app plays in **Instant play** | <kbd>V</kbd> | <kbd>V</kbd> |
-| Turn **Comment** on or off in **Instant play** | <kbd>C</kbd> | <kbd>C</kbd> |
 | Go back to using your app in **Instant play** | <kbd>Esc</kbd> | <kbd>Esc</kbd> |
 
 The restart key does what the restart button in the top bar does: it puts your latest saved changes into the running app. In a local project that's **Hot Reload**, which updates the app in place. In a cloud project it's **Hot Restart**, which starts the app again. Playing a single screen on the board has no shortcut: hover the screen's title and click **Play**. See [Run your app](../test/run.md) and [Play your app on the board](../test/instant-play.md).

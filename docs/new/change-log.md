@@ -7,6 +7,57 @@ sidebar_position: 2
 
 ---
 
+## **3.17.0 (5 November 2026)**
+
+📰 See the highlights of this release in [What's new](/new/whats-new/3-17).
+
+#### **Added 🌟**
+- **Several AI chats at once**: a chat you leave keeps working in the background, and **+** (**New chat**) at the top of the AI panel works while Nowa AI is busy. The **Chat history** icon shows a dot while other chats run, its tooltip says how many ("Chat history · 2 running"), and **All Sessions** marks them **Running**. A message you type while Nowa AI works waits under the field, marked **Queued**, and goes with Nowa AI's next step. Click **×** to remove it, and if the request stops or fails first, it goes back into the field. Chats take turns changing the project, and each keeps its own checkpoints.
+- **Git on every plan**: the **Git** panel opens on every plan, with changes, diffs, staging, commits, discarding, history, undo, revert and conflicts. **Push**, **Pull**, **Fetch**, **Sync**, **Manage Remotes** and branch actions (switch, merge, create, delete) need a plan with GitHub. On other plans they show **Time to level up** with an **Upgrade** button.
+- **Upload, download and sync from the dashboard**: a project card's menu has **Upload to cloud...** for a local project that isn't linked to a cloud one, **Download to local...** for a cloud project that isn't linked to a local one (in the desktop app), and **Sync...** for linked projects.
+
+#### **Improved ⚙️**
+- **AI usage meter**: it moves after every step Nowa AI takes, in every chat that's running, instead of only when a request finishes. **Send** comes back by itself after a top-up or the daily reset, and **Stop** keeps working when your credits run out mid-request.
+- **Running out of credits**: Nowa AI now stops only when your credits are really used up, after finishing its current step, and the chat says "You ran out of credits." with when they reset. The same message seen later says "Your credits are available again." with **Continue**. "Nowa paused: this request hit your plan's limit" no longer appears.
+- **Deep Thinking on smaller plans**: it no longer stops after its first steps saying the budget is almost used up, and a single request can use all the credits you have left instead of half.
+- **Your code stays as you wrote it**: saving changes only the code you edited. Comments, blank lines, numbers like `8` (no longer turned into `8.0`), arrow bodies and the order of members stay as written, and Nowa AI's edits are saved as sent. Setting a Column's gap changes one line instead of 14. **Code view**, **Problems** and **Search** point at the right lines.
+- **Git sync and branch switches**: files that come with a checkout, pull, merge or revert show up right away, new folders and `design/` too, on cloud and local projects. When more than 50 Dart files or the project settings change at once, or files change outside Nowa, the project reloads once with a message that says why, like "Files changed outside Nowa, reloading project", and never while you have unsaved edits. A `pubspec.yaml` or `pubspec.lock` changed outside Nowa applies its packages without a reload, even with unsaved edits. Staging, committing, pushing and pulling update the panel right away.
+- **Packages**: when Nowa AI changes your app's packages, they're fetched and loaded right away, and Nowa AI is told when a package is a major version behind. A package that briefly fails to load is retried by itself, and its problem offers a fix that loads it again without reopening the project.
+- **New Android projects** use the settings current Flutter expects (Android Gradle Plugin 9.0.1, Kotlin 2.3.20, Java 17), and updating an older project's Gradle moves it to 9.1.0.
+- **iOS cloud builds** use the newest Xcode.
+- **Supabase**: one authorization covers all your Supabase projects, and disconnecting removes Nowa's access at Supabase too.
+- **Checkout on the web**: buying credits or changing your plan opens the payment page in a new tab with "Opening checkout…", and your plan refreshes when you come back to Nowa.
+- **Credit purchases** come with a paid invoice, like subscriptions.
+- **Search** in local projects skips what `.gitignore` ignores, unless you name that folder.
+- **Support**: resolved tickets are listed last, and replying to a resolved ticket opens it again.
+- **Comments in Instant play** are paused while we bring the board and Instant play together into one comment system. The comments you've left are kept.
+- The version in the status bar includes the build, like **v3.17.0-88**.
+
+#### **Fixed 🩹**
+- Fixed **buying credits or changing your plan on the web** doing nothing, especially in Safari. If the payment page can't open, Nowa now says "Couldn't open the payment page. Please try again."
+- Fixed **the usage meter** not updating during long requests or after a failed one.
+- Fixed **"A new version is available"** showing before the new web version was live, and **Update** bringing the message back.
+- Fixed **themes built with `GoogleFonts.interTextTheme()`** showing "This theme can't be built", with the board falling back to the default theme.
+- Fixed **changing the bundle ID** breaking an app's Watch, extension and test targets.
+- Fixed **iOS builds of apps with AdMob** failing with "Unable to find a specification for webview_flutter_wkwebview".
+- Fixed **the AI chat** showing Google's raw "Resource exhausted" error. It now says "The servers are overloaded. Please try again in a moment."
+- Fixed **screenshots pasted on Windows** being refused with "Unsupported image type: image/bmp".
+- Fixed **Nowa AI** not being able to read or repair a damaged `.board` or JSON file.
+- Fixed **Restore** and **Reapply** on a checkpoint seeming to do nothing when they failed. They now say "Couldn't restore this checkpoint. Try again."
+- Fixed **a package** staying red until you reopened the project after a brief error.
+- Fixed **committed or staged files** staying in the wrong list in the **Git** panel.
+- Fixed **removing or adding a package** after editing `pubspec.yaml` saying it worked without changing the file.
+- Fixed **leaving a project while it loaded** making the next project fail to open.
+- Fixed **opening or playing a project on the web** resetting the address in the browser.
+- Fixed **false errors** on `~/`, `max`, `min` and `clamp` with a mix of `int` and `double`, and on `FloatingActionButton(heroTag: null)` and `CupertinoNavigationBar()`, which could lead Nowa AI to "fix" correct code.
+- Fixed **cloud builds** showing "402 Payment Required" when the build service was down. They now say "Our build service is temporarily unavailable. Please try again later."
+- Fixed **publishing to the web** staying blocked by an earlier deploy that got stuck.
+- Fixed **the Supabase connection** asking you to authorize again about every two days.
+- Fixed **buying credits right after your first subscription** failing with a coupon error.
+- Fixed **cancelling after a failed card payment** still charging the unpaid renewal. Cancelling now ends the subscription and voids that invoice.
+
+---
+
 ## **3.16.4 (28 October 2026)**
 
 📰 See the highlights of this release in [What's new](/new/whats-new/3-16-4).

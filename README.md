@@ -72,13 +72,18 @@ pages and the RSS and Atom feeds update on their own. For each release:
    first video.
 2. Write the intro paragraph, then `<!-- truncate -->`. The list shows only
    what's above that line, followed by **Read more**.
-3. Below it, add the changelog line, then the release notes with `##` section
-   headings (`## **New in This Version ✨**`, `## **Bug Fixes 🩹**`). Link to
-   docs and the changelog by URL, like `/new/change-log#3150-20-october-2026`,
-   not by file path.
+3. Below it, write the release notes with one `##` section per feature, and end
+   with a link to the changelog. `whats-new/2026-10-28-3-16-4.md` shows the
+   current layout. Link to docs and the changelog by URL, like
+   `/new/change-log#3150-20-october-2026`, not by file path.
 4. In `docs/new/change-log.md`, add a line under the version heading that links
    back to the release page:
    `📰 See the highlights of this release in [What's new](/new/whats-new/3-15).`
+
+With Claude Code, you can ask for all of this from a release PR or a branch,
+like "Write the What's new and changelog for nowaproj/nowa#3752". The
+`whats-new-release` skill in `.claude/skills/` has the style, the steps, and
+scripts to record videos and annotate screenshots.
 
 Links to a release on the old single What's new page, like
 `/new/whats-new#3150-20-october-2026`, are sent to the release page by

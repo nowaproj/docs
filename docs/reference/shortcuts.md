@@ -1,7 +1,7 @@
 ---
 title: Keyboard shortcuts
 description: The keyboard shortcuts and mouse gestures of the Nowa editor, with the keys for Windows, Linux and macOS.
-keywords: [keyboard shortcuts, hotkeys, instant play, comment, key bindings, cheat sheet, shortcuts sheet, undo, redo, copy, paste, duplicate, delete, zoom, pan, group, layer order, bring to front, bring forward, send backward, send to back, widget picker, library, add a widget, go to a widget, back, forward, boards, run, save, embedded preview, hot reload, hot restart, open widget picker, ungroup, Ctrl, Cmd, Option, Alt, Mac, Windows, Linux]
+keywords: [keyboard shortcuts, hotkeys, instant play, key bindings, cheat sheet, shortcuts sheet, undo, redo, copy, paste, duplicate, delete, zoom, pan, group, layer order, bring to front, bring forward, send backward, send to back, widget picker, library, add a widget, go to a widget, back, forward, boards, run, save, embedded preview, hot reload, hot restart, open widget picker, ungroup, Ctrl, Cmd, Option, Alt, Mac, Windows, Linux]
 ---
 
 Keep your hands on the keyboard while you build: add a widget, group a few, run your app or undo a mistake without reaching for the mouse. This page lists the editor's shortcuts, grouped by where you use them. You don't need to learn them all at once. Start with these five:

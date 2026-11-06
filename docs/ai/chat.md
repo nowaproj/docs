@@ -32,11 +32,11 @@ Changes made before you stopped stay in your project. To undo them, see [Undo AI
 
 ## Add to a request while it runs
 
-Thought of something while Nowa AI works? Type it and press <kbd>Enter</kbd>. Your message waits under the field, marked **Queued**, and Nowa AI picks it up at its next step. Click **×** (**Remove**) to take it back. If the request stops before Nowa AI gets to it, your message goes back into the field.
+Thought of something while Nowa AI works? Type it and press <kbd>Enter</kbd>. Your message waits at the top of the chat field, next to a clock icon (**Queued**), and Nowa AI picks it up at its next step. Click **×** (**Remove**) to take it back. If the request stops before Nowa AI gets to it, your message goes back into the field.
 
 ## Run several chats at once
 
-You can start something new without waiting. Click **+** (**New chat**) at the top of the panel, even while Nowa AI is busy: the chat you leave keeps working in the background. The **Chat history** icon shows a dot while other chats run, and the **All Sessions** list marks them **Running**. Chats take turns changing your project, and each keeps its own checkpoints. See [Reopen a past chat](undo-and-history.md#reopen-a-past-chat).
+You can start something new without waiting. Click **+** (**New chat**) at the top of the panel, even while Nowa AI is busy: the chat you leave keeps working in the background. The **Chat history** icon shows a dot while other chats run, and in the list it opens, they show a spinner (**Running**). Chats take turns changing your project, and each keeps its own checkpoints. See [Reopen a past chat](undo-and-history.md#reopen-a-past-chat).
 
 ## Read the conversation
 

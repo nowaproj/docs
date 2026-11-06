@@ -57,13 +57,13 @@ If the conversation fills up completely, the chat shows **Session Limit Reached*
 
 ## Reopen a past chat
 
-1. Click the **Chat history** icon (the clock) in the panel header. The **All Sessions** list opens.
+1. Click the **Chat history** icon (the clock) in the panel header. The project's chats slide in over the conversation.
 2. Click a session. Nowa loads it, and the chat shows "Please wait a minute while we load this conversation..." meanwhile.
 3. Keep chatting from where it ended. Nowa AI remembers that whole conversation.
 
-Each row shows the session's name and when it was last active, such as "Just now", "Yesterday" or "3 days ago". A session that has no name yet shows **New Chat**. Click **Load More** to show more sessions, 25 at a time. Click the back arrow to return to your current chat.
+Each row shows the session's name and when it was last active, such as "Just now", "Yesterday" or "3 days ago". A session that has no name yet shows **New Chat**. Click **Load More** to show more sessions, 25 at a time. To close the list without opening a session, click beside it or click **Chat history** again.
 
-History belongs to the project, and Nowa stores it on its servers. You can open a session while Nowa AI is working on another one: that chat keeps going in the background, and the list marks it **Running**. When chats are running in the background, the **Chat history** icon shows a dot and its tooltip says how many. When you reopen a session, its checkpoints show again where the project still holds them.
+History belongs to the project, and Nowa stores it on its servers. You can open a session while Nowa AI is working on another one: that chat keeps going in the background, and the list shows a spinner next to it, with the tooltip **Running**. When chats are running in the background, the **Chat history** icon shows a dot and its tooltip says how many. When you reopen a session, its checkpoints show again where the project still holds them.
 
 ## Next steps
 

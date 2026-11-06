@@ -37,7 +37,7 @@ You don't need to open the zip yourself. It's the complete project, the copy you
 A local project already lives in a folder on your computer, so there's nothing to download. In code mode, the button in the same spot is **Open in VS Code**. See [Work with local projects](../code/local-projects.md).
 
 :::tip
-Prefer to keep your code in sync instead of downloading it? Push it to GitHub with [Use Git](../code/git.md), which needs a plan with Git integration, or work in a local project.
+Prefer to keep your code in sync instead of downloading it? Push it to GitHub with [Use Git](../code/git.md), which needs a plan with GitHub, or work in a local project.
 :::
 
 ## Next steps

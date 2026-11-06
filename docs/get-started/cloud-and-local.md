@@ -49,7 +49,7 @@ Either way, Nowa needs an internet connection, even in the desktop app and for l
 
 ## Link a cloud copy and a local copy
 
-Want both? **Project Sync** clones a cloud project to a folder on your computer, or a local project to the cloud, and links the two. Open it from **Settings** → **Project Sync** in the desktop app. On the dashboard, **Upload to cloud** in a local project's ⋮ menu opens the same options.
+Want both? **Project Sync** clones a cloud project to a folder on your computer, or a local project to the cloud, and links the two. Open it from **Settings** → **Project Sync** in the desktop app. On the dashboard, the ⋮ menu of a project offers the same options: **Upload to cloud...** on a local project, **Download to local...** on a cloud project, and **Sync...** once they're linked.
 
 After that, **Sync from Cloud** and **Sync from Local** copy everything one way and overwrite the other side, so sync in the direction of the copy you changed. Use the cloud copy for **Deploy** and **Share preview**, which work on cloud projects only. See [Work with local projects](../code/local-projects.md).
 

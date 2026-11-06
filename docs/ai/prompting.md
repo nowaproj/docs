@@ -69,7 +69,7 @@ Treat the first result as a draft. Look at it on the board or [play the screen](
 - **Build on what's there.** "Add a Settings screen that looks like the Profile screen" works best with the Profile screen attached: type `@` and pick it, or use **+**.
 - **Let Nowa suggest the next step.** After a request, Nowa AI may offer up to three follow-ups under **Suggested next steps**. Click one to fill in its prompt, then edit it or send it.
 - **Ask questions.** Not sure how something works? Ask, for example: "What happens when someone taps Book without picking a time?" In an empty **Agent** or **Plan** chat, the **Summarize** chip writes a prompt that asks for a short summary of your project.
-- **Start a new session for a new topic.** Old context can carry over and muddle the next request, so click **+** (**New Session**) when you move to an unrelated feature. See [Undo AI changes and reopen chats](undo-and-history.md#start-a-new-session).
+- **Start a new session for a new topic.** Old context can carry over and muddle the next request, so click **+** (**New chat**) when you move to an unrelated feature. See [Undo AI changes and reopen chats](undo-and-history.md#start-a-new-session).
 
 | A clean start | Mixed topics |
 |---|---|

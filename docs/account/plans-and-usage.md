@@ -14,7 +14,7 @@ These features depend on your plan. If yours doesn't include one, Nowa usually t
 | Feature | If your plan doesn't include it | Learn more |
 |---|---|---|
 | Buying extra credits | The page that **Buy credits** opens says your plan doesn't support it and offers **Upgrade Plan**. | [Buy extra AI credits](#buy-credits) |
-| Git and GitHub, including **Clone from GitHub** | The **Git** panel and settings say "Your plan does not support git integration", and **Clone from GitHub** opens **Time to level up**. | [Use Git](../code/git.md) |
+| GitHub: push, pull, branches and **Clone from GitHub** | **Push**, **Pull**, **Fetch**, **Sync**, **Manage Remotes** and branch actions in the **Git** panel open **Time to level up**, the Git settings say "Your plan does not support git integration", and **Clone from GitHub** opens **Time to level up**. Committing and history work on every plan. | [Use Git](../code/git.md) |
 | Publishing to the web | The **Web** row of the **Deploy** menu shows **Premium**. | [Publish to the web](../publish/web.md) |
 | Your own domain for the web version | **Custom Domain** shows **Premium**. | [Publish to the web](../publish/web.md) |
 | Android and iOS builds | Their rows in the **Deploy** menu show **Premium**. | [Get ready to publish](../publish/index.md) |

@@ -11,7 +11,7 @@ GitHub is a website that keeps Git repositories online. A repository is your pro
 ## Before you start
 
 - A GitHub account. You can create one at [github.com](https://github.com).
-- A plan with Git integration. If yours doesn't include it, the Git settings show "Your plan does not support git integration" with an **Upgrade** button. See [pricing](https://nowa.dev/pricing).
+- A plan with GitHub. Committing works on every plan, but pushing, pulling and branches need GitHub. If your plan doesn't include it, the Git settings show "Your plan does not support git integration" with an **Upgrade** button. See [pricing](https://nowa.dev/pricing).
 
 ## Connect your GitHub account {#connect-github}
 

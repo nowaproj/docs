@@ -128,7 +128,7 @@ Nowa lists only the repositories your connected GitHub account lets it use, and 
 1. [Connect GitHub](../code/github.md#connect-github), then open **Clone from GitHub** again.
 2. If a repository is missing, click **Manage your connected repositories** under the list and allow it.
 
-If **Time to level up** appears instead, your plan doesn't include Git integration. See [Import an existing Flutter project](../code/import.md#clone-from-github).
+If **Time to level up** appears instead, your plan doesn't include GitHub. See [Import an existing Flutter project](../code/import.md#clone-from-github).
 
 ## A new version of Nowa is available {#update-prompts}
 

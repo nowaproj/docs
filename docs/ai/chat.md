@@ -30,6 +30,14 @@ If you see Nowa AI heading the wrong way, stop it rather than waiting. Click the
 
 Changes made before you stopped stay in your project. To undo them, see [Undo AI changes and reopen chats](undo-and-history.md).
 
+## Add to a request while it runs
+
+Thought of something while Nowa AI works? Type it and press <kbd>Enter</kbd>. Your message waits at the top of the chat field, next to a clock icon (**Queued**), and Nowa AI picks it up at its next step. Click **×** (**Remove**) to take it back. If the request stops before Nowa AI gets to it, your message goes back into the field.
+
+## Run several chats at once
+
+You can start something new without waiting. Click **+** (**New chat**) at the top of the panel, even while Nowa AI is busy: the chat you leave keeps working in the background. The **Chat history** icon shows a dot while other chats run, and in the list it opens, they show a spinner (**Running**). Chats take turns changing your project, and each keeps its own checkpoints. See [Reopen a past chat](undo-and-history.md#reopen-a-past-chat).
+
 ## Read the conversation
 
 You don't need to follow every line, but the conversation tells you exactly what Nowa AI did, which helps when you want to check a result or undo it.

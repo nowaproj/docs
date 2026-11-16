@@ -7,9 +7,67 @@ sidebar_position: 2
 
 ---
 
+## **3.17.3 (16 November 2026)**
+
+📰 See the highlights of this release in [What's new](/new/whats-new/3-17-3).
+
+#### **Added 🌟**
+- **One menu for the mode and the thinking level**: the chip under the chat field shows both, like **Agent · Thinking**. Its menu lists **Design**, **Plan** and **Agent**, with a slider under them for **Instant**, **Thinking** and **Deep Thinking**. Pointing at a part of the slider shows what it's for. The dashboard's **What do you want to build?** box has the same menu, and Plan mode now has a thinking level too.
+- **Version details in the status bar**: point at the version, like **v3.17.3**, to see the Flutter and Dart versions Nowa runs, and click it for more. For a local project it shows the Flutter on your computer and warns when it's missing ("Local runs need Flutter") or older than Nowa's, with a **Local setup** button. It also shows the Dart version your project needs and the Nowa version that last saved it. The version turns amber when something needs your attention, and nothing is blocked.
+- **Logs from every source**: the **Logs** panel has a filter (**Show: All sources**) for **App in Nowa**, **Nowa Run**, **Local run**, **Web publish** and **Nowa**, and the output of a local run now shows there too.
+- **Nowa AI edits `Info.plist` and `AndroidManifest.xml`**, so it can add settings the permission settings don't cover, like background modes or services.
+- **A message when your preview needs more memory**: when your app runs out of memory in the **Run** preview, Nowa says "Your app needs more memory" and how much your plan's preview has, with **Retry**, and **Upgrade** on the free plan. An app that crashes says "The app stopped unexpectedly". Paid plans get a larger preview.
+
+#### **Improved ⚙️**
+- **Thinking and Deep Thinking need a paid plan**: they're part of every paid plan. On the free plan, Nowa AI runs at **Instant**, the other levels show a lock (**Needs a paid plan**), and picking one opens **Time to level up** with **Upgrade**.
+- **Cloud builds keep working when Flutter or Xcode update**: a project builds with the Flutter, Java and Xcode of the Nowa release that last updated it, Flutter 3.44.8, Java 17 and Xcode 26.6 for this release, instead of the newest ones. When you open a project, Nowa changes its Android files only if Flutter 3.44.8 can't build them.
+- **The Web View lives in your project**: apps without a web view no longer carry one, so they're lighter. A project that uses **Web View** shows a **Web View update** notice once, listing what will change: `lib/nowa/nowa_web_view.dart`, the `webview_flutter`, `webview_flutter_web` and `url_launcher` packages, and an import in each screen that uses it. Click **Migrate**. On Windows and Linux, the web view shows a button that opens the page in the browser.
+- **Run preview**: it starts when you click **Run**, instead of every time you open a project.
+- **Fix with AI on a failed cloud build** reads the build's whole log, not just its last lines.
+- **External agents**: **Connect External Agent** in the **⋮** menu of the AI panel shows to accounts whose plan includes external agent calls, and its dialog shows what's left, like "25 of 30 calls left today". On the web it explains how to connect through the desktop app.
+- **Code editor**: Markdown files highlight the code in their `dart`, `yaml`, `json`, `xml` and `html` blocks, words like `snake_case` no longer turn the rest of the line italic, and indented lists no longer show as code.
+- **Support**: new replies are checked every 30 seconds, so one can take up to 30 seconds to show. A ticket waiting on your reply closes after 7 days without activity, and replying opens it again.
+- **Plans paid in one payment**, like with Alipay or WeChat Pay, start right away for 12 months and show in your billing history.
+
+#### **Fixed 🩹**
+- Fixed **Android cloud builds** failing with "Your project's Gradle version (9.1.0) is lower than Flutter's minimum supported version", and failing in apps with a web view on the latest Android tools.
+- Fixed **Nowa freezing** on "Searching your project..." until a reload, in projects with a long chain of calls, like `text.replaceAll(...)` repeated 20 times or more.
+- Fixed **Constants in the settings** showing an empty value for a constant that isn't text, like a `double`, a `bool` or a `Color`, and saving it in quotes, which broke the build. They now show and save as code, and a value that isn't valid code shows an error instead of being saved.
+- Fixed **the Run preview** failing to start with a connection timeout when a new session took a while, and checking a preview that had stopped for inactivity. It now shows **Restart**.
+- Fixed **menus, dialogs and popovers over the web Run preview** not taking clicks, and clicks on the **Console** and other floating panels going to the app under them. In **Full screen**, the device menu switches back to **Phone** or **Tablet** again.
+- Fixed **an empty dark screen** before the web app loaded.
+- Fixed **"Drop to add it to the board"** and **"Drop an image to attach it"** staying on screen after a drop.
+- Fixed **a false "is required" error** on `onPopInvoked` for every `MaterialPage`.
+- Fixed **deleting your account** not cancelling your subscription. It's now cancelled right away.
+
+---
+
+## **3.17.2 (8 November 2026)**
+
+📰 See the highlights of this release in [What's new](/new/whats-new/3-17-3).
+
+#### **Fixed 🩹**
+- Fixed **files the support team sends you**, like documents or zips, showing as a grey "Attachment" box you couldn't click. They're now a button with the file's name that downloads it.
+
+---
+
+## **3.17.1 (7 November 2026)**
+
+📰 See the highlights of this release in [What's new](/new/whats-new/3-17-3).
+
+#### **Improved ⚙️**
+- **Custom popovers and menus** built with `PopupRoute` or `SingleChildLayoutDelegate` now show on the board.
+
+#### **Fixed 🩹**
+- Fixed **undoing and redoing a widget you placed on the board** breaking every save of the project afterwards, and making Nowa AI fail with "Null check operator used on a null value".
+- Fixed **fonts uploaded with Upload Assets... in the Library** missing from the built app. They're now declared in `pubspec.yaml`.
+- Fixed **placeholder text on the board**, like `[weekday]`, breaking between letters and stretching its widget. It now stays on one line.
+
+---
+
 ## **3.17.0 (5 November 2026)**
 
-📰 See the highlights of this release in [What's new](/new/whats-new/3-17).
+📰 See the highlights of this release in [What's new](/new/whats-new/3-17-3).
 
 #### **Added 🌟**
 - **Several AI chats at once**: a chat you leave keeps working in the background, and **+** (**New chat**) at the top of the AI panel works while Nowa AI is busy. The **Chat history** icon shows a dot while other chats run, its tooltip says how many ("Chat history · 2 running"), and the list of chats it opens shows a spinner next to them (**Running**). **Chat history** now has its own icon at the left of the panel header, instead of being in the **⋮** menu, and its list slides in over the chat. A message you type while Nowa AI works waits at the top of the chat field, next to a clock icon (**Queued**), and goes with Nowa AI's next step. Click **×** to remove it, and if the request stops or fails first, it goes back into the field. Chats take turns changing the project, and each keeps its own checkpoints.

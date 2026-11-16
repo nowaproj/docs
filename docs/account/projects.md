@@ -25,7 +25,7 @@ The **New project** button sits in the **Projects** header. In a narrower window
 This is the quickest way in: you describe the app, and Nowa AI sets up the project and builds the first version.
 
 1. Type your idea in **What do you want to build?**, for example "A recipe app where I save my favorite dishes and plan meals for the week."
-2. Pick a mode and a thinking level under the box. If you're not sure, keep **Design** (marked **Start here**) and **Thinking**.
+2. Click the mode chip under the box to pick a mode and, with the slider, a thinking level. If you're not sure, keep **Design** (marked **Start here**) and **Thinking**. On the free plan, Nowa AI uses **Instant**.
 3. Click the send button (tooltip **Build it**).
 
 Nowa names your app, creates a cloud project and opens it with your prompt already sent, so Nowa AI gets to work right away. The full walkthrough is in [Build your first app](../get-started/first-app.md), and [Design, Plan and Agent modes](../ai/modes.md) explains the modes.

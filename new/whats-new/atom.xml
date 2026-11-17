@@ -2,12 +2,47 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://docs.nowa.dev/new/whats-new</id>
     <title>Nowa: What's new</title>
-    <updated>2026-10-28T00:00:00.000Z</updated>
+    <updated>2026-11-16T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://docs.nowa.dev/new/whats-new"/>
     <subtitle>New features and enhancements in each version of Nowa.</subtitle>
     <icon>https://docs.nowa.dev/img/favicon.ico</icon>
     <rights>Copyright © 2026 Nowa. All rights reserved</rights>
+    <entry>
+        <title type="html"><![CDATA[Nowa 3.17.3: Several AI Chats at Once]]></title>
+        <id>https://docs.nowa.dev/new/whats-new/3-17-3</id>
+        <link href="https://docs.nowa.dev/new/whats-new/3-17-3"/>
+        <updated>2026-11-16T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Nowa 3.17.3 lets you run several Nowa AI chats at once, puts the mode and the thinking level in one menu, builds your app with the setup your version of Nowa was tested with, and brings all your logs into one place.]]></summary>
+        <content type="html"><![CDATA[<p>With Nowa 3.17.3, you can run several AI chats at once and choose how hard Nowa AI thinks from one menu. Every cloud build now uses the exact setup your version of Nowa was tested with. 🚀</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="-run-several-ai-chats-at-once">💬 Run several AI chats at once<a href="https://docs.nowa.dev/new/whats-new/3-17-3#-run-several-ai-chats-at-once" class="hash-link" aria-label="Direct link to 💬 Run several AI chats at once" title="Direct link to 💬 Run several AI chats at once" translate="no">​</a></h2>
+<p>You no longer have to wait for Nowa AI to finish one thing before you start the next. If you leave a chat while it works, it keeps going in the background, so you can ask for a new screen while another request is still building.</p>
+<video controls="" playsinline="" preload="metadata" width="100%" poster="/videos/whats-new/3.17-chats.jpg"><source src="/videos/whats-new/3.17-chats.mp4" type="video/mp4"></video>
+<ul>
+<li class=""><strong>Start another chat anytime.</strong> Click <strong>+</strong> (<strong>New chat</strong>) at the top of the AI panel, even while Nowa AI is busy.</li>
+<li class=""><strong>See what's still working.</strong> The <strong>Chat history</strong> icon shows a dot while other chats are running. Click it to see your chats. The ones still working show a spinner.</li>
+<li class=""><strong>Add to a request while it runs.</strong> A message you type while Nowa AI is working waits at the top of the chat field, marked <strong>Queued</strong>, until Nowa AI picks it up at its next step. Click <strong>×</strong> to take it back.</li>
+</ul>
+<p>Chats take turns changing your project, and each one keeps its own checkpoints. See <a class="" href="https://docs.nowa.dev/ai/chat">Chat with Nowa AI</a>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="️-pick-the-mode-and-how-hard-nowa-ai-thinks-in-one-place">🎚️ Pick the mode and how hard Nowa AI thinks, in one place<a href="https://docs.nowa.dev/new/whats-new/3-17-3#%EF%B8%8F-pick-the-mode-and-how-hard-nowa-ai-thinks-in-one-place" class="hash-link" aria-label="Direct link to 🎚️ Pick the mode and how hard Nowa AI thinks, in one place" title="Direct link to 🎚️ Pick the mode and how hard Nowa AI thinks, in one place" translate="no">​</a></h2>
+<p>The mode chip under the chat field now shows both choices, like <strong>Agent · Thinking</strong>. Click it to pick <strong>Design</strong>, <strong>Plan</strong> or <strong>Agent</strong>, then drag the slider under them to choose <strong>Instant</strong> for quick edits, <strong>Thinking</strong> for most requests or <strong>Deep Thinking</strong> for big features and tricky logic. The same menu is in the dashboard's <strong>What do you want to build?</strong> box, and Plan mode now gets a thinking level too. See <a class="" href="https://docs.nowa.dev/ai/modes#set-the-thinking-level">Design, Plan and Agent modes</a>.</p>
+<p>Nowa AI can now also edit your app's <code>Info.plist</code> and <code>AndroidManifest.xml</code>. Ask it for something your app needs from the phone, like "keep playing music in the background", and it adds the settings for you.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="-builds-on-a-setup-tested-with-your-nowa">🧰 Builds on a setup tested with your Nowa<a href="https://docs.nowa.dev/new/whats-new/3-17-3#-builds-on-a-setup-tested-with-your-nowa" class="hash-link" aria-label="Direct link to 🧰 Builds on a setup tested with your Nowa" title="Direct link to 🧰 Builds on a setup tested with your Nowa" translate="no">​</a></h2>
+<p>Each Nowa release now comes with the exact Flutter, Java and Xcode versions it was tested with, and your cloud builds use them. Your app builds in the cloud with the same Flutter that runs it in Nowa, and a new Flutter or Xcode reaches your project with a Nowa update, when it's been tested, never by surprise. Nowa also leaves your Android files as they are, unless they're too old to build.</p>
+<p>Your apps get lighter too. The <strong>Web View</strong> now lives only in the apps that use it. If yours does, Nowa asks once to move it into your project, with a <strong>Web View update</strong> notice that lists each change. Click <strong>Migrate</strong>, and your screens look and work the same.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="-all-your-logs-in-one-place">🪵 All your logs in one place<a href="https://docs.nowa.dev/new/whats-new/3-17-3#-all-your-logs-in-one-place" class="hash-link" aria-label="Direct link to 🪵 All your logs in one place" title="Direct link to 🪵 All your logs in one place" translate="no">​</a></h2>
+<p>When something goes wrong, you can now find out why without leaving the <strong>Logs</strong> panel. It collects your app's output wherever it runs: on the board and in Instant play (<strong>App in Nowa</strong>), in the <strong>Run</strong> preview (<strong>Nowa Run</strong>) and in a <strong>Local run</strong> on your computer. It also shows what happens when you publish to the web (<strong>Web publish</strong>), and it keeps Nowa's own messages apart. Use the filter at the top (<strong>Show: All sources</strong>) to look at just one.</p>
+<ul>
+<li class=""><strong>A preview that says why it stopped.</strong> If your app runs out of memory in the <strong>Run</strong> preview, Nowa says "Your app needs more memory", and an app that crashes says it stopped unexpectedly, instead of showing a general error.</li>
+<li class=""><strong>Versions at a glance.</strong> Point at the version in the status bar to see which Flutter and Dart Nowa runs, and click it for more. For a local project, it also tells you if Flutter is missing on your computer or older than Nowa's, and the version turns amber when something needs a look.</li>
+</ul>
+<hr>
+<p>That's the big stuff! 📋 For every fix and smaller improvement, including the plan changes to Git and AI credits, see the changelog for <a class="" href="https://docs.nowa.dev/new/change-log#3173-16-november-2026">3.17.3</a>, <a class="" href="https://docs.nowa.dev/new/change-log#3172-8-november-2026">3.17.2</a>, <a class="" href="https://docs.nowa.dev/new/change-log#3171-7-november-2026">3.17.1</a> and <a class="" href="https://docs.nowa.dev/new/change-log#3170-5-november-2026">3.17.0</a>.</p>
+<p>➡️ We'd love to hear how running several chats at once works for you. Click <strong>?</strong> at the bottom of the left sidebar and choose <strong>Support</strong> to message us, or email us at <code>team@nowa.dev</code>. Happy building!</p>]]></content>
+        <category label="Nowa AI" term="Nowa AI"/>
+        <category label="Preview and test" term="Preview and test"/>
+        <category label="Publish" term="Publish"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Nowa 3.16.4: Faster Nowa AI and Multilingual Apps]]></title>
         <id>https://docs.nowa.dev/new/whats-new/3-16-4</id>
@@ -1038,47 +1073,6 @@ Big changes landed here. AI has moved to a <strong>toolbar at the bottom of the 
 <li class="">🎨 <strong>More experimental UI updates</strong> on the way</li>
 </ul>]]></content>
         <category label="Code and Git" term="Code and Git"/>
-        <category label="Nowa AI" term="Nowa AI"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Nowa 3.7: Stripe payments]]></title>
-        <id>https://docs.nowa.dev/new/whats-new/3-7</id>
-        <link href="https://docs.nowa.dev/new/whats-new/3-7"/>
-        <updated>2026-04-12T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Nowa 3.7 makes it easier than ever to build, monetize, and maintain your apps. This release brings Stripe payments, in-app support chat, in-app notifications, AI-powered project fixing, and a preview of Nowa's redesigned UI.]]></summary>
-        <content type="html"><![CDATA[<p>Nowa 3.7 makes it easier than ever to build, monetize, and maintain your apps. This release brings <strong>Stripe payments</strong>, <strong>in-app support chat</strong>, <strong>in-app notifications</strong>, <strong>AI-powered project fixing</strong>, and a <strong>preview of Nowa's redesigned UI</strong>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="new-in-this-version-"><strong>New in This Version ✨</strong><a href="https://docs.nowa.dev/new/whats-new/3-7#new-in-this-version-" class="hash-link" aria-label="Direct link to new-in-this-version-" title="Direct link to new-in-this-version-" translate="no">​</a></h2>
-<ul>
-<li class="">
-<p>💳 <strong>Stripe Payments Integration</strong>
-Want to monetize your app? Now you can! <strong>Stripe is fully integrated</strong> — whether it's subscriptions or one-time payments, Nowa sets everything up for you, including webhooks. You focus on your app, we handle the plumbing.
-Watch the tutorial here: <a href="https://www.youtube.com/watch?v=8QjTKvSBTdM" target="_blank" rel="noopener noreferrer" class="">https://www.youtube.com/watch?v=8QjTKvSBTdM</a></p>
-</li>
-<li class="">
-<p>💬 <strong>In-App Support Chat</strong>
-Building should never feel lonely. Click the <strong>? icon</strong> in the bottom-right corner to <strong>chat with us directly</strong> — ask questions, report issues, attach your project, and follow your report status from submitted all the way to done.</p>
-</li>
-<li class="">
-<p>🔔 <strong>In-App Notifications</strong>
-New tutorials, updates, and tips — we'll now <strong>notify you right inside Nowa</strong> so you always have what you need to level up your apps.</p>
-</li>
-<li class="">
-<p>🤖 <strong>AI Project Fixer</strong>
-Bugs slowing you down? Just say <strong>"Fix problems in my project"</strong> and let the AI do a full scan and fix issues before you deploy. Smoother builds, fewer headaches.</p>
-</li>
-<li class="">
-<p>✨ <strong>Redesigned UI (Preview)</strong>
-We're redesigning Nowa from the ground up to make building even more intuitive. Curious? Turn it on in <strong>Settings → Experiments</strong> and tell us what you think!</p>
-</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="more-updates-"><strong>More Updates 📢</strong><a href="https://docs.nowa.dev/new/whats-new/3-7#more-updates-" class="hash-link" aria-label="Direct link to more-updates-" title="Direct link to more-updates-" translate="no">​</a></h2>
-<ul>
-<li class="">🎥 <strong>New tutorial</strong> — Watch us build a <a href="https://www.youtube.com/watch?v=IWlPbIRTE9Y&amp;t=1528" target="_blank" rel="noopener noreferrer" class="">full CRM app for VCs</a> from scratch</li>
-<li class="">📱 <strong>Nowa GO is almost here</strong> — build on your phone or tablet, anywhere you go</li>
-<li class="">💰 <strong>Earn with Nowa</strong> — Content creators can earn commissions through <strong>Nowa Creators</strong>. Reach out at <code>team@nowa.dev</code></li>
-</ul>
-<p>➡️ If you face any issue, click the <strong>? icon</strong> to chat with us directly, or email us at <code>team@nowa.dev</code>.</p>]]></content>
-        <category label="Integrations" term="Integrations"/>
         <category label="Nowa AI" term="Nowa AI"/>
     </entry>
 </feed>

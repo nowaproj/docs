@@ -17,8 +17,8 @@
 <link rel="preconnect" href="https://us.i.posthog.com">
 <script>!function(t,e){var o,s,r,a;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,n,p){function c(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(r=t.createElement("script")).type="text/javascript",r.async=!0,r.src=n.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(a=t.getElementsByTagName("script")[0]).parentNode.insertBefore(r,a);var g=e;for(void 0!==p?g=e[p]=[]:p="posthog",g.people=g.people||[],g.toString=function(t){var e="posthog";return"posthog"!==p&&(e+="."+p),t||(e+=" (stub)"),e},g.people.toString=function(){return g.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys onSessionId".split(" "),s=0;s<o.length;s++)c(g,o[s]);e._i.push([i,n,p])},e.__SV=1)}(document,window.posthog||[]),posthog.init("phc_t9ByiL3PTqP8dTa6nWoqjoygz7nIuKOjLPXig1rxm6C",{api_host:"https://us.i.posthog.com",id:"default"})</script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css"><link rel="stylesheet" href="/assets/css/styles.cfb09f84.css">
-<script src="/assets/js/runtime~main.f6f84a33.js" defer="defer"></script>
-<script src="/assets/js/main.7180ea72.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.f64cf6b9.js" defer="defer"></script>
+<script src="/assets/js/main.02ed4907.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -54,20 +54,20 @@
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="start-a-new-session">Start a new session<a href="#start-a-new-session" class="hash-link" aria-label="Direct link to Start a new session" title="Direct link to Start a new session" translate="no">​</a></h2>
 <p>A new session starts a clean conversation in the same project. Nowa AI still sees your whole project. It only forgets the earlier chat, which helps when you move on to an unrelated task, because old context can&#x27;t muddle the new one.</p>
 <ol>
-<li class="">Click <strong>+</strong> in the panel header. Its tooltip is <strong>New Session</strong>.</li>
-<li class="">The conversation clears. Your project doesn&#x27;t change, and the old conversation stays in <strong>Chat History</strong>.</li>
+<li class="">Click <strong>+</strong> in the panel header. Its tooltip is <strong>New chat</strong>.</li>
+<li class="">The conversation clears. Your project doesn&#x27;t change, and the old conversation stays in <strong>Chat history</strong>.</li>
 </ol>
-<p>The button is disabled while Nowa AI is working, and does nothing on an empty chat.</p>
+<p>You can start a new session while Nowa AI is working: the chat you leave keeps going in the background. The button does nothing on an empty chat.</p>
 <p>Nowa also nudges you when it&#x27;s time. When a session gets long, a note appears above the chat field: &quot;This session is getting long. For better results, start a new session and continue there.&quot; Click the <strong>Start new session</strong> icon, or the <strong>Dismiss</strong> icon to keep going.</p>
 <p>If the conversation fills up completely, the chat shows <strong>Session Limit Reached</strong>. Nowa AI can&#x27;t take more messages in that session, so click the <strong>Start new session</strong> icon to continue building. Your project and its checkpoints stay as they are.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="reopen-a-past-chat">Reopen a past chat<a href="#reopen-a-past-chat" class="hash-link" aria-label="Direct link to Reopen a past chat" title="Direct link to Reopen a past chat" translate="no">​</a></h2>
 <ol>
-<li class="">Click <strong>⋮</strong> (<strong>Options</strong>) in the panel header, then <strong>Chat History</strong>. The <strong>All Sessions</strong> list opens.</li>
+<li class="">Click the <strong>Chat history</strong> icon (the clock) in the panel header. The project&#x27;s chats slide in over the conversation.</li>
 <li class="">Click a session. Nowa loads it, and the chat shows &quot;Please wait a minute while we load this conversation...&quot; meanwhile.</li>
 <li class="">Keep chatting from where it ended. Nowa AI remembers that whole conversation.</li>
 </ol>
-<p>Each row shows the session&#x27;s name and when it was last active, such as &quot;Just now&quot;, &quot;Yesterday&quot; or &quot;3 days ago&quot;. A session that has no name yet shows <strong>New Chat</strong>. Click <strong>Load More</strong> to show more sessions, 25 at a time. Click the back arrow to return to your current chat.</p>
-<p>History belongs to the project, and Nowa stores it on its servers. You can&#x27;t open a session while Nowa AI is working. When you reopen a session, its checkpoints show again where the project still holds them.</p>
+<p>Each row shows the session&#x27;s name and when it was last active, such as &quot;Just now&quot;, &quot;Yesterday&quot; or &quot;3 days ago&quot;. A session that has no name yet shows <strong>New Chat</strong>. Click <strong>Load More</strong> to show more sessions, 25 at a time. To close the list without opening a session, click beside it or click <strong>Chat history</strong> again.</p>
+<p>History belongs to the project, and Nowa stores it on its servers. You can open a session while Nowa AI is working on another one: that chat keeps going in the background, and the list shows a spinner next to it, with the tooltip <strong>Running</strong>. When chats are running in the background, the <strong>Chat history</strong> icon shows a dot and its tooltip says how many. When you reopen a session, its checkpoints show again where the project still holds them.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="next-steps">Next steps<a href="#next-steps" class="hash-link" aria-label="Direct link to Next steps" title="Direct link to Next steps" translate="no">​</a></h2>
 <ul>
 <li class=""><a class="" href="/ai/prompting">Write prompts that work</a>: what to do when a result isn&#x27;t right.</li>

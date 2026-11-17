@@ -55,7 +55,7 @@ Labels in **bold** are exactly what the app shows. To find a word fast, use your
 | Router | The sidebar panel that lists your app's routes, the paths that open your screens, and decides which screen opens first. See [Set up routes in the Router panel](../logic/router.md). |
 | Run | Compiling and running your real app, in the **Embedded preview** inside Nowa or on a device. See [Run your app](../test/run.md). |
 | Screen | A page of your app, such as a home page, a product page or a checkout. The **Library** lists your screens. See [Create and set up screens](../design/screens.md). |
-| Session | One conversation with Nowa AI. Start one with **New Session**; reopen old ones in **Chat History**. See [Undo AI changes and reopen chats](../ai/undo-and-history.md#start-a-new-session). |
+| Session | One conversation with Nowa AI. Start one with **New chat**; reopen old ones in **Chat history**. See [Undo AI changes and reopen chats](../ai/undo-and-history.md#start-a-new-session). |
 | Share Preview | A link and QR code that let people try your app in a browser. Click **Share preview** while an item plays on the board. Cloud projects only. See [Share your app](../test/share.md). |
 | Support panel | The panel that the round **?** button at the bottom right opens, with **Your tickets**, **Report an issue**, **Chat with support** and more. See [Get help](../account/help.md). |
 | Template | A ready-made screen or component, such as a login flow or a dashboard, that you add and make your own. See [Start from a template](../design/templates.md). |
@@ -179,7 +179,8 @@ If you followed older tutorials, these names changed:
 | You may have seen | Now |
 |---|---|
 | Think Mode | Thinking levels (**Instant**, **Thinking**, **Deep Thinking**) |
-| New Chat | **New Session** |
+| New Session | **New chat** (the **+** at the top of the AI panel). The mobile app still says **New Session**. |
+| Chat History in the ⋮ menu | The **Chat history** icon (the clock) at the top of the AI panel |
 | Replay checkpoint | **Reapply Checkpoint** |
 | Instant preview, Play mode | Instant Play (**Play**) |
 | Instant Preview Share | **Share preview**, a link and QR code |

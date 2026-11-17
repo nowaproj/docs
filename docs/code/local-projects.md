@@ -40,7 +40,7 @@ The folder is named after your project's package name: your project name in lowe
 1. In the workspace switcher on the dashboard, choose **Personal**. Local projects aren't shown inside a workspace.
 2. Scroll to **On this device**, tagged **LOCAL-ONLY**, and click a project.
 
-The ⋮ menu on a project offers **Open in safe mode**, **Upload to cloud**, **Remove from list** and **Delete**. Choose carefully: [**Delete** erases the folder](#remove-from-list-or-delete).
+The ⋮ menu on a project offers **Open in safe mode**, **Upload to cloud...** (or **Sync...** once it's linked to a cloud copy), **Remove from list** and **Delete**. Choose carefully: [**Delete** erases the folder](#remove-from-list-or-delete).
 
 Nowa remembers your local projects on this computer only. On another computer, add the folder again with **Import project**.
 
@@ -62,7 +62,7 @@ If you change both copies, [Git](git.md#move-work-between-a-cloud-and-a-local-pr
 
 To create the copy:
 
-1. Open the project, click **Settings** (the gear in the top bar) and choose **Project Sync**. From the dashboard, you can instead open the project's ⋮ menu and click **Upload to cloud**.
+1. Open the project, click **Settings** (the gear in the top bar) and choose **Project Sync**. From the dashboard, you can instead open the project's ⋮ menu and click **Upload to cloud...** for a local project or **Download to local...** for a cloud project, and **Sync...** once they're linked.
 2. For a local project, pick a place under **Select Workspace** and click **Clone to Cloud**. The first entry, **Cloud Projects**, means no workspace. For a cloud project, choose a folder in **Path** and click **Clone to Local**.
 3. Wait for the copy to finish. It opens when it's ready, and your original project stays as it was.
 

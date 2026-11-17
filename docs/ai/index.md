@@ -11,13 +11,13 @@ Tell Nowa AI what you want in plain words, and it builds it right in your projec
 
 The **AI Assistant** panel is already open on the left when you open a project. If you closed it, click the **Assistant** icon at the top of the left sidebar, or press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>1</kbd>. The same shortcut hides it again when you want more room for the board.
 
-![The AI Assistant panel on first open, with the left sidebar: the Assistant icon (highlighted) at the top, the header with the New Session (+) and more (three dots) buttons, the suggestion chips, and the chat field (highlighted) with the Agent and thinking-level chips, Add context, Supabase, Figma and Send.](/img/docs/ai/ai-index-1.png)
+![The AI Assistant panel on first open, with the left sidebar: the Assistant icon (highlighted) at the top, the header with the Chat history (clock) and New chat (+) buttons (labeled) and the Options (three dots) button, the suggestion chips, and the chat field (highlighted) with the Agent and thinking-level chips, Add context, Supabase, Figma and Send.](/img/docs/ai/ai-index-1.png)
 
 The panel has three parts:
 
-- **Header**: shows **AI Assistant**, or the name Nowa AI gives your session once it gets going (a session is one conversation). **+** starts a new session. **⋮** opens **Custom Instructions** and **Chat History**, plus **Connect External Agent** in the desktop app if your account has access.
+- **Header**: the **Chat history** icon (the clock) on the left opens your past sessions and shows a dot while other chats run. Next to it is **AI Assistant**, or the name Nowa AI gives your session once it gets going (a session is one conversation). **+** (**New chat**) starts a new session, even while Nowa AI is busy. **⋮** (**Options**) opens **Custom Instructions**, plus **Connect External Agent** in the desktop app if your account has access.
 - **Conversation**: your messages, Nowa AI's replies, and a line for each step it takes.
-- **Chat field**: where you type. Under it are the mode chip, the thinking-level chip, **+** (**Add context**), the Supabase and Figma connector icons, and **Send**.
+- **Chat field**: where you type. Under it are the mode chip (it shows the mode and the thinking level, like **Agent · Thinking**), **+** (**Add context**), the Supabase and Figma connector icons, and **Send**.
 
 :::note
 You can try the editor in the [playground](../get-started/playground.md) without an account, but Nowa AI needs one. The first time you send a message there, Nowa asks you to sign in.
@@ -54,7 +54,7 @@ Ask in plain language, the way you'd explain it to a teammate. Nowa AI decides w
 
 ## Choose a mode and a thinking level
 
-Two chips at the bottom of the chat field tune how Nowa AI works. The mode decides what it's allowed to change, and the thinking level decides how much it thinks before it acts.
+The mode chip at the bottom of the chat field tunes how Nowa AI works. The mode decides what it's allowed to change, and the thinking level decides how much it thinks before it acts.
 
 | Mode | Use it to |
 |---|---|
@@ -62,7 +62,7 @@ Two chips at the bottom of the chat field tune how Nowa AI works. The mode decid
 | **Plan** | Plan complex tasks before building. Nowa AI explores your project, asks questions and writes a plan, and changes nothing. |
 | **Agent** | Do everything, from design to functionality. |
 
-The thinking level trades speed for reasoning. **Instant** is the fastest, **Thinking** is balanced and the default, and **Deep Thinking** adds extra reasoning for complex tasks. Plan mode runs at a fixed level, so the thinking-level chip is hidden there.
+The thinking level trades speed for reasoning. **Instant** is the fastest, **Thinking** is balanced and the default, and **Deep Thinking** adds extra reasoning for complex tasks. **Thinking** and **Deep Thinking** need a paid plan. You pick the level with the slider in the mode menu, for every mode.
 
 Not sure which to pick? [Design, Plan and Agent modes](modes.md) walks you through each one.
 

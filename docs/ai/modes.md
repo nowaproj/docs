@@ -9,7 +9,7 @@ Nowa AI has three modes, and each one fits a different moment in building your a
 
 ## Switch mode
 
-1. Click the mode chip at the bottom left of the chat field. Its tooltip is **Switch mode**.
+1. Click the mode chip at the bottom left of the chat field. Its tooltip is **Switch mode**, and it shows the mode and the thinking level, like **Agent · Thinking**.
 2. Choose **Design**, **Plan** or **Agent**. The chip shows the mode you picked, and the chat field's hint changes to match.
 
 | Mode | Description in the menu | The chat field says |
@@ -20,7 +20,7 @@ Nowa AI has three modes, and each one fits a different moment in building your a
 
 ![The mode menu (highlighted) open above the chat field, listing Design, Plan and Agent with a one-line description each; Agent is checked.](/img/docs/ai/ai-modes-1.png)
 
-The mode chip and the thinking-level chip are disabled while Nowa AI is working. Wait for the request to finish, or [stop it](chat.md#stop-a-request) first.
+The mode chip is disabled while Nowa AI is working. Wait for the request to finish, or [stop it](chat.md#stop-a-request) first.
 
 A new project opens in **Design** mode, unless you picked another mode in the dashboard's **What do you want to build?** box, where **Design** carries a **Start here** badge. Any other project opens in the last mode you chose in it on this device, or in **Agent** if you never chose one.
 
@@ -59,15 +59,17 @@ On long requests it keeps a **Tasks** card with a progress bar and ticks items o
 
 ## Set the thinking level
 
-The chip next to the mode chip sets how much Nowa AI reasons before it acts. It shows the current level. More thinking helps with tricky work, and less gets small edits done faster.
+The slider under the modes, in the same menu, sets how much Nowa AI reasons before it acts. Drag it or click a level. Pointing at a level shows what it's for. More thinking helps with tricky work, and less gets small edits done faster.
 
-| Level | Description in the menu | Good for |
+| Level | Shown when you point at it | Good for |
 |---|---|---|
 | **Instant** | Fastest. Great for quick edits. | Small, clear changes. |
 | **Thinking** | Balanced. Great for most tasks. | Most requests. This is the default. |
 | **Deep Thinking** | Extra reasoning. Great for complex tasks. | Big features and tricky logic. |
 
-The level applies to **Design** and **Agent** modes, and switching modes keeps it. Plan mode has no level chip. Nowa remembers your choice for the project, and uses it as the starting level for projects where you haven't chosen one. In the dashboard's prompt box you can choose **Thinking** or **Deep Thinking**.
+The level applies to every mode, and switching modes keeps it. Nowa remembers your choice for the project, and uses it as the starting level for projects where you haven't chosen one. The dashboard's **What do you want to build?** box has the same menu.
+
+**Thinking** and **Deep Thinking** are part of every paid plan. On the free plan, Nowa AI runs at **Instant**, and the other two levels show a lock with the tooltip **Needs a paid plan**. Picking one opens **Time to level up**, where **Upgrade** shows the plans. See [Plans, billing and AI usage](../account/plans-and-usage.md).
 
 :::note
 Older versions had a "Think Mode" toggle. It's gone. Nowa AI's reasoning appears in a collapsed **Thinking process** block in the conversation, and the thinking level sets how much it reasons.

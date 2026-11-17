@@ -21,8 +21,8 @@ You describe an app in plain words, Nowa AI builds it on your board, and you fin
    > A habit tracker. The home screen lists today's habits with a checkbox for each one. Another screen adds a new habit.
 
    Not sure where to start? Click one of the examples under **Or try an example prompt**. It fills the box with a full prompt you can edit, and the refresh button shows more examples.
-3. Check the mode chip at the bottom left of the box. It says **Design**, which the chip's menu marks **Start here**. Keep it: Design builds the look and flow of your app first, with demo data (sample content), so you can see and change everything before it's wired up to real data. [Modes](../ai/modes.md) explains **Plan** and **Agent**.
-4. Check the thinking level chip next to it. Keep it on **Thinking**, or pick **Deep Thinking** for a big, complex app, so Nowa AI reasons more before it builds.
+3. Check the mode chip at the bottom left of the box. It says **Design · Thinking**, and its menu marks **Design** with **Start here**. Keep Design: Design builds the look and flow of your app first, with demo data (sample content), so you can see and change everything before it's wired up to real data. [Modes](../ai/modes.md) explains **Plan** and **Agent**.
+4. Check the thinking level, on the slider in the same menu. Keep it on **Thinking**, or pick **Deep Thinking** for a big, complex app, so Nowa AI reasons more before it builds. On the free plan, Nowa AI uses **Instant**.
 5. Click the send button at the bottom right of the box (tooltip **Build it**).
 
 ![The dashboard prompt box under What do you want to build? with a short habit tracker prompt typed, and the mode menu open under the Design chip (highlighted): Design marked Start here, Plan and Agent. The Thinking chip, the send button and the example prompt chips (Split the Bill and part of Shared Grocery List) are around it.](/img/docs/get-started/get-started-first-app-1.png)

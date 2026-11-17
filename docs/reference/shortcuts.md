@@ -1,7 +1,7 @@
 ---
 title: Keyboard shortcuts
 description: The keyboard shortcuts and mouse gestures of the Nowa editor, with the keys for Windows, Linux and macOS.
-keywords: [keyboard shortcuts, hotkeys, instant play, comment, key bindings, cheat sheet, shortcuts sheet, undo, redo, copy, paste, duplicate, delete, zoom, pan, group, layer order, bring to front, bring forward, send backward, send to back, widget picker, library, add a widget, go to a widget, back, forward, boards, run, save, embedded preview, hot reload, hot restart, open widget picker, ungroup, Ctrl, Cmd, Option, Alt, Mac, Windows, Linux]
+keywords: [keyboard shortcuts, hotkeys, instant play, key bindings, cheat sheet, shortcuts sheet, undo, redo, copy, paste, duplicate, delete, zoom, pan, group, layer order, bring to front, bring forward, send backward, send to back, widget picker, library, add a widget, go to a widget, back, forward, boards, run, save, embedded preview, hot reload, hot restart, open widget picker, ungroup, Ctrl, Cmd, Option, Alt, Mac, Windows, Linux]
 ---
 
 Keep your hands on the keyboard while you build: add a widget, group a few, run your app or undo a mistake without reaching for the mouse. This page lists the editor's shortcuts, grouped by where you use them. You don't need to learn them all at once. Start with these five:
@@ -132,7 +132,6 @@ Snapping is off while you hold <kbd>Shift</kbd> or <kbd>Alt</kbd>/<kbd>Option</k
 | Restart the app while the **Embedded preview** is open | <kbd>Shift</kbd> + <kbd>R</kbd> | <kbd>Shift</kbd> + <kbd>R</kbd> |
 | Show the app fullscreen while the **Embedded preview** is open | <kbd>Ctrl</kbd> + <kbd>F</kbd> | <kbd>Cmd</kbd> + <kbd>F</kbd> |
 | Turn **Select** on or off while your app plays in **Instant play** | <kbd>V</kbd> | <kbd>V</kbd> |
-| Turn **Comment** on or off in **Instant play** | <kbd>C</kbd> | <kbd>C</kbd> |
 | Go back to using your app in **Instant play** | <kbd>Esc</kbd> | <kbd>Esc</kbd> |
 
 The restart key does what the restart button in the top bar does: it puts your latest saved changes into the running app. In a local project that's **Hot Reload**, which updates the app in place. In a cloud project it's **Hot Restart**, which starts the app again. Playing a single screen on the board has no shortcut: hover the screen's title and click **Play**. See [Run your app](../test/run.md) and [Play your app on the board](../test/instant-play.md).

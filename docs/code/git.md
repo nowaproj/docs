@@ -23,7 +23,7 @@ New to Git? These are the words you'll meet on this page.
 
 ## Before you start
 
-- **A plan with Git integration.** If yours doesn't include it, the **Git** panel and the Git settings show "Your plan does not support git integration" with an **Upgrade** button. See [pricing](https://nowa.dev/pricing).
+- **Any plan, to commit.** The **Git** panel works on every plan: see your changes and diffs, commit, discard, browse your history, and undo or revert commits. **Push**, **Pull**, **Fetch**, **Sync**, **Manage Remotes** and branch actions need a plan with GitHub. On other plans they show **Time to level up** with an **Upgrade** button. See [pricing](https://nowa.dev/pricing).
 - **A project in your account or on your computer.** The **Git** panel isn't available in the [playground](../get-started/playground.md).
 - **A remote repository, to sync.** You can commit without one. To push and pull, see [Connect GitHub](github.md).
 

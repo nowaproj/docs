@@ -13,13 +13,14 @@ These features depend on your plan. If yours doesn't include one, Nowa usually t
 
 | Feature | If your plan doesn't include it | Learn more |
 |---|---|---|
+| **Thinking** and **Deep Thinking** | The two levels on the mode menu's slider show a lock (**Needs a paid plan**), Nowa AI runs at **Instant**, and picking one opens **Time to level up**. | [Design, Plan and Agent modes](../ai/modes.md#set-the-thinking-level) |
 | Buying extra credits | The page that **Buy credits** opens says your plan doesn't support it and offers **Upgrade Plan**. | [Buy extra AI credits](#buy-credits) |
-| Git and GitHub, including **Clone from GitHub** | The **Git** panel and settings say "Your plan does not support git integration", and **Clone from GitHub** opens **Time to level up**. | [Use Git](../code/git.md) |
+| GitHub: push, pull, branches and **Clone from GitHub** | **Push**, **Pull**, **Fetch**, **Sync**, **Manage Remotes** and branch actions in the **Git** panel open **Time to level up**, the Git settings say "Your plan does not support git integration", and **Clone from GitHub** opens **Time to level up**. Committing and history work on every plan. | [Use Git](../code/git.md) |
 | Publishing to the web | The **Web** row of the **Deploy** menu shows **Premium**. | [Publish to the web](../publish/web.md) |
 | Your own domain for the web version | **Custom Domain** shows **Premium**. | [Publish to the web](../publish/web.md) |
 | Android and iOS builds | Their rows in the **Deploy** menu show **Premium**. | [Get ready to publish](../publish/index.md) |
 | Premium templates | Adding a template marked **Premium** opens **Time to level up**. | [Start from a template](../design/templates.md) |
-| Connecting your own AI agent (desktop app) | **Connect External Agent** doesn't show in the **⋮** menu of the **AI Assistant** panel. It's Enterprise only for now. | [Connect your own AI agent](../ai/external-agent.md) |
+| Connecting your own AI agent (desktop app) | **Connect External Agent** doesn't show in the **⋮** menu of the **AI Assistant** panel. It's open to a few accounts for now, and its dialog shows how many calls your plan has left. | [Connect your own AI agent](../ai/external-agent.md) |
 
 The [desktop app](../get-started/desktop-app.md) itself is free on every plan, so you can install it whichever plan you're on.
 
@@ -86,6 +87,8 @@ When no credits are left, the chat says "You ran out of credits." and tells you 
 - Click **Upgrade** on the free plan, or **Purchase Credits** on a paid plan. **Upgrade** opens **Billing**, and **Purchase Credits** opens **Usage**.
 - Click **Invite a friend** to earn more (below).
 - Wait for the reset. The banner shows how long it takes ("Resets in" a time).
+
+Once your credits are back, after the reset or a top-up, **Send** works again by itself, and the banner says "Your credits are available again." Click **Continue** to let Nowa AI pick up where it stopped.
 
 The usage row under the chat also has an **Upgrade** or **Buy credits** button. It opens the list of plans or the **Buy credits** page directly.
 

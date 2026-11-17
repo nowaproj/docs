@@ -40,7 +40,7 @@ A description like this leaves Nowa AI little to guess, and it doubles as your t
 - **Start wide, then go narrow.** Describe the whole app in **Design** mode, then ask for one screen or feature at a time.
 - **Ask for one job per request.** "Add a search bar to the product list" is easier to review, and to undo, than "build everything".
 - **Check each result** on the board or with **Play**, then ask for the next change. **Suggested next steps** can write the next prompt for you, and nothing is sent until you press **Send**.
-- **Start a new session.** Click **+** (**New Session**) in the panel header when you move to an unrelated topic, or when Nowa says the session is getting long.
+- **Start a new session.** Click **+** (**New chat**) in the panel header when you move to an unrelated topic, or when Nowa says the session is getting long.
 - **Edit by hand in between.** Nowa AI always works from your latest version, including the changes you've made by hand.
 
 [Write prompts that work](../ai/prompting.md) has a shape that suits bigger requests.

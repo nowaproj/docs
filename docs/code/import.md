@@ -19,7 +19,7 @@ Already have a Flutter app? Bring it into Nowa and keep going with Nowa AI and v
 | Where it works | Desktop app only | Web and desktop app |
 | What you bring | A Flutter folder on your computer | A repository from your connected GitHub account |
 | What you get | A cloud project (an uploaded copy), or a local-only project (your folder, opened in place) | A cloud project, or with **Local-only** (desktop app) a local project cloned to your computer |
-| What it needs | A `pubspec.yaml` in the folder (the settings file every Flutter project has) | A plan with Git integration and a connected GitHub account |
+| What it needs | A `pubspec.yaml` in the folder (the settings file every Flutter project has) | A plan with GitHub and a connected GitHub account |
 
 Both start from the arrow next to **New project** on the dashboard. Not sure which to pick? Use **Import project** for a folder that's already on your computer, and **Clone from GitHub** when the code lives in a GitHub repository.
 
@@ -49,7 +49,7 @@ What to know before you click **Import project**:
 Before you start:
 
 - Connect your GitHub account in [Connect GitHub](github.md). The repository list doesn't appear until you do.
-- Use a plan with Git integration. Otherwise Nowa shows **Time to level up** with an **Upgrade** button.
+- Use a plan with GitHub. Otherwise Nowa shows **Time to level up** with an **Upgrade** button.
 
 Then:
 

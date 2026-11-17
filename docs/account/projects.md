@@ -25,7 +25,7 @@ The **New project** button sits in the **Projects** header. In a narrower window
 This is the quickest way in: you describe the app, and Nowa AI sets up the project and builds the first version.
 
 1. Type your idea in **What do you want to build?**, for example "A recipe app where I save my favorite dishes and plan meals for the week."
-2. Pick a mode and a thinking level under the box. If you're not sure, keep **Design** (marked **Start here**) and **Thinking**.
+2. Click the mode chip under the box to pick a mode and, with the slider, a thinking level. If you're not sure, keep **Design** (marked **Start here**) and **Thinking**. On the free plan, Nowa AI uses **Instant**.
 3. Click the send button (tooltip **Build it**).
 
 Nowa names your app, creates a cloud project and opens it with your prompt already sent, so Nowa AI gets to work right away. The full walkthrough is in [Build your first app](../get-started/first-app.md), and [Design, Plan and Agent modes](../ai/modes.md) explains the modes.
@@ -95,7 +95,9 @@ Click ⋮ on a project card or row.
 |---|---|---|
 | **Open in safe mode** | Opens the project without reopening the tabs you had open. Try it if a project freezes or misbehaves when it opens. | All projects |
 | **Move to workspace...** | Opens a dialog titled with your project's name, such as "Move My App to...", listing **Personal** and your workspaces. Pick one and click **Move**. The dashboard then switches to that workspace. | Cloud projects |
-| **Upload to cloud** | Opens **Clone Project**. Pick a workspace and click **Clone to Cloud**. Nowa makes a linked cloud copy and leaves your local project as it is. An already linked project opens **Project Sync** instead. | Local projects (desktop app) |
+| **Upload to cloud...** | Opens **Clone Project**. Pick a workspace and click **Clone to Cloud**. Nowa makes a linked cloud copy and leaves your local project as it is. | Local projects not linked to a cloud copy (desktop app) |
+| **Download to local...** | Opens **Clone Project**. Choose a folder in **Path** and click **Clone to Local**. Nowa makes a linked local copy and leaves your cloud project as it is. See [Local projects](../code/local-projects.md). | Cloud projects not linked to a local copy (desktop app) |
+| **Sync...** | Opens **Project Sync** for a project that's linked to a copy, so you can sync it or unlink it. | Linked projects (desktop app) |
 | **Remove from list** | Takes a local project off your list. Its files stay on your computer. | Local projects |
 | **Delete** | Deletes the project after you confirm. | All projects |
 

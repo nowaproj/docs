@@ -46,10 +46,10 @@ A few rules apply to checkpoints:
 
 A new session starts a clean conversation in the same project. Nowa AI still sees your whole project. It only forgets the earlier chat, which helps when you move on to an unrelated task, because old context can't muddle the new one.
 
-1. Click **+** in the panel header. Its tooltip is **New Session**.
-2. The conversation clears. Your project doesn't change, and the old conversation stays in **Chat History**.
+1. Click **+** in the panel header. Its tooltip is **New chat**.
+2. The conversation clears. Your project doesn't change, and the old conversation stays in **Chat history**.
 
-The button is disabled while Nowa AI is working, and does nothing on an empty chat.
+You can start a new session while Nowa AI is working: the chat you leave keeps going in the background. The button does nothing on an empty chat.
 
 Nowa also nudges you when it's time. When a session gets long, a note appears above the chat field: "This session is getting long. For better results, start a new session and continue there." Click the **Start new session** icon, or the **Dismiss** icon to keep going.
 
@@ -57,13 +57,13 @@ If the conversation fills up completely, the chat shows **Session Limit Reached*
 
 ## Reopen a past chat
 
-1. Click **⋮** (**Options**) in the panel header, then **Chat History**. The **All Sessions** list opens.
+1. Click the **Chat history** icon (the clock) in the panel header. The project's chats slide in over the conversation.
 2. Click a session. Nowa loads it, and the chat shows "Please wait a minute while we load this conversation..." meanwhile.
 3. Keep chatting from where it ended. Nowa AI remembers that whole conversation.
 
-Each row shows the session's name and when it was last active, such as "Just now", "Yesterday" or "3 days ago". A session that has no name yet shows **New Chat**. Click **Load More** to show more sessions, 25 at a time. Click the back arrow to return to your current chat.
+Each row shows the session's name and when it was last active, such as "Just now", "Yesterday" or "3 days ago". A session that has no name yet shows **New Chat**. Click **Load More** to show more sessions, 25 at a time. To close the list without opening a session, click beside it or click **Chat history** again.
 
-History belongs to the project, and Nowa stores it on its servers. You can't open a session while Nowa AI is working. When you reopen a session, its checkpoints show again where the project still holds them.
+History belongs to the project, and Nowa stores it on its servers. You can open a session while Nowa AI is working on another one: that chat keeps going in the background, and the list shows a spinner next to it, with the tooltip **Running**. When chats are running in the background, the **Chat history** icon shows a dot and its tooltip says how many. When you reopen a session, its checkpoints show again where the project still holds them.
 
 ## Next steps
 

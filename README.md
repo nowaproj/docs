@@ -48,7 +48,7 @@ start metadata.
 
 What's new (`/new/whats-new`) is a feed with one page per release, built from the
 files in `whats-new/` by a second Docusaurus blog. The list, the sidebar, the tag
-pages and the RSS and Atom feeds update on their own. For each release:
+pages and the RSS, Atom and JSON feeds update on their own. For each release:
 
 1. Add `whats-new/<date>-<slug>.md`, like `whats-new/2026-10-20-3-15.md`, with
    this front matter:
@@ -79,6 +79,18 @@ pages and the RSS and Atom feeds update on their own. For each release:
 4. In `docs/new/change-log.md`, add a line under the version heading that links
    back to the release page:
    `📰 See the highlights of this release in [What's new](/new/whats-new/3-15).`
+
+Once the page is live, Nowa announces it to everyone on that version. The app's
+server reads `/new/whats-new/feed.json`, where the build gives each release page
+its version (from the slug) and the page as plain Markdown:
+
+- The `title` and `description` become a banner on the dashboard and an entry in
+  the notification bell, for a week after the release date. Keep the
+  description to a sentence or two: it's the banner's text.
+- **Read more** opens the whole page inside Nowa, with videos playing in place
+  (on Windows and Linux they open in the browser).
+- To leave a release out, add `announce: false` to its front matter. An
+  announcement made on the dashboard that links to the page replaces this one.
 
 With Claude Code, you can ask for all of this from a release PR or a branch,
 like "Write the What's new and changelog for nowaproj/nowa#3752". The

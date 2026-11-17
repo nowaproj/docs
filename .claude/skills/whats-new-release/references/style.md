@@ -109,6 +109,7 @@ That's the big stuff! 📋 For every fix and smaller improvement in this release
 ➡️ We'd love to hear how <the headline feature> works for you. Click **?** at the bottom of the left sidebar and choose **Support** to message us, or email us at `team@nowa.dev`. Happy building!
 ```
 
+- **description**: one or two sentences, about 200 characters at most. It's also the banner text Nowa shows users on that version, next to the title.
 - **Title**: "Nowa <version>: <the promise in a few words>", in title case. With a packaged name: "Nowa 3.16.1: Introducing Play-While-Edit".
 - **sidebar_label**: "<version> · <a few words>", in sentence case.
 - **image**: the poster of the first video, or the first screenshot. It shows when someone shares the link.

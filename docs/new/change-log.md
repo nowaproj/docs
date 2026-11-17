@@ -20,7 +20,7 @@ sidebar_position: 2
 
 #### **Improved ⚙️**
 - **Thinking and Deep Thinking need a paid plan**: they're part of every paid plan. On the free plan, Nowa AI runs at **Instant**, the other levels show a lock (**Needs a paid plan**), and picking one opens **Time to level up** with **Upgrade**.
-- **Cloud builds keep working when Flutter or Xcode update**: a project builds with the Flutter, Java and Xcode of the Nowa release that last updated it, Flutter 3.44.8, Java 17 and Xcode 26.6 for this release, instead of the newest ones. When you open a project, Nowa changes its Android files only if Flutter 3.44.8 can't build them.
+- **Cloud builds use a tested setup**: a project builds with the Flutter, Java and Xcode of the Nowa release that last updated it, Flutter 3.44.8, Java 17 and Xcode 26.6 for this release, instead of the newest ones. When you open a project, Nowa changes its Android files only if Flutter 3.44.8 can't build them.
 - **The Web View lives in your project**: apps without a web view no longer carry one, so they're lighter. A project that uses **Web View** shows a **Web View update** notice once, listing what will change: `lib/nowa/nowa_web_view.dart`, the `webview_flutter`, `webview_flutter_web` and `url_launcher` packages, and an import in each screen that uses it. Click **Migrate**. On Windows and Linux, the web view shows a button that opens the page in the browser.
 - **Run preview**: it starts when you click **Run**, instead of every time you open a project.
 - **Fix with AI on a failed cloud build** reads the build's whole log, not just its last lines.

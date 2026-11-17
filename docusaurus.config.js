@@ -6,6 +6,8 @@
 const { themes } = require('prism-react-renderer');
 // Old docs URLs (including the ones the Nowa app opens) and where they live now. See _rewrite/redirects.md.
 const redirects = require('./redirects.js');
+// What's new pages as plain Markdown for feed.json, which the Nowa app shows inside Nowa.
+const {releaseMarkdown, releaseMarkdownProblems} = require('./src/feed/releaseMarkdown');
 const lightCodeTheme = themes.github;
 const darkCodeTheme = themes.dracula;
 
@@ -74,7 +76,35 @@ const config = {
         // A release that is only its intro has no truncate marker.
         onUntruncatedBlogPosts: 'ignore',
         feedOptions: {
-          type: ['rss', 'atom'],
+          type: ['rss', 'atom', 'json'],
+          // The app's server reads feed.json to announce each release to users on that version:
+          // `_nowa.version` comes from the page's slug (3-17-3 is 3.17.3), `_nowa.markdown` is the page
+          // for the app to show inside Nowa, and `announce: false` in a page's front matter leaves that
+          // release out. A page the app would show broken fails the build.
+          createFeedItems: async ({blogPosts, defaultCreateFeedItems, siteConfig, ...params}) => {
+            const items = await defaultCreateFeedItems({blogPosts, siteConfig, ...params});
+            const broken = [];
+            const announced = items.map((item, i) => {
+              const {metadata} = blogPosts[i];
+              const {slug, announce} = metadata.frontMatter;
+              if (!/^\d+(-\d+)+$/.test(slug ?? '')) return item;
+              const version = slug.replaceAll('-', '.');
+              const markdown = releaseMarkdown(blogPosts[i].content, siteConfig.url);
+              const file = metadata.source.replace('@site/', '');
+              if (announce !== false) {
+                broken.push(...releaseMarkdownProblems(markdown).map((problem) => `${file}: ${problem}`));
+                // Only while its banner shows (a week after the release date), so old pages don't warn forever.
+                const recent = Date.now() - new Date(metadata.date).getTime() < 14 * 24 * 3600 * 1000;
+                if (recent && metadata.description.length > 200)
+                  console.warn(`[WARNING] ${file}: the description is also the banner in Nowa; ` +
+                    `keep it to about 200 characters (it's ${metadata.description.length}).`);
+              }
+              return {...item, extensions: [{name: '_nowa', objects: {version, announce: announce !== false, markdown}}]};
+            });
+            if (broken.length > 0)
+              throw new Error(`What's new pages that would look broken inside Nowa:\n- ${broken.join('\n- ')}`);
+            return announced;
+          },
           title: "Nowa: What's new",
           description: 'New features and enhancements in each version of Nowa.',
           copyright: `Copyright © ${new Date().getFullYear()} Nowa. All rights reserved`,

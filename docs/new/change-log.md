@@ -7,6 +7,59 @@ sidebar_position: 2
 
 ---
 
+## **3.18.0 (23 November 2026)**
+
+📰 See the highlights of this release in [What's new](/new/whats-new/3-18).
+
+#### **Added 🌟**
+- **Package widgets on the board**: Nowa runs a package's own Dart code, so its widgets show on the board as they will in your app, instead of as placeholders. `animate_do`, `animated_text_kit`, `badges`, `dotted_border`, `flutter_rating_bar`, `flutter_slidable`, `flutter_spinkit`, `flutter_staggered_animations`, `flutter_widget_from_html_core`, `like_button`, `markdown_widget`, `percent_indicator` and `shimmer` load this way on their own. For any other package, right-click it in the **Library** and choose **Load from source**. `fl_chart`, `flutter_quill` and `flutter_markdown_plus` render right too, but can take several seconds to load. **Use placeholders** goes back, and Nowa remembers the choice in the project. A package that talks to the phone (a plugin) keeps its placeholders. While you drag or resize one of these widgets, it holds still and lays out again when you let go.
+- **Packages in the Library**: click **Show packages** (the box icon next to **Widgets** and **All**) to see your project, then Flutter, then each package your project uses. Each package's row shows how the board shows it: **Built into Nowa**, **Runs from source**, **Runs from source, with problems**, **Placeholders**, **Loading from source...** or **Not loaded**. Point at it for the details, like the version, the load time and the first problems. Click **+** next to **Packages** to add one. Right-click a package to **Change version** (**F2**), **Show in pubspec** or **Remove** it, or to **Copy diagnostics** for one that runs from source or failed to load. Searching the Library finds packages by name. The **Packages** page in Settings is gone, and the **Widgets** and **All** chips replace the source chips, the filter menu and **Recent**.
+- **The Flutter 3.50.1 update**: Flutter 3.50 moves Material and Cupertino into the `material_ui` and `cupertino_ui` packages. Your project keeps building without them, and the **Update for Flutter 3.50.1** card at the bottom right offers the move when you open it. **Update** commits any pending changes first as "Before the Flutter 3.50.1 update" (a project without Git gets it set up first, with **Set up Git & update**), then rewrites your imports and localizations, moves `go_router`, `google_fonts`, `flutter_stripe`, `youtube_player_flutter` and `pin_code_fields` to their new releases, and updates your Android files if they need it. The update itself waits in the **Git** panel for you to review, and **Discard all** undoes it. Nowa then checks the project and offers **Fix with AI** for any errors left. Closing the card puts it off until you open the project again. Adding one of those package releases to a project that isn't updated offers the update first.
+- **Nowa AI uses Git**: ask it to commit, show your history, status and diffs, switch or merge branches, or revert a commit. The chat shows each command, like **Ran git log**. Discarding changes, deleting branches, and pushing, pulling or fetching stay with you, in the **Git** panel, and Nowa AI refuses them.
+- **Markdown and HTML on the board**: the **Markdown** widget is back in the widget panel as `markdown_widget`'s `MarkdownWidget`, and the **Html** widget is `flutter_widget_from_html_core`'s `HtmlWidget`. Both show on the board as in your app. `flutter_html` is no longer built into Nowa. Projects that use its `Html` keep working.
+
+#### **Improved ⚙️**
+- **Flutter 3.50.1**: Nowa runs on it, and every project you open builds on it in the cloud, with Java 21 and Xcode 26.6. On Android it needs Gradle 9.3.1, Android Gradle Plugin 9.1.1 and Kotlin 2.4.10 or newer. Before an Android build or a run on an Android device, if your Android files are older, Nowa asks ("Your Android files need updating") and **Update** raises them in place to Gradle 9.5.0, Android Gradle Plugin 9.3.1 and Kotlin 2.4.20, and, in a project with Git, usually committed on their own as "Update Android files for Flutter 3.50.1". Only very old projects, which apply Flutter without a plugin loader, get Nowa's files instead, and the dialog says so. Opening a project no longer changes its Android files.
+- **Local projects** run with the Flutter on your computer, which should now be 3.50.1. Until it is, the version in the status bar turns amber.
+- **Video Player**: one you add is now a file in your project, `lib/nowa/video_player_view.dart` (`VideoPlayerView`), built on the `video_player` package, with play and pause, a progress bar and full screen. It plays on a played board in the web app and on macOS, and starts with a sample video that loads. The Windows and Linux apps still show a placeholder, as do videos from your assets.
+- **Row and Column spacing**: Flutter's `Row`, `Column` and `Flex` now have `spacing`, so Nowa's own `NFlex` is gone. **Problems** flags any `NFlex` left in your code, with a **Fix** that turns it into a `Row`, `Column` or `Flex`. `nowa_runtime` 0.4.0 no longer includes the old video player, Markdown or `NFlex`. The Flutter 3.50.1 update moves them for you, and in a project that isn't updated, **Problems** says they moved, with the update as the fix.
+- **Cloud projects open faster**, big ones most: Nowa reads a project's folders, settings and `pubspec.yaml` in one request, scans your code for the page indicator and Web View migrations only once per project, and checks for problems once everything has loaded. In our tests, a large workspace opened its editor in about 5 seconds instead of 20. **Page indicator migration** no longer offers **Later**.
+- **Deep Thinking** now runs on Google's Gemini 4 Neon, instead of Gemini 4 Argon. It costs more per step, so a Deep Thinking request uses about 50% more credits than before.
+- **Nowa AI** knows how the board shows each package (built in, from source or on placeholders), so it no longer takes a placeholder for a mistake of its own.
+- **Shared prototypes** on a phone now lay out around the notch and the home indicator, like the installed app.
+- **Cloud builds** waiting for a build machine show **Waiting**, instead of "Failed to get build details".
+- **Project names**: a name that matches a package every Flutter app uses, like "test api" or "Flutter", gets `_app` added (`test_api_app`) instead of failing, and a name with no letters or digits says "Give the project a name with at least one letter or number." A failed project creation shows just the server's message.
+- **Diffs** highlight each file in its own language, like YAML or JSON, instead of as Dart.
+
+#### **Fixed 🩹**
+- Fixed **changing your email**: **Verify Email** stopped at the empty **OTP Code** field and sent nothing, and the code from the email was refused. Your receipts and invoices now go to your new email too.
+- Fixed **Google sign-in, payment pages and other sites in the Run preview** being pulled back to your app within 30 seconds, which broke sign-ins with two-step verification. **Restart** now always brings your app back.
+- Fixed **the Outline panel** turning into a gray box when a screen had a widget that builds itself, like a draggable item whose drag preview is the same item. The inner one now shows as a closed row.
+- Fixed **Instant play** giving your app Nowa's window size in `MediaQuery` instead of the device's, which threw off breakpoints and sheet heights.
+- Fixed **a Web View playing on the board** ignoring clicks on macOS and taking clicks meant for the board's panels on the web, and clicks on a zoomed board landing in the wrong place on macOS.
+- Fixed **"Stack Overflow"** on the board and in Instant play when a page set a static field before reading it, like `NotificationsPage.isCurrentPageOpen = true` in `initState`.
+- Fixed **a Video Player from the widget panel** not adding what it needs and never playing, and "Could not load the video" for its sample video.
+- Fixed **adding a package to a local project** not fetching it, and changing a version fetching the old one.
+- Fixed **a field whose type Nowa doesn't know** showing "Undefined name" on every use. It's now one error, on the type.
+- Fixed **committing in a cloud project**: the commit was saved, but Nowa didn't hear back and could reload the project right after.
+- Fixed **Android cloud builds of projects with a long history** failing before their first step.
+
+---
+
+## **3.17.4 (18 November 2026)**
+
+📰 See the highlights of this release in [What's new](/new/whats-new/3-18).
+
+#### **Added 🌟**
+- **Nowa AI searches the web and tries API calls**: it can search the web for anything that may have changed since it was trained, like APIs, packages and versions (**Searching the web**). Before it writes code for an API, it sends the real request and reads the status, headers and body that come back (**Calling api.example.com**), so it sees the API's own error instead of a general one. Requests can only reach public addresses.
+- **Release notes inside Nowa**: **Read more** on a new version's banner, or its entry under the bell, opens the release notes in Nowa, with **Open in browser** and **Got it!**. The release video plays in place: with the browser's controls on the web, and tap to play or pause with a bar you can drag on macOS, iOS and Android. In the Windows and Linux apps, it opens in the browser. A banner you close stays closed on all your devices.
+
+#### **Improved ⚙️**
+- **Faster on the web**: Nowa keeps each version's files once it has downloaded them, and loads the rest of its fonts after the first screen. In our tests, coming back to Nowa showed the sign-in page in 1.5 seconds instead of 4.6 on a fast connection, and in 2.1 seconds instead of 9.2 on a slow one, downloading 13 KB instead of 11 MB. A first visit is a little faster too.
+- **Problems** flags `ignoringSemantics` on `IgnorePointer` and `AbsorbPointer`, which Flutter 3.50 removes.
+
+---
+
 ## **3.17.3 (16 November 2026)**
 
 📰 See the highlights of this release in [What's new](/new/whats-new/3-17-3).

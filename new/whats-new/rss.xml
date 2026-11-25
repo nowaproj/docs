@@ -4,11 +4,54 @@
         <title>Nowa: What's new</title>
         <link>https://docs.nowa.dev/new/whats-new</link>
         <description>New features and enhancements in each version of Nowa.</description>
-        <lastBuildDate>Mon, 16 Nov 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 23 Nov 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
         <copyright>Copyright © 2026 Nowa. All rights reserved</copyright>
+        <item>
+            <title><![CDATA[Nowa 3.18: Package Widgets on Your Board and Flutter 3.50.1]]></title>
+            <link>https://docs.nowa.dev/new/whats-new/3-18</link>
+            <guid>https://docs.nowa.dev/new/whats-new/3-18</guid>
+            <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Nowa 3.18 shows your package widgets on the board as they look in your app, moves to Flutter 3.50.1, and lets Nowa AI check the docs, try real API calls and use Git.]]></description>
+            <content:encoded><![CDATA[<p>With Nowa 3.18, the widgets your packages bring show up on your board just as they will in your app, and Nowa moves to Flutter 3.50.1. Nowa AI can now look up the latest docs, try your APIs for real before it writes code for them, and use Git for you. 🚀</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="-see-your-package-widgets-for-real-right-on-the-board">📦 See your package widgets for real, right on the board<a href="https://docs.nowa.dev/new/whats-new/3-18#-see-your-package-widgets-for-real-right-on-the-board" class="hash-link" aria-label="Direct link to 📦 See your package widgets for real, right on the board" title="Direct link to 📦 See your package widgets for real, right on the board" translate="no">​</a></h2>
+<p>Until now, widgets from most packages showed on the board as a placeholder box, and you had to click <strong>Run</strong> to see what they really looked like. Nowa now runs the package's own code, so its widgets look on your board just like in your app. Add a shimmer to a loading card, a star rating under each coffee or a ring that shows how full a reward card is, and design around the real thing.</p>
+<ul>
+<li class=""><strong>Popular packages just work.</strong> Widgets from <code>shimmer</code>, <code>percent_indicator</code>, <code>flutter_rating_bar</code>, <code>badges</code>, <code>animated_text_kit</code>, <code>like_button</code>, <code>flutter_spinkit</code>, <code>flutter_slidable</code>, <code>dotted_border</code>, <code>animate_do</code> and <code>flutter_staggered_animations</code> show up for real as soon as you add the package.</li>
+<li class=""><strong>Bigger ones when you want them.</strong> Packages like <code>fl_chart</code>, <code>flutter_quill</code> and <code>flutter_markdown_plus</code> work too, but take a few seconds to load, so you choose: open the <strong>Library</strong>, right-click the package and choose <strong>Load from source</strong>. <strong>Use placeholders</strong> puts it back.</li>
+<li class=""><strong>Markdown and HTML that look right.</strong> The <strong>Markdown</strong> and <strong>Html</strong> widgets in the widget panel now use <code>markdown_widget</code> and <code>flutter_widget_from_html_core</code>, so your formatted text shows on the board as it will in your app.</li>
+</ul>
+<p><img decoding="async" loading="lazy" alt="The Library showing the project&amp;#39;s packages: the Show packages button and the Add package button next to the Packages heading are highlighted. The fl_chart row shows the Placeholders icon, and its menu is open with Load from source highlighted, above Change version, Show in pubspec and Remove." src="https://docs.nowa.dev/assets/images/3.18-library-packages-ea976bff50182cc143921cf85b5d16ac.png" width="1060" height="798" class="img_ev3q"></p>
+<p>Your packages now live in the <strong>Library</strong> too, next to everything else you put on your board. Click <strong>Show packages</strong> (the box icon next to <strong>Widgets</strong> and <strong>All</strong>) to see them. The icon at the end of each row tells you how the board shows it: a bolt when it's built into Nowa, code when it runs from its own source, and a square for placeholders. Click <strong>+</strong> next to <strong>Packages</strong> to add one, or right-click a package to <strong>Change version</strong>, <strong>Show in pubspec</strong> or <strong>Remove</strong> it.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="-flutter-3501-whenever-youre-ready">🧩 Flutter 3.50.1, whenever you're ready<a href="https://docs.nowa.dev/new/whats-new/3-18#-flutter-3501-whenever-youre-ready" class="hash-link" aria-label="Direct link to 🧩 Flutter 3.50.1, whenever you're ready" title="Direct link to 🧩 Flutter 3.50.1, whenever you're ready" translate="no">​</a></h2>
+<p>Nowa now runs on Flutter 3.50.1, and your apps build on it in the cloud. Flutter 3.50 moves Material and Cupertino into their own packages, <code>material_ui</code> and <code>cupertino_ui</code>. Your app keeps building as it is, so you can move over when it suits you.</p>
+<p>When you open an existing project, the <strong>Update for Flutter 3.50.1</strong> card at the bottom right offers the move. Click <strong>Update</strong>, and Nowa does it for you:</p>
+<ul>
+<li class=""><strong>Safe to try.</strong> Nowa first commits any changes of yours, so <strong>Discard all</strong> in the <strong>Git</strong> panel undoes the update alone. A project without Git gets it set up first, with <strong>Set up Git &amp; update</strong>.</li>
+<li class=""><strong>Your code moves with it.</strong> Nowa updates your imports and moves packages like <code>go_router</code>, <code>google_fonts</code> and <code>flutter_stripe</code> to their new releases.</li>
+<li class=""><strong>Checked when it's done.</strong> Nowa checks your project right away and lists anything left in <strong>Problems</strong>. Click <strong>Fix with AI</strong> and Nowa AI takes it from there.</li>
+</ul>
+<p>Building for Android? If your Android files are too old for Flutter 3.50, Nowa asks before your next Android build and, in most projects, only raises the version numbers it needs. Working on a local project? Update Flutter on your computer to 3.50.1. Until you do, the version in the status bar turns amber to remind you.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="-nowa-ai-checks-the-docs-tries-your-apis-and-uses-git">🤖 Nowa AI checks the docs, tries your APIs and uses Git<a href="https://docs.nowa.dev/new/whats-new/3-18#-nowa-ai-checks-the-docs-tries-your-apis-and-uses-git" class="hash-link" aria-label="Direct link to 🤖 Nowa AI checks the docs, tries your APIs and uses Git" title="Direct link to 🤖 Nowa AI checks the docs, tries your APIs and uses Git" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>Up to date, not from memory.</strong> Nowa AI can now search the web for anything that may have changed since it was trained, like a package's latest version or an API's model names. The chat shows <strong>Searching the web</strong>.</li>
+<li class=""><strong>Real API calls before any code.</strong> Ask Nowa AI to use an API, and it tries the request first and reads the real answer, so the code it writes fits the data you'll get. If something's off, like a wrong key, it sees the API's own error instead of guessing. The chat shows <strong>Calling api.example.com</strong>.</li>
+<li class=""><strong>Git, by asking.</strong> Ask Nowa AI to "commit my changes", "show my last 3 commits" or "revert my last commit". It can show your history and changes, commit, switch branches and revert a commit. Discarding changes, deleting branches, pushing and pulling stay with you, in the <strong>Git</strong> panel. See <a class="" href="https://docs.nowa.dev/code/git">Use Git</a>.</li>
+</ul>
+<p><strong>Deep Thinking</strong>, the level for big features and tricky logic, now runs on Google's Gemini 4 Neon. It uses more credits per step than before.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="-faster-to-open-on-the-web-and-in-the-cloud">⚡ Faster to open, on the web and in the cloud<a href="https://docs.nowa.dev/new/whats-new/3-18#-faster-to-open-on-the-web-and-in-the-cloud" class="hash-link" aria-label="Direct link to ⚡ Faster to open, on the web and in the cloud" title="Direct link to ��⚡ Faster to open, on the web and in the cloud" translate="no">​</a></h2>
+<p>Nowa on the web now keeps what it has already downloaded, so when you come back, it opens in about 2 seconds instead of 5 to 9, in our tests. Cloud projects open faster too, big ones above all: Nowa gets your folders and settings in one go and checks your code once everything has loaded, instead of after every file.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="-whats-new-right-inside-nowa">📰 What's new, right inside Nowa<a href="https://docs.nowa.dev/new/whats-new/3-18#-whats-new-right-inside-nowa" class="hash-link" aria-label="Direct link to 📰 What's new, right inside Nowa" title="Direct link to 📰 What's new, right inside Nowa" translate="no">​</a></h2>
+<p>When a new version arrives, click <strong>Read more</strong> on its banner to read the release notes right inside Nowa, with the video playing in place. <strong>Open in browser</strong> takes you to this page. A banner you close now stays closed on all your devices.</p>
+<hr>
+<p>That's the big stuff! 📋 For every fix and smaller improvement, see the changelog for <a class="" href="https://docs.nowa.dev/new/change-log#3180-23-november-2026">3.18.0</a> and <a class="" href="https://docs.nowa.dev/new/change-log#3174-18-november-2026">3.17.4</a>.</p>
+<p>➡️ We'd love to hear how your packages look on the board. Click <strong>?</strong> at the bottom of the left sidebar and choose <strong>Support</strong> to message us, or email us at <code>team@nowa.dev</code>. Happy building!</p>]]></content:encoded>
+            <category>Design</category>
+            <category>Code and Git</category>
+            <category>Nowa AI</category>
+        </item>
         <item>
             <title><![CDATA[Nowa 3.17.3: Several AI Chats at Once]]></title>
             <link>https://docs.nowa.dev/new/whats-new/3-17-3</link>
@@ -1040,40 +1083,6 @@ Another upgrade to our packaging system! If packages are clashing, Nowa AI now <
 <li class="">📱 <strong>Nowa GO is already rolling out in batches!</strong> If you haven't signed up yet and want to give it a shot, now's the time. Build on your phone or tablet, anywhere you go.</li>
 </ul>
 <p>➡️ If you face any issue, click the <strong>? icon</strong> to chat with us directly, or email us at <code>team@nowa.dev</code>.</p>]]></content:encoded>
-            <category>Nowa AI</category>
-        </item>
-        <item>
-            <title><![CDATA[Nowa 3.7.2: A new packaging system]]></title>
-            <link>https://docs.nowa.dev/new/whats-new/3-7-2</link>
-            <guid>https://docs.nowa.dev/new/whats-new/3-7-2</guid>
-            <pubDate>Thu, 23 Apr 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[Nowa 3.7.2 is a big step forward — packages are now way more stable, the experimental UI is getting closer to a whole new way of building, and we solved some important issues along the way.]]></description>
-            <content:encoded><![CDATA[<p>Nowa 3.7.2 is a big step forward — <strong>packages are now way more stable</strong>, the <strong>experimental UI</strong> is getting closer to a whole new way of building, and we solved some important issues along the way.</p>
-<p>📋 Check all the details of this release in the <a class="" href="https://docs.nowa.dev/new/change-log#372-23-april-2026">changelog</a>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="new-in-this-version-"><strong>New in This Version ✨</strong><a href="https://docs.nowa.dev/new/whats-new/3-7-2#new-in-this-version-" class="hash-link" aria-label="Direct link to new-in-this-version-" title="Direct link to new-in-this-version-" translate="no">​</a></h2>
-<ul>
-<li class="">
-<p>📦 <strong>New Packaging System</strong>
-We've massively improved how Nowa integrates with <strong>pub.dev packages</strong>. It's way more stable now, and Nowa AI handles external packages much better than before. Bonus: projects now load faster since packages load <em>after</em> the project opens ⚡</p>
-</li>
-<li class="">
-<p>🧪 <strong>Experimental UI Updates</strong>
-Big changes landed here. AI has moved to a <strong>toolbar at the bottom of the board</strong> — just hit <strong>/</strong> to start chatting, while seeing your project components in real-time on the side. This is a step toward a completely new experience that'll make building faster and easier. Enable it from <strong>App Settings → Project details → Experimentals</strong>, then turn on <strong>"New UX"</strong> 🚀</p>
-</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="whats-fixed-️"><strong>What's Fixed 🛠️</strong><a href="https://docs.nowa.dev/new/whats-new/3-7-2#whats-fixed-%EF%B8%8F" class="hash-link" aria-label="Direct link to whats-fixed-️" title="Direct link to whats-fixed-️" translate="no">​</a></h2>
-<ul>
-<li class="">🔗 <strong>Missing imports</strong> — AI can now work with imports properly, resolving issues some of you ran into on certain projects.</li>
-<li class="">🎞️ <strong>Rive widget on Web</strong> — Fixed.</li>
-<li class="">🌐 <strong>AI + APIs</strong> — We noticed some of you hit walls when asking AI to integrate APIs. That's sorted now.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="whats-coming-next-"><strong>What's Coming Next 🔮</strong><a href="https://docs.nowa.dev/new/whats-new/3-7-2#whats-coming-next-" class="hash-link" aria-label="Direct link to whats-coming-next-" title="Direct link to whats-coming-next-" translate="no">​</a></h2>
-<ul>
-<li class="">🧠 <strong>A new AI system</strong> that delivers much better results while cutting credit costs by <strong>5–15x</strong></li>
-<li class="">🚀 <strong>A major deployment upgrade</strong>, making deployments easier and clearer than ever</li>
-<li class="">🎨 <strong>More experimental UI updates</strong> on the way</li>
-</ul>]]></content:encoded>
-            <category>Code and Git</category>
             <category>Nowa AI</category>
         </item>
     </channel>
